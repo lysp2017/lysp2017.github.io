@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="置信区间,P值,统计描述,统计推断,标准差,标准误,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="说明： 1. 翻译自Eric W. Wang,et al. A practical guide for understanding confidence intervals and P values. Otolaryngol Head Neck Surg,2009,140(6):794-9. 2. 翻译自Kattan MW.Doc, what are my chances? A conversa">
+<meta name="keywords" content="置信区间,P值,统计描述,统计推断,标准差,标准误">
+<meta property="og:type" content="article">
+<meta property="og:title" content="95%置信区间的意义：从概率论到临床应用">
+<meta property="og:url" content="http://yoursite.com/2018/08/17/CI/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明： 1. 翻译自Eric W. Wang,et al. A practical guide for understanding confidence intervals and P values. Otolaryngol Head Neck Surg,2009,140(6):794-9. 2. 翻译自Kattan MW.Doc, what are my chances? A conversa">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.08.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.24.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.14.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.37.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.53.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.44.10.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-19-ci-extract2.gif">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.44.21.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.44.36.png">
+<meta property="og:updated_time" content="2019-02-27T17:02:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="95%置信区间的意义：从概率论到临床应用">
+<meta name="twitter:description" content="说明： 1. 翻译自Eric W. Wang,et al. A practical guide for understanding confidence intervals and P values. Otolaryngol Head Neck Surg,2009,140(6):794-9. 2. 翻译自Kattan MW.Doc, what are my chances? A conversa">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.08.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/17/CI/">
+
+
+
+
+
+  <title>95%置信区间的意义：从概率论到临床应用 | 高山流水</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">高山流水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">但问耕耘，莫问收获</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/17/CI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">95%置信区间的意义：从概率论到临床应用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T10:56:04+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计学/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>说明：<br> 1. 翻译自Eric W. Wang,et al. A practical guide for understanding confidence intervals and P values. Otolaryngol Head Neck Surg,2009,140(6):794-9.<br> 2. 翻译自Kattan MW.Doc, what are my chances? A conversation about prognostic uncertainty.Eur Urol, 2011,59(2):224.</p>
+</blockquote>
+<h2 id="一前言">一、前言</h2>
+<p>许多研究使用患有某种疾病或已接受某种治疗的患者样本来得出在更大人群（人群特征与样本相似）中的结论。但无论怎样仔细地选择所研究的样本，以试图最大限度地减少偏差和基线资料的差异，从样本中收集的信息都会导致某种程度的不确定性(uncertainty)和偶然性(chance)。</p>
+<h3 id="一p值的局限性">（一）P值的局限性</h3>
+<p>通常，P值或概率(probability)用于确定结果是否是偶然因素导致的(due to chance)。P值的价值有限，因为它并没有提供关于结果的大小和准确度的信息(magnitude and precision of the results)。此外，如果进行多次研究，通过P值，我们并不能判断结果变化的程度。</p>
+<h3 id="二置信区间的优势">（二）置信区间的优势</h3>
+<p>相反，置信区间（confidence interval, CI）是一系列合理的结果，可以估计结果的准确度并量化样本内在的不确定性。换句话说，置信区间是关于样本均值的范围，通过置信区间,我们可以在一定程度上确定总体人群的真实均值落在哪里。</p>
+<h2 id="二统计描述与统计推断">二、统计描述与统计推断</h2>
+<h3 id="一为何要进行统计推断">（一）为何要进行统计推断</h3>
+<p>真实数据与我们对数据的确定性（即推断/inference)之间存在差异。当我们谈到P值，关于均值的SEM（通常缩写为SE）或CI时，我们讨论的是统计推断，与统计描述截然不同。</p>
+<p>实际报告的数据(统计描述)和推断之间的区别很重要，主要是因为我们希望能够将临床文章的结果推广到我们自己的实践中。要做到这一点，重要的是要记住，文章通常报告的是一个样本，这个样本取自具有相同特征的总体（图1）。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.08.png"></p>
+<blockquote>
+<p>例如，假设纽约的一位学者比较了治疗A与治疗B的效果。我们会认为接受这样治疗的患者样本就像我们在密苏里州，加利福尼亚州，德克萨斯州或多伦多的患者一样，如果我们做同样的事情，我们会得到相同的结果。换句话说，我们倾向于将他们的样本推广到我们自己的临床实践中。</p>
+<p>但是，为了更加严谨，我们需要知道他们的结果有多稳定(stable)，或者我们对他们报告的数据有多大信心。这是统计推论(inferential statistics)适用的地方。当然，他们是如何获得数据，这其中有很多因素可能更重要，但本文仅关注他们所获得数据的稳定性。</p>
+</blockquote>
+<h3 id="二统计描述">（二）统计描述</h3>
+<ol type="1">
+<li>统计描述，描述了样本，实验或试验的实际数据。</li>
+<li>实际数据由单个数据构成（<span class="math inline">\(X_i\)</span>）（图2）。</li>
+<li>描述数据集中趋势
+<ul>
+<li>平均值(<span class="math inline">\(\overline {x}\)</span>）</li>
+<li>中位数</li>
+</ul></li>
+<li>描述数据离散趋势
+<ul>
+<li>标准差（SD或s）</li>
+<li>四分位间距</li>
+<li>inner percentile ranges（ipr）。</li>
+</ul>
+<img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.24.png"></li>
+</ol>
+<h3 id="三统计推断">（三）统计推断</h3>
+<ol type="1">
+<li>统计推断(Inferential statistics)描述了如果我们对相似的患者样本，实验或试验，多次重复进行相同的抽样以表征总体（从样本推广到总体），我们可能会得到什么。</li>
+<li>这有助于我们了解，文章中报告的某一变量的平均值，落在从总体中重复抽样获得的该变量均值的95％范围以内（图3），我们有多大的信心。或者说，两组结果之间的差异，确实是不同干预措施导致的，而不是偶然性，这一点上，我们有多大的信心。 <img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.14.png"></li>
+</ol>
+<h2 id="三用于组间比较的p值">三、用于组间比较的P值</h2>
+<h3 id="一组间比较的集中趋势和离散趋势">(一)组间比较的集中趋势和离散趋势</h3>
+<ol type="1">
+<li><p>组间比较的集中趋势</p>
+<p>当两组患者进行比较时，每个组都有实际数据，可以求得每个组的平均值以及该组内数据的离散程度。在比较两组患者时，平均值和离散程度都很重要。能够立即引起我们注意的是均值之间的差异（图4）。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.37.png"></p></li>
+<li><p>组间比较的离散趋势</p>
+<p>然而，组内数据的离散程度可能更重要（图5A，图5B和图6）。在图5中，平均值之间的差异在图5A和B中是相同的。然而，每组的SEM（SEM-A和SEM-B）是不同的，导致均值之间的标准误不同(standard error of the differenc,SED)。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.43.53.png"></p></li>
+</ol>
+<h3 id="二如何理解p值">(二)如何理解P值</h3>
+<ol type="1">
+<li><p>计算SED</p>
+<p>SED也是通过推导获得的，并且由下列公式进行计算： <span class="math display">\[SED = \sqrt {\dfrac {S^{2}_{A}}{n_{A}}}+\sqrt {\dfrac {S^{2}_{B}}{n_{B}}}\]</span></p></li>
+<li><p>计算P值</p>
+<ul>
+<li>在进行t检验时，通过将均值之差除以SED来计算“临界比率(critical ratio)”。</li>
+<li>用统计量t定义该临界比率，然后在概率表中查找统计量t以获得P值（图6）。</li>
+<li>概率表显示了样本量在获得的P值中起主要作用。</li>
+</ul>
+<p><img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.44.10.png"></p></li>
+<li><p>P值的解释</p>
+<ul>
+<li>若P&lt;0.05，则可表明结果的差异，是真实来自干预措施。</li>
+<li>若P&gt;0.05，则可表明结果的差异，可能是由于偶然的巧合导致。</li>
+<li>然而，由于样本量如此重要，因此可能产生在统计学上具有显著差异的结果，但差异是如此之少，以至于在临床上毫无意义。</li>
+</ul></li>
+</ol>
+<p>因此，P值是定性的，它告诉我们结果的差异，偶然的巧合是否发挥主要的作用。但是，它没有定量地告诉我们与样本均值相关的generalizable values。</p>
+<h2 id="四用于组间比较的置信区间">四、用于组间比较的置信区间</h2>
+<h3 id="一置信区间的意义">（一）置信区间的意义</h3>
+<ol type="1">
+<li><p>关于均值的CI值也是推导获得的，但是如果实验/试验反复进行从而获得假设的一系列均值，则CI可作为与样本均值相关的指标以及统计学显著性的指标。</p></li>
+<li><p>CI值让我们了解样本数据对我们的实践有多大意义。CI可以设定为任何我们想要的百分比。但是，在大多数情况下，通常选95％（95％CI）。这意味着如果从总体中反复抽样，则所得均值的95％将落在这个置信区间内。</p></li>
+<li><p>统计学上的解释很简单。如果整个CI在无差异标记的一侧或另一侧（对于连续数据是0，对于比率则为1）则结果具有统计学上的意义；但是，如果CI横跨无差异标记，则结果在统计上不显著。</p>
+<blockquote>
+<p>请注意，对于具有正态分布的数据，这是正确的;但是，如果数据明显偏斜，其他措施（如使用中位数）更为合适。对偏斜数据(skewed data)的讨论超出了本文的范围。</p>
+</blockquote></li>
+<li><p>临床意义或重要性的解释是置信区间(CI)的附加价值。CI值可能向我们表明，即使是统计学上显著的结果在临床上似乎也没有多大意义。</p>
+<blockquote>
+<p>例如，在一项研究中，一组患者用管壁向上乳突切除术(canal wall up mastoidectomy)治疗，而另一组患者则用管壁向下乳突切除术(canal wall down mastoidectomy)治疗，并且计算听力的平均差异为3dB。</p>
+<p>管壁向上乳突切除术可能在统计学上具有更显著的优势，因为P为0.05及两组患者听力平均差异3dB的CI范围为1至5dB。但是，我们可能不认为这种微小的差异具有临床意义。</p>
+<p>另一方面，另一篇文章发现，在较少数量的受试者中，平均差异为15 dB，但由于P值为0.05且CI的范围为-1至31dB，因此结果不具有统计学上的意义。</p>
+<p>但是，我们可能会认为这可能是临床上非常重要的初步发现。因此，测试更多的样本以确定这种差异是否成立并且在统计学和临床上都有意义可能是值得的。</p>
+</blockquote></li>
+<li><p>以“长者额外锻炼的研究“里应用的置信区间为例</p>
+<ul>
+<li><p>1,226个男人（47.6%的人）</p></li>
+<li><p>有平均为0.92的HR（意思是风险度减少）及0.88-0.97的95%置信区间（0.92±0.05）</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-19-ci-extract2.gif"></p></li>
+</ul></li>
+<li><p>以五年生存率的置信区间为例(医患双方对话的形式)</p>
+<ul>
+<li>患者：请问医生，什么是五年生存率？我的五年生存率是多少？</li>
+<li>医生：你的五年生存率是70%。打个比方，假如有100个与你的病情和状况一模一样的患者，我预测5年后约有70个患者还活着。但我不确定你是否是存活的70个患者之一。</li>
+<li>患者：我明白了，您解释得很清楚。</li>
+<li>医生：顺便说一句，你五年生存率的95％置信区间是±8%，即62％-78％。</li>
+<li>病人：这是什么鬼？</li>
+<li>医生：这意味着，尽管我并不知道5年后，这100个患者中有多少人会活着。但我预测存活的人数应该在62个-78个之间，这个是我的猜测范围，但我仍然认为最有可能的是存活70个人。</li>
+<li>患者：这是否意味着至少存活62人；或者说，存活最多不会超过78人？</li>
+<li>医生：不是，但存活少于62人或超过78人的情况是不太可能的。</li>
+<li>患者：那这个95％是什么含义呢？</li>
+<li>医生：通常，非正式的解释是，在5年内存活少于62人或超过78人的可能性只有5％。但从技术上讲，这是不正确的解释。相反，我只能说，如果有无数个和你一模一样的患者组（每个组都包含足够数量的患者），对于每个患者组，我都随访五年，并计算该组的五年生存率。那么其中95％的患者组，其真正的五年生存率包含在上述区间内（即62％-78％）。当然，我并不清楚，具体是哪些患者组的区间包含在上述区间内（即62％-78％）。</li>
+<li>病人：这对我个人来说并没有什么卵用。 而且，事实上，五年之后我要么活着，要么就死了，存活的概率要么是0，要么就是100%。你显然并不能很好地预测。</li>
+<li>医生：你说得很对。 尽管非正式的解释是不正确的，但你可以那么理解。（即：在5年内存活少于62人或超过78人的可能性只有5％）</li>
+<li>病人：那为什么要选择±8%这个区间。或者说为什么要让95％的预测范围/区间包含真正的五年生存率。就不能换一个么？比如用90%的置信区间来表示。</li>
+<li>医生：当然可以啊，95％只是学术界的惯例而已。我想，你是不会关心这个，所以我们可以选择你想要的任何区间。如90%</li>
+<li>患者：你刚才说得这些严谨解释对我来说似乎毫无意义。只有非正式但不正确的解释才对我有意义。我只想知道我还能活多久？</li>
+<li>患者：你认为，在与我相同的100人中，大约70人在五年后还活着。同时，无论有没有置信区间，你承认多于或少于70个的情况都可能存在。而无论您预测的置信区间有多大（95%或90%的置信区间等等），70%仍然是您对我五年生存率的最佳猜测。所以，我觉得上述的对话，充分暴露了你对我预后的不确定程度。</li>
+<li>医生：好吧，我同意。对不起，浪费了你的时间去解释置信区间。</li>
+</ul></li>
+</ol>
+<h3 id="二置信区间的计算">（二）置信区间的计算</h3>
+<ol type="1">
+<li><p>CI计算公式：<span class="math inline">\(mean \pm z_{\alpha }\)</span>。</p></li>
+<li><p>在进行两组比较时，会获得一个新的平均值，即两组均值之间的差值。如果多次重复进行相同的实验，则将构建表示两组均值之间差异的一系列值的新的频率分布，但这次SE将是SED。因此，如上所述，CI被计算为：（图7）。 <span class="math display">\[difference \ between \ means \pm z_{\alpha }\]</span></p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.44.21.png"></p></li>
+<li><p>在通常情况下，CI的上限和下限关于平均值是对称的。</p></li>
+<li><p>偶尔，上限和下限关于平均值是不对称的。这通常出现在odds ratios (OR)的计算中，OR又被称为cross-product ratio (ad/bc)。因为CI首先被计算为OR的自然对数（natural log,<span class="math inline">\(\log_e\)</span>,ln），然后将结果(lnLower Limit and lnUpper Limit)作为e的指数，将其转换成ORs的范围。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-17-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8A%E5%8D%8811.44.36.png"></p></li>
+</ol>
+<h2 id="五结论">五、结论</h2>
+<ol type="1">
+<li>关于均值的95％置信区间(CI)界定了一个数值范围，若从总体中抽取很多样本，则其均值中有95%将落在那个范围内。换句话说，如果使用不同的样本反复进行相同的观察，实验或试验，但若样本具有与初始样本相同的特征，那些这些重复测量获得的平均值95%将落在该范围内。</li>
+<li>置信区间(CI)可以衡量我们对初始均值的信心程度。</li>
+<li>置信区间(CI)不仅告诉我们结果是否具有统计上的显著性，还给出了实际值，以便我们可以确定这些数据是否具有临床上的重要性。因此，置信区间(CI)是描述观察、实验或试验结果的更好选择。</li>
+</ol>
+<h2 id="附录统计描述和统计推断中的计算公式">附录：统计描述和统计推断中的计算公式</h2>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">统计描述</th>
+<th style="text-align: center;">统计推断</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>连续性变量</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">平均值(<span class="math inline">\(\overline {x}\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\overline {x}=\dfrac {\sum x_{i}}{n}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">标准差SD(s)</td>
+<td style="text-align: center;"><span class="math inline">\(s=\sqrt{\dfrac {1}{N-1}\sum ^{N}_{i=1}\left( x_{i}-\overline {x}\right) ^{2}}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Inner 95th percentile range(<span class="math inline">\(ipr_{95}\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(ipr_{95}=\overline {x}\pm z_{\alpha /2 }s=\overline {x}\pm 1.96s\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(SEM(S_{\overline {x}})\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\dfrac {s}{\sqrt {N}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">95% CI(均值，大样本，双尾)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\overline {x}\pm z_{\alpha /2}s_{\overline {x}}=\overline {x}\pm 1.96s_{\overline {x}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">95% CI(均值，小样本(&lt;30)，双尾)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\overline {x}\pm t_{\alpha /2,\nu }s_{\overline {x}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">95% CI(均值之差，双尾)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\overline {x}_{difference}\pm z_{\alpha }(SED)=\overline {x}_{difference}\pm1.96 \ (SED)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SED</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\sqrt {\dfrac {S^{2}_{A}}{n_{A}}}+\sqrt {\dfrac {S^{2}_{B}}{n_{B}}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>比例</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">比例的SD</td>
+<td style="text-align: center;"><span class="math inline">\(\sqrt {pq}\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">比例的SE</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(\sqrt {\dfrac {pq}{N}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">比例的95% CI</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(p\pm z_{\alpha /2}\left( \sqrt {\dfrac {pq}{n}}\right)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">比例的OR</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(95\%CI\ln \left( OR\right)=\ln \left( OR\right) \pm 1.96\sqrt {\dfrac {1}{A}+\dfrac {1}{B}+\dfrac {1}{C}+\dfrac {1}{D}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Lower lim 95% CI OR = <span class="math inline">\(OR-e^{\ln LL}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Upper lim 95% CI OR = <span class="math inline">\(OR+e^{\ln LL}\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：</p>
+<ol type="1">
+<li><span class="math inline">\(z_{\alpha /2}\)</span>：在α/2水平的Z频率（概率）分布，通常为0.05，意味着设定可接受的统计显著性水平，即5％的假阳性错误是可以接受的</li>
+<li>p：所研究变量的比例；q为1-p</li>
+<li><span class="math inline">\(t_{\alpha /2,\nu }\)</span>：在α/2水平上的t分布（通常为0.05），<span class="math inline">\(\nu\)</span>为自由度，即n减去平均值的计算次数（通常每组为n-1)</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/置信区间/" rel="tag"># 置信区间</a>
+          
+            <a href="/tags/P值/" rel="tag"># P值</a>
+          
+            <a href="/tags/统计描述/" rel="tag"># 统计描述</a>
+          
+            <a href="/tags/统计推断/" rel="tag"># 统计推断</a>
+          
+            <a href="/tags/标准差/" rel="tag"># 标准差</a>
+          
+            <a href="/tags/标准误/" rel="tag"># 标准误</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/16/revealjsgit/" rel="next" title="在Github Pages上托管Reveal.js">
+                <i class="fa fa-chevron-left"></i> 在Github Pages上托管Reveal.js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/17/Excellence-in-Clinical-Practice/" rel="prev" title="在临床实践中成就卓越——如何提高你的临床效果">
+                在临床实践中成就卓越——如何提高你的临床效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+    
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+    
+
+
+
+    <section class="site-overview sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Louyan">
+        <p class="site-author-name" itemprop="name">Louyan</p>
+         
+            <p class="site-description motion-element" itemprop="description"></p>
+        
+      </div>
+      <nav class="site-state motion-element">
+
+        
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/ || archive">
+              <span class="site-state-item-count">328</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+        
+
+        
+          
+          
+          <div class="site-state-item site-state-categories">
+            <a href="/categories/index.html">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">分类</span>
+            </a>
+          </div>
+        
+
+        
+          
+          
+          <div class="site-state-item site-state-tags">
+            <a href="/tags/index.html">
+              <span class="site-state-item-count">1054</span>
+              <span class="site-state-item-name">标签</span>
+            </a>
+          </div>
+        
+
+      </nav>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+      </div>
+
+      
+      
+
+      
+      
+
+      
+
+
+    </section>
+    
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一p值的局限性"><span class="nav-number">1.1.</span> <span class="nav-text">（一）P值的局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二置信区间的优势"><span class="nav-number">1.2.</span> <span class="nav-text">（二）置信区间的优势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二统计描述与统计推断"><span class="nav-number">2.</span> <span class="nav-text">二、统计描述与统计推断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一为何要进行统计推断"><span class="nav-number">2.1.</span> <span class="nav-text">（一）为何要进行统计推断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二统计描述"><span class="nav-number">2.2.</span> <span class="nav-text">（二）统计描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三统计推断"><span class="nav-number">2.3.</span> <span class="nav-text">（三）统计推断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三用于组间比较的p值"><span class="nav-number">3.</span> <span class="nav-text">三、用于组间比较的P值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一组间比较的集中趋势和离散趋势"><span class="nav-number">3.1.</span> <span class="nav-text">(一)组间比较的集中趋势和离散趋势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二如何理解p值"><span class="nav-number">3.2.</span> <span class="nav-text">(二)如何理解P值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四用于组间比较的置信区间"><span class="nav-number">4.</span> <span class="nav-text">四、用于组间比较的置信区间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一置信区间的意义"><span class="nav-number">4.1.</span> <span class="nav-text">（一）置信区间的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二置信区间的计算"><span class="nav-number">4.2.</span> <span class="nav-text">（二）置信区间的计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五结论"><span class="nav-number">5.</span> <span class="nav-text">五、结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录统计描述和统计推断中的计算公式"><span class="nav-number">6.</span> <span class="nav-text">附录：统计描述和统计推断中的计算公式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+    
+
+    
+
+  </div>
+</aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+  <span>&nbsp;<a href="http://www.beian.miit.gov.cn">浙ICP备19007074号-1</a></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

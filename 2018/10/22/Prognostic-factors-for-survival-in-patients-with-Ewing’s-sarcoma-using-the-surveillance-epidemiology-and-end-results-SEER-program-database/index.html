@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="预后,尤文肉瘤,单因素分析,多因素分析,SEER数据库,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="说明： 1. 翻译自Duchman KR, Gao Y, Miller BJ.Prognostic factors for survival in patients with Ewing&apos;s sarcoma using the surveillance, epidemiology, and end results (SEER) program database.Cancer Epidemiol,">
+<meta name="keywords" content="预后,尤文肉瘤,单因素分析,多因素分析,SEER数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEER数据库中Ewing&#39;s sarcoma患者的预后因素">
+<meta property="og:url" content="http://yoursite.com/2018/10/22/Prognostic-factors-for-survival-in-patients-with-Ewing’s-sarcoma-using-the-surveillance-epidemiology-and-end-results-SEER-program-database/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明： 1. 翻译自Duchman KR, Gao Y, Miller BJ.Prognostic factors for survival in patients with Ewing&apos;s sarcoma using the surveillance, epidemiology, and end results (SEER) program database.Cancer Epidemiol,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%886.38.34.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.38.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.44.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.51.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.30.47.png">
+<meta property="og:updated_time" content="2019-02-27T16:45:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SEER数据库中Ewing&#39;s sarcoma患者的预后因素">
+<meta name="twitter:description" content="说明： 1. 翻译自Duchman KR, Gao Y, Miller BJ.Prognostic factors for survival in patients with Ewing&apos;s sarcoma using the surveillance, epidemiology, and end results (SEER) program database.Cancer Epidemiol,">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%886.38.34.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/22/Prognostic-factors-for-survival-in-patients-with-Ewing’s-sarcoma-using-the-surveillance-epidemiology-and-end-results-SEER-program-database/">
+
+
+
+
+
+  <title>SEER数据库中Ewing's sarcoma患者的预后因素 | 高山流水</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">高山流水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">但问耕耘，莫问收获</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/22/Prognostic-factors-for-survival-in-patients-with-Ewing’s-sarcoma-using-the-surveillance-epidemiology-and-end-results-SEER-program-database/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SEER数据库中Ewing's sarcoma患者的预后因素</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-22T10:21:47+08:00">
+                2018-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/临床研究/" itemprop="url" rel="index">
+                    <span itemprop="name">临床研究</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>说明：<br> 1. 翻译自Duchman KR, Gao Y, Miller BJ.Prognostic factors for survival in patients with Ewing's sarcoma using the surveillance, epidemiology, and end results (SEER) program database.Cancer Epidemiol,2015,39(2):189-95.<br></p>
+</blockquote>
+<h2 id="一前言">一、前言</h2>
+<ol type="1">
+<li>以前的报道已经确定，患者年龄增大，男性，初诊时出现转移灶，肿瘤体积较大，肿瘤位于中轴骨，对化疗反应差，以及肿瘤远处复发是尤文肉瘤无病生存率降低的独立危险因素。</li>
+<li>此外，有证据表明，患者的种族和低社会经济状况可能会对生存产生负面影响，因为这表明尤文肉瘤患者的治疗可能存在差异。</li>
+<li>利用SEER数据库，本研究的目的是描述获得诊断后10年内原发性骨来源的尤文肉瘤患者的原因特异性存活率(cause-specific survival)。</li>
+<li>此外，我们的目的是确定与原因特异性存活率相关的患者、肿瘤和社会经济因素，以确定尤文肉瘤患者的预后因素。</li>
+</ol>
+<h2 id="二材料与方法">二、材料与方法</h2>
+<ol type="1">
+<li>确认1991年至2010年在SEER数据库中的尤文肉瘤患者。</li>
+<li>选择该时间框架的原因：现代的化疗方案和MRI在此期间一直可以获得和应用。</li>
+<li>SEER数据库是公开可用的，并且使用SEER*Stat程序（版本8.1.5）识别感兴趣的病例和相关变量。</li>
+</ol>
+<h3 id="一数据元素">（一）数据元素</h3>
+<h4 id="患者变量">患者变量</h4>
+<p>包括年龄，性别和种族。</p>
+<ol type="1">
+<li>年龄在SEER数据库中记录为以五年为间隔的从0到85岁的分类变量。
+<ul>
+<li>我们选择将患者分为两个年龄组
+<ul>
+<li>&lt;20岁</li>
+<li>≥20岁</li>
+</ul></li>
+</ul></li>
+<li>在SEER数据库中，患者的种族被分为白人(white)，黑人(black)或其他种族(other)，而西班牙裔(Hispanic)种族则被单独分类，因此能够将西班牙裔种族纳入统计分析。
+<ul>
+<li>初步分析显示，与西班牙裔和其他种族相比，黑人种族患者10年生存率较低(38.4 vs. 54.0 vs. 55.6%)。根据初步分析的结果，我们选择将患者分类为：
+<ul>
+<li>黑人(black)</li>
+<li>西班牙裔(Hispanic)</li>
+<li>其他(other)</li>
+</ul></li>
+</ul></li>
+</ol>
+<h4 id="肿瘤特异性变量">肿瘤特异性变量</h4>
+<p>初诊时是否转移，肿瘤位置和大小。</p>
+<ol type="1">
+<li>SEER数据库将stage记录为：
+<ul>
+<li>localized:无转移灶</li>
+<li>regional:无转移灶</li>
+<li>distant:定义为患者在首诊时即出现转移灶(n = 373)</li>
+</ul></li>
+<li>肿瘤的解剖部位被分为中轴骨和四肢
+<ul>
+<li>中轴骨包括骨盆、脊柱和肋骨</li>
+<li>四肢则包括上下肢的长短骨</li>
+</ul></li>
+<li>肿瘤大小分为：
+<ul>
+<li>小（5 cm）</li>
+<li>中（&gt;5-10 cm）</li>
+<li>大（&gt;10 cm）</li>
+<li>未知</li>
+</ul></li>
+</ol>
+<h4 id="基于患者居住地的社会经济测量数据">基于患者居住地的社会经济测量数据</h4>
+<p>感兴趣的County-level的社会经济变量包括中位家庭收入，生活在贫困线以下的人口比例，25岁以上高中以下学历的人口比例，rural or urban county setting。</p>
+<ol type="1">
+<li>如前所述，使用该数据创建了复合社会经济状况（composite socioeconomic status,SES）变量。复合SES评分进一步分为：
+<ul>
+<li>低（composite SES≤4）</li>
+<li>中（composite SES 5-10）</li>
+<li>高（composite SES≥11）</li>
+</ul></li>
+</ol>
+<h4 id="主要结局">主要结局</h4>
+<ol type="1">
+<li>原因特异性生存率是感兴趣的主要结局，并使用死亡证书(death certificates)中的摘要信息来确定死因，这些数据被二分为
+<ul>
+<li>癌症(cancer)</li>
+<li>其他原因(other causes)</li>
+</ul></li>
+<li>任何可归因于复发或转移的死亡都被认为是由于“癌症(cancer)”造成的死亡。</li>
+<li>总体而言，从1991年到2010年，1163例尤文肉瘤患者有足够的生存分析数据。</li>
+</ol>
+<h3 id="二统计分析">（二）统计分析</h3>
+<ol type="1">
+<li>使用Kaplan-Meier方法，计算诊断后2年，5年和10年的预计原因特异性生存率。</li>
+<li>使用对数秩检验log-rank test确定原因特异性生存与患者、肿瘤和社会经济因素之间的关联(Associations)。</li>
+<li>使用Cox比例风险比创建了几个多因素模型，以确定生存的独立预测因素。</li>
+<li>分类变量之间的关联用Chi-square检验。</li>
+</ol>
+<h3 id="三多因素模型筛选">（三）多因素模型筛选</h3>
+<ol type="1">
+<li>模型1纳入所有感兴趣的变量，无论其在单因素分析中的表现如何，纳入1071/1163（92.1％）例尤文肉瘤患者。</li>
+<li>模型2利用逐步选择纳入所有在单因素分析中p值&lt;0.1的变量，同时保留composite SES score作为临床显著变量（基于既往所报道的尤文肉瘤和骨肉瘤的文献）。</li>
+<li>经过初步分析显示黑人种族患者与其他种族患者在生存率上存在差异，进行了卡方分析，确定黑人种族患者与其他种族患者相比，更多地出现肿瘤转移(48.4% vs. 31.6%, p = 0.049)。</li>
+<li>由于黑人种族与首诊时出现转移之间存在关联，我们选择从多因素模型中去除首诊时出现转移(metastatic disease)，以进一步分离种族对生存的影响。</li>
+<li>模型3纳入所有在单因素分析中p&lt;0.1的分类变量和复合SES评分，同时排除首诊时出现转移。</li>
+</ol>
+<h3 id="四缺失数据">（四）缺失数据</h3>
+<ol type="1">
+<li>肿瘤大小是SEER数据库中报道最不一致的变量，为队列中的646/1163（55.5％）的患者提供了数值。</li>
+<li>有或没有肿瘤大小数据的患者，两者的10年生存率之间没有差异（p = 0.562）。</li>
+<li>没有肿瘤大小数据的患者在统计分析中被归类为未知(Unknown)。</li>
+<li>其他缺失数据包括92/1163（7.9％）患者缺乏社会经济变量。</li>
+</ol>
+<h2 id="三结果">三、结果</h2>
+<h3 id="一原因特异性生存率cause-specific-survival">（一）原因特异性生存率(Cause-specific survival)</h3>
+<ol type="1">
+<li><p>从1991年到2010年的SEER数据库中，纳入1163例骨来源的尤文肉瘤患者。绝大多数患者为其他种族(other race)（78.2％）和男性（63.5％）。</p></li>
+<li><p>371/1163（32.1％）患者在首诊时出现转移灶(Table 1)。</p></li>
+<li><p>首诊时出现转移灶在黑人患者中较多(48.4% vs. 31.6%, p = 0.049)，而西班牙裔种族患者中，肿瘤&gt; 10 cm较为常见(57.0 vs. 35.6%, p &lt; 0.001)。</p></li>
+<li><p>首诊时无转移灶的患者，其2年，5年和10年的原因特异性生存率分别为86.5％,72.3％和66.8％。</p></li>
+<li><p>首诊时有转移灶的患者，其2年，5年和10年的原因特异性生存率分别为54.7％,35.7％和28.1％。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%886.38.34.png"></p></li>
+</ol>
+<h3 id="二单因素分析">（二）单因素分析</h3>
+<ol type="1">
+<li>与原因特异性生存率降低有关
+<ul>
+<li>在首诊时出现转移灶(p &lt; 0.001)</li>
+<li>年龄≥20岁(p &lt; 0.001)</li>
+<li>肿瘤位于中轴骨(p &lt; 0.001)</li>
+<li>肿瘤大小&gt;10cm(p &lt; 0.001)</li>
+<li>黑人种族(p = 0.045)</li>
+<li>男性(p = 0.043)</li>
+<li>与原因特异性生存率降低相关 (Fig. 1a–f)</li>
+</ul></li>
+<li>与原因特异性生存率降低无关
+<ul>
+<li><p>Composite SES score</p></li>
+<li><p>rural or urban county location</p>
+<p><img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.38.png"> <img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.44.png"> <img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.51.png"></p></li>
+</ul></li>
+</ol>
+<h3 id="三多因素分析">（三）多因素分析</h3>
+<ol type="1">
+<li><p>10年原因特异性生存率降低的独立预后因素(Table 2)</p>
+<ul>
+<li><p>在首诊时出现转移灶</p></li>
+<li><p>肿瘤大小&gt;10cm</p></li>
+<li><p>肿瘤大小未知</p></li>
+<li><p>年龄≥20岁</p></li>
+<li><p>肿瘤位于中轴骨</p>
+<p><img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.30.47.png"></p></li>
+</ul></li>
+<li><p>在从多因素模型中去除首诊时出现转移灶后，黑人成为10年原因特异性生存率降低的独立危险因素 (Table 2, Model 3)。</p>
+<blockquote>
+<p>首诊时出现转移灶在黑人患者中较多(48.4% vs. 31.6%, p = 0.049)</p>
+</blockquote>
+<ul>
+<li>为了进一步探索这一发现的敏感性，将分析中的首诊时出现转移灶重新添加到分析中，并且每个剩余的变量（年龄，性别，位置，大小和复合SES）被独立去除，以确定黑人与其他分类变量的关联，但均未再次成为独立危险因素。</li>
+</ul></li>
+</ol>
+<h2 id="四讨论">四、讨论</h2>
+<h3 id="一首诊时出现转移灶">（一）首诊时出现转移灶</h3>
+<ol type="1">
+<li>首诊时出现转移灶的尤文肉瘤患者，其预后非常差。之前的研究报道显示，在多药化疗方案(multidrug chemotherapeutic regimens)时代，5年生存率估计约为30％。</li>
+<li>与转移到其他骨骼部位的患者相比，肺部孤立性转移灶预后相对较好。</li>
+<li>Esiashvili等人通过SEER数据库报道了过去三十年来尤文肉瘤患者的发病率和生存率的变化。根据他们的报道，伴有转移灶的患者的生存率在过去三十年中有所改善，最近十年报道的5年生存率估计值为39％。</li>
+<li>我们的研究结果与之前报道中估计的发病率和5年生存率一致，同时也确定了首诊时出现转移灶，作为预示尤文肉瘤患者最差预后的独立危险因素。</li>
+</ol>
+<h3 id="二肿瘤大小">（二）肿瘤大小</h3>
+<ol type="1">
+<li>使用加利福尼亚癌症登记数据库(California Cancer Registry database)，Lee et al.报道，肿瘤≥8cm，是预后较差的独立危险因素。</li>
+<li>虽然较大的肿瘤可能经常与首诊时出现转移灶、肿瘤位于中轴骨相关，而这两个都是预后的危险因素。</li>
+<li>我们的多因素分析表明，体积较大的肿瘤（&gt; 10 cm）和肿瘤大小未知，会导致较差的预后，独立于首诊时出现转移灶和肿瘤位置。</li>
+</ol>
+<h3 id="三年龄">（三）年龄</h3>
+<ol type="1">
+<li>诊断为尤文肉瘤的绝大多数患者是儿童或青少年。</li>
+<li>Gupta et al.比较了只有局部病灶的儿童和成人尤文肉瘤患者的生存率，发现成人患者3年总体生存率显著降低。作者将成人预后较差归因于较低剂量的烷基化化疗药物(alkylating chemotherapeutic agents)。
+<ul>
+<li>应该注意的是，SEER数据库没有提供用于治疗尤文肉瘤的化疗使用、类型或强度的数据。</li>
+</ul></li>
+<li>利用SEER数据库，Karski et al.确定患者年龄≥40岁是生存率降低的独立危险因素。</li>
+</ol>
+<h3 id="四肿瘤部位">（四）肿瘤部位</h3>
+<ol type="1">
+<li>尤文肉瘤通常表现为盆腔肿块，通常与诊断时肿瘤体积增大有关。关于肿瘤位于中轴骨对生存的独立影响作用，文献仍然相对不确定。</li>
+<li>Cotterill et al.确定无转移灶的患者，其肿瘤位于中轴骨是降低无病生存率的独立危险因素。</li>
+<li>另一方面，Bacci et al等人未确定肿瘤位于中轴骨是无转移灶的尤文肉瘤患者生存率降低的独立危险因素。</li>
+<li>肿瘤位于中轴骨给医生带来许多挑战，因为解剖学限制和神经血管结构使得难以用足够的手术切缘对肿瘤进行切除。</li>
+<li>在研究手术切缘在Ewing肉瘤治疗中的作用时，Bacci et al.指出，与四肢肿瘤相比，位于中轴骨的肿瘤，手术切除显然不太可能获得足够的手术切缘。</li>
+<li>患者也可能较晚才会注意到中轴骨的肿瘤，可能导致在治疗的延误和增加肿瘤扩散的风险。</li>
+<li>在本研究中，控制肿瘤大小和首诊时发生转移后，我们确定中轴骨是导致原因特异性生存率降低的独立危险因素。</li>
+</ol>
+<h3 id="五种族">（五）种族</h3>
+<ol type="1">
+<li>尤文肉瘤在白种人患者中发生率最高，在黑人中罕见。</li>
+<li>在一项利用SEER数据库的研究中，Jawad et al.发现生存不受种族因素的影响，同时注意到与黑人相比，白人肉瘤发生Ewing肉瘤的可能性要高9倍。</li>
+<li>在此次研究中，与所有其他种族患者相比，黑人种族与首诊时出现转移灶密切相关(48.4 vs. 31.6%, p = 0.049)，而西班牙裔种族患者与所有其他种族患者相比，更多地出现肿瘤大小 &gt;10cm(57.0 vs. 35.6%, p &lt; 0.001)。</li>
+<li>进一步的分析显示，与所有其他种族患者相比，黑种人患者的10年原因特异性生存率降低 (38.4 vs. 55.5%, p = 0.024)。与所有其他种族患者相比，西班牙裔种族患者在生存期上没有差异。</li>
+<li>当从多因素模型中排除首诊时出现转移灶时，黑种人成为10年原因特异性生存率降低的独立危险因素，但在去除任何其他分类变量后未能成为原因特异性生存率降低的独立危险因素。</li>
+</ol>
+<h3 id="六综合社会经济状况指数composite-socioeconomic-status-index">（六）综合社会经济状况指数(composite socioeconomic status index)</h3>
+<ol type="1">
+<li>虽然Ewing肉瘤在西班牙裔和黑人患者中的低发病率限制了进一步的比较，但未来的研究应该集中在肿瘤本身固有的因素以及获得医疗保健资源途径的变化因素，从而对不成比例的首诊时疾病进展，肿瘤体积较大，和生存差异进行研究。</li>
+<li>一些研究已经确定社​​会经济地位下降和/或获得医疗保健的机会有限，这些因素可能会影响到治疗的选择，疾病分期和癌症患者的生存。</li>
+<li>利用基于加利福尼亚州人口普查区块数据的综合社会经济状况指数(composite socioeconomic status index)，Lee et al.确定最低水平的复合社会经济地位是尤文肉瘤患者死亡率的独立危险因素。</li>
+<li>本研究利用来自SEER数据库的县级数据(county-level data)，发现较低的社会经济状况与尤文肉瘤患者的原因特异性生存率降低无关。
+<ul>
+<li>尤文肉瘤患者社会经济状况对生存的影响很可能高度依赖于提供数据的地理区域的异质性(heterogeneity)以及复合社会经济状况变量的内在因素(inclusive elements)。</li>
+<li>社会经济因素可能会影响尤文肉瘤的预后，我们无法通过记录的县级数据来观察这些差异。这是一个可以从进一步研究中获益的领域。</li>
+</ul></li>
+</ol>
+<h3 id="七局限性">（七）局限性</h3>
+<ol type="1">
+<li>SEER数据库不收集有关首次诊断后局部复发或转移扩散的信息，这些信息都会影响尤文肉瘤患者的预后。因此除了原因特异性生存率之外，这种限制使我们无法报告无病生存率。</li>
+<li>使用死亡证书(death certificates)计算原因特异性生存率以确定死亡原因，如果列出多种死因，则可能是不准确或难以解释的。但这种生存分析的方法先前已在文献中使用过。</li>
+<li>此外，SEER数据库不收集有关化疗的使用信息或特定的化疗药物，化疗常用于尤文肉瘤患者。</li>
+<li>在SEER数据库中，年龄以五年为间隔，属于分类变量，并且选择年龄为20岁以界定区分儿童和成人。当然，选择其他年龄为截止点可能会产生不同的结果。</li>
+<li>虽然SEER数据库提供了包含26％美国人口的17个区域癌症登记中心的数据，但与整个国家相比，数据库中包含的区域往往更富裕。</li>
+<li>此外，SEER数据库提供的社会经济数据的地理划分是县级水平，可能不像人口普查区(census tracts)或邮政编码区(zip codes)那样敏感，特别是在差异较大的县之间。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/预后/" rel="tag"># 预后</a>
+          
+            <a href="/tags/尤文肉瘤/" rel="tag"># 尤文肉瘤</a>
+          
+            <a href="/tags/单因素分析/" rel="tag"># 单因素分析</a>
+          
+            <a href="/tags/多因素分析/" rel="tag"># 多因素分析</a>
+          
+            <a href="/tags/SEER数据库/" rel="tag"># SEER数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/21/The-prognostic-and-therapeutic-factors-which-influence-the-oncological-outcome-of-parosteal-osteosarcoma/" rel="next" title="影响骨旁骨肉瘤肿瘤学结局的预后和治疗因素">
+                <i class="fa fa-chevron-left"></i> 影响骨旁骨肉瘤肿瘤学结局的预后和治疗因素
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/24/WHOPathology/" rel="prev" title="2013版WHO软组织与骨肿瘤病理学：骨旁骨肉瘤(Parosteal osteosarcoma)">
+                2013版WHO软组织与骨肿瘤病理学：骨旁骨肉瘤(Parosteal osteosarcoma) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+    
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+    
+
+
+
+    <section class="site-overview sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Louyan">
+        <p class="site-author-name" itemprop="name">Louyan</p>
+         
+            <p class="site-description motion-element" itemprop="description"></p>
+        
+      </div>
+      <nav class="site-state motion-element">
+
+        
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/ || archive">
+              <span class="site-state-item-count">328</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+        
+
+        
+          
+          
+          <div class="site-state-item site-state-categories">
+            <a href="/categories/index.html">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">分类</span>
+            </a>
+          </div>
+        
+
+        
+          
+          
+          <div class="site-state-item site-state-tags">
+            <a href="/tags/index.html">
+              <span class="site-state-item-count">1054</span>
+              <span class="site-state-item-name">标签</span>
+            </a>
+          </div>
+        
+
+      </nav>
+
+      
+
+      <div class="links-of-author motion-element">
+        
+      </div>
+
+      
+      
+
+      
+      
+
+      
+
+
+    </section>
+    
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二材料与方法"><span class="nav-number">2.</span> <span class="nav-text">二、材料与方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一数据元素"><span class="nav-number">2.1.</span> <span class="nav-text">（一）数据元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#患者变量"><span class="nav-number">2.1.1.</span> <span class="nav-text">患者变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#肿瘤特异性变量"><span class="nav-number">2.1.2.</span> <span class="nav-text">肿瘤特异性变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于患者居住地的社会经济测量数据"><span class="nav-number">2.1.3.</span> <span class="nav-text">基于患者居住地的社会经济测量数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要结局"><span class="nav-number">2.1.4.</span> <span class="nav-text">主要结局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二统计分析"><span class="nav-number">2.2.</span> <span class="nav-text">（二）统计分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三多因素模型筛选"><span class="nav-number">2.3.</span> <span class="nav-text">（三）多因素模型筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四缺失数据"><span class="nav-number">2.4.</span> <span class="nav-text">（四）缺失数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三结果"><span class="nav-number">3.</span> <span class="nav-text">三、结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一原因特异性生存率cause-specific-survival"><span class="nav-number">3.1.</span> <span class="nav-text">（一）原因特异性生存率(Cause-specific survival)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二单因素分析"><span class="nav-number">3.2.</span> <span class="nav-text">（二）单因素分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三多因素分析"><span class="nav-number">3.3.</span> <span class="nav-text">（三）多因素分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四讨论"><span class="nav-number">4.</span> <span class="nav-text">四、讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一首诊时出现转移灶"><span class="nav-number">4.1.</span> <span class="nav-text">（一）首诊时出现转移灶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二肿瘤大小"><span class="nav-number">4.2.</span> <span class="nav-text">（二）肿瘤大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三年龄"><span class="nav-number">4.3.</span> <span class="nav-text">（三）年龄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四肿瘤部位"><span class="nav-number">4.4.</span> <span class="nav-text">（四）肿瘤部位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五种族"><span class="nav-number">4.5.</span> <span class="nav-text">（五）种族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六综合社会经济状况指数composite-socioeconomic-status-index"><span class="nav-number">4.6.</span> <span class="nav-text">（六）综合社会经济状况指数(composite socioeconomic status index)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七局限性"><span class="nav-number">4.7.</span> <span class="nav-text">（七）局限性</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+    
+
+    
+
+  </div>
+</aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+  <span>&nbsp;<a href="http://www.beian.miit.gov.cn">浙ICP备19007074号-1</a></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
