@@ -291,6 +291,321 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/revealjsgit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/16/revealjsgit/" itemprop="url">在Github Pages上托管Reveal.js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T20:38:33+08:00">
+                2018-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Web开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一在github-pages上托管reveal.js">一、在Github Pages上托管Reveal.js</h2>
+<h3 id="一创建一个新的respository">（一）创建一个新的respository</h3>
+<p>在GitHub上创建一个新的respository，比如取名为PPT，然后在本地（比如Documents）打开git bash，clone这个respository到本地，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/user/PPT.git</span><br><span class="line">		</span><br><span class="line">#user为你的github用户名</span><br><span class="line">#git clone表示从远程主机克隆一个版本库</span><br></pre></td></tr></table></figure>
+<h3 id="二创建gh-pages-branch">（二）创建gh-pages branch</h3>
+<p>在终端中打开刚才创建的本地文件夹Documents，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd Documents/Blog/PPT</span><br><span class="line">git checkout --orphan gh-pages</span><br><span class="line">	</span><br><span class="line">#创建orphan分支，命名为gh-pages</span><br><span class="line">#如果不提交内容，这个分支实际上没有创建</span><br></pre></td></tr></table></figure>
+<h3 id="三上传reveal.js到branch">（三）上传reveal.js到branch</h3>
+<p>将reveal.js文件下载下来，全部拷贝到本地Documents中的PPT文件夹，并在reveal.js文件夹中编辑好幻灯片，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;1st commit&quot;</span><br><span class="line">git push origin gh-pages</span><br><span class="line">	</span><br><span class="line">#git add . 监控工作区的状态树(即文件夹或目录)，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。</span><br><span class="line">#git commit 主要是将暂存区里的改动给提交到本地的版本库</span><br><span class="line">#git commit -m表示可以直接输入后面的提示内容，如“1st commit”</span><br><span class="line">#git push origin gh-pages表示把本地代码（origin）提交到gh-pages分支</span><br></pre></td></tr></table></figure>
+<p>接下来，输入Github账户的用户名和密码即可。可以试着访问：<a href="https://lysp2017.github.io/PPT/战火炼成的生命之星.html" target="_blank" rel="noopener">https://lysp2017.github.io/PPT/幻灯名.html</a>，就可以看到幻灯片了。</p>
+<h2 id="二在hexo博客中部署reveal.js">二、在Hexo博客中部署Reveal.js</h2>
+<ol type="1">
+<li>在Markdown中输入幻灯片的地址即可</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[https://lysp2017.github.io/PPT/幻灯名.html](https://lysp2017.github.io/PPT/战火炼成的生命之星.html)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/New-repository/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/16/New-repository/" itemprop="url">在GitHub上创建一个新仓库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T20:37:47+08:00">
+                2018-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/版本控制系统/" itemprop="url" rel="index">
+                    <span itemprop="name">版本控制系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol type="1">
+<li><p>在任意的页面右上角点击 <strong>+</strong>，然后点击新建仓库 New repository。</p></li>
+<li><p>为你的仓库创建一个简短便于记忆的名字。例如 “PPT”。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.40.12.png"></p></li>
+<li><p>为你的仓库添加一个描述（非必须的）。</p>
+<blockquote>
+<p>例如 “My first repository on GitHub”。</p>
+</blockquote></li>
+<li><p>选择你的仓库类型为公有或者私有：</p>
+<ul>
+<li>Public：公有仓库对于一个刚入门的新手来说是一个不错的选择。这些仓库在 GitHub上对于每个人是可见，你可以从协作型社区中受益。</li>
+<li>Private：私有仓库需要更多的步骤。它们只对于你来说是可用的，这个仓库的所有者属于你和你所指定要分享的合作者。私有仓库仅对付费账户可用。</li>
+</ul></li>
+<li><p>选择Initialize this repository with a README。</p></li>
+<li><p>点击Create repository。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.41.50.png"></p></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/Avoiding-Common-Surgical-Errors1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1091,6 +1406,348 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/Essential-Concepts-in-Clinical-Research13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/02/Essential-Concepts-in-Clinical-Research13/" itemprop="url">临床研究基本概念：随机对照试验（五）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T17:21:37+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/临床研究/" itemprop="url" rel="index">
+                    <span itemprop="name">临床研究</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></p>
+</blockquote>
+<h1 id="随机试验的样本量波动剔除失访及不确定者">随机试验的样本量波动：剔除、失访及不确定者</h1>
+<h2 id="一摘要">一、摘要</h2>
+<ol type="1">
+<li>如果研究者不能在主要分析中包括所有被随机化分组的受试者，那么随机化就失去了意义。</li>
+<li>受试者可能不愿参加随访，离开了居住地，或者应服用阿司匹林却服用了阿司帕坦。</li>
+<li>在随机化之前剔除不合适的受试者不会使治疗的比较产生偏倚，但是会影响试验结果的外推性。</li>
+<li>一个试验在随机化前的入选标准应该是清晰的、特异的、可执行的。</li>
+<li>读者需要评估入选标准中是否存在一些条款，会使试验样本人群呈非典型性或不能代表所感兴趣的人群。</li>
+<li>原则上，对随机化之后剔除的评估非常简单：即任何发生在随机化之后的剔除均是不允许的。</li>
+<li>在主要分析时，需包括所有受试者，并且按原分组进行分析（意向性分析）。但实际中，常常会有失访，因此，研究者必须采取充分的措施尽可能地留住受试者。</li>
+<li>此外，研究者还可利用试验档案等形式提供试验过程中被随机化分组的受试者的清晰信息。</li>
+<li>在次要分析中，研究者还可以进行按方案或按治疗的受试者分析。这些分析应该被描述为次要分析，并注明是非随机化的比较。</li>
+<li>对剔除的不恰当处理会导致严重的方法学问题。然而，有些对不恰当剔除的解释吸引了读者，掩盖了其问题的严重性。对剔除的不恰当处理会减弱研究的真实性。</li>
+</ol>
+<h2 id="二前言">二、前言</h2>
+<p>如果研究者不能在主要分析中包括所有被随机化分组的受试者，那么随机化就失去了意义。因此，评价一个随机对照临床试验的关键原则是评价其剔除(exclusions)、退出(withdrawals)、失访(losses)，以及偏离研究方案(protocol deviations)的情况。</p>
+<p>那么研究者应该如何处理拒绝入组、忽视随访、离开居住地，或应服用阿司匹林却服用阿司帕坦(aspartame)的这些研究对象呢？</p>
+<p>许多处理以上问题的方法貌似具有逻辑性和吸引力，但事实上都是不合适的，因为这些方法会引入偏倚。以下，我们将分析随机化前后剔除受试者带来的不同影响。</p>
+<h2 id="三随机化之前剔除研究对象">三、随机化之前剔除研究对象</h2>
+<h3 id="一影响与建议">（一）影响与建议</h3>
+<ol type="1">
+<li>研究者可以在随机化开始前剔除研究对象(exclusions before randomisation)。无论研究者剔除研究对象的理由是充足(well-founded)的还是异想天开的，这对最终随机化后的治疗方法间的比较不产生影响(具有很好的内部真实性/internal validity)。但这一阶段剔除研究对象会影响研究结果的外推性(extrapolation)(即外部真实性/external validity)。</li>
+<li>对于大多数研究者，我们建议在设计大型、单中心研究时尽量制定最低入选标准。
+<ul>
+<li>在某些情况下，剔除一些研究对象是合理的。例如，研究对象具有干预措施的禁忌证，或者他们很有可能成为失访者。</li>
+<li>研究问题决定了研究方法。有时候，研究者制定了过多的入选标准以至试验结果外推的人群极小，没人感兴趣。此外，也会使入选研究对象变得十分困难。</li>
+<li>如果研究者剔除了过多的研究对象，或是错误地剔除了研究对象，尽管此项随机对照临床试验进行得非常严谨，但是，他们的研究结果将失去对研究人群的代表性(即试验结果是正确的但是却没有应用的意义)。</li>
+</ul></li>
+</ol>
+<h3 id="二在随机化之前剔除研究对象应注意的问题">（二）在随机化之前剔除研究对象应注意的问题</h3>
+<p>恰当的入选标准应该指明研究者希望外推研究结果的人群。</p>
+<ul>
+<li>在判断一个试验的研究结果前，读者应首先确定入选标准是否清晰、特异。</li>
+<li>在随机化过程之前应用入选标准是关键。</li>
+<li>读者还应当评价是否有某些入选标准使研究样本不典型、不具有代表性，或与研究所感兴趣的人群不相关。</li>
+<li>但实际上，研究结果很少是完全不相关的：“我们的患者和研究的受试者存在量的差异(他们的年龄、社会阶层、结局事件的危险等级以及对治疗的反应不同)而不是质的差异(完全没有治疗反应或是没有任何危险因素)。这种对治疗反应质的差异是很少见的；</li>
+</ul>
+<p>因此，临床试验还是趋于有很好的外部真实性的。</p>
+<h2 id="四随机化之后剔除研究对象">四、随机化之后剔除研究对象</h2>
+<h3 id="一影响与建议-1">（一）影响与建议</h3>
+<ol type="1">
+<li>在随机化之后剔除研究对象(Exclusions after randomisation)会使治疗效果间的比较产生偏倚。随机化分组可使治疗组间在基线时具有可比性。任何使治疗组间偏离这种可比性的因素都会导致偏倚，除非这些因素是随机产生的，但这又不太可能。</li>
+<li>因此，在主要分析(primary analysis)时，统计学家都建议纳入所有参与随机化分组的研究对象，而且将他们归入随机化时的原组别分析。研究者都倾向于使用这种意向性分析(intent-to-treat analysis)。简单来说，一旦受试者被随机化分组了，就应按照随机化时的分组进行分析。</li>
+<li>对一个随机对照试验进行主要分析时使用意向性分析可以避免那些与非随机化丢失受试者相关的偏倚。研究者也可以按照是否完全遵从试验方案或实际接受的治疗分组(按接受治疗与否)来进行次要分析(secondary analyses)，这样的次要分析最好是事先计划的。</li>
+<li>只要研究者标明这些是次要分析和非随机化的比较，那么，次要分析就是可以接受的。但当研究者剔除受试者，把实际上是次要的、非随机化的比较当作主要的、随机化的比较来报道，问题就会滋生。这种分析使临床试验类似于队列研究，却被标榜为随机对照临床试验。在分析时剔除受试者可能会得到错误的结论(Panel 1)</li>
+<li>研究者常常不提供那些被剔除者的信息。在一项对1997年发表在主要医学期刊上的249个随机对照临床试验的回顾显示，只有2%(5/249)明确报道了所有参与随机化分组的受试者是根据原随机化分组进行分析的。有一半的文章(119/249)注明进行了意向性分析，却没有提供任何这方面的依据。</li>
+<li>此外，研究者常常不报道是如何剔除受试者的。由于缺少这方面信息，读者误认为这些研究应用了意向性分析且没有任何受试者被剔除。我们称之为“无明显的剔除”。</li>
+<li>读者常认为没有明显剔除受试者的研究偏倚较少，但实际上可能存在相当多的没有报道的受试者剔除。这种没有明显剔除受试者迹象的试验在方法上要弱于那些至少报道了一些剔除方面信息的研究。换句话说，有一些较多偏倚的研究被误解为没有偏倚，而许多较少偏倚的研究被误认为有偏倚；我们把这种不一致性称为剔除的悖论(exclusion paradox)。在研究者们全面报道随机化之后的受试者剔除情况前，读者应关注这一搅局的悖论。</li>
+<li>Panel 1：一项比较磺吡酮和安慰剂预防心肌梗死复发的临床试验
+<ul>
+<li>在这项试验中，研究者在主要分析中比较心源性死亡率，而非全因死亡率的差异。</li>
+<li>在分析中，研究者因发现患者不符合研究入选要求而不恰当地剔除受试者，对试验结果造成了影响。剔除了7名因过去接受过治疗的受试者，其中6名在治疗组，1名在对照组，导致治疗组与对照组相比有更多死亡的患者被剔除。</li>
+<li>美国食品与药物管理局详细的审查结果指出安慰剂组的一些患者也可以因为相同的标准而被剔除，但在试验中却没有。研究方案中也没有提到入组后剔除不适当受试者的相关事项，特别是已经死亡的患者。</li>
+<li>研究者还剔除了2例治疗组和1例对照组的死亡病例，理由是依从性太差而无法分析。但在研究方案里却没有提到因依从性差而剔除受试者这一项。</li>
+<li>研究者还使用了7日原则(7-day rule)。即如果一名患者至少7天未接受治疗或在治疗结束7天以后死亡均为不可分析的死亡病例。</li>
+<li>FDA委员会并没有对此项操作提出强烈批评，因为在试验方案中描述了此项规则，且这项规则的运用对总体结果也没有影响。</li>
+<li>在这项试验中，对受试者的不恰当剔除最终影响了试验结果。虽然研究者初次报道治疗组的心源性死亡率下降了32%(P=0.058)，然而对研究重新分析的结果显示治疗效果要弱得多，当包括了未被纳入和未被分析的所有研究对象时，死亡率下降仅21%(P=0.16)。值得注意的是这里使用了P。我们推荐使用可信区间报道结果。</li>
+<li>FDA确认该试验存在不恰当剔除影响试验结果。FDA委员会宣布磺吡酮不能作为或宣传为发生一次心肌梗死后数月的关键期内预防死亡的药物。因为在仔细检查后，发现这些数据不像一开始那样可信了。</li>
+</ul></li>
+</ol>
+<h3 id="二应注意的问题">（二）应注意的问题</h3>
+<ol type="1">
+<li>在开始讨论如何在随机化过程后正确处理剔除受试者这一问题之前，我们必须承认讨论这一问题的基础很薄弱。关于如何剔除受试者的报道很少，而且剔除受试者的悖论误导着读者。</li>
+<li>研究者应该提供整个临床试验中剔除受试者的清晰的、详细的过程。当缺少这方面的报道时，读者要持怀疑的眼光。CONSORT指南（CONSORT guidelines)声明中有专门的流程图作为指南。</li>
+<li>最佳的情况是，研究者在随机化过程后没有剔除受试者并且应用意向性分析。</li>
+<li>评价随机化之后剔除受试者是否恰当的答案很简单：这样做是不允许的。所有入选的受试者应该包括在原随机分配的组别中进行分析。虽然临床试验通常比较复杂，但这一原则总是成立的。</li>
+<li>一个可以减少随机化过程之后剔除受试者的实用方法是，尽量在最后的时刻对受试者进行随机化分组。
+<ul>
+<li>如果在确定受试者时就进行随机化分组，而不是在治疗开始前进行，那么任何发生在治疗开始前的剔除都将成为随机化之后的剔除。</li>
+<li>研究者可以通过推迟随机化分组过程到治疗开始前那一刻来解决这一问题。</li>
+</ul></li>
+<li>如果研究者报道了他们在随机化过程之后剔除了某些受试者，那么我们应该仔细审视这些剔除过程，因为这可以使治疗组间的比较产生偏倚。</li>
+<li>在随机化过程之后剔除受试者有很多原因，包括发现受试者不符合入选标准、在随机化之后治疗开始之前发生了结果事件、偏离研究方案、失访等。</li>
+</ol>
+<h2 id="五发现不符合入选条件的受试者">五、发现不符合入选条件的受试者</h2>
+<ol type="1">
+<li>在一些试验中，参与者被入选了，之后却发现不符合入选条件。这种情况通常不是随机发生的，所以在这一时刻剔除入选者会造成结果严重偏倚。例如，研究者更容易关注那些对治疗毫无反应或发生副作用的受试者，因此这些受试者比其他参与者更容易被判断为不符合入选条件。另一种情况是，如果一个医生认为某些病人适合某项治疗，当这些病人被随机化分入他认为不适当的治疗组时，他很有可能会终止这些病人的试验。</li>
+<li>不符合入选标准的受试者应保留在试验中。有一种情况可以例外，即入选标准的确立较困难时。此时，研究者应该在随机化时，从每个病人获得相同的信息，并交由对治疗分组不知情的人员来判断他们是否符合入选标准。这一人员可以是个人或一个团队，用这种方式来减少偏倚。</li>
+</ol>
+<h2 id="六随机化之后治疗开始前发生结局事件">六、随机化之后、治疗开始前发生结局事件</h2>
+<ol type="1">
+<li><p>研究者有时报道，他们将那些在治疗开始前或治疗产生效果前发生结果事件的受试者剔除。</p>
+<blockquote>
+<p>例如，在一项研究某一特殊药物对死亡率影响的临床试验中，研究者将那些在随机化分组后治疗开始前或在接受至少7天药物治疗之前死亡的受试者作为不可分析的数据剔除。</p>
+</blockquote></li>
+<li><p>这种剔除很有吸引力，因为这些死亡不会被认为是治疗造成的。如果这一论证成立的话，那么在整个试验过程中，所有安慰剂组发生死亡的患者均可以被剔除，因为理论上，没有一例死亡和治疗相关。这一例子说明了随机化后治疗前剔除发生结局事件的受试者可能存在的问题。</p></li>
+<li><p>随机化分组可以平衡各组间那些不可归因的死亡。任何在随机化分组后发生的受试者剔除，哪怕以最科学最公正的方式进行，也不能提高、相反是损害这种平衡。这作为不适当剔除受试者的一条“后验”理论(Post hoc rationale)。</p></li>
+<li><p>后验理论（Post hoc rationalisation)是指研究者观察到结果后修改试验规则以利于证明他们的研究假设。</p>
+<blockquote>
+<p>假定一个研究者认为某种药物可以减少某一情况相关的死亡率。在数据分析之后，研究者注意到在开始药物治疗前或服用药物尚未到7天时，治疗组有14例死亡而安慰剂组有2例死亡。然后研究者将这些死亡认定为与治疗无关的死亡，而从分析中剔除。在报道中把这种剔除说得再有逻辑性，也会严重偏倚研究结果。</p>
+</blockquote></li>
+<li><p>如果是先验规则(a priori rationalisation)，只会使试验的执行复杂化；如果是后验规则，则会引入偏倚并损害试验结果的真实性。</p></li>
+<li><p>我们几乎不可能知道研究者在试验中何时制定了入选规则。</p>
+<ul>
+<li>因此，比较乐于观察到的现象是在随机对照临床试验中，研究者并没有在随机化过程之后剔除受试者。</li>
+<li>所有被随机化分组的受试者的数据均应包括在分析中。</li>
+<li>在临床随机试验的分析中，不管是计划的还是非计划的，为了效率而剔除那些无法分析的结局事件通常是不能接受的</li>
+</ul></li>
+</ol>
+<h2 id="七偏离研究方案">七、偏离研究方案</h2>
+<ol type="1">
+<li>在很多试验中都会发生偏离所分配治疗的事件。有些研究者建议在最终分析时应剔除那些严重偏离所分配治疗的受试者，或者只包括偏离前的那部分数据。虽然这种方法看上去很有吸引力，但是它存在一个很严重的缺点：“偏离某一种治疗方案的人群和偏离另一治疗方案的人群是那么的不相同……，以至于留在原不同治疗组的患者间的比较存在严重偏倚。”</li>
+<li>例如，研究者想了解预防性应用抗生素是否可以降低植入子宫内避孕器(IUD)后发热的发生率。
+<ul>
+<li>研究者随机将患者分入抗生素组和安慰剂组。</li>
+<li>但在抗生素治疗组，25%的患者没有服用抗生素偏离了治疗方案。实际上这部分患者接受的治疗(没有任何治疗)和安慰剂组是相同的。</li>
+<li>那么，研究者在分析时应剔除这部分患者吗？还是研究者应该将他们并入安慰剂组，与那些坚持接受治疗的抗生素组的病人进行比较呢？</li>
+<li>一些研究者倾向于使用这些表面上看上去非常有吸引力的方法。</li>
+</ul></li>
+<li>然而对于主要分析(primary analysis)，这些方法是不能接受的。因为这使得两个治疗组的患者不再具有可比性。
+<ul>
+<li>没有服用抗生素的患者可能是因为她们的健康状况更好或是对植入IUD的耐受性更好。</li>
+<li>无论是以上哪一种情况，她们发生发热的可能性更小。</li>
+<li>如果研究者将这部分偏离治疗的人剔除，那么抗生素组中剩余的是那些更易感染的患者：对治疗的比较遭到了偏倚。</li>
+<li>如果研究者把这些偏离治疗的人归入安慰剂组一起分析，那么不仅抗生素组中剩余的是那些更易感染的患者，而且安慰剂组将混入那些不易感染的患者。</li>
+<li>那些偏离治疗方案的人可以是更健康的，但也可以是病情更重的，但这一点并不重要，因为无论是哪种情况，治疗组间的比较都出现了系统性偏倚。</li>
+</ul></li>
+<li>研究者应该随访所有偏离试验方案的患者，并且将他们的数据包括在原分配的组别中进行分析。
+<ul>
+<li>在上面这个例子中，偏离抗生素治疗方案的患者应该保留在该组中进行分析。</li>
+<li>同样地，任何偏离安慰剂组治疗方案的患者也应该留在该组中进行分析。</li>
+</ul></li>
+<li>不管在试验过程中发生了什么状况，研究者都应该比较随机被分配为抗生素治疗和安慰剂治疗的两组人。
+<ul>
+<li>这种方法可以为临床所感兴趣的问题(例如，在IUD植入前预防性使用抗生素是否可以预防发热？）提供非偏倚的切实的答案。</li>
+<li>因此，如果研究者报道剔除了偏离试验方案的受试者，或者将偏离某一治疗方案的患者归入另一组分析，那么这种治疗方案间的比较是存在偏倚的，就会导致临床试验类似于观察性研究。</li>
+</ul>
+<img src="http://qiniup.louyanspine.com/2018-08-31-Schematic%20of%20randomised%20IUD%20patients-%20accounting%20for%20their%20compliance%20with%20treatment%20during%20the%20trial.jpg"></li>
+</ol>
+<h2 id="八失访">八、失访</h2>
+<ol type="1">
+<li><p>失访(Losses to follow-up)可能是随机化过程后剔除受试者最让人烦恼的原因了。</p>
+<ul>
+<li>原因可以是参与者搬家或拒绝继续参加试验等。</li>
+<li>如果失访受试者的结果信息可以通过其他渠道获得，如国家死亡登记系统(national death registry)，那么这些失访者仍可以包括在分析中。但是这种机会比较少。</li>
+<li>如果没有有关这些失访者结局事件的信息，研究者别无选择，只能将他们从分析中剔除。</li>
+<li>任何的剔除都会损害试验的内部真实性，比较组之间失访率的差异造成的影响更大。因此，研究者必须将失访减少到最低程度。</li>
+</ul></li>
+<li><p>减少失访有时是很困难的。研究者必须重视并且尽力制定和 采取避免失访的一些措施。</p>
+<ul>
+<li>例如，研究者可以在随机化过程之前把那些看上去很可能会失访的患者剔除。</li>
+<li>另一种方法是通过获得的联系方式找到失访者，或雇用专人小组去拜访那些失访者。</li>
+<li>或者两种方法联合运用。</li>
+</ul></li>
+<li><p>某些研究者使用一些方法来提高随访率(这些方法不但可以提高随访率，还可以提高研究者所感兴趣的主要数据的质量)。</p>
+<ul>
+<li>一种方法是使用多个地理位置佳，且容易随访的诊所。有的诊所交通不便利，研究者却还期望患者只去这一家诊所。</li>
+<li>迎合受试者的兴趣和需要。</li>
+<li>减短数据收集的步骤到可以掌控的范围。</li>
+<li>随访的过程不要过度加重参与者负担。</li>
+</ul></li>
+<li><p>完全没有失访是不可能的。不必过于强调无法克服的困难，研究者应该更努力以提高随访率(Panel 2)。</p></li>
+<li><p>怎么样的失访率是可以接受的？只有一个答案，0%，这样才能保证随机化的效力(benefits)。</p>
+<ul>
+<li>很明显，很多时候这是不现实的。</li>
+<li>有的研究者建议使用5和20准则(five-and-20 rule of thumb)
+<ul>
+<li>失访率小于5%偏倚较小</li>
+<li>失访率大于20%会严重影响试验内部真实性</li>
+<li>5%-20%之间导致中等程度的问题</li>
+<li>通过用最差的情况作敏感性分析，他们提出当失访率超过20%时，试验的真实性难以成立，我们对此也表示同意。事实上，有些杂志拒绝发表失访率超过20%的研究。</li>
+<li>虽然5和20准则很有用，在那些结局事件较少的情况下，它会使问题过于简单化。</li>
+</ul></li>
+</ul></li>
+<li><p>对失访率的估计依据很多因素：例如研究所需的检查项目、结局事件的发生率、随访的时间长度。</p>
+<ul>
+<li>例如，如果研究者研究的是在医院生产的妇女产后第1天内的结局事件，那没有人会失访。</li>
+<li>如果研究者研究的是非洲妇女(她们常常没有手机和住址)使用杀微生物制剂来预防艾滋病传播的情况，并随访一年，我们预期5%〜15%的失访率，虽然希望失访率更低些。实际上，在这种情况下，很多研究者的失访率更差，但近期不懈的努力使失访率降至1.5%左右。</li>
+</ul></li>
+<li><p>另一条准则是不要让失访率超过结局事件的发生率。</p></li>
+<li><p>比失访率的绝对值更重要的是两组之间失访率的差异。</p>
+<ul>
+<li>研究者应该分析两组失访率差异。如果失访与不快或不适感、毒性、或治疗有效性有关，会产生偏倚。</li>
+</ul></li>
+<li><p>在任何情况下，研究都应该记录并分析失访者的数据到失访的那个时间点。</p></li>
+<li><p>Panel 2：增加随访率的方法</p>
+<ul>
+<li>雇佣人员管理和跟进随访；</li>
+<li>如果受试者没有回来随访，雇佣一组人员打电话或拜访受试者家中或工作单位；</li>
+<li>在随机化分组前剔除可能不愿参加随访的受试者；</li>
+<li>在随机化分组前剔除可能会离开居住地的受试者；</li>
+<li>获得受试者的联系方式(如受试者、不与受试者住在一起的受试者亲朋好友、受试者家庭医生的信箱、电话、电子邮箱等)，如果受试者没有参加随访，促使他们参加随访，或者便于重新找到该受试者；</li>
+<li>获得受试者的身份编号，如国家医保号码；</li>
+<li>为受试者而不是为研究者和试验执行者挑选便利的地点(除了中心诊所、医院外，挑选更多的地点，邻近受试者的居住地，易到达，关注受试者在随访时等待的时间)；</li>
+<li>随访时使试验流程流水线化，快速完成每一次随访；</li>
+<li>让数据收集的过程尽量简短到不增加受试者负担的范围内；</li>
+<li>提供优质免费的医疗服务；</li>
+<li>提供资金资助，特别是受试者用于交通的时间和花费</li>
+</ul></li>
+</ol>
+<h2 id="九结论">九、结论</h2>
+<ol type="1">
+<li>研究者应尽量减少随机化过程之后剔除受试者并采用意向性分析。</li>
+<li>同时遵循CONSORT指南（CONSORT statement)声明来报道研究。</li>
+<li>流程图或试验档案(flow diagram/trial profile) 可以帮助记录试验参与者的去向和结局。</li>
+<li>对于读者而言，不报道剔除情况令结果难以解释，剔除的悖论误导读者对试验质量的理解。对剔除错误的处理可以造成方法学上的困难。</li>
+<li>遗憾的是，对这些方法的解释又很有吸引力，从而掩盖了问题的严重性。读者必须同时与不充分的报道和他们的直觉相斗争，以发掘那些有损真实性的潜在危害。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/Essential-Concepts-in-Clinical-Research10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1386,348 +2043,6 @@
 <li>随机对照试验建立了医学研究中最好的理论标准。其关键词是随机化，并需要恰当实施。</li>
 <li>随机序列的生成花费的时间和精力很少，但是之后可获得极大的科学的精确性和可信性。</li>
 <li>研究者应该投入合适的资源以生成恰当的序列并清晰地报告他们的方法。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/Essential-Concepts-in-Clinical-Research13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/02/Essential-Concepts-in-Clinical-Research13/" itemprop="url">临床研究基本概念：随机对照试验（五）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T17:21:37+08:00">
-                2018-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/临床研究/" itemprop="url" rel="index">
-                    <span itemprop="name">临床研究</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></p>
-</blockquote>
-<h1 id="随机试验的样本量波动剔除失访及不确定者">随机试验的样本量波动：剔除、失访及不确定者</h1>
-<h2 id="一摘要">一、摘要</h2>
-<ol type="1">
-<li>如果研究者不能在主要分析中包括所有被随机化分组的受试者，那么随机化就失去了意义。</li>
-<li>受试者可能不愿参加随访，离开了居住地，或者应服用阿司匹林却服用了阿司帕坦。</li>
-<li>在随机化之前剔除不合适的受试者不会使治疗的比较产生偏倚，但是会影响试验结果的外推性。</li>
-<li>一个试验在随机化前的入选标准应该是清晰的、特异的、可执行的。</li>
-<li>读者需要评估入选标准中是否存在一些条款，会使试验样本人群呈非典型性或不能代表所感兴趣的人群。</li>
-<li>原则上，对随机化之后剔除的评估非常简单：即任何发生在随机化之后的剔除均是不允许的。</li>
-<li>在主要分析时，需包括所有受试者，并且按原分组进行分析（意向性分析）。但实际中，常常会有失访，因此，研究者必须采取充分的措施尽可能地留住受试者。</li>
-<li>此外，研究者还可利用试验档案等形式提供试验过程中被随机化分组的受试者的清晰信息。</li>
-<li>在次要分析中，研究者还可以进行按方案或按治疗的受试者分析。这些分析应该被描述为次要分析，并注明是非随机化的比较。</li>
-<li>对剔除的不恰当处理会导致严重的方法学问题。然而，有些对不恰当剔除的解释吸引了读者，掩盖了其问题的严重性。对剔除的不恰当处理会减弱研究的真实性。</li>
-</ol>
-<h2 id="二前言">二、前言</h2>
-<p>如果研究者不能在主要分析中包括所有被随机化分组的受试者，那么随机化就失去了意义。因此，评价一个随机对照临床试验的关键原则是评价其剔除(exclusions)、退出(withdrawals)、失访(losses)，以及偏离研究方案(protocol deviations)的情况。</p>
-<p>那么研究者应该如何处理拒绝入组、忽视随访、离开居住地，或应服用阿司匹林却服用阿司帕坦(aspartame)的这些研究对象呢？</p>
-<p>许多处理以上问题的方法貌似具有逻辑性和吸引力，但事实上都是不合适的，因为这些方法会引入偏倚。以下，我们将分析随机化前后剔除受试者带来的不同影响。</p>
-<h2 id="三随机化之前剔除研究对象">三、随机化之前剔除研究对象</h2>
-<h3 id="一影响与建议">（一）影响与建议</h3>
-<ol type="1">
-<li>研究者可以在随机化开始前剔除研究对象(exclusions before randomisation)。无论研究者剔除研究对象的理由是充足(well-founded)的还是异想天开的，这对最终随机化后的治疗方法间的比较不产生影响(具有很好的内部真实性/internal validity)。但这一阶段剔除研究对象会影响研究结果的外推性(extrapolation)(即外部真实性/external validity)。</li>
-<li>对于大多数研究者，我们建议在设计大型、单中心研究时尽量制定最低入选标准。
-<ul>
-<li>在某些情况下，剔除一些研究对象是合理的。例如，研究对象具有干预措施的禁忌证，或者他们很有可能成为失访者。</li>
-<li>研究问题决定了研究方法。有时候，研究者制定了过多的入选标准以至试验结果外推的人群极小，没人感兴趣。此外，也会使入选研究对象变得十分困难。</li>
-<li>如果研究者剔除了过多的研究对象，或是错误地剔除了研究对象，尽管此项随机对照临床试验进行得非常严谨，但是，他们的研究结果将失去对研究人群的代表性(即试验结果是正确的但是却没有应用的意义)。</li>
-</ul></li>
-</ol>
-<h3 id="二在随机化之前剔除研究对象应注意的问题">（二）在随机化之前剔除研究对象应注意的问题</h3>
-<p>恰当的入选标准应该指明研究者希望外推研究结果的人群。</p>
-<ul>
-<li>在判断一个试验的研究结果前，读者应首先确定入选标准是否清晰、特异。</li>
-<li>在随机化过程之前应用入选标准是关键。</li>
-<li>读者还应当评价是否有某些入选标准使研究样本不典型、不具有代表性，或与研究所感兴趣的人群不相关。</li>
-<li>但实际上，研究结果很少是完全不相关的：“我们的患者和研究的受试者存在量的差异(他们的年龄、社会阶层、结局事件的危险等级以及对治疗的反应不同)而不是质的差异(完全没有治疗反应或是没有任何危险因素)。这种对治疗反应质的差异是很少见的；</li>
-</ul>
-<p>因此，临床试验还是趋于有很好的外部真实性的。</p>
-<h2 id="四随机化之后剔除研究对象">四、随机化之后剔除研究对象</h2>
-<h3 id="一影响与建议-1">（一）影响与建议</h3>
-<ol type="1">
-<li>在随机化之后剔除研究对象(Exclusions after randomisation)会使治疗效果间的比较产生偏倚。随机化分组可使治疗组间在基线时具有可比性。任何使治疗组间偏离这种可比性的因素都会导致偏倚，除非这些因素是随机产生的，但这又不太可能。</li>
-<li>因此，在主要分析(primary analysis)时，统计学家都建议纳入所有参与随机化分组的研究对象，而且将他们归入随机化时的原组别分析。研究者都倾向于使用这种意向性分析(intent-to-treat analysis)。简单来说，一旦受试者被随机化分组了，就应按照随机化时的分组进行分析。</li>
-<li>对一个随机对照试验进行主要分析时使用意向性分析可以避免那些与非随机化丢失受试者相关的偏倚。研究者也可以按照是否完全遵从试验方案或实际接受的治疗分组(按接受治疗与否)来进行次要分析(secondary analyses)，这样的次要分析最好是事先计划的。</li>
-<li>只要研究者标明这些是次要分析和非随机化的比较，那么，次要分析就是可以接受的。但当研究者剔除受试者，把实际上是次要的、非随机化的比较当作主要的、随机化的比较来报道，问题就会滋生。这种分析使临床试验类似于队列研究，却被标榜为随机对照临床试验。在分析时剔除受试者可能会得到错误的结论(Panel 1)</li>
-<li>研究者常常不提供那些被剔除者的信息。在一项对1997年发表在主要医学期刊上的249个随机对照临床试验的回顾显示，只有2%(5/249)明确报道了所有参与随机化分组的受试者是根据原随机化分组进行分析的。有一半的文章(119/249)注明进行了意向性分析，却没有提供任何这方面的依据。</li>
-<li>此外，研究者常常不报道是如何剔除受试者的。由于缺少这方面信息，读者误认为这些研究应用了意向性分析且没有任何受试者被剔除。我们称之为“无明显的剔除”。</li>
-<li>读者常认为没有明显剔除受试者的研究偏倚较少，但实际上可能存在相当多的没有报道的受试者剔除。这种没有明显剔除受试者迹象的试验在方法上要弱于那些至少报道了一些剔除方面信息的研究。换句话说，有一些较多偏倚的研究被误解为没有偏倚，而许多较少偏倚的研究被误认为有偏倚；我们把这种不一致性称为剔除的悖论(exclusion paradox)。在研究者们全面报道随机化之后的受试者剔除情况前，读者应关注这一搅局的悖论。</li>
-<li>Panel 1：一项比较磺吡酮和安慰剂预防心肌梗死复发的临床试验
-<ul>
-<li>在这项试验中，研究者在主要分析中比较心源性死亡率，而非全因死亡率的差异。</li>
-<li>在分析中，研究者因发现患者不符合研究入选要求而不恰当地剔除受试者，对试验结果造成了影响。剔除了7名因过去接受过治疗的受试者，其中6名在治疗组，1名在对照组，导致治疗组与对照组相比有更多死亡的患者被剔除。</li>
-<li>美国食品与药物管理局详细的审查结果指出安慰剂组的一些患者也可以因为相同的标准而被剔除，但在试验中却没有。研究方案中也没有提到入组后剔除不适当受试者的相关事项，特别是已经死亡的患者。</li>
-<li>研究者还剔除了2例治疗组和1例对照组的死亡病例，理由是依从性太差而无法分析。但在研究方案里却没有提到因依从性差而剔除受试者这一项。</li>
-<li>研究者还使用了7日原则(7-day rule)。即如果一名患者至少7天未接受治疗或在治疗结束7天以后死亡均为不可分析的死亡病例。</li>
-<li>FDA委员会并没有对此项操作提出强烈批评，因为在试验方案中描述了此项规则，且这项规则的运用对总体结果也没有影响。</li>
-<li>在这项试验中，对受试者的不恰当剔除最终影响了试验结果。虽然研究者初次报道治疗组的心源性死亡率下降了32%(P=0.058)，然而对研究重新分析的结果显示治疗效果要弱得多，当包括了未被纳入和未被分析的所有研究对象时，死亡率下降仅21%(P=0.16)。值得注意的是这里使用了P。我们推荐使用可信区间报道结果。</li>
-<li>FDA确认该试验存在不恰当剔除影响试验结果。FDA委员会宣布磺吡酮不能作为或宣传为发生一次心肌梗死后数月的关键期内预防死亡的药物。因为在仔细检查后，发现这些数据不像一开始那样可信了。</li>
-</ul></li>
-</ol>
-<h3 id="二应注意的问题">（二）应注意的问题</h3>
-<ol type="1">
-<li>在开始讨论如何在随机化过程后正确处理剔除受试者这一问题之前，我们必须承认讨论这一问题的基础很薄弱。关于如何剔除受试者的报道很少，而且剔除受试者的悖论误导着读者。</li>
-<li>研究者应该提供整个临床试验中剔除受试者的清晰的、详细的过程。当缺少这方面的报道时，读者要持怀疑的眼光。CONSORT指南（CONSORT guidelines)声明中有专门的流程图作为指南。</li>
-<li>最佳的情况是，研究者在随机化过程后没有剔除受试者并且应用意向性分析。</li>
-<li>评价随机化之后剔除受试者是否恰当的答案很简单：这样做是不允许的。所有入选的受试者应该包括在原随机分配的组别中进行分析。虽然临床试验通常比较复杂，但这一原则总是成立的。</li>
-<li>一个可以减少随机化过程之后剔除受试者的实用方法是，尽量在最后的时刻对受试者进行随机化分组。
-<ul>
-<li>如果在确定受试者时就进行随机化分组，而不是在治疗开始前进行，那么任何发生在治疗开始前的剔除都将成为随机化之后的剔除。</li>
-<li>研究者可以通过推迟随机化分组过程到治疗开始前那一刻来解决这一问题。</li>
-</ul></li>
-<li>如果研究者报道了他们在随机化过程之后剔除了某些受试者，那么我们应该仔细审视这些剔除过程，因为这可以使治疗组间的比较产生偏倚。</li>
-<li>在随机化过程之后剔除受试者有很多原因，包括发现受试者不符合入选标准、在随机化之后治疗开始之前发生了结果事件、偏离研究方案、失访等。</li>
-</ol>
-<h2 id="五发现不符合入选条件的受试者">五、发现不符合入选条件的受试者</h2>
-<ol type="1">
-<li>在一些试验中，参与者被入选了，之后却发现不符合入选条件。这种情况通常不是随机发生的，所以在这一时刻剔除入选者会造成结果严重偏倚。例如，研究者更容易关注那些对治疗毫无反应或发生副作用的受试者，因此这些受试者比其他参与者更容易被判断为不符合入选条件。另一种情况是，如果一个医生认为某些病人适合某项治疗，当这些病人被随机化分入他认为不适当的治疗组时，他很有可能会终止这些病人的试验。</li>
-<li>不符合入选标准的受试者应保留在试验中。有一种情况可以例外，即入选标准的确立较困难时。此时，研究者应该在随机化时，从每个病人获得相同的信息，并交由对治疗分组不知情的人员来判断他们是否符合入选标准。这一人员可以是个人或一个团队，用这种方式来减少偏倚。</li>
-</ol>
-<h2 id="六随机化之后治疗开始前发生结局事件">六、随机化之后、治疗开始前发生结局事件</h2>
-<ol type="1">
-<li><p>研究者有时报道，他们将那些在治疗开始前或治疗产生效果前发生结果事件的受试者剔除。</p>
-<blockquote>
-<p>例如，在一项研究某一特殊药物对死亡率影响的临床试验中，研究者将那些在随机化分组后治疗开始前或在接受至少7天药物治疗之前死亡的受试者作为不可分析的数据剔除。</p>
-</blockquote></li>
-<li><p>这种剔除很有吸引力，因为这些死亡不会被认为是治疗造成的。如果这一论证成立的话，那么在整个试验过程中，所有安慰剂组发生死亡的患者均可以被剔除，因为理论上，没有一例死亡和治疗相关。这一例子说明了随机化后治疗前剔除发生结局事件的受试者可能存在的问题。</p></li>
-<li><p>随机化分组可以平衡各组间那些不可归因的死亡。任何在随机化分组后发生的受试者剔除，哪怕以最科学最公正的方式进行，也不能提高、相反是损害这种平衡。这作为不适当剔除受试者的一条“后验”理论(Post hoc rationale)。</p></li>
-<li><p>后验理论（Post hoc rationalisation)是指研究者观察到结果后修改试验规则以利于证明他们的研究假设。</p>
-<blockquote>
-<p>假定一个研究者认为某种药物可以减少某一情况相关的死亡率。在数据分析之后，研究者注意到在开始药物治疗前或服用药物尚未到7天时，治疗组有14例死亡而安慰剂组有2例死亡。然后研究者将这些死亡认定为与治疗无关的死亡，而从分析中剔除。在报道中把这种剔除说得再有逻辑性，也会严重偏倚研究结果。</p>
-</blockquote></li>
-<li><p>如果是先验规则(a priori rationalisation)，只会使试验的执行复杂化；如果是后验规则，则会引入偏倚并损害试验结果的真实性。</p></li>
-<li><p>我们几乎不可能知道研究者在试验中何时制定了入选规则。</p>
-<ul>
-<li>因此，比较乐于观察到的现象是在随机对照临床试验中，研究者并没有在随机化过程之后剔除受试者。</li>
-<li>所有被随机化分组的受试者的数据均应包括在分析中。</li>
-<li>在临床随机试验的分析中，不管是计划的还是非计划的，为了效率而剔除那些无法分析的结局事件通常是不能接受的</li>
-</ul></li>
-</ol>
-<h2 id="七偏离研究方案">七、偏离研究方案</h2>
-<ol type="1">
-<li>在很多试验中都会发生偏离所分配治疗的事件。有些研究者建议在最终分析时应剔除那些严重偏离所分配治疗的受试者，或者只包括偏离前的那部分数据。虽然这种方法看上去很有吸引力，但是它存在一个很严重的缺点：“偏离某一种治疗方案的人群和偏离另一治疗方案的人群是那么的不相同……，以至于留在原不同治疗组的患者间的比较存在严重偏倚。”</li>
-<li>例如，研究者想了解预防性应用抗生素是否可以降低植入子宫内避孕器(IUD)后发热的发生率。
-<ul>
-<li>研究者随机将患者分入抗生素组和安慰剂组。</li>
-<li>但在抗生素治疗组，25%的患者没有服用抗生素偏离了治疗方案。实际上这部分患者接受的治疗(没有任何治疗)和安慰剂组是相同的。</li>
-<li>那么，研究者在分析时应剔除这部分患者吗？还是研究者应该将他们并入安慰剂组，与那些坚持接受治疗的抗生素组的病人进行比较呢？</li>
-<li>一些研究者倾向于使用这些表面上看上去非常有吸引力的方法。</li>
-</ul></li>
-<li>然而对于主要分析(primary analysis)，这些方法是不能接受的。因为这使得两个治疗组的患者不再具有可比性。
-<ul>
-<li>没有服用抗生素的患者可能是因为她们的健康状况更好或是对植入IUD的耐受性更好。</li>
-<li>无论是以上哪一种情况，她们发生发热的可能性更小。</li>
-<li>如果研究者将这部分偏离治疗的人剔除，那么抗生素组中剩余的是那些更易感染的患者：对治疗的比较遭到了偏倚。</li>
-<li>如果研究者把这些偏离治疗的人归入安慰剂组一起分析，那么不仅抗生素组中剩余的是那些更易感染的患者，而且安慰剂组将混入那些不易感染的患者。</li>
-<li>那些偏离治疗方案的人可以是更健康的，但也可以是病情更重的，但这一点并不重要，因为无论是哪种情况，治疗组间的比较都出现了系统性偏倚。</li>
-</ul></li>
-<li>研究者应该随访所有偏离试验方案的患者，并且将他们的数据包括在原分配的组别中进行分析。
-<ul>
-<li>在上面这个例子中，偏离抗生素治疗方案的患者应该保留在该组中进行分析。</li>
-<li>同样地，任何偏离安慰剂组治疗方案的患者也应该留在该组中进行分析。</li>
-</ul></li>
-<li>不管在试验过程中发生了什么状况，研究者都应该比较随机被分配为抗生素治疗和安慰剂治疗的两组人。
-<ul>
-<li>这种方法可以为临床所感兴趣的问题(例如，在IUD植入前预防性使用抗生素是否可以预防发热？）提供非偏倚的切实的答案。</li>
-<li>因此，如果研究者报道剔除了偏离试验方案的受试者，或者将偏离某一治疗方案的患者归入另一组分析，那么这种治疗方案间的比较是存在偏倚的，就会导致临床试验类似于观察性研究。</li>
-</ul>
-<img src="http://qiniup.louyanspine.com/2018-08-31-Schematic%20of%20randomised%20IUD%20patients-%20accounting%20for%20their%20compliance%20with%20treatment%20during%20the%20trial.jpg"></li>
-</ol>
-<h2 id="八失访">八、失访</h2>
-<ol type="1">
-<li><p>失访(Losses to follow-up)可能是随机化过程后剔除受试者最让人烦恼的原因了。</p>
-<ul>
-<li>原因可以是参与者搬家或拒绝继续参加试验等。</li>
-<li>如果失访受试者的结果信息可以通过其他渠道获得，如国家死亡登记系统(national death registry)，那么这些失访者仍可以包括在分析中。但是这种机会比较少。</li>
-<li>如果没有有关这些失访者结局事件的信息，研究者别无选择，只能将他们从分析中剔除。</li>
-<li>任何的剔除都会损害试验的内部真实性，比较组之间失访率的差异造成的影响更大。因此，研究者必须将失访减少到最低程度。</li>
-</ul></li>
-<li><p>减少失访有时是很困难的。研究者必须重视并且尽力制定和 采取避免失访的一些措施。</p>
-<ul>
-<li>例如，研究者可以在随机化过程之前把那些看上去很可能会失访的患者剔除。</li>
-<li>另一种方法是通过获得的联系方式找到失访者，或雇用专人小组去拜访那些失访者。</li>
-<li>或者两种方法联合运用。</li>
-</ul></li>
-<li><p>某些研究者使用一些方法来提高随访率(这些方法不但可以提高随访率，还可以提高研究者所感兴趣的主要数据的质量)。</p>
-<ul>
-<li>一种方法是使用多个地理位置佳，且容易随访的诊所。有的诊所交通不便利，研究者却还期望患者只去这一家诊所。</li>
-<li>迎合受试者的兴趣和需要。</li>
-<li>减短数据收集的步骤到可以掌控的范围。</li>
-<li>随访的过程不要过度加重参与者负担。</li>
-</ul></li>
-<li><p>完全没有失访是不可能的。不必过于强调无法克服的困难，研究者应该更努力以提高随访率(Panel 2)。</p></li>
-<li><p>怎么样的失访率是可以接受的？只有一个答案，0%，这样才能保证随机化的效力(benefits)。</p>
-<ul>
-<li>很明显，很多时候这是不现实的。</li>
-<li>有的研究者建议使用5和20准则(five-and-20 rule of thumb)
-<ul>
-<li>失访率小于5%偏倚较小</li>
-<li>失访率大于20%会严重影响试验内部真实性</li>
-<li>5%-20%之间导致中等程度的问题</li>
-<li>通过用最差的情况作敏感性分析，他们提出当失访率超过20%时，试验的真实性难以成立，我们对此也表示同意。事实上，有些杂志拒绝发表失访率超过20%的研究。</li>
-<li>虽然5和20准则很有用，在那些结局事件较少的情况下，它会使问题过于简单化。</li>
-</ul></li>
-</ul></li>
-<li><p>对失访率的估计依据很多因素：例如研究所需的检查项目、结局事件的发生率、随访的时间长度。</p>
-<ul>
-<li>例如，如果研究者研究的是在医院生产的妇女产后第1天内的结局事件，那没有人会失访。</li>
-<li>如果研究者研究的是非洲妇女(她们常常没有手机和住址)使用杀微生物制剂来预防艾滋病传播的情况，并随访一年，我们预期5%〜15%的失访率，虽然希望失访率更低些。实际上，在这种情况下，很多研究者的失访率更差，但近期不懈的努力使失访率降至1.5%左右。</li>
-</ul></li>
-<li><p>另一条准则是不要让失访率超过结局事件的发生率。</p></li>
-<li><p>比失访率的绝对值更重要的是两组之间失访率的差异。</p>
-<ul>
-<li>研究者应该分析两组失访率差异。如果失访与不快或不适感、毒性、或治疗有效性有关，会产生偏倚。</li>
-</ul></li>
-<li><p>在任何情况下，研究都应该记录并分析失访者的数据到失访的那个时间点。</p></li>
-<li><p>Panel 2：增加随访率的方法</p>
-<ul>
-<li>雇佣人员管理和跟进随访；</li>
-<li>如果受试者没有回来随访，雇佣一组人员打电话或拜访受试者家中或工作单位；</li>
-<li>在随机化分组前剔除可能不愿参加随访的受试者；</li>
-<li>在随机化分组前剔除可能会离开居住地的受试者；</li>
-<li>获得受试者的联系方式(如受试者、不与受试者住在一起的受试者亲朋好友、受试者家庭医生的信箱、电话、电子邮箱等)，如果受试者没有参加随访，促使他们参加随访，或者便于重新找到该受试者；</li>
-<li>获得受试者的身份编号，如国家医保号码；</li>
-<li>为受试者而不是为研究者和试验执行者挑选便利的地点(除了中心诊所、医院外，挑选更多的地点，邻近受试者的居住地，易到达，关注受试者在随访时等待的时间)；</li>
-<li>随访时使试验流程流水线化，快速完成每一次随访；</li>
-<li>让数据收集的过程尽量简短到不增加受试者负担的范围内；</li>
-<li>提供优质免费的医疗服务；</li>
-<li>提供资金资助，特别是受试者用于交通的时间和花费</li>
-</ul></li>
-</ol>
-<h2 id="九结论">九、结论</h2>
-<ol type="1">
-<li>研究者应尽量减少随机化过程之后剔除受试者并采用意向性分析。</li>
-<li>同时遵循CONSORT指南（CONSORT statement)声明来报道研究。</li>
-<li>流程图或试验档案(flow diagram/trial profile) 可以帮助记录试验参与者的去向和结局。</li>
-<li>对于读者而言，不报道剔除情况令结果难以解释，剔除的悖论误导读者对试验质量的理解。对剔除错误的处理可以造成方法学上的困难。</li>
-<li>遗憾的是，对这些方法的解释又很有吸引力，从而掩盖了问题的严重性。读者必须同时与不充分的报道和他们的直觉相斗争，以发掘那些有损真实性的潜在危害。</li>
 </ol>
 
           
@@ -2419,670 +2734,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/Essential-Concepts-in-Clinical-Research9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/02/Essential-Concepts-in-Clinical-Research9/" itemprop="url">临床研究基本概念：随机对照试验（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T17:21:37+08:00">
-                2018-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/临床研究/" itemprop="url" rel="index">
-                    <span itemprop="name">临床研究</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></p>
-</blockquote>
-<h1 id="随机试验样本量的计算">随机试验样本量的计算</h1>
-<h2 id="一摘要">一、摘要</h2>
-<ol type="1">
-<li>研究者在进行随机试验前应该正确地计算样本量，并在他们的报道中充分描述细节。</li>
-<li>在这些先验的计算（a-priori calculations)中，检测效果大小的确定（例如：治疗组和对照组的事件概率）反映了内在主观的临床判断。而且，这些判断对样本量的计算影响很大。</li>
-<li>我们质疑那些没有精确计算样本量的试验缺乏伦理性。</li>
-<li>如果研究者使用严谨的方法来消除偏倚、恰当的描述来避免误解、始终公布结果来避免发表偏倚，那些低把握度的试验是可以被接受的。</li>
-<li>从关注样本量转变到注重方法学质量也许能使更多试验产生较少的偏倚。结果不够精确但没清偏倚的试验胜过完全没有结果的试验。</li>
-</ol>
-<h2 id="二前言">二、前言</h2>
-<p>随机试验样本量(Sample size)的计算似乎无从下手。事实上，研究者应该正确计算样本量，并在发表的报告中充分描述主要细节。研究的方法学家在相关文章和书籍中描述了步骤。协议起草委员会(Protocol committees)和伦理审查委员会(ethics review boards)要求附上相关内容。试验报告统一标准指南（CONSORT reporting guidelines)里详细规定了样本量的计算。几乎获得所有人的同意。</p>
-<p>早在四分之一个世纪前，一项重要的推动措施在医学界获得一致通过Tom Chalmers领导的研究小组发表了一篇里程碑式的文章，详细阐述了医学杂志上发表的所谓阴性随机试验（negative randomized trial)缺乏统计学把握度(statistical power)。</p>
-<figure>
-<img src="http://qiniup.louyanspine.com/2018-08-15-b010306.png" alt><figcaption>Thomas Clark Chalmers, MD</figcaption>
-</figure>
-<p>Chalmers在长期的职业生涯中，发表了数百篇文章。这篇关于样本量和把握度的文章被广泛引用。矛盾的是，他反而因此而困惑。甚至把这篇合著的文章视为危害性最大的文章。为什么？我们将在后面描述他的担忧。</p>
-<h2 id="三样本量计算的组成成分">三、样本量计算的组成成分</h2>
-<p>二分类结果的试验(如患病和健康)计算样本量的时候，要求四个组成成分：I类错误、把握度、对照组事件发生率以及所要研究的治疗效果(或近似的：治疗组事件发生率)。</p>
-<p>除了其他必需的假设外，其他类型结果的试验同样运用这些基本的成分。</p>
-<blockquote>
-<p>例如，对于计量结果的试验及其典型的统计检验，研究者可能会假设治疗和对照组之间的均数(means)和均数的方差(a variance for the means)有差异。</p>
-</blockquote>
-<h3 id="一i类错误type-i-errorα">（一）I类错误(type I error,α)</h3>
-<ol type="1">
-<li>当事实上两种治疗没有什么差别的时候，研究者却可能得出治疗者有差别的结论。</li>
-<li>I类错误（α)估计了发生假阳性(false-positive)结论的可能性。</li>
-<li>按照惯例，α最常被设定为0.05，意味着研究者希望得到假阳性结论的可能小于5%。</li>
-</ol>
-<h3 id="二把握度power和ⅱ类错误type-ⅱ-errorβ">（二）把握度(power)和Ⅱ类错误(type Ⅱ error,β)</h3>
-<ol type="1">
-<li><p>其次，当事实上两种治疗确有不同的时候，研究者却可能得出治疗没有什么差别的结论，这也就是假阴性(false-negative)结论。</p></li>
-<li><p>Ⅱ类错误（β)估计了这种假阴性结论的可能性。</p></li>
-<li><p>通常，研究者将β设定为0.20，意味着他们希望得到假阴性结论的可能小于20%。</p></li>
-<li><p>把握度(power)衍生于β。把握度在数学上是β的补数(1-β)，代表避免假阴性结论的可能性。即当事实上两种治疗确有不同的时候，研究者确实得出治疗有差别的可能性。</p></li>
-<li><p>例如，β = 0.20，则把握度就是0.80。即，如果假定两种治疗的差异在人群中是真实存在的，那么把握度为80%的试验就有80%的机会发现两种治疗方法的差别。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">不同错误类型</th>
-<th style="text-align: center;">定义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">I类错误（α)</td>
-<td style="text-align: center;">在治疗效果相同的真实情况下，检测出统计学显著差异的可能性。（也就是假阳性结果的可能）</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Ⅱ类错误（β)</td>
-<td style="text-align: center;">在治疗效果的差异真实存在的情况下，没有能检测出统计学显著差异的可能性。（也就是假阴性结果的可能）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">把握度(1-β)</td>
-<td style="text-align: center;">在治疗效果的差异真实存在的情况下，检测出统计学显著差异的可能性</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<h3 id="三对照组事件发生率event-rate-in-the-control-group">（三）对照组事件发生率(event rate in the control group)</h3>
-<p>研究者估计治疗组和对照组真实的事件发生率(true event rates)，并作为输入参数。通常，我们推荐估计整个人群的事件发生率，然 后确定想要研究的疗效。</p>
-<h3 id="四所研究的治疗效果治疗组事件发生率treatment-effect-of-interestevent-rate-in-the-treatment-group">（四）所研究的治疗效果/治疗组事件发生率(treatment effect of interest/event rate in the treatment group)</h3>
-<p>例如，研究者估计对照组事件发生率为10%。接着他们可能估计绝对变化(如绝对减少3%)，相对变化(相对减少30%)，或简单地估计治疗组事件发生率为7%。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-16-10.jpg"></p>
-<p>研究者利用上述这些假设来计算样本量。标准文件描述了包括二分类的、连续的和时间-结局事件（time-to-event measures)可测量的计算步骤。</p>
-<h2 id="四选择不同的i类错误和把握度所产生的效果">四、选择不同的I类错误和把握度所产生的效果</h2>
-<h3 id="一合理的假设">（一）合理的假设</h3>
-<ol type="1">
-<li>通常情况下，α=0.05，把握度=0.80，就足够了。然而，根据研究课题的不同，其他的假设也是合理的。</li>
-<li>例如，如果一种子宫切除术的标准预防性抗生素是有效的且副作用很少，在一项研究新抗生素的试验中，我们可能为了减少假阳性(false-positive)结论的可能性将α错误设定得更低(如0.01)。我们甚至考虑将把握度降到0.80以下，因为我们并不在意错过一个有效的治疗：因为有效而安全的治疗已经存在了。</li>
-<li>相反，如果研究者进行一项试验，应用一种标准预防性抗生素的同时，补充了某种既便宜又安全的维生素，想观察下是否可以增强抗生素的效果。犯α错误几乎不会带来什么伤害，所以可以设定在0.10，这样可能更有意义。如果这种便宜而简单的干预能带来益处，我们当然不想错过它。因此，研究者可能提高把握度到0.99。</li>
-</ol>
-<h3 id="二直接改变了样本量的大小">（二）直接改变了样本量的大小</h3>
-<ol type="1">
-<li>减少α和增加把握度均会导致样本量的增多：
-<ul>
-<li><p>α从0.05减少到0.01促使样本量在把握度=0.50的时候增加70%以及把握度=0.80的时候增加50%。</p></li>
-<li><p>当α=0.05的时候，把握度从0.50增加到0.80使样本量翻了1倍，从0.50到0.99则几乎有5倍的增加。</p></li>
-<li><p>因此，α和把握度的选择决定了样本量和试验费用。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-16-103.jpg"></p></li>
-</ul></li>
-</ol>
-<h3 id="三i类错误的单侧检验还是双侧检验">（三）I类错误的单侧检验还是双侧检验</h3>
-<ol type="1">
-<li>一些研究使用α错误的单侧检验(one-sided tests)来减少对样本量的估计。我们不鼓励这种做法。</li>
-<li>迄今为止，就已知的生物学观点而言，在我们假设双侧检验的同时，单侧检验确实也是合理的。但是，这种决定不应该影响样本量的估计。</li>
-<li>我们建议无论是假设单侧或双侧检验，应该是相同的标准。因此，单侧检验α=0.025应该产生和双侧检验α=0.05相同水平的证据。</li>
-<li>利用单侧检验来减少所需样本量的大小被过度轻信了。</li>
-</ol>
-<h2 id="五人群参数的估计population-parameters">五、人群参数的估计(population parameters)</h2>
-<p>对于一些研究者来说，估计人群参数(例如治疗组和对照组的事件发生率)有着非常神秘的寓意。另一些则嘲笑这种主张，因为估计参数是试验的目的：在试验前却需要进行猜测，多么滑稽可笑。</p>
-<p>然而，关键的一点是研究者并不是去估计人群参数本身，而是估计他们认为值得检测的治疗效果。这是有巨大差别的。</p>
-<blockquote>
-<p>The key point, however, is that they are not estimating the population parameters per se but the treatment effect they deem worthy of detecting.</p>
-</blockquote>
-<h3 id="一估计对照组事件发生率event-rate-in-the-control-group">（一）估计对照组事件发生率(event rate in the control group)</h3>
-<ol type="1">
-<li>通常，研究者从估计对照组的事件发生率开始。有时候数据匮乏会导致不可信的估计。例如，我们需要估计肯尼亚内罗毕(Nairobi,Kenya)计划生育人群中使用宫内避孕器后盆腔炎事件的发生率。政府官方估计是40%，医学中心的临床医师则认为估计得太高了，建议改为12%。我们保守地计划定在6%上，但是在一项真实的随机试验中，安慰剂组的实际数据是1.9%。比第一个估计整整减少了20倍，如此极大影响了样本量的计算。</li>
-<li>发表的报告可以提供对对照组终点(endpoint)的估计。但是，他们通常整合了一大堆有差别的资料，例如不同的居住位置、纳入标准、终点和治疗。虽然如此，关于对照组的一些信息往往是存在的。这成为起点。</li>
-<li>在一项预防子宫切除术后发热的研究中，假设非常合理的数据显示在应用标准的预防性抗生素后，10%的妇女出现发热。这就成为对照组的事件发生率。</li>
-</ol>
-<h3 id="二估计所研究的治疗效果治疗组事件发生率treatment-effect-of-interestevent-rate-in-the-treatment-group">（二）估计所研究的治疗效果/治疗组事件发生率(treatment effect of interest/event rate in the treatment group)</h3>
-<ol type="1">
-<li>对所要研究效果的估计应该反映临床的可鉴别度(clinical acumen)和潜在的公共健康利益(potential public-health。这个重要的方面不能由统计学家单独决定。其决策过程有赖于临床背景知识的积累。</li>
-<li>假设标准预防性抗生素的费用是10美元，副作用很少，口服给药。新 的预防性抗生素的费用是200美元，副作用较多，静脉给药，但抗菌谱广。所有这些实际因素和临床因素均对决策过程施加了压力。考虑到对照组10%的发热发生率，了解了临床背景，我们将对什么样的研究结果感兴趣，从10%减少到9%、从20%降到8%、30%到7%、40%到6%、50%到5%，还是其他？决定对多大的差异进行检测反映了内在主观的临床判断，正确答案并不存在。我们只能说30%的减少量是值得研究的，但是其他研究者可能决定50%的下降幅度。</li>
-</ol>
-<h3 id="三人群参数对样本量的影响">（三）人群参数对样本量的影响</h3>
-<ol type="1">
-<li><p>这些参数假设显著影响了样本量的计算。保持对照组估计的参数为常量，疗效的减半必然使试验样本量增加4倍以上。类似地，疗效减到四分之一要求试验样本量增加16倍以上。换言之，样本量的增加与疗效减少的平方成反比，统计学家称之为二次方程相关(a quadratic relation)。</p></li>
-<li><p>以我们最初的参数估计为例，对照组10%，干预组6%，α=0.05，β=0.90，那么每组必须有大约965名参加者(Panel 2)。疗效的轻微改变造成试验规模的巨大变化。</p>
-<ul>
-<li>将疗效减半，调整干预组的参数估计为8%，如此样本量需要4倍以上的增加，达到4301人。</li>
-<li>疗效减低到四分之一，调整干预组的估计为9%，那么试验规模必须有18倍以上的增加，达到每组18066人。</li>
-</ul></li>
-<li><p>巨大的研究样本量和低的事件发生率使研究者感到无比挫败。这种挫败感部分来源于缺乏对二分类终点试验的认识，是分子事件(numerator events)推动了试验的把握度，而不是分母(denominators)。</p>
-<blockquote>
-<p>分子指对照组或治疗组中发生结局的参与者，分母是对照组或治疗组的所有参与者。</p>
-</blockquote></li>
-<li><p>例如，假设α=0.05，希望结局事件的发生率下降40%。一项2000名参与者(1000名被分配到治疗组，1000名到对照组)、对照组事件发生率为10%的试验能提供的把握度等同于一项20000名参与者(每组分配10000人)、但对照组事件发生率只有1%的试验所产生的把握度。这两项试验需要的分子数值是一样的，都为160，大致满足把握度=90%。 <span class="math display">\[1000 \times (0.1+0.1 \times 0.6) = 160\]</span> <span class="math display">\[10000 \times (0.01+0.01 \times 0.6) = 160\]</span></p></li>
-</ol>
-<h2 id="六可纳入的参与者有限的解决办法">六、可纳入的参与者有限的解决办法</h2>
-<p>当样本量软件计算的试验样本量超过了可纳入的参与者人数的时候，会发生什么呢？通常，研究者会反向计算，为了能满足可纳入参与者的数量，他们使用低的把握度(如0.40)来估计样本量。</p>
-<p>一些方法学家建议临床医生放弃这种低把握度(low power)的研究。许多伦理审查委员会认为低把握度的试验缺乏伦理道德。Chalmers关于已发表试验缺乏把握度的早期文章促使了这种反应，并带我们回到本章节开始部分的疑问。他觉得是他的研究小组的文章引起了这些过度反应。</p>
-<p>Chalmers最后说明所谓的低把握度试验可以被接受，因为它们最后能通过meta分析（meta-analysis)整合起来。但是许多统计学家似乎并不支持这个观点，甚至包括那些赞同小规模试验的人。</p>
-<p>然而，我们同意Chalmers的观点，这毋庸置疑会引起许多统计学家和伦理学家的不满。但我们的支持附带了三个条件。</p>
-<h3 id="一试验在方法学上非常严谨可以消除偏倚">（一）试验在方法学上非常严谨，可以消除偏倚</h3>
-<ol type="1">
-<li>不幸的是，需要足够把握度这个咒语往往盖过了方法学中的其他部分的讨论。</li>
-<li>例如，不充分的随机化往往产生偏倚的结果，并且这些偏倚的结果不能被补救，即使是能实现非常好的精确度(precision)的大样本量。</li>
-<li>相反，如果研究者充分地设计和执行了试验，最终仍能产生一个对效果没有偏倚的估计，即使试验有低的把握度(和精确度)。</li>
-<li>此外，因为结果是没有偏倚的，所以该项试验可以和类似的没有偏倚的试验在meta分析中整合起来。事实上，特别是合并进入前瞻性的meta分析，这种做法等同于多中心试验。</li>
-</ol>
-<h3 id="二作者必须充分地报道他们的研究方法和结果以避免误解">（二）作者必须充分地报道他们的研究方法和结果，以避免误解</h3>
-<ol type="1">
-<li>如果作者在报道试验结果时使用了区间估计，那么治疗效果估计的较宽的可信区间在描述低把握度上较为准确。</li>
-<li>可信区间的报道很有价值，可以避免由简单的P&gt;0.05所带来的“无证据证明有，不等于有证据证明无(无有之据，非有无之据)”的问题。</li>
-</ol>
-<h3 id="三低把握度的试验无论结果如何必须被报道才能被meta分析采用">（三）低把握度的试验无论结果如何必须被报道，才能被meta分析采用</h3>
-<ol type="1">
-<li>发表偏倚(Publication bias)最严重的问题就是不发表低把握度的试验。发表偏倚是指发表的试验不能代表所有已开展的试验，通常是因为统计学显著的结果比不确定的结果更容易被接受和发表。低把握度的试验易出现这样的问题，因为它们有更多的机会产生不确定的结果。</li>
-<li>但是，责难所有低把握度试验并阻止它们实施都会妨碍重要的研究。</li>
-<li>不发表已完成的试验被认为是不科学和缺乏伦理的。试验注册系 统(Trial registration schemes)将进行中的试验进行分类，从而避免结果的丢失。此外，大的系统综述机构，最著名的是Cochrane 协作网（Cochrane Collaboration)，细査未发表的试验以减少发表 偏倚。</li>
-</ol>
-<h3 id="四低把握度的试验low-powered-trials被指责为缺乏伦理的原因">（四）低把握度的试验(low-powered trials)被指责为缺乏伦理的原因</h3>
-<ol type="1">
-<li>对样本量的偏见使较多消除偏倚的中肯意见黯然失色。</li>
-<li>一个带着主观色彩的过程如何能引发对其伦理学正反面的辨证讨论？带着这种主观性，将试验伦理学建立于统计学把握度之上，这就显得过于简单和错位了。</li>
-</ol>
-<p>事实上，既然研究者估计样本量是以不确切的猜测为基础，如果认为执行低把握度的试验是不道德的，那么这就是一种逻辑的极端，也许我们的世界再也没有试验了，因为样本量的决定总是充满各种问题。</p>
-<blockquote>
-<p>“进行对照试验是不道德的，除非能够确保达到那个武断定义的统计把握度”</p>
-</blockquote>
-<p>如果默许的代价是忽视医疗保健作用的话，上述声明一点意义都没有。关于低把握度试验是不道德的观点是不理性的，此外，有时也忽略了渴望参加试验的潜在参与者。</p>
-<h2 id="七样本量的调整">七、样本量的调整</h2>
-<h3 id="一样本量桑巴舞sample-size-samba">（一）样本量桑巴舞(Sample size samba)</h3>
-<ol type="1">
-<li>研究者有时会表演一段“样本量桑巴舞(samplesizesamba)”，实现足够的把握度。舞蹈涉及了对可纳入的参加者参数估计的重新调整(特别是检验有价值的疗效)。这种实践在我们和其他人的经历中经常发生。</li>
-<li>基金赞助机构、协议起草委员会、甚至包括伦理审查委员会都鼓励这种回顾性的处理。这代表了一种对实际问题可运作的解决方法。</li>
-<li>考虑到各种细节问题，我们不能过多地批评这个桑巴舞，因为它可能使许多重要的研究得以顺利实施。</li>
-<li>此外，它如实描述了在给定假设的前体下，样本量估计的必要性。然而，在“低把握度试验是缺乏职业道德的”争论中，这种方法强调了不一致性(inconsistencies)：在“桑巴舞”之前，计划的试验是缺乏职业道德的，但通过简单调整对效应大小的估计，使之符合伦理原则。</li>
-<li>所有试验都有无数个把握度，低把握度只是相对而言。</li>
-</ol>
-<h3 id="二增加样本量">（二）增加样本量</h3>
-<ol type="1">
-<li>对于能够额外纳入参与者和研究经费充分的情况下，研究者应该考虑一种样本量调整的策略，这样可以解决一部分由样本量估算产生的问题。</li>
-<li>调整通常是增加样本量。实现调整的方法有赖于事件发生率的修正、终点或治疗效应的改变。</li>
-<li>重要的是，任何在试验中间阶段对样本量的调整都应该有避免偏倚的周密计划。</li>
-<li>发起或指导委员会(The sponsor or steering committee)在草案中应该描述一个易懂的计划，关于潜在调整的时间和方法(the timing and method of the potential modifications)。</li>
-</ol>
-<h2 id="八试验后计算把握度没有意义">八、试验后计算把握度没有意义</h2>
-<ol type="1">
-<li>试验得出治疗效应和结果的可信区间(confidence interval)。</li>
-<li>可信区间体现了试验的把握度。因此，继续关注把握度不再有意义。</li>
-<li>然而，试验结束后，一些研究者利用观察到的结果作为估计参数对统计学不显著的试验进行把握度的计算。这种尝试似是而非，但是，重复之 后，可以得出低把握度的答案。换言之，这种不值得推荐的尝试回答了一个已经被回答的问题。</li>
-</ol>
-<h2 id="九读者应该如何看待样本量的计算">九、读者应该如何看待样本量的计算？</h2>
-<p>读者应该在报告中看到样本量的估计是如何得来的。事实上，试验报告中的可信区间充分体现了把握度。然而，样本量计算仍提供了重要的信息。</p>
-<ul>
-<li>第一，它们规定了主要终点，这样可以保证结局变量不会改变，同时防止突出与非主要结局变量相关的明显效应。</li>
-<li>第二，知道了计划的样本量可以使读者对潜在的问题产生警觉。试验面临了募集困难？试验因统计学显著的结果提前中止？如果是这样的话，作者应该提供正式的统计学中止标准。如果他们没有使用正式的标准，那么多次审査数据就会加大I类错误(α)。类似的问题同样可以出现在比预期样本量大的试验。</li>
-</ul>
-<p>提供预计的样本量，尽管其带着些主观性，却是为了使报道更加透明而做的前提。</p>
-<h3 id="一报告的低把握度或不报告样本量计算">（一）报告的低把握度或不报告样本量计算</h3>
-<ol type="1">
-<li>报告的低把握度或不报告样本量计算通常不是致命的错误。低把握度反映了方法学知识的缺乏，但也可能暗示了潜在参与者数目不足。即使是基于低把握度，样本量的计算仍能提供上述提及的重要信息。</li>
-<li>如果作者忽视描述预计样本量的计算，那么读者该怎么办？读者应该谨慎地解释结果，因为缺少主要终点的信息和中止标准。</li>
-<li>此外，忽视报告样本量的计算暗示了方法学的无知，这可能成为其他问题的先兆。</li>
-</ol>
-<h3 id="二重视被研究者隐藏的系统误差偏倚">（二）重视被研究者隐藏的系统误差(偏倚)</h3>
-<ol type="1">
-<li>作者不会报告拙劣的随机化、不充分的分组隐藏、失败的盲法或缺失的参与者保持率，但这些均隐藏了能导致偏倚的研究设计缺点。</li>
-<li>因此，基于以下2个主要原因，读者应该减少对样本量不足的担心：
-<ul>
-<li>首先，样本量不足不会产生偏倚;</li>
-<li>其次，任何随机误差都能透明地体现在可信区间和P上。</li>
-</ul></li>
-<li>对读者来说，最严重的问题应该是没有被揭示的系统误差。换言之，读者不应该简单地因为低把握度而完全否认一项试验，相反应仔细衡量 它的价值。过去或未来的其他研究可能会涉及这个价值。</li>
-</ol>
-<h3 id="三发现所有样本量计算背后的假设">（三）发现所有样本量计算背后的假设</h3>
-<ol type="1">
-<li>读者应该发现所有样本量计算背后的假设：I类错误（α)、把握度(或β)、对照组事件发生率及感兴趣的疗效(或近似的治疗组事件发生率)。</li>
-<li>“当α=0.05及把握度=0.90时，我们计算必需的样本量为每组120人”的说法完全没有意义，因为忽视了对效应大小和对照组事件发生率的估计。</li>
-<li>即使是小规模的试验也能有高把握度，并足以检验大的治疗效应。</li>
-</ol>
-<h3 id="四检验样本量计算的各种假设">（四）检验样本量计算的各种假设</h3>
-<p>读者还应该检验样本量计算的各种假设。例如，他们可能相信更小的效应比预期的效应大小更有价值。因此，读者应意识到他们所偏好的效应大小相关的试验，其把握度较低。</p>
-<blockquote>
-<p>Readers should also examine the assumptions for thesample size calculation. For example, they might believe that a smaller effect size is more worthy than the planned effect size. Therefore, the reader would be aware of the lower power of the trial relative to their preferred effect size.</p>
-</blockquote>
-<h2 id="十结论">十、结论</h2>
-<ol type="1">
-<li><p>统计学的把握度是重要的概念，但不应作为伦理学的领导者。</p></li>
-<li><p>对于那些仅仅因为主观上样本量的计算不准确即认为试验不符合伦理原则的做法，是令人质疑的。</p></li>
-<li><p>我们赞同研究计划实现适当的把握度(adequate power)，并向ISIS-2这种大规模多中心试验表示敬意，事实上，更多这样的研究应该被开展。</p>
-<blockquote>
-<p>ISIS-2 (Second International Study of Infarct Survival) Collaborative Group. Randomised trial of intravenous streptokinase, oral aspirin, both, or neither among 17,187 cases of suspected acute myocardial infarction: ISIS-2. Lancet 1988; 2: 349–60.</p>
-</blockquote></li>
-<li><p>然而，如果科学领域只局限于大型试验，许多不能回答的医学问题仍将继续没有答案。</p></li>
-<li><p>从关注样本量转变到注重方法学质量也许能使更多试验产生较少的偏倚。结果不够精确的无偏倚试验优于完全没有结果的试验。</p></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/Essential-Concepts-in-Clinical-Research8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/02/Essential-Concepts-in-Clinical-Research8/" itemprop="url">临床研究基本概念：筛查试验（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T17:17:20+08:00">
-                2018-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/临床研究/" itemprop="url" rel="index">
-                    <span itemprop="name">临床研究</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></p>
-</blockquote>
-<h1 id="应用似然比优化临床诊断">应用似然比优化临床诊断</h1>
-<h2 id="一摘要">一、摘要</h2>
-<ol type="1">
-<li>似然比能够优化基于体征和症状的临床诊断；然而，很少被应用于患者医疗保健。</li>
-<li>似然比是指特定试验结果的患病人群百分比除以相同试验结果的健康人群百分比。</li>
-<li>理想状态下，异常试验结果应该在患者中更典型（高似然比)，而正常试验结果应该更多地出现在健康人群中（低似然比)。</li>
-<li>似然比接近1对决策制定没有帮助，相反，高或低的似然比能极大左右临床医师对疾病概率的评估。</li>
-<li>各种试验均能计算似然比，不仅仅是结果为二分类变量（阳性或者阴性）的试验，多水平结果的试验也可以进行。例如，肌酸激酶或者肺通气-血流灌注显像。</li>
-<li>结合正确的临床诊断，辅助检查的似然比可以协同改善诊断的准确性。</li>
-</ol>
-<h2 id="二前言">二、前言</h2>
-<p>无论似然比(likelihood ratios)对临床发现、实验室检査、影像学检査结果的解释多么有用，却很少被应用。大多数临床医生对似然比很不熟悉，在实践中很少应用。我们的目标是增加临床医师对似然比的理解和应用程度。</p>
-<p>一些人认为流行病学家是通过一个<span class="math inline">\(2 \times 2\)</span>表格来窥视整个世界。确实，如果每个人能被分为有病的或健康的，如果判断疾病的二分类试验被广泛应用，那么60亿的我们(纵使拥挤)也将恰当地分布于如图所示的表格中（图1)。遗憾的是，无论生命或者试验均不是这么简单，充满了灰色区域。似然比能够帮助临床医师驾驭这片诊断不明确的巨大区域。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-14-101.jpg"></p>
-<p>似然比是指特定试验结果的患病人群百分比除以相同试验结果的健康人群百分比。似然比是对患病人群中特定试验结果（如阳性）的可能性和无病人群中相同试验结果（如阳性）可能性的比较。</p>
-<blockquote>
-<p>A likelihood ratio is the likelihood of a given test result in a person with a disease compared with the likelihood of this result in a person without the disease.</p>
-</blockquote>
-<p>在这里，百分率(Percentage)和可能性(Likelihood)是可以相互替换的。它的含意就非常清楚：患者比健康人更可能得到异常的试验结果，这种差异的大小具有重要的临床意义。</p>
-<h2 id="三两分类结果试验的似然比">三、两分类结果试验的似然比</h2>
-<h3 id="一阳性似然比">（一）阳性似然比</h3>
-<ol type="1">
-<li>图1下方的<span class="math inline">\(2 \times 2\)</span>表格显示了似然比的计算方法。在这个例子中，共15位患者，其中12人(80%)的疾病试验结果为真阳性。相反，在85位健康者中有5人(6%)出现假阳性。因此，阳性结果的似然比就是这两个百分比的比值(80%/6%)，等于13。换言之，相比健康人群，患病人群得到阳性结果的可能性高出13倍。</li>
-<li>对于一个二分类试验(阴性或阳性)，这个被称为阳性似然比 (positive likelihood ratio)(缩写为LR+)。</li>
-</ol>
-<h3 id="二阴性似然比">（二）阴性似然比</h3>
-<p>阴性似然比(negative likelihood ratio)(LR-)的计算方法类似。15位患者中3人(20%)出现假阴性(false negative)结果，同时85位健康者中80人(94%)得到真阴性结果，所以LR-就是这两个百分比的比值(20%/94%)，等于0.2。因此，患者获得阴性结果的可能性是健康者的1/5。</p>
-<h3 id="三计算方法总结">（三）计算方法总结</h3>
-<ol type="1">
-<li>如果灵敏度和特异度已经明确：
-<ul>
-<li><span class="math display">\[LR+ = \cfrac{灵敏度}{1-特异度}\]</span></li>
-<li><span class="math display">\[LR- = \cfrac{1-灵敏度}{特异度}\]</span></li>
-</ul></li>
-<li>如果<span class="math inline">\(2 \times 2\)</span>表格的原始数据可以获得：
-<ul>
-<li><span class="math display">\[LR+ = \cfrac{a/(a+c)}{b/(b+d)}\]</span></li>
-<li><span class="math display">\[LR- = \cfrac{c/(a+c)}{d/(b+d)}\]</span></li>
-</ul></li>
-<li>如果数学方程式不能应用：</li>
-</ol>
-<ul>
-<li><span class="math display">\[LR+ = \cfrac{真阳性百分比}{假阳性百分比}\]</span></li>
-<li><span class="math display">\[LR- = \cfrac{假阴性百分比}{真阴性百分比}\]</span></li>
-</ul>
-<h2 id="四多分类结果试验的似然比">四、多分类结果试验的似然比</h2>
-<p>计算两种以上结果试验的似然比类似于二分类结果的计算。每个试验结果水平都可以简单地计算单独的似然比。在表格1中，白细胞计数提示59人为阑尾炎，145人没有此诊断。 <img src="http://qiniup.louyanspine.com/2018-08-14-1022.jpg"></p>
-<ol type="1">
-<li>现计算白细胞计数为<span class="math inline">\(7 \times 10^9/L\)</span>的似然比，2%是分子(阑尾炎)，21%是分母(没有阑尾炎)，则似然比为<span class="math inline">\(\cfrac{0.02}{0.21}=0.1\)</span>。</li>
-<li>同样的计算可以在不同的白细胞计数水平上进行</li>
-<li>最高值，计算无法实施，因为分母为0</li>
-<li>似然比的范围从0.1到无穷大，并呈现白细胞计数越大，似然比值越高的趋势。</li>
-</ol>
-<p>但这些似然比改变了临床实践吗？他们使诊断疾病的可能性低到把患者从急诊室送回家，或高到有充分理由进行手术？</p>
-<ol type="1">
-<li>大多数患者(82%)的白细胞计数在<span class="math inline">\(7 \times 10^9\)</span><sub><span class="math inline">\(19 \times 10^9/L\)</span>；似然比的范围从0.52</sub>3.5，对患病可能性的作用较小。换言之，4/5的患者在评估阑尾炎的时候，白细胞计数对诊断没有帮助。仅极端数值可以明显影响患病可能性。</li>
-<li>设想一名28岁男性，肺栓塞的验前概率为20%，他的肺通气-血流灌注扫描是正常的，似然比为0.1。如果我们在左侧栏定位于20%，中间栏为0.1 则右侧栏显示验后概率为2%(图2C)。</li>
-</ol>
-<p>前列腺特异抗原(PSA)筛査前列腺癌提供了多项似然比(multiple likelihood ratios)的另一个例子。</p>
-<p>在一项2620名男性受试者、年龄大于等于40岁的社区研究，调查者进行前列腺癌特异抗原的检测及应用前列腺活检作为诊断金标准。</p>
-<p>标准临界值定在4μg/L，阳性试验的似然比为1.3(95%可信区间1.2<sub>1.3)，阴性试验为0.4(0.4</sub>0.5)：对临床帮助不大。</p>
-<p>然而，根据PSA浓度进行拆分后，结果变得更有用(表格2)。</p>
-<ul>
-<li><p>最低值(&lt;2μg/L)的似然比是0.3</p></li>
-<li><p>最高值(&gt;20μg/L)的似然比是6.3</p></li>
-<li><p>这些似然比使肿瘤的验前概率发生了中等程度的改变</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-14-103.jpg"></p></li>
-</ul>
-<h2 id="五似然比的运用">五、似然比的运用</h2>
-<p>临床医师经常在进行每个试验前对某个特定疾病的可能性(probability)有所估计(虽然一般无法精确地定量)。按照贝叶斯定理(Bayesian principles)，验前的疾病比值 (pretest odds)乘以似然比(the likelihood ratio)得到验后的疾病比值(post-test odds)。</p>
-<blockquote>
-<p>例如，验前比值为3/1乘以似然比2，将产生验后比值为6/1。</p>
-</blockquote>
-<p>不像赌徒(或统计学家)，大多数临床医生不会想到比值比(odds)——我们通常应用百分率(percentages)。</p>
-<blockquote>
-<p>例如，75%的可能性(75%是/25%否)等同于比值比3/1。</p>
-</blockquote>
-<p>虽然比值比(odds)和可能性(probabilities)之间的相互转换涉及简单算术，但一种被广泛应用的列线图解法(nomogram)(图2)统 一实现了这个步骤。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-14-102.jpg"></p>
-<p>从左侧一列查出疾病的验前概率(pretest probability)，将该点与中间栏的似然比相连，直线的延伸部分与右侧栏相交的点即为疾病的验后概率(post-test probability)。这个流程显示了试验结果调整了验前概率。</p>
-<blockquote>
-<p>例如，在图1下方的表格中，阳性试验的似然比是13，阴性试验的似然比是0.2。假设疾病的验前概率为0.25，而且试验结果是阳性的。在列线图左侧找到验前概率0.25，截取似然比3，连成一直线，并延长直线至右侧栏找到验后概率大约为0.8，诊断可能性发生了重 大的改变（图2B)。这个值非常接近于贝叶斯公式计算的验后概率0.81。</p>
-</blockquote>
-<p>列线图解法被广泛应用。但是，如果不能使用列线图，可以采用各种更巧妙的办法。</p>
-<ul>
-<li>例如，可以从互联网上下载计算验后概率的滑尺(a slide rule)。</li>
-<li>英国牛津的循证医学中心(The Centre for Evidence-Based Medicine in Oxford, UK)设计了一种彩色的交互式计算机列线图，能利用活动的箭头替代直线。</li>
-</ul>
-<p>其他网络软件还可以计算<span class="math inline">\(2 \times 2\)</span>表格似然比的95%可信区间。既然似然比是可能性的比值(ratios of probabilities)，那么我们就可以像危险比(risk ratios)那样计算95%可信区间。可信区间(Confidence intervals)显示了结果估计的精确度。</p>
-<h2 id="六似然比大小的临床意义">六、似然比大小的临床意义</h2>
-<ol type="1">
-<li>不同数值的似然比有不同的临床意义。临床医师凭直觉就可以理解，似然比为1.0对诊断没有帮助：患病和健康人群试验结果的百分比是相同的。</li>
-<li>试验结果不能鉴别疾病和健康，就算是复杂的、昂贵的(可能存在风险)的试验，验前概率没有改变。</li>
-<li>所有似然比的比值从1开始，向下延伸至0，向上至无穷大。因此，似然比越远离1，对患病可能性的作用越大。
-<ul>
-<li>似然比从2到5使患病验后概率轻度增加</li>
-<li>从5到10中等增加</li>
-<li>大于10显著增加</li>
-<li>对于小于1的比值，似然比越小，患病可能性越低</li>
-</ul></li>
-</ol>
-<h2 id="七一种有用的记忆法">七、一种有用的记忆法</h2>
-<p>遗憾的是，列线图解法和计算机通常在床旁不能被采用。因此，McGee提出一种记忆方法，能简化似然比的应用，并拥有较好的可操 作性。他指出验前概率在10%〜90%之间(通常情况)，试验或临 床发现所致疾病概率的变化近似于一个常量。临床医师仅需记住3 个标志性的似然比：2，5，10(表格3)。这正好对应于15%的前三个 倍数：</p>
-<ul>
-<li>似然比为2，增加疾病可能性15%</li>
-<li>似然比为5，增加疾病可能性30%</li>
-<li>似然比为10，增加疾病可能性45%</li>
-</ul>
-<blockquote>
-<p>例如，验前概率是40%，似然比为2，那么验后概率为40%+15%=55%(非常接近用公式计算的57%)。<br> 似然比小于1，规则相反。2的倒数是0.5，5是0.2，10是0.1。似然比为0.5，那么减少验前概率15%，当似然比为0.1时将显著下降45%。</p>
-</blockquote>
-<p><img src="http://qiniup.louyanspine.com/2018-08-14-1032.jpg"></p>
-<h2 id="八验前概率准确的重要性">八、验前概率准确的重要性</h2>
-<p>既往史(medical history)与体格检查一直都是非常根本和重要的。事实上，对疾病概率(验前概率)的精确判定，有时候比来源于昂贵的或侵入性试验的似然比更重要。一些疾病，如阿尔茨海默病和鼻窦炎等，临床所见能产生一个相当准确的诊断。而对于其他疾病，临床医师缺乏体征和症状预测值的信息，他们必须依赖流行病学数据、教育和临床敏锐性。</p>
-<p>例如，补充的患者疾病史使冠心病的验前概率从75%下降至小于5%，这样的改变对验前概率的影响超过一个阳性和阴性似然比为3和0.5的心脏负荷试验的影响。</p>
-<p>虽然临床诊断未必会比辅助试验更准确，但它的精确性对后续任何试验结果的解释都将产生显著的作用。一个准确的验前概率(pretestprobability)和后续试验(subsequent testing)能很好地优化临床诊断。</p>
-<h2 id="九决策阈值">九、决策阈值</h2>
-<p>只有当可能影响临床处理时，试验才被使用。如果临床医师判断的患病验前概率已经能安全地肯定或否定诊断，那么进一步的试验是没有必要的。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-14-1033.jpg"></p>
-<p>更多的试验应该在临床不确定的情况下才被考虑(如图3)。在试验进行前，应该明确检查阈值(Test threshold)和治疗阈值(Treatment threshold)(图3中的A和B)在连续的诊断疾病可能性(diagnostic certainty)上的位置。</p>
-<ul>
-<li>疾病概率低于A点可以有效地排除诊断，于是，A就是进行试验的阈值：即验前概率大于A但小于B有可能从后续试验中获益。</li>
-<li>B点是治疗阈值，疾病概率高于此点应判断可以给予治疗，不应再有任何延误。</li>
-</ul>
-<p>这些决策阈值(decision thresholds)(A和B)的位置应该个体化。运用列线图（图2A)，临床医生可以估计多大或多小的似然比使验前概率移动到A点以下(排除诊断)或B点以上(开始治疗)。临床医师可以参考已发表的似然比，确定相应的试验结果。如果试验结果不能实现患病概率的这种移动，就不应该进行该试验。这是非常基本和重要的一点。</p>
-<h2 id="十似然比的优点">十、似然比的优点</h2>
-<p>既然大多数临床医师已经熟悉灵敏度和特异度，是否值得进一步努力学习如何应用似然比？似然比具有某些吸引人的特点，是传统的试验真实性(test validity)指标所没有的。</p>
-<ol type="1">
-<li><p>不是所有的试验都有二分类结果。当结果不仅仅是阴性或阳性时，试验真实性的方程式将无能为力。许多临床医学试验得出连续性结果(如血压)或者多个等级水平的结果(如乳腺肿块的细针穿刺活检)。将多项分类结果强行改成阳性或阴性将丢失信息。似然比使医师有能力解释和使用诊断试验的所有结果。</p></li>
-<li><p>其次，似然比简单易行，适用范围广。相反，试验(tests)的预测值(predictive values)受疾病的患病率影响，即使再完美的试验也可能因为患病率很低而出现很差的阳性预测值。似然比不受疾病患病率的影响，其在一系列不同患病率的疾病中均可使用。预测值与人群的试验特性(test characteristics to populations)有关，而似然比可以被应用到某个特定的患者。此外，似然比与传统的真实性指标不同，需要合并<span class="math inline">\(2 \times 2\)</span>表格的所有4格数据。</p></li>
-<li><p>依赖灵敏度和特异度经常会夸大试验的益处。比较两种产科试验(胎儿纤连蛋白fetal fibronectin预测早产、子宫动脉多普勒波形分析预测先兆子痫preeclampsia)，2/3发表的报道高估了试验的价值。应用似然比，而不仅仅是灵敏度和特异度，将可能避免这种误解。</p></li>
-<li><p>似然比改善了临床判断。将似然比应用到诊断中将改善诊断疾病的可能性(the diagnostic probability)，有时是相当明显的。当试验按序执行时，第一个试验的验后概率(the post-test odds)成为第二个试验的验前概率(the pretest odds)，以此类推。</p></li>
-</ol>
-<h2 id="十一似然比的局限性">十一、似然比的局限性</h2>
-<ol type="1">
-<li>似然比对验前概率的影响不是线性的。似然比100是似然比10的10倍，但并没有增加10倍的验前概率，如图2D所示。</li>
-<li>多分类结果试验的极端试验值产生不精确的似然比。有这些并不精确的高值或低值的患者数量很少。在这些单元格中，患病人数微小的改变能产生非常不同的似然比。换言之，在最高和最低的试验值分布区，似然比的不精确性非常多见。将试验结果分布中靠近极值的连续性分类合并，可以得到较多的患者数目，从而使结果更准确，如更窄的可信区间(confidence intervals)。</li>
-<li>相反，许多试验结果分布在中心区域。这里，似然比接近1，因此帮助小。重要的决定因素(big payoffs)来源于高或低的似然比</li>
-<li>另一个问题就是在三级医疗单位中产生的验前概率可能无法被统一采用，因为面向的患者人群不同。</li>
-</ol>
-<h2 id="十二似然比应用的实例">十二、似然比应用的实例</h2>
-<h3 id="一以验前概率为基础进行试验的指南">（一）以验前概率为基础进行试验的指南</h3>
-<ol type="1">
-<li><p>当验前概率高或低时，临床医师应谨慎安排试验。此时，试验不能改变患病的概率，只会导致情况更紊乱：因为不能预测的结果(unexpected results)通常是假阳性或假阴性。</p></li>
-<li><p>当验前概率为50%时，试验将非常有帮助。见图2，起始点在验前概率栏50%的地方比其他任何位置，其列线图验后概率的数值变化都要明显。</p></li>
-<li><p>无论试验结果如何，患病的验前概率越高，其验后概率也越高。</p>
-<blockquote>
-<p>例如，高3倍的验前概率将比低值产生高出3倍以上的验后概率。</p>
-</blockquote></li>
-<li><p>LR+大于10意味着阳性试验能很好地诊断疾病。</p></li>
-<li><p>LR-小于0.1意味着阴性试验能很好地排除诊断。</p></li>
-<li><p>当序贯进行各项试验时，第一个试验的验后概率成为下一个试验的验前概率。不同试验之间相互联系，按序进行。</p></li>
-</ol>
-<h3 id="二应用实例">（二）应用实例</h3>
-<p>临床上可以广泛应用似然比，包括：症状、体格检查、实验室检查，以及影像学和评分系统(表格4)。基于正确的疾病验前概率，辅助检查的似然比往往能在重要途径上优化临床判断。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-14-104.jpg"></p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-15-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8A%E5%8D%8810.04.36.png"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3133,7 +2784,7 @@
         
           <div class="site-state-item site-state-posts">
             <a href="/archives/ || archive">
-              <span class="site-state-item-count">408</span>
+              <span class="site-state-item-count">410</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -3155,7 +2806,7 @@
           
           <div class="site-state-item site-state-tags">
             <a href="/tags/index.html">
-              <span class="site-state-item-count">1436</span>
+              <span class="site-state-item-count">1444</span>
               <span class="site-state-item-name">标签</span>
             </a>
           </div>
