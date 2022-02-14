@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用BetterZip加密压缩文件">
+<meta property="og:url" content="http://lysp2017.github.io/2020/02/13/1BetterZippassword/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-13T09:01:34.000Z">
+<meta property="article:modified_time" content="2020-04-11T14:24:57.000Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="压缩">
+<meta property="article:tag" content="BetterZip">
+<meta property="article:tag" content="加密">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lysp2017.github.io/2020/02/13/1BetterZippassword/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>利用BetterZip加密压缩文件 | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2020/02/13/1BetterZippassword/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          利用BetterZip加密压缩文件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-13 17:01:34" itemprop="dateCreated datePublished" datetime="2020-02-13T17:01:34+08:00">2020-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-11 22:24:57" itemprop="dateModified" datetime="2020-04-11T22:24:57+08:00">2020-04-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件教程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="e3502aa14015ceb8ccec3a006e1ff344374e3c31883013ffd11f603a2bc52016">a555339939183c972e355682e672fe9c0f5e25a03ada221daee4666f6af134c519e052aeadcfcd2c81055c10e8f0fa0bffd77a32829dbc63b1a8fa1813ac34b49bf724076aea72a788078828daa454c9938771784352056e1c193614b75199fe428bc2aa62c7b5b71884dee4868d9e169a6eb793d2f7b2a5d848c81cf75135c9433a1e9dc1a79c2a180a0df27b3450c56031624eb27a8f0698fd60247164e00734e7628074271a69521efa088a03cbf6e2d8f4c8ea5379f1663d6537ed5f237cf03a8285981a7119861fd7f0c9e1cfc80e73dfe3bc5c1f6f9971f257cbe56d9ce1f746eb33cf973747821021489f75bc43581e891218898c1ed8adb96eba22c0e92c34da6b51c803b6aea29747280c3f361e244709a31814bfb1809a21f851b25d2c38a95b0f54b8aba5aa225e3eceebde3ce6e0e5519be7b6810c36ee543e6f108581cde629a78322c70d86b1139a3078e4f22acd782e74f06f2d3ae18e47c559c20a7b5b5bf4dce056df222ccc3a30d441803b6c5dfd95d7c2fe56e59c6860f410e47bb09869bad1cc35991f07adf152bdc822d6e4a3f74a4c97ef4bb05ab9dcd2daf150f3a5f5a2fc5f8213810f0a1e19b26912e5f068129bc98b943b75780ad927e25313a83c5bfcab4211691291b14fc1f881a33cf1c5f82a11d8720c5c329dbedeefb05426b181a4518daba163654e98cda990a8fb05b68393e7b69bb454aef2174fe7e673a8cdd6236ff428e65f8bf0ddefabf4ebcc3caf276cd2b412effbce8bee622aed4e5f558694402d12e298ec1880130f1738dd331c2dd335a80f2c4842b7aa4eb41470eac2c86e041fcf4e3fa56d1bbb20d3b7156f1b25d9151bc063ebf085f55509cb78e5996a57399dcd9e399886ac8105725a580851417eec228a9d552d7530f6c0128eaa1da88e502eeb20c90955688dc68962683fcab878e48497c6ab7f25f4bc97b96098f24ffdada633881ecd593ff19631f42aa7da087e5857cc70ddfa711d85c9fd4705f3387f6f19ca3b8660e917522c2ca536268e4252ef07234c352b3e6a41eeee7ace8adc89516d441d7aa0a227ed36bd92456748cd6e5e563fae721363e3dea29c858a622f5c339bdbdf6aff916a74075ce3f82da919e8b00ebe1671751570434fffb13c352e225a6a1d59a46ef8a9edde3748f7273e21e3036b18befc1bc3d4f83c6943685af3315bb40dbeb88cf91ade899e0b72349a342c1ab0a8f2a3bd7a7f5249a33d5e6a625e7b28d470204eb1f19789acea0b14d39e809a8863ddcbf4b47b954a55f418befc73f4c4a075c361f8fcdcd6837f7bb8c44b3b0b8932718087829e319f35a774e28b93203e67fe184d98ef40f2925afbbab31c18ce29fcd8a3d8149d6585768a63b368a35f203a34b1a783af51c93c92d3943b384784cb9626e6c08a0c514addb95950d8fa62057728d6bf6a233ad3e52ba9f0655dff2699ff919548d7d53e8c01599f26b6d87471af32d10fd2c58be24b8b457feeea23e504b536f35d76f6d38e403d2664dceb533076f7ad1386d3051e29b4ea6c751c5c5be2e5946f164d2e4fbe9ed3fc0df5fa79aa3a118a621a3ab680e6e90b2d2ed700a33bd06e8b8cb6130d0b442a4ffd1812310caa31131bdc71ccfba96f1587acc35a9b04c58edde9abfbc32abf26746192937280d095457d9bbd6f50514bc3052e0cc2fa7448815b4b27537a0d066ba2c5847f44d0fcbb35eaebca0c395189d37620b2a80af01cd472c2014a5da593082fde58851c2637018521689810e157d9fe1e877faf3f746065359e0343288ab4502ab712a75ce7db47d6b60f2ce8b77efd92b00659e2290072bdef7b0b3d82b919607f7a3fa5976a074c326e3ac5c0b2e00cedb2a1aadaeb4754fc025982891314e054c9b5a4b67fdd2d02a9617281b559a779a2a58c40ebbd2f82e4969aca9a269ad4e5eb39792da3e3c26b025bc7d58dc767e312e6f2301f71d090cc80b7a49df3f8d639be13dd7c0be1d63029c4af3806c279e8525b58cfc10d8f0c00c61f9648b0c081e652c00b1c5b9844f6d7d6522e7d5ca9ac00b60db69843af2236306a80df82ea5c8ddb2ffde21a8103261b8acce6f96731a6762628d6acd9fb025dadeb492d89ba9048d833fd142f792647fe0172a769296656bbac0b0b43190224725f704d145dc06c778e401168b53dbeee6d9037d0ab1ea6b19fa4130f3c318ab8f9b8f77eff4015a17308c3646373f9f04de7f6431106f26caa42356de9fbe44d7c</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">欢迎访问我的博客，考虑到版权问题，本文不公开</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8E%8B%E7%BC%A9/" rel="tag"># 压缩</a>
+              <a href="/tags/BetterZip/" rel="tag"># BetterZip</a>
+              <a href="/tags/%E5%8A%A0%E5%AF%86/" rel="tag"># 加密</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/22/3Sequencing-proteins-Insulin/" rel="prev" title="蛋白质测序：胰岛素">
+      <i class="fa fa-chevron-left"></i> 蛋白质测序：胰岛素
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/13/1mybloghistory/" rel="next" title="本站建设纪事">
+      本站建设纪事 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">169</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">989</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
