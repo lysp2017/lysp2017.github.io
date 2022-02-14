@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明：  翻译自Duchman KR, Gao Y, Miller BJ.Prognostic factors for survival in patients with Ewing’s sarcoma using the surveillance, epidemiology, and end results (SEER) program database.Cancer Epidemiol,20">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEER数据库中Ewing&#39;s sarcoma患者的预后因素">
+<meta property="og:url" content="http://lysp2017.github.io/2018/10/22/Prognostic-factors-for-survival-in-patients-with-Ewing%E2%80%99s-sarcoma-using-the-surveillance-epidemiology-and-end-results-SEER-program-database/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明：  翻译自Duchman KR, Gao Y, Miller BJ.Prognostic factors for survival in patients with Ewing’s sarcoma using the surveillance, epidemiology, and end results (SEER) program database.Cancer Epidemiol,20">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%886.38.34.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.38.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.44.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.51.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.30.47.png">
+<meta property="article:published_time" content="2018-10-22T02:21:47.000Z">
+<meta property="article:modified_time" content="2019-02-27T16:45:09.000Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="预后">
+<meta property="article:tag" content="尤文肉瘤">
+<meta property="article:tag" content="SEER数据库">
+<meta property="article:tag" content="单因素分析">
+<meta property="article:tag" content="多因素分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%886.38.34.png">
+
+<link rel="canonical" href="http://lysp2017.github.io/2018/10/22/Prognostic-factors-for-survival-in-patients-with-Ewing%E2%80%99s-sarcoma-using-the-surveillance-epidemiology-and-end-results-SEER-program-database/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>SEER数据库中Ewing's sarcoma患者的预后因素 | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/10/22/Prognostic-factors-for-survival-in-patients-with-Ewing%E2%80%99s-sarcoma-using-the-surveillance-epidemiology-and-end-results-SEER-program-database/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SEER数据库中Ewing's sarcoma患者的预后因素
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-22 10:21:47" itemprop="dateCreated datePublished" datetime="2018-10-22T10:21:47+08:00">2018-10-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:45:09" itemprop="dateModified" datetime="2019-02-28T00:45:09+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说明：<br></p>
+<ol>
+<li>翻译自Duchman KR, Gao Y, Miller BJ.Prognostic factors for survival in patients with Ewing’s sarcoma using the surveillance, epidemiology, and end results (SEER) program database.Cancer Epidemiol,2015,39(2):189-95.<br></li>
+</ol>
+</blockquote>
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><ol>
+<li>以前的报道已经确定，患者年龄增大，男性，初诊时出现转移灶，肿瘤体积较大，肿瘤位于中轴骨，对化疗反应差，以及肿瘤远处复发是尤文肉瘤无病生存率降低的独立危险因素。</li>
+<li>此外，有证据表明，患者的种族和低社会经济状况可能会对生存产生负面影响，因为这表明尤文肉瘤患者的治疗可能存在差异。</li>
+<li>利用SEER数据库，本研究的目的是描述获得诊断后10年内原发性骨来源的尤文肉瘤患者的原因特异性存活率(cause-specific survival)。</li>
+<li>此外，我们的目的是确定与原因特异性存活率相关的患者、肿瘤和社会经济因素，以确定尤文肉瘤患者的预后因素。</li>
+</ol>
+<h2 id="二、材料与方法"><a href="#二、材料与方法" class="headerlink" title="二、材料与方法"></a>二、材料与方法</h2><ol>
+<li>确认1991年至2010年在SEER数据库中的尤文肉瘤患者。</li>
+<li>选择该时间框架的原因：现代的化疗方案和MRI在此期间一直可以获得和应用。</li>
+<li>SEER数据库是公开可用的，并且使用SEER*Stat程序（版本8.1.5）识别感兴趣的病例和相关变量。</li>
+</ol>
+<h3 id="（一）数据元素"><a href="#（一）数据元素" class="headerlink" title="（一）数据元素"></a>（一）数据元素</h3><h4 id="患者变量"><a href="#患者变量" class="headerlink" title="患者变量"></a>患者变量</h4><p>包括年龄，性别和种族。</p>
+<ol>
+<li>年龄在SEER数据库中记录为以五年为间隔的从0到85岁的分类变量。<ul>
+<li>我们选择将患者分为两个年龄组<ul>
+<li>&lt;20岁</li>
+<li>≥20岁</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在SEER数据库中，患者的种族被分为白人(white)，黑人(black)或其他种族(other)，而西班牙裔(Hispanic)种族则被单独分类，因此能够将西班牙裔种族纳入统计分析。<ul>
+<li>初步分析显示，与西班牙裔和其他种族相比，黑人种族患者10年生存率较低(38.4 vs. 54.0 vs. 55.6%)。根据初步分析的结果，我们选择将患者分类为：<ul>
+<li>黑人(black)</li>
+<li>西班牙裔(Hispanic)</li>
+<li>其他(other)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="肿瘤特异性变量"><a href="#肿瘤特异性变量" class="headerlink" title="肿瘤特异性变量"></a>肿瘤特异性变量</h4><p>初诊时是否转移，肿瘤位置和大小。</p>
+<ol>
+<li>SEER数据库将stage记录为：<ul>
+<li>localized:无转移灶</li>
+<li>regional:无转移灶</li>
+<li>distant:定义为患者在首诊时即出现转移灶(n &#x3D; 373)</li>
+</ul>
+</li>
+<li>肿瘤的解剖部位被分为中轴骨和四肢<ul>
+<li>中轴骨包括骨盆、脊柱和肋骨</li>
+<li>四肢则包括上下肢的长短骨</li>
+</ul>
+</li>
+<li>肿瘤大小分为：<ul>
+<li>小（5 cm）</li>
+<li>中（&gt;5-10 cm）</li>
+<li>大（&gt;10 cm）</li>
+<li>未知</li>
+</ul>
+</li>
+</ol>
+<h4 id="基于患者居住地的社会经济测量数据"><a href="#基于患者居住地的社会经济测量数据" class="headerlink" title="基于患者居住地的社会经济测量数据"></a>基于患者居住地的社会经济测量数据</h4><p>感兴趣的County-level的社会经济变量包括中位家庭收入，生活在贫困线以下的人口比例，25岁以上高中以下学历的人口比例，rural or urban county setting。</p>
+<ol>
+<li>如前所述，使用该数据创建了复合社会经济状况（composite socioeconomic status,SES）变量。复合SES评分进一步分为：<ul>
+<li>低（composite SES≤4）</li>
+<li>中（composite SES 5-10）</li>
+<li>高（composite SES≥11）</li>
+</ul>
+</li>
+</ol>
+<h4 id="主要结局"><a href="#主要结局" class="headerlink" title="主要结局"></a>主要结局</h4><ol>
+<li>原因特异性生存率是感兴趣的主要结局，并使用死亡证书(death certificates)中的摘要信息来确定死因，这些数据被二分为<ul>
+<li>癌症(cancer)</li>
+<li>其他原因(other causes)</li>
+</ul>
+</li>
+<li>任何可归因于复发或转移的死亡都被认为是由于“癌症(cancer)”造成的死亡。</li>
+<li>总体而言，从1991年到2010年，1163例尤文肉瘤患者有足够的生存分析数据。</li>
+</ol>
+<h3 id="（二）统计分析"><a href="#（二）统计分析" class="headerlink" title="（二）统计分析"></a>（二）统计分析</h3><ol>
+<li>使用Kaplan-Meier方法，计算诊断后2年，5年和10年的预计原因特异性生存率。</li>
+<li>使用对数秩检验log-rank test确定原因特异性生存与患者、肿瘤和社会经济因素之间的关联(Associations)。</li>
+<li>使用Cox比例风险比创建了几个多因素模型，以确定生存的独立预测因素。</li>
+<li>分类变量之间的关联用Chi-square检验。</li>
+</ol>
+<h3 id="（三）多因素模型筛选"><a href="#（三）多因素模型筛选" class="headerlink" title="（三）多因素模型筛选"></a>（三）多因素模型筛选</h3><ol>
+<li>模型1纳入所有感兴趣的变量，无论其在单因素分析中的表现如何，纳入1071&#x2F;1163（92.1％）例尤文肉瘤患者。</li>
+<li>模型2利用逐步选择纳入所有在单因素分析中p值&lt;0.1的变量，同时保留composite SES score作为临床显著变量（基于既往所报道的尤文肉瘤和骨肉瘤的文献）。</li>
+<li>经过初步分析显示黑人种族患者与其他种族患者在生存率上存在差异，进行了卡方分析，确定黑人种族患者与其他种族患者相比，更多地出现肿瘤转移(48.4% vs. 31.6%, p &#x3D; 0.049)。</li>
+<li>由于黑人种族与首诊时出现转移之间存在关联，我们选择从多因素模型中去除首诊时出现转移(metastatic disease)，以进一步分离种族对生存的影响。</li>
+<li>模型3纳入所有在单因素分析中p&lt;0.1的分类变量和复合SES评分，同时排除首诊时出现转移。</li>
+</ol>
+<h3 id="（四）缺失数据"><a href="#（四）缺失数据" class="headerlink" title="（四）缺失数据"></a>（四）缺失数据</h3><ol>
+<li>肿瘤大小是SEER数据库中报道最不一致的变量，为队列中的646&#x2F;1163（55.5％）的患者提供了数值。</li>
+<li>有或没有肿瘤大小数据的患者，两者的10年生存率之间没有差异（p &#x3D; 0.562）。</li>
+<li>没有肿瘤大小数据的患者在统计分析中被归类为未知(Unknown)。</li>
+<li>其他缺失数据包括92&#x2F;1163（7.9％）患者缺乏社会经济变量。</li>
+</ol>
+<h2 id="三、结果"><a href="#三、结果" class="headerlink" title="三、结果"></a>三、结果</h2><h3 id="（一）原因特异性生存率-Cause-specific-survival"><a href="#（一）原因特异性生存率-Cause-specific-survival" class="headerlink" title="（一）原因特异性生存率(Cause-specific survival)"></a>（一）原因特异性生存率(Cause-specific survival)</h3><ol>
+<li><p>从1991年到2010年的SEER数据库中，纳入1163例骨来源的尤文肉瘤患者。绝大多数患者为其他种族(other race)（78.2％）和男性（63.5％）。</p>
+</li>
+<li><p>371&#x2F;1163（32.1％）患者在首诊时出现转移灶(Table 1)。</p>
+</li>
+<li><p>首诊时出现转移灶在黑人患者中较多(48.4% vs. 31.6%, p &#x3D; 0.049)，而西班牙裔种族患者中，肿瘤&gt; 10 cm较为常见(57.0 vs. 35.6%, p &lt; 0.001)。</p>
+</li>
+<li><p>首诊时无转移灶的患者，其2年，5年和10年的原因特异性生存率分别为86.5％,72.3％和66.8％。</p>
+</li>
+<li><p>首诊时有转移灶的患者，其2年，5年和10年的原因特异性生存率分别为54.7％,35.7％和28.1％。</p>
+<p> <img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%886.38.34.png"></p>
+</li>
+</ol>
+<h3 id="（二）单因素分析"><a href="#（二）单因素分析" class="headerlink" title="（二）单因素分析"></a>（二）单因素分析</h3><ol>
+<li>与原因特异性生存率降低有关<ul>
+<li>在首诊时出现转移灶(p &lt; 0.001)</li>
+<li>年龄≥20岁(p &lt; 0.001)</li>
+<li>肿瘤位于中轴骨(p &lt; 0.001)</li>
+<li>肿瘤大小&gt;10cm(p &lt; 0.001)</li>
+<li>黑人种族(p &#x3D; 0.045)</li>
+<li>男性(p &#x3D; 0.043)</li>
+<li>与原因特异性生存率降低相关 (Fig. 1a–f)</li>
+</ul>
+</li>
+<li>与原因特异性生存率降低无关<ul>
+<li><p>Composite SES score</p>
+</li>
+<li><p>rural or urban county location</p>
+<p>  <img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.38.png"><br>  <img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.44.png"><br>  <img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.29.51.png"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="（三）多因素分析"><a href="#（三）多因素分析" class="headerlink" title="（三）多因素分析"></a>（三）多因素分析</h3><ol>
+<li><p>10年原因特异性生存率降低的独立预后因素(Table 2)</p>
+<ul>
+<li><p>在首诊时出现转移灶</p>
+</li>
+<li><p>肿瘤大小&gt;10cm</p>
+</li>
+<li><p>肿瘤大小未知</p>
+</li>
+<li><p>年龄≥20岁</p>
+</li>
+<li><p>肿瘤位于中轴骨</p>
+<p>  <img src="http://qiniup.louyanspine.com/2018-10-22-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-22%20%E4%B8%8B%E5%8D%887.30.47.png"></p>
+</li>
+</ul>
+</li>
+<li><p>在从多因素模型中去除首诊时出现转移灶后，黑人成为10年原因特异性生存率降低的独立危险因素 (Table 2, Model 3)。</p>
+<blockquote>
+<p>首诊时出现转移灶在黑人患者中较多(48.4% vs. 31.6%, p &#x3D; 0.049)</p>
+</blockquote>
+<ul>
+<li>为了进一步探索这一发现的敏感性，将分析中的首诊时出现转移灶重新添加到分析中，并且每个剩余的变量（年龄，性别，位置，大小和复合SES）被独立去除，以确定黑人与其他分类变量的关联，但均未再次成为独立危险因素。</li>
+</ul>
+</li>
+</ol>
+<h2 id="四、讨论"><a href="#四、讨论" class="headerlink" title="四、讨论"></a>四、讨论</h2><h3 id="（一）首诊时出现转移灶"><a href="#（一）首诊时出现转移灶" class="headerlink" title="（一）首诊时出现转移灶"></a>（一）首诊时出现转移灶</h3><ol>
+<li>首诊时出现转移灶的尤文肉瘤患者，其预后非常差。之前的研究报道显示，在多药化疗方案(multidrug chemotherapeutic regimens)时代，5年生存率估计约为30％。</li>
+<li>与转移到其他骨骼部位的患者相比，肺部孤立性转移灶预后相对较好。</li>
+<li>Esiashvili等人通过SEER数据库报道了过去三十年来尤文肉瘤患者的发病率和生存率的变化。根据他们的报道，伴有转移灶的患者的生存率在过去三十年中有所改善，最近十年报道的5年生存率估计值为39％。</li>
+<li>我们的研究结果与之前报道中估计的发病率和5年生存率一致，同时也确定了首诊时出现转移灶，作为预示尤文肉瘤患者最差预后的独立危险因素。</li>
+</ol>
+<h3 id="（二）肿瘤大小"><a href="#（二）肿瘤大小" class="headerlink" title="（二）肿瘤大小"></a>（二）肿瘤大小</h3><ol>
+<li>使用加利福尼亚癌症登记数据库(California Cancer Registry database)，Lee et al.报道，肿瘤≥8cm，是预后较差的独立危险因素。</li>
+<li>虽然较大的肿瘤可能经常与首诊时出现转移灶、肿瘤位于中轴骨相关，而这两个都是预后的危险因素。</li>
+<li>我们的多因素分析表明，体积较大的肿瘤（&gt; 10 cm）和肿瘤大小未知，会导致较差的预后，独立于首诊时出现转移灶和肿瘤位置。</li>
+</ol>
+<h3 id="（三）年龄"><a href="#（三）年龄" class="headerlink" title="（三）年龄"></a>（三）年龄</h3><ol>
+<li><p>诊断为尤文肉瘤的绝大多数患者是儿童或青少年。</p>
+</li>
+<li><p>Gupta et al.比较了只有局部病灶的儿童和成人尤文肉瘤患者的生存率，发现成人患者3年总体生存率显著降低。作者将成人预后较差归因于较低剂量的烷基化化疗药物(alkylating chemotherapeutic agents)。</p>
+<ul>
+<li>应该注意的是，SEER数据库没有提供用于治疗尤文肉瘤的化疗使用、类型或强度的数据。</li>
+</ul>
+</li>
+<li><p>利用SEER数据库，Karski et al.确定患者年龄≥40岁是生存率降低的独立危险因素。</p>
+</li>
+</ol>
+<h3 id="（四）肿瘤部位"><a href="#（四）肿瘤部位" class="headerlink" title="（四）肿瘤部位"></a>（四）肿瘤部位</h3><ol>
+<li>尤文肉瘤通常表现为盆腔肿块，通常与诊断时肿瘤体积增大有关。关于肿瘤位于中轴骨对生存的独立影响作用，文献仍然相对不确定。</li>
+<li>Cotterill et al.确定无转移灶的患者，其肿瘤位于中轴骨是降低无病生存率的独立危险因素。</li>
+<li>另一方面，Bacci et al等人未确定肿瘤位于中轴骨是无转移灶的尤文肉瘤患者生存率降低的独立危险因素。</li>
+<li>肿瘤位于中轴骨给医生带来许多挑战，因为解剖学限制和神经血管结构使得难以用足够的手术切缘对肿瘤进行切除。</li>
+<li>在研究手术切缘在Ewing肉瘤治疗中的作用时，Bacci et al.指出，与四肢肿瘤相比，位于中轴骨的肿瘤，手术切除显然不太可能获得足够的手术切缘。</li>
+<li>患者也可能较晚才会注意到中轴骨的肿瘤，可能导致在治疗的延误和增加肿瘤扩散的风险。</li>
+<li>在本研究中，控制肿瘤大小和首诊时发生转移后，我们确定中轴骨是导致原因特异性生存率降低的独立危险因素。</li>
+</ol>
+<h3 id="（五）种族"><a href="#（五）种族" class="headerlink" title="（五）种族"></a>（五）种族</h3><ol>
+<li>尤文肉瘤在白种人患者中发生率最高，在黑人中罕见。</li>
+<li>在一项利用SEER数据库的研究中，Jawad et al.发现生存不受种族因素的影响，同时注意到与黑人相比，白人肉瘤发生Ewing肉瘤的可能性要高9倍。</li>
+<li>在此次研究中，与所有其他种族患者相比，黑人种族与首诊时出现转移灶密切相关(48.4 vs. 31.6%, p &#x3D; 0.049)，而西班牙裔种族患者与所有其他种族患者相比，更多地出现肿瘤大小 &gt;10cm(57.0 vs. 35.6%, p &lt; 0.001)。</li>
+<li>进一步的分析显示，与所有其他种族患者相比，黑种人患者的10年原因特异性生存率降低 (38.4 vs. 55.5%, p &#x3D; 0.024)。与所有其他种族患者相比，西班牙裔种族患者在生存期上没有差异。</li>
+<li>当从多因素模型中排除首诊时出现转移灶时，黑种人成为10年原因特异性生存率降低的独立危险因素，但在去除任何其他分类变量后未能成为原因特异性生存率降低的独立危险因素。</li>
+</ol>
+<h3 id="（六）综合社会经济状况指数-composite-socioeconomic-status-index"><a href="#（六）综合社会经济状况指数-composite-socioeconomic-status-index" class="headerlink" title="（六）综合社会经济状况指数(composite socioeconomic status index)"></a>（六）综合社会经济状况指数(composite socioeconomic status index)</h3><ol>
+<li>虽然Ewing肉瘤在西班牙裔和黑人患者中的低发病率限制了进一步的比较，但未来的研究应该集中在肿瘤本身固有的因素以及获得医疗保健资源途径的变化因素，从而对不成比例的首诊时疾病进展，肿瘤体积较大，和生存差异进行研究。</li>
+<li>一些研究已经确定社​​会经济地位下降和&#x2F;或获得医疗保健的机会有限，这些因素可能会影响到治疗的选择，疾病分期和癌症患者的生存。</li>
+<li>利用基于加利福尼亚州人口普查区块数据的综合社会经济状况指数(composite socioeconomic status index)，Lee et al.确定最低水平的复合社会经济地位是尤文肉瘤患者死亡率的独立危险因素。</li>
+<li>本研究利用来自SEER数据库的县级数据(county-level data)，发现较低的社会经济状况与尤文肉瘤患者的原因特异性生存率降低无关。<ul>
+<li>尤文肉瘤患者社会经济状况对生存的影响很可能高度依赖于提供数据的地理区域的异质性(heterogeneity)以及复合社会经济状况变量的内在因素(inclusive elements)。</li>
+<li>社会经济因素可能会影响尤文肉瘤的预后，我们无法通过记录的县级数据来观察这些差异。这是一个可以从进一步研究中获益的领域。</li>
+</ul>
+</li>
+</ol>
+<h3 id="（七）局限性"><a href="#（七）局限性" class="headerlink" title="（七）局限性"></a>（七）局限性</h3><ol>
+<li>SEER数据库不收集有关首次诊断后局部复发或转移扩散的信息，这些信息都会影响尤文肉瘤患者的预后。因此除了原因特异性生存率之外，这种限制使我们无法报告无病生存率。</li>
+<li>使用死亡证书(death certificates)计算原因特异性生存率以确定死亡原因，如果列出多种死因，则可能是不准确或难以解释的。但这种生存分析的方法先前已在文献中使用过。</li>
+<li>此外，SEER数据库不收集有关化疗的使用信息或特定的化疗药物，化疗常用于尤文肉瘤患者。</li>
+<li>在SEER数据库中，年龄以五年为间隔，属于分类变量，并且选择年龄为20岁以界定区分儿童和成人。当然，选择其他年龄为截止点可能会产生不同的结果。</li>
+<li>虽然SEER数据库提供了包含26％美国人口的17个区域癌症登记中心的数据，但与整个国家相比，数据库中包含的区域往往更富裕。</li>
+<li>此外，SEER数据库提供的社会经济数据的地理划分是县级水平，可能不像人口普查区(census tracts)或邮政编码区(zip codes)那样敏感，特别是在差异较大的县之间。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%84%E5%90%8E/" rel="tag"># 预后</a>
+              <a href="/tags/%E5%B0%A4%E6%96%87%E8%82%89%E7%98%A4/" rel="tag"># 尤文肉瘤</a>
+              <a href="/tags/SEER%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># SEER数据库</a>
+              <a href="/tags/%E5%8D%95%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90/" rel="tag"># 单因素分析</a>
+              <a href="/tags/%E5%A4%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90/" rel="tag"># 多因素分析</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/10/21/The-prognostic-and-therapeutic-factors-which-influence-the-oncological-outcome-of-parosteal-osteosarcoma/" rel="prev" title="影响骨旁骨肉瘤肿瘤学结局的预后和治疗因素">
+      <i class="fa fa-chevron-left"></i> 影响骨旁骨肉瘤肿瘤学结局的预后和治疗因素
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/10/24/WHOPathology/" rel="next" title="2013版WHO软组织与骨肿瘤病理学：骨旁骨肉瘤(Parosteal osteosarcoma)">
+      2013版WHO软组织与骨肿瘤病理学：骨旁骨肉瘤(Parosteal osteosarcoma) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%9D%90%E6%96%99%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">二、材料与方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0"><span class="nav-number">2.1.</span> <span class="nav-text">（一）数据元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%82%A3%E8%80%85%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">患者变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%82%BF%E7%98%A4%E7%89%B9%E5%BC%82%E6%80%A7%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.2.</span> <span class="nav-text">肿瘤特异性变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%82%A3%E8%80%85%E5%B1%85%E4%BD%8F%E5%9C%B0%E7%9A%84%E7%A4%BE%E4%BC%9A%E7%BB%8F%E6%B5%8E%E6%B5%8B%E9%87%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">2.1.3.</span> <span class="nav-text">基于患者居住地的社会经济测量数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%93%E5%B1%80"><span class="nav-number">2.1.4.</span> <span class="nav-text">主要结局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90"><span class="nav-number">2.2.</span> <span class="nav-text">（二）统计分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%A4%9A%E5%9B%A0%E7%B4%A0%E6%A8%A1%E5%9E%8B%E7%AD%9B%E9%80%89"><span class="nav-number">2.3.</span> <span class="nav-text">（三）多因素模型筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE"><span class="nav-number">2.4.</span> <span class="nav-text">（四）缺失数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">三、结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%8E%9F%E5%9B%A0%E7%89%B9%E5%BC%82%E6%80%A7%E7%94%9F%E5%AD%98%E7%8E%87-Cause-specific-survival"><span class="nav-number">3.1.</span> <span class="nav-text">（一）原因特异性生存率(Cause-specific survival)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%8D%95%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90"><span class="nav-number">3.2.</span> <span class="nav-text">（二）单因素分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%A4%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90"><span class="nav-number">3.3.</span> <span class="nav-text">（三）多因素分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%AE%A8%E8%AE%BA"><span class="nav-number">4.</span> <span class="nav-text">四、讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E9%A6%96%E8%AF%8A%E6%97%B6%E5%87%BA%E7%8E%B0%E8%BD%AC%E7%A7%BB%E7%81%B6"><span class="nav-number">4.1.</span> <span class="nav-text">（一）首诊时出现转移灶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E8%82%BF%E7%98%A4%E5%A4%A7%E5%B0%8F"><span class="nav-number">4.2.</span> <span class="nav-text">（二）肿瘤大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%B9%B4%E9%BE%84"><span class="nav-number">4.3.</span> <span class="nav-text">（三）年龄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E8%82%BF%E7%98%A4%E9%83%A8%E4%BD%8D"><span class="nav-number">4.4.</span> <span class="nav-text">（四）肿瘤部位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E7%A7%8D%E6%97%8F"><span class="nav-number">4.5.</span> <span class="nav-text">（五）种族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%85%AD%EF%BC%89%E7%BB%BC%E5%90%88%E7%A4%BE%E4%BC%9A%E7%BB%8F%E6%B5%8E%E7%8A%B6%E5%86%B5%E6%8C%87%E6%95%B0-composite-socioeconomic-status-index"><span class="nav-number">4.6.</span> <span class="nav-text">（六）综合社会经济状况指数(composite socioeconomic status index)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%83%EF%BC%89%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">4.7.</span> <span class="nav-text">（七）局限性</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">430</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1626</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

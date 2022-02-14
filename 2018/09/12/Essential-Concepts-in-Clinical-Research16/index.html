@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明：  部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research   随机试验的多重比较之二：亚组分析和期中分析一、摘要 亚组分析可以发生严重的多重比较问题。 对一定数量的亚组进行检验，就可能仅仅是由于机遇而得到假阳性的结果。 研究者可能进行了很多的分析，但最终只报">
+<meta property="og:type" content="article">
+<meta property="og:title" content="临床研究基本概念：随机对照试验（八）">
+<meta property="og:url" content="http://lysp2017.github.io/2018/09/12/Essential-Concepts-in-Clinical-Research16/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明：  部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research   随机试验的多重比较之二：亚组分析和期中分析一、摘要 亚组分析可以发生严重的多重比较问题。 对一定数量的亚组进行检验，就可能仅仅是由于机遇而得到假阳性的结果。 研究者可能进行了很多的分析，但最终只报">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%884.58.00-1.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%888.36.16.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%889.01.34.png">
+<meta property="article:published_time" content="2018-09-12T15:03:04.000Z">
+<meta property="article:modified_time" content="2019-02-27T16:54:53.000Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="多重比较">
+<meta property="article:tag" content="亚组分析">
+<meta property="article:tag" content="期中分析">
+<meta property="article:tag" content="统计学终止">
+<meta property="article:tag" content="Pocock方法">
+<meta property="article:tag" content="成组序贯设计">
+<meta property="article:tag" content="Peto方法">
+<meta property="article:tag" content="Haybittle-Peto方法">
+<meta property="article:tag" content="O’Brien-Fleming方法">
+<meta property="article:tag" content="条件把握度">
+<meta property="article:tag" content="随机缩短">
+<meta property="article:tag" content="Lan-Demets">
+<meta property="article:tag" content="α消耗函数">
+<meta property="article:tag" content="贝叶斯理论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%884.58.00-1.png">
+
+<link rel="canonical" href="http://lysp2017.github.io/2018/09/12/Essential-Concepts-in-Clinical-Research16/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>临床研究基本概念：随机对照试验（八） | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/12/Essential-Concepts-in-Clinical-Research16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          临床研究基本概念：随机对照试验（八）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-12 23:03:04" itemprop="dateCreated datePublished" datetime="2018-09-12T23:03:04+08:00">2018-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:54:53" itemprop="dateModified" datetime="2019-02-28T00:54:53+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说明：<br></p>
+<ol>
+<li>部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></li>
+</ol>
+</blockquote>
+<h1 id="随机试验的多重比较之二：亚组分析和期中分析"><a href="#随机试验的多重比较之二：亚组分析和期中分析" class="headerlink" title="随机试验的多重比较之二：亚组分析和期中分析"></a>随机试验的多重比较之二：亚组分析和期中分析</h1><h2 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h2><ol>
+<li>亚组分析可以发生严重的多重比较问题。</li>
+<li>对一定数量的亚组进行检验，就可能仅仅是由于机遇而得到假阳性的结果。</li>
+<li>研究者可能进行了很多的分析，但最终只报道了阳性的结果，扭曲了医学文献。</li>
+<li>总体上来说，亚组分析是不推荐的。</li>
+<li>如果亚组分析是必需的，研究者应该进行交互作用分析结果的真实性，而不是对每一个亚组进行分析。</li>
+<li>当数据监查显示有必要时，研究者不可避免进行期中分析。</li>
+<li>然而，在每一个期中进行重复的检验就有多重比较问题，如果不考虑多重比较问题就会逐步提高假阳性错误。必须应用统计学的终止方法。</li>
+<li>O’Brien-Fleming和Peto成组序贯终止方法容易操作，同时又保存了α水平和把握度。</li>
+<li>在期中分析时，两者都采用了严格标准(非常低的P)。</li>
+<li>运用这种终止原则的临床试验与传统试验类似，但当一种治疗表现出明显优越性的时候可以提早终止试验。</li>
+<li>研究者和读者需注意到，提早终止试验可能会(随机地)高估治疗效果。</li>
+</ol>
+<h2 id="二、前言"><a href="#二、前言" class="headerlink" title="二、前言"></a>二、前言</h2><ol>
+<li>亚组分析具有特殊的吸引力。对于研究者和读者而言，它们看上去符合逻辑和直觉，甚至是有趣的。</li>
+<li>然而这种阴险的吸引力可以引发严重的问题。多重比较问题及天真性(naiveté)使试验执行及报道过程中易发生解释性错误(missteps)。许多试验报道的亚组中的治疗效果都可能是错误的。</li>
+<li>相反，当数据监查显示有必要时(data monitoring is indicated)，研究者无法避免期中分析。在期中分析时也不能使用一般的统计学方法。</li>
+<li>统计学终止方法，尤其用于提醒而非终止的统计学校正必须用于数据监查中(Statistical stopping methods, essentially statistical adjustments for warning rather than stopping, must be used in support of data monitoring)。</li>
+<li>然而，这些方法常阻碍着研究者和读者。统计学方法即便没有将二阶函数引入终止方法也常常把人搞糊涂(Statistics frequently proves confusing anyway without throwing in second-order complications of stopping methods)。</li>
+<li>亚组分析和期中分析所导致的多重比较问题与多个终点事件和多个治疗分组所致的多重比较问题类似。<ul>
+<li>研究者常进行多个亚组分析和多次期中分析对数据进行挖掘。</li>
+<li>同时，研究者还进行无事先计划的亚组和期中分析。</li>
+<li>当然，一些处理亚组和期中分析多重比较问题的方法有别于那些用于多个终点事件和治疗分组的方法。</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、亚组分析"><a href="#三、亚组分析" class="headerlink" title="三、亚组分析"></a>三、亚组分析</h2><h3 id="（一）不加选择的亚组分析引起多重比较问题"><a href="#（一）不加选择的亚组分析引起多重比较问题" class="headerlink" title="（一）不加选择的亚组分析引起多重比较问题"></a>（一）不加选择的亚组分析引起多重比较问题</h3><ol>
+<li>不加选择的亚组分析(subgroup analysis)会引起多重比较问题。医学文献中充斥着这一问题。在众多的警告之后，一些调查者还在固执地进行过多的亚组分析。</li>
+<li>研究者在基线时根据受试者的特点将他们分成各亚组。<ul>
+<li>他们通过分析来评价各亚组的治疗效果是否有差别。</li>
+<li>研究者的主要问题是在每一个亚组内都进行统计学检验。</li>
+<li>对多个亚组及多个终点事件的复合分析会使统计检验的次数显著增加。</li>
+<li>在总体没有效果的情况下，研究者会为了获得阳性结果进行亚组分析，即数据挖掘(data-dredging)。</li>
+<li>如果进行一定数目的亚组分析，就可能因为机遇而获得假阳性(false positive)结果。</li>
+</ul>
+</li>
+<li>如果一个随机对照临床研究的结果没有证实一个人的想法，解决的方法不是进行亚组分析，直到看到想要的结果，而是应该重新仔细检视这个研究假设。</li>
+<li>同样地，在一个总体结果是阳性的临床试验中，进行亚组分析时可能会由于机遇和把握度较低等因素而产生假阴性(false negative)结果。</li>
+<li>《柳叶刀》杂志曾发表过一个很有启示性的例子。<ul>
+<li>阿司匹林对预防心肌梗死后死亡率有很强的益处(P&lt;0.00001，可信区间很窄)。</li>
+<li>编辑让研究者进行将近40次亚组分析。要求使用他们的数据显示亚组分析的不可信，研究者勉强同意进行了亚组分析。</li>
+<li>出生星座为双子座或天秤座的受试者服用阿司匹林后死亡等不良事件发生率增高(增高9%，标准差13，没有显著性差异)</li>
+<li>他星座的受试者有显著的治疗益处(相关死亡率下降28%，标准差5;P&lt;0.00001)。</li>
+<li>除了占星学家们，医学界对这一chance zodiac finding没有什么兴趣。</li>
+</ul>
+</li>
+<li>对于亚组分析结果，研究者们是这样总结的：这些亚组分析不能作为谁治疗有效或无效的证据，而且还有可能造成误解。</li>
+<li>他们及其他经过深思的研究者强调，对某一个亚组而言，最可信的对疗效的估计是总体估计(合并所有的亚组)，而不是在某一亚组中观察到效果。我们同意这一观点。</li>
+</ol>
+<h3 id="（二）如何解决亚组分析带来的多重比较问题"><a href="#（二）如何解决亚组分析带来的多重比较问题" class="headerlink" title="（二）如何解决亚组分析带来的多重比较问题"></a>（二）如何解决亚组分析带来的多重比较问题</h3><ol>
+<li><p>正确的分析可以解决许多亚组分析带来的多重比较问题。</p>
+<ul>
+<li>研究者常对每一个亚组进行不恰当的亚组分析，导致机遇性发现的发生。</li>
+<li>例如，在基线时按年龄将受试者分成四组，仅此一项就可以产生四次统计检验(table 1)。</li>
+</ul>
+</li>
+<li><p>正确的分析方法是进行交互作用分析(statistical test of interaction)，以此评价治疗效果是否依赖于患者属于某一特定的亚组。</p>
+<ul>
+<li>这样的分析不仅回答了研究的问题，而且只进行了一次统计检验而不是四次，从而解决了多重比较问题。</li>
+<li>有研究者因缺少把握度而质疑交互作用检验。</li>
+<li>但事实上，交互作用检验这种方法比较谨慎。</li>
+<li>它既可以发现亚组中存在的有限的信息，是一种最有效的限制不恰当亚组分析的方法，与此同时当交互作用确实存在的话，又能发现它。</li>
+</ul>
+<p> <img src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%884.58.00-1.png"></p>
+<blockquote>
+<p>对交互作用的统计检验(Breslow-Day检验法)未达显著性差异(P&#x3D;0.103)，这表明在30~34岁组发现的阳性结果由机遇所致。如果过分强调这一亚组分析结果，就是亚组分析结果影响整体阴性结果的一个例子。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="（三）只报道亚组分析中的阳性结果"><a href="#（三）只报道亚组分析中的阳性结果" class="headerlink" title="（三）只报道亚组分析中的阳性结果"></a>（三）只报道亚组分析中的阳性结果</h3><ol>
+<li>亚组分析的另一问题是研究者进行很多次检验，但最终只报道阳性的结果，这是一种误导他人的做法，如果是故意的，更是一种不道德的做法。这种情况与分析多个重点事件相似。</li>
+</ol>
+<h3 id="（四）如何正确进行亚组分析"><a href="#（四）如何正确进行亚组分析" class="headerlink" title="（四）如何正确进行亚组分析"></a>（四）如何正确进行亚组分析</h3><ol>
+<li>我们不推荐亚组分析。但如果恰当地进行，亚组分析也并不一定是错误的。</li>
+<li>有时候进行亚组分析有其生物学意义，有时候进行亚组分析是因为公众或公司等资助者要求进行。</li>
+<li>如果进行亚组分析：<ul>
+<li>应该只限定于主要终点事件，而且分析的数目应该有所限制。</li>
+<li>研究方案中应事先列出拟进行的亚组分析。</li>
+<li>研究者应该报道所有亚组分析的结果，而不是只报道阳性的结果。</li>
+<li>更重要的是，研究者应该进行交互作用分析来评价不同的亚组中治疗效果是否不同，而不是在每个亚组中进行单独的检验。这种方法可以解决多重比较问题。单个亚组分析的结果很少会影响研究的结论。</li>
+</ul>
+</li>
+<li>亚组分析的结果常被过度解释。常有人建议不要进行亚组分析(或不要过分相信亚组分析的结果)，但这一建议似乎与人们的天性相悖。</li>
+<li>方法学家对于亚组分析的批评过于谨慎。应该进行更强烈的谴责。</li>
+</ol>
+<h3 id="（五）对于亚组分析读者应注意的问题"><a href="#（五）对于亚组分析读者应注意的问题" class="headerlink" title="（五）对于亚组分析读者应注意的问题"></a>（五）对于亚组分析读者应注意的问题</h3><ol>
+<li>当某一临床试验报道了许多亚组分析时，读者应引起注意，除非研究者提供了正确的理由。</li>
+<li>同时，对那些只报道了一小部分亚组分析的研究也应注意，因为他们可能进行了很多亚组分析，却只报道了有阳性结果的部分。因而，错误的报告可能意味着亚组分析少的试验甚至比亚组分析较多的试验更糟糕。</li>
+<li>如果研究者报道了所有的分析，这样的结果更可信。</li>
+<li>而且，研究者应该将没有事先计划的亚组分析作为假说的产生，而不是对假说的肯定。这样的结果不能作为结论。</li>
+<li>各亚组中治疗效果的差异，应该用交互作用来检验。仅在亚组内进行分析是不对的。即便交互作用检验结果是阳性的，读者也应该根据生物学机制、事先制定的分析、统计相关性强度来判断与解释结果。</li>
+<li>一般来说，如果研究者进行的是交互作用检验，是无需对多重比较问题进行校正的。</li>
+<li>然而，由于现在存在为了结果而对数据进行过度挖掘的现象，支持其进行统计校正的论点强于对多个终点事件的。</li>
+<li>如果研究者没有使用交互作用检验而是对每个亚组进行检验，那么进行多重比较校正是正确的。</li>
+<li>多数亚组分析的结果夸大了效果。当研究者在一个总体没有疗效的试验中过度强调单一亚组分析结果时，要持有怀疑的态度。他们常常将此作为挽救效果不确定(阴性)研究的一种措施(table 1)。</li>
+</ol>
+<h2 id="四、期中分析-Interim-analyses"><a href="#四、期中分析-Interim-analyses" class="headerlink" title="四、期中分析(Interim analyses)"></a>四、期中分析(Interim analyses)</h2><h3 id="（一）为何要进行期中分析"><a href="#（一）为何要进行期中分析" class="headerlink" title="（一）为何要进行期中分析"></a>（一）为何要进行期中分析</h3><ol>
+<li>对于临床试验的合理检测远不止统计学提醒其终止。回答所研究的治疗方式究竟是优于还是次于现有治疗方式是是否终止研究的最重要因素。</li>
+<li>然而，入组缓慢(slow accrual)、数据质量差、依从性差、资源匮乏、无法接受的副作用、作假、新出现的信息表明试验没有意义或不道德等都可以导致研究的终止。这一决定的过程很显然是非常复杂的。最好由一个独立的数据管理委员会来决定，并且事先确定一个终止试验的统计学方法。然而对这类统计学事件，研究者和读者常常是不了解的。</li>
+<li>随着试验数据的积累，研究者通常希望对主要终点事件进行分析。<ul>
+<li>如果试验结束时设定P&lt;0.05为具有统计学意义，那么进行所有的期中分析(interim analyses)时采用α水平为0.05是错误的。</li>
+<li>下面用一个图表来说明这种情况(figure)。<ul>
+<li>5年中，每6个月数据管理委员会进行一次期中分析。</li>
+<li>在第18个月时P小于0.05，然而在这之后再也未达统计学阳性。</li>
+<li>如果委员会根据该结果而提早终止试验可能得出治疗方法有效的错误结论。<br>  <img src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%888.36.16.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果在P&lt;0.05水平进行许多的期中分析会增加假阳性（false positive）的概率（α）。<ul>
+<li>事实上，如果每一次期中分析时研究者都采用α&#x3D;0.05的水平，那么最后的总体α水平随着检验次数而升高。</li>
+<li>这一多重比较问题表明了进行统计学校正的必要性：科学的可依靠性有赖于之。</li>
+</ul>
+</li>
+</ol>
+<h3 id="（二）统计学终止方法"><a href="#（二）统计学终止方法" class="headerlink" title="（二）统计学终止方法"></a>（二）统计学终止方法</h3><p>统计学家发展了许多统计学终止(statistical warnings for stopping)的方法，有时被称为数据依赖终止规则(data-dependent stopping rules)或指南。如果研究者想进行期中分析，他们必须使用其中一种方法。</p>
+<h4 id="（1）成组序贯设计"><a href="#（1）成组序贯设计" class="headerlink" title="（1）成组序贯设计"></a>（1）成组序贯设计</h4><ol>
+<li>成组序贯设计(The group sequential designs)是最常用的。这一方法比较容易理解、执行及应用。</li>
+<li>该方法根据期中分析的次数决定最终终止试验的P，使总体的I类错误保持在一定范围内(α;table 2)。</li>
+</ol>
+<h5 id="Pocock方法"><a href="#Pocock方法" class="headerlink" title="Pocock方法"></a>Pocock方法</h5><ol>
+<li>固定低水平P的方法(The fixed nominal level approach)，即Pocock方法(Pocock approach)，提出了简单并可以较早地终止研究的方法。但由于最终检验结果的P比常规固定样本的P小，使研究不容易得到阳性结果。</li>
+<li>例如，如果总体α水平在0.05，进行三次期中分析，研究者在每次检验时设定的P在0.022，包括最终检验(table 2)。<ul>
+<li>如果最终检验得到的P&#x3D;0.03，那么用这种成组序贯设计，该试验结果将被判断为非统计学阳性的。</li>
+<li>但如果没有使用成组序贯设计；试验结果是阳性的。</li>
+</ul>
+</li>
+<li>这一方法具有历史意义，其他方法均是吸收了这一方法的优点避免了它的缺点而发展起来的。</li>
+</ol>
+<h5 id="O’Brien-Fleming和Peto方法"><a href="#O’Brien-Fleming和Peto方法" class="headerlink" title="O’Brien-Fleming和Peto方法"></a>O’Brien-Fleming和Peto方法</h5><ol>
+<li>这两种方法在期中分析过程中均采用严格的标准（很低的P） (table 2)。</li>
+<li>如果研究继续进行达到计划的样本量，那么最终的分析如同没有期中分析一样。</li>
+<li>这样的方法不仅保证了α水平，也保存了把握度。</li>
+<li>数据的收集方法与一个固定样本的研究一样。这两个终止方法的优点在于其简单性。</li>
+<li>用这两种方法来进行试验和传统试验很相似，只是当治疗方法被证明有很强的优势时可以提早终止试验。</li>
+<li>一条普遍的原则是：一个研究中进行多于四次或五次期中分析时，研究者很少有更多的收益。因此，只要付出一点额外的努力，研究者便可以满足伦理学的要求，在研究过程中检测治疗的效果，无论是正面的还是负面的。</li>
+<li>Peto方法，又称为Haybittle-Peto法（Haybittle-Peto procedure）易于理解、执行与描述。它采用一个固定且严格的终止研究的P水平，直至最终分析。但对于某些临床试验，研究者们认为用Peto法早期终止研究比较困难。</li>
+<li>O’Brien-Fleming法(O’Brien-Fleming porcedure)从直觉上更吸引研究者。在试验开始阶段，大家对不稳定的结果都不确定时，它采用的P更保守，随着试验的进行，结果变得可靠与稳定时，它的标准也随之放宽。与Peto法不同的是，O’Brien-Fleming法每个期中分析阶段的终止标准不同。<br> <img src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%889.01.34.png"></li>
+</ol>
+<h4 id="（2）统计学终止方法的实施原则"><a href="#（2）统计学终止方法的实施原则" class="headerlink" title="（2）统计学终止方法的实施原则"></a>（2）统计学终止方法的实施原则</h4><ol>
+<li>如果研究者计划进行期中分析，应事先制定所采用的统计学终止方法(statistical warnings for stopping)。</li>
+<li>此外，应由一位独立的试验统计学家来为数据监控委员会进行分析，而不是研究者自己。</li>
+<li>如何进行期中分析应写入研究方案，作为一个独立的统计章节，或在数据监控委员会章节内描述。</li>
+<li>分析计划和章节可以作为研究方案的附录。这样做可以让研究的执行者更好的根据研究方案来进行试验。</li>
+<li>许多临床试验并不需要进行期中分析和独立的数据监控。对2000年期间进行的622个合格的临床试验的回顾显示，24%的研究提到了数据监控、期中分析，或二者兼有。</li>
+</ol>
+<h3 id="（三）早期终止与治疗效果的偏倚性评估"><a href="#（三）早期终止与治疗效果的偏倚性评估" class="headerlink" title="（三）早期终止与治疗效果的偏倚性评估"></a>（三）早期终止与治疗效果的偏倚性评估</h3><ol>
+<li>如果数据监控委员会根据成组序贯设计的统计结果提早终止一项研究，这时对治疗效果的估计是有偏倚的，这仍旧是这一方法的缺点。</li>
+<li>如前面所解释的，如果研究者重复这个相同的研究，向着有较强疗效的随机波动将比向着较差疗效的波动更易终止研究。</li>
+<li>因此当一个研究被早期终止的时候，读者应该了解到这种情况下估计的治疗效果可能是被放大的(如一个随机的更强的效果)。</li>
+<li>如果无偏倚估计是研究的首要任务，研究者应该设计一个固定样本的试验并避免成组序贯设计。</li>
+</ol>
+<h3 id="（四）因为有害或无效终止试验"><a href="#（四）因为有害或无效终止试验" class="headerlink" title="（四）因为有害或无效终止试验"></a>（四）因为有害或无效终止试验</h3><ol>
+<li><p>到目前为止，对于试验的早期终止，无论治疗是有效还是有害均采用了相同的原则。统计学家将这种方法称为成组序贯检验方法的对称性的终止界限(a strategy symmetric stopping boundaries with group sequential methods)，相当于双侧假设检验。</p>
+</li>
+<li><p>然而一些研究者或数据监控委员会委员可能更倾向于采用一种非对称的终止界限。使用这种标准在终止有害情况时比终止有效情况下所采用的终止水平要低。</p>
+<blockquote>
+<p>例如，O’Brien-Fleming序列终止水平可以用于监测试验的有效性，而Pocock序列终止水平可以用于对有害性的监测。</p>
+</blockquote>
+</li>
+<li><p>研究者或者数据监控委员会有时不想证明有害性。相反的，他们选择证明研究方法没有更有效，就算结束整个试验，所研究的方法也不可能产生显著性的保护性效果。这样的方法有助于无效性终止，当没有能力证明研究方法有效的时候终止试验。这种方法衍生出一些时髦的术语：</p>
+<ul>
+<li>条件把握度(conditional power)</li>
+<li>随机缩短(stochastic curtailment)</li>
+</ul>
+</li>
+</ol>
+<h3 id="（五）其他统计学终止方法"><a href="#（五）其他统计学终止方法" class="headerlink" title="（五）其他统计学终止方法"></a>（五）其他统计学终止方法</h3><ol>
+<li>Lan-Demets(α消耗函数） (alpha spending function) 发展了一种更加灵活的成组序贯调整方法。<ul>
+<li>它将每次期中分析时所用的假阳性(false positive)率作为所见到的总体信息的比例的函数来控制，这样就可以在试验开始后改变期中分析的次数和确切时间。</li>
+<li>数据监控委员会开始的时候有一个日程安排，但随着数据的收集可以变化。</li>
+<li>因此α消耗函数允许未列入计划的观察。</li>
+</ul>
+</li>
+<li>在临床决策领域中，贝叶斯理论(Bayesian approaches〉非常有用，但在期中分析中的运用仍遭怀疑。<ul>
+<li><p>贝叶斯方法代表了统计学的一个分支，如果正确应用的话，可以用于数据监查。</p>
+</li>
+<li><p>然而因为贝叶斯理论在此运用得较少，所以读者并不需要具体去了解，而且这种方法的使用也有顾虑。</p>
+<blockquote>
+<p>如，虽然每次期中分析采用0.05的水平，但总体假阳性率(false positive)(α)会急剧升高。</p>
+</blockquote>
+</li>
+<li><p>然而一些研究资助者很热衷于这种更可能发现显著性效果的方法。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="（六）在阅读期中分析时读者应注意的问题"><a href="#（六）在阅读期中分析时读者应注意的问题" class="headerlink" title="（六）在阅读期中分析时读者应注意的问题"></a>（六）在阅读期中分析时读者应注意的问题</h3><ol>
+<li>读者需警惕那些没有被报道的期中分析。<ul>
+<li>如果研究者在报道中注明没有进行期中分析，那么多重比较多半不是问题。但这种透明式的报道较少。</li>
+<li>拙劣的报道可能让读者以为研究者进行了期中分析。</li>
+</ul>
+</li>
+<li>对读者而言发现是否进行了期中分析比较困难。<ul>
+<li>其中一条线索是观察计算的P略小于0.05，意味着研究者可能重复检验，在P略小于0.05时结束研究。</li>
+<li>另一条线索是完成后研究样本小于计划样本。</li>
+<li>在方法学部分中报道样本量的计算可以用于判断是否早期终止了研究。</li>
+</ul>
+</li>
+<li>读者应当注意是否有试验被早期终止了，却没有报道统计学终止原则的情况。</li>
+<li>如果研究者描述了统计学上的终止原则，读者应对其合适性进行评价。<ul>
+<li>Peto和O’Brien-Fleming方法既可达成期中分析的目标又无损总体试验分析。</li>
+<li>其他期中分析方法如α消耗函数和条件把握度一般情况下是恰当的方法</li>
+<li>但贝叶斯方法的应用尚有顾虑。</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%9A%E9%87%8D%E6%AF%94%E8%BE%83/" rel="tag"># 多重比较</a>
+              <a href="/tags/%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90/" rel="tag"># 亚组分析</a>
+              <a href="/tags/%E6%9C%9F%E4%B8%AD%E5%88%86%E6%9E%90/" rel="tag"># 期中分析</a>
+              <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%BB%88%E6%AD%A2/" rel="tag"># 统计学终止</a>
+              <a href="/tags/Pocock%E6%96%B9%E6%B3%95/" rel="tag"># Pocock方法</a>
+              <a href="/tags/%E6%88%90%E7%BB%84%E5%BA%8F%E8%B4%AF%E8%AE%BE%E8%AE%A1/" rel="tag"># 成组序贯设计</a>
+              <a href="/tags/Peto%E6%96%B9%E6%B3%95/" rel="tag"># Peto方法</a>
+              <a href="/tags/Haybittle-Peto%E6%96%B9%E6%B3%95/" rel="tag"># Haybittle-Peto方法</a>
+              <a href="/tags/O%E2%80%99Brien-Fleming%E6%96%B9%E6%B3%95/" rel="tag"># O’Brien-Fleming方法</a>
+              <a href="/tags/%E6%9D%A1%E4%BB%B6%E6%8A%8A%E6%8F%A1%E5%BA%A6/" rel="tag"># 条件把握度</a>
+              <a href="/tags/%E9%9A%8F%E6%9C%BA%E7%BC%A9%E7%9F%AD/" rel="tag"># 随机缩短</a>
+              <a href="/tags/Lan-Demets/" rel="tag"># Lan-Demets</a>
+              <a href="/tags/%CE%B1%E6%B6%88%E8%80%97%E5%87%BD%E6%95%B0/" rel="tag"># α消耗函数</a>
+              <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%90%86%E8%AE%BA/" rel="tag"># 贝叶斯理论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/12/Essential-Concepts-in-Clinical-Research15/" rel="prev" title="临床研究基本概念：随机对照试验（七）">
+      <i class="fa fa-chevron-left"></i> 临床研究基本概念：随机对照试验（七）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/13/Applied-Surgical-Anatomy-of-the-Thigh5/" rel="next" title="大腿的外科应用解剖：体表标志和切口">
+      大腿的外科应用解剖：体表标志和切口 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%AF%95%E9%AA%8C%E7%9A%84%E5%A4%9A%E9%87%8D%E6%AF%94%E8%BE%83%E4%B9%8B%E4%BA%8C%EF%BC%9A%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90%E5%92%8C%E6%9C%9F%E4%B8%AD%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">随机试验的多重比较之二：亚组分析和期中分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">一、摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.2.</span> <span class="nav-text">二、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">三、亚组分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E4%B8%8D%E5%8A%A0%E9%80%89%E6%8B%A9%E7%9A%84%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90%E5%BC%95%E8%B5%B7%E5%A4%9A%E9%87%8D%E6%AF%94%E8%BE%83%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.1.</span> <span class="nav-text">（一）不加选择的亚组分析引起多重比较问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%A4%9A%E9%87%8D%E6%AF%94%E8%BE%83%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.2.</span> <span class="nav-text">（二）如何解决亚组分析带来的多重比较问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%8F%AA%E6%8A%A5%E9%81%93%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E9%98%B3%E6%80%A7%E7%BB%93%E6%9E%9C"><span class="nav-number">1.3.3.</span> <span class="nav-text">（三）只报道亚组分析中的阳性结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E8%BF%9B%E8%A1%8C%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90"><span class="nav-number">1.3.4.</span> <span class="nav-text">（四）如何正确进行亚组分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E5%AF%B9%E4%BA%8E%E4%BA%9A%E7%BB%84%E5%88%86%E6%9E%90%E8%AF%BB%E8%80%85%E5%BA%94%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.5.</span> <span class="nav-text">（五）对于亚组分析读者应注意的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9C%9F%E4%B8%AD%E5%88%86%E6%9E%90-Interim-analyses"><span class="nav-number">1.4.</span> <span class="nav-text">四、期中分析(Interim analyses)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E4%B8%BA%E4%BD%95%E8%A6%81%E8%BF%9B%E8%A1%8C%E6%9C%9F%E4%B8%AD%E5%88%86%E6%9E%90"><span class="nav-number">1.4.1.</span> <span class="nav-text">（一）为何要进行期中分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%BB%88%E6%AD%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.2.</span> <span class="nav-text">（二）统计学终止方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E6%88%90%E7%BB%84%E5%BA%8F%E8%B4%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">（1）成组序贯设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Pocock%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.2.1.1.</span> <span class="nav-text">Pocock方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#O%E2%80%99Brien-Fleming%E5%92%8CPeto%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.2.1.2.</span> <span class="nav-text">O’Brien-Fleming和Peto方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%BB%88%E6%AD%A2%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E6%96%BD%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">（2）统计学终止方法的实施原则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E6%97%A9%E6%9C%9F%E7%BB%88%E6%AD%A2%E4%B8%8E%E6%B2%BB%E7%96%97%E6%95%88%E6%9E%9C%E7%9A%84%E5%81%8F%E5%80%9A%E6%80%A7%E8%AF%84%E4%BC%B0"><span class="nav-number">1.4.3.</span> <span class="nav-text">（三）早期终止与治疗效果的偏倚性评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E5%9B%A0%E4%B8%BA%E6%9C%89%E5%AE%B3%E6%88%96%E6%97%A0%E6%95%88%E7%BB%88%E6%AD%A2%E8%AF%95%E9%AA%8C"><span class="nav-number">1.4.4.</span> <span class="nav-text">（四）因为有害或无效终止试验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E5%85%B6%E4%BB%96%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%BB%88%E6%AD%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.5.</span> <span class="nav-text">（五）其他统计学终止方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%85%AD%EF%BC%89%E5%9C%A8%E9%98%85%E8%AF%BB%E6%9C%9F%E4%B8%AD%E5%88%86%E6%9E%90%E6%97%B6%E8%AF%BB%E8%80%85%E5%BA%94%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.6.</span> <span class="nav-text">（六）在阅读期中分析时读者应注意的问题</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">430</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1626</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

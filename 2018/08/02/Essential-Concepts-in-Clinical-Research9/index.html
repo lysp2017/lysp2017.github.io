@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明：  部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research   随机试验样本量的计算一、摘要 研究者在进行随机试验前应该正确地计算样本量，并在他们的报道中充分描述细节。 在这些先验的计算（a-priori calculations)中，检测效果大小的确定（例如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="临床研究基本概念：随机对照试验（一）">
+<meta property="og:url" content="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research9/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明：  部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research   随机试验样本量的计算一、摘要 研究者在进行随机试验前应该正确地计算样本量，并在他们的报道中充分描述细节。 在这些先验的计算（a-priori calculations)中，检测效果大小的确定（例如">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-15-b010306.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-16-10.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-16-103.jpg">
+<meta property="article:published_time" content="2018-08-02T09:21:37.000Z">
+<meta property="article:modified_time" content="2019-02-27T16:55:59.000Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="样本量">
+<meta property="article:tag" content="把握度">
+<meta property="article:tag" content="可信区间">
+<meta property="article:tag" content="I类错误">
+<meta property="article:tag" content="Ⅱ类错误">
+<meta property="article:tag" content="对照组事件发生率">
+<meta property="article:tag" content="治疗组事件发生率">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-08-15-b010306.png">
+
+<link rel="canonical" href="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>临床研究基本概念：随机对照试验（一） | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          临床研究基本概念：随机对照试验（一）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-02 17:21:37" itemprop="dateCreated datePublished" datetime="2018-08-02T17:21:37+08:00">2018-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:55:59" itemprop="dateModified" datetime="2019-02-28T00:55:59+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说明：<br></p>
+<ol>
+<li>部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></li>
+</ol>
+</blockquote>
+<h1 id="随机试验样本量的计算"><a href="#随机试验样本量的计算" class="headerlink" title="随机试验样本量的计算"></a>随机试验样本量的计算</h1><h2 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h2><ol>
+<li>研究者在进行随机试验前应该正确地计算样本量，并在他们的报道中充分描述细节。</li>
+<li>在这些先验的计算（a-priori calculations)中，检测效果大小的确定（例如：治疗组和对照组的事件概率）反映了内在主观的临床判断。而且，这些判断对样本量的计算影响很大。</li>
+<li>我们质疑那些没有精确计算样本量的试验缺乏伦理性。</li>
+<li>如果研究者使用严谨的方法来消除偏倚、恰当的描述来避免误解、始终公布结果来避免发表偏倚，那些低把握度的试验是可以被接受的。</li>
+<li>从关注样本量转变到注重方法学质量也许能使更多试验产生较少的偏倚。结果不够精确但没清偏倚的试验胜过完全没有结果的试验。</li>
+</ol>
+<h2 id="二、前言"><a href="#二、前言" class="headerlink" title="二、前言"></a>二、前言</h2><p>随机试验样本量(Sample size)的计算似乎无从下手。事实上，研究者应该正确计算样本量，并在发表的报告中充分描述主要细节。研究的方法学家在相关文章和书籍中描述了步骤。协议起草委员会(Protocol committees)和伦理审查委员会(ethics review boards)要求附上相关内容。试验报告统一标准指南（CONSORT reporting guidelines)里详细规定了样本量的计算。几乎获得所有人的同意。</p>
+<p>早在四分之一个世纪前，一项重要的推动措施在医学界获得一致通过Tom Chalmers领导的研究小组发表了一篇里程碑式的文章，详细阐述了医学杂志上发表的所谓阴性随机试验（negative randomized trial)缺乏统计学把握度(statistical power)。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-15-b010306.png" alt="Thomas Clark Chalmers, MD"></p>
+<p>Chalmers在长期的职业生涯中，发表了数百篇文章。这篇关于样本量和把握度的文章被广泛引用。矛盾的是，他反而因此而困惑。甚至把这篇合著的文章视为危害性最大的文章。为什么？我们将在后面描述他的担忧。</p>
+<h2 id="三、样本量计算的组成成分"><a href="#三、样本量计算的组成成分" class="headerlink" title="三、样本量计算的组成成分"></a>三、样本量计算的组成成分</h2><p>二分类结果的试验(如患病和健康)计算样本量的时候，要求四个组成成分：I类错误、把握度、对照组事件发生率以及所要研究的治疗效果(或近似的：治疗组事件发生率)。</p>
+<p>除了其他必需的假设外，其他类型结果的试验同样运用这些基本的成分。</p>
+<blockquote>
+<p>例如，对于计量结果的试验及其典型的统计检验，研究者可能会假设治疗和对照组之间的均数(means)和均数的方差(a variance for the means)有差异。</p>
+</blockquote>
+<h3 id="（一）I类错误-type-I-error-α"><a href="#（一）I类错误-type-I-error-α" class="headerlink" title="（一）I类错误(type I error,α)"></a>（一）I类错误(type I error,α)</h3><ol>
+<li>当事实上两种治疗没有什么差别的时候，研究者却可能得出治疗者有差别的结论。</li>
+<li>I类错误（α)估计了发生假阳性(false-positive)结论的可能性。</li>
+<li>按照惯例，α最常被设定为0.05，意味着研究者希望得到假阳性结论的可能小于5%。</li>
+</ol>
+<h3 id="（二）把握度-power-和Ⅱ类错误-type-Ⅱ-error-β"><a href="#（二）把握度-power-和Ⅱ类错误-type-Ⅱ-error-β" class="headerlink" title="（二）把握度(power)和Ⅱ类错误(type Ⅱ error,β)"></a>（二）把握度(power)和Ⅱ类错误(type Ⅱ error,β)</h3><ol>
+<li><p>其次，当事实上两种治疗确有不同的时候，研究者却可能得出治疗没有什么差别的结论，这也就是假阴性(false-negative)结论。</p>
+</li>
+<li><p>Ⅱ类错误（β)估计了这种假阴性结论的可能性。</p>
+</li>
+<li><p>通常，研究者将β设定为0.20，意味着他们希望得到假阴性结论的可能小于20%。</p>
+</li>
+<li><p>把握度(power)衍生于β。把握度在数学上是β的补数(1-β)，代表避免假阴性结论的可能性。即当事实上两种治疗确有不同的时候，研究者确实得出治疗有差别的可能性。</p>
+</li>
+<li><p>例如，β &#x3D; 0.20，则把握度就是0.80。即，如果假定两种治疗的差异在人群中是真实存在的，那么把握度为80%的试验就有80%的机会发现两种治疗方法的差别。</p>
+<table>
+<thead>
+<tr>
+<th align="center">不同错误类型</th>
+<th align="center">定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">I类错误（α)</td>
+<td align="center">在治疗效果相同的真实情况下，检测出统计学显著差异的可能性。（也就是假阳性结果的可能）</td>
+</tr>
+<tr>
+<td align="center">Ⅱ类错误（β)</td>
+<td align="center">在治疗效果的差异真实存在的情况下，没有能检测出统计学显著差异的可能性。（也就是假阴性结果的可能）</td>
+</tr>
+<tr>
+<td align="center">把握度(1-β)</td>
+<td align="center">在治疗效果的差异真实存在的情况下，检测出统计学显著差异的可能性</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="（三）对照组事件发生率-event-rate-in-the-control-group"><a href="#（三）对照组事件发生率-event-rate-in-the-control-group" class="headerlink" title="（三）对照组事件发生率(event rate in the control group)"></a>（三）对照组事件发生率(event rate in the control group)</h3><p>研究者估计治疗组和对照组真实的事件发生率(true event rates)，并作为输入参数。通常，我们推荐估计整个人群的事件发生率，然<br>后确定想要研究的疗效。</p>
+<h3 id="（四）所研究的治疗效果-x2F-治疗组事件发生率-treatment-effect-of-interest-x2F-event-rate-in-the-treatment-group"><a href="#（四）所研究的治疗效果-x2F-治疗组事件发生率-treatment-effect-of-interest-x2F-event-rate-in-the-treatment-group" class="headerlink" title="（四）所研究的治疗效果&#x2F;治疗组事件发生率(treatment effect of interest&#x2F;event rate in the treatment group)"></a>（四）所研究的治疗效果&#x2F;治疗组事件发生率(treatment effect of interest&#x2F;event rate in the treatment group)</h3><p>例如，研究者估计对照组事件发生率为10%。接着他们可能估计绝对变化(如绝对减少3%)，相对变化(相对减少30%)，或简单地估计治疗组事件发生率为7%。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-16-10.jpg"></p>
+<p>研究者利用上述这些假设来计算样本量。标准文件描述了包括二分类的、连续的和时间-结局事件（time-to-event measures)可测量的计算步骤。</p>
+<h2 id="四、选择不同的I类错误和把握度所产生的效果"><a href="#四、选择不同的I类错误和把握度所产生的效果" class="headerlink" title="四、选择不同的I类错误和把握度所产生的效果"></a>四、选择不同的I类错误和把握度所产生的效果</h2><h3 id="（一）合理的假设"><a href="#（一）合理的假设" class="headerlink" title="（一）合理的假设"></a>（一）合理的假设</h3><ol>
+<li>通常情况下，α&#x3D;0.05，把握度&#x3D;0.80，就足够了。然而，根据研究课题的不同，其他的假设也是合理的。</li>
+<li>例如，如果一种子宫切除术的标准预防性抗生素是有效的且副作用很少，在一项研究新抗生素的试验中，我们可能为了减少假阳性(false-positive)结论的可能性将α错误设定得更低(如0.01)。我们甚至考虑将把握度降到0.80以下，因为我们并不在意错过一个有效的治疗：因为有效而安全的治疗已经存在了。</li>
+<li>相反，如果研究者进行一项试验，应用一种标准预防性抗生素的同时，补充了某种既便宜又安全的维生素，想观察下是否可以增强抗生素的效果。犯α错误几乎不会带来什么伤害，所以可以设定在0.10，这样可能更有意义。如果这种便宜而简单的干预能带来益处，我们当然不想错过它。因此，研究者可能提高把握度到0.99。</li>
+</ol>
+<h3 id="（二）直接改变了样本量的大小"><a href="#（二）直接改变了样本量的大小" class="headerlink" title="（二）直接改变了样本量的大小"></a>（二）直接改变了样本量的大小</h3><ol>
+<li>减少α和增加把握度均会导致样本量的增多：<ul>
+<li><p>α从0.05减少到0.01促使样本量在把握度&#x3D;0.50的时候增加70%以及把握度&#x3D;0.80的时候增加50%。</p>
+</li>
+<li><p>当α&#x3D;0.05的时候，把握度从0.50增加到0.80使样本量翻了1倍，从0.50到0.99则几乎有5倍的增加。</p>
+</li>
+<li><p>因此，α和把握度的选择决定了样本量和试验费用。</p>
+<p>  <img src="http://qiniup.louyanspine.com/2018-08-16-103.jpg"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="（三）I类错误的单侧检验还是双侧检验"><a href="#（三）I类错误的单侧检验还是双侧检验" class="headerlink" title="（三）I类错误的单侧检验还是双侧检验"></a>（三）I类错误的单侧检验还是双侧检验</h3><ol>
+<li>一些研究使用α错误的单侧检验(one-sided tests)来减少对样本量的估计。我们不鼓励这种做法。</li>
+<li>迄今为止，就已知的生物学观点而言，在我们假设双侧检验的同时，单侧检验确实也是合理的。但是，这种决定不应该影响样本量的估计。</li>
+<li>我们建议无论是假设单侧或双侧检验，应该是相同的标准。因此，单侧检验α&#x3D;0.025应该产生和双侧检验α&#x3D;0.05相同水平的证据。</li>
+<li>利用单侧检验来减少所需样本量的大小被过度轻信了。</li>
+</ol>
+<h2 id="五、人群参数的估计-population-parameters"><a href="#五、人群参数的估计-population-parameters" class="headerlink" title="五、人群参数的估计(population parameters)"></a>五、人群参数的估计(population parameters)</h2><p>对于一些研究者来说，估计人群参数(例如治疗组和对照组的事件发生率)有着非常神秘的寓意。另一些则嘲笑这种主张，因为估计参数是试验的目的：在试验前却需要进行猜测，多么滑稽可笑。</p>
+<p>然而，关键的一点是研究者并不是去估计人群参数本身，而是估计他们认为值得检测的治疗效果。这是有巨大差别的。</p>
+<blockquote>
+<p>The key point, however, is that they are not estimating the population parameters per se but the treatment effect they deem worthy of detecting.</p>
+</blockquote>
+<h3 id="（一）估计对照组事件发生率-event-rate-in-the-control-group"><a href="#（一）估计对照组事件发生率-event-rate-in-the-control-group" class="headerlink" title="（一）估计对照组事件发生率(event rate in the control group)"></a>（一）估计对照组事件发生率(event rate in the control group)</h3><ol>
+<li>通常，研究者从估计对照组的事件发生率开始。有时候数据匮乏会导致不可信的估计。例如，我们需要估计肯尼亚内罗毕(Nairobi,Kenya)计划生育人群中使用宫内避孕器后盆腔炎事件的发生率。政府官方估计是40%，医学中心的临床医师则认为估计得太高了，建议改为12%。我们保守地计划定在6%上，但是在一项真实的随机试验中，安慰剂组的实际数据是1.9%。比第一个估计整整减少了20倍，如此极大影响了样本量的计算。</li>
+<li>发表的报告可以提供对对照组终点(endpoint)的估计。但是，他们通常整合了一大堆有差别的资料，例如不同的居住位置、纳入标准、终点和治疗。虽然如此，关于对照组的一些信息往往是存在的。这成为起点。</li>
+<li>在一项预防子宫切除术后发热的研究中，假设非常合理的数据显示在应用标准的预防性抗生素后，10%的妇女出现发热。这就成为对照组的事件发生率。</li>
+</ol>
+<h3 id="（二）估计所研究的治疗效果-x2F-治疗组事件发生率-treatment-effect-of-interest-x2F-event-rate-in-the-treatment-group"><a href="#（二）估计所研究的治疗效果-x2F-治疗组事件发生率-treatment-effect-of-interest-x2F-event-rate-in-the-treatment-group" class="headerlink" title="（二）估计所研究的治疗效果&#x2F;治疗组事件发生率(treatment effect of interest&#x2F;event rate in the treatment group)"></a>（二）估计所研究的治疗效果&#x2F;治疗组事件发生率(treatment effect of interest&#x2F;event rate in the treatment group)</h3><ol>
+<li>对所要研究效果的估计应该反映临床的可鉴别度(clinical acumen)和潜在的公共健康利益(potential public-health。这个重要的方面不能由统计学家单独决定。其决策过程有赖于临床背景知识的积累。</li>
+<li>假设标准预防性抗生素的费用是10美元，副作用很少，口服给药。新<br>的预防性抗生素的费用是200美元，副作用较多，静脉给药，但抗菌谱广。所有这些实际因素和临床因素均对决策过程施加了压力。考虑到对照组10%的发热发生率，了解了临床背景，我们将对什么样的研究结果感兴趣，从10%减少到9%、从20%降到8%、30%到7%、40%到6%、50%到5%，还是其他？决定对多大的差异进行检测反映了内在主观的临床判断，正确答案并不存在。我们只能说30%的减少量是值得研究的，但是其他研究者可能决定50%的下降幅度。</li>
+</ol>
+<h3 id="（三）人群参数对样本量的影响"><a href="#（三）人群参数对样本量的影响" class="headerlink" title="（三）人群参数对样本量的影响"></a>（三）人群参数对样本量的影响</h3><ol>
+<li><p>这些参数假设显著影响了样本量的计算。保持对照组估计的参数为常量，疗效的减半必然使试验样本量增加4倍以上。类似地，疗效减到四分之一要求试验样本量增加16倍以上。换言之，样本量的增加与疗效减少的平方成反比，统计学家称之为二次方程相关(a quadratic relation)。</p>
+</li>
+<li><p>以我们最初的参数估计为例，对照组10%，干预组6%，α&#x3D;0.05，β&#x3D;0.90，那么每组必须有大约965名参加者(Panel 2)。疗效的轻微改变造成试验规模的巨大变化。</p>
+<ul>
+<li>将疗效减半，调整干预组的参数估计为8%，如此样本量需要4倍以上的增加，达到4301人。</li>
+<li>疗效减低到四分之一，调整干预组的估计为9%，那么试验规模必须有18倍以上的增加，达到每组18066人。</li>
+</ul>
+</li>
+<li><p>巨大的研究样本量和低的事件发生率使研究者感到无比挫败。这种挫败感部分来源于缺乏对二分类终点试验的认识，是分子事件(numerator events)推动了试验的把握度，而不是分母(denominators)。</p>
+<blockquote>
+<p>分子指对照组或治疗组中发生结局的参与者，分母是对照组或治疗组的所有参与者。</p>
+</blockquote>
+</li>
+<li><p>例如，假设α&#x3D;0.05，希望结局事件的发生率下降40%。一项2000名参与者(1000名被分配到治疗组，1000名到对照组)、对照组事件发生率为10%的试验能提供的把握度等同于一项20000名参与者(每组分配10000人)、但对照组事件发生率只有1%的试验所产生的把握度。这两项试验需要的分子数值是一样的，都为160，大致满足把握度&#x3D;90%。<br>$$1000 \times (0.1+0.1 \times 0.6) &#x3D; 160$$<br>$$10000 \times (0.01+0.01 \times 0.6) &#x3D; 160$$</p>
+</li>
+</ol>
+<h2 id="六、可纳入的参与者有限的解决办法"><a href="#六、可纳入的参与者有限的解决办法" class="headerlink" title="六、可纳入的参与者有限的解决办法"></a>六、可纳入的参与者有限的解决办法</h2><p>当样本量软件计算的试验样本量超过了可纳入的参与者人数的时候，会发生什么呢？通常，研究者会反向计算，为了能满足可纳入参与者的数量，他们使用低的把握度(如0.40)来估计样本量。</p>
+<p>一些方法学家建议临床医生放弃这种低把握度(low power)的研究。许多伦理审查委员会认为低把握度的试验缺乏伦理道德。Chalmers关于已发表试验缺乏把握度的早期文章促使了这种反应，并带我们回到本章节开始部分的疑问。他觉得是他的研究小组的文章引起了这些过度反应。</p>
+<p>Chalmers最后说明所谓的低把握度试验可以被接受，因为它们最后能通过meta分析（meta-analysis)整合起来。但是许多统计学家似乎并不支持这个观点，甚至包括那些赞同小规模试验的人。</p>
+<p>然而，我们同意Chalmers的观点，这毋庸置疑会引起许多统计学家和伦理学家的不满。但我们的支持附带了三个条件。</p>
+<h3 id="（一）试验在方法学上非常严谨，可以消除偏倚"><a href="#（一）试验在方法学上非常严谨，可以消除偏倚" class="headerlink" title="（一）试验在方法学上非常严谨，可以消除偏倚"></a>（一）试验在方法学上非常严谨，可以消除偏倚</h3><ol>
+<li>不幸的是，需要足够把握度这个咒语往往盖过了方法学中的其他部分的讨论。</li>
+<li>例如，不充分的随机化往往产生偏倚的结果，并且这些偏倚的结果不能被补救，即使是能实现非常好的精确度(precision)的大样本量。</li>
+<li>相反，如果研究者充分地设计和执行了试验，最终仍能产生一个对效果没有偏倚的估计，即使试验有低的把握度(和精确度)。</li>
+<li>此外，因为结果是没有偏倚的，所以该项试验可以和类似的没有偏倚的试验在meta分析中整合起来。事实上，特别是合并进入前瞻性的meta分析，这种做法等同于多中心试验。</li>
+</ol>
+<h3 id="（二）作者必须充分地报道他们的研究方法和结果，以避免误解"><a href="#（二）作者必须充分地报道他们的研究方法和结果，以避免误解" class="headerlink" title="（二）作者必须充分地报道他们的研究方法和结果，以避免误解"></a>（二）作者必须充分地报道他们的研究方法和结果，以避免误解</h3><ol>
+<li>如果作者在报道试验结果时使用了区间估计，那么治疗效果估计的较宽的可信区间在描述低把握度上较为准确。</li>
+<li>可信区间的报道很有价值，可以避免由简单的P&gt;0.05所带来的“无证据证明有，不等于有证据证明无(无有之据，非有无之据)”的问题。</li>
+</ol>
+<h3 id="（三）低把握度的试验无论结果如何必须被报道，才能被meta分析采用"><a href="#（三）低把握度的试验无论结果如何必须被报道，才能被meta分析采用" class="headerlink" title="（三）低把握度的试验无论结果如何必须被报道，才能被meta分析采用"></a>（三）低把握度的试验无论结果如何必须被报道，才能被meta分析采用</h3><ol>
+<li>发表偏倚(Publication bias)最严重的问题就是不发表低把握度的试验。发表偏倚是指发表的试验不能代表所有已开展的试验，通常是因为统计学显著的结果比不确定的结果更容易被接受和发表。低把握度的试验易出现这样的问题，因为它们有更多的机会产生不确定的结果。</li>
+<li>但是，责难所有低把握度试验并阻止它们实施都会妨碍重要的研究。</li>
+<li>不发表已完成的试验被认为是不科学和缺乏伦理的。试验注册系<br>统(Trial registration schemes)将进行中的试验进行分类，从而避免结果的丢失。此外，大的系统综述机构，最著名的是Cochrane<br>协作网（Cochrane Collaboration)，细査未发表的试验以减少发表<br>偏倚。</li>
+</ol>
+<h3 id="（四）低把握度的试验-low-powered-trials-被指责为缺乏伦理的原因"><a href="#（四）低把握度的试验-low-powered-trials-被指责为缺乏伦理的原因" class="headerlink" title="（四）低把握度的试验(low-powered trials)被指责为缺乏伦理的原因"></a>（四）低把握度的试验(low-powered trials)被指责为缺乏伦理的原因</h3><ol>
+<li>对样本量的偏见使较多消除偏倚的中肯意见黯然失色。</li>
+<li>一个带着主观色彩的过程如何能引发对其伦理学正反面的辨证讨论？带着这种主观性，将试验伦理学建立于统计学把握度之上，这就显得过于简单和错位了。</li>
+</ol>
+<p>事实上，既然研究者估计样本量是以不确切的猜测为基础，如果认为执行低把握度的试验是不道德的，那么这就是一种逻辑的极端，也许我们的世界再也没有试验了，因为样本量的决定总是充满各种问题。</p>
+<blockquote>
+<p>“进行对照试验是不道德的，除非能够确保达到那个武断定义的统计把握度”</p>
+</blockquote>
+<p>如果默许的代价是忽视医疗保健作用的话，上述声明一点意义都没有。关于低把握度试验是不道德的观点是不理性的，此外，有时也忽略了渴望参加试验的潜在参与者。</p>
+<h2 id="七、样本量的调整"><a href="#七、样本量的调整" class="headerlink" title="七、样本量的调整"></a>七、样本量的调整</h2><h3 id="（一）样本量桑巴舞-Sample-size-samba"><a href="#（一）样本量桑巴舞-Sample-size-samba" class="headerlink" title="（一）样本量桑巴舞(Sample size samba)"></a>（一）样本量桑巴舞(Sample size samba)</h3><ol>
+<li>研究者有时会表演一段“样本量桑巴舞(samplesizesamba)”，实现足够的把握度。舞蹈涉及了对可纳入的参加者参数估计的重新调整(特别是检验有价值的疗效)。这种实践在我们和其他人的经历中经常发生。</li>
+<li>基金赞助机构、协议起草委员会、甚至包括伦理审查委员会都鼓励这种回顾性的处理。这代表了一种对实际问题可运作的解决方法。</li>
+<li>考虑到各种细节问题，我们不能过多地批评这个桑巴舞，因为它可能使许多重要的研究得以顺利实施。</li>
+<li>此外，它如实描述了在给定假设的前体下，样本量估计的必要性。然而，在“低把握度试验是缺乏职业道德的”争论中，这种方法强调了不一致性(inconsistencies)：在“桑巴舞”之前，计划的试验是缺乏职业道德的，但通过简单调整对效应大小的估计，使之符合伦理原则。</li>
+<li>所有试验都有无数个把握度，低把握度只是相对而言。</li>
+</ol>
+<h3 id="（二）增加样本量"><a href="#（二）增加样本量" class="headerlink" title="（二）增加样本量"></a>（二）增加样本量</h3><ol>
+<li>对于能够额外纳入参与者和研究经费充分的情况下，研究者应该考虑一种样本量调整的策略，这样可以解决一部分由样本量估算产生的问题。</li>
+<li>调整通常是增加样本量。实现调整的方法有赖于事件发生率的修正、终点或治疗效应的改变。</li>
+<li>重要的是，任何在试验中间阶段对样本量的调整都应该有避免偏倚的周密计划。</li>
+<li>发起或指导委员会(The sponsor or steering committee)在草案中应该描述一个易懂的计划，关于潜在调整的时间和方法(the timing and method of the potential modifications)。</li>
+</ol>
+<h2 id="八、试验后计算把握度没有意义"><a href="#八、试验后计算把握度没有意义" class="headerlink" title="八、试验后计算把握度没有意义"></a>八、试验后计算把握度没有意义</h2><ol>
+<li>试验得出治疗效应和结果的可信区间(confidence interval)。</li>
+<li>可信区间体现了试验的把握度。因此，继续关注把握度不再有意义。</li>
+<li>然而，试验结束后，一些研究者利用观察到的结果作为估计参数对统计学不显著的试验进行把握度的计算。这种尝试似是而非，但是，重复之<br>后，可以得出低把握度的答案。换言之，这种不值得推荐的尝试回答了一个已经被回答的问题。</li>
+</ol>
+<h2 id="九、读者应该如何看待样本量的计算？"><a href="#九、读者应该如何看待样本量的计算？" class="headerlink" title="九、读者应该如何看待样本量的计算？"></a>九、读者应该如何看待样本量的计算？</h2><p>读者应该在报告中看到样本量的估计是如何得来的。事实上，试验报告中的可信区间充分体现了把握度。然而，样本量计算仍提供了重要的信息。</p>
+<ul>
+<li>第一，它们规定了主要终点，这样可以保证结局变量不会改变，同时防止突出与非主要结局变量相关的明显效应。</li>
+<li>第二，知道了计划的样本量可以使读者对潜在的问题产生警觉。试验面临了募集困难？试验因统计学显著的结果提前中止？如果是这样的话，作者应该提供正式的统计学中止标准。如果他们没有使用正式的标准，那么多次审査数据就会加大I类错误(α)。类似的问题同样可以出现在比预期样本量大的试验。</li>
+</ul>
+<p>提供预计的样本量，尽管其带着些主观性，却是为了使报道更加透明而做的前提。</p>
+<h3 id="（一）报告的低把握度或不报告样本量计算"><a href="#（一）报告的低把握度或不报告样本量计算" class="headerlink" title="（一）报告的低把握度或不报告样本量计算"></a>（一）报告的低把握度或不报告样本量计算</h3><ol>
+<li>报告的低把握度或不报告样本量计算通常不是致命的错误。低把握度反映了方法学知识的缺乏，但也可能暗示了潜在参与者数目不足。即使是基于低把握度，样本量的计算仍能提供上述提及的重要信息。</li>
+<li>如果作者忽视描述预计样本量的计算，那么读者该怎么办？读者应该谨慎地解释结果，因为缺少主要终点的信息和中止标准。</li>
+<li>此外，忽视报告样本量的计算暗示了方法学的无知，这可能成为其他问题的先兆。</li>
+</ol>
+<h3 id="（二）重视被研究者隐藏的系统误差-偏倚"><a href="#（二）重视被研究者隐藏的系统误差-偏倚" class="headerlink" title="（二）重视被研究者隐藏的系统误差(偏倚)"></a>（二）重视被研究者隐藏的系统误差(偏倚)</h3><ol>
+<li>作者不会报告拙劣的随机化、不充分的分组隐藏、失败的盲法或缺失的参与者保持率，但这些均隐藏了能导致偏倚的研究设计缺点。</li>
+<li>因此，基于以下2个主要原因，读者应该减少对样本量不足的担心：<ul>
+<li>首先，样本量不足不会产生偏倚;</li>
+<li>其次，任何随机误差都能透明地体现在可信区间和P上。</li>
+</ul>
+</li>
+<li>对读者来说，最严重的问题应该是没有被揭示的系统误差。换言之，读者不应该简单地因为低把握度而完全否认一项试验，相反应仔细衡量<br>它的价值。过去或未来的其他研究可能会涉及这个价值。</li>
+</ol>
+<h3 id="（三）发现所有样本量计算背后的假设"><a href="#（三）发现所有样本量计算背后的假设" class="headerlink" title="（三）发现所有样本量计算背后的假设"></a>（三）发现所有样本量计算背后的假设</h3><ol>
+<li>读者应该发现所有样本量计算背后的假设：I类错误（α)、把握度(或β)、对照组事件发生率及感兴趣的疗效(或近似的治疗组事件发生率)。</li>
+<li>“当α&#x3D;0.05及把握度&#x3D;0.90时，我们计算必需的样本量为每组120人”的说法完全没有意义，因为忽视了对效应大小和对照组事件发生率的估计。</li>
+<li>即使是小规模的试验也能有高把握度，并足以检验大的治疗效应。</li>
+</ol>
+<h3 id="（四）检验样本量计算的各种假设"><a href="#（四）检验样本量计算的各种假设" class="headerlink" title="（四）检验样本量计算的各种假设"></a>（四）检验样本量计算的各种假设</h3><p>读者还应该检验样本量计算的各种假设。例如，他们可能相信更小的效应比预期的效应大小更有价值。因此，读者应意识到他们所偏好的效应大小相关的试验，其把握度较低。</p>
+<blockquote>
+<p>Readers should also examine the assumptions for the<br>sample size calculation. For example, they might believe that a smaller effect size is more worthy than the planned effect size. Therefore, the reader would be aware of the lower power of the trial relative to their preferred effect size.</p>
+</blockquote>
+<h2 id="十、结论"><a href="#十、结论" class="headerlink" title="十、结论"></a>十、结论</h2><ol>
+<li><p>统计学的把握度是重要的概念，但不应作为伦理学的领导者。</p>
+</li>
+<li><p>对于那些仅仅因为主观上样本量的计算不准确即认为试验不符合伦理原则的做法，是令人质疑的。</p>
+</li>
+<li><p>我们赞同研究计划实现适当的把握度(adequate power)，并向ISIS-2这种大规模多中心试验表示敬意，事实上，更多这样的研究应该被开展。</p>
+<blockquote>
+<p>ISIS-2 (Second International Study of Infarct Survival) Collaborative Group. Randomised trial of intravenous streptokinase, oral aspirin, both, or neither among 17,187 cases of suspected acute myocardial infarction: ISIS-2. Lancet 1988; 2: 349–60.</p>
+</blockquote>
+</li>
+<li><p>然而，如果科学领域只局限于大型试验，许多不能回答的医学问题仍将继续没有答案。</p>
+</li>
+<li><p>从关注样本量转变到注重方法学质量也许能使更多试验产生较少的偏倚。结果不够精确的无偏倚试验优于完全没有结果的试验。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A0%B7%E6%9C%AC%E9%87%8F/" rel="tag"># 样本量</a>
+              <a href="/tags/%E6%8A%8A%E6%8F%A1%E5%BA%A6/" rel="tag"># 把握度</a>
+              <a href="/tags/%E5%8F%AF%E4%BF%A1%E5%8C%BA%E9%97%B4/" rel="tag"># 可信区间</a>
+              <a href="/tags/I%E7%B1%BB%E9%94%99%E8%AF%AF/" rel="tag"># I类错误</a>
+              <a href="/tags/%E2%85%A1%E7%B1%BB%E9%94%99%E8%AF%AF/" rel="tag"># Ⅱ类错误</a>
+              <a href="/tags/%E5%AF%B9%E7%85%A7%E7%BB%84%E4%BA%8B%E4%BB%B6%E5%8F%91%E7%94%9F%E7%8E%87/" rel="tag"># 对照组事件发生率</a>
+              <a href="/tags/%E6%B2%BB%E7%96%97%E7%BB%84%E4%BA%8B%E4%BB%B6%E5%8F%91%E7%94%9F%E7%8E%87/" rel="tag"># 治疗组事件发生率</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/02/Essential-Concepts-in-Clinical-Research8/" rel="prev" title="临床研究基本概念：筛查试验（二）">
+      <i class="fa fa-chevron-left"></i> 临床研究基本概念：筛查试验（二）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/02/Essential-Concepts-in-Clinical-Research14/" rel="next" title="临床研究基本概念：随机对照试验（六）">
+      临床研究基本概念：随机对照试验（六） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%AF%95%E9%AA%8C%E6%A0%B7%E6%9C%AC%E9%87%8F%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">随机试验样本量的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">一、摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.2.</span> <span class="nav-text">二、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%A0%B7%E6%9C%AC%E9%87%8F%E8%AE%A1%E7%AE%97%E7%9A%84%E7%BB%84%E6%88%90%E6%88%90%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">三、样本量计算的组成成分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89I%E7%B1%BB%E9%94%99%E8%AF%AF-type-I-error-%CE%B1"><span class="nav-number">1.3.1.</span> <span class="nav-text">（一）I类错误(type I error,α)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%8A%8A%E6%8F%A1%E5%BA%A6-power-%E5%92%8C%E2%85%A1%E7%B1%BB%E9%94%99%E8%AF%AF-type-%E2%85%A1-error-%CE%B2"><span class="nav-number">1.3.2.</span> <span class="nav-text">（二）把握度(power)和Ⅱ类错误(type Ⅱ error,β)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%AF%B9%E7%85%A7%E7%BB%84%E4%BA%8B%E4%BB%B6%E5%8F%91%E7%94%9F%E7%8E%87-event-rate-in-the-control-group"><span class="nav-number">1.3.3.</span> <span class="nav-text">（三）对照组事件发生率(event rate in the control group)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E6%89%80%E7%A0%94%E7%A9%B6%E7%9A%84%E6%B2%BB%E7%96%97%E6%95%88%E6%9E%9C-x2F-%E6%B2%BB%E7%96%97%E7%BB%84%E4%BA%8B%E4%BB%B6%E5%8F%91%E7%94%9F%E7%8E%87-treatment-effect-of-interest-x2F-event-rate-in-the-treatment-group"><span class="nav-number">1.3.4.</span> <span class="nav-text">（四）所研究的治疗效果&#x2F;治疗组事件发生率(treatment effect of interest&#x2F;event rate in the treatment group)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%80%89%E6%8B%A9%E4%B8%8D%E5%90%8C%E7%9A%84I%E7%B1%BB%E9%94%99%E8%AF%AF%E5%92%8C%E6%8A%8A%E6%8F%A1%E5%BA%A6%E6%89%80%E4%BA%A7%E7%94%9F%E7%9A%84%E6%95%88%E6%9E%9C"><span class="nav-number">1.4.</span> <span class="nav-text">四、选择不同的I类错误和把握度所产生的效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%90%88%E7%90%86%E7%9A%84%E5%81%87%E8%AE%BE"><span class="nav-number">1.4.1.</span> <span class="nav-text">（一）合理的假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E7%9B%B4%E6%8E%A5%E6%94%B9%E5%8F%98%E4%BA%86%E6%A0%B7%E6%9C%AC%E9%87%8F%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.4.2.</span> <span class="nav-text">（二）直接改变了样本量的大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89I%E7%B1%BB%E9%94%99%E8%AF%AF%E7%9A%84%E5%8D%95%E4%BE%A7%E6%A3%80%E9%AA%8C%E8%BF%98%E6%98%AF%E5%8F%8C%E4%BE%A7%E6%A3%80%E9%AA%8C"><span class="nav-number">1.4.3.</span> <span class="nav-text">（三）I类错误的单侧检验还是双侧检验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BA%BA%E7%BE%A4%E5%8F%82%E6%95%B0%E7%9A%84%E4%BC%B0%E8%AE%A1-population-parameters"><span class="nav-number">1.5.</span> <span class="nav-text">五、人群参数的估计(population parameters)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E4%BC%B0%E8%AE%A1%E5%AF%B9%E7%85%A7%E7%BB%84%E4%BA%8B%E4%BB%B6%E5%8F%91%E7%94%9F%E7%8E%87-event-rate-in-the-control-group"><span class="nav-number">1.5.1.</span> <span class="nav-text">（一）估计对照组事件发生率(event rate in the control group)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BC%B0%E8%AE%A1%E6%89%80%E7%A0%94%E7%A9%B6%E7%9A%84%E6%B2%BB%E7%96%97%E6%95%88%E6%9E%9C-x2F-%E6%B2%BB%E7%96%97%E7%BB%84%E4%BA%8B%E4%BB%B6%E5%8F%91%E7%94%9F%E7%8E%87-treatment-effect-of-interest-x2F-event-rate-in-the-treatment-group"><span class="nav-number">1.5.2.</span> <span class="nav-text">（二）估计所研究的治疗效果&#x2F;治疗组事件发生率(treatment effect of interest&#x2F;event rate in the treatment group)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E4%BA%BA%E7%BE%A4%E5%8F%82%E6%95%B0%E5%AF%B9%E6%A0%B7%E6%9C%AC%E9%87%8F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.5.3.</span> <span class="nav-text">（三）人群参数对样本量的影响</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%8F%AF%E7%BA%B3%E5%85%A5%E7%9A%84%E5%8F%82%E4%B8%8E%E8%80%85%E6%9C%89%E9%99%90%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text">六、可纳入的参与者有限的解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E8%AF%95%E9%AA%8C%E5%9C%A8%E6%96%B9%E6%B3%95%E5%AD%A6%E4%B8%8A%E9%9D%9E%E5%B8%B8%E4%B8%A5%E8%B0%A8%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%B6%88%E9%99%A4%E5%81%8F%E5%80%9A"><span class="nav-number">1.6.1.</span> <span class="nav-text">（一）试验在方法学上非常严谨，可以消除偏倚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BD%9C%E8%80%85%E5%BF%85%E9%A1%BB%E5%85%85%E5%88%86%E5%9C%B0%E6%8A%A5%E9%81%93%E4%BB%96%E4%BB%AC%E7%9A%84%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E5%92%8C%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%BB%A5%E9%81%BF%E5%85%8D%E8%AF%AF%E8%A7%A3"><span class="nav-number">1.6.2.</span> <span class="nav-text">（二）作者必须充分地报道他们的研究方法和结果，以避免误解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%8E%E6%8A%8A%E6%8F%A1%E5%BA%A6%E7%9A%84%E8%AF%95%E9%AA%8C%E6%97%A0%E8%AE%BA%E7%BB%93%E6%9E%9C%E5%A6%82%E4%BD%95%E5%BF%85%E9%A1%BB%E8%A2%AB%E6%8A%A5%E9%81%93%EF%BC%8C%E6%89%8D%E8%83%BD%E8%A2%ABmeta%E5%88%86%E6%9E%90%E9%87%87%E7%94%A8"><span class="nav-number">1.6.3.</span> <span class="nav-text">（三）低把握度的试验无论结果如何必须被报道，才能被meta分析采用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E4%BD%8E%E6%8A%8A%E6%8F%A1%E5%BA%A6%E7%9A%84%E8%AF%95%E9%AA%8C-low-powered-trials-%E8%A2%AB%E6%8C%87%E8%B4%A3%E4%B8%BA%E7%BC%BA%E4%B9%8F%E4%BC%A6%E7%90%86%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.6.4.</span> <span class="nav-text">（四）低把握度的试验(low-powered trials)被指责为缺乏伦理的原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%A0%B7%E6%9C%AC%E9%87%8F%E7%9A%84%E8%B0%83%E6%95%B4"><span class="nav-number">1.7.</span> <span class="nav-text">七、样本量的调整</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%A0%B7%E6%9C%AC%E9%87%8F%E6%A1%91%E5%B7%B4%E8%88%9E-Sample-size-samba"><span class="nav-number">1.7.1.</span> <span class="nav-text">（一）样本量桑巴舞(Sample size samba)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A2%9E%E5%8A%A0%E6%A0%B7%E6%9C%AC%E9%87%8F"><span class="nav-number">1.7.2.</span> <span class="nav-text">（二）增加样本量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E8%AF%95%E9%AA%8C%E5%90%8E%E8%AE%A1%E7%AE%97%E6%8A%8A%E6%8F%A1%E5%BA%A6%E6%B2%A1%E6%9C%89%E6%84%8F%E4%B9%89"><span class="nav-number">1.8.</span> <span class="nav-text">八、试验后计算把握度没有意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E8%AF%BB%E8%80%85%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%A0%B7%E6%9C%AC%E9%87%8F%E7%9A%84%E8%AE%A1%E7%AE%97%EF%BC%9F"><span class="nav-number">1.9.</span> <span class="nav-text">九、读者应该如何看待样本量的计算？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%8A%A5%E5%91%8A%E7%9A%84%E4%BD%8E%E6%8A%8A%E6%8F%A1%E5%BA%A6%E6%88%96%E4%B8%8D%E6%8A%A5%E5%91%8A%E6%A0%B7%E6%9C%AC%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="nav-number">1.9.1.</span> <span class="nav-text">（一）报告的低把握度或不报告样本量计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E9%87%8D%E8%A7%86%E8%A2%AB%E7%A0%94%E7%A9%B6%E8%80%85%E9%9A%90%E8%97%8F%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%AF%AF%E5%B7%AE-%E5%81%8F%E5%80%9A"><span class="nav-number">1.9.2.</span> <span class="nav-text">（二）重视被研究者隐藏的系统误差(偏倚)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%8F%91%E7%8E%B0%E6%89%80%E6%9C%89%E6%A0%B7%E6%9C%AC%E9%87%8F%E8%AE%A1%E7%AE%97%E8%83%8C%E5%90%8E%E7%9A%84%E5%81%87%E8%AE%BE"><span class="nav-number">1.9.3.</span> <span class="nav-text">（三）发现所有样本量计算背后的假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E6%A3%80%E9%AA%8C%E6%A0%B7%E6%9C%AC%E9%87%8F%E8%AE%A1%E7%AE%97%E7%9A%84%E5%90%84%E7%A7%8D%E5%81%87%E8%AE%BE"><span class="nav-number">1.9.4.</span> <span class="nav-text">（四）检验样本量计算的各种假设</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E7%BB%93%E8%AE%BA"><span class="nav-number">1.10.</span> <span class="nav-text">十、结论</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">430</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1626</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

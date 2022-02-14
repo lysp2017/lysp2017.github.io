@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明：  部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research   应用似然比优化临床诊断一、摘要 似然比能够优化基于体征和症状的临床诊断；然而，很少被应用于患者医疗保健。 似然比是指特定试验结果的患病人群百分比除以相同试验结果的健康人群百分比。 理想状态下，异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="临床研究基本概念：筛查试验（二）">
+<meta property="og:url" content="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research8/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明：  部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research   应用似然比优化临床诊断一、摘要 似然比能够优化基于体征和症状的临床诊断；然而，很少被应用于患者医疗保健。 似然比是指特定试验结果的患病人群百分比除以相同试验结果的健康人群百分比。 理想状态下，异常">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-14-101.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-14-1022.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-14-103.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-14-102.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-14-1032.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-14-1033.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-14-104.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-15-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8A%E5%8D%8810.04.36.png">
+<meta property="article:published_time" content="2018-08-02T09:17:20.000Z">
+<meta property="article:modified_time" content="2019-02-27T16:56:22.000Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="似然比">
+<meta property="article:tag" content="验前概率">
+<meta property="article:tag" content="验后概率">
+<meta property="article:tag" content="列线图">
+<meta property="article:tag" content="比值比">
+<meta property="article:tag" content="决策阈值">
+<meta property="article:tag" content="检查阈值">
+<meta property="article:tag" content="治疗阈值">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-08-14-101.jpg">
+
+<link rel="canonical" href="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>临床研究基本概念：筛查试验（二） | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          临床研究基本概念：筛查试验（二）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-02 17:17:20" itemprop="dateCreated datePublished" datetime="2018-08-02T17:17:20+08:00">2018-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:56:22" itemprop="dateModified" datetime="2019-02-28T00:56:22+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说明：<br></p>
+<ol>
+<li>部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></li>
+</ol>
+</blockquote>
+<h1 id="应用似然比优化临床诊断"><a href="#应用似然比优化临床诊断" class="headerlink" title="应用似然比优化临床诊断"></a>应用似然比优化临床诊断</h1><h2 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h2><ol>
+<li>似然比能够优化基于体征和症状的临床诊断；然而，很少被应用于患者医疗保健。</li>
+<li>似然比是指特定试验结果的患病人群百分比除以相同试验结果的健康人群百分比。</li>
+<li>理想状态下，异常试验结果应该在患者中更典型（高似然比)，而正常试验结果应该更多地出现在健康人群中（低似然比)。</li>
+<li>似然比接近1对决策制定没有帮助，相反，高或低的似然比能极大左右临床医师对疾病概率的评估。</li>
+<li>各种试验均能计算似然比，不仅仅是结果为二分类变量（阳性或者阴性）的试验，多水平结果的试验也可以进行。例如，肌酸激酶或者肺通气-血流灌注显像。</li>
+<li>结合正确的临床诊断，辅助检查的似然比可以协同改善诊断的准确性。</li>
+</ol>
+<h2 id="二、前言"><a href="#二、前言" class="headerlink" title="二、前言"></a>二、前言</h2><p>无论似然比(likelihood ratios)对临床发现、实验室检査、影像学检査结果的解释多么有用，却很少被应用。大多数临床医生对似然比很不熟悉，在实践中很少应用。我们的目标是增加临床医师对似然比的理解和应用程度。</p>
+<p>一些人认为流行病学家是通过一个$2 \times 2$表格来窥视整个世界。确实，如果每个人能被分为有病的或健康的，如果判断疾病的二分类试验被广泛应用，那么60亿的我们(纵使拥挤)也将恰当地分布于如图所示的表格中（图1)。遗憾的是，无论生命或者试验均不是这么简单，充满了灰色区域。似然比能够帮助临床医师驾驭这片诊断不明确的巨大区域。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-14-101.jpg"></p>
+<p>似然比是指特定试验结果的患病人群百分比除以相同试验结果的健康人群百分比。似然比是对患病人群中特定试验结果（如阳性）的可能性和无病人群中相同试验结果（如阳性）可能性的比较。</p>
+<blockquote>
+<p>A likelihood ratio is the likelihood of a given test result in a person with a disease compared with the likelihood of this result in a person without the disease.</p>
+</blockquote>
+<p>在这里，百分率(Percentage)和可能性(Likelihood)是可以相互替换的。它的含意就非常清楚：患者比健康人更可能得到异常的试验结果，这种差异的大小具有重要的临床意义。</p>
+<h2 id="三、两分类结果试验的似然比"><a href="#三、两分类结果试验的似然比" class="headerlink" title="三、两分类结果试验的似然比"></a>三、两分类结果试验的似然比</h2><h3 id="（一）阳性似然比"><a href="#（一）阳性似然比" class="headerlink" title="（一）阳性似然比"></a>（一）阳性似然比</h3><ol>
+<li>图1下方的$2 \times 2$表格显示了似然比的计算方法。在这个例子中，共15位患者，其中12人(80%)的疾病试验结果为真阳性。相反，在85位健康者中有5人(6%)出现假阳性。因此，阳性结果的似然比就是这两个百分比的比值(80%&#x2F;6%)，等于13。换言之，相比健康人群，患病人群得到阳性结果的可能性高出13倍。</li>
+<li>对于一个二分类试验(阴性或阳性)，这个被称为阳性似然比<br>(positive likelihood ratio)(缩写为LR+)。</li>
+</ol>
+<h3 id="（二）阴性似然比"><a href="#（二）阴性似然比" class="headerlink" title="（二）阴性似然比"></a>（二）阴性似然比</h3><p>阴性似然比(negative likelihood ratio)(LR-)的计算方法类似。15位患者中3人(20%)出现假阴性(false negative)结果，同时85位健康者中80人(94%)得到真阴性结果，所以LR-就是这两个百分比的比值(20%&#x2F;94%)，等于0.2。因此，患者获得阴性结果的可能性是健康者的1&#x2F;5。</p>
+<h3 id="（三）计算方法总结"><a href="#（三）计算方法总结" class="headerlink" title="（三）计算方法总结"></a>（三）计算方法总结</h3><ol>
+<li><p>如果灵敏度和特异度已经明确：</p>
+<ul>
+<li>$$LR+ &#x3D; \cfrac{灵敏度}{1-特异度}$$</li>
+<li>$$LR- &#x3D; \cfrac{1-灵敏度}{特异度}$$</li>
+</ul>
+</li>
+<li><p>如果$2 \times 2$表格的原始数据可以获得：</p>
+<ul>
+<li>$$LR+ &#x3D; \cfrac{a&#x2F;(a+c)}{b&#x2F;(b+d)}$$</li>
+<li>$$LR- &#x3D; \cfrac{c&#x2F;(a+c)}{d&#x2F;(b+d)}$$</li>
+</ul>
+</li>
+<li><p>如果数学方程式不能应用：</p>
+</li>
+</ol>
+<ul>
+<li>$$LR+ &#x3D; \cfrac{真阳性百分比}{假阳性百分比}$$</li>
+<li>$$LR- &#x3D; \cfrac{假阴性百分比}{真阴性百分比}$$</li>
+</ul>
+<h2 id="四、多分类结果试验的似然比"><a href="#四、多分类结果试验的似然比" class="headerlink" title="四、多分类结果试验的似然比"></a>四、多分类结果试验的似然比</h2><p>计算两种以上结果试验的似然比类似于二分类结果的计算。每个试验结果水平都可以简单地计算单独的似然比。在表格1中，白细胞计数提示59人为阑尾炎，145人没有此诊断。<br><img src="http://qiniup.louyanspine.com/2018-08-14-1022.jpg"></p>
+<ol>
+<li>现计算白细胞计数为$7 \times 10^9&#x2F;L$的似然比，2%是分子(阑尾炎)，21%是分母(没有阑尾炎)，则似然比为$\cfrac{0.02}{0.21}&#x3D;0.1$。</li>
+<li>同样的计算可以在不同的白细胞计数水平上进行</li>
+<li>最高值，计算无法实施，因为分母为0</li>
+<li>似然比的范围从0.1到无穷大，并呈现白细胞计数越大，似然比值越高的趋势。</li>
+</ol>
+<p>但这些似然比改变了临床实践吗？他们使诊断疾病的可能性低到把患者从急诊室送回家，或高到有充分理由进行手术？</p>
+<ol>
+<li>大多数患者(82%)的白细胞计数在$7 \times 10^9$<del>$19 \times 10^9&#x2F;L$；似然比的范围从0.52</del>3.5，对患病可能性的作用较小。换言之，4&#x2F;5的患者在评估阑尾炎的时候，白细胞计数对诊断没有帮助。仅极端数值可以明显影响患病可能性。</li>
+<li>设想一名28岁男性，肺栓塞的验前概率为20%，他的肺通气-血流灌注扫描是正常的，似然比为0.1。如果我们在左侧栏定位于20%，中间栏为0.1    则右侧栏显示验后概率为2%(图2C)。</li>
+</ol>
+<p>前列腺特异抗原(PSA)筛査前列腺癌提供了多项似然比(multiple likelihood ratios)的另一个例子。</p>
+<p>在一项2620名男性受试者、年龄大于等于40岁的社区研究，调查者进行前列腺癌特异抗原的检测及应用前列腺活检作为诊断金标准。</p>
+<p>标准临界值定在4μg&#x2F;L，阳性试验的似然比为1.3(95%可信区间1.2<del>1.3)，阴性试验为0.4(0.4</del>0.5)：对临床帮助不大。</p>
+<p>然而，根据PSA浓度进行拆分后，结果变得更有用(表格2)。</p>
+<ul>
+<li><p>最低值(&lt;2μg&#x2F;L)的似然比是0.3</p>
+</li>
+<li><p>最高值(&gt;20μg&#x2F;L)的似然比是6.3</p>
+</li>
+<li><p>这些似然比使肿瘤的验前概率发生了中等程度的改变</p>
+<p>  <img src="http://qiniup.louyanspine.com/2018-08-14-103.jpg"></p>
+</li>
+</ul>
+<h2 id="五、似然比的运用"><a href="#五、似然比的运用" class="headerlink" title="五、似然比的运用"></a>五、似然比的运用</h2><p>临床医师经常在进行每个试验前对某个特定疾病的可能性(probability)有所估计(虽然一般无法精确地定量)。按照贝叶斯定理(Bayesian principles)，验前的疾病比值<br>(pretest odds)乘以似然比(the likelihood ratio)得到验后的疾病比值(post-test odds)。</p>
+<blockquote>
+<p>例如，验前比值为3&#x2F;1乘以似然比2，将产生验后比值为6&#x2F;1。</p>
+</blockquote>
+<p>不像赌徒(或统计学家)，大多数临床医生不会想到比值比(odds)——我们通常应用百分率(percentages)。</p>
+<blockquote>
+<p>例如，75%的可能性(75%是&#x2F;25%否)等同于比值比3&#x2F;1。</p>
+</blockquote>
+<p>虽然比值比(odds)和可能性(probabilities)之间的相互转换涉及简单算术，但一种被广泛应用的列线图解法(nomogram)(图2)统<br>一实现了这个步骤。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-14-102.jpg"></p>
+<p>从左侧一列查出疾病的验前概率(pretest probability)，将该点与中间栏的似然比相连，直线的延伸部分与右侧栏相交的点即为疾病的验后概率(post-test probability)。这个流程显示了试验结果调整了验前概率。</p>
+<blockquote>
+<p>例如，在图1下方的表格中，阳性试验的似然比是13，阴性试验的似然比是0.2。假设疾病的验前概率为0.25，而且试验结果是阳性的。在列线图左侧找到验前概率0.25，截取似然比3，连成一直线，并延长直线至右侧栏找到验后概率大约为0.8，诊断可能性发生了重<br>大的改变（图2B)。这个值非常接近于贝叶斯公式计算的验后概率0.81。</p>
+</blockquote>
+<p>列线图解法被广泛应用。但是，如果不能使用列线图，可以采用各种更巧妙的办法。</p>
+<ul>
+<li>例如，可以从互联网上下载计算验后概率的滑尺(a slide rule)。</li>
+<li>英国牛津的循证医学中心(The Centre for Evidence-Based Medicine in Oxford, UK)设计了一种彩色的交互式计算机列线图，能利用活动的箭头替代直线。</li>
+</ul>
+<p>其他网络软件还可以计算$2 \times 2$表格似然比的95%可信区间。既然似然比是可能性的比值(ratios of probabilities)，那么我们就可以像危险比(risk ratios)那样计算95%可信区间。可信区间(Confidence intervals)显示了结果估计的精确度。</p>
+<h2 id="六、似然比大小的临床意义"><a href="#六、似然比大小的临床意义" class="headerlink" title="六、似然比大小的临床意义"></a>六、似然比大小的临床意义</h2><ol>
+<li>不同数值的似然比有不同的临床意义。临床医师凭直觉就可以理解，似然比为1.0对诊断没有帮助：患病和健康人群试验结果的百分比是相同的。</li>
+<li>试验结果不能鉴别疾病和健康，就算是复杂的、昂贵的(可能存在风险)的试验，验前概率没有改变。</li>
+<li>所有似然比的比值从1开始，向下延伸至0，向上至无穷大。因此，似然比越远离1，对患病可能性的作用越大。<ul>
+<li>似然比从2到5使患病验后概率轻度增加</li>
+<li>从5到10中等增加</li>
+<li>大于10显著增加</li>
+<li>对于小于1的比值，似然比越小，患病可能性越低</li>
+</ul>
+</li>
+</ol>
+<h2 id="七、一种有用的记忆法"><a href="#七、一种有用的记忆法" class="headerlink" title="七、一种有用的记忆法"></a>七、一种有用的记忆法</h2><p>遗憾的是，列线图解法和计算机通常在床旁不能被采用。因此，McGee提出一种记忆方法，能简化似然比的应用，并拥有较好的可操<br>作性。他指出验前概率在10%〜90%之间(通常情况)，试验或临<br>床发现所致疾病概率的变化近似于一个常量。临床医师仅需记住3<br>个标志性的似然比：2，5，10(表格3)。这正好对应于15%的前三个<br>倍数：</p>
+<ul>
+<li>似然比为2，增加疾病可能性15%</li>
+<li>似然比为5，增加疾病可能性30%</li>
+<li>似然比为10，增加疾病可能性45%</li>
+</ul>
+<blockquote>
+<p>例如，验前概率是40%，似然比为2，那么验后概率为40%+15%&#x3D;55%(非常接近用公式计算的57%)。</br><br>似然比小于1，规则相反。2的倒数是0.5，5是0.2，10是0.1。似然比为0.5，那么减少验前概率15%，当似然比为0.1时将显著下降45%。</p>
+</blockquote>
+<p><img src="http://qiniup.louyanspine.com/2018-08-14-1032.jpg"></p>
+<h2 id="八、验前概率准确的重要性"><a href="#八、验前概率准确的重要性" class="headerlink" title="八、验前概率准确的重要性"></a>八、验前概率准确的重要性</h2><p>既往史(medical history)与体格检查一直都是非常根本和重要的。事实上，对疾病概率(验前概率)的精确判定，有时候比来源于昂贵的或侵入性试验的似然比更重要。一些疾病，如阿尔茨海默病和鼻窦炎等，临床所见能产生一个相当准确的诊断。而对于其他疾病，临床医师缺乏体征和症状预测值的信息，他们必须依赖流行病学数据、教育和临床敏锐性。</p>
+<p>例如，补充的患者疾病史使冠心病的验前概率从75%下降至小于5%，这样的改变对验前概率的影响超过一个阳性和阴性似然比为3和0.5的心脏负荷试验的影响。</p>
+<p>虽然临床诊断未必会比辅助试验更准确，但它的精确性对后续任何试验结果的解释都将产生显著的作用。一个准确的验前概率(pretest<br>probability)和后续试验(subsequent testing)能很好地优化临床诊断。</p>
+<h2 id="九、决策阈值"><a href="#九、决策阈值" class="headerlink" title="九、决策阈值"></a>九、决策阈值</h2><p>只有当可能影响临床处理时，试验才被使用。如果临床医师判断的患病验前概率已经能安全地肯定或否定诊断，那么进一步的试验是没有必要的。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-14-1033.jpg"></p>
+<p>更多的试验应该在临床不确定的情况下才被考虑(如图3)。在试验进行前，应该明确检查阈值(Test threshold)和治疗阈值(Treatment threshold)(图3中的A和B)在连续的诊断疾病可能性(diagnostic certainty)上的位置。</p>
+<ul>
+<li>疾病概率低于A点可以有效地排除诊断，于是，A就是进行试验的阈值：即验前概率大于A但小于B有可能从后续试验中获益。</li>
+<li>B点是治疗阈值，疾病概率高于此点应判断可以给予治疗，不应再有任何延误。</li>
+</ul>
+<p>这些决策阈值(decision thresholds)(A和B)的位置应该个体化。运用列线图（图2A)，临床医生可以估计多大或多小的似然比使验前概率移动到A点以下(排除诊断)或B点以上(开始治疗)。临床医师可以参考已发表的似然比，确定相应的试验结果。如果试验结果不能实现患病概率的这种移动，就不应该进行该试验。这是非常基本和重要的一点。</p>
+<h2 id="十、似然比的优点"><a href="#十、似然比的优点" class="headerlink" title="十、似然比的优点"></a>十、似然比的优点</h2><p>既然大多数临床医师已经熟悉灵敏度和特异度，是否值得进一步努力学习如何应用似然比？似然比具有某些吸引人的特点，是传统的试验真实性(test validity)指标所没有的。</p>
+<ol>
+<li><p>不是所有的试验都有二分类结果。当结果不仅仅是阴性或阳性时，试验真实性的方程式将无能为力。许多临床医学试验得出连续性结果(如血压)或者多个等级水平的结果(如乳腺肿块的细针穿刺活检)。将多项分类结果强行改成阳性或阴性将丢失信息。似然比使医师有能力解释和使用诊断试验的所有结果。</p>
+</li>
+<li><p>其次，似然比简单易行，适用范围广。相反，试验(tests)的预测值(predictive values)受疾病的患病率影响，即使再完美的试验也可能因为患病率很低而出现很差的阳性预测值。似然比不受疾病患病率的影响，其在一系列不同患病率的疾病中均可使用。预测值与人群的试验特性(test characteristics to populations)有关，而似然比可以被应用到某个特定的患者。此外，似然比与传统的真实性指标不同，需要合并$2 \times 2$表格的所有4格数据。</p>
+</li>
+<li><p>依赖灵敏度和特异度经常会夸大试验的益处。比较两种产科试验(胎儿纤连蛋白fetal fibronectin预测早产、子宫动脉多普勒波形分析预测先兆子痫preeclampsia)，2&#x2F;3发表的报道高估了试验的价值。应用似然比，而不仅仅是灵敏度和特异度，将可能避免这种误解。</p>
+</li>
+<li><p>似然比改善了临床判断。将似然比应用到诊断中将改善诊断疾病的可能性(the diagnostic probability)，有时是相当明显的。当试验按序执行时，第一个试验的验后概率(the post-test odds)成为第二个试验的验前概率(the pretest odds)，以此类推。</p>
+</li>
+</ol>
+<h2 id="十一、似然比的局限性"><a href="#十一、似然比的局限性" class="headerlink" title="十一、似然比的局限性"></a>十一、似然比的局限性</h2><ol>
+<li>似然比对验前概率的影响不是线性的。似然比100是似然比10的10倍，但并没有增加10倍的验前概率，如图2D所示。</li>
+<li>多分类结果试验的极端试验值产生不精确的似然比。有这些并不精确的高值或低值的患者数量很少。在这些单元格中，患病人数微小的改变能产生非常不同的似然比。换言之，在最高和最低的试验值分布区，似然比的不精确性非常多见。将试验结果分布中靠近极值的连续性分类合并，可以得到较多的患者数目，从而使结果更准确，如更窄的可信区间(confidence intervals)。</li>
+<li>相反，许多试验结果分布在中心区域。这里，似然比接近1，因此帮助小。重要的决定因素(big payoffs)来源于高或低的似然比</li>
+<li>另一个问题就是在三级医疗单位中产生的验前概率可能无法被统一采用，因为面向的患者人群不同。</li>
+</ol>
+<h2 id="十二、似然比应用的实例"><a href="#十二、似然比应用的实例" class="headerlink" title="十二、似然比应用的实例"></a>十二、似然比应用的实例</h2><h3 id="（一）以验前概率为基础进行试验的指南"><a href="#（一）以验前概率为基础进行试验的指南" class="headerlink" title="（一）以验前概率为基础进行试验的指南"></a>（一）以验前概率为基础进行试验的指南</h3><ol>
+<li><p>当验前概率高或低时，临床医师应谨慎安排试验。此时，试验不能改变患病的概率，只会导致情况更紊乱：因为不能预测的结果(unexpected results)通常是假阳性或假阴性。</p>
+</li>
+<li><p>当验前概率为50%时，试验将非常有帮助。见图2，起始点在验前概率栏50%的地方比其他任何位置，其列线图验后概率的数值变化都要明显。</p>
+</li>
+<li><p>无论试验结果如何，患病的验前概率越高，其验后概率也越高。</p>
+<blockquote>
+<p>例如，高3倍的验前概率将比低值产生高出3倍以上的验后概率。</p>
+</blockquote>
+</li>
+<li><p>LR+大于10意味着阳性试验能很好地诊断疾病。</p>
+</li>
+<li><p>LR-小于0.1意味着阴性试验能很好地排除诊断。</p>
+</li>
+<li><p>当序贯进行各项试验时，第一个试验的验后概率成为下一个试验的验前概率。不同试验之间相互联系，按序进行。</p>
+</li>
+</ol>
+<h3 id="（二）应用实例"><a href="#（二）应用实例" class="headerlink" title="（二）应用实例"></a>（二）应用实例</h3><p>临床上可以广泛应用似然比，包括：症状、体格检查、实验室检查，以及影像学和评分系统(表格4)。基于正确的疾病验前概率，辅助检查的似然比往往能在重要途径上优化临床判断。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-14-104.jpg"></p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-15-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-15%20%E4%B8%8A%E5%8D%8810.04.36.png"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BC%BC%E7%84%B6%E6%AF%94/" rel="tag"># 似然比</a>
+              <a href="/tags/%E9%AA%8C%E5%89%8D%E6%A6%82%E7%8E%87/" rel="tag"># 验前概率</a>
+              <a href="/tags/%E9%AA%8C%E5%90%8E%E6%A6%82%E7%8E%87/" rel="tag"># 验后概率</a>
+              <a href="/tags/%E5%88%97%E7%BA%BF%E5%9B%BE/" rel="tag"># 列线图</a>
+              <a href="/tags/%E6%AF%94%E5%80%BC%E6%AF%94/" rel="tag"># 比值比</a>
+              <a href="/tags/%E5%86%B3%E7%AD%96%E9%98%88%E5%80%BC/" rel="tag"># 决策阈值</a>
+              <a href="/tags/%E6%A3%80%E6%9F%A5%E9%98%88%E5%80%BC/" rel="tag"># 检查阈值</a>
+              <a href="/tags/%E6%B2%BB%E7%96%97%E9%98%88%E5%80%BC/" rel="tag"># 治疗阈值</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/02/Essential-Concepts-in-Clinical-Research7/" rel="prev" title="临床研究基本概念：筛查试验（一）">
+      <i class="fa fa-chevron-left"></i> 临床研究基本概念：筛查试验（一）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/02/Essential-Concepts-in-Clinical-Research9/" rel="next" title="临床研究基本概念：随机对照试验（一）">
+      临床研究基本概念：随机对照试验（一） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E4%BC%BC%E7%84%B6%E6%AF%94%E4%BC%98%E5%8C%96%E4%B8%B4%E5%BA%8A%E8%AF%8A%E6%96%AD"><span class="nav-number">1.</span> <span class="nav-text">应用似然比优化临床诊断</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">一、摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.2.</span> <span class="nav-text">二、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%B8%A4%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%AF%95%E9%AA%8C%E7%9A%84%E4%BC%BC%E7%84%B6%E6%AF%94"><span class="nav-number">1.3.</span> <span class="nav-text">三、两分类结果试验的似然比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E9%98%B3%E6%80%A7%E4%BC%BC%E7%84%B6%E6%AF%94"><span class="nav-number">1.3.1.</span> <span class="nav-text">（一）阳性似然比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E9%98%B4%E6%80%A7%E4%BC%BC%E7%84%B6%E6%AF%94"><span class="nav-number">1.3.2.</span> <span class="nav-text">（二）阴性似然比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.3.</span> <span class="nav-text">（三）计算方法总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%A4%9A%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%AF%95%E9%AA%8C%E7%9A%84%E4%BC%BC%E7%84%B6%E6%AF%94"><span class="nav-number">1.4.</span> <span class="nav-text">四、多分类结果试验的似然比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BC%BC%E7%84%B6%E6%AF%94%E7%9A%84%E8%BF%90%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">五、似然比的运用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%BC%BC%E7%84%B6%E6%AF%94%E5%A4%A7%E5%B0%8F%E7%9A%84%E4%B8%B4%E5%BA%8A%E6%84%8F%E4%B9%89"><span class="nav-number">1.6.</span> <span class="nav-text">六、似然比大小的临床意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%B8%80%E7%A7%8D%E6%9C%89%E7%94%A8%E7%9A%84%E8%AE%B0%E5%BF%86%E6%B3%95"><span class="nav-number">1.7.</span> <span class="nav-text">七、一种有用的记忆法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E9%AA%8C%E5%89%8D%E6%A6%82%E7%8E%87%E5%87%86%E7%A1%AE%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-number">1.8.</span> <span class="nav-text">八、验前概率准确的重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%86%B3%E7%AD%96%E9%98%88%E5%80%BC"><span class="nav-number">1.9.</span> <span class="nav-text">九、决策阈值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E4%BC%BC%E7%84%B6%E6%AF%94%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">1.10.</span> <span class="nav-text">十、似然比的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E4%BC%BC%E7%84%B6%E6%AF%94%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">1.11.</span> <span class="nav-text">十一、似然比的局限性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E4%BC%BC%E7%84%B6%E6%AF%94%E5%BA%94%E7%94%A8%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.12.</span> <span class="nav-text">十二、似然比应用的实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E4%BB%A5%E9%AA%8C%E5%89%8D%E6%A6%82%E7%8E%87%E4%B8%BA%E5%9F%BA%E7%A1%80%E8%BF%9B%E8%A1%8C%E8%AF%95%E9%AA%8C%E7%9A%84%E6%8C%87%E5%8D%97"><span class="nav-number">1.12.1.</span> <span class="nav-text">（一）以验前概率为基础进行试验的指南</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.12.2.</span> <span class="nav-text">（二）应用实例</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">430</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1626</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

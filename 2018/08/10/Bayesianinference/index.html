@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明  参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）   一、条件概率（Conditional probability） 条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。  根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。 $$P(B\mid{A})&#x3D;\cfr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贝叶斯定理（Bayes&#39;s theorem）及贝叶斯推断(Bayesian inference)">
+<meta property="og:url" content="http://lysp2017.github.io/2018/08/10/Bayesianinference/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明  参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）   一、条件概率（Conditional probability） 条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。  根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。 $$P(B\mid{A})&#x3D;\cfr">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-Unknown.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg">
+<meta property="article:published_time" content="2018-08-10T06:25:14.000Z">
+<meta property="article:modified_time" content="2019-02-27T17:03:42.000Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="条件概率">
+<meta property="article:tag" content="全概率公式">
+<meta property="article:tag" content="贝叶斯定理">
+<meta property="article:tag" content="贝叶斯推断">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-08-10-Unknown.png">
+
+<link rel="canonical" href="http://lysp2017.github.io/2018/08/10/Bayesianinference/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>贝叶斯定理（Bayes's theorem）及贝叶斯推断(Bayesian inference) | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/10/Bayesianinference/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          贝叶斯定理（Bayes's theorem）及贝叶斯推断(Bayesian inference)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-10 14:25:14" itemprop="dateCreated datePublished" datetime="2018-08-10T14:25:14+08:00">2018-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:03:42" itemprop="dateModified" datetime="2019-02-28T01:03:42+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说明<br></p>
+<ol>
+<li>参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）</li>
+</ol>
+</blockquote>
+<h2 id="一、条件概率（Conditional-probability）"><a href="#一、条件概率（Conditional-probability）" class="headerlink" title="一、条件概率（Conditional probability）"></a>一、条件概率（Conditional probability）</h2><ol>
+<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。<br> <img src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png"></li>
+<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。<br> $$P(B\mid{A})&#x3D;\cfrac{P(A\bigcap{B})}{P(A)}$$<br> 因此：$$P({A} \bigcap {B})&#x3D;P(B\mid{A})\times P(A)$$<br> 同理可得：$$P({A} \bigcap {B})&#x3D;P(A\mid{B})\times P(B)$$<br> 所以：$$P(B\mid{A})\times P(A)&#x3D; P(A\mid{B})\times P(B)$$<br> 即：$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})\times P(A)}{P(B)} $$</li>
+</ol>
+<h2 id="二、全概率公式"><a href="#二、全概率公式" class="headerlink" title="二、全概率公式"></a>二、全概率公式</h2><p>假定样本空间S，是两个事件A与A’的和。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg"></p>
+<p>上图中，红色部分是事件A，绿色部分是事件A’，它们共同构成了样本空间S。</p>
+<p>在这种情况下，事件B可以划分成两个部分。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg"></p>
+<p>即：$$P(B) &#x3D; P({B} \bigcap {A}) + P({B} \bigcap {A’})$$</p>
+<p>在之前的推导当中，我们已知：$$P({A} \bigcap {B})&#x3D;P(B\mid{A})\times P(A)$$<br>所以：$$P(B) &#x3D; P(B\mid{A})\times P(A) + P(B\mid{A’})\times P(A’)$$<br>把 $P(B)$代入上一节中的条件概率公式 $P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})\times P(A)}{P(B)} $<br>$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})\times P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A’})\times P(A’)} $$</p>
+<h2 id="三、贝叶斯定理及贝叶斯推断"><a href="#三、贝叶斯定理及贝叶斯推断" class="headerlink" title="三、贝叶斯定理及贝叶斯推断"></a>三、贝叶斯定理及贝叶斯推断</h2><p>对条件概率公式进行变形，可以得到如下形式：<br>$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})}{P(B)} \times P(A)$$</p>
+<ul>
+<li>$P(A)$称为”先验概率”（Prior Probability），即在B事件发生之前，我们对A事件概率的一个判断。</li>
+<li>$P(A\mid{B})$称为”后验概率”（Posterior Probability），即在B事件发生之后，我们对A事件概率的重新评估。</li>
+<li>$\cfrac{P(B\mid{A})}{P(B)}$称为”可能性函数”（likelihood），这是一个调整因子，使得预估概率更接近真实概率。</li>
+</ul>
+<p>所以，条件概率可以理解成：<br><code>后验概率　＝　先验概率 × 调整因子</code></p>
+<p>这就是贝叶斯推断的含义。我们先预估一个”先验概率”，然后加入实验结果，看这个实验到底是增强还是削弱了”先验概率”，由此得到更接近事实的”后验概率”。</p>
+<ul>
+<li>在这里，如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&gt;1，意味着”先验概率”被增强，事件A的发生的可能性变大；</li>
+<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&#x3D;1，意味着B事件无助于判断事件A的可能性；</li>
+<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&lt;1，意味着”先验概率”被削弱，事件A的可能性变小。</li>
+</ul>
+<h2 id="四、水果糖的例子"><a href="#四、水果糖的例子" class="headerlink" title="四、水果糖的例子"></a>四、水果糖的例子</h2><p><img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg"></p>
+<p>问题：两个一模一样的碗，一号碗有30颗水果糖和10颗巧克力糖，二号碗有水果糖和巧克力糖各20颗。现在随机选择一个碗，从中摸出一颗糖，发现是水果糖。请问这颗水果糖来自一号碗的概率有多大？</p>
+<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以$P(H_1)$ &#x3D; $P(H_2)$，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，$P(H_1)$ &#x3D; 0.5，我们把这个概率就叫做”先验概率”，即没有做实验之前，来自一号碗的概率是0.5。</p>
+<p>再假定，E表示水果糖，所以问题就变成了在已知E的情况下，来自一号碗的概率有多大，即求$P(H_1\mid{E})$。我们把这个概率叫做”后验概率”，即在E事件发生之后，对P(H1)的修正。</p>
+<p>根据条件概率公式，得到<br>$$P(H_1\mid{E}) &#x3D; P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}$$</p>
+<p>已知，$P(H_1)$ &#x3D; 0.5，$P(E\mid{H_1})$为一号碗中取出水果糖的概率，等于0.75，那么求出$P(E)$就可以得到答案。</p>
+<p>根据全概率公式：<br>$$P(E)&#x3D;P(E\mid{H_1}) \times P(H_1) +P(E\mid{H_2}) \times P(H_2)$$</p>
+<p>所以：<br>$$P(E)&#x3D;0.75\times0.5+0.5\times0.5&#x3D;0.625$$</p>
+<h2 id="五、假阳性问题"><a href="#五、假阳性问题" class="headerlink" title="五、假阳性问题"></a>五、假阳性问题</h2><p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
+<p>假定A事件表示得病，那么$P(A)$为0.001。这就是”先验概率”，即没有做试验之前，我们预计的发病率。</p>
+<p>再假定B事件表示阳性，那么要计算的就是$P(A\mid{B})$。这就是”后验概率”，即做了试验以后，对发病率的估计。</p>
+<p>$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline {A}})\times P(\overline {A})} \times P(A)$$</p>
+<p>$$\approx \cfrac{0.99}{0.99 \times 0.001+0.05\times 0.999} \times {0.001} $$</p>
+<p>我们得到了一个惊人的结果，$P(A\mid{B})$约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的”假阳性”，即阳性结果完全不足以说明病人得病。</p>
+<p>为什么会这样？为什么这种检验的准确率高达99%，但是可信度却不到2%？</p>
+<p>首先是与误报率(5%)太高有关，其次也和发病率太低(0.1%)有关。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87/" rel="tag"># 条件概率</a>
+              <a href="/tags/%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F/" rel="tag"># 全概率公式</a>
+              <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86/" rel="tag"># 贝叶斯定理</a>
+              <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD/" rel="tag"># 贝叶斯推断</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/08/Ambulance-services/" rel="prev" title="伦敦和大不列颠救护车的历史：从1860年到现代(未完)">
+      <i class="fa fa-chevron-left"></i> 伦敦和大不列颠救护车的历史：从1860年到现代(未完)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/16/Avoiding-Common-Surgical-Errors1/" rel="next" title="避免外科常见错误：伤口（一）（未完）">
+      避免外科常见错误：伤口（一）（未完） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%EF%BC%88Conditional-probability%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">一、条件概率（Conditional probability）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">二、全概率公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86%E5%8F%8A%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD"><span class="nav-number">3.</span> <span class="nav-text">三、贝叶斯定理及贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%B0%B4%E6%9E%9C%E7%B3%96%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">4.</span> <span class="nav-text">四、水果糖的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%81%87%E9%98%B3%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">五、假阳性问题</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">430</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1626</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
