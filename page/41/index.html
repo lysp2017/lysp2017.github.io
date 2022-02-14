@@ -189,6 +189,251 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/21/e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/21/e/" class="post-title-link" itemprop="url">指数函数和自然常数e</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-21 21:10:06" itemprop="dateCreated datePublished" datetime="2018-08-21T21:10:06+08:00">2018-08-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-14 17:12:49" itemprop="dateModified" datetime="2022-02-14T17:12:49+08:00">2022-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明<br></p>
+<ol>
+<li>译自BetterExplained上的文章An Intuitive Guide To Exponential Functions &amp; e<br></li>
+</ol>
+</blockquote>
+<p>$e$一直困扰着我，并不是字母e，而是数学常数。它到底意味着什么？在很多数学书籍，甚至我心爱的维基百科都用晦涩的术语来描述$e$：</p>
+<blockquote>
+<p>数学常数$e$是自然对数的底数。</p>
+</blockquote>
+<p>当你查找自然对数时，你会得到：</p>
+<blockquote>
+<p>自然对数（以前称为双曲线对数）的底数为$e$，其中$e$是约等于2.718281828459的无理常数(irrational constant)。</p>
+</blockquote>
+<p>许多数学上的解释在追求严谨方面都是非常正式和枯燥乏味的。但这并不能帮助初学者尝试解决某个问题。</p>
+<h2 id="一、-e-不只是一个数字"><a href="#一、-e-不只是一个数字" class="headerlink" title="一、$e$不只是一个数字"></a>一、$e$不只是一个数字</h2><p>通常，我们将$e$描述为“约为2.71828……的常数”，就像称$\pi$为“约为3.1415……的无理数”。这当然是恰当的，但完全错过了要点。</p>
+<h3 id="（一）-pi-是所有圆的圆周和直径之间的比率"><a href="#（一）-pi-是所有圆的圆周和直径之间的比率" class="headerlink" title="（一）$\pi$是所有圆的圆周和直径之间的比率"></a>（一）$\pi$是所有圆的圆周和直径之间的比率</h3><p>它是所有圆中固有的基础比率，因此影响圆、球和圆柱等的周长、面积、体积和表面积的计算，以及从圆上得到的三角函数(sin，cos，tan)。</p>
+<h3 id="（二）-e-是所有连续增长过程都共有的基本增长率"><a href="#（二）-e-是所有连续增长过程都共有的基本增长率" class="headerlink" title="（二） $e$是所有连续增长过程都共有的基本增长率"></a>（二） $e$是所有连续增长过程都共有的基本增长率</h3><p>你可以用$e$表示一个简单的增长率（所有的增长都是发生在年末的一个瞬变），同时发现连续型复合增长的影响，每一纳秒（或者更快），你只需要增长一点点。</p>
+<p>只要当系统呈连续型指数级增长，$e$便会出现：种群密度、放射性衰变、利息计算等等。甚至并不是平稳增长的锯齿状增长系统都能用$e$来近似。</p>
+<p>就像每个数字都可以被认为和1（基本单位）呈某个比例，每个圆可以认为和单位圆（半径为1）呈某个比例，同样每个增长率都可以认为和e（单位增长率）呈某个比例。</p>
+<p>因此$e$并不是一个模糊的、似乎随机的数字。$e$表示这样的思想，即所有连续型增长系统和某个一般比率呈比例关系。</p>
+<blockquote>
+<p>$e$ represents the idea that all continually growing systems are scaled versions of a common rate.</p>
+</blockquote>
+<h2 id="二、理解指数增长"><a href="#二、理解指数增长" class="headerlink" title="二、理解指数增长"></a>二、理解指数增长</h2><p>首先来看一个基本系统，其在一段时间之后会翻倍。比如，</p>
+<ul>
+<li>细菌每24小时分裂并翻倍</li>
+<li>把面条对折，我们可以得到两倍数量。</li>
+<li><p>如果你（幸运！）得到100%的利润率，那么你的财富每年翻倍。</p>
+<p>  <img src="http://qiniup.louyanspine.com/2018-08-22-growth_2_x.png" alt=""></p>
+</li>
+</ul>
+<p>数学上，如果分裂x次，那么我们得到原始物品数量的$({2^x})$倍。一次分裂我们得到$(2^{1})$或者2倍。四次分裂我们得到$(2^{4})$或者16倍。通用公式如下：<script type="math/tex">growth = 2 ^x</script></p>
+<p>另一种描述方式，双倍也就是100%的增长。我们可以重写公式如下：</p>
+<script type="math/tex; mode=display">growth = (1+100\%)^x</script><p>虽然两个等式相同，但我们对2的分割具有真实意义，即原始值1加上100%。聪明吧？</p>
+<p>当然，我们可以用任意数字（50%，25%，200%）代替100%，然后得到关于新比率的growth公式。因此x个周期的回报的通用公式是：</p>
+<script type="math/tex; mode=display">growth = (1+return)^x</script><p>这只是意味着我们连续使用自定义的回报率，$(1 + return)$，“$x$”次。</p>
+<h2 id="三、深入了解指数增长"><a href="#三、深入了解指数增长" class="headerlink" title="三、深入了解指数增长"></a>三、深入了解指数增长</h2><p>上述公式假设增长是离散型的。细菌在等待，等待，然后爆发，它们在最后的最后数量加倍；利息收入在1年的刻度处魔幻般出现。基于上述公式的增长是离散的、瞬间发生的，即，绿点突然出现。</p>
+<p>事实并非如此，如果我们放大来看，会发现细菌随时间分裂：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_2x_zoomed.png" alt=""></p>
+<p>绿先生（Mr. Green）不只是突然出现：它缓慢增长，然后脱离蓝先生（Mr. Blue）。一个单位时间（本例中是24小时）之后，绿先生完成生长，然后成熟为蓝细胞，可以创造它自己的新绿细胞。</p>
+<p>这个信息会改变我们的等式么？</p>
+<p>不！在细菌实例中，半成品的绿细胞仍然做不了任何事情，除非它们完全长大并从蓝色父母中分离。因此，等式保持不变。</p>
+<h2 id="四、金钱改变一切"><a href="#四、金钱改变一切" class="headerlink" title="四、金钱改变一切"></a>四、金钱改变一切</h2><p>然而财富却不一样。每收入1便士的利息，这1便士就能开始产生它自己的微便士（micro-pennies）。我们不需要等到收入完整的1美元利息：新的财富不需要成熟。</p>
+<p>基于我们旧的公式，利息增长看起来是这样的：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_1.png" alt=""></p>
+<p>但是这样并不正确：所有的利息出现在最后一天。让我们把一年放大并分为两块。即每年收入100%的利息，或者每6个月收入50%。那么前六个月收入50美分，后六个月收入另外50美分：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months.png" alt=""></p>
+<p>但这依然不正确！当然，原始的财富（Mr. Blue）在一年之内收入1美元。但是6个月后我们收入了50美分，明白了吧，我们之前忽略了这一部分！这50美分本来也有它自己的收入：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months_compound.png" alt=""></p>
+<p>因为比率是每半年50%，那50美分本可以收入25美分（50美分的50%）。年末我们可以得到：</p>
+<ul>
+<li>原始财富（Mr. Blue）</li>
+<li>蓝先生创造的财富（Mr. Green）</li>
+<li>绿先生创造的25美分（Mr. Red）</li>
+</ul>
+<p>总共得到\$2.25，即从初始的财富中收益\$1.25，比翻倍要好！</p>
+<p>让我们把回报写成公式。两个50%的半周期的growth是：</p>
+<script type="math/tex; mode=display">growth = (1+50\%)^2 = 2.25</script><h2 id="五、复合增长的深入研究"><a href="#五、复合增长的深入研究" class="headerlink" title="五、复合增长的深入研究"></a>五、复合增长的深入研究</h2><p>是时候提升一个等级了。这次不再把增长为为两个50%的增长周期，而把它分为三段33%的增长周期。谁说我们必须等待6个月才能开始收入利息？毫厘必争！</p>
+<p>3个复合周期的增长得到下面有趣的图表：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_4_months_compound.png" alt=""></p>
+<p>想象每种颜色将收益向上传送给另一种颜色（它的孩子），每个周期增长33%：</p>
+<ul>
+<li>0月：初始蓝先生为$1。</li>
+<li>4月：蓝先生已经收入它自己的1/3美元，同时创造出的绿先生拥有33美分。</li>
+<li>8月：蓝先生收入另外33美分，交给绿先生，绿先生拥有66美分。绿先生在它之前的值上收益33%，创造11美分$(33\% \times 33)$，这11美分变成红先生。</li>
+<li>12月：情况变得略疯狂了。蓝先生收入另外33美分，交给绿先生，绿先生拥有完整的1美元。绿先生在它8月份的值（66美分）上收入33%的回报，即22美分，这22美分加到红先生上，红先生现在总共33美分。而且红先生开始有11美分，并以此收入4美分$(33\% \times 11)$，创造出紫先生。</li>
+</ul>
+<p>12个月后的最终值是：$1 + 1 + .33 + .04 = 2.37$</p>
+<p>花点时间来真正搞懂这种增长的原委：</p>
+<ul>
+<li>每种颜色从其自身上收入利息，并交给另一种颜色。新创造的财富也可以产生它自己的利息，依次循环。</li>
+<li>我喜欢把原始量（蓝先生）看做是不变的。蓝先生收益财富来创造绿先生，由于蓝先生不会变化，所以这是稳定的每4个月33美分的收益。图中，蓝先生有一个蓝色箭头显示出他如何喂养(feeds)绿先生的。</li>
+<li>绿先生喂养(feeds)红先生（绿色箭头），但是蓝先生并没有意识到。</li>
+<li>绿先生随时间增长（不断被蓝先生喂养），它对红先生的贡献越来越多。4-8月间，绿先生给了红先生11美分。8-12月间，因为绿先生在8月份有66美分，所以给了红先生22美分。如果我们扩展下图表，绿先生将给红先生33美分，因为绿先生在12月份达到了完整的1美元。</li>
+</ul>
+<p>通过在growth等式中使用3个周期，得到这样的公式：</p>
+<script type="math/tex; mode=display">growth = (1+100\%/3)^3 = 2.37037...</script><p>我们挣了\$1.37，比上次得到的\$1.25更好！</p>
+<h2 id="六、我们可以得到无尽的财富么？"><a href="#六、我们可以得到无尽的财富么？" class="headerlink" title="六、我们可以得到无尽的财富么？"></a>六、我们可以得到无尽的财富么？</h2><p>为什么不采用更短的时间周期呢？每月、每天、每小时，甚至每纳秒会怎么样？回报会猛涨么？</p>
+<p>回报确实会变得更好，但也只是在某种意义上。尝试在我们魔幻般的公式中使用不同的数字n，来看下总的回报：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">n</th>
+<th style="text-align:center">$(1+\cfrac{1}{n})^n$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2.25</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2.37</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2.488</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2.5937</td>
+</tr>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">2.7048</td>
+</tr>
+<tr>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">2.7169</td>
+</tr>
+<tr>
+<td style="text-align:center">10000</td>
+<td style="text-align:center">2.71814</td>
+</tr>
+<tr>
+<td style="text-align:center">100000</td>
+<td style="text-align:center">2.718268</td>
+</tr>
+<tr>
+<td style="text-align:center">1000000</td>
+<td style="text-align:center">2.7182804</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>数字越来越大，最终收敛到2.718附近。</p>
+<p>如果在越来越小的时间周期上，连续复合100%的回报，$e$则被定义为其增长率：</p>
+<script type="math/tex; mode=display">growth = e = \lim _{n\rightarrow \infty }\left( 1+\cfrac {1}{n}\right) ^{n}</script><p>这个极限似乎是收敛的，而且存在相应的证明。但是如你所见，当我们采用更小的时间周期时，总的回报稳定在2.718附近。</p>
+<h2 id="七、-但这意味着什么呢？"><a href="#七、-但这意味着什么呢？" class="headerlink" title="七、 但这意味着什么呢？"></a>七、 但这意味着什么呢？</h2><p>当在一个时间周期内复合100%的增长时，数字$e（2.718…）$是最大的可能结果。当然，开始时你期望从1增长到2（一个100%的增长，对吧？）。但是每向前一小步，你所创造的微薄利润本身也在收益。当所有过程指明并结束，你在一个时间周期末最终得到$e（2.718…）$，而不是2。$e$是最大的，当我们尽可能多地复合100%时，又发生了什么呢？</p>
+<p>那么，如果我们以\$1.00为开始，以100%的回报连续复合，我们得到$1e$。如果我们以\$2.00为开始，我们得到$2e$。如果我们以\$11.79为开始，我们得到$11.79e$。</p>
+<p>$e$像是一个速度极限（类似光速$c$），表明在使用一个连续过程时，可能增长多快。你可能不总是达到速度极限，但它是一个参考点：你可以用这个通用常量表示每个增长率。</p>
+<blockquote>
+<p>注：将增量从最终结果中分离出来。1变成$e（2.718…）$是一个171.8%的增量（增长率）。$e$本身是在所有增量考虑进去之后（原始值+增量），你所观测到的最终结果。</p>
+</blockquote>
+<h2 id="八、如果使用不同的比率呢？"><a href="#八、如果使用不同的比率呢？" class="headerlink" title="八、如果使用不同的比率呢？"></a>八、如果使用不同的比率呢？</h2><p>好问题。如果我们以每年50%增长，而不是100%呢？我们依然可以使用$e$么？</p>
+<p>来看看，50%的复合增长应该是这样的：</p>
+<script type="math/tex; mode=display">\lim _{n\rightarrow \infty }\left( 1+\cfrac {0.5}{n}\right) ^{n}</script><p>回想下，50%是总的回报，n是将增长分成复合增长的周期数。如果我们取n=50，我们可以将增长分成50块，每块1%的利息：</p>
+<script type="math/tex; mode=display">\left( 1+\cfrac {0.50}{50}\right) ^{50}=\left( 1+0.01\right) ^{50}</script><p>当然，这不是无穷的，但是已经相当小了。现在想象我们也将常规的100%分割成1%的块：</p>
+<script type="math/tex; mode=display">e\approx\left( 1+ \cfrac {1.00}{100}\right) ^{100}=\left( 1+0.01\right) ^{100}</script><p>殊途同归。在我们的常规案例中，有100个1%的累积变化。在50%的场景中，有50个1%的累积变化。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-different_exponential_rates.png" alt=""></p>
+<p>这两个数字间的差异是什么呢？好吧，只是差了一半的变化数目而已：</p>
+<script type="math/tex; mode=display">\left( 1+0.01\right) ^{50} = \left( 1+0.01\right) ^{100/2}=\left( \left( 1+0.01\right) ^{100}\right) ^{1/2}=e^{1/2}</script><p>相当有趣的是，$50/100 = 0.5$，0.5正是e的指数。这是普遍适用的：如果有300%的增长率，我们可以将它分成300个1%的增长块。这将是标准量的三倍，最终比率为$(e^{3})$。</p>
+<p>这里取了1%，但我们本可以选择任意小的增长单位（0.1%，0.0001%，甚至一个无穷小量）。重点是对于所选取的任意比率，它只是$e$上的一个新指数而已：</p>
+<script type="math/tex; mode=display">growth= e^{rate}</script><h2 id="九、如果使用不同的周期呢？"><a href="#九、如果使用不同的周期呢？" class="headerlink" title="九、如果使用不同的周期呢？"></a>九、如果使用不同的周期呢？</h2><p>假设我们以300%增长两年，我们要将一年的增长$e^{3}$乘以其自身：</p>
+<script type="math/tex; mode=display">growth= (e^{3})^2=e^{6}</script><p>推而广之：</p>
+<script type="math/tex; mode=display">growth= (e^{rate})^{time}=e^{rate \times time}</script><h3 id="大秘密：-e-整合了比率和时间"><a href="#大秘密：-e-整合了比率和时间" class="headerlink" title="大秘密：$e$整合了比率和时间"></a>大秘密：$e$整合了比率和时间</h3><p>$(e^{3})$可以表示两个东西：</p>
+<ul>
+<li>x是时间乘以增长率：以100%增长三年是$e^{3}$</li>
+<li>x是增长率本身：以300%增长一年是$e^{3}$</li>
+</ul>
+<p>这个重叠不会引起混淆么？当我们写为：<script type="math/tex">e^{x}</script></p>
+<p>变量$x$是比率和时间的组合。$x = rate \times time$</p>
+<p>我来解释下。当处理连续型复合增长时，10年3%的增长和1年30%的增长是等价的（此后不增长的话）。</p>
+<ul>
+<li>10年的3%的增长意味着30个1%的变化，这些变化在10年内发生，所以你是以每年3%连续增长。</li>
+<li>1个周期的30%的增长意味着30个1%的变化，但是在一年内发生，所以一年增长30%，然后停止。</li>
+</ul>
+<p>每个案例中有同样的“30个1%的变化”发生。速率（30%）越快，达到同样的效果所用时间越少（1年）。速率越慢（3%），需要增长的时间越长（10年）。</p>
+<p>但是在两个案例中，最后的增长是$e^{0.30} = 1.35$。我们更加急切地希望大而快的增长，而不是慢而长的增长，但是$e$显示出它们的最终效果是一样的。</p>
+<p>所以我们的通用公式变为：</p>
+<script type="math/tex; mode=display">growth= e^x = e^{rt}</script><h2 id="十、实例"><a href="#十、实例" class="headerlink" title="十、实例"></a>十、实例</h2><h3 id="（一）实例1：最大利率"><a href="#（一）实例1：最大利率" class="headerlink" title="（一）实例1：最大利率"></a>（一）实例1：最大利率</h3><p>假设我有账户上有\$120，利率5%。银行很慷慨，给了我最大可能的复合。10年后我将得到多少呢？</p>
+<p>我们的比率是5%，而且很幸运得以连续复合。10年之后，我们得到<script type="math/tex">\$120\times e^{0.05\times 10 }= \$197.85</script></p>
+<h3 id="（二）实例2：72法则"><a href="#（二）实例2：72法则" class="headerlink" title="（二）实例2：72法则"></a>（二）实例2：72法则</h3><p>如果银行的利息率是5%的复利，请问100元存款翻倍需要多少时间？<br>计算结果是13.86年cfrac</p>
+<script type="math/tex; mode=display">100\times e^{5 \% \times t}= 200</script><script type="math/tex; mode=display">t=\cfrac {\ln 2}{5\% } = \cfrac {0.693}{5\% }= \cfrac {69.3}{5} \approx \cfrac {72}{5}</script><p>上式最后一个等号，表明用72除以增长率，可以得到翻倍的大致时间，这就是72法则的来源。</p>
+<h3 id="（三）实例3：放射性衰变"><a href="#（三）实例3：放射性衰变" class="headerlink" title="（三）实例3：放射性衰变"></a>（三）实例3：放射性衰变</h3><p>我有10kg的放射性材料，似乎以每年100%的速率连续衰变。3年后我将有多少呢？</p>
+<script type="math/tex; mode=display">10\times e^{-1 \times 3 }= 0.498kg</script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/20/Spinal-pedicle-fixation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -249,8 +494,8 @@
 <li>翻译自Weinstein JN,et al.Spinal pedicle fixation: reliability and validity of roentgenogram-based assessment and surgical factors on successful screw placement.Spine,1988,13(9):1012-8.<br></li>
 </ol>
 </blockquote>
-<p>自从King于1944年首次将short screws几乎横向穿过腰椎后柱的lateral articulations（transfacet&#x2F;关节突）。在此基础上，脊柱内固定技术在Boucher，Pennel，Roy-Camille，Louis and Maresca，Cabot，Steffee等人的努力下，不断改进。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-20-Internal%20fixation%20for%20lumbosacral%20fusion.jpg"></p>
+<p>自从King于1944年首次将short screws几乎横向穿过腰椎后柱的lateral articulations（transfacet/关节突）。在此基础上，脊柱内固定技术在Boucher，Pennel，Roy-Camille，Louis and Maresca，Cabot，Steffee等人的努力下，不断改进。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-20-Internal%20fixation%20for%20lumbosacral%20fusion.jpg" alt=""></p>
 <p>总的来说，上述骨科医生的工作促进了以下四个方面的改进：</p>
 <ol>
 <li>置钉技术</li>
@@ -263,24 +508,23 @@
 <h3 id="成功率"><a href="#成功率" class="headerlink" title="成功率"></a>成功率</h3><p>在临床实践中，骨科医生在术中使用静态或动态X线片来辅助置钉并评估置钉的成功是否。这项技术的可靠性和有效性如何？</p>
 <h3 id="入路"><a href="#入路" class="headerlink" title="入路"></a>入路</h3><p>Roy-Camille建议，螺钉的进入点是两条线的交叉点：</p>
 <ol>
-<li><p>横突中线</p>
-</li>
+<li>横突中线</li>
 <li><p>经过关节面下1mm的关节突的垂线</p>
 <blockquote>
 <p>a vertical line given by the articular processes 1 mm under the facet joint</p>
 </blockquote>
 </li>
 </ol>
-<p><img src="http://qiniup.louyanspine.com/2018-08-20-figure_1-7A.jpg"></p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-20-figure_1-7A.jpg" alt=""></p>
 <p>Weinstein建议将腰椎中的螺钉放置在远离facet joint的位置，以免干扰未固定和融合的节段的运动。</p>
 <p>最佳的进入点位于上关节面的lateral and inferior corner，Weinstein称之为上关节面的颈背(the nape of the neck)。</p>
 <p>因此，入路是否会对成功率产生影响，在下腰椎中，Weinstein入路是否比Roy-Camille入路更合适？</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-20-screw.jpg"></p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-20-screw.jpg" alt=""></p>
 <h3 id="外科医生的经验"><a href="#外科医生的经验" class="headerlink" title="外科医生的经验"></a>外科医生的经验</h3><p>虽然外科医生接受过椎弓根固定技术方面的培训，但经验的长期影响是什么？ 从经验中获得额外的学问可以转化为更高的成功率吗？</p>
 <h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>尽管与经验有关，但实践会促进短期内经验的改进。成功率是否会随着实践而提高，并且基于外科医生的经验，实践是否会产生有差异的效果？</p>
 <h3 id="固定节段"><a href="#固定节段" class="headerlink" title="固定节段"></a>固定节段</h3><p>虽然脊柱内固定的远期成功与固定的节段有关这个假设，可能是合理的，因为某些节段可能比其他节段承受更多的力量，置钉本身的成功与固定的节段有关么？</p>
 <h3 id="螺钉尺寸"><a href="#螺钉尺寸" class="headerlink" title="螺钉尺寸"></a>螺钉尺寸</h3><p>一些研究报道了尸体上椎弓根的直径(垂直和水平方向)。此外，还有许多不同节段（胸椎，腰椎，骶骨）的椎弓根测量有关的解剖学研究。</p>
-<p>然而，没有人讨论过这些测量在椎弓根置钉中的重要性。例如，如果椎弓根峡部的最窄尺寸是8.0毫米，那么7.0毫米或5.5毫米螺钉更合适吗？<br><img src="http://qiniup.louyanspine.com/2018-08-20-pars-injection-spondylolisthesis.jpg"></p>
+<p>然而，没有人讨论过这些测量在椎弓根置钉中的重要性。例如，如果椎弓根峡部的最窄尺寸是8.0毫米，那么7.0毫米或5.5毫米螺钉更合适吗？<br><img src="http://qiniup.louyanspine.com/2018-08-20-pars-injection-spondylolisthesis.jpg" alt=""></p>
 <p>当然，pedicle characteristics differ as a function of spine level，因此，螺钉尺寸和固定节段代表至少部分混淆因素。</p>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
 <li>获取八个新鲜的胸腰椎，并清除所有软组织。</li>
@@ -444,11 +688,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、方差-Variance"><a href="#一、方差-Variance" class="headerlink" title="一、方差(Variance)"></a>一、方差(Variance)</h2><h3 id="（一）总体方差"><a href="#（一）总体方差" class="headerlink" title="（一）总体方差"></a>（一）总体方差</h3><p>$$\sigma^2&#x3D;\dfrac {1}{N}\sum ^{N}<em>{i&#x3D;1}\left( x</em>{i}-\mu \right) ^{2}$$</p>
-<h3 id="（二）样本方差"><a href="#（二）样本方差" class="headerlink" title="（二）样本方差"></a>（二）样本方差</h3><p>$$s^2&#x3D;\dfrac {1}{N-1}\sum ^{N}<em>{i&#x3D;1}\left( x</em>{i}-\overline {x}\right) ^{2}$$</p>
-<h2 id="二、标准差-Standard-Deviation-SD"><a href="#二、标准差-Standard-Deviation-SD" class="headerlink" title="二、标准差(Standard Deviation,SD)"></a>二、标准差(Standard Deviation,SD)</h2><h3 id="（一）总体标准差"><a href="#（一）总体标准差" class="headerlink" title="（一）总体标准差"></a>（一）总体标准差</h3><p>$$\sigma&#x3D;\sqrt{\dfrac {1}{N}\sum ^{N}<em>{i&#x3D;1}\left( x</em>{i}-\mu \right) ^{2}}$$</p>
-<h3 id="（二）样本标准差"><a href="#（二）样本标准差" class="headerlink" title="（二）样本标准差"></a>（二）样本标准差</h3><p>$$s&#x3D;\sqrt{\dfrac {1}{N-1}\sum ^{N}<em>{i&#x3D;1}\left( x</em>{i}-\overline {x}\right) ^{2}}$$</p>
-<h2 id="三、标准误-Standard-Error-SE"><a href="#三、标准误-Standard-Error-SE" class="headerlink" title="三、标准误(Standard Error,SE)"></a>三、标准误(Standard Error,SE)</h2><h3 id="（一）标准误和标准差的联系"><a href="#（一）标准误和标准差的联系" class="headerlink" title="（一）标准误和标准差的联系"></a>（一）标准误和标准差的联系</h3><ol>
+          <h2 id="一、方差-Variance"><a href="#一、方差-Variance" class="headerlink" title="一、方差(Variance)"></a>一、方差(Variance)</h2><h3 id="（一）总体方差"><a href="#（一）总体方差" class="headerlink" title="（一）总体方差"></a>（一）总体方差</h3><script type="math/tex; mode=display">\sigma^2=\dfrac {1}{N}\sum ^{N}_{i=1}\left( x_{i}-\mu \right) ^{2}</script><h3 id="（二）样本方差"><a href="#（二）样本方差" class="headerlink" title="（二）样本方差"></a>（二）样本方差</h3><script type="math/tex; mode=display">s^2=\dfrac {1}{N-1}\sum ^{N}_{i=1}\left( x_{i}-\overline {x}\right) ^{2}</script><h2 id="二、标准差-Standard-Deviation-SD"><a href="#二、标准差-Standard-Deviation-SD" class="headerlink" title="二、标准差(Standard Deviation,SD)"></a>二、标准差(Standard Deviation,SD)</h2><h3 id="（一）总体标准差"><a href="#（一）总体标准差" class="headerlink" title="（一）总体标准差"></a>（一）总体标准差</h3><script type="math/tex; mode=display">\sigma=\sqrt{\dfrac {1}{N}\sum ^{N}_{i=1}\left( x_{i}-\mu \right) ^{2}}</script><h3 id="（二）样本标准差"><a href="#（二）样本标准差" class="headerlink" title="（二）样本标准差"></a>（二）样本标准差</h3><script type="math/tex; mode=display">s=\sqrt{\dfrac {1}{N-1}\sum ^{N}_{i=1}\left( x_{i}-\overline {x}\right) ^{2}}</script><h2 id="三、标准误-Standard-Error-SE"><a href="#三、标准误-Standard-Error-SE" class="headerlink" title="三、标准误(Standard Error,SE)"></a>三、标准误(Standard Error,SE)</h2><h3 id="（一）标准误和标准差的联系"><a href="#（一）标准误和标准差的联系" class="headerlink" title="（一）标准误和标准差的联系"></a>（一）标准误和标准差的联系</h3><ol>
 <li>标准误也是标准差。</li>
 </ol>
 <h3 id="（二）标准误和标准差的区别"><a href="#（二）标准误和标准差的区别" class="headerlink" title="（二）标准误和标准差的区别"></a>（二）标准误和标准差的区别</h3><ol>
@@ -459,8 +699,8 @@
 </li>
 </ol>
 <h3 id="（三）计算公式"><a href="#（三）计算公式" class="headerlink" title="（三）计算公式"></a>（三）计算公式</h3><ol>
-<li>样本均值的标准误<br>$$SEM(S_{\overline {x}}) &#x3D; \dfrac {s}{\sqrt {N}}$$</li>
-<li>样本均值之差的标准误<br>$$\sqrt {\dfrac {S^{2}<em>{A}}{n</em>{A}}}+\sqrt {\dfrac {S^{2}<em>{B}}{n</em>{B}}}$$</li>
+<li>样本均值的标准误<script type="math/tex; mode=display">SEM(S_{\overline {x}}) = \dfrac {s}{\sqrt {N}}</script></li>
+<li>样本均值之差的标准误<script type="math/tex; mode=display">\sqrt {\dfrac {S^{2}_{A}}{n_{A}}}+\sqrt {\dfrac {S^{2}_{B}}{n_{B}}}</script></li>
 </ol>
 
       
@@ -538,11 +778,11 @@
           <blockquote>
 <p>说明：<br></p>
 <ol>
-<li>翻译自Joel M. Matta, M.D.的文章Excellence in Clinical Practice: How to Improve Your Clinical Results.Journal of Orthopaedic Trauma,2005,19(6):p432-434.<br></li>
+<li>翻译自Joel M. Matta, M.D.的文章Excellence in Clinical Practice: How to Improve Your Clinical Results.Journal of Orthopaedic Trauma,2005,19(6):p432-434.<br><br></li>
 <li>译文部分参考自丁香园的帖子：Joel M. Matta大师的教义和作为一个普通的创伤骨科医师的我的感悟</li>
 </ol>
 </blockquote>
-<p><img src="http://qiniup.louyanspine.com/2018-08-18-maxresdefault.jpg"></p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-18-maxresdefault.jpg" alt=""></p>
 <p>Dr. Joel Matta is an Orthopaedic Surgeon Practicing Hip and Pelvic Reconstruction.  He is the founder and director of the Hip and Pelvis Institute at St. John’s Health Center in Santa Monica, Calif. A veteran of 35 years in the practice of orthopaedic surgery, Dr. Matta also is the founding President of the Anterior Hip Foundation.  He has published more than 30 articles and studies on the advancement of techniques and methods used to simplify and improve hip replacement, pelvic and acetabular fracture treatment and periacetabular osteotomy.</p>
 <h2 id="一、什么是卓越的临床效果"><a href="#一、什么是卓越的临床效果" class="headerlink" title="一、什么是卓越的临床效果"></a>一、什么是卓越的临床效果</h2><p>What is the formula for excellence in orthopaedicclinical practice? Certainly, there is no set formula for everyone. These aremy thoughts based on what I have learned from others, as well as my personal experience.</p>
 <blockquote>
@@ -563,8 +803,6 @@
 <p>Our specialty allows us to enjoy our work as much as sport, gain personal satisfaction and community recognition, and also be well compensated. I think the key to all of these benefits is our passion and commitment to our work. There are few careers available that combine the pleasure of both manual and intellectual challenges.</p>
 <blockquote>
 <p>我们的专长允许我们像享受运动一样享受我们的工作，得到个人的满足和社会的认同，当然也可以获得很好的报偿。我想我们能得到这些实惠的关键在于我们对临床工作的激情和担当。世上没有多少职业能将挑战智力和体力的乐趣有机结合起来的。</p>
-</blockquote>
-<blockquote>
 <p>注：金钱的私欲是医生的短板。就此短短一截的距离即可使你对卓越的临床实践难以企及。就像Matta教授说的，金钱不是追求，而是你有所成就后的自然而然的回报；这种回报的对象，即医生，是被动的（be well compensated）。我们自己的蛋糕，即骨科领域，有着丰富的回报足以让我们享用。得到回报的前提是作为医者的你对临床工作的激情和担当。</p>
 </blockquote>
 <h2 id="三、与患者充分的沟通"><a href="#三、与患者充分的沟通" class="headerlink" title="三、与患者充分的沟通"></a>三、与患者充分的沟通</h2><p>Although we are surgeons, and the job we do in the operating room is probably the most important, we also must take pride in our one-on-one skills with patients. If patients are able, the more that they understand about their problem, the better. Detailed preoperative and postoperative explanations can help the final result. I also rely on patient-information publications and my own website to inform the patient and family.</p>
@@ -586,8 +824,6 @@
 <p>In a few cases, I have gone so far as to tell patients that they should quit seeing doctors before somebody operates on them. A large proportion of these difficult patients are chronic narcotic users. I believe it is our responsibility to limit prescription of these medications to acute or terminal situations, such as neoplasm.</p>
 <blockquote>
 <p>在少数情况下，我甚至告知病人说他们需要在有人为他们做手术之前停止四处就医。这类棘手病人的大多数都长期服用麻醉剂。而我认为我们有责任为急性期或终末期病人，如肿瘤病人，限制开具这类药物处方。</p>
-</blockquote>
-<blockquote>
 <p>注：医学科学有发展的限制，医生有知识和理解力的限制，这些造成手术必然存在成功的概率。医生所做的就是在诸多限制的情况下尽己所能使病人得到最大的临床效果。也正因为这些限制而使得有时候你没有能力去改善病人的现状而使其受益。那么，你该怎么办？为了挽留病人、满足私欲而强撑（最终必然是效果不佳），还是告知其实情（你真的没有能力）并协助其寻找更好的帮助？我想，随着不断的学习、领会、悟道和实践等，个人能力方面的限制就会变得越来越少且能为病人提供服务的质量就会越来越高。</p>
 </blockquote>
 <h2 id="六、手术一定要有指证"><a href="#六、手术一定要有指证" class="headerlink" title="六、手术一定要有指证"></a>六、手术一定要有指证</h2><p>Be an expert in the interpretation of x-rays,CT, and magnetic resonance imaging. These imaging studies combined with the clinical factors provide the main indications for surgery. </p>
@@ -602,12 +838,10 @@
 <p>Read publications and texts. Attend courses. As we interpret medical data, large multicenter studies report the standard level of care that is present as an average across centers. Pay attention to the results of experienced and knowledgeable single surgeon series. The large single surgeon series can represent the level of results that can beobtained with dedication to that subject.</p>
 <blockquote>
 <p>阅读刊物和课本。参加培训课程。就像我们解读医学数据一样，大的多中心研究成果代表了跨中心（普遍）适用的医疗关怀的一般水准。然而，我们需要密切注意那些有着丰富经验和学识的单个医生的系列研究成果，因为单个医生的大系列研究成果能代表全身心致力于该课题（在此研究范围内的）所能获得的（世界最高）水平。</p>
-</blockquote>
-<blockquote>
 <p>注：</p>
 <ol>
-<li>高层次的学习方法：向业界最好学习并着重于学习单个医生的关于某一领域的大的代表世界最高水准的系列研究。代表普遍水准的多中心的研究成果可让我们知道业界的大多数精英都在怎么做、如何做。</br></li>
-<li>中等层次的学习方法：只看课本、书籍来学习处理问题的一般原则和方法。</br></li>
+<li>高层次的学习方法：向业界最好学习并着重于学习单个医生的关于某一领域的大的代表世界最高水准的系列研究。代表普遍水准的多中心的研究成果可让我们知道业界的大多数精英都在怎么做、如何做。&lt;/br&gt;</li>
+<li>中等层次的学习方法：只看课本、书籍来学习处理问题的一般原则和方法。&lt;/br&gt;</li>
 <li>一般层次的学习方法：无阅读及思考而仅凭带教老师或主任言传身教的学习方法。</li>
 </ol>
 </blockquote>
@@ -623,8 +857,6 @@
 <p>I have a few visitors who wish only to peer into the open wound. It bears repetition that you should learn and adopt the best existing techniques in their entirety before attempting to modify and develop new ones.This knowledge will keep you from repeating the mistakes of past failed techniques and forms the basis of our technical evolution.</p>
 <blockquote>
 <p>同样的道理，当一些特殊因素，如手术床、病人体位、手术入路、复位技术、内固定物等，有机融合于一体时髋臼骨折手术方能成功。我发现一些参观我手术的医生仅仅想看到手术切口（仅仅看我如何显露骨折而非整个手术过程）。在此有必要重申：在试图改良技术和发展新技术之前，你需要先将现有最好的技术进行整体的学习和运用。这一认识是技术革新的基石并能使你免于重复过去失败技术的谬误。</p>
-</blockquote>
-<blockquote>
 <p>注：除了认真学习以外，我们也应该虚心和踏实：不要轻易得怀疑知名学者的成果、推翻现有的诊疗常规、“改良”甚至“发明”新的器械及技术。如果经过论证你可以这样做，那么一定需要建立在熟练学习和应用现有最好技术的基础上。否则，常常会重蹈覆辙或失败。上世纪70年代末，Matta教授是带着怀疑的心态到法国向享誉世界的髋臼重建大师Emile Letournel学习的。通过逐渐的学习和认知，他逐渐拜服并把Emile Letournel尊为他人生中最为重要的两位mentor中的一位。他在一次近来的采访中说道他常会把一些新的想法运用于髋臼骨折的手术中而不遵循Emile Letournel所教授的方法，结果到最后发现行不通而还要用EL的方法从新来过（而此时的他早已蜚声世界）。他还说了以下三句话：</p>
 <p>“I think we have to learn to live with the fact that very few surgeons can invent something truly novel. Most of us should accept that they need to learn the knowledge that’s gone before, and to try to be as good as those who are achieving the excellent results. This may be hard to swallow, but that’s how it is.”</p>
 <p>“ The protocoland techniques developed by Emile Letournel have the merit of being there, of being efficacious, but also of being the best supported by clinical follow-up and clinical data. Everything proposed by Emile Letournel is supported by very advanced statistics. These results have been confirmed by Jeff, by Keith Mayo,by Eric Johnson, by myself, and by many other surgeons.</p>
@@ -642,8 +874,6 @@
 <h2 id="十一、自我批判精神"><a href="#十一、自我批判精神" class="headerlink" title="十一、自我批判精神"></a>十一、自我批判精神</h2><p>We need to critically assess the result of the surgeries that we perform. I would say that a minority of my surgeries is performed completely to my satisfaction, particularly acetabular fractures. Postoperative x-rays always should be a stimulus for thoughts regarding how things could have been done a little better.</p>
 <blockquote>
 <p>我们需要批判性的评估我们所做手术的效果。我敢说，只有少数我所做过的手术能完全使我满意（多数都有瑕疵和遗憾），特别是髋臼骨折。我认为，术后X线片总是应该被视作让我们有“术中如何能做得再好一点”这样思索的刺激物。</p>
-</blockquote>
-<blockquote>
 <p>注：Matta教授这种时刻自我批判的品质，或许，是他能有如此大成就的秘诀。他的髋臼骨折手术的优良率在85%，比他的老师Emile Letournel提高了10%。</p>
 <p>采访原文：“In my series,I have had a 15 percent incidence of poor results. This includes, of course,the 3 per cent infections. There were, of course, patients who had lesions that could not possibly be treated, but also patients whom I should not have operated.”</p>
 </blockquote>
@@ -675,7 +905,7 @@
 <blockquote>
 <p>大众总是相信医界存在奇迹这样的神话。而事实上，我们处理多数疑难杂症时面临着理解力和学识方面的显著限制；而且，等到将来我们回过头来审视我们目前治疗时，我们很可能会认为它们很原始。追求骨科创伤后良好预后这件事本身饱含艰辛。因此，我们需要带着诚恳和谦逊的态度投身于临床实践。</p>
 </blockquote>
-<h2 id="十六、系统管理病例"><a href="#十六、系统管理病例" class="headerlink" title="十六、系统管理病例"></a>十六、系统管理病例</h2><p>I believe that a simple documentation system,including diagnosis, treatment, complications, and results, is a big help in quality control. Simple data forms that can be coded in a prospective manner and entered into a computer database may not add a great deal of time and expense to your practice. This information can guide the evolution of yourpractice methods. It is important to have results to compare to improve ourresults. Changes to improve results are best used for groups of patients or fractures with a high level of poor results and&#x2F;or complications.</p>
+<h2 id="十六、系统管理病例"><a href="#十六、系统管理病例" class="headerlink" title="十六、系统管理病例"></a>十六、系统管理病例</h2><p>I believe that a simple documentation system,including diagnosis, treatment, complications, and results, is a big help in quality control. Simple data forms that can be coded in a prospective manner and entered into a computer database may not add a great deal of time and expense to your practice. This information can guide the evolution of yourpractice methods. It is important to have results to compare to improve ourresults. Changes to improve results are best used for groups of patients or fractures with a high level of poor results and/or complications.</p>
 <blockquote>
 <p>我相信，对质量控制来说，一个包括诊断、治疗、并发症和预后在内的简单的文案记录系统会有很大帮助。（而且我认为，）对于你的临床实践来说，一些可以前瞻性方式编辑并能输入电脑数据库的简单表格不会额外耗费多少时间和经费。这些文案信息能引导你的临床科研方法的革新。通过临床效果的比较以提高疗效，这样做很重要。由之而来的治疗方法上的变化最适用于那些有着较差疗效和较严重并发症的病例或骨折。</p>
 <p>注：世上没有太多捷径可循。为了达到目的地，你在行程中所做的一些小小的看似额外的实则相关的事情很可能会加快你的行程。正如这些小小的表格和病例资料记录，可能是你在临床实践中实现卓业的助燃剂。用通行的诊断分型、疗效评分、有效随访的机制将所做诊疗编码，做到易于提取，类比分析。我想，这样做了，不管能不能成名，一定能成功。我推荐骨盆髋臼领域的医生熟练掌握OTA分型。</p>
@@ -767,13 +997,11 @@
       
           <h2 id="一、在Github-Pages上托管Reveal-js"><a href="#一、在Github-Pages上托管Reveal-js" class="headerlink" title="一、在Github Pages上托管Reveal.js"></a>一、在Github Pages上托管Reveal.js</h2><h3 id="（一）创建一个新的respository"><a href="#（一）创建一个新的respository" class="headerlink" title="（一）创建一个新的respository"></a>（一）创建一个新的respository</h3><p>在GitHub上创建一个新的respository，比如取名为PPT，然后在本地（比如Documents）打开git bash，clone这个respository到本地，输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/user/PPT.git</span><br><span class="line">		</span><br><span class="line">#user为你的github用户名</span><br><span class="line">#git clone表示从远程主机克隆一个版本库</span><br></pre></td></tr></table></figure>
-
 <h3 id="（二）创建gh-pages-branch"><a href="#（二）创建gh-pages-branch" class="headerlink" title="（二）创建gh-pages branch"></a>（二）创建gh-pages branch</h3><p>在终端中打开刚才创建的本地文件夹Documents，输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd Documents/Blog/PPT</span><br><span class="line">git checkout --orphan gh-pages</span><br><span class="line">	</span><br><span class="line">#创建orphan分支，命名为gh-pages</span><br><span class="line">#如果不提交内容，这个分支实际上没有创建</span><br></pre></td></tr></table></figure>
-
 <h3 id="（三）上传reveal-js到branch"><a href="#（三）上传reveal-js到branch" class="headerlink" title="（三）上传reveal.js到branch"></a>（三）上传reveal.js到branch</h3><p>将reveal.js文件下载下来，全部拷贝到本地Documents中的PPT文件夹，并在reveal.js文件夹中编辑好幻灯片，输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;1st commit&quot;</span><br><span class="line">git push origin gh-pages</span><br><span class="line">	</span><br><span class="line">#git add . 监控工作区的状态树(即文件夹或目录)，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。</span><br><span class="line">#git commit 主要是将暂存区里的改动给提交到本地的版本库</span><br><span class="line">#git commit -m表示可以直接输入后面的提示内容，如“1st commit”</span><br><span class="line">#git push origin gh-pages表示把本地代码（origin）提交到gh-pages分支</span><br></pre></td></tr></table></figure>
-<p>接下来，输入Github账户的用户名和密码即可。可以试着访问：<a href="https://lysp2017.github.io/PPT/%E6%88%98%E7%81%AB%E7%82%BC%E6%88%90%E7%9A%84%E7%94%9F%E5%91%BD%E4%B9%8B%E6%98%9F.html">https://lysp2017.github.io/PPT/幻灯名.html</a>，就可以看到幻灯片了。</p>
+<p>接下来，输入Github账户的用户名和密码即可。可以试着访问：<a href="https://lysp2017.github.io/PPT/战火炼成的生命之星.html">https://lysp2017.github.io/PPT/幻灯名.html</a>，就可以看到幻灯片了。</p>
 <h2 id="二、在Hexo博客中部署Reveal-js"><a href="#二、在Hexo博客中部署Reveal-js" class="headerlink" title="二、在Hexo博客中部署Reveal.js"></a>二、在Hexo博客中部署Reveal.js</h2><ol>
 <li>在Markdown中输入幻灯片的地址即可</li>
 </ol>
@@ -852,26 +1080,23 @@
 
       
           <ol>
-<li><p>在任意的页面右上角点击 **+**，然后点击新建仓库 New repository。</p>
-</li>
+<li>在任意的页面右上角点击 <strong>+</strong>，然后点击新建仓库 New repository。</li>
 <li><p>为你的仓库创建一个简短便于记忆的名字。例如 “PPT”。</p>
-<p> <img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.40.12.png"></p>
+<p> <img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.40.12.png" alt=""></p>
 </li>
 <li><p>为你的仓库添加一个描述（非必须的）。</p>
 <blockquote>
 <p>例如 “My first repository on GitHub”。</p>
 </blockquote>
 </li>
-<li><p>选择你的仓库类型为公有或者私有：</p>
-<ul>
+<li>选择你的仓库类型为公有或者私有：<ul>
 <li>Public：公有仓库对于一个刚入门的新手来说是一个不错的选择。这些仓库在 GitHub上对于每个人是可见，你可以从协作型社区中受益。</li>
 <li>Private：私有仓库需要更多的步骤。它们只对于你来说是可用的，这个仓库的所有者属于你和你所指定要分享的合作者。私有仓库仅对付费账户可用。</li>
 </ul>
 </li>
-<li><p>选择Initialize this repository with a README。</p>
-</li>
+<li>选择Initialize this repository with a README。</li>
 <li><p>点击Create repository。</p>
-<p> <img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.41.50.png"></p>
+<p> <img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.41.50.png" alt=""></p>
 </li>
 </ol>
 
@@ -1033,16 +1258,16 @@
 </ol>
 </blockquote>
 <h2 id="一、条件概率（Conditional-probability）"><a href="#一、条件概率（Conditional-probability）" class="headerlink" title="一、条件概率（Conditional probability）"></a>一、条件概率（Conditional probability）</h2><ol>
-<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。<br> <img src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png"></li>
-<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。<br> $$P(B\mid{A})&#x3D;\cfrac{P(A\bigcap{B})}{P(A)}$$<br> 因此：$$P({A} \bigcap {B})&#x3D;P(B\mid{A})\times P(A)$$<br> 同理可得：$$P({A} \bigcap {B})&#x3D;P(A\mid{B})\times P(B)$$<br> 所以：$$P(B\mid{A})\times P(A)&#x3D; P(A\mid{B})\times P(B)$$<br> 即：$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})\times P(A)}{P(B)} $$</li>
+<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。<br> <img src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png" alt=""></li>
+<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。<script type="math/tex; mode=display">P(B\mid{A})=\cfrac{P(A\bigcap{B})}{P(A)}</script> 因此：<script type="math/tex">P({A} \bigcap {B})=P(B\mid{A})\times P(A)</script><br> 同理可得：<script type="math/tex">P({A} \bigcap {B})=P(A\mid{B})\times P(B)</script><br> 所以：<script type="math/tex">P(B\mid{A})\times P(A)= P(A\mid{B})\times P(B)</script><br> 即：<script type="math/tex">P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B)}</script></li>
 </ol>
-<h2 id="二、全概率公式"><a href="#二、全概率公式" class="headerlink" title="二、全概率公式"></a>二、全概率公式</h2><p>假定样本空间S，是两个事件A与A’的和。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg"></p>
+<h2 id="二、全概率公式"><a href="#二、全概率公式" class="headerlink" title="二、全概率公式"></a>二、全概率公式</h2><p>假定样本空间S，是两个事件A与A’的和。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg" alt=""></p>
 <p>上图中，红色部分是事件A，绿色部分是事件A’，它们共同构成了样本空间S。</p>
-<p>在这种情况下，事件B可以划分成两个部分。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg"></p>
-<p>即：$$P(B) &#x3D; P({B} \bigcap {A}) + P({B} \bigcap {A’})$$</p>
-<p>在之前的推导当中，我们已知：$$P({A} \bigcap {B})&#x3D;P(B\mid{A})\times P(A)$$<br>所以：$$P(B) &#x3D; P(B\mid{A})\times P(A) + P(B\mid{A’})\times P(A’)$$<br>把 $P(B)$代入上一节中的条件概率公式 $P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})\times P(A)}{P(B)} $<br>$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})\times P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A’})\times P(A’)} $$</p>
-<h2 id="三、贝叶斯定理及贝叶斯推断"><a href="#三、贝叶斯定理及贝叶斯推断" class="headerlink" title="三、贝叶斯定理及贝叶斯推断"></a>三、贝叶斯定理及贝叶斯推断</h2><p>对条件概率公式进行变形，可以得到如下形式：<br>$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})}{P(B)} \times P(A)$$</p>
-<ul>
+<p>在这种情况下，事件B可以划分成两个部分。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg" alt=""></p>
+<p>即：<script type="math/tex">P(B) = P({B} \bigcap {A}) + P({B} \bigcap {A'})</script></p>
+<p>在之前的推导当中，我们已知：<script type="math/tex">P({A} \bigcap {B})=P(B\mid{A})\times P(A)</script><br>所以：<script type="math/tex">P(B) = P(B\mid{A})\times P(A) + P(B\mid{A'})\times P(A')</script><br>把 $P(B)$代入上一节中的条件概率公式 $P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B)} $</p>
+<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A'})\times P(A')}</script><h2 id="三、贝叶斯定理及贝叶斯推断"><a href="#三、贝叶斯定理及贝叶斯推断" class="headerlink" title="三、贝叶斯定理及贝叶斯推断"></a>三、贝叶斯定理及贝叶斯推断</h2><p>对条件概率公式进行变形，可以得到如下形式：</p>
+<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B)} \times P(A)</script><ul>
 <li>$P(A)$称为”先验概率”（Prior Probability），即在B事件发生之前，我们对A事件概率的一个判断。</li>
 <li>$P(A\mid{B})$称为”后验概率”（Posterior Probability），即在B事件发生之后，我们对A事件概率的重新评估。</li>
 <li>$\cfrac{P(B\mid{A})}{P(B)}$称为”可能性函数”（likelihood），这是一个调整因子，使得预估概率更接近真实概率。</li>
@@ -1051,23 +1276,21 @@
 <p>这就是贝叶斯推断的含义。我们先预估一个”先验概率”，然后加入实验结果，看这个实验到底是增强还是削弱了”先验概率”，由此得到更接近事实的”后验概率”。</p>
 <ul>
 <li>在这里，如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&gt;1，意味着”先验概率”被增强，事件A的发生的可能性变大；</li>
-<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&#x3D;1，意味着B事件无助于判断事件A的可能性；</li>
+<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$=1，意味着B事件无助于判断事件A的可能性；</li>
 <li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&lt;1，意味着”先验概率”被削弱，事件A的可能性变小。</li>
 </ul>
-<h2 id="四、水果糖的例子"><a href="#四、水果糖的例子" class="headerlink" title="四、水果糖的例子"></a>四、水果糖的例子</h2><p><img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg"></p>
+<h2 id="四、水果糖的例子"><a href="#四、水果糖的例子" class="headerlink" title="四、水果糖的例子"></a>四、水果糖的例子</h2><p><img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg" alt=""></p>
 <p>问题：两个一模一样的碗，一号碗有30颗水果糖和10颗巧克力糖，二号碗有水果糖和巧克力糖各20颗。现在随机选择一个碗，从中摸出一颗糖，发现是水果糖。请问这颗水果糖来自一号碗的概率有多大？</p>
-<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以$P(H_1)$ &#x3D; $P(H_2)$，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，$P(H_1)$ &#x3D; 0.5，我们把这个概率就叫做”先验概率”，即没有做实验之前，来自一号碗的概率是0.5。</p>
+<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以$P(H_1)$ = $P(H_2)$，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，$P(H_1)$ = 0.5，我们把这个概率就叫做”先验概率”，即没有做实验之前，来自一号碗的概率是0.5。</p>
 <p>再假定，E表示水果糖，所以问题就变成了在已知E的情况下，来自一号碗的概率有多大，即求$P(H_1\mid{E})$。我们把这个概率叫做”后验概率”，即在E事件发生之后，对P(H1)的修正。</p>
-<p>根据条件概率公式，得到<br>$$P(H_1\mid{E}) &#x3D; P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}$$</p>
-<p>已知，$P(H_1)$ &#x3D; 0.5，$P(E\mid{H_1})$为一号碗中取出水果糖的概率，等于0.75，那么求出$P(E)$就可以得到答案。</p>
-<p>根据全概率公式：<br>$$P(E)&#x3D;P(E\mid{H_1}) \times P(H_1) +P(E\mid{H_2}) \times P(H_2)$$</p>
-<p>所以：<br>$$P(E)&#x3D;0.75\times0.5+0.5\times0.5&#x3D;0.625$$</p>
-<h2 id="五、假阳性问题"><a href="#五、假阳性问题" class="headerlink" title="五、假阳性问题"></a>五、假阳性问题</h2><p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
+<p>根据条件概率公式，得到</p>
+<script type="math/tex; mode=display">P(H_1\mid{E}) = P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}</script><p>已知，$P(H_1)$ = 0.5，$P(E\mid{H_1})$为一号碗中取出水果糖的概率，等于0.75，那么求出$P(E)$就可以得到答案。</p>
+<p>根据全概率公式：</p>
+<script type="math/tex; mode=display">P(E)=P(E\mid{H_1}) \times P(H_1) +P(E\mid{H_2}) \times P(H_2)</script><p>所以：</p>
+<script type="math/tex; mode=display">P(E)=0.75\times0.5+0.5\times0.5=0.625</script><h2 id="五、假阳性问题"><a href="#五、假阳性问题" class="headerlink" title="五、假阳性问题"></a>五、假阳性问题</h2><p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
 <p>假定A事件表示得病，那么$P(A)$为0.001。这就是”先验概率”，即没有做试验之前，我们预计的发病率。</p>
 <p>再假定B事件表示阳性，那么要计算的就是$P(A\mid{B})$。这就是”后验概率”，即做了试验以后，对发病率的估计。</p>
-<p>$$P(A\mid{B})&#x3D; \cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline {A}})\times P(\overline {A})} \times P(A)$$</p>
-<p>$$\approx \cfrac{0.99}{0.99 \times 0.001+0.05\times 0.999} \times {0.001} $$</p>
-<p>我们得到了一个惊人的结果，$P(A\mid{B})$约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的”假阳性”，即阳性结果完全不足以说明病人得病。</p>
+<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline {A}})\times P(\overline {A})} \times P(A)</script><script type="math/tex; mode=display">\approx \cfrac{0.99}{0.99 \times 0.001+0.05\times 0.999} \times {0.001}</script><p>我们得到了一个惊人的结果，$P(A\mid{B})$约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的”假阳性”，即阳性结果完全不足以说明病人得病。</p>
 <p>为什么会这样？为什么这种检验的准确率高达99%，但是可信度却不到2%？</p>
 <p>首先是与误报率(5%)太高有关，其次也和发病率太低(0.1%)有关。</p>
 
@@ -1146,272 +1369,11 @@
           <blockquote>
 <p>说明：<br></p>
 <ol>
-<li>部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br>???</li>
+<li>部分参考Elsevier/The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br>???</li>
 </ol>
 </blockquote>
 <h1 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h1><p>在21世纪，我们对于能够快速反应的救护车服务习以为常。救护车能够可靠地将重病员和伤者送到医院，同时伤病员在途中也可以获得熟练的复苏和医疗护理。然而在19世纪，并没有这样的服务，人们只能自己通过各种方式将伤病员送到医院。<br>本文简要概述了伦敦救护车服务的形成历史，并描述了伦敦以外救护车服务的发展历史。</p>
 <p>本文描绘了一段时期中英国人生活的图景，正因为政府在大多数医疗保健领域的自由放任的态度逐渐形成了今天的国民健康服务（National Health Service,NHS）。历史揭示了每个时期政治气候的思维方式。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research-11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/02/Essential-Concepts-in-Clinical-Research-11/" class="post-title-link" itemprop="url">临床研究基本概念：随机对照试验（三）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-02 17:21:37" itemprop="dateCreated datePublished" datetime="2018-08-02T17:21:37+08:00">2018-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:58:57" itemprop="dateModified" datetime="2019-02-28T00:58:57+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>说明：<br></p>
-<ol>
-<li>部分参考Elsevier&#x2F;The Lancet出版的The Lancet Handbook of Essential Concepts in Clinical Research<br></li>
-</ol>
-</blockquote>
-<h1 id="随机试验中的分配隐藏：对抗破译-defending-against-deciphering"><a href="#随机试验中的分配隐藏：对抗破译-defending-against-deciphering" class="headerlink" title="随机试验中的分配隐藏：对抗破译(defending against deciphering)"></a>随机试验中的分配隐藏：对抗破译(defending against deciphering)</h1><h2 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h2><ol>
-<li>恰当的随机化有赖于充分的分配隐藏。分配隐藏程序使得临床医师和受试者不知道下一例的分组情况。没有它，即使已经生成了恰当的随机分配序列也可以被推翻。</li>
-<li>随机对照试验至关重要的无偏倚性质常与实施分配隐藏的过程中遇到的麻烦产生冲突。</li>
-<li>恰当执行分配隐藏给研究实施者增添麻烦，这会让临床医师感到不高兴。随机对照试验对临床医师而言是一个诅咒。许多参与试验的人会试图破译分组的序列，这一行为违反了随机化。</li>
-<li>对于一些实施试验者而言，破译分配序列经常成为一项无法抗拒的智力挑战。无论他们的动机是单纯的或恶意的，这种意图都损害了试验的有效性。</li>
-<li>事实上，不充分的分配隐藏通常会导致高于预计的治疗效果，但偏倚在两个方向上均可出现。</li>
-<li>试验研究者会竭尽所能地努力破译分配序列，因而试验设计者必须在设计试验时也努力聪明地防止破译发生。</li>
-<li>研究者们必须恰当运用分配隐藏以有效地避免选择和混杂偏倚。</li>
-<li>此外，研究者应报告有关重要预后变量的基线比较。</li>
-<li>然而基线特征的假设检验是多余的，并且，如果其导致研究者回避报告任何的基线不平衡则可能是有害的。</li>
-<li>医学研究会认为关于使用链霉素治疗肺结核的对照试验是里程碑的原因，并不像通常所认为的那样只是由于应用了产生分配顺序的随机数字表，更是因为其清晰地讲述了用来向所有参与入选病人的人员隐藏分组顺序的防范方案。</li>
-</ol>
-<h2 id="二、前言"><a href="#二、前言" class="headerlink" title="二、前言"></a>二、前言</h2><p>生成一个不可预测的随机分配序列是随机对照试验中第一个最重要的随机化要素。实施这个序列，至少要到患者被分配至各自的组之前保持其隐藏即分配隐藏(allocation concealment)是第二个最重要的元素，如果缺乏分配隐藏则试验中的随机化就会崩溃。</p>
-<p>作为随机化的一个直接结果，许多随机对照试验的报告中的第一个表格描述了各个比较组之间的基线特征。研究者们应该描述他们进行试验的人群并提供各组之间的基线资料的对照以使得读者评价其可比性。本章我们着重阐述恰当进行分配隐藏和基线特征报告的方法。</p>
-<h2 id="三、分配隐藏"><a href="#三、分配隐藏" class="headerlink" title="三、分配隐藏"></a>三、分配隐藏</h2><p>研究者对分配隐藏有很多的错误概念。恰当的分配隐藏是严格执行某一随机分配序列而预先不知道分配治疗方案的保障。分配隐藏与实施分配序列的技术有关，而与生成分配序列的技术无关。然而有人在讨论分配隐藏的时候会离题万里地说到拋硬币法(flipping coins)或使用随机数字表(use of random number tables)。这种离题的讨论完全是方法学上的前言不搭后语；分配隐藏和序列生成完全不同。此外，有的研究者会将分配隐藏和隐藏治疗方案混淆起来。</p>
-<p>没有充分的分配隐藏，即使随机化了，不可预测的分配序列也会被损坏。按照现有的关于预后的观点，有的患者可能会被分配到被认为不适合的治疗组，如果事先知道下一个分组方案，有的研究者会因此而排除这个患者入组。同样地，预知下一个分组也可以将某些受试者分配至所认为的合适的组，这很简单，通过推迟受试者入选直至下一次合适的分配出现就行了。防止预知如何分配治疗方案可以避免这些偏倚。分配隐藏防止那些招募入组受试者的人知道随后的分组。必须在不知道后续分组的情况下决定纳入或拒绝一个受试者并且获得知情同意书。</p>
-<h3 id="（一）分配隐藏的重要性"><a href="#（一）分配隐藏的重要性" class="headerlink" title="（一）分配隐藏的重要性"></a>（一）分配隐藏的重要性</h3><ol>
-<li><p>分配隐藏做得不好的试验倾向于夸大治疗效果。此外，隐藏得最差的试验在结果中产生更大的异质性(即比起做得好的研究，差的研究试验的计算结果明显上下波动）。这些有试验依据的证据证实了不充分的分配隐藏致使试验中出现偏倚。</p>
-</li>
-<li><p>事实上，缺乏充分的分配隐藏的话，不管有没有一个随机(不可预测)序列都没什么不同了。假定研究者们用随机数字表生成一个合适的分配序列，但是，之后他们将这个序列贴在一个告示板上，于是任何一个参加此试验的人都能看到随后的分组。类似的事情还有通过将方法指导卡片(method indicator cards)放在一个半透明的信封中来实施分配顺序。拿着这个信封对着亮着的灯，这个不充分的分配隐藏程序就很简单地被破译了。有了告示板和信封，负责纳入受试者的人可以察觉到随后的治疗分组，随即将有较好的预后的人分至试验组，而预后较差的人分至对照组，反之亦然。即使有了合适的随机序列，试验中也易出现偏倚。<br> <img src="http://qiniup.louyanspine.com/2018-08-29-The%20Lancet%20Handbook%20of%20Essential%20Concepts%20in%20Clinical%20Research%20.jpg"></p>
-</li>
-<li><p>研究者因此应确保在随机设计中有合适的序列生成和充分的分配隐藏。这两方面的任意一个错误都将损害随机化，导致不正确的结果。例如，某试验的结果显示一种治疗的效果更好，然而这其实仅仅反映了分配过程的偏倚；或者试验显示无效而实际上治疗效果是有害的。此外，这种试验的结果可以比一个明晰的观察研究所得出的类似结果更有毁坏性。人们常假定并能意识到观察性试验中有偏倚，统计分析和最终阐述时会对此加以考虑。相反地，贴着随机化标签的研究经常被认为是没有偏倚的，而不充分的报告通常会掩盖它们的不足。</p>
-</li>
-<li><p>随机对照试验的可信度(credibility)为临床和预防管理中更快更大程度的改变提供支持。如果不是基于最好的研究，结果则会是浪费有限的健康资源，甚至更糟的是会损害人们的健康。因此，随机对照试验的(well-deserved)的可信度产生了间接的责任。不恰当的随机试验很容易造成错误判断。</p>
-</li>
-</ol>
-<h3 id="（二）破译的各种情况"><a href="#（二）破译的各种情况" class="headerlink" title="（二）破译的各种情况"></a>（二）破译的各种情况</h3><ol>
-<li>有试验依据的研究发现提示研究者有时候会破坏随机化，尽管他们几乎不记录这些颠覆。无论如何，当研究者不记名地在流行病学研讨会上回应质疑的时候，常常涉及分配设计被破坏的例子。</li>
-<li>此类例子的不同个案描述了从简单到复杂的操作范围。大部分分配隐藏设计被研究者破译是因为其方法不够充分。例如：<ul>
-<li>或是贴在告示板上。</li>
-<li>或是拿着半透明信封对着灯光可见而解码随后的分组，然后，研究者们就可以改变入组或将受试者分配至特殊的研究组。</li>
-<li>有的则是打开未封口的分组信封，感觉信封的不同重量或者简单地打开未编号的信封直至他们找到某种想要的治疗方案。</li>
-</ul>
-</li>
-<li>研究者们破译一个较好的分配隐藏设计则比较困难。然而，实际上总会有人描述其最终智取(破译)了某个方案。<ul>
-<li>比如，某些医生依次拿着编号的、不透明的、封口的信封在放射科对着热灯(一种非常明亮的白炽灯泡）以试图破译分组。</li>
-<li>在使用中心随机化的研究中，试验研究者通过电话向中心一次性索要其后几个人的分组，他们至少在一两种情况下能得到分组顺序。</li>
-<li>在用依序编号的药物容器的试验中，有人依靠容器标签的外表来破译分组。</li>
-<li>有人在半夜看见某个主治医师为了寻找分配列表搜遍了办公室里的主要研究者的文件，于是她放弃了通过容器的外包装解码的方法。她首先想到的是：这个主治医师可真聪明！鉴于她在方法学上的天真和无知，她没有意识到这种行为会导致试验的偏倚。</li>
-</ul>
-</li>
-<li>尽管研究者理论上明白研究需要无偏倚，可一旦他们加入某试验有时会无法保持无偏倚。研究者可能希望某些病人从某种治疗中获益，或试验结果能证实他们的想法。恰当完成的随机对照试验的程序会阻止这种临床倾向性，因而致使研究者进行试验时感到困扰。</li>
-<li>有的科学家的目的是蓄意破坏他们的结果。然而，许多破译随机序列的意图直接表现出缺乏对这一行为科学后果的认知。此外，对于有的人，破译分配设计可能常常是一个无法抗拒的巨大的智力挑战。如Oscar Wilde所写，“消除诱惑的唯一方法是向其屈服”。然而无论他的动机纯洁与否，这种意图损害了试验的有效性(validity)。</li>
-<li>研究者必须认识到人性中的好奇心，设立方法学的安全防范，恰当的分配隐藏无形中会阻止对随机化的破坏，在实际中使试验避免选择和混杂偏倚。</li>
-<li>设计恰当的分配方案要花时间、精力和思考。在全面地检查最后方案前，研究者不应该开始委派任务。研究实施者会竭尽所能地破译分配序列，所以试验设计者必须在设计试验时也努力聪明地防止破译发生。</li>
-</ol>
-<h3 id="（三）用分配隐藏寻找什么？"><a href="#（三）用分配隐藏寻找什么？" class="headerlink" title="（三）用分配隐藏寻找什么？"></a>（三）用分配隐藏寻找什么？</h3><ol>
-<li><p>研究者认为按下列方法进行分配隐藏是充分的：</p>
-<ul>
-<li>顺序编号(sequentially numbered)</li>
-<li>不透明(opaque)</li>
-<li>封口的信封(sealed envelopes,SNOSE)</li>
-<li>药房控制</li>
-<li>编号或编码药物容器</li>
-<li>中心随机法(例如电话告知研究办公室)</li>
-<li>或其他描述分配隐藏：如一个可靠的计算机辅助方法。</li>
-</ul>
-</li>
-<li><p>这些标准建立了最简单的方法学标准，但仅约1&#x2F;4的试验符合标准。通过从已发表的报告中评估分配隐藏，读者会很容易明白如何合理达成这些标准(Panel 1)。不过毫无疑问，那些最简标准是能被超越的，如果研究者提供的描述不仅结合了最简标准且有其他更严格标准的元素，读者更能相信试验已经防止了选择和混杂偏倚(Panel 2)。</p>
-</li>
-<li><p>信封分配隐藏方法较其他的方法更易怀疑被人巧妙地操纵，因而并不理想。如果研究者使用信封法，他们应严谨地设计并监察(monitor)分配过程以确保序列隐藏。除了使用顺序编号、不透明、封口的信封外，他们应确保事先给信封编号，且只有在相应的信封上写上受试者姓名和其他细节信息之后才能按编号顺序打开之。我们也推荐在信封内面使用压力复写纸或碳纸，以便上述信息能留在分配表上，从而建立一个有价值的印迹用于稽查。在信封里放硬纸板或铝箔可以进一步避免通过热光源探知分组。</p>
-</li>
-<li><p>药房环节也可以造成分配隐藏和序列生成的困难。尽管提到由药房进行分组的报告通常已经被归入“此试验已经使用了一种可接受的分配隐藏机制”的范围内，但药剂师在试验中恰当地应用随机法的依从性如何并不清楚。</p>
-<ul>
-<li>研究者应该报告所采用的预防措施。我们知道药剂师违反分组时间表的例子。</li>
-<li>比如：一个大药房每随机分组一个受试者可以获得150美元。在试验期间，某一周末之后，这家药房用完了两种比较药物中的一种，因此将所有新入组的受试者都分配至另一个药物组，以避免减慢入组速度。而另一家药房则用交替分组来随机化患者。研究者不应该假定药剂师和其他试验实施者都了解随机对照试验的原理，研究者必须确保他们的研究搭档坚持执行恰当的试验程序。在最简标准外，如果研究者说明他们知道或核查药房的分配机制，读者能对其结果更有信心。</li>
-</ul>
-</li>
-<li><p>使用连续编号容器可防止预测治疗分组，但是这只有在研究者采用了适当防范下才成立。除最简标准外，报告的作者们还应该说明防范措施的进一步细节，确保所有的容器是防止拆封篡改的、等重的、外观相似的，并且建立某些稽查轨迹(如在空瓶或者容器上写受试者的姓名)，这些可以帮助读者评估是否随机化已经被成功隐藏。同样地，尽管中心随机化是一种优秀的分配隐藏方法，仍需建立并执行有效的试验方法。研究者们至少应该说明联络的方法(如：电话、传真、电邮)，保证在随机化之前入组受试者的严格程序，且全面地训练中心随机办公室中的每个人，所有的细节在做试验和写试验报告时都要被考虑到。</p>
-</li>
-<li><p>其他的方法也可能满足足够的分配隐藏。读者应该寻找描述中关于隐藏的可信成分。如：可靠的计算机辅助方法可以通过保护分组信息直到保证和确认入组而做到分配隐藏。确实，自动分组系统可能会变得更常见。但是，一个仅贮存或单纯地保护分组信息的简单的电脑系统，会变得透明得如同把随机化表贴在公告板上一样。在描述一个分配隐藏方法时，研究者应展示分配隐藏背后的原理及它们是如何达到标准的。</p>
-</li>
-<li><p>研究者在报告中经常未能对分配隐藏进行哪怕是最少的描述，致使读者不能评估随机对照试验。幸运的是，自从更多的医学杂志开始采用随机对照试验的报告标准，情况开始在改善。此外，由于发表研究报告的促进作用，更多的研究者将能够设计和实施更好的试验。</p>
-</li>
-<li><p>Panel 1（描述分配隐藏）：</p>
-<ul>
-<li><p>“……将药物分配和编码的数字结合起来。每10个数字的区组从一个中心办公室被寄至每个中心随机化负责人。这个人(药剂师或护士，不参加受试者诊疗且与此中心的研究者无关)负责分配和准备，并负责试验输液。试验输液在另外一个不同的中心准备好，每24小时送给床旁护士，护士按合适的速率给患者输液。因而随机化顺序对所有的护理工作人员、病房医生和其他试验者都隐藏。”</p>
-</li>
-<li><p>“……隐藏于顺序编码的、密封的、不透明的信封中，并且由两个中心的医院药剂师保管。”</p>
-</li>
-<li><p>“治疗方案由中心证实入选标准正确性后电话分配……”</p>
-</li>
-<li><p>“由Glenfield医院药剂科进行随机化，分配研究药物并持有试验码，这些都会在研究结束后揭盲。”</p>
-</li>
-<li><p>“不同的安慰剂和治疗区组由一个药品号标识(medication number)，然后按某一顺序分发给患者。此随机名单准备了两份，一份由包装部门使用……提供泡罩包装(blister packs)的20粒胶囊供10天的早晚服用。这些泡罩分装放在有标签的盒子里。例如：每个患者的每剂量药物放在一个盒子里。</p>
-<blockquote>
-<p>泡罩包装：又称铝塑包装或水泡眼包装，常用的药物包装方法之一</p>
-</blockquote>
-</li>
-<li><p>“个体由计算机产生的名单随机化，集中保存，没有哪个中心知道任何患者分配的治疗方案。每个患者被分发有标志的容器和一个额外的容器盒，以供中心医生需要开处方增至15mg或20mg的西布曲明或安慰剂时使用。”</p>
-</li>
-</ul>
-</li>
-<li><p>Panel 2(最简及拓展标准：充分的分配隐藏设计)</p>
-<table>
-<thead>
-<tr>
-<th align="center">关于充分的分配隐藏设计的最简描述</th>
-<th align="left">附加描述提供更好的保证分配隐藏的措施</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">顺序编号，不透明，密封的信封(SNOSE)</td>
-<td align="left">（1）将受试者的详细信息写在信封上之后才可以依次打开信封；<br>（2）信封内面的压力敏感复写纸或碳纸可以将信息转录到分配卡上(形成监察痕迹)；<br>（3）信封内放硬纸板或铝箔使得信封在强光下不透明 (不透视）</td>
-</tr>
-<tr>
-<td align="center">顺序编号的容器</td>
-<td align="left">所有的容器都是防止拆封篡改、等重、外观相似的</td>
-</tr>
-<tr>
-<td align="center">药房控制</td>
-<td align="left">(1)文章中表明是由研究者设立、验证或者至少是批准的给药房的一个恰当的随机化方案；<br>(2)文章中表明研究者指导药房进行恰当的分配隐藏</td>
-</tr>
-<tr>
-<td align="center">中心随机化</td>
-<td align="left">联系方法(如：电话、传真、电子邮件)，严格的程序确保在随机化前入组，以及对中心随机化办公室的每个人全面培训</td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-<h2 id="四、基线比较-Baseline-comparisons"><a href="#四、基线比较-Baseline-comparisons" class="headerlink" title="四、基线比较(Baseline comparisons)"></a>四、基线比较(Baseline comparisons)</h2><h3 id="（一）基线特征表格"><a href="#（一）基线特征表格" class="headerlink" title="（一）基线特征表格"></a>（一）基线特征表格</h3><ol>
-<li><p>尽管随机化避免了系统偏倚，但这不一定就会产生在预后因素方面完美平衡的分组。干预组间仍留有机遇所致的差异(如：机遇分配不均)。不过统计检验可以解释机遇差异。随机化的过程是显著性检验的基础，并且无论预后因素是已知或未知的，随机化的过程都和预后因素无关。</p>
-</li>
-<li><p>无论如何，研究者应该在一个表格中按照治疗组别展示基线特征。这些信息描述进行试验所在的假设人群，且让读者看到外推至其他人群的可能性。此外，它让医师将结论推论至特定的患者。</p>
-</li>
-<li><p>基线特征表格也让读者们比较试验各组在基线时重要的人口学和临床特征。然而，我们通常会不适当的使用假设检验(如表中的P)去比较我们所关注的特征。这些检验测定观察到的差异可能是因机遇产生的可能性。但是，在恰当的随机试验中观察到的差异按定义来说都是因机遇产生的。如Altman所言，“这个程序明显是多余的”。</p>
-<table>
-<thead>
-<tr>
-<th align="center">特征</th>
-<th align="center">抗生素组(n&#x3D;116)</th>
-<th align="center">安慰剂组(n&#x3D;129)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">年龄(mean [SD]) (years)</td>
-<td align="center">30.2 (5.2)</td>
-<td align="center">31.1 (5.9)</td>
-</tr>
-<tr>
-<td align="center">体重(median [25th,75th centiles]) (kg)</td>
-<td align="center">141 (122, 181)</td>
-<td align="center">144 (123, 188)</td>
-</tr>
-<tr>
-<td align="center">未产妇(number, %)</td>
-<td align="center">62 (53%)</td>
-<td align="center">63 (49%)</td>
-</tr>
-<tr>
-<td align="center">既往盆腔炎(number, %)</td>
-<td align="center">24 (21%)</td>
-<td align="center">28 (22%)</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>对基线特征的假设检验不仅是不必要的，可能还是有害的。</p>
-<ul>
-<li>研究者用假设检验比较基线特征，报告的显著结果比预计由机遇产生的差异要少。</li>
-<li>关于这种差别的合理解释是：有的研究者可能决定不报告显著的差异，因为他们相信隐瞒了这个信息，能够增加他们报告的可信度。</li>
-<li>假设检验间接导致研究者们隐瞒基线不平衡，因而其除了是多余的，也是有害的。</li>
-</ul>
-</li>
-</ol>
-<h3 id="（二）基线特征关注什么"><a href="#（二）基线特征关注什么" class="headerlink" title="（二）基线特征关注什么"></a>（二）基线特征关注什么</h3><ol>
-<li>研究者应该报告关于重要预后变量的基线比较。读者应该在考虑所测得的变量预后强度和已经产生的机遇不平衡的程度的基础上观察各组的可比性，而不要根据基线的统计学显著性检验考虑组间的可比性。</li>
-<li>上面的表格提供了有效的格式来陈述基线特征。<ul>
-<li>对于连续变量，如年龄、体重，研究者应用一个均值和一种检测变异度(variability)的方法，通常是平均值和标准差来描述。</li>
-<li>如果数据分布不对称，用中位值和百分位数范围(即四分位数间距)来描述更好。</li>
-<li>变异度不应该用标准误和可信区间来表述，因为它们是推断而不是统计描述。</li>
-<li>数目和比例用于报告分类变量。</li>
-</ul>
-</li>
-<li>在分析中，对于结局的统计检验说明了任何的机遇所致的不平衡。然而控制机遇不平衡，例如恰当地计划并实施试验，也许能产生一个更精确的结果。研究者应该陈述任何校正过的分析，并描述他们如何以及为何校正该协变量。</li>
-</ol>
-<h2 id="五、结论"><a href="#五、结论" class="headerlink" title="五、结论"></a>五、结论</h2><ol>
-<li>恰当的随机化仍是避免选择和混杂偏倚的唯一方法。</li>
-<li>事与愿违地是，随机对照试验重要的无偏倚性质与其在实施中令人厌烦的问题同时存在。</li>
-<li>随机对照试验阻止了人们的临床倾向，因此如果有机会破译分配方案，许多参与试验的人会试图破坏随机化。</li>
-<li>为了将人们的这种倾向控制到最小，试验者必须非常注重隐藏分配方案。</li>
-<li>恰当的随机化与充分的分配隐藏密不可分。</li>
-</ol>
 
       
     </div>
@@ -1496,7 +1458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">464</span>
+          <span class="site-state-item-count">465</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1509,7 +1471,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1687</span>
+        <span class="site-state-item-count">1689</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1597,6 +1559,61 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

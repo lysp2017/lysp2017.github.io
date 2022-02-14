@@ -268,51 +268,39 @@
 <li>将任何的脚本转换为EXE文件，使其在没有安装AutoHotkey的计算机上也能运行。</li>
 </ul>
 <h2 id="二、最简流程示例"><a href="#二、最简流程示例" class="headerlink" title="二、最简流程示例"></a>二、最简流程示例</h2><ol>
-<li><p>到<a target="_blank" rel="noopener" href="https://www.autohotkey.com">www.autohotkey.com</a>下载或点击这里下载（AutoHotkey1.1），然后安装。</p>
-</li>
-<li><p>使用编辑器或记事本新建一个脚本文件，格式为<code>.ahk</code>，编码格式为<code>UTF-8</code>。</p>
-</li>
+<li>到<a target="_blank" rel="noopener" href="https://www.autohotkey.com">www.autohotkey.com</a>下载或点击这里下载（AutoHotkey1.1），然后安装。</li>
+<li>使用编辑器或记事本新建一个脚本文件，格式为<code>.ahk</code>，编码格式为<code>UTF-8</code>。</li>
 <li><p>编辑脚本，在脚本中写入下面这行：</p>
  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br></pre></td></tr></table></figure></li>
-<li><p>保存后双击运行。</p>
-</li>
-<li><p>这时按下Windows键和h键就会打开我的博客。</p>
-</li>
+<li>保存后双击运行。</li>
+<li>这时按下Windows键和h键就会打开我的博客。</li>
 <li><p>在上面这个命令中</p>
 <ul>
-<li><p>符号<code>#</code>表示<code>Windows键</code></p>
-</li>
-<li><p><code>#</code>后紧跟着<code>h</code>表示组合键</p>
-</li>
-<li><p>符号<code>::</code>用来分隔热键和命令（左边是热键，右边是命令）</p>
-</li>
+<li>符号<code>#</code>表示<code>Windows键</code></li>
+<li><code>#</code>后紧跟着<code>h</code>表示组合键</li>
+<li>符号<code>::</code>用来分隔热键和命令（左边是热键，右边是命令）</li>
 <li><p><code>Run</code>命令用来打开一个文件或网页，中间空一个空格。</p>
-<p>  <img src="http://qiniup.louyanspine.com/2018-09-02-windows-key-shortcut-tricks-670x335.jpg"></p>
+<p>  <img src="http://qiniup.louyanspine.com/2018-09-02-windows-key-shortcut-tricks-670x335.jpg" alt=""></p>
 </li>
 </ul>
 </li>
 </ol>
 <h2 id="三、基本术语"><a href="#三、基本术语" class="headerlink" title="三、基本术语"></a>三、基本术语</h2><ol>
-<li><p>脚本&#x2F;宏（Script）：你要编辑的一个格式后缀为<code>.ahk</code>的纯文本文件（编码格式为<code>UTF-8</code>）。你把代码写进这个脚本里，双击执行后，你的热键就生效了。</p>
-</li>
-<li><p>热键（hotkey）：用来触发操作的按键或组合键，也就是快捷键。</p>
-</li>
-<li><p>命令：你为某个热键指定的一个动作（action），比如打开程序，打开网页等。</p>
-</li>
-<li><p>热字串（hotstring）：类似于热键，当你输入热字串并按下回车或空格后触发相应的命令。</p>
-</li>
-<li><p>宏录制器（AutoScriptWriter）：可以录制回放你的操作的工具，非常适合新手入门学习。</p>
-</li>
+<li>脚本/宏（Script）：你要编辑的一个格式后缀为<code>.ahk</code>的纯文本文件（编码格式为<code>UTF-8</code>）。你把代码写进这个脚本里，双击执行后，你的热键就生效了。</li>
+<li>热键（hotkey）：用来触发操作的按键或组合键，也就是快捷键。</li>
+<li>命令：你为某个热键指定的一个动作（action），比如打开程序，打开网页等。</li>
+<li>热字串（hotstring）：类似于热键，当你输入热字串并按下回车或空格后触发相应的命令。</li>
+<li>宏录制器（AutoScriptWriter）：可以录制回放你的操作的工具，非常适合新手入门学习。</li>
 <li><p>多行热键：当通过热键触发多个命令时，这时的格式是命令从第二行开始，每个命令一行，最后以占据一行的return结束。</p>
  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span></span><br><span class="line">RunWait Notepad</span><br><span class="line">Msgbox Goodbye!</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></li>
 <li><p>参数：自定义的数值，传递给命令执行，比如sleep后面的时间数就是参数。参数与命令通过空格或逗号隔开，多个参数使用逗号隔开。</p>
 </li>
 <li><p>注释（comment）：注释是用来对你的代码进行解释和说明的文字</p>
 <ul>
-<li><p>单行的注释以<code>;</code>开头</p>
-</li>
+<li>单行的注释以<code>;</code>开头</li>
 <li><p>多行注释用<code>/*</code>和<code>*/</code>括住。</p>
-  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;这是单行注释</span></span><br><span class="line"><span class="comment">/* 这里 </span></span><br><span class="line"><span class="comment">是 </span></span><br><span class="line"><span class="comment">多行注释 */</span></span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;这是单行注释</span></span><br><span class="line"><span class="comment">/* 这里 </span></span><br><span class="line"><span class="comment">是 </span></span><br><span class="line"><span class="comment">多行注释 */</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
@@ -345,11 +333,15 @@
 <li><p>按下<code>Windows</code>键键和<code>h</code>键，或输入<code>hui</code>后按下回车或空格（推荐使用空格）可以打开我的博客：</p>
 <ul>
 <li><p>热字串在要触发的文本两边各有一对<code>::</code></p>
-  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br><span class="line"><span class="comment">;下面使用热字串运行同样的命令，这时要采用多行分隔</span></span><br><span class="line"><span class="title">::hui::</span> </span><br><span class="line">Run www.greyli.com</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br><span class="line"><span class="comment">;下面使用热字串运行同样的命令，这时要采用多行分隔</span></span><br><span class="line"><span class="title">::hui::</span> </span><br><span class="line">Run www.greyli.com</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p>按下<code>Alt</code>键和<code>m</code>键打开一组网页和程序：</p>
- <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!m::</span></span><br><span class="line">Run www.google.com</span><br><span class="line"><span class="title">Run http:</span>//fm.douban.com</span><br><span class="line"><span class="title">Run D:</span>\Program Files (x86)\Notepad++\notepad++.exe</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!m::</span></span><br><span class="line">Run www.google.com</span><br><span class="line"><span class="title">Run http:</span>//fm.douban.com</span><br><span class="line"><span class="title">Run D:</span>\Program Files (x86)\Notepad++\notepad++.exe</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="（二）用热键或热字串保存常用文字"><a href="#（二）用热键或热字串保存常用文字" class="headerlink" title="（二）用热键或热字串保存常用文字"></a>（二）用热键或热字串保存常用文字</h3><ol>
 <li><p>按下<code>Alt</code>键和<code>k</code>键发送我的签名：</p>
@@ -359,7 +351,8 @@
  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">::@g::</span>withlihui@gmail.com</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>按下<code>Alt</code>键和<code>g</code>键后填入我的账户和密码并登录（先把光标点在第一个输入框里）。</p>
- <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!g::</span></span><br><span class="line">Send withlihui@qq.com &#123;Tab&#125;mimashi123 &#123;Enter&#125;</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!g::</span></span><br><span class="line">Send withlihui@qq.com &#123;Tab&#125;mimashi123 &#123;Enter&#125;</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h2 id="七、Tips与建议"><a href="#七、Tips与建议" class="headerlink" title="七、Tips与建议"></a>七、Tips与建议</h2><ol>
 <li>命令不区分大小写。</li>
@@ -466,7 +459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">464</span>
+          <span class="site-state-item-count">465</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -479,7 +472,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1687</span>
+        <span class="site-state-item-count">1689</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -565,6 +558,8 @@
 
 
 
+
+  
 
   
 

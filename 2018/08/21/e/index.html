@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明  译自BetterExplained上的文章An Intuitive Guide To Exponential Functions &amp; e   $e$一直困扰着我，并不是字母e，而是数学常数。它到底意味着什么？在很多数学书籍，甚至我心爱的维基百科都用晦涩的术语来描述$e$：  数学常数$e$是自然对数的底数。  当你查找自然对数时，你会得到：  自然对数（以前称为双曲线对数）的底数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指数函数和自然常数e">
+<meta property="og:url" content="http://lysp2017.github.io/2018/08/21/e/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="说明  译自BetterExplained上的文章An Intuitive Guide To Exponential Functions &amp; e   $e$一直困扰着我，并不是字母e，而是数学常数。它到底意味着什么？在很多数学书籍，甚至我心爱的维基百科都用晦涩的术语来描述$e$：  数学常数$e$是自然对数的底数。  当你查找自然对数时，你会得到：  自然对数（以前称为双曲线对数）的底数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-22-growth_2_x.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-22-growth_2x_zoomed.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-22-growth_interest_1.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months_compound.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-22-growth_interest_4_months_compound.png">
+<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-22-different_exponential_rates.png">
+<meta property="article:published_time" content="2018-08-21T13:10:06.000Z">
+<meta property="article:modified_time" content="2022-02-14T09:12:49.852Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="自然常数">
+<meta property="article:tag" content="指数函数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-08-22-growth_2_x.png">
+
+<link rel="canonical" href="http://lysp2017.github.io/2018/08/21/e/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>指数函数和自然常数e | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/21/e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          指数函数和自然常数e
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-21 21:10:06" itemprop="dateCreated datePublished" datetime="2018-08-21T21:10:06+08:00">2018-08-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-14 17:12:49" itemprop="dateModified" datetime="2022-02-14T17:12:49+08:00">2022-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说明<br></p>
+<ol>
+<li>译自BetterExplained上的文章An Intuitive Guide To Exponential Functions &amp; e<br></li>
+</ol>
+</blockquote>
+<p>$e$一直困扰着我，并不是字母e，而是数学常数。它到底意味着什么？在很多数学书籍，甚至我心爱的维基百科都用晦涩的术语来描述$e$：</p>
+<blockquote>
+<p>数学常数$e$是自然对数的底数。</p>
+</blockquote>
+<p>当你查找自然对数时，你会得到：</p>
+<blockquote>
+<p>自然对数（以前称为双曲线对数）的底数为$e$，其中$e$是约等于2.718281828459的无理常数(irrational constant)。</p>
+</blockquote>
+<p>许多数学上的解释在追求严谨方面都是非常正式和枯燥乏味的。但这并不能帮助初学者尝试解决某个问题。</p>
+<h2 id="一、-e-不只是一个数字"><a href="#一、-e-不只是一个数字" class="headerlink" title="一、$e$不只是一个数字"></a>一、$e$不只是一个数字</h2><p>通常，我们将$e$描述为“约为2.71828……的常数”，就像称$\pi$为“约为3.1415……的无理数”。这当然是恰当的，但完全错过了要点。</p>
+<h3 id="（一）-pi-是所有圆的圆周和直径之间的比率"><a href="#（一）-pi-是所有圆的圆周和直径之间的比率" class="headerlink" title="（一）$\pi$是所有圆的圆周和直径之间的比率"></a>（一）$\pi$是所有圆的圆周和直径之间的比率</h3><p>它是所有圆中固有的基础比率，因此影响圆、球和圆柱等的周长、面积、体积和表面积的计算，以及从圆上得到的三角函数(sin，cos，tan)。</p>
+<h3 id="（二）-e-是所有连续增长过程都共有的基本增长率"><a href="#（二）-e-是所有连续增长过程都共有的基本增长率" class="headerlink" title="（二） $e$是所有连续增长过程都共有的基本增长率"></a>（二） $e$是所有连续增长过程都共有的基本增长率</h3><p>你可以用$e$表示一个简单的增长率（所有的增长都是发生在年末的一个瞬变），同时发现连续型复合增长的影响，每一纳秒（或者更快），你只需要增长一点点。</p>
+<p>只要当系统呈连续型指数级增长，$e$便会出现：种群密度、放射性衰变、利息计算等等。甚至并不是平稳增长的锯齿状增长系统都能用$e$来近似。</p>
+<p>就像每个数字都可以被认为和1（基本单位）呈某个比例，每个圆可以认为和单位圆（半径为1）呈某个比例，同样每个增长率都可以认为和e（单位增长率）呈某个比例。</p>
+<p>因此$e$并不是一个模糊的、似乎随机的数字。$e$表示这样的思想，即所有连续型增长系统和某个一般比率呈比例关系。</p>
+<blockquote>
+<p>$e$ represents the idea that all continually growing systems are scaled versions of a common rate.</p>
+</blockquote>
+<h2 id="二、理解指数增长"><a href="#二、理解指数增长" class="headerlink" title="二、理解指数增长"></a>二、理解指数增长</h2><p>首先来看一个基本系统，其在一段时间之后会翻倍。比如，</p>
+<ul>
+<li>细菌每24小时分裂并翻倍</li>
+<li>把面条对折，我们可以得到两倍数量。</li>
+<li><p>如果你（幸运！）得到100%的利润率，那么你的财富每年翻倍。</p>
+<p>  <img src="http://qiniup.louyanspine.com/2018-08-22-growth_2_x.png" alt=""></p>
+</li>
+</ul>
+<p>数学上，如果分裂x次，那么我们得到原始物品数量的$({2^x})$倍。一次分裂我们得到$(2^{1})$或者2倍。四次分裂我们得到$(2^{4})$或者16倍。通用公式如下：<script type="math/tex">growth = 2 ^x</script></p>
+<p>另一种描述方式，双倍也就是100%的增长。我们可以重写公式如下：</p>
+<script type="math/tex; mode=display">growth = (1+100\%)^x</script><p>虽然两个等式相同，但我们对2的分割具有真实意义，即原始值1加上100%。聪明吧？</p>
+<p>当然，我们可以用任意数字（50%，25%，200%）代替100%，然后得到关于新比率的growth公式。因此x个周期的回报的通用公式是：</p>
+<script type="math/tex; mode=display">growth = (1+return)^x</script><p>这只是意味着我们连续使用自定义的回报率，$(1 + return)$，“$x$”次。</p>
+<h2 id="三、深入了解指数增长"><a href="#三、深入了解指数增长" class="headerlink" title="三、深入了解指数增长"></a>三、深入了解指数增长</h2><p>上述公式假设增长是离散型的。细菌在等待，等待，然后爆发，它们在最后的最后数量加倍；利息收入在1年的刻度处魔幻般出现。基于上述公式的增长是离散的、瞬间发生的，即，绿点突然出现。</p>
+<p>事实并非如此，如果我们放大来看，会发现细菌随时间分裂：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_2x_zoomed.png" alt=""></p>
+<p>绿先生（Mr. Green）不只是突然出现：它缓慢增长，然后脱离蓝先生（Mr. Blue）。一个单位时间（本例中是24小时）之后，绿先生完成生长，然后成熟为蓝细胞，可以创造它自己的新绿细胞。</p>
+<p>这个信息会改变我们的等式么？</p>
+<p>不！在细菌实例中，半成品的绿细胞仍然做不了任何事情，除非它们完全长大并从蓝色父母中分离。因此，等式保持不变。</p>
+<h2 id="四、金钱改变一切"><a href="#四、金钱改变一切" class="headerlink" title="四、金钱改变一切"></a>四、金钱改变一切</h2><p>然而财富却不一样。每收入1便士的利息，这1便士就能开始产生它自己的微便士（micro-pennies）。我们不需要等到收入完整的1美元利息：新的财富不需要成熟。</p>
+<p>基于我们旧的公式，利息增长看起来是这样的：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_1.png" alt=""></p>
+<p>但是这样并不正确：所有的利息出现在最后一天。让我们把一年放大并分为两块。即每年收入100%的利息，或者每6个月收入50%。那么前六个月收入50美分，后六个月收入另外50美分：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months.png" alt=""></p>
+<p>但这依然不正确！当然，原始的财富（Mr. Blue）在一年之内收入1美元。但是6个月后我们收入了50美分，明白了吧，我们之前忽略了这一部分！这50美分本来也有它自己的收入：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months_compound.png" alt=""></p>
+<p>因为比率是每半年50%，那50美分本可以收入25美分（50美分的50%）。年末我们可以得到：</p>
+<ul>
+<li>原始财富（Mr. Blue）</li>
+<li>蓝先生创造的财富（Mr. Green）</li>
+<li>绿先生创造的25美分（Mr. Red）</li>
+</ul>
+<p>总共得到\$2.25，即从初始的财富中收益\$1.25，比翻倍要好！</p>
+<p>让我们把回报写成公式。两个50%的半周期的growth是：</p>
+<script type="math/tex; mode=display">growth = (1+50\%)^2 = 2.25</script><h2 id="五、复合增长的深入研究"><a href="#五、复合增长的深入研究" class="headerlink" title="五、复合增长的深入研究"></a>五、复合增长的深入研究</h2><p>是时候提升一个等级了。这次不再把增长为为两个50%的增长周期，而把它分为三段33%的增长周期。谁说我们必须等待6个月才能开始收入利息？毫厘必争！</p>
+<p>3个复合周期的增长得到下面有趣的图表：</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_4_months_compound.png" alt=""></p>
+<p>想象每种颜色将收益向上传送给另一种颜色（它的孩子），每个周期增长33%：</p>
+<ul>
+<li>0月：初始蓝先生为$1。</li>
+<li>4月：蓝先生已经收入它自己的1/3美元，同时创造出的绿先生拥有33美分。</li>
+<li>8月：蓝先生收入另外33美分，交给绿先生，绿先生拥有66美分。绿先生在它之前的值上收益33%，创造11美分$(33\% \times 33)$，这11美分变成红先生。</li>
+<li>12月：情况变得略疯狂了。蓝先生收入另外33美分，交给绿先生，绿先生拥有完整的1美元。绿先生在它8月份的值（66美分）上收入33%的回报，即22美分，这22美分加到红先生上，红先生现在总共33美分。而且红先生开始有11美分，并以此收入4美分$(33\% \times 11)$，创造出紫先生。</li>
+</ul>
+<p>12个月后的最终值是：$1 + 1 + .33 + .04 = 2.37$</p>
+<p>花点时间来真正搞懂这种增长的原委：</p>
+<ul>
+<li>每种颜色从其自身上收入利息，并交给另一种颜色。新创造的财富也可以产生它自己的利息，依次循环。</li>
+<li>我喜欢把原始量（蓝先生）看做是不变的。蓝先生收益财富来创造绿先生，由于蓝先生不会变化，所以这是稳定的每4个月33美分的收益。图中，蓝先生有一个蓝色箭头显示出他如何喂养(feeds)绿先生的。</li>
+<li>绿先生喂养(feeds)红先生（绿色箭头），但是蓝先生并没有意识到。</li>
+<li>绿先生随时间增长（不断被蓝先生喂养），它对红先生的贡献越来越多。4-8月间，绿先生给了红先生11美分。8-12月间，因为绿先生在8月份有66美分，所以给了红先生22美分。如果我们扩展下图表，绿先生将给红先生33美分，因为绿先生在12月份达到了完整的1美元。</li>
+</ul>
+<p>通过在growth等式中使用3个周期，得到这样的公式：</p>
+<script type="math/tex; mode=display">growth = (1+100\%/3)^3 = 2.37037...</script><p>我们挣了\$1.37，比上次得到的\$1.25更好！</p>
+<h2 id="六、我们可以得到无尽的财富么？"><a href="#六、我们可以得到无尽的财富么？" class="headerlink" title="六、我们可以得到无尽的财富么？"></a>六、我们可以得到无尽的财富么？</h2><p>为什么不采用更短的时间周期呢？每月、每天、每小时，甚至每纳秒会怎么样？回报会猛涨么？</p>
+<p>回报确实会变得更好，但也只是在某种意义上。尝试在我们魔幻般的公式中使用不同的数字n，来看下总的回报：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">n</th>
+<th style="text-align:center">$(1+\cfrac{1}{n})^n$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2.25</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2.37</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2.488</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2.5937</td>
+</tr>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">2.7048</td>
+</tr>
+<tr>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">2.7169</td>
+</tr>
+<tr>
+<td style="text-align:center">10000</td>
+<td style="text-align:center">2.71814</td>
+</tr>
+<tr>
+<td style="text-align:center">100000</td>
+<td style="text-align:center">2.718268</td>
+</tr>
+<tr>
+<td style="text-align:center">1000000</td>
+<td style="text-align:center">2.7182804</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>数字越来越大，最终收敛到2.718附近。</p>
+<p>如果在越来越小的时间周期上，连续复合100%的回报，$e$则被定义为其增长率：</p>
+<script type="math/tex; mode=display">growth = e = \lim _{n\rightarrow \infty }\left( 1+\cfrac {1}{n}\right) ^{n}</script><p>这个极限似乎是收敛的，而且存在相应的证明。但是如你所见，当我们采用更小的时间周期时，总的回报稳定在2.718附近。</p>
+<h2 id="七、-但这意味着什么呢？"><a href="#七、-但这意味着什么呢？" class="headerlink" title="七、 但这意味着什么呢？"></a>七、 但这意味着什么呢？</h2><p>当在一个时间周期内复合100%的增长时，数字$e（2.718…）$是最大的可能结果。当然，开始时你期望从1增长到2（一个100%的增长，对吧？）。但是每向前一小步，你所创造的微薄利润本身也在收益。当所有过程指明并结束，你在一个时间周期末最终得到$e（2.718…）$，而不是2。$e$是最大的，当我们尽可能多地复合100%时，又发生了什么呢？</p>
+<p>那么，如果我们以\$1.00为开始，以100%的回报连续复合，我们得到$1e$。如果我们以\$2.00为开始，我们得到$2e$。如果我们以\$11.79为开始，我们得到$11.79e$。</p>
+<p>$e$像是一个速度极限（类似光速$c$），表明在使用一个连续过程时，可能增长多快。你可能不总是达到速度极限，但它是一个参考点：你可以用这个通用常量表示每个增长率。</p>
+<blockquote>
+<p>注：将增量从最终结果中分离出来。1变成$e（2.718…）$是一个171.8%的增量（增长率）。$e$本身是在所有增量考虑进去之后（原始值+增量），你所观测到的最终结果。</p>
+</blockquote>
+<h2 id="八、如果使用不同的比率呢？"><a href="#八、如果使用不同的比率呢？" class="headerlink" title="八、如果使用不同的比率呢？"></a>八、如果使用不同的比率呢？</h2><p>好问题。如果我们以每年50%增长，而不是100%呢？我们依然可以使用$e$么？</p>
+<p>来看看，50%的复合增长应该是这样的：</p>
+<script type="math/tex; mode=display">\lim _{n\rightarrow \infty }\left( 1+\cfrac {0.5}{n}\right) ^{n}</script><p>回想下，50%是总的回报，n是将增长分成复合增长的周期数。如果我们取n=50，我们可以将增长分成50块，每块1%的利息：</p>
+<script type="math/tex; mode=display">\left( 1+\cfrac {0.50}{50}\right) ^{50}=\left( 1+0.01\right) ^{50}</script><p>当然，这不是无穷的，但是已经相当小了。现在想象我们也将常规的100%分割成1%的块：</p>
+<script type="math/tex; mode=display">e\approx\left( 1+ \cfrac {1.00}{100}\right) ^{100}=\left( 1+0.01\right) ^{100}</script><p>殊途同归。在我们的常规案例中，有100个1%的累积变化。在50%的场景中，有50个1%的累积变化。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-08-22-different_exponential_rates.png" alt=""></p>
+<p>这两个数字间的差异是什么呢？好吧，只是差了一半的变化数目而已：</p>
+<script type="math/tex; mode=display">\left( 1+0.01\right) ^{50} = \left( 1+0.01\right) ^{100/2}=\left( \left( 1+0.01\right) ^{100}\right) ^{1/2}=e^{1/2}</script><p>相当有趣的是，$50/100 = 0.5$，0.5正是e的指数。这是普遍适用的：如果有300%的增长率，我们可以将它分成300个1%的增长块。这将是标准量的三倍，最终比率为$(e^{3})$。</p>
+<p>这里取了1%，但我们本可以选择任意小的增长单位（0.1%，0.0001%，甚至一个无穷小量）。重点是对于所选取的任意比率，它只是$e$上的一个新指数而已：</p>
+<script type="math/tex; mode=display">growth= e^{rate}</script><h2 id="九、如果使用不同的周期呢？"><a href="#九、如果使用不同的周期呢？" class="headerlink" title="九、如果使用不同的周期呢？"></a>九、如果使用不同的周期呢？</h2><p>假设我们以300%增长两年，我们要将一年的增长$e^{3}$乘以其自身：</p>
+<script type="math/tex; mode=display">growth= (e^{3})^2=e^{6}</script><p>推而广之：</p>
+<script type="math/tex; mode=display">growth= (e^{rate})^{time}=e^{rate \times time}</script><h3 id="大秘密：-e-整合了比率和时间"><a href="#大秘密：-e-整合了比率和时间" class="headerlink" title="大秘密：$e$整合了比率和时间"></a>大秘密：$e$整合了比率和时间</h3><p>$(e^{3})$可以表示两个东西：</p>
+<ul>
+<li>x是时间乘以增长率：以100%增长三年是$e^{3}$</li>
+<li>x是增长率本身：以300%增长一年是$e^{3}$</li>
+</ul>
+<p>这个重叠不会引起混淆么？当我们写为：<script type="math/tex">e^{x}</script></p>
+<p>变量$x$是比率和时间的组合。$x = rate \times time$</p>
+<p>我来解释下。当处理连续型复合增长时，10年3%的增长和1年30%的增长是等价的（此后不增长的话）。</p>
+<ul>
+<li>10年的3%的增长意味着30个1%的变化，这些变化在10年内发生，所以你是以每年3%连续增长。</li>
+<li>1个周期的30%的增长意味着30个1%的变化，但是在一年内发生，所以一年增长30%，然后停止。</li>
+</ul>
+<p>每个案例中有同样的“30个1%的变化”发生。速率（30%）越快，达到同样的效果所用时间越少（1年）。速率越慢（3%），需要增长的时间越长（10年）。</p>
+<p>但是在两个案例中，最后的增长是$e^{0.30} = 1.35$。我们更加急切地希望大而快的增长，而不是慢而长的增长，但是$e$显示出它们的最终效果是一样的。</p>
+<p>所以我们的通用公式变为：</p>
+<script type="math/tex; mode=display">growth= e^x = e^{rt}</script><h2 id="十、实例"><a href="#十、实例" class="headerlink" title="十、实例"></a>十、实例</h2><h3 id="（一）实例1：最大利率"><a href="#（一）实例1：最大利率" class="headerlink" title="（一）实例1：最大利率"></a>（一）实例1：最大利率</h3><p>假设我有账户上有\$120，利率5%。银行很慷慨，给了我最大可能的复合。10年后我将得到多少呢？</p>
+<p>我们的比率是5%，而且很幸运得以连续复合。10年之后，我们得到<script type="math/tex">\$120\times e^{0.05\times 10 }= \$197.85</script></p>
+<h3 id="（二）实例2：72法则"><a href="#（二）实例2：72法则" class="headerlink" title="（二）实例2：72法则"></a>（二）实例2：72法则</h3><p>如果银行的利息率是5%的复利，请问100元存款翻倍需要多少时间？<br>计算结果是13.86年cfrac</p>
+<script type="math/tex; mode=display">100\times e^{5 \% \times t}= 200</script><script type="math/tex; mode=display">t=\cfrac {\ln 2}{5\% } = \cfrac {0.693}{5\% }= \cfrac {69.3}{5} \approx \cfrac {72}{5}</script><p>上式最后一个等号，表明用72除以增长率，可以得到翻倍的大致时间，这就是72法则的来源。</p>
+<h3 id="（三）实例3：放射性衰变"><a href="#（三）实例3：放射性衰变" class="headerlink" title="（三）实例3：放射性衰变"></a>（三）实例3：放射性衰变</h3><p>我有10kg的放射性材料，似乎以每年100%的速率连续衰变。3年后我将有多少呢？</p>
+<script type="math/tex; mode=display">10\times e^{-1 \times 3 }= 0.498kg</script>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%87%AA%E7%84%B6%E5%B8%B8%E6%95%B0/" rel="tag"># 自然常数</a>
+              <a href="/tags/%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0/" rel="tag"># 指数函数</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/20/Spinal-pedicle-fixation/" rel="prev" title="Spinal pedicle fixation（未完）">
+      <i class="fa fa-chevron-left"></i> Spinal pedicle fixation（未完）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/22/Probability-density-function/" rel="next" title="概率密度函数、概率质量函数和累积分布函数">
+      概率密度函数、概率质量函数和累积分布函数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-e-%E4%B8%8D%E5%8F%AA%E6%98%AF%E4%B8%80%E4%B8%AA%E6%95%B0%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">一、$e$不只是一个数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89-pi-%E6%98%AF%E6%89%80%E6%9C%89%E5%9C%86%E7%9A%84%E5%9C%86%E5%91%A8%E5%92%8C%E7%9B%B4%E5%BE%84%E4%B9%8B%E9%97%B4%E7%9A%84%E6%AF%94%E7%8E%87"><span class="nav-number">1.1.</span> <span class="nav-text">（一）$\pi$是所有圆的圆周和直径之间的比率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89-e-%E6%98%AF%E6%89%80%E6%9C%89%E8%BF%9E%E7%BB%AD%E5%A2%9E%E9%95%BF%E8%BF%87%E7%A8%8B%E9%83%BD%E5%85%B1%E6%9C%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%A2%9E%E9%95%BF%E7%8E%87"><span class="nav-number">1.2.</span> <span class="nav-text">（二） $e$是所有连续增长过程都共有的基本增长率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%90%86%E8%A7%A3%E6%8C%87%E6%95%B0%E5%A2%9E%E9%95%BF"><span class="nav-number">2.</span> <span class="nav-text">二、理解指数增长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%8C%87%E6%95%B0%E5%A2%9E%E9%95%BF"><span class="nav-number">3.</span> <span class="nav-text">三、深入了解指数增长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%87%91%E9%92%B1%E6%94%B9%E5%8F%98%E4%B8%80%E5%88%87"><span class="nav-number">4.</span> <span class="nav-text">四、金钱改变一切</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%A4%8D%E5%90%88%E5%A2%9E%E9%95%BF%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6"><span class="nav-number">5.</span> <span class="nav-text">五、复合增长的深入研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E6%97%A0%E5%B0%BD%E7%9A%84%E8%B4%A2%E5%AF%8C%E4%B9%88%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">六、我们可以得到无尽的财富么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81-%E4%BD%86%E8%BF%99%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">七、 但这意味着什么呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%AF%94%E7%8E%87%E5%91%A2%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">八、如果使用不同的比率呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%91%A8%E6%9C%9F%E5%91%A2%EF%BC%9F"><span class="nav-number">9.</span> <span class="nav-text">九、如果使用不同的周期呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E7%A7%98%E5%AF%86%EF%BC%9A-e-%E6%95%B4%E5%90%88%E4%BA%86%E6%AF%94%E7%8E%87%E5%92%8C%E6%97%B6%E9%97%B4"><span class="nav-number">9.1.</span> <span class="nav-text">大秘密：$e$整合了比率和时间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E5%AE%9E%E4%BE%8B"><span class="nav-number">10.</span> <span class="nav-text">十、实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%AE%9E%E4%BE%8B1%EF%BC%9A%E6%9C%80%E5%A4%A7%E5%88%A9%E7%8E%87"><span class="nav-number">10.1.</span> <span class="nav-text">（一）实例1：最大利率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%AE%9E%E4%BE%8B2%EF%BC%9A72%E6%B3%95%E5%88%99"><span class="nav-number">10.2.</span> <span class="nav-text">（二）实例2：72法则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%AE%9E%E4%BE%8B3%EF%BC%9A%E6%94%BE%E5%B0%84%E6%80%A7%E8%A1%B0%E5%8F%98"><span class="nav-number">10.3.</span> <span class="nav-text">（三）实例3：放射性衰变</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">465</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1689</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

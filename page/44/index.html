@@ -189,6 +189,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/18/IPTW/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/18/IPTW/" class="post-title-link" itemprop="url">逆概率加权处理（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-18 21:39:21" itemprop="dateCreated datePublished" datetime="2018-07-18T21:39:21+08:00">2018-07-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明<br></p>
+<ol>
+<li>部分参考O’Reilly Media出版的HTML and CSS和HTML with CSS &amp; XHTML<br></li>
+<li>部分参考作者兼续在简书上的笔记<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/727dbfcef685">https://www.jianshu.com/p/727dbfcef685</a></li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/18/Rtableone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,7 +327,6 @@
 <p><code>tableone</code>包的作者是Kazuki Yoshida和Justin Bohn，利用这个包可以很方便的在R中创建表格。</p>
 <h2 id="一、创建Table-1"><a href="#一、创建Table-1" class="headerlink" title="一、创建Table 1"></a>一、创建Table 1</h2><h3 id="（一）创建并导入数据"><a href="#（一）创建并导入数据" class="headerlink" title="（一）创建并导入数据"></a>（一）创建并导入数据</h3><p>本文数据是由<code>rnorm()</code>和<code>sample()</code>函数模拟产生的，从<a target="_blank" rel="noopener" href="https://datascienceplus.com/wp-content/uploads/2016/02/dt_simulated.csv">这里</a>下载。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dt <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span>file.choose<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> header<span class="operator">=</span><span class="literal">TRUE</span><span class="punctuation">,</span> sep<span class="operator">=</span><span class="string">&quot;,&quot;</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>dt<span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line">   Age Gender Cholesterol SystolicBP  BMI Smoking Education</span><br><span class="line"><span class="number">1</span> <span class="number">67.9</span> Female       <span class="number">236.4</span>      <span class="number">129.8</span> <span class="number">26.4</span>     Yes      High</span><br><span class="line"><span class="number">2</span> <span class="number">54.8</span> Female       <span class="number">256.3</span>      <span class="number">133.4</span> <span class="number">28.4</span>      No    Medium</span><br><span class="line"><span class="number">3</span> <span class="number">68.4</span>   Male       <span class="number">198.7</span>      <span class="number">158.5</span> <span class="number">24.1</span>     Yes      High</span><br><span class="line"><span class="number">4</span> <span class="number">67.9</span>   Male       <span class="number">205.0</span>      <span class="number">136.0</span> <span class="number">19.9</span>      No       Low</span><br><span class="line"><span class="number">5</span> <span class="number">60.9</span>   Male       <span class="number">207.7</span>      <span class="number">145.4</span> <span class="number">26.7</span>      No    Medium</span><br><span class="line"><span class="number">6</span> <span class="number">44.9</span> Female       <span class="number">222.5</span>      <span class="number">130.6</span> <span class="number">30.6</span>      No       Low</span><br></pre></td></tr></table></figure>
-
 <h3 id="（二）设定变量并定义分类变量"><a href="#（二）设定变量并定义分类变量" class="headerlink" title="（二）设定变量并定义分类变量"></a>（二）设定变量并定义分类变量</h3><p>现在，我们使用<code>tableone包</code>来创建Table 1。</p>
 <ol>
 <li>首先加载<code>tableone包</code>，并创建我们想要放到Table 1中的变量列表。</li>
@@ -255,10 +334,8 @@
 </ol>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#加载tableone包</span></span><br><span class="line">library<span class="punctuation">(</span>tableone<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#创建变量列表</span></span><br><span class="line">listVars <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Age&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Gender&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Cholesterol&quot;</span><span class="punctuation">,</span> <span class="string">&quot;SystolicBP&quot;</span><span class="punctuation">,</span> <span class="string">&quot;BMI&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Smoking&quot;</span><span class="punctuation">,</span> </span><br><span class="line"><span class="string">&quot;Education&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义分类变量</span></span><br><span class="line">catVars <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Gender&quot;</span><span class="punctuation">,</span><span class="string">&quot;Smoking&quot;</span><span class="punctuation">,</span><span class="string">&quot;Education&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 <h3 id="（三）总体人群表格"><a href="#（三）总体人群表格" class="headerlink" title="（三）总体人群表格"></a>（三）总体人群表格</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">table1 <span class="operator">&lt;-</span> CreateTableOne<span class="punctuation">(</span>vars <span class="operator">=</span> listVars<span class="punctuation">,</span> data <span class="operator">=</span> dt<span class="punctuation">,</span> factorVars <span class="operator">=</span> catVars<span class="punctuation">)</span></span><br><span class="line">  </span><br><span class="line">                              Overall       </span><br><span class="line">     n                          <span class="number">250</span>        </span><br><span class="line">  Age <span class="punctuation">(</span>mean <span class="punctuation">(</span>sd<span class="punctuation">)</span><span class="punctuation">)</span>          <span class="number">57.50</span> <span class="punctuation">(</span><span class="number">7.85</span><span class="punctuation">)</span> </span><br><span class="line">  Gender <span class="operator">=</span> Male <span class="punctuation">(</span><span class="operator">%)          107 (42.8) </span></span><br><span class="line"><span class="operator">  Cholesterol (mean (sd)) 224.12 (24.90)</span></span><br><span class="line"><span class="operator">  SystolicBP (mean (sd))  145.51 (10.08)</span></span><br><span class="line"><span class="operator">  BMI (mean (sd))          26.79 (4.37) </span></span><br><span class="line"><span class="operator">  Smoking = Yes (%</span><span class="punctuation">)</span>           <span class="number">72</span> <span class="punctuation">(</span><span class="number">28.8</span><span class="punctuation">)</span> </span><br><span class="line">  Education <span class="punctuation">(</span>%<span class="punctuation">)</span>                         </span><br><span class="line">     High                    <span class="number">108</span> <span class="punctuation">(</span><span class="number">43.2</span><span class="punctuation">)</span> </span><br><span class="line">     Low                      <span class="number">71</span> <span class="punctuation">(</span><span class="number">28.4</span><span class="punctuation">)</span> </span><br><span class="line">     Medium                   <span class="number">71</span> <span class="punctuation">(</span><span class="number">28.4</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="（四）特定人群（分类）表格"><a href="#（四）特定人群（分类）表格" class="headerlink" title="（四）特定人群（分类）表格"></a>（四）特定人群（分类）表格</h3><p>我们更感兴趣的是分别为男性和女性创建Table 1，并比较他们的均值和百分比。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从变量列表中移除Gender</span></span><br><span class="line">listVar <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Age&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Cholesterol&quot;</span><span class="punctuation">,</span> <span class="string">&quot;SystolicBP&quot;</span><span class="punctuation">,</span> <span class="string">&quot;BMI&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Smoking&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Education&quot;</span><span class="punctuation">)</span></span><br><span class="line">table1 <span class="operator">&lt;-</span> CreateTableOne<span class="punctuation">(</span>listVars<span class="punctuation">,</span> dt<span class="punctuation">,</span> catVars<span class="punctuation">,</span> strata <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Gender&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">                         Stratified by Gender</span><br><span class="line">                            Female         Male           p test</span><br><span class="line">  n                          <span class="number">143</span>            <span class="number">107</span>                    </span><br><span class="line">  Age <span class="punctuation">(</span>mean <span class="punctuation">(</span>sd<span class="punctuation">)</span><span class="punctuation">)</span>          <span class="number">56.94</span> <span class="punctuation">(</span><span class="number">8.05</span><span class="punctuation">)</span>   <span class="number">58.25</span> <span class="punctuation">(</span><span class="number">7.55</span><span class="punctuation">)</span>   <span class="number">0.191</span>     </span><br><span class="line">  Cholesterol <span class="punctuation">(</span>mean <span class="punctuation">(</span>sd<span class="punctuation">)</span><span class="punctuation">)</span> <span class="number">224.80</span> <span class="punctuation">(</span><span class="number">25.06</span><span class="punctuation">)</span> <span class="number">223.21</span> <span class="punctuation">(</span><span class="number">24.78</span><span class="punctuation">)</span>  <span class="number">0.620</span>     </span><br><span class="line">  SystolicBP <span class="punctuation">(</span>mean <span class="punctuation">(</span>sd<span class="punctuation">)</span><span class="punctuation">)</span>  <span class="number">144.95</span> <span class="punctuation">(</span><span class="number">10.99</span><span class="punctuation">)</span> <span class="number">146.27</span> <span class="punctuation">(</span><span class="number">8.71</span><span class="punctuation">)</span>   <span class="number">0.305</span>     </span><br><span class="line">  BMI <span class="punctuation">(</span>mean <span class="punctuation">(</span>sd<span class="punctuation">)</span><span class="punctuation">)</span>          <span class="number">26.74</span> <span class="punctuation">(</span><span class="number">4.58</span><span class="punctuation">)</span>   <span class="number">26.84</span> <span class="punctuation">(</span><span class="number">4.09</span><span class="punctuation">)</span>   <span class="number">0.859</span>     </span><br><span class="line">  Smoking <span class="operator">=</span> Yes <span class="punctuation">(</span><span class="operator">%)           37 (25.9)      35 (32.7)   0.298     </span></span><br><span class="line"><span class="operator">  Education (%</span><span class="punctuation">)</span>                                          <span class="number">0.289</span>     </span><br><span class="line">     High                     <span class="number">56</span> <span class="punctuation">(</span><span class="number">39.2</span><span class="punctuation">)</span>      <span class="number">52</span> <span class="punctuation">(</span><span class="number">48.6</span><span class="punctuation">)</span>             </span><br><span class="line">     Low                      <span class="number">45</span> <span class="punctuation">(</span><span class="number">31.5</span><span class="punctuation">)</span>      <span class="number">26</span> <span class="punctuation">(</span><span class="number">24.3</span><span class="punctuation">)</span>             </span><br><span class="line">     Medium                   <span class="number">42</span> <span class="punctuation">(</span><span class="number">29.4</span><span class="punctuation">)</span>      <span class="number">29</span> <span class="punctuation">(</span><span class="number">27.1</span><span class="punctuation">)</span> </span><br></pre></td></tr></table></figure>
-
 <p><code>tableone包</code>还可以做更多事情。例如：计算非正态分布变量的中位数和四分位数，对不同组之间作各种假设检验的对比。</p>
 
       
@@ -343,14 +420,14 @@
 <h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ol>
 <li>我们进行了一项观察性研究，以比较RFA与SBRT在非手术治疗肝癌患者(stage I or II)中的有效性。</li>
 <li>通过使用基于患者(patient-)，医疗设施(facility-)和肿瘤水平(tumor-level)特征的倾向性评分加权和倾向性评分匹配分析来比较总体生存率。</li>
-<li>进行敏感性分析(A sensitivity analysis)以评估严重的肝纤维化&#x2F;肝硬化程度。</li>
+<li>进行敏感性分析(A sensitivity analysis)以评估严重的肝纤维化/肝硬化程度。</li>
 <li>此外，我们进行了探索性分析(exploratory analyses)，以确定RFA和SBRT在临床相关患者子集中的有效性。</li>
 </ol>
 <h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><ol>
 <li>3,684例（92.6％）和296例（7.4％）非手术治疗的I期或II期HCC患者分别接受RFA或SBRT治疗。</li>
-<li>在倾向性评分匹配后，RFA组的5年总体生存率为29.8％（95％CI，24.5％-35.3％），而SBRT组则为19.3％（95％CI，13.5％-25.9％），两者差异显著(P&#x3D;0.001)。 </li>
+<li>在倾向性评分匹配后，RFA组的5年总体生存率为29.8％（95％CI，24.5％-35.3％），而SBRT组则为19.3％（95％CI，13.5％-25.9％），两者差异显著(P=0.001)。 </li>
 <li>逆概率加权分析(Inverse probability–weighted analysis)也获得类似的结果。</li>
-<li>RFA的获益在所有亚组中都是一致的，并且对严重肝纤维化&#x2F;肝硬化的效果是稳健的。</li>
+<li>RFA的获益在所有亚组中都是一致的，并且对严重肝纤维化/肝硬化的效果是稳健的。</li>
 </ol>
 <h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><ol>
 <li>我们的研究表明，对于I或II期HCC的非手术治疗患者，与SBRT相比，RFA治疗可获得更高的存活率。 </li>
@@ -381,15 +458,13 @@
 </li>
 <li><p>排除接受过肺叶切除术，扩大肺叶切除术，肝切除术或肝移植的患者。</p>
 </li>
-<li><p>以RFA或SBRT作为主要治疗方式，排除接受其他形式的局部消融治疗的患者。</p>
-</li>
-<li><p>排除接受任何形式的化疗（辅助或新辅助）或化疗信息未知的患者。</p>
-</li>
+<li>以RFA或SBRT作为主要治疗方式，排除接受其他形式的局部消融治疗的患者。</li>
+<li>排除接受任何形式的化疗（辅助或新辅助）或化疗信息未知的患者。</li>
 <li><p>本研究最终纳入3,980名患者。</p>
 <p> <img src="http://qiniup.louyanspine.com/2018-07-17-CONSORT%20diagram.jpg" alt="CONSORT diagram"></p>
 </li>
 </ol>
-<h4 id="Covariates-x2F-协变量"><a href="#Covariates-x2F-协变量" class="headerlink" title="Covariates&#x2F;协变量"></a>Covariates&#x2F;协变量</h4><blockquote>
+<h4 id="Covariates-协变量"><a href="#Covariates-协变量" class="headerlink" title="Covariates/协变量"></a>Covariates/协变量</h4><blockquote>
 <p>可以在NCDB PUF数据dictionary中找到所有变量的完整详细描述。</p>
 </blockquote>
 <ol>
@@ -418,8 +493,9 @@
 </li>
 </ul>
 </li>
-<li><p>Tumor-level variables</p>
-<ul>
+</ol>
+<ol>
+<li>Tumor-level variables<ul>
 <li>TNM分期</li>
 <li>肿瘤大小</li>
 <li>诊断年份（2004-2008 v 2009-2013）</li>
@@ -444,8 +520,8 @@
 </ul>
 </li>
 <li>对于主要结果，构建了两种OS与治疗方式之间相关性的模型<ul>
-<li>a propensity score-and time-to-treatment-matched univariable Cox proportional hazards model &#x2F;倾向性评分和治疗时间匹配的单因素Cox比例风险模型</li>
-<li>an unmatched univariable analysis based on the Kaplan-Meier estimator of inverse probability of treatment weight (IPTW)&#x2F;基于IPTW的Kaplan-Meier估计量的未匹配的单因素分析</li>
+<li>a propensity score-and time-to-treatment-matched univariable Cox proportional hazards model /倾向性评分和治疗时间匹配的单因素Cox比例风险模型</li>
+<li>an unmatched univariable analysis based on the Kaplan-Meier estimator of inverse probability of treatment weight (IPTW)/基于IPTW的Kaplan-Meier估计量的未匹配的单因素分析</li>
 </ul>
 </li>
 <li>构建以接受SBRT为目标事件构建模型的倾向性评分模型。<ul>
@@ -462,7 +538,7 @@
 <li>对于OS的最终模型，计算所有患者的IPTW Kaplan-Meier估计量，并通过对数秩检验在各组之间进行比较。</li>
 <li>所有计算均使用SAS软件9.4版进行。</li>
 <li>在匹配的患者组中，我们通过交互作用(interaction)和亚组分析(subgroup analyses)评估了治疗效果的异质性(heterogeneity of treatment effects)，探讨了年龄，性别，临床T分期，肿瘤大小，肿瘤分级，Charlson-Deyo合并症评分和设施类型的影响。</li>
-<li>由于在NCDB中纤维化&#x2F;肝硬化例数较少，以及纤维化&#x2F;肝硬化与OS减少之间的已知关联。我们在匹配的患者组中进行了敏感性分析，以研究这种未测量的混杂因素对我们的结果的潜在影响。</li>
+<li>由于在NCDB中纤维化/肝硬化例数较少，以及纤维化/肝硬化与OS减少之间的已知关联。我们在匹配的患者组中进行了敏感性分析，以研究这种未测量的混杂因素对我们的结果的潜在影响。</li>
 <li>敏感性分析的目标是探索假设的结果情景，并在其中调整观察到的治疗效果以解释潜在的未测量的混杂因素。</li>
 <li>除了观察到的治疗效果外，敏感性分析还纳入了关于生存效应和未测量混杂因子的不同暴露的假设信息，以计算如果去除未测量的混杂因素将会观察到的真实治疗效果。</li>
 </ol>
@@ -472,7 +548,7 @@
 <li>通过倾向性评分和time to treatment进行匹配，两组患者所有的协变量均取得了足够的组间平衡（见表A1）。<br> <img src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1.jpg" alt="表A1"><br> <img src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1c.jpg" alt="表A1_c"></li>
 <li>接受SBRT的患者比例随时间逐渐增加，年增长率为12％（P&lt;0.001;图2），大多数患者（79.7％）接受三至五次治疗。</li>
 </ol>
-<h4 id="生存分析"><a href="#生存分析" class="headerlink" title="生存分析"></a>生存分析</h4><h4 id="严重纤维化-x2F-肝硬化的影响"><a href="#严重纤维化-x2F-肝硬化的影响" class="headerlink" title="严重纤维化&#x2F;肝硬化的影响"></a>严重纤维化&#x2F;肝硬化的影响</h4><h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3>
+<h4 id="生存分析"><a href="#生存分析" class="headerlink" title="生存分析"></a>生存分析</h4><h4 id="严重纤维化-肝硬化的影响"><a href="#严重纤维化-肝硬化的影响" class="headerlink" title="严重纤维化/肝硬化的影响"></a>严重纤维化/肝硬化的影响</h4><h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3>
       
     </div>
 
@@ -565,7 +641,6 @@
 <p>本文用到的所有包可通过如下代码加载：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman::p_load(knitr, wakefield, MatchIt, tableone, captioner)</span><br></pre></td></tr></table></figure>
-
 <p>由于我们不希望在博客文章中使用真实数据，因此需要生成一些模拟数据。使用<code>wakefield</code>包可以很容易地实现这个功能。</p>
 <ol>
 <li><p>创建一个名为<code>df.patients</code>的数据框，包含250个病人的年龄和性别数据，所有病人的年龄都要在30-78岁之间，并且70%的病人被设定为男性。</p>
@@ -574,176 +649,184 @@
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">summary(df.patients)</span><br><span class="line">     </span><br><span class="line">      Age            Sex           Sample   </span><br><span class="line">Min.   :30.00   Male  :167   Patients:250  </span><br><span class="line">1st Qu.:44.00   Female: 83                 </span><br><span class="line">Median :57.00                              </span><br><span class="line">Mean   :55.24                              </span><br><span class="line">3rd Qu.:67.00                              </span><br><span class="line">Max.   :78.00 </span><br></pre></td></tr></table></figure>
 </li>
 <li><p>接下来，需要创建另一个名为<code>df.population</code>的数据框。我们希望这个数据集的数据和患者<code>df.patients</code>有些不同，因此正常人群的年龄区间被设定为18-80岁，并且男女各占一半。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">set.seed(180717)</span><br><span class="line"></span><br><span class="line">df.population &lt;- r_data_frame(n = 1000, age(x = 18:80, name = &#x27;Age&#x27;), </span><br><span class="line">sex(x = c(&quot;Male&quot;, &quot;Female&quot;),</span><br><span class="line">prob = c(0.50, 0.50), </span><br><span class="line">name = &quot;Sex&quot;))</span><br><span class="line"></span><br><span class="line">df.population$Sample &lt;- as.factor(&#x27;Population&#x27;)</span><br><span class="line"> </span><br><span class="line">#下方表格显示样本平均年龄为50.1岁，男女比例也大致相等。</span><br><span class="line"></span><br><span class="line">summary(df.population)</span><br><span class="line">     </span><br><span class="line">	Age           Sex             Sample    </span><br><span class="line">Min.   :18.0   Male  :489   Population:1000  </span><br><span class="line">1st Qu.:34.0   Female:511                    </span><br><span class="line">Median :51.0                                 </span><br><span class="line">Mean   :50.1                                 </span><br><span class="line">3rd Qu.:66.0                                 </span><br><span class="line">Max.   :80.0  </span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">set.seed(180717)</span><br><span class="line"></span><br><span class="line">df.population &lt;- r_data_frame(n = 1000, age(x = 18:80, name = &#x27;Age&#x27;), </span><br><span class="line">sex(x = c(&quot;Male&quot;, &quot;Female&quot;),</span><br><span class="line">prob = c(0.50, 0.50), </span><br><span class="line">name = &quot;Sex&quot;))</span><br><span class="line"></span><br><span class="line">df.population$Sample &lt;- as.factor(&#x27;Population&#x27;)</span><br><span class="line"> </span><br><span class="line">#下方表格显示样本平均年龄为50.1岁，男女比例也大致相等。</span><br><span class="line"></span><br><span class="line">summary(df.population)</span><br><span class="line">     </span><br><span class="line">	Age           Sex             Sample    </span><br><span class="line">Min.   :18.0   Male  :489   Population:1000  </span><br><span class="line">1st Qu.:34.0   Female:511                    </span><br><span class="line">Median :51.0                                 </span><br><span class="line">Mean   :50.1                                 </span><br><span class="line">3rd Qu.:66.0                                 </span><br><span class="line">Max.   :80.0  </span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="合并数据框"><a href="#合并数据框" class="headerlink" title="合并数据框"></a>合并数据框</h3><p>在匹配样本之前，我们需要把两个数据框合并。首先，生成一个新变量<code>Group</code>来代表研究对象来自哪个全体（逻辑型变量），再添加另一个变量<code>Distress</code>来表示个体的痛苦程度。<code>Distress</code>变量是利用<code>wakefield包</code>中的<code>age函数</code>创建的，可以发现，女性承受的痛苦级别更高。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mydata &lt;- rbind(df.patients, df.population)</span><br><span class="line">mydata$Group &lt;- as.logical(mydata$Sample == &#x27;Patients&#x27;)</span><br><span class="line">mydata$Distress &lt;- ifelse(mydata$Sex == &#x27;Male&#x27;, </span><br><span class="line">                age(nrow(mydata), x = 0:42, name = &#x27;Distress&#x27;),</span><br><span class="line">                age(nrow(mydata), x = 15:42, name = &#x27;Distress&#x27;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; mydata</span><br><span class="line"># A tibble: 1,250 x 5</span><br><span class="line">     Age Sex    Sample   Group Distress</span><br><span class="line">   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;    &lt;lgl&gt;    &lt;int&gt;</span><br><span class="line"> 1    76 Female Patients TRUE        39</span><br><span class="line"> 2    49 Female Patients TRUE        25</span><br><span class="line"> 3    57 Male   Patients TRUE        39</span><br><span class="line"> 4    62 Male   Patients TRUE        32</span><br><span class="line"> 5    61 Male   Patients TRUE        21</span><br><span class="line"> 6    44 Male   Patients TRUE        27</span><br><span class="line"> 7    56 Female Patients TRUE        21</span><br><span class="line"> 8    54 Female Patients TRUE        28</span><br><span class="line"> 9    49 Male   Patients TRUE        17</span><br><span class="line">10    64 Male   Patients TRUE        28</span><br><span class="line"># ... with 1,240 more rows</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>if..else语句的基本语法是 </p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(boolean_expression) &#123;</span><br><span class="line">   // statement(s) will execute if the boolean expression is true.</span><br><span class="line">&#125; else &#123;</span><br><span class="line">   // statement(s) will execute if the boolean expression is false.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 <p>当我们比较两组样本的年龄和性别分布时，我们可以发现明显的区别：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">library(pacman)</span><br><span class="line">pacman::p_load(tableone)</span><br><span class="line">table1 &lt;- CreateTableOne(vars = c(&#x27;Age&#x27;, &#x27;Sex&#x27;, &#x27;Distress&#x27;), </span><br><span class="line">                         data = mydata, </span><br><span class="line">                         factorVars = &#x27;Sex&#x27;, </span><br><span class="line">                         strata = &#x27;Sample&#x27;)</span><br><span class="line">table1 &lt;- print(table1, </span><br><span class="line">                printToggle = FALSE, </span><br><span class="line">                noSpaces = TRUE)</span><br><span class="line"></span><br><span class="line">library(knitr)</span><br><span class="line">kable(table1[,1:3],  </span><br><span class="line">      align = &#x27;c&#x27;, </span><br><span class="line">      caption = &#x27;Table 1: Comparison of unmatched samples&#x27;)</span><br></pre></td></tr></table></figure>
-
-
 <p><strong>Table 1: Comparison of unmatched samples</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">Patients</th>
-<th align="center">Population</th>
-<th align="center">p</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">Patients</th>
+<th style="text-align:center">Population</th>
+<th style="text-align:center">p</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">n</td>
-<td align="center">250</td>
-<td align="center">1000</td>
-<td align="center"></td>
+<tbody>
+<tr>
+<td style="text-align:center">n</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1000</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td align="center">Age (mean (sd))</td>
-<td align="center">55.24 (14.24)</td>
-<td align="center">50.10 (18.37)</td>
-<td align="center">&lt;0.001</td>
+<td style="text-align:center">Age (mean (sd))</td>
+<td style="text-align:center">55.24 (14.24)</td>
+<td style="text-align:center">50.10 (18.37)</td>
+<td style="text-align:center">&lt;0.001</td>
 </tr>
 <tr>
-<td align="center">Sex &#x3D; Female (%)</td>
-<td align="center">83 (33.2)</td>
-<td align="center">511 (51.1)</td>
-<td align="center">&lt;0.001</td>
+<td style="text-align:center">Sex = Female (%)</td>
+<td style="text-align:center">83 (33.2)</td>
+<td style="text-align:center">511 (51.1)</td>
+<td style="text-align:center">&lt;0.001</td>
 </tr>
 <tr>
-<td align="center">Distress (mean (sd))</td>
-<td align="center">25.12 (11.58)</td>
-<td align="center">24.35 (11.34)</td>
-<td align="center">0.344</td>
+<td style="text-align:center">Distress (mean (sd))</td>
+<td style="text-align:center">25.12 (11.58)</td>
+<td style="text-align:center">24.35 (11.34)</td>
+<td style="text-align:center">0.344</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="样本匹配"><a href="#样本匹配" class="headerlink" title="样本匹配"></a>样本匹配</h3><p>现在，我们已经完成了全部的准备工作，可以开始使用<code>MatchIT包</code>中的<code>matchit函数</code>来匹配两组样本了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">library(MatchIt)</span><br><span class="line">set.seed(180717)</span><br><span class="line"></span><br><span class="line">match.it &lt;- matchit(Group ~ Age + Sex, </span><br><span class="line">data = mydata, </span><br><span class="line">method=&quot;nearest&quot;, </span><br><span class="line">ratio=1)</span><br><span class="line"></span><br><span class="line">a &lt;- summary(match.it)</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>函数中<code>method=‘nearest’</code>的设定指明了使用近邻法(the nearest neighbors method)进行匹配。</li>
 <li>其他方法包括exact matching,subclassification,optimal matching,genetic matching,ull matching等（<code>method = c(&quot;exact&quot;, &quot;subclass&quot;, &quot;optimal&quot;, &quot;&quot;genetic&quot;, &quot;full&quot;)</code>）。</li>
 <li><code>ratio=1</code>意味着这是一一配对。在我们的例子里，对于患者组中的每一个病例，将恰好匹配正常人群样本中的一个人。</li>
 <li>同时也请注意<code>Group变量</code>需要是逻辑型变量（TRUE与FALSE）。</li>
 </ol>
-<p>为了后续工作的便利，我们将<code>summary函数</code>的输出赋值给名为<code>a</code>的变量。在匹配完样本后，正常人群样本量减少到了和患者样本一致（n&#x3D;250，详见Table 2）。</p>
+<p>为了后续工作的便利，我们将<code>summary函数</code>的输出赋值给名为<code>a</code>的变量。在匹配完样本后，正常人群样本量减少到了和患者样本一致（n=250，详见Table 2）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kable(a$nn, digits = 2, align = &#x27;c&#x27;, caption = &#x27;Table 2: Sample sizes&#x27;)</span><br></pre></td></tr></table></figure>
-
 <p><strong>Table 2: Sample sizes</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">Control</th>
-<th align="center">Treated</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">Control</th>
+<th style="text-align:center">Treated</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">All</td>
-<td align="center">1000</td>
-<td align="center">250</td>
+<tbody>
+<tr>
+<td style="text-align:center">All</td>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">250</td>
 </tr>
 <tr>
-<td align="center">Matched</td>
-<td align="center">250</td>
-<td align="center">250</td>
+<td style="text-align:center">Matched</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">250</td>
 </tr>
 <tr>
-<td align="center">Unmatched</td>
-<td align="center">750</td>
-<td align="center">0</td>
+<td style="text-align:center">Unmatched</td>
+<td style="text-align:center">750</td>
+<td style="text-align:center">0</td>
 </tr>
 <tr>
-<td align="center">Discarded</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td style="text-align:center">Discarded</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>根据输出结果，匹配后的年龄和性别分布基本一致了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kable(a$sum.matched[c(1,2,4)], digits = 2, align = &#x27;c&#x27;, caption = &#x27;Table 3: Summary of balance for matched data&#x27;)</span><br></pre></td></tr></table></figure>
 <p><strong>Table 3: Summary of balance for matched data</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">Means Treated</th>
-<th align="center">Means Control</th>
-<th align="center">Mean Diff</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">Means Treated</th>
+<th style="text-align:center">Means Control</th>
+<th style="text-align:center">Mean Diff</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">distance</td>
-<td align="center">0.23</td>
-<td align="center">0.23</td>
-<td align="center">0.00</td>
+<tbody>
+<tr>
+<td style="text-align:center">distance</td>
+<td style="text-align:center">0.23</td>
+<td style="text-align:center">0.23</td>
+<td style="text-align:center">0.00</td>
 </tr>
 <tr>
-<td align="center">Age</td>
-<td align="center">55.24</td>
-<td align="center">55.22</td>
-<td align="center">0.02</td>
+<td style="text-align:center">Age</td>
+<td style="text-align:center">55.24</td>
+<td style="text-align:center">55.22</td>
+<td style="text-align:center">0.02</td>
 </tr>
 <tr>
-<td align="center">SexMale</td>
-<td align="center">0.67</td>
-<td align="center">0.67</td>
-<td align="center">0.00</td>
+<td style="text-align:center">SexMale</td>
+<td style="text-align:center">0.67</td>
+<td style="text-align:center">0.67</td>
+<td style="text-align:center">0.00</td>
 </tr>
 <tr>
-<td align="center">SexFemale</td>
-<td align="center">0.33</td>
-<td align="center">0.33</td>
-<td align="center">0.00</td>
+<td style="text-align:center">SexFemale</td>
+<td style="text-align:center">0.33</td>
+<td style="text-align:center">0.33</td>
+<td style="text-align:center">0.00</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>倾向性评分的分布可以使用<code>MatchIt包</code>中的<code>plot函数</code>进行绘制。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(match.it, type = &#x27;jitter&#x27;, interactive = FALSE)</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://qiniup.louyanspine.com/2018-07-17-%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E5%88%86%E5%B8%83.jpg"></p>
+<p><img src="http://qiniup.louyanspine.com/2018-07-17-%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E5%88%86%E5%B8%83.jpg" alt=""></p>
 <h3 id="保存匹配样本"><a href="#保存匹配样本" class="headerlink" title="保存匹配样本"></a>保存匹配样本</h3><p>最后，匹配的样本将保存到名为<code>df.match</code>的新数据框中。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 获得匹配数据集(含distance和weights列)的第1~ncol(mydata)列</span><br><span class="line"></span><br><span class="line">df.match &lt;- match.data(match.it)[1:ncol(mydata)]</span><br><span class="line"></span><br><span class="line"># rm()函数：删除变量函数</span><br><span class="line">rm(df.patients, df.population)</span><br><span class="line"></span><br><span class="line"># 我们可以对比两类人群间痛苦程度的差异是否依旧显著</span><br><span class="line">pacman::p_load(tableone)</span><br><span class="line">table4 &lt;- CreateTableOne(vars = c(&#x27;Age&#x27;, &#x27;Sex&#x27;, &#x27;Distress&#x27;), </span><br><span class="line">                         data = df.match, </span><br><span class="line">                         factorVars = &#x27;Sex&#x27;, </span><br><span class="line">                         strata = &#x27;Sample&#x27;)</span><br><span class="line"></span><br><span class="line"># printToggle：是否打印输出。如果为FALSE，则不创建输出，并返回一个矩阵。</span><br><span class="line"># noSpaces：是否删除为对齐添加的空格。如果您希望自己在其他软件中对齐数字，请使用此选项。</span><br><span class="line"></span><br><span class="line">table4 &lt;- print(table4, </span><br><span class="line">                printToggle = FALSE, </span><br><span class="line">                noSpaces = TRUE)</span><br><span class="line"></span><br><span class="line"># align/列对齐: &#x27;l&#x27; (left), &#x27;c&#x27; (center) and/or &#x27;r&#x27; (right). 默认则align = NULL, 数值列右对齐, 其他列左对齐.</span><br><span class="line"># kable函数：Create Tables In LaTeX, HTML, Markdown And ReStructuredText</span><br><span class="line"></span><br><span class="line">kable(table4[,1:3],  </span><br><span class="line">      align = &#x27;c&#x27;, </span><br><span class="line">      caption = &#x27;Table 4: Comparison of matched samples&#x27;)</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">Patients</th>
-<th align="center">Population</th>
-<th align="center">p</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">Patients</th>
+<th style="text-align:center">Population</th>
+<th style="text-align:center">p</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">n</td>
-<td align="center">250</td>
-<td align="center">250</td>
-<td align="center"></td>
+<tbody>
+<tr>
+<td style="text-align:center">n</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td align="center">Age (mean (sd))</td>
-<td align="center">55.24 (14.24)</td>
-<td align="center">55.22 (14.21)</td>
-<td align="center">0.987</td>
+<td style="text-align:center">Age (mean (sd))</td>
+<td style="text-align:center">55.24 (14.24)</td>
+<td style="text-align:center">55.22 (14.21)</td>
+<td style="text-align:center">0.987</td>
 </tr>
 <tr>
-<td align="center">Sex &#x3D; Female (%)</td>
-<td align="center">83 (33.2)</td>
-<td align="center">83 (33.2)</td>
-<td align="center">1.000</td>
+<td style="text-align:center">Sex = Female (%)</td>
+<td style="text-align:center">83 (33.2)</td>
+<td style="text-align:center">83 (33.2)</td>
+<td style="text-align:center">1.000</td>
 </tr>
 <tr>
-<td align="center">Distress (mean (sd))</td>
-<td align="center">25.12 (11.58)</td>
-<td align="center">22.87 (11.72)</td>
-<td align="center">0.032</td>
+<td style="text-align:center">Distress (mean (sd))</td>
+<td style="text-align:center">25.12 (11.58)</td>
+<td style="text-align:center">22.87 (11.72)</td>
+<td style="text-align:center">0.032</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -830,27 +913,23 @@
 <p> 两个婴儿组不太相同：筛查组的婴儿年龄更小，女婴较多，并且很少接受过皮质类固醇激素的治疗。作者使用倾向性评分匹配(propensity score matching)创建了来自原始队列的605个匹配的婴儿对以调整这些差异因素。</p>
 </li>
 <li><p>另一项在Huybrechts等人的研究中<sup>[2]</sup>，分析了Medicaid Analytic eXtract数据集，以评估妊娠期使用抗抑郁药与新生儿持续性肺动脉高压之间的关系。</p>
-<p> 作者纳入了3 789 330名妇女，其中128 950名在妊娠期使用过抗抑郁药。使用抗抑郁药的妇女与没有使用抗抑郁药的妇女在年龄、种族&#x2F;民族、慢性病、肥胖、吸烟和health care use方面存在差异。作者使用倾向性评分分层(propensity score stratification)方法部分地调整了这些差异。</p>
+<p> 作者纳入了3 789 330名妇女，其中128 950名在妊娠期使用过抗抑郁药。使用抗抑郁药的妇女与没有使用抗抑郁药的妇女在年龄、种族/民族、慢性病、肥胖、吸烟和health care use方面存在差异。作者使用倾向性评分分层(propensity score stratification)方法部分地调整了这些差异。</p>
 </li>
 </ol>
 <h2 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h2><h3 id="（一）为什么使用倾向性方法？"><a href="#（一）为什么使用倾向性方法？" class="headerlink" title="（一）为什么使用倾向性方法？"></a>（一）为什么使用倾向性方法？</h3><p>许多因素会影响治疗方法的选择。在许多情况下，患者会接受多种治疗方法。此外，接受不同治疗方法的患者显然不能混为一谈。这通常会导致患者影响结果的特征与治疗方法之间存在相关性(correlation)或混淆(confounding)。（通常称为“confounding by indication”）。</p>
-<p>如果从常规的临床实践中获得观察性数据以比较使用不同治疗方法的患者的结局&#x2F;预后，观察到的差异将是不同的患者特征和不同治疗方法的共同作用结果，难以描绘某一种治疗与另一种治疗的真实效果。</p>
+<p>如果从常规的临床实践中获得观察性数据以比较使用不同治疗方法的患者的结局/预后，观察到的差异将是不同的患者特征和不同治疗方法的共同作用结果，难以描绘某一种治疗与另一种治疗的真实效果。</p>
 <p>在观察性研究中，随机化是不可能的，因此研究者必须调整组间差异，以获得进行比较的治疗方法与感兴趣结局之间相关性的有效估计。多变量统计方法(Multivariable statistical methods)通常用于评估这种关联，同时调整混淆。</p>
 <p>倾向性评分的方法可减少评估治疗效果时的偏倚，并允许研究者在分析非随机的观察性数据时降低混淆的可能性。</p>
 <h3 id="（二）倾向性评分的概念及其原理"><a href="#（二）倾向性评分的概念及其原理" class="headerlink" title="（二）倾向性评分的概念及其原理"></a>（二）倾向性评分的概念及其原理</h3><ol>
-<li><p>倾向性评分是指在一定协变量条件下，一个观察对象接受某种暴露&#x2F;处理因素（所研究的治疗方法）的可能性，它是一个从0到1的范围内连续分布的概率值。这种概率基于患者的特征，临床医生和临床环境。可以使用多变量统计方法（例如，logicistic回归）来估计这种概率。在这种情况下，所研究的治疗方法是因变量(dependent variable)，而患者的特征，处方医生和临床环境则是预测因子(predictors)。</p>
-</li>
-<li><p>倾向性评分是指在给定一组协变量($X_i$)的条件下，将任意一个研究对象$i(i&#x3D;1，2，⋯，n)$分配到处理组$(Z_i&#x3D;1)$的条件概率。第$i$个研究对象被分配到处理组的条件概率可以表示为：$$e(X_i)&#x3D;P(Z_i&#x3D;1\mid{X_i})$$</p>
+<li>倾向性评分是指在一定协变量条件下，一个观察对象接受某种暴露/处理因素（所研究的治疗方法）的可能性，它是一个从0到1的范围内连续分布的概率值。这种概率基于患者的特征，临床医生和临床环境。可以使用多变量统计方法（例如，logicistic回归）来估计这种概率。在这种情况下，所研究的治疗方法是因变量(dependent variable)，而患者的特征，处方医生和临床环境则是预测因子(predictors)。</li>
+<li><p>倾向性评分是指在给定一组协变量($X_i$)的条件下，将任意一个研究对象$i(i=1，2，⋯，n)$分配到处理组$(Z_i=1)$的条件概率。第$i$个研究对象被分配到处理组的条件概率可以表示为：<script type="math/tex">e(X_i)=P(Z_i=1\mid{X_i})</script></p>
 <p> 其中$e(X_i)$被称为倾向性评分。倾向性评分相同的两个不同组别的研究对象，其拥有的多个协变量整体上分布是相同的。因此，组间协变量的不均衡性对处理效应估计的干扰被消除了。</p>
 </li>
-<li><p>倾向性评分的基本原理是用⼀个分值来替代多个协变量，均衡处理组和对照组间协变量的分布。对⾮随机化研究中的混杂因素进行类似随机化的均衡处理，减少选择偏倚。计算得出PS分值后，可采⽤匹配、回归调整、加权、分层的方法来均衡各组间协变量的差异，最终估计处理效应。</p>
-</li>
-<li><p>在生物医学研究中，倾向性评分通常用于比较治疗方法，但也可用于评估任何非随机因素（如接触毒素或病原体）与感兴趣结局之间的关系。</p>
-</li>
+<li>倾向性评分的基本原理是用⼀个分值来替代多个协变量，均衡处理组和对照组间协变量的分布。对⾮随机化研究中的混杂因素进行类似随机化的均衡处理，减少选择偏倚。计算得出PS分值后，可采⽤匹配、回归调整、加权、分层的方法来均衡各组间协变量的差异，最终估计处理效应。</li>
+<li>在生物医学研究中，倾向性评分通常用于比较治疗方法，但也可用于评估任何非随机因素（如接触毒素或病原体）与感兴趣结局之间的关系。</li>
 </ol>
 <h3 id="（三）倾向性评分的四种常规方法"><a href="#（三）倾向性评分的四种常规方法" class="headerlink" title="（三）倾向性评分的四种常规方法"></a>（三）倾向性评分的四种常规方法</h3><h4 id="1-倾向性评分匹配"><a href="#1-倾向性评分匹配" class="headerlink" title="(1)倾向性评分匹配"></a>(1)倾向性评分匹配</h4><ol>
-<li><p>其通常包括2组研究对象，一组接受所研究的治疗而另一组则接受其他治疗，同时匹配具有相似或相同倾向性评分的个体。然后，直接比较接受所研究治疗的个体与接受其他治疗的个体之间的结果。</p>
-</li>
+<li>其通常包括2组研究对象，一组接受所研究的治疗而另一组则接受其他治疗，同时匹配具有相似或相同倾向性评分的个体。然后，直接比较接受所研究治疗的个体与接受其他治疗的个体之间的结果。</li>
 <li><p>常用的匹配方法：</p>
 <ul>
 <li><p>最邻近匹配(Nearest Neighbor Matching)</p>
@@ -865,36 +944,31 @@
 <li>在最邻近匹配集的基础上根据倾向性评分值在最邻近匹配集中的分布设置不同的卡钳，删除两组倾向性评分值之差在卡钳值范围外的配对个体，得到不同精度的匹配集，然后计算协变量之间的均衡性及样本不平衡性，并将结果进行汇总。</li>
 </ul>
 </li>
-<li><p>全局最优匹配</p>
-</li>
+<li>全局最优匹配</li>
 </ul>
 </li>
 <li><p>使用倾向性评分匹配样本的分析结果可以接近随机对照试验的分析结果，因为考虑了数据的配对性质。</p>
 </li>
 </ol>
 <h4 id="2-倾向性评分分层"><a href="#2-倾向性评分分层" class="headerlink" title="(2)倾向性评分分层"></a>(2)倾向性评分分层</h4><ol>
-<li><p>估计出每个研究对象的倾向性评分值后，根据倾向性评分值将研究对象分为若干层。</p>
-</li>
+<li>估计出每个研究对象的倾向性评分值后，根据倾向性评分值将研究对象分为若干层。</li>
 <li><p>有文献指出，当估计线性处理效应的时候，将倾向性评分值分为五层可以消除组间近90%的混杂偏倚。经过分层后，每一层内处理组与对照组的协变量分布应该是均衡的。</p>
 <blockquote>
 <p>尽管增加层或组的数量可以减少偏倚的可能性，但通常使用五个层。</p>
 </blockquote>
 </li>
-<li><p>分析过程中，先在每一层内估计处理效应，最后将每层的效应整合成总的处理效应。这种方法基于于这样一种观念，即每个组&#x2F;层中的个体比个体更相似。因此，他们的结果可以直接比较。</p>
-</li>
+<li>分析过程中，先在每一层内估计处理效应，最后将每层的效应整合成总的处理效应。这种方法基于于这样一种观念，即每个组/层中的个体比个体更相似。因此，他们的结果可以直接比较。</li>
 </ol>
 <h4 id="3-使用倾向性评分进行协变量调整"><a href="#3-使用倾向性评分进行协变量调整" class="headerlink" title="(3)使用倾向性评分进行协变量调整"></a>(3)使用倾向性评分进行协变量调整</h4><p>在倾向性评分模型之后，构建单独的多变量模型，其中研究结果用作因变量(dependent variable)，治疗组和倾向性评分用作预测变量(predictor variables)。这允许研究者评估与所研究治疗相关的结果，同时调整接受治疗的概率，从而减少混淆。</p>
-<h4 id="4-倾向性评分逆处理概率加权-x2F-inverse-probability-of-treatment-weighting-using-the-propensity-score"><a href="#4-倾向性评分逆处理概率加权-x2F-inverse-probability-of-treatment-weighting-using-the-propensity-score" class="headerlink" title="(4)倾向性评分逆处理概率加权&#x2F;inverse probability of treatment weighting using the propensity score"></a>(4)倾向性评分逆处理概率加权&#x2F;inverse probability of treatment weighting using the propensity score</h4><p>在这种情况下，倾向性评分用于计算每个个体的统计权重(statistical weights)以创建样本，其中潜在的混杂因素的分布独立于暴露因素，允许对治疗和结果之间的关系进行无偏估计。</p>
+<h4 id="4-倾向性评分逆处理概率加权-inverse-probability-of-treatment-weighting-using-the-propensity-score"><a href="#4-倾向性评分逆处理概率加权-inverse-probability-of-treatment-weighting-using-the-propensity-score" class="headerlink" title="(4)倾向性评分逆处理概率加权/inverse probability of treatment weighting using the propensity score"></a>(4)倾向性评分逆处理概率加权/inverse probability of treatment weighting using the propensity score</h4><p>在这种情况下，倾向性评分用于计算每个个体的统计权重(statistical weights)以创建样本，其中潜在的混杂因素的分布独立于暴露因素，允许对治疗和结果之间的关系进行无偏估计。</p>
 <ol>
-<li><p>是边缘结构模型这类因果推断⽅法中的一种，其基本原理与传统的标准化法类似。</p>
+<li>是边缘结构模型这类因果推断⽅法中的一种，其基本原理与传统的标准化法类似。</li>
+<li>根据倾向性评分值赋予每个研究对象⼀个相应的权重，从⽽构建出⼀个虚拟的人群，在这个虚拟人群中，协变量的组间分布没有差异，因此消除了混杂因素的影响。</li>
+<li><p>在逆处理概率加权的方法中，权重被定义为研究对象实际分组情况的概率的倒数，计算如下：</p>
+<script type="math/tex; mode=display">w_i = \cfrac{z_i}{e_i}+\cfrac{(1-z_i)}{(1-e_i)}</script><ul>
+<li><p>若$z_i=1$(处理组)，则$w_i = \cfrac{1}{e_i}$</p>
 </li>
-<li><p>根据倾向性评分值赋予每个研究对象⼀个相应的权重，从⽽构建出⼀个虚拟的人群，在这个虚拟人群中，协变量的组间分布没有差异，因此消除了混杂因素的影响。</p>
-</li>
-<li><p>在逆处理概率加权的方法中，权重被定义为研究对象实际分组情况的概率的倒数，计算如下：<br>$$w_i &#x3D; \cfrac{z_i}{e_i}+\cfrac{(1-z_i)}{(1-e_i)}$$</p>
-<ul>
-<li><p>若$z_i&#x3D;1$(处理组)，则$w_i &#x3D; \cfrac{1}{e_i}$</p>
-</li>
-<li><p>若$z_i&#x3D;0$(对照组)，则$w_i &#x3D; \cfrac{1}{1-e_i}$</p>
+<li><p>若$z_i=0$(对照组)，则$w_i = \cfrac{1}{1-e_i}$</p>
 </li>
 </ul>
 </li>
@@ -902,9 +976,9 @@
 </li>
 </ol>
 <h3 id="（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异"><a href="#（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异" class="headerlink" title="（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异"></a>（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异</h3><ol>
-<li>匹配基线特征&#x2F;matching on baseline characteristics</li>
-<li>分层分析&#x2F;stratified analyses</li>
-<li>多变量统计方法&#x2F;multivariable statistical methods</li>
+<li>匹配基线特征/matching on baseline characteristics</li>
+<li>分层分析/stratified analyses</li>
+<li>多变量统计方法/multivariable statistical methods</li>
 </ol>
 <p>倾向性评分方法通常比这些方法更实用或在统计上更有效，部分原因是倾向性评分方法可以限制最终分析中使用的预测变量的数量。倾向性评分方法通常允许将更多变量包括在倾向性评分模型(propensity score model)中，从而增加了这些方法有效调整混淆的能力，而不是直接纳入研究结果的多变量分析。</p>
 <h2 id="三、倾向性评分方法的局限性是什么？"><a href="#三、倾向性评分方法的局限性是什么？" class="headerlink" title="三、倾向性评分方法的局限性是什么？"></a>三、倾向性评分方法的局限性是什么？</h2><ol>
@@ -917,12 +991,12 @@
 <p>尽管观察性数据不能像随机临床试验那样严格地建立因果关系或确定治疗效果，但如果倾向性评分方法得到适当使用且样本量足够大，这些方法可能提供治疗方法可能效果的可靠近似值。这种方法对于随机临床试验不可行或不可能进行的情况特别有价值。</p>
 <h2 id="五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？"><a href="#五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？" class="headerlink" title="五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？"></a>五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？</h2><p>Rozé等人和Huybrechts等人的研究分别使用了倾向性评分匹配和倾向性评分分层。尽管这两种方法在平衡研究组方面比基于基线特征的简单匹配或分层更有效，但它们在最小化偏倚(minimize bias)方面的能力各不相同。通常，倾向性评分匹配比倾向性评分分层更大程度地减少偏差。在使用倾向性评分方法后，评估各组之间的平衡对于让读者评估研究组的可比性非常重要。</p>
 <p>尽管没有单一的标准方法来评估平衡，但是比较治疗组和未治疗组患者之间的特征通常始于比较汇总的统计数据（例如，平均值或比例）和观察到的特征的整体分布。</p>
-<p>对于倾向性评分匹配的样本，经常使用标准化差异（standardized differences，即差异differences&#x2F;合并的标准偏差pooled standard deviations）。尽管没有普遍接受的阈值，但小于0.1的标准化差异通常被认为是可忽略不计的。</p>
+<p>对于倾向性评分匹配的样本，经常使用标准化差异（standardized differences，即差异differences/合并的标准偏差pooled standard deviations）。尽管没有普遍接受的阈值，但小于0.1的标准化差异通常被认为是可忽略不计的。</p>
 <p>评估平衡提供了一般意义，即匹配或分层的良好程度，以及结果可能有效的程度。</p>
 <p>不幸的是，只能在研究中可以测量的患者特征中显示平衡。无法测量的差异仍可能存在于各组间，从而导致结果的偏倚。</p>
 <h2 id="六、参考文献"><a href="#六、参考文献" class="headerlink" title="六、参考文献"></a>六、参考文献</h2><ol>
 <li>Rozé JC, Cambonie G, Marchand-Martin L, et al. Hemodynamic EPIPAGE 2 Study Group. Association between early screening for patent ductus arteriosus and in-hospital mortality among extremely preterm infants. JAMA. 2015; 313(24):2441–2448. </li>
-<li>Huybrechts KF, Bateman BT, Palmsten K, et al. Antidepressant use late in pregnancy and risk of persistent pulmonary hypertension of the newborn. JAMA. 2015; 313(21):2142–2151.</li>
+<li>Huybrechts KF, Bateman BT, Palmsten K, et al. Antidepressant use late in pregnancy and risk of persistent pulmonary hypertension of the newborn. JAMA. 2015; 313(21):2142–2151. </li>
 </ol>
 
       
@@ -1008,23 +1082,22 @@
 <li><p><code>eval</code>函数可以接收一个字符串作为参数，以动态形式插入程序的某个位置，并对其词法作用域的环境进行修改。</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 5</span><br></pre></td></tr></table></figure></li>
 <li><p>在严格模式下，<code>eval</code>函数在运行时拥有自己的词法作用域。这意味着其中的声明无法修改所在的作用域。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 2</span><br><span class="line"></span><br><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;Uncaught ReferenceError: b is not defined</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 2</span><br><span class="line"></span><br><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;Uncaught ReferenceError: b is not defined</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="with"><a href="#with" class="headerlink" title="with"></a>with</h3><ol>
 <li><p><code>with</code>通常被当做重复引用同一个对象中的多个属性的快捷方式，可以不需要重复引用对象本身：</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: 2,</span><br><span class="line">    c: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.a = 2;</span><br><span class="line">obj.b = 3;</span><br><span class="line">obj.c = 4;</span><br><span class="line"></span><br><span class="line">with(obj) &#123;</span><br><span class="line">    a = 3;</span><br><span class="line">    b = 4;</span><br><span class="line">    c = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>实际上不仅仅是为了方便地访问对象属性：</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function foo(obj)&#123;</span><br><span class="line">    with(obj)&#123;</span><br><span class="line">        a = 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var o1 = &#123;</span><br><span class="line">     a: 3</span><br><span class="line">&#125;;</span><br><span class="line">var o2 = &#123;</span><br><span class="line">     b: 3</span><br><span class="line">&#125;;</span><br><span class="line">foo(o1);</span><br><span class="line">o1.a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line"></span><br><span class="line">foo(o2);</span><br><span class="line">o2.a;</span><br><span class="line">&gt;&gt;&gt;undefined</span><br><span class="line"></span><br><span class="line">a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line">//a被泄露到全局作用域中。</span><br></pre></td></tr></table></figure>
-<p> 因为，在非严格模式下，若a&#x3D;2中的变量a未声明，也就是在任何作用域中都查找不到变量a，那么就会在全局作用域中创建一个变量a，并将2赋值于它。</p>
+<p> 因为，在非严格模式下，若a=2中的变量a未声明，也就是在任何作用域中都查找不到变量a，那么就会在全局作用域中创建一个变量a，并将2赋值于它。</p>
 <p> <img src="http://qiniup.louyanspine.com/2018-07-12-foo-o1-.png" alt="foo(o1)"></p>
 <p> <img src="http://qiniup.louyanspine.com/2018-07-12-foo-o2-.png" alt="foo(o2)"></p>
 </li>
 <li><p><code>with</code>语句接收一个对象，这个对象有0个或多个属性，并将这个对象视为好像它是一个完全隔离的词法作用域，因此这个对象的属性被视为在这个“作用域”中词法定义的标识符。如上图中的<code>o1 Scope</code>和<code>o2 Scope</code>。</p>
 </li>
-<li><p>尽管一个<code>with</code>块将一个对象视为一个词法作用域，但在<code>with</code>块内部的一个普通<code>var</code>声明将不会归于这个<code>with</code>块的作用域，而是归于包含它的函数作用域。</p>
-</li>
-<li><p>当我们传递对象<code>o1</code>给<code>with</code>时，<code>with</code>所声明的作用域是<code>o1</code>，而这个作用域中含有一个与<code>o1.a</code>属性同名的标识符。但当我们将<code>o2</code>对象作为作用域时，其中没有<code>a</code>标识符，因此进行了正常的<code>LHS (Left Hand Side)</code>查找，最后导致创建了一个全局变量a并赋值为2。</p>
-</li>
+<li>尽管一个<code>with</code>块将一个对象视为一个词法作用域，但在<code>with</code>块内部的一个普通<code>var</code>声明将不会归于这个<code>with</code>块的作用域，而是归于包含它的函数作用域。</li>
+<li>当我们传递对象<code>o1</code>给<code>with</code>时，<code>with</code>所声明的作用域是<code>o1</code>，而这个作用域中含有一个与<code>o1.a</code>属性同名的标识符。但当我们将<code>o2</code>对象作为作用域时，其中没有<code>a</code>标识符，因此进行了正常的<code>LHS (Left Hand Side)</code>查找，最后导致创建了一个全局变量a并赋值为2。</li>
 </ol>
 <h2 id="二、性能"><a href="#二、性能" class="headerlink" title="二、性能"></a>二、性能</h2><p>JavaScript引擎在编译阶段期进行许多性能优化工作。其中的一些优化原理都归结为实质上在进行词法分析时可以静态地分析代码，并提前决定所有的变量和函数声明都在什么位置，这样在执行期间就可以少花些力气来解析标识符。</p>
 <p>但如果引擎在代码中找到一个<code>eval(..)</code>或<code>with</code>，它实质上就不得不假定自己知道的所有的标识符的位置可能是不合法的，因为它不可能在词法分析时就知道你将会向<code>eval(..)</code>传递什么样的代码来修改词法作用域，或者你可能会向<code>with</code>传递的对象有什么样的内容来创建一个新的将被查询的词法作用域。</p>
@@ -1109,31 +1182,29 @@
 </ol>
 </blockquote>
 <h2 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h2><h3 id="Ecma-International-European-Computer-Manufacturers-Association"><a href="#Ecma-International-European-Computer-Manufacturers-Association" class="headerlink" title="Ecma International(European Computer Manufacturers Association)"></a>Ecma International(European Computer Manufacturers Association)</h3><ol>
-<li><p>一个为科学技术制定标准的组织。</p>
-</li>
-<li><p>为了要举一个“标准”的例子，可以用我们曾用过的键盘来说明。是不是大多数的字母以同样的顺序排列，有一个空格键、一个输入键、箭头键，并将数字显示在最上面的一行?这是由于大多数键盘制造商的键盘设计是基于<code>QWERTY</code>布局标准的。</p>
-</li>
+<li>一个为科学技术制定标准的组织。</li>
+<li>为了要举一个“标准”的例子，可以用我们曾用过的键盘来说明。是不是大多数的字母以同样的顺序排列，有一个空格键、一个输入键、箭头键，并将数字显示在最上面的一行?这是由于大多数键盘制造商的键盘设计是基于<code>QWERTY</code>布局标准的。</li>
 <li><p>ECMA-262：由Ecma International发布的标准。它包含通用目的的脚本语言的规范。</p>
 <p> <img src="http://qiniup.louyanspine.com/2018-07-12-ECMA-262.png" alt="ECMA-262"></p>
 <ul>
 <li><p><code>ECMA-262</code>是一个类似<code>QWERTY</code>的标准，但不同于呈现一个键盘层的规范，它呈现了被称为<code>ECMAScript</code>的脚本语言规范。</p>
 </li>
 <li><p>可以把<code>ECMA-262</code>当做<code>ECMAScript</code>参考数字</p>
+<p><img src="http://qiniup.louyanspine.com/2018-07-12-%E5%8F%AF%E4%BB%A5%E6%8A%8AECMA-262%20%E5%BD%93%E5%81%9AECMAScript%E7%9A%84%E5%8F%82%E8%80%83%E6%95%B0%E5%AD%97.png" alt="可以把ECMA-262 当做ECMAScript的参考数字"></p>
 </li>
 </ul>
-<p> <img src="http://qiniup.louyanspine.com/2018-07-12-%E5%8F%AF%E4%BB%A5%E6%8A%8AECMA-262%20%E5%BD%93%E5%81%9AECMAScript%E7%9A%84%E5%8F%82%E8%80%83%E6%95%B0%E5%AD%97.png" alt="可以把ECMA-262 当做ECMAScript的参考数字"></p>
 </li>
 </ol>
 <h3 id="脚本语言-A-scripting-language"><a href="#脚本语言-A-scripting-language" class="headerlink" title="脚本语言(A scripting language)"></a>脚本语言(A scripting language)</h3><p>A programming language designed specifically for acting on an existing entity or system</p>
 <p>什么样的编程语言是脚本语言？请思考下命令“walk”、“run” 和 “jump”。这些操作需要一些东西来执行，可能是一个人、一条狗或一个视频游戏角色。如果没有东西来执行这些命令，“walk”、“run” 和 “jump” 是没有意义的。这组操作类似于脚本语言，即专注于操纵外部实体。</p>
-<h3 id="ECMAScript-x2F-ECMAScript规范-ECMAScript-specification"><a href="#ECMAScript-x2F-ECMAScript规范-ECMAScript-specification" class="headerlink" title="ECMAScript&#x2F;ECMAScript规范(ECMAScript specification)"></a>ECMAScript&#x2F;ECMAScript规范(ECMAScript specification)</h3><p>ECMA-262中定义的标准，是用于创建通用目的脚本语言。ECMA-262是标准的名称，它代表了脚本语言规范ECMAScript。</p>
+<h3 id="ECMAScript-ECMAScript规范-ECMAScript-specification"><a href="#ECMAScript-ECMAScript规范-ECMAScript-specification" class="headerlink" title="ECMAScript/ECMAScript规范(ECMAScript specification)"></a>ECMAScript/ECMAScript规范(ECMAScript specification)</h3><p>ECMA-262中定义的标准，是用于创建通用目的脚本语言。ECMA-262是标准的名称，它代表了脚本语言规范ECMAScript。</p>
 <p>ECMAScript提供脚本语言必须遵守的规则、细节和准则，这些才是其被视为兼容ECMAScript的判断标准。</p>
 <h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>一种通用目的的脚本语言，遵循<code>ECMAScript</code>规范。它是<code>ECMAScript</code>语言的一个分支版本。</p>
 <p>通过阅读<code>ECMAScript</code>规范，你将学会如何创建脚本语言。通过阅读 JavaScript文档，你将学习如何使用脚本语言。</p>
 <p>当人们把JavaScript称为“ECMAScript语言的方言”的时候，他们的意思就像谈论英语、法语或者中国方言时一样。一种方言从其母语中衍生出大部分的词汇和语法，但偏离得值得保留这些差异。</p>
 <p>JavaScript实现了多数ECMA-262中描述的<code>ECMAScript</code>规范，但存在少数差异。 Mozilla在此概述了JavaScript的非ECMAScript语言功能：</p>
 <p><img src="http://qiniup.louyanspine.com/2018-07-12-JavaScript%E7%9A%84%E9%9D%9EECMAScript%E8%AF%AD%E8%A8%80%E5%8A%9F%E8%83%BD.png" alt="JavaScript的非ECMAScript语言功能"></p>
-<h3 id="JavaScript引擎-A-JavaScript-engine-x2F-JavaScript-interpreter解释器-x2F-JavaScript-implementation实现"><a href="#JavaScript引擎-A-JavaScript-engine-x2F-JavaScript-interpreter解释器-x2F-JavaScript-implementation实现" class="headerlink" title="JavaScript引擎(A JavaScript engine)&#x2F;JavaScript interpreter解释器&#x2F;JavaScript implementation实现"></a>JavaScript引擎(A JavaScript engine)&#x2F;JavaScript interpreter解释器&#x2F;JavaScript implementation实现</h3><p>能够理解和执行JavaScript代码的程序或解释器。</p>
+<h3 id="JavaScript引擎-A-JavaScript-engine-JavaScript-interpreter解释器-JavaScript-implementation实现"><a href="#JavaScript引擎-A-JavaScript-engine-JavaScript-interpreter解释器-JavaScript-implementation实现" class="headerlink" title="JavaScript引擎(A JavaScript engine)/JavaScript interpreter解释器/JavaScript implementation实现"></a>JavaScript引擎(A JavaScript engine)/JavaScript interpreter解释器/JavaScript implementation实现</h3><p>能够理解和执行JavaScript代码的程序或解释器。</p>
 <p>JavaScript引擎通常可以在Web浏览器中被发现，包括Chrome中的 <code>V8</code>，火狐中的<code>SpiderMonkey</code>，以及Edge中的<code>Chakra</code>。每款引擎就像是一个用于其应用程序的语言模块，可以让其支持某种JavaScript语言的分支。</p>
 <p>JavaScript引擎对于浏览器来说就像是人类对语言的理解一样。如果我们重新拿我们日常行为中的“走”、“跑”、“跳”来举例的话，一个 JavaScript引擎是真正能够理解这些动作是何意义的根本机制。</p>
 <h3 id="浏览器性能的差异"><a href="#浏览器性能的差异" class="headerlink" title="浏览器性能的差异"></a>浏览器性能的差异</h3><p>两个人也许会识别“跳”的命令，但是一个人由于理解和对命令的处理比另一个人更快些，也许会比另一个人对命令的反应更快些。类似的是，两个浏览器都可以理解JavaScript代码，但是一个由于其JavaScript引擎实现起来效率更高而运行得更快。</p>
@@ -1146,7 +1217,7 @@
 <p><a ref="http://kangax.github.io/compat-table/es6/">ECMASCript 兼容性列表</a>是回答这类问题的绝佳答案参考。</p>
 <p>如果新版的 ECMAScript 发布了，JavaScript 引擎不会一下子整合所有的更新。他们会逐渐地加入 ECMAScript 功能，这一点从火狐的 JavaScript 变更记录中可见一斑：</p>
 <p><img src="http://qiniup.louyanspine.com/2018-07-12-Firefox%E2%80%99s%20JavaScript%20changelog.png" alt="Firefox’s JavaScript changelog"></p>
-<h3 id="JavaScript运行时-A-JavaScript-runtime-x2F-宿主环境-Host-environment"><a href="#JavaScript运行时-A-JavaScript-runtime-x2F-宿主环境-Host-environment" class="headerlink" title="JavaScript运行时(A JavaScript runtime)&#x2F;宿主环境(Host environment)"></a>JavaScript运行时(A JavaScript runtime)&#x2F;宿主环境(Host environment)</h3><p>The environment in which the JavaScript code runs and is interpreted by a JavaScript engine.The runtime provides the host objects that JavaScript can operate on and work with.</p>
+<h3 id="JavaScript运行时-A-JavaScript-runtime-宿主环境-Host-environment"><a href="#JavaScript运行时-A-JavaScript-runtime-宿主环境-Host-environment" class="headerlink" title="JavaScript运行时(A JavaScript runtime)/宿主环境(Host environment)"></a>JavaScript运行时(A JavaScript runtime)/宿主环境(Host environment)</h3><p>The environment in which the JavaScript code runs and is interpreted by a JavaScript engine.The runtime provides the host objects that JavaScript can operate on and work with.</p>
 <p>The JavaScript runtime is the “existing entity or system” mentioned in the scripting language definition. Code passes through the JavaScript engine, and once parsed and understood, an entity or system performs the interpreted actions. A dog walks, a person runs, a video game character jumps (or in the case of the above image, wrecks).</p>
 <p>Applications make themselves available to JavaScript scripting by providing “host objects” at runtime. For the client side, the JavaScript runtime would be the web browser, where host objects like windows and HTML documents are made available for manipulation.<br>Have you ever worked with the window or document host objects? The window and document objects are not actually a part of the core JavaScript language. They are Web APIs, objects provided by a browser acting as JavaScript’s host environment. For the server side, the JavaScript runtime is Node.js. Server-related host objects such as the file system, processes, and requests are provided in Node.js.</p>
 <p>n interesting point: different JavaScript runtimes can share the same JavaScript engine. V8, for example, is the JavaScript engine used in both Google Chrome and Node.js — two very different environments.</p>
@@ -1241,40 +1312,15 @@
 <p>编译型语言如C、C++和Java在执行代码前必须进行编译(compile)，编译是将代码转换为适合计算机的表达方式，通常可改善运行阶段的性能。 </p>
 </blockquote>
 </li>
-<li><p>JavaScript的使用范围不仅仅在网页上，还用在各种应用程序（如Photoshop）以及服务器端编程中。    </p>
-</li>
+<li>JavaScript的使用范围不仅仅在网页上，还用在各种应用程序（如Photoshop）以及服务器端编程中。    </li>
 <li><p>使用HTMl和CSS时，两者主要都是声明型的(declarative)，JavaScript负责计算，利用它能在网页中添加行为。</p>
-<table>
-<thead>
-<tr>
-<th align="center">语言</th>
-<th align="center">内容</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">HTMl</td>
-<td align="center">markup标记</td>
-<td align="center">statements结构</td>
-</tr>
-<tr>
-<td align="center">CSS</td>
-<td align="center">rules规则</td>
-<td align="center">styles样式</td>
-</tr>
-<tr>
-<td align="center">JavaScript</td>
-<td align="center">statements语句</td>
-<td align="center">computation&#x2F;behavior计算和行为</td>
-</tr>
-</tbody></table>
+<p> | 语言 | 内容 |作用|<br> | :—-: | :——: | :——: |<br> | HTMl | markup标记 |statements结构|<br> | CSS | rules规则 |styles样式|<br> | JavaScript | statements语句 |computation/behavior计算和行为|</p>
 </li>
 </ol>
 <h3 id="如何将JavaScript代码加入网页"><a href="#如何将JavaScript代码加入网页" class="headerlink" title="如何将JavaScript代码加入网页"></a>如何将JavaScript代码加入网页</h3><p>可在HTML文档中的任何地方使用<code>&lt;script&gt;</code>标签添加JavaScript代码</p>
 <p><img src="http://qiniup.louyanspine.com/2018-06-27-%E4%BB%A3%E7%A0%81%E4%BD%8D%E7%BD%AE.jpg" alt="代码位置"></p>
 <ol>
-<li><p>嵌入在<code>&lt;head&gt;</code>里</p>
-</li>
+<li>嵌入在<code>&lt;head&gt;</code>里</li>
 <li><p>嵌入在<code>&lt;body&gt;</code>里</p>
 <ul>
 <li>浏览器加载网页时，先加载<code>&lt;head&gt;</code>元素内的所有内容，再加载<code>&lt;body&gt;</code>元素。如果将代码放在<code>&lt;head&gt;</code>元素中，用户可能需要等一会儿才能看到网页，而放在<code>&lt;body&gt;</code>元素中，则用户在等待这些代码加载时，就能看到网页的内容。</li>
@@ -1290,15 +1336,13 @@
 <li><p><code>&lt;script&gt;</code>元素</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;<span class="title function_">alert</span>(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>type可以省略</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;myJavaScript.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<ul>
+<li><p>type可以省略</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;myJavaScript.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
 <li>引用独立的JavaScript文件时，<code>&lt;script&gt;</code>元素不能包含任何JavaScript代码</li>
 </ul>
 </li>
 </ol>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="二、语法"><a href="#二、语法" class="headerlink" title="二、语法"></a>二、语法</h2><h3 id="语法基础"><a href="#语法基础" class="headerlink" title="语法基础"></a>语法基础</h3><ol>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h2 id="二、语法"><a href="#二、语法" class="headerlink" title="二、语法"></a>二、语法</h2><h3 id="语法基础"><a href="#语法基础" class="headerlink" title="语法基础"></a>语法基础</h3><ol>
 <li>每条语句以<code>;</code>结尾</li>
 <li>单行注释用<code>//</code>两个斜杠打头</li>
 <li>空格不重要</li>
@@ -1311,20 +1355,17 @@
 <p>布尔值无需用引号括起</p>
 </blockquote>
 </li>
+</ol>
+<ol>
 <li><p>var关键字用来声明变量，声明变量时可以给它赋值，也可以不指定初始值。</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var winners = 2;</span><br><span class="line">var losers;</span><br></pre></td></tr></table></figure></li>
 <li><p>变量名的命名规则和建议</p>
 <ul>
-<li><p>以字母、下划线或美元符号<code>$</code>开头，后接任意数量的字母，数字，下划线或美元符号<code>$</code>。 </p>
-</li>
-<li><p>不能使用任何内置的关键字作为变量名。</p>
-</li>
-<li><p>不能包含空格和引号。</p>
-</li>
-<li><p>推荐使用有意义的变量名，如currentPressure和passedExam</p>
-</li>
-<li><p>用多个单词做变量名时通常采用骆驼式拼写法(camel case)，即将每个单词的首字母大写（第一个单词除外），如：twoHeadedDragonWithFire。</p>
-</li>
+<li>以字母、下划线或美元符号<script type="math/tex">`开头，后接任意数量的字母，数字，下划线或美元符号`</script>。 </li>
+<li>不能使用任何内置的关键字作为变量名。</li>
+<li>不能包含空格和引号。</li>
+<li>推荐使用有意义的变量名，如currentPressure和passedExam</li>
+<li>用多个单词做变量名时通常采用骆驼式拼写法(camel case)，即将每个单词的首字母大写（第一个单词除外），如：twoHeadedDragonWithFire。</li>
 <li><p>通常不要用<code>_</code>和<code>$</code>开头的变量名</p>
 <p>  <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%85%B3%E9%94%AE%E5%AD%97.jpg" alt="关键字"></p>
 <blockquote>
@@ -1336,24 +1377,22 @@
 </ol>
 <h3 id="表达式expressions"><a href="#表达式expressions" class="headerlink" title="表达式expressions"></a>表达式expressions</h3><ol>
 <li><p>表达式用来计算结果，根据结果的值的不同可以分为数值表达式，字符串表达式，布尔表达式、数组表达式、对象表达式和函数表达式。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数值表达式 var total = price - (price * (discount / 100));</span><br><span class="line"></span><br><span class="line">字符串表达式 &quot;Dear &quot; + &quot;Reader&quot; + &quot;,&quot;</span><br><span class="line"></span><br><span class="line">布尔表达式 cost &gt;= 3.99</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数值表达式 var total = price - (price * (discount / 100));</span><br><span class="line"></span><br><span class="line">字符串表达式 &quot;Dear &quot; + &quot;Reader&quot; + &quot;,&quot;</span><br><span class="line"></span><br><span class="line">布尔表达式 cost &gt;= 3.99</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><ol>
 <li><p>while循环</p>
 <ul>
-<li><p>(scoops &gt; 0)称为条件测试（简称为条件），包含一个布尔表达式</p>
-</li>
-<li><p>如果条件测试为true，就执行代码块中所有的代码。如果条件测试为false，就结束循环。</p>
-</li>
-<li><p>有些代码的条件是一个变量，其值为字符串而不是布尔值。任何包含非空字符串的变量都被视为<code>true</code>而没有设置值的变量都被视为<code>false</code></p>
-</li>
-<li><p>仅使用布尔变量本身时，只要该变量为true，条件测试就为true，进而执行相应的代码块。</p>
-<ul>
+<li>(scoops &gt; 0)称为条件测试（简称为条件），包含一个布尔表达式</li>
+<li>如果条件测试为true，就执行代码块中所有的代码。如果条件测试为false，就结束循环。</li>
+<li>有些代码的条件是一个变量，其值为字符串而不是布尔值。任何包含非空字符串的变量都被视为<code>true</code>而没有设置值的变量都被视为<code>false</code></li>
+<li>仅使用布尔变量本身时，只要该变量为true，条件测试就为true，进而执行相应的代码块。<ul>
 <li><code>if (inStock)&#123;...&#125;</code>如果inStock为false，条件测试将失败</li>
 </ul>
 </li>
 <li><p>代码块即用花括号<code>&#123;&#125;</code>括起来的一组语句，代码块中的所有语句被视为一个整体，要么都执行，要么都不执行。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(scoops &gt; 0)&#123;</span><br><span class="line">	document.write(&quot;Another scoop!&quot;);</span><br><span class="line">	scoops = scoops - 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(scoops &gt; 0)&#123;</span><br><span class="line">	document.write(&quot;Another scoop!&quot;);</span><br><span class="line">	scoops = scoops - 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p>for循环 </p>
@@ -1370,32 +1409,34 @@
 </li>
 <li><p>for in循环 </p>
 </li>
-<li><p>forEach循环 </p>
-</li>
-<li><p>do while循环</p>
-<ul>
+</ol>
+<ol>
+<li>forEach循环 </li>
+</ol>
+<ol>
+<li>do while循环<ul>
 <li>工作原理与while几乎相同，只是先执行循环体中的语句，再检查循环条件。</li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p>if语句进行决策</p>
 <ul>
-<li><p>在if语句中还可以添加一个或多个else if语句，以执行多重检查。</p>
-</li>
+<li>在if语句中还可以添加一个或多个else if语句，以执行多重检查。</li>
 <li><p>还可在最后添加一条else语句，以处理所有条件都不满足的情形。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	if (scoops &gt;= 5) &#123;	alert(&quot;Eat faster, the ice cream is going to melt!&quot;);&#125; </span><br><span class="line">	</span><br><span class="line">	else if (scoops &lt; 3) &#123;	alert(&quot;Ice cream is running low!&quot;);&#125;</span><br><span class="line">	</span><br><span class="line">	else &#123;</span><br><span class="line">		alert(&quot;Still lots of ice cream left, come and get it.&quot;); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	if (scoops &gt;= 5) &#123;	alert(&quot;Eat faster, the ice cream is going to melt!&quot;);&#125; </span><br><span class="line">	</span><br><span class="line">	else if (scoops &lt; 3) &#123;	alert(&quot;Ice cream is running low!&quot;);&#125;</span><br><span class="line">	</span><br><span class="line">	else &#123;</span><br><span class="line">		alert(&quot;Still lots of ice cream left, come and get it.&quot;); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
 <h3 id="与用户交互的常见方式"><a href="#与用户交互的常见方式" class="headerlink" title="与用户交互的常见方式"></a>与用户交互的常见方式</h3><ol>
-<li><p>创建提醒框</p>
-<ul>
+<li>创建提醒框<ul>
 <li>调用函数alert()创建包含消息的提醒框</li>
 <li>仅当你要停止一切并提醒用户时，才应使用它</li>
 </ul>
 </li>
-<li><p>直接写入文档</p>
-<ul>
-<li>调用函数document.write()将任何HTML和内容写入网页</li>
+<li>直接写入文档<ul>
+<li>调用函数document.write()将任何HTML和内容写入网页 </li>
 </ul>
 </li>
 <li><p>使用控制台console</p>
@@ -1405,27 +1446,26 @@
 <li>console实际是一个对象，而log则是console的一个方法</li>
 <li>仅用于在开发网页期间调试代码troubleshoot，用户可能根本看不到控制台</li>
 <li>可将控制台视为具有特定功能的对象，其功能之一是写入日志，其语法为console.log，并将用圆括号括起的输出传递给它。</li>
-<li>如何打开控制台？</li>
+<li><p>如何打开控制台？</p>
+<p><img src="http://qiniup.louyanspine.com/2018-06-27-%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0.jpg" alt="如何打开控制台"></p>
+</li>
 </ul>
-<p> <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0.jpg" alt="如何打开控制台"></p>
 </li>
 <li><p>直接操作文档</p>
 <ul>
 <li>利用文档对象模型（document object model,DOM）操作文档</li>
 </ul>
 </li>
-<li><p>获取用户输入</p>
-<ul>
+<li>获取用户输入<ul>
 <li>函数prompt()用于获取用户输入，它会弹出一个简单的对话框，包含传入该函数的字符串参数并且返回用户输入的字符串值。如果用户取消了对话框或没有输入任何响应，返回的将是null（表示没有值）。</li>
 </ul>
 </li>
-<li><p>显示输出</p>
-<ul>
+<li>显示输出<ul>
 <li>函数alert()</li>
 </ul>
 </li>
 </ol>
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h2 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h2><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><ol>
+<h3 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h3><h2 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h2><h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><ol>
 <li><p>Math.random()用来生成[0, 1)的随机数</p>
 <blockquote>
 <p>只要调用函数，都需要使用括号()</p>
@@ -1435,7 +1475,7 @@
 </li>
 </ol>
 <h3 id="函数语法"><a href="#函数语法" class="headerlink" title="函数语法"></a>函数语法</h3><ol>
-<li><p>定义函数&#x2F;声明函数</p>
+<li><p>定义函数/声明函数</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function functionname(parameter1,parameter2) &#123;</span><br><span class="line">	这里是要执行的代码</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p> <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%87%BD%E6%95%B0%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.jpg" alt="函数组成部分"></p>
 <ul>
@@ -1454,7 +1494,8 @@
 <li><p>函数表达式(statement)</p>
 <ul>
 <li><p>没有函数名称，且位于一条赋值语句的右边，被赋给一个变量，是一个指向函数的引用。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var fly = function(num) &#123;</span><br><span class="line">	for (var i = 0; i &lt; num; i++) &#123;</span><br><span class="line">		console.log(&quot;Flying!&quot;); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">fly(3);</span><br><span class="line"># 通过变量fly来调用函数</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var fly = function(num) &#123;</span><br><span class="line">	for (var i = 0; i &lt; num; i++) &#123;</span><br><span class="line">		console.log(&quot;Flying!&quot;); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">fly(3);</span><br><span class="line"># 通过变量fly来调用函数</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p>函数声明和函数表达式之间的区别</p>
@@ -1501,7 +1542,8 @@
 <li><p>JavaScript引擎会在正式执行之前先进行一次预编译，在这个过程中，首先将变量声明提升至当前作用域的顶端，然后进行接下来的处理。</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line"></span><br><span class="line">    var foo = foo || 5;</span><br><span class="line"></span><br><span class="line">    console.log(foo); // 5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoistVariable();</span><br></pre></td></tr></table></figure>
 <p>  预编译之后的代码逻辑是这样的：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">//预编译之后</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line">  		var foo;</span><br><span class="line"></span><br><span class="line">  		foo = foo || 5;</span><br><span class="line"></span><br><span class="line">  		console.log(foo); // 5</span><br><span class="line">  	&#125;</span><br><span class="line">  	</span><br><span class="line">  	hoistVariable();</span><br><span class="line">  	</span><br><span class="line">  	#只要“||”前面为true,不管“||”后面是true还是false，都返回“||”前面的值。</span><br><span class="line">  	#只要“||”前面为false,不管“||”后面是true还是false，都返回“||”后面的值。</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">//预编译之后</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line">  		var foo;</span><br><span class="line"></span><br><span class="line">  		foo = foo || 5;</span><br><span class="line"></span><br><span class="line">  		console.log(foo); // 5</span><br><span class="line">  	&#125;</span><br><span class="line">  	</span><br><span class="line">  	hoistVariable();</span><br><span class="line">  	</span><br><span class="line">  	#只要“||”前面为true,不管“||”后面是true还是false，都返回“||”前面的值。</span><br><span class="line">  	#只要“||”前面为false,不管“||”后面是true还是false，都返回“||”后面的值。</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p>全局函数</p>
@@ -1518,23 +1560,21 @@
 </li>
 <li><p>词法作用域(lexical scope)的工作原理</p>
 <ul>
-<li><p>词法(lexical)意味着只需查看代码的结构就可确定变量的作用域，而不是等到代码执行时才明白。换而言之，即JavaScript的作用域规则完全基于代码的结构，而不是一些动态的运行阶段属性。</p>
-</li>
-<li><p>因此，对于在函数中引用的变量，要确定它是在哪里定义的，可从最里面（当前函数）开始依次向最外面进行查找，直到找到它为止。</p>
-</li>
+<li>词法(lexical)意味着只需查看代码的结构就可确定变量的作用域，而不是等到代码执行时才明白。换而言之，即JavaScript的作用域规则完全基于代码的结构，而不是一些动态的运行阶段属性。</li>
+<li>因此，对于在函数中引用的变量，要确定它是在哪里定义的，可从最里面（当前函数）开始依次向最外面进行查找，直到找到它为止。</li>
 <li><p>实例</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#实例1 </span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">	return justAVar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result = whereAreYou(); </span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#实例2</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">function inner() &#123;</span><br><span class="line">	return justAVar;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">		 return inner();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		var result = whereAreYou(); </span><br><span class="line">		console.log(result);</span><br><span class="line">		</span><br><span class="line">		#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure>
 <pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#实例3</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line"></span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">		var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">		function inner() &#123; </span><br><span class="line">				return justAVar;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return inner;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">var innerFunction = whereAreYou(); </span><br><span class="line">var result = innerFunction();</span><br><span class="line">	</span><br><span class="line">console.log(result);</span><br><span class="line">	</span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+</code></pre></li>
 <li><p>环境(environment)存储了局部作用域内定义的所有变量。每个函数都有与之相关联的环境，其中包含它所处作用域内的局部变量。当返回这个函数时，返回的不仅仅是函数，还有与之相关联的环境。</p>
 <ul>
 <li>每个嵌套函数都有自己的小环境，其中包含它自己的变量，这将形成一个环境链，从内到外依次为各个嵌套函数的环境。在环境中查找变量时，也需要从最近的环境着手，沿环境链不断往下查找，直到找到变量为止。如果环境链中没有找到，再在全局环境中查找。 </li>
 <li>可将形参视为函数的局部变量，因此形参也包含在环境(environment)中。</li>
-<li>JavaScript函数都是在定义它的环境中执行的。</li>
+<li><p>JavaScript函数都是在定义它的环境中执行的。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-07-06-%E7%8E%AF%E5%A2%83.jpg" alt="环境"></p>
+</li>
 </ul>
-<p>  <img src="http://qiniup.louyanspine.com/2018-07-06-%E7%8E%AF%E5%A2%83.jpg" alt="环境"></p>
 </li>
 </ul>
 </li>
@@ -1548,13 +1588,13 @@
 <li><p>可敲定函数(closes the function)的定义：给所有自由变量都提供了值的环境。</p>
 <p> <img src="http://qiniup.louyanspine.com/2018-07-06-%E6%95%B2%E5%AE%9A%E5%87%BD%E6%95%B0.jpg" alt="敲定函数"></p>
 </li>
+</ol>
+<ol>
 <li><p>从函数返回函数来创建闭包：计数器实例</p>
 <ul>
-<li><p>在全局作用域中，根本看不到变量count，但每次调用doCount时，都可以使用变量count。</p>
-</li>
+<li>在全局作用域中，根本看不到变量count，但每次调用doCount时，都可以使用变量count。</li>
 <li><p>除了调用doCount外，没有其他任何办法能够获取变量count。</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function makeCounter() &#123;</span><br><span class="line">	 var count = 0;</span><br><span class="line">	</span><br><span class="line">	function counter() &#123; </span><br><span class="line">		count = count + 1; </span><br><span class="line">		return count;	&#125;</span><br><span class="line"></span><br><span class="line">	return counter; </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">var doCount = makeCounter(); </span><br><span class="line">console.log(doCount());  #显示1</span><br><span class="line">console.log(doCount());  #显示2</span><br><span class="line">console.log(doCount());  #显示3</span><br></pre></td></tr></table></figure>
-
 <p>  <img src="http://qiniup.louyanspine.com/2018-07-06-%E9%97%AD%E5%8C%85-%E8%AE%A1%E6%95%B0%E5%99%A8.jpg" alt="闭包-计数器"></p>
 </li>
 </ul>
@@ -1562,7 +1602,8 @@
 <li><p>将函数表达式用作实参来创建闭包</p>
 <ul>
 <li><p>我们传递给makeTimer的函数是一个闭包，带有将自由变量<code>doneMessage</code>绑定到字符串”Cookies are done!”的环境。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function makeTimer(doneMessage, n) &#123;</span><br><span class="line">	</span><br><span class="line">	setTimeout(function() &#123; </span><br><span class="line">		alert(doneMessage);</span><br><span class="line">	&#125;, n); </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">makeTimer(&quot;Cookies are done!&quot;, 1000);</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function makeTimer(doneMessage, n) &#123;</span><br><span class="line">	</span><br><span class="line">	setTimeout(function() &#123; </span><br><span class="line">		alert(doneMessage);</span><br><span class="line">	&#125;, n); </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">makeTimer(&quot;Cookies are done!&quot;, 1000);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p>闭包包含的是实际环境，而非环境的副本</p>
@@ -1572,41 +1613,39 @@
 </li>
 </ol>
 <h3 id="函数提升"><a href="#函数提升" class="headerlink" title="函数提升"></a>函数提升</h3><ol>
-<li><p>浏览器分两遍读取网页：</p>
-<ul>
+<li>浏览器分两遍读取网页：<ul>
 <li>第一遍读取所有的函数定义（由函数声明创建的函数）</li>
 <li>第二遍开始执行代码</li>
 </ul>
 </li>
 <li><p>可将函数放在JavaScript脚本的任何地方。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var radius = 5;</span><br><span class="line">var area = circleArea(radius); </span><br><span class="line">alert(area);</span><br><span class="line"></span><br><span class="line">function circleArea(r) &#123; </span><br><span class="line">	var a = Math.PI * r * r; </span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var radius = 5;</span><br><span class="line">var area = circleArea(radius); </span><br><span class="line">alert(area);</span><br><span class="line"></span><br><span class="line">function circleArea(r) &#123; </span><br><span class="line">	var a = Math.PI * r * r; </span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="函数是一等值-first-class-values"><a href="#函数是一等值-first-class-values" class="headerlink" title="函数是一等值(first class values)"></a>函数是一等值(first class values)</h3><ol>
-<li><p>一等值(first class values)的特点（数值、字符串、布尔值、函数和对象都是一等值）</p>
-<ul>
+<li>一等值(first class values)的特点（数值、字符串、布尔值、函数和对象都是一等值）<ul>
 <li>将其赋给变量或存储在数组和对象等数据结构中</li>
 <li>将其传递给函数</li>
 <li>从函数中返回它们</li>
 </ul>
 </li>
-<li><p>一等值的定义：在编程语言中，可像对待其他任何值一样对待的值，包括赋给变量、作为实参传递给函数以及从函数中返回。</p>
-</li>
+<li>一等值的定义：在编程语言中，可像对待其他任何值一样对待的值，包括赋给变量、作为实参传递给函数以及从函数中返回。</li>
 <li><p>向函数传递函数</p>
 <ul>
-<li><p>只需将函数名用作实参即可</p>
-</li>
+<li>只需将函数名用作实参即可</li>
 <li><p>传递的是指向函数的引用，可将这种引用视为指针(pointer)，它指向函数本身的内部表示。引用本身可存储在变量中，可赋给变量，还可作为实参传递给函数。</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var allCanFly = processPassengers(passengers, checkNoFlyList); </span><br><span class="line">if (!allCanFly) &#123;console.log(&quot;The plane can&#x27;t take off: we have a passenger on the no-fly-list.&quot;); </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">#checkNoFlyList即传入的函数</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>从函数返回函数</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createDrinkOrder(passenger) &#123;</span><br><span class="line">	var orderFunction;</span><br><span class="line"></span><br><span class="line">	if (passenger.ticket === &quot;firstclass&quot;) &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Would you like a cocktail or wine?&quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">	</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Your choice is cola or water.&quot;);</span><br><span class="line">			&#125;;		&#125;	return orderFunction;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createDrinkOrder(passenger) &#123;</span><br><span class="line">	var orderFunction;</span><br><span class="line"></span><br><span class="line">	if (passenger.ticket === &quot;firstclass&quot;) &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Would you like a cocktail or wine?&quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">	</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Your choice is cola or water.&quot;);</span><br><span class="line">			&#125;;		&#125;	return orderFunction;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="匿名函数-anonymous-functions"><a href="#匿名函数-anonymous-functions" class="headerlink" title="匿名函数(anonymous functions)"></a>匿名函数(anonymous functions)</h3><ol>
 <li><p>匿名函数是没有名称的函数表达式，用于通常需要函数引用的地方。</p>
 <p> <code>window.onload = function() &#123; alert(&quot;Yeah, that page loaded!&quot;); &#125;;</code></p>
 <ul>
-<li>如果需要将一个函数作为实参，可将实参指定为函数表达式 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">	alert(&quot;Time to take the cookies out of the oven&quot;);</span><br><span class="line">	&#125;, 600000);</span><br></pre></td></tr></table></figure></li>
+<li>如果需要将一个函数作为实参，可将实参指定为函数表达式<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">	alert(&quot;Time to take the cookies out of the oven&quot;);</span><br><span class="line">	&#125;, 600000);</span><br></pre></td></tr></table></figure></li>
 <li>如果需要从函数返回一个函数，也可返回一个函数表达式</li>
 </ul>
 </li>
@@ -1640,6 +1679,8 @@
 <li>每个数组都有一个length属性，它的值也就是数组的长度，等于数组的最大索引值+1</li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p>给数组添加新元素</p>
 <ul>
 <li><p>只需给指定索引处的元素赋值即可，但必须小心地指定索引，否则数组将是稀疏的(sparse)</p>
@@ -1648,12 +1689,10 @@
 <li><p>稀疏数组是指有些索引处有值，而其他索引处没有值的数组。</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var sparseArray = [ ]; </span><br><span class="line">sparseArray[0] = true; </span><br><span class="line">spraseArray[100] = true;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>犹如创建了99个变量，但没有对其初始化。这些变量虽然没有值，但是仍占用计算机的内存空间。</p>
-</li>
+<li>犹如创建了99个变量，但没有对其初始化。这些变量虽然没有值，但是仍占用计算机的内存空间。</li>
 <li><p>检查元素的值是否是undefined，可编写如下代码：</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (myarray[i] == undefined) &#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>undefined是一个值，而不是字符串，因此不能在前后加上引号。</p>
-</li>
+<li>undefined是一个值，而不是字符串，因此不能在前后加上引号。</li>
 </ul>
 </li>
 <li><p>push方法</p>
@@ -1665,8 +1704,7 @@
 </li>
 <li><p>数组方法<code>sort</code>的工作原理</p>
 <ul>
-<li><p>根据一个知道如何对两个数组元素进行比较的函数对数组进行排序。</p>
-<ul>
+<li>根据一个知道如何对两个数组元素进行比较的函数对数组进行排序。<ul>
 <li>对于数字，使用<code>&lt;</code>、<code>&gt;</code>、和<code>==</code>进行比较；</li>
 <li>对于字符串，按字母顺序进行比较</li>
 <li>对于对象，采用自定义的方式根据对象的属性进行比较</li>
@@ -1680,14 +1718,12 @@
 </ul>
 </li>
 </ol>
-<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><h3 id="-4"><a href="#-4" class="headerlink" title=""></a></h3><h2 id="五、对象-Objects"><a href="#五、对象-Objects" class="headerlink" title="五、对象(Objects)"></a>五、对象(Objects)</h2><h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><ol>
-<li>定义并创建对象的实例<ul>
-<li><p>添加对象变量声明</p>
-</li>
-<li><p>花括号<code>&#123;&#125;</code>内定义对象的所有属性(properties)</p>
-</li>
-<li><p>每个属性的定义都包含名称、冒号和值，用逗号分隔属性名和属性值对，冒号分隔属性名和属性值。</p>
-</li>
+<h3 id="-2"><a href="#-2" class="headerlink" title=" "></a> </h3><h3 id="-3"><a href="#-3" class="headerlink" title=" "></a> </h3><h3 id="-4"><a href="#-4" class="headerlink" title=" "></a> </h3><h2 id="五、对象-Objects"><a href="#五、对象-Objects" class="headerlink" title="五、对象(Objects)"></a>五、对象(Objects)</h2><h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><ol>
+<li><p>定义并创建对象的实例</p>
+<ul>
+<li>添加对象变量声明</li>
+<li>花括号<code>&#123;&#125;</code>内定义对象的所有属性(properties)</li>
+<li>每个属性的定义都包含名称、冒号和值，用逗号分隔属性名和属性值对，冒号分隔属性名和属性值。</li>
 <li><p>包含空格的字符串用作属性名时，必须用括号将其括起</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var widget = &#123; </span><br><span class="line">	cost$: 3.14,</span><br><span class="line">	&quot;on sale&quot;: true</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure>
 </li>
@@ -1732,8 +1768,7 @@
 </li>
 <li><p>将属性用于计算</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (fiat.year &lt; 1965) &#123; </span><br><span class="line">	classic = true;</span><br><span class="line">	&#125;for (var i = 0; i &lt; fiat.passengers; i++) &#123;</span><br><span class="line">	addPersonToCar(); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>增删属性</p>
-<ul>
+<li>增删属性<ul>
 <li>增加属性，只指定一个新属性并给它赋值</li>
 <li>删除属性，可使用关键词delete：<code>delete fido.dogYears;</code><ul>
 <li>删除属性时，同时删除属性值和属性本身</li>
@@ -1747,69 +1782,63 @@
 </li>
 </ol>
 <h3 id="变量存储对象的原理"><a href="#变量存储对象的原理" class="headerlink" title="变量存储对象的原理"></a>变量存储对象的原理</h3><ol>
-<li><p>变量并不实际存储对象</p>
-</li>
-<li><p>变量存储指向对象的引用(reference)，故此对象变量也被称为引用变量(reference variables)</p>
-</li>
-<li><p>引用就像指针(pointer)，是对象的存储地址</p>
-</li>
-<li><p>当我们使用句点表示法时，JavaScript解释器将负责根据引用获取对象并访问其属性</p>
-</li>
-<li><p>基本类型变量(primitive variable)表示的是实际值，而对象变量(object variable)表示一种获取对象的途径</p>
-</li>
+<li>变量并不实际存储对象</li>
+<li>变量存储指向对象的引用(reference)，故此对象变量也被称为引用变量(reference variables)</li>
+<li>引用就像指针(pointer)，是对象的存储地址</li>
+<li>当我们使用句点表示法时，JavaScript解释器将负责根据引用获取对象并访问其属性</li>
+<li>基本类型变量(primitive variable)表示的是实际值，而对象变量(object variable)表示一种获取对象的途径</li>
 <li><p>当使用句点表示法用于引用变量时，相当于使用句点前的引用来获取相应的对象，再访问句点后指定的属性。</p>
 <p> <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8.jpg" alt="变量存储对象的引用"></p>
 </li>
 </ol>
 <h3 id="向函数传递对象"><a href="#向函数传递对象" class="headerlink" title="向函数传递对象"></a>向函数传递对象</h3><ol>
-<li><p>调用函数并向它传递一个对象时，传递的是对象引用，而不是对象本身。根据按值传递的语义，传递给形参的是改引用的副本，而原来的引用依然是指向原始对象的指针。</p>
-</li>
+<li>调用函数并向它传递一个对象时，传递的是对象引用，而不是对象本身。根据按值传递的语义，传递给形参的是改引用的副本，而原来的引用依然是指向原始对象的指针。</li>
 <li><p>如果在函数中修改对象属性，修改的将是原始对象的属性。因此，函数结束时，在函数中对对象所做的修改都依然有效。</p>
-<p> <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1.jpg"><br> <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A12.jpg"></p>
+<p> <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1.jpg" alt=""><br> <img src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A12.jpg" alt=""></p>
 </li>
 </ol>
 <h3 id="给对象添加行为"><a href="#给对象添加行为" class="headerlink" title="给对象添加行为"></a>给对象添加行为</h3><ol>
 <li><p>给对象添加行为,就是将函数定义赋给属性。在函数定义中没有指定函数名，而只是在关键词后面提供了函数体，属性名就是函数名。</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var fiat = &#123; </span><br><span class="line">	make: &quot;Fiat&quot;,</span><br><span class="line">	model: &quot;500&quot;,</span><br><span class="line">	year: 1957,</span><br><span class="line">	color: &quot;Medium Blue&quot;, </span><br><span class="line">	passengers: 2, </span><br><span class="line">	convertible: false, </span><br><span class="line">	mileage: 88000,</span><br><span class="line">	drive: function() &#123;</span><br><span class="line">		alert.log(&quot;Zoom zoom!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 </li>
-<li><p>对象内的函数，通常被称为方法(method)。</p>
-</li>
-<li><p>用句点法（串联，chaining）调用对象内的方法。</p>
-<ul>
+</ol>
+<ol>
+<li>对象内的函数，通常被称为方法(method)。</li>
+<li>用句点法（串联，chaining）调用对象内的方法。<ul>
 <li><code>fiat.drive();</code></li>
 <li><code>var index = ship.locations.indexOf(guess);</code></li>
 </ul>
 </li>
 </ol>
 <h3 id="关键词this的工作原理"><a href="#关键词this的工作原理" class="headerlink" title="关键词this的工作原理"></a>关键词<code>this</code>的工作原理</h3><ol>
-<li>可将<code>this</code>视为一个变量，指向其方法被调用的对象。<br> <img src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg"><br> <img src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%862.jpg"></li>
+<li>可将<code>this</code>视为一个变量，指向其方法被调用的对象。<br> <img src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" alt=""><br> <img src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%862.jpg" alt=""></li>
 </ol>
 <h3 id="如何知道对象包含哪些属性"><a href="#如何知道对象包含哪些属性" class="headerlink" title="如何知道对象包含哪些属性"></a>如何知道对象包含哪些属性</h3><ol>
 <li><p>用<code>for in</code>迭代对象的属性</p>
 <ul>
 <li><code>for in</code>以每次一个的方式遍历对象的属性，并依次将每个属性赋给变量prop</li>
-<li>用方括号表示法通过prop来访问当前属性</li>
+<li><p>用方括号表示法通过prop来访问当前属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var prop in chevy) &#123;</span><br><span class="line">	console.log(prop + &quot;: &quot; + chevy[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var prop in chevy) &#123;</span><br><span class="line">	console.log(prop + &quot;: &quot; + chevy[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</li>
 </ol>
 <h3 id="JavaScript提供的内置对象"><a href="#JavaScript提供的内置对象" class="headerlink" title="JavaScript提供的内置对象"></a>JavaScript提供的内置对象</h3><p><img src="http://qiniup.louyanspine.com/2018-06-28-JavaScript%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AF%B9%E8%B1%A1.jpg" alt="JavaScript提供的对象"></p>
 <h3 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h3><ol>
-<li><p>属性<code>length</code>：指出字符串包含多少个字符</p>
-</li>
+<li>属性<code>length</code>：指出字符串包含多少个字符</li>
 <li><p>方法<code>charAt</code>：获取字符串中指定索引处的字符。</p>
 <ul>
-<li>JavaScript没有字符类型(character type)，通过返回一个字符串来返回字符，其中只包含特点的字符</li>
+<li><p>JavaScript没有字符类型(character type)，通过返回一个字符串来返回字符，其中只包含特点的字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var input = &quot;jenny@wickedlysmart.com&quot;; </span><br><span class="line">for(var i = 0; i &lt; input.length; i++) &#123;</span><br><span class="line">	if (input.charAt(i) === &quot;@&quot;) &#123;</span><br><span class="line">		console.log(&quot;There&#x27;s an @ sign at index &quot; + i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var input = &quot;jenny@wickedlysmart.com&quot;; </span><br><span class="line">for(var i = 0; i &lt; input.length; i++) &#123;</span><br><span class="line">	if (input.charAt(i) === &quot;@&quot;) &#123;</span><br><span class="line">		console.log(&quot;There&#x27;s an @ sign at index &quot; + i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</li>
 <li><p>方法<code>indexOf</code></p>
 <ul>
-<li><p>将一个字符串作为第一个参数，并在字符串中该参数首次出现的位置返回该参数中第一个字符的索引</p>
-</li>
-<li><p>第二个参数是一个索引，指定从什么位置开始查找</p>
-</li>
+<li>将一个字符串作为第一个参数，并在字符串中该参数首次出现的位置返回该参数中第一个字符的索引</li>
+<li>第二个参数是一个索引，指定从什么位置开始查找</li>
 <li><p>如果没有找到指定的字符串，将返回索引-1</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index = phrase.indexOf(&quot;the&quot;, 5);</span><br><span class="line">console.log(&quot;there&#x27;s a the sitting at index &quot; + index);</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index = phrase.indexOf(&quot;the&quot;, 5);</span><br><span class="line">console.log(&quot;there&#x27;s a the sitting at index &quot; + index);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p>方法<code>substring</code></p>
@@ -1827,7 +1856,8 @@
 <li><p>方法<code>split</code></p>
 <ul>
 <li><p>将一个用作分隔符(delimiter)的字符作为参数，并根据这个分隔符将字符串分成多个部分。</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var data = &quot;name|phone|address&quot;;</span><br><span class="line">var vals = data.split(&quot;|&quot;); </span><br><span class="line">console.log(&quot;Split array is &quot;, vals);</span><br><span class="line">	</span><br><span class="line">//Split array is [&quot;name&quot;, &quot;phone&quot;, &quot;address&quot;]</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var data = &quot;name|phone|address&quot;;</span><br><span class="line">var vals = data.split(&quot;|&quot;); </span><br><span class="line">console.log(&quot;Split array is &quot;, vals);</span><br><span class="line">	</span><br><span class="line">//Split array is [&quot;name&quot;, &quot;phone&quot;, &quot;address&quot;]</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p>方法<code>toLowerCase</code></p>
@@ -1884,11 +1914,10 @@
 <ul>
 <li>返回的是一个NodeList对象。但可以像处理数组一样处理它（length属性、索引访问）。NodeList是一个Node集合，而Node指的其实就是DOM树中的element对象。</li>
 </ul>
-<ol start="5">
-<li><p><code>innerHTML</code>是元素对象的一个属性，表示包含在元素中的内容（除了元素的HTML标签外）。</p>
-<ul>
+<ol>
+<li><code>innerHTML</code>是元素对象的一个属性，表示包含在元素中的内容（除了元素的HTML标签外）。<ul>
 <li>可以通过<code>innerHTML</code>来读取或替代元素的内容</li>
-<li><code>innerHTML</code>表示元素对象包含的所有内容，包括嵌套的元素&#x2F;从对象的起始位置到终止位置的全部内容,不包括HTML标签。<ul>
+<li><code>innerHTML</code>表示元素对象包含的所有内容，包括嵌套的元素/从对象的起始位置到终止位置的全部内容,不包括HTML标签。<ul>
 <li>例如，段落元素除文本外，还可能包含<code>&lt;em&gt;</code>和<code>&lt;img&gt;</code>元素</li>
 </ul>
 </li>
@@ -1901,20 +1930,20 @@
 <li><code>outerHTML</code>的值是<code>&lt;div id=&quot;test&quot;&gt;&lt;span style=&quot;color:red&quot;&gt;test1&lt;/span&gt;test2&lt;/div&gt;</code></li>
 </ul>
 </li>
-<li><p>处理DOM时，要确保代码在网页完全加载后，再执行，否则代码执行时，DOM很可能尚未创建。</p>
-</li>
+<li>处理DOM时，要确保代码在网页完全加载后，再执行，否则代码执行时，DOM很可能尚未创建。</li>
 </ol>
 <h3 id="网页加载完毕后执行代码的方法"><a href="#网页加载完毕后执行代码的方法" class="headerlink" title="网页加载完毕后执行代码的方法"></a>网页加载完毕后执行代码的方法</h3><ol>
 <li>将代码放置于<code>&lt;body&gt;</code>元素末尾</li>
-<li>将函数赋给对象window的属性onload<ul>
-<li><p>window是一个JavaScript内置对象，表示浏览器窗口</p>
-</li>
+<li><p>将函数赋给对象window的属性onload</p>
+<ul>
+<li>window是一个JavaScript内置对象，表示浏览器窗口</li>
 <li><p>网页加载事件的触发时间点是：浏览器加载完网页，显示网页的所有内容并生成表示网页的DOM</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;function init() &#123;</span><br><span class="line">	var planet = document.getElementById(&quot;greenplanet&quot;);</span><br><span class="line">	planet.innerHTML = &quot;Red Alert: hit by phaser fire!&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.onload = init; #千万不要在函数名init后面添加括号，这里不是调用函数，而是将函数作为一个值赋给属性window.onload&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;function init() &#123;</span><br><span class="line">	var planet = document.getElementById(&quot;greenplanet&quot;);</span><br><span class="line">	planet.innerHTML = &quot;Red Alert: hit by phaser fire!&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.onload = init; #千万不要在函数名init后面添加括号，这里不是调用函数，而是将函数作为一个值赋给属性window.onload&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
-<h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3><h3 id="设置DOM中元素对象的特性"><a href="#设置DOM中元素对象的特性" class="headerlink" title="设置DOM中元素对象的特性"></a>设置DOM中元素对象的特性</h3><ol>
+<h3 id="-5"><a href="#-5" class="headerlink" title=" "></a> </h3><h3 id="设置DOM中元素对象的特性"><a href="#设置DOM中元素对象的特性" class="headerlink" title="设置DOM中元素对象的特性"></a>设置DOM中元素对象的特性</h3><ol>
 <li><p><code>setAttribute</code>方法添加新特性或修改既有特性</p>
 <p> <code>planet.setAttribute(&quot;class&quot;, &quot;redtext&quot;);</code></p>
 <p> <img src="http://qiniup.louyanspine.com/2018-06-28-setAttribute%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%89%B9%E6%80%A7%E6%88%96%E4%BF%AE%E6%94%B9%E6%97%A2%E6%9C%89%E7%89%B9%E6%80%A7.jpg" alt="setAttribute方法添加新特性或修改既有特性"></p>
@@ -1923,8 +1952,7 @@
 <ul>
 <li><p>如果指定的特性不存在，将返回null。</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var scoop = document.getElementById(&quot;raspberry&quot;); </span><br><span class="line">var altText = scoop.getAttribute(&quot;alt&quot;);</span><br><span class="line">if (altText == null) &#123;</span><br><span class="line">	console.log(&quot;Oh, I guess there isn&#x27;t an alt attribute.&quot;); </span><br><span class="line">&#125; else &#123;</span><br><span class="line">console.log(&quot;I can&#x27;t see the image in the console,&quot;);</span><br><span class="line">console.log(&quot; but I&#x27;m told it looks like &quot; + altText); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>设置图像的属性(property)<code>src</code>与使用<code>getAttribute</code>和<code>setAttribute</code>设置特性(attribute)<code>src</code>相同么？</p>
-<ul>
+<li>设置图像的属性(property)<code>src</code>与使用<code>getAttribute</code>和<code>setAttribute</code>设置特性(attribute)<code>src</code>相同么？<ul>
 <li>对于<code>&lt;img&gt;</code>元素而言，效果是一样的。但是并非所有的HTML特性(attributes)都有对应的对象属性(object properties)，因此对于这些特性，必须使用<code>getAttribute</code>和<code>setAttribute</code>来设置和获取。</li>
 </ul>
 </li>
@@ -1941,7 +1969,7 @@
 </ul>
 </li>
 <li>对象（objects对象有属性和方法）  <ul>
-<li>字符串（作为对象&#x2F;JavaScript解释器会在需要时替你创建字符串对象，无需显式地这么做）</li>
+<li>字符串（作为对象/JavaScript解释器会在需要时替你创建字符串对象，无需显式地这么做）</li>
 <li><ul>
 <li>数值（作为对象）</li>
 </ul>
@@ -1954,8 +1982,7 @@
 </li>
 </ol>
 <h3 id="undefined值"><a href="#undefined值" class="headerlink" title="undefined值"></a><code>undefined</code>值</h3><ol>
-<li><p>对于任何还没有值（即还未初始化）的东西，都将被赋予值<code>undefined</code>，<code>undefined</code>的类型是<code>undefined</code>。</p>
-<ul>
+<li>对于任何还没有值（即还未初始化）的东西，都将被赋予值<code>undefined</code>，<code>undefined</code>的类型是<code>undefined</code>。<ul>
 <li>没有return语句的函数返回的值</li>
 <li>未赋值的变量的值</li>
 <li>稀疏数组中不存在的数组元素的值</li>
@@ -1964,17 +1991,19 @@
 </ul>
 </li>
 <li><p>可以通过<code>undefined</code>来判断是否给变量（属性或数组元素）赋值了。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line"></span><br><span class="line">if (x == undefined) &#123;</span><br><span class="line">// x isn’t defined! just deal with it!</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var customer = &#123; </span><br><span class="line">		name: &quot;Jenny&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">if (customer.phoneNumber == undefined) &#123;</span><br><span class="line"></span><br><span class="line">	// get the customer&#x27;s phone number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#注意不要将值undefined与字符串&quot;undefined&quot;混淆</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="null值"><a href="#null值" class="headerlink" title="null值"></a><code>null</code>值</h3><ol>
-<li>表示”无对象&#x2F;对象不存在“，在应该提供一个对象，但无法创建或找到时，将提供null，在变量未初始化，对象没有指定属性或数组没有指定元素时，将返回undefined。</li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line"></span><br><span class="line">if (x == undefined) &#123;</span><br><span class="line">// x isn’t defined! just deal with it!</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var customer = &#123; </span><br><span class="line">		name: &quot;Jenny&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">if (customer.phoneNumber == undefined) &#123;</span><br><span class="line"></span><br><span class="line">	// get the customer&#x27;s phone number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#注意不要将值undefined与字符串&quot;undefined&quot;混淆</span><br></pre></td></tr></table></figure>
+<h3 id="null值"><a href="#null值" class="headerlink" title="null值"></a><code>null</code>值</h3></li>
+<li>表示”无对象/对象不存在“，在应该提供一个对象，但无法创建或找到时，将提供null，在变量未初始化，对象没有指定属性或数组没有指定元素时，将返回undefined。</li>
 <li><code>null</code>以前的类型是<code>object</code>，不过在最新的规范中<code>null</code>的类型是<code>null</code>。</li>
 </ol>
 <h3 id="NaN值"><a href="#NaN值" class="headerlink" title="NaN值"></a><code>NaN</code>值</h3><ol>
 <li><p>表示JavaScript无法表示的数值结果，即(Not a Number)</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 0/0;</span><br><span class="line">var b = &quot;food&quot; * 1000;</span><br><span class="line">var c = Math.sqrt(-9);</span><br></pre></td></tr></table></figure></li>
-<li><p>JavaScript中唯一一个与自己不相等的值：<code>NaN != NaN</code><br> * 因为NaN与任何东西都不相等，因此不能以任何方式检查变量与NaN是否相等。需要使用特殊函数isNaN。<br> * NaN指的是无法表示的数字，但并非所有无法表示的数字都相等。<br> * 如果变量存储的是NaN或其他任何不是数字的值，将其传递给isNaN时，都将返回<code>true</code>，否则将返回<code>false</code>。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (isNaN(myNum)) &#123; </span><br><span class="line">	myNum = 0;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<li><p>JavaScript中唯一一个与自己不相等的值：<code>NaN != NaN</code></p>
+<pre><code> * 因为NaN与任何东西都不相等，因此不能以任何方式检查变量与NaN是否相等。需要使用特殊函数isNaN。
+ * NaN指的是无法表示的数字，但并非所有无法表示的数字都相等。
+ * 如果变量存储的是NaN或其他任何不是数字的值，将其传递给isNaN时，都将返回`true`，否则将返回`false`。
+</code></pre> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (isNaN(myNum)) &#123; </span><br><span class="line">	myNum = 0;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>NaN</code>值的类型是”number”</p>
 <ul>
@@ -2006,13 +2035,12 @@
 </li>
 </ol>
 <h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><ol>
-<li>拼接和加法运算符<code>+</code><ul>
-<li><p>用于数字时，运算符<code>+</code>表示加法运算，用于字符串时，运算符<code>+</code>表示拼接(concatenation)</p>
-</li>
+<li><p>拼接和加法运算符<code>+</code></p>
+<ul>
+<li>用于数字时，运算符<code>+</code>表示加法运算，用于字符串时，运算符<code>+</code>表示拼接(concatenation)</li>
 <li><p>将数字和字符串相加时，数字转换为字符串，再进行拼接，顺序为从左至右</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var order = 1 + 2 + &quot; pizzas&quot;;</span><br><span class="line">3 pizza</span><br></pre></td></tr></table></figure></li>
-<li><p>布尔值与字符串相加时，结果为字符串。<br>   <code>true + “ love”</code>为<code>“true love”</code></p>
-</li>
+<li>布尔值与字符串相加时，结果为字符串。<br>   <code>true + “ love”</code>为<code>“true love”</code></li>
 </ul>
 </li>
 <li>其他算数运算符 <ul>
@@ -2032,7 +2060,7 @@
 </ul>
 </li>
 <li><p>后递减运算符(post-decrement operator)：<code>--</code></p>
-<h3 id="-6"><a href="#-6" class="headerlink" title=""></a></h3><h3 id="-7"><a href="#-7" class="headerlink" title=""></a></h3><h3 id="-8"><a href="#-8" class="headerlink" title=""></a></h3><h3 id="-9"><a href="#-9" class="headerlink" title=""></a></h3></li>
+<h3 id="-6"><a href="#-6" class="headerlink" title=" "></a> </h3><h3 id="-7"><a href="#-7" class="headerlink" title=" "></a> </h3><h3 id="-8"><a href="#-8" class="headerlink" title=" "></a> </h3><h3 id="-9"><a href="#-9" class="headerlink" title=" "></a> </h3></li>
 </ol>
 <h2 id="九、比较"><a href="#九、比较" class="headerlink" title="九、比较"></a>九、比较</h2><h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ol>
 <li><p><code>&lt;</code></p>
@@ -2054,11 +2082,11 @@
 </ol>
 <ul>
 <li>如果两个值的类型相等，就直接进行比较</li>
-<li>如果两个值的类型不同，则尝试将它们转换为相同的类型，再进行比较<ul>
+<li><p>如果两个值的类型不同，则尝试将它们转换为相同的类型，再进行比较</p>
+<ul>
 <li><p>比较数字和字符串</p>
 <ul>
-<li><p>把字符串转换为数字，再对两个数字进行比较</p>
-</li>
+<li>把字符串转换为数字，再对两个数字进行比较</li>
 <li><p>字符串不能转换为数字时，结果为<code>NaN</code>，和数字的比较结果为<code>false</code></p>
 <p>  <code>99 == &quot;vanilla&quot;</code>→<code>99 == NaN</code>→<code>false</code></p>
 </li>
@@ -2066,8 +2094,7 @@
 </li>
 <li><p>比较布尔值和其他类型</p>
 <ul>
-<li><p>把布尔值转换为数字，再对两个数字进行比较</p>
-</li>
+<li>把布尔值转换为数字，再对两个数字进行比较</li>
 <li><p><code>true</code>将被转换为1，而<code>false</code>将被转换为0</p>
 <p>  <code>1 == true</code>→<code>1 == 1</code>→<code>true</code></p>
 </li>
@@ -2076,37 +2103,29 @@
 <li><p>比较<code>null</code>和<code>undefined</code></p>
 <p>  <code>undefined == null</code>→<code>true</code></p>
 </li>
-<li><p>其他情况</p>
-<ul>
-<li><p>空字符串转换为数字的结果是0</p>
-<p>  <code>1 == &quot;&quot;</code>→<code>1 == 0</code>→<code>false</code></p>
-</li>
-</ul>
-</li>
-<li><p>判断两个对象是否相等</p>
-<ul>
-<li><p>如果两个操作数都是对象，<code>==</code>和<code>===</code>都可以使用，工作原理完全相同</p>
-</li>
-<li><p>检查两个对象变量是否相等时，比较的是指向对象的引用</p>
-<ul>
-<li>这些对象包含什么不重要，只要两个引用指向的对象不同，他们就不同</li>
-</ul>
-</li>
-<li><p>当且仅当两个引用指向的是同一个对象时，它们才相等</p>
-<p>  <img src="http://qiniup.louyanspine.com/2018-06-28-%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89.jpg" alt="判断两个对象是否相等"></p>
-</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<ol start="4">
-<li><p><code>===</code>表示正好等于&#x2F;严格相等</p>
-<ul>
+<pre><code>* 其他情况
+    * 空字符串转换为数字的结果是0
+
+        `1 == &quot;&quot;`→`1 == 0`→`false`
+
+* 判断两个对象是否相等
+    * 如果两个操作数都是对象，`==`和`===`都可以使用，工作原理完全相同
+    * 检查两个对象变量是否相等时，比较的是指向对象的引用
+        * 这些对象包含什么不重要，只要两个引用指向的对象不同，他们就不同
+    * 当且仅当两个引用指向的是同一个对象时，它们才相等
+
+        ![判断两个对象是否相等](http://qiniup.louyanspine.com/2018-06-28-%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89.jpg)
+</code></pre><ol>
+<li><code>===</code>表示正好等于/严格相等<ul>
 <li>当且仅当两个值的类型和值都相等时，它们才是严格相等。</li>
 <li>有些开发人员称其为等同运算符<code>“identity” operator</code></li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p><code>&lt;=</code></p>
 <ul>
 <li>只能比较字符串和数字</li>
@@ -2127,11 +2146,9 @@
 <li><code>&amp;&amp;</code>表示AND（与）</li>
 <li><code>!</code>表示NOT（非），仅当表达式为false时，结果才为true</li>
 </ol>
-<h3 id="真值-truthy-和假值-falsey-x2F-falsy"><a href="#真值-truthy-和假值-falsey-x2F-falsy" class="headerlink" title="真值(truthy)和假值(falsey&#x2F;falsy)"></a>真值(truthy)和假值(falsey&#x2F;falsy)</h3><ol>
-<li><p>定义：有些值并非<code>true</code>或<code>false</code>，但用于条件表达式中时，被视为<code>true</code>或<code>false</code>。这些值被称为真值(truthy)和假值(falsey&#x2F;falsy)。因为严格地说它们并非<code>true</code>或<code>false</code>，但用于条件表达式时，它们的行为像<code>true</code>或<code>false</code>。</p>
-</li>
-<li><p>假值(falsey&#x2F;falsy)</p>
-<ul>
+<h3 id="真值-truthy-和假值-falsey-falsy"><a href="#真值-truthy-和假值-falsey-falsy" class="headerlink" title="真值(truthy)和假值(falsey/falsy)"></a>真值(truthy)和假值(falsey/falsy)</h3><ol>
+<li>定义：有些值并非<code>true</code>或<code>false</code>，但用于条件表达式中时，被视为<code>true</code>或<code>false</code>。这些值被称为真值(truthy)和假值(falsey/falsy)。因为严格地说它们并非<code>true</code>或<code>false</code>，但用于条件表达式时，它们的行为像<code>true</code>或<code>false</code>。</li>
+<li>假值(falsey/falsy)<ul>
 <li><code>undefined</code></li>
 <li><code>null</code></li>
 <li><code>0</code></li>
@@ -2143,9 +2160,9 @@
 <p> 除了5个假值以外，其他都是真值</p>
 </li>
 </ol>
-<h2 id="十、事件处理程序-event-handler-x2F-回调函数-callback-及异步编码-asynchronous-coding"><a href="#十、事件处理程序-event-handler-x2F-回调函数-callback-及异步编码-asynchronous-coding" class="headerlink" title="十、事件处理程序(event handler)&#x2F;回调函数(callback)及异步编码(asynchronous coding)"></a>十、事件处理程序(event handler)&#x2F;回调函数(callback)及异步编码(asynchronous coding)</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<h2 id="十、事件处理程序-event-handler-回调函数-callback-及异步编码-asynchronous-coding"><a href="#十、事件处理程序-event-handler-回调函数-callback-及异步编码-asynchronous-coding" class="headerlink" title="十、事件处理程序(event handler)/回调函数(callback)及异步编码(asynchronous coding)"></a>十、事件处理程序(event handler)/回调函数(callback)及异步编码(asynchronous coding)</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
 <li>有些事件(events)是浏览器生成的，如加载。有些事件是用户与网页交互时生成的。有些事件是JavaScript代码生成的。还有定时器事件。</li>
-<li>事件处理程序(event handler)&#x2F;回调函数(callback)&#x2F;监听器(listener)。从代码的角度说，就是一个函数。</li>
+<li>事件处理程序(event handler)/回调函数(callback)/监听器(listener)。从代码的角度说，就是一个函数。</li>
 <li>异步编码(asynchronous coding)，是一种以响应事件的方式组织代码的代码编写方式。<blockquote>
 <p>相对应的线性编码，就是从上到下的顺序逐步编写代码。</p>
 </blockquote>
@@ -2153,20 +2170,18 @@
 </ol>
 <h3 id="事件对象-event-object-的工作原理"><a href="#事件对象-event-object-的工作原理" class="headerlink" title="事件对象(event object)的工作原理"></a>事件对象(event object)的工作原理</h3><p><img src="http://qiniup.louyanspine.com/2018-07-01-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" alt="事件对象(event object)的工作原理"></p>
 <ol>
-<li><p>每次调用单击事件处理程序时，都将向它传递一个事件对象(event object)，更准确地说是触发事件的元素，这被称为目标(target)。例如，当用户单击特定的图像时，目标就是这幅图像的元素对象。加载事件处理程序传递的一个事件对象的<code>target</code>是<code>window</code>对象。</p>
-<ul>
+<li>每次调用单击事件处理程序时，都将向它传递一个事件对象(event object)，更准确地说是触发事件的元素，这被称为目标(target)。例如，当用户单击特定的图像时，目标就是这幅图像的元素对象。加载事件处理程序传递的一个事件对象的<code>target</code>是<code>window</code>对象。<ul>
 <li><code>target</code>就是事件对象的一个属性(property)</li>
 </ul>
 </li>
 <li><p>在事件处理程序中，你可以使用这个事件对象来获取有关事件的信息</p>
 <ul>
-<li>常规信息<ul>
+<li><p>常规信息</p>
+<ul>
 <li><p>属性<code>target</code>，它储存了一个引用，指向触发事件的元素对象（可以是各种不同的对象，但通常是元素对象）</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function showAnswer(eventObj) &#123;</span><br><span class="line">	var image = eventObj.target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>属性<code>type</code>，是一个字符串，如<code>click</code>或<code>load</code>，指出了发生的是哪种事件</p>
-</li>
-<li><p>属性<code>timeStamp</code>，事件是何时发生的</p>
-</li>
+<li>属性<code>type</code>，是一个字符串，如<code>click</code>或<code>load</code>，指出了发生的是哪种事件</li>
+<li>属性<code>timeStamp</code>，事件是何时发生的</li>
 </ul>
 </li>
 <li>具体信息（取决于事件的类型）<ul>
@@ -2185,14 +2200,15 @@
 <h3 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h3><ol>
 <li><p>将按钮（类型为button）的属性onclick设置为一个事件处理程序</p>
 <ul>
-<li><p>可以给网页中任何元素的onclick属性设置为一个函数。</p>
-</li>
+<li>可以给网页中任何元素的onclick属性设置为一个函数。</li>
 <li><p>不会在网页中显示出来的元素（如<code>&lt;script&gt;</code>和<code>&lt;head&gt;</code>）不支持单击等事件</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;);</span><br><span class="line">	fireButton.onclick = handleFireButton;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handleFireButton() &#123;</span><br><span class="line">	// 从表单中获取值的代码</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">window.onload = init;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>通过迭代批量增加单击事件处理程序</li>
+<li><p>通过迭代批量增加单击事件处理程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var images = document.getElementsByTagName(&quot;img&quot;); </span><br><span class="line">	for (var i = 0; i &lt; images.length; i++) &#123;</span><br><span class="line">	images[i].onclick = showAnswer; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;		</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var images = document.getElementsByTagName(&quot;img&quot;); </span><br><span class="line">	for (var i = 0; i &lt; images.length; i++) &#123;</span><br><span class="line">	images[i].onclick = showAnswer; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;		</span><br></pre></td></tr></table></figure></li>
+</li>
 </ul>
 </li>
 <li><p>处理回车键事件</p>
@@ -2228,8 +2244,7 @@
 <ul>
 <li><p>调用函数<code>setTimeout</code>并向它传递处理程序，它接受两个参数，事件处理程序和时间间隔（单位为毫秒）。</p>
 <ul>
-<li><p>向函数<code>setTimeout</code>传递一个指向处理程序函数的引用。函数<code>setTimeout</code>将这个引用存储起来，供定时器到期后使用。</p>
-</li>
+<li>向函数<code>setTimeout</code>传递一个指向处理程序函数的引用。函数<code>setTimeout</code>将这个引用存储起来，供定时器到期后使用。</li>
 <li><p>严格地说，应该写作<code>window.setTimeout</code>，<code>window</code>是全局对象，可省略对象名。</p>
 <p>  <code>setTimeout(timerHandler, 5000);</code></p>
 </li>
@@ -2241,18 +2256,15 @@
 </li>
 </ul>
 </li>
-<li><p>调用函数<code>setInterval</code></p>
-<ul>
-<li><p>在定时器到期时触发事件，并重启定时器</p>
-</li>
-<li><p>若要停止函数<code>setInterval</code>，可将其传递给另一个函数clearInterval</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var t = setInterval(ticker, 1000);</span><br><span class="line">clearInterval(t);</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
 </ul>
 </li>
 </ol>
-<h3 id="-10"><a href="#-10" class="headerlink" title=""></a></h3><h3 id="-11"><a href="#-11" class="headerlink" title=""></a></h3><h3 id="-12"><a href="#-12" class="headerlink" title=""></a></h3><h2 id="十一、"><a href="#十一、" class="headerlink" title="十一、"></a>十一、</h2><h3 id="-13"><a href="#-13" class="headerlink" title=""></a></h3><h3 id="-14"><a href="#-14" class="headerlink" title=""></a></h3><h3 id="-15"><a href="#-15" class="headerlink" title=""></a></h3><h3 id="-16"><a href="#-16" class="headerlink" title=""></a></h3><h2 id="十二、"><a href="#十二、" class="headerlink" title="十二、"></a>十二、</h2><h3 id="-17"><a href="#-17" class="headerlink" title=""></a></h3><h3 id="-18"><a href="#-18" class="headerlink" title=""></a></h3><h3 id="-19"><a href="#-19" class="headerlink" title=""></a></h3><h3 id="-20"><a href="#-20" class="headerlink" title=""></a></h3><h2 id="十三、"><a href="#十三、" class="headerlink" title="十三、"></a>十三、</h2><h3 id="-21"><a href="#-21" class="headerlink" title=""></a></h3><h3 id="-22"><a href="#-22" class="headerlink" title=""></a></h3><h3 id="-23"><a href="#-23" class="headerlink" title=""></a></h3><h3 id="-24"><a href="#-24" class="headerlink" title=""></a></h3>
+<pre><code>* 调用函数`setInterval`
+    * 在定时器到期时触发事件，并重启定时器
+    * 若要停止函数`setInterval`，可将其传递给另一个函数clearInterval
+
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var t = setInterval(ticker, 1000);</span><br><span class="line">clearInterval(t);</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="-10"><a href="#-10" class="headerlink" title=" "></a> </h3><h3 id="-11"><a href="#-11" class="headerlink" title=" "></a> </h3><h3 id="-12"><a href="#-12" class="headerlink" title=" "></a> </h3><h2 id="十一、"><a href="#十一、" class="headerlink" title="十一、"></a>十一、</h2><h3 id="-13"><a href="#-13" class="headerlink" title=" "></a> </h3><h3 id="-14"><a href="#-14" class="headerlink" title=" "></a> </h3><h3 id="-15"><a href="#-15" class="headerlink" title=" "></a> </h3><h3 id="-16"><a href="#-16" class="headerlink" title=" "></a> </h3><h2 id="十二、"><a href="#十二、" class="headerlink" title="十二、"></a>十二、</h2><h3 id="-17"><a href="#-17" class="headerlink" title=" "></a> </h3><h3 id="-18"><a href="#-18" class="headerlink" title=" "></a> </h3><h3 id="-19"><a href="#-19" class="headerlink" title=" "></a> </h3><h3 id="-20"><a href="#-20" class="headerlink" title=" "></a> </h3><h2 id="十三、"><a href="#十三、" class="headerlink" title="十三、"></a>十三、</h2><h3 id="-21"><a href="#-21" class="headerlink" title=" "></a> </h3><h3 id="-22"><a href="#-22" class="headerlink" title=" "></a> </h3><h3 id="-23"><a href="#-23" class="headerlink" title=" "></a> </h3><h3 id="-24"><a href="#-24" class="headerlink" title=" "></a> </h3>
       
     </div>
 
@@ -2407,8 +2419,7 @@
 
       
           <p>盐在中国历史上本来就是一个长期被垄断经营的对象，汉代与唐代都曾把垄断盐利作为增加财政收入的重要手段。但是，授予盐商绝对的垄断经营权，这是明清时期才有的事。</p>
-<h2 id="一、明代"><a href="#一、明代" class="headerlink" title="一、明代"></a>一、明代</h2><p>###（一）开中法</p>
-<h4 id="有明盐法，莫善于开中"><a href="#有明盐法，莫善于开中" class="headerlink" title="有明盐法，莫善于开中"></a>有明盐法，莫善于开中</h4><p>明政府为解决“九边”80多万驻军的粮饷供给，实施了军屯、民运粮、开中法三套制度。亦即军士屯种自给，百姓向边镇输纳，商人纳粮中盐办法，习惯上称为屯粮、民粮、盐粮。然而，北部长城一线地处高寒，屯田产量有限。因此，政府每年征调北直隶、晋、陕、豫、鲁数省农民将交纳后的粮食运送到指定边镇。但在交通不便，车拉驴驮的时代，要把数十万石粮食转运到边塞绝非易事，既妨碍农作，又成本很高。</p>
+<h2 id="一、明代"><a href="#一、明代" class="headerlink" title="一、明代"></a>一、明代</h2><h3 id="（一）开中法"><a href="#（一）开中法" class="headerlink" title="（一）开中法"></a>（一）开中法</h3><h4 id="有明盐法，莫善于开中"><a href="#有明盐法，莫善于开中" class="headerlink" title="有明盐法，莫善于开中"></a>有明盐法，莫善于开中</h4><p>明政府为解决“九边”80多万驻军的粮饷供给，实施了军屯、民运粮、开中法三套制度。亦即军士屯种自给，百姓向边镇输纳，商人纳粮中盐办法，习惯上称为屯粮、民粮、盐粮。然而，北部长城一线地处高寒，屯田产量有限。因此，政府每年征调北直隶、晋、陕、豫、鲁数省农民将交纳后的粮食运送到指定边镇。但在交通不便，车拉驴驮的时代，要把数十万石粮食转运到边塞绝非易事，既妨碍农作，又成本很高。</p>
 <blockquote>
 <p>九边：又称九镇，是中国明朝弘治年间在北部边境沿长城防线陆续设立的九个军事重镇，分别是辽东镇、蓟州镇、宣府镇、大同镇、太原镇（也称山西镇或三关镇）、延绥镇（也称榆林镇）、宁夏镇、固原镇（也称陕西镇）、甘肃镇。</p>
 </blockquote>
@@ -2443,11 +2454,11 @@
 <p> 明代中国版图虽不如清朝之大，但商人运送粮食多在北方，而支取食盐多在东部沿海，在前工业革命的技术条件下，运粮与支盐的间隔必然相当长，可以说，开中法的盐粮交易，是政府的借贷行为，政府借取粮食在前，而以食盐偿还在后。</p>
 </li>
 <li><p>第三，开中法原本的设计，没有货币成分，但也不是以物易物，而是凭一纸盐引完成交易。</p>
-<p> 每一纸盐引代表200斤盐的价值，是政府欠债的凭据，商人凭此盐引，能够支取食盐，作为为政府运送粮食的报酬。基于这三个原因，可以把开中法理解为公债制度，把盐引理解为公债券。明初，战乱甫定，元末纸钞恶性通货膨胀的阴影未消，而大明宝钞的纸币制度又非常失败。但明朝政府却能在食盐的运输方面推出开中法这样一个承认利润原则、依靠市场力量的公债制度，相当值得关注。</p>
-</li>
+<p> 每一纸盐引代表200斤盐的价值，是政府欠债的凭据，商人凭此盐引，能够支取食盐，作为为政府运送粮食的报酬。基于这三个原因，可以把开中法理解为公债制度，把盐引理解为公债券。明初，战乱甫定，元末纸钞恶性通货膨胀的阴影未消，而大明宝钞的纸币制度又非常失败。但明朝政府却能在食盐的运输方面推出开中法这样一个承认利润原则、依靠市场力量的公债制度，相当值得关注。
+　</p>
+<h4 id="守支问題的出现"><a href="#守支问題的出现" class="headerlink" title="守支问題的出现"></a>守支问題的出现</h4></li>
 </ol>
-<p>　</p>
-<h4 id="守支问題的出现"><a href="#守支问題的出现" class="headerlink" title="守支问題的出现"></a>守支问題的出现</h4><p>明代统治者为了眼前利益，超额发放盐引，从而产生了始终困扰开中法<br>顺利实施的“守支”问题。所谓守支问题，就是盐商在边镇交纳粮草取得<br>盐引后，并不能马上支取到食盐，被迫困守盐场，等候支盐。守支问题的产生在于官商交易方式的改变，在于明政府行为方式的改变。明代开中法与以往历代王朝的盐政并无大的不同，盐的生产仍然由灶户专门从事，再由政府垄断征收，最后被盐商报中支取，转运各地销售。不同点在于，在以往盐制下，盐商直接向征收盐课的盐政机构购买官盐然后转运贩卖而获利，而在开中法下，盐商不再向盐政机构直接购盐，而是先赴边镇纳粮，再回盐政机构支盐转贩。这样，其经营环节便由二增加为三，即一是赴边纳粮，二是返回盐政机构支盐，三是载盐转贩。这一改变使盐商纳粮与支盐两个经营环节间出现了一段间断期。在这段间断期，明廷只需出具一纸纳粮收据，便提前占用了盐商的资金。这样一来，就会出现这样一种可能：当边镇军需紧张时，可以有意延长这段间断期，将尚未产出的官盐预先开中，仅凭一纸收据提前收取盐商投资。这就为守支问题的产生提供了可能。</p>
+<p>明代统治者为了眼前利益，超额发放盐引，从而产生了始终困扰开中法<br>顺利实施的“守支”问题。所谓守支问题，就是盐商在边镇交纳粮草取得<br>盐引后，并不能马上支取到食盐，被迫困守盐场，等候支盐。守支问题的产生在于官商交易方式的改变，在于明政府行为方式的改变。明代开中法与以往历代王朝的盐政并无大的不同，盐的生产仍然由灶户专门从事，再由政府垄断征收，最后被盐商报中支取，转运各地销售。不同点在于，在以往盐制下，盐商直接向征收盐课的盐政机构购买官盐然后转运贩卖而获利，而在开中法下，盐商不再向盐政机构直接购盐，而是先赴边镇纳粮，再回盐政机构支盐转贩。这样，其经营环节便由二增加为三，即一是赴边纳粮，二是返回盐政机构支盐，三是载盐转贩。这一改变使盐商纳粮与支盐两个经营环节间出现了一段间断期。在这段间断期，明廷只需出具一纸纳粮收据，便提前占用了盐商的资金。这样一来，就会出现这样一种可能：当边镇军需紧张时，可以有意延长这段间断期，将尚未产出的官盐预先开中，仅凭一纸收据提前收取盐商投资。这就为守支问题的产生提供了可能。</p>
 <p>开中法实施后，开中盐粮遂成为明代盐政的一个重要部分，而盐政在明<br>代与边备关系密切，所得款项主要用于边防武备开支，这样，盐政实际就成为明廷满足边镇军需的一种手段。盐政与边政相比，边政直接关系国家安危，自然被置于更高地位。开中盐粮的多少是一个变量，主要受边饷需求的制约，而边饷需求又要视边情缓急而定。边情紧急，边饷需求则剧增，开中盐粮也就作为应急措施被频繁使用。反之，开中盐粮则无必要，或所需甚少。因此，开中盐粮实际将盐政与边政直接连在了一起。由于明廷拥有一条延绵万里的西北防御线，边饷需求巨大，开中量往往超出官盐的供应量，使盐商纳粮而无现盐可支，盐商无法及时获得官盐，被迫守支。</p>
 <p>开中法得以实施的前提条件就是统治者必须抑制自己的“掠夺之手”，严格遵守承诺，发给商人的盐引总数必须与盐场当年的产量总额相符，不能超发、滥发，以便保障商人在交纳粮草后会得到食盐，“不拘资次，盐引遇到即支”。可是，统治者往往根据边镇局势变化的需要来决定发行的盐引数量，使得发行的盐引远远超过盐场的支付能力，从而造成“守支”问题。</p>
 <p>特别是明代中后期，随着开中法的普及，开中内容随着明代社<br>会经济的发展和边储的需要逐渐由纳米中盐繁衍为纳铁中盐、纳茶中盐、纳绢中盐等多种方式，食盐几乎充当了一般等价物的角色。统治者发现，通过发行盐引并延期支盐，无需付出什么成本就可以将大量的民间资本征集起来供其使用，这对于统治者来说是一种极具诱惑的、有利可图的选择。</p>
@@ -2473,7 +2484,7 @@
 </blockquote>
 <p>庞尚鹏的奏折，清楚地交代了16世纪中叶两淮盐引市场的运作，以及政府对盐引市场的承认和控制。盐商分为专门输送粮食的“边商”、专门凭盐引兑换食盐的“内商”，边商把支取食盐所需的各种票据（勘合、盐引）等卖予内商，内商则凭着这些票据支取食盐。庞尚鹏对于这一系列显然违反“祖制”的现象，并不反对，反而予以承认，还规定边商、内商之间三种票据的交易价格。</p>
 <p><img src="http://qiniup.louyanspine.com/2018-06-19-%E8%BE%B9%E5%95%86%E3%80%81%E5%86%85%E5%95%86%E4%B9%8B%E9%97%B4%E4%B8%89%E7%A7%8D%E7%A5%A8%E6%8D%AE%E7%9A%84%E4%BA%A4%E6%98%93%E4%BB%B7%E6%A0%BC.jpg" alt="边商、内商之间三种票据的交易价格"></p>
-<p>###（二）折色开中法与运司纳银制<br>按照明代开中法的要求，商人必须把粮草等物资输送到边防卫所，以换<br>取“仓钞”，再按仓钞发派盐引，然后凭盐引到指定的盐场支盐，并在政府指定的范围内销售。无盐引而经销食盐，属于贩私盐，要受法律严惩。如果商人们输边交纳的是粮草等农产品，则称为“本色”，如果交纳的是银钱,则称为“折色”。明初边防物资以粮食为主，开中的形式主要为“本色”。到了明代成弘年间，随着白银的使用，盐法发生了重大变革，由纳“本色”改为纳“折色”，即由纳粮改为纳银。</p>
+<h3 id="（二）折色开中法与运司纳银制"><a href="#（二）折色开中法与运司纳银制" class="headerlink" title="（二）折色开中法与运司纳银制"></a>（二）折色开中法与运司纳银制</h3><p>按照明代开中法的要求，商人必须把粮草等物资输送到边防卫所，以换<br>取“仓钞”，再按仓钞发派盐引，然后凭盐引到指定的盐场支盐，并在政府指定的范围内销售。无盐引而经销食盐，属于贩私盐，要受法律严惩。如果商人们输边交纳的是粮草等农产品，则称为“本色”，如果交纳的是银钱,则称为“折色”。明初边防物资以粮食为主，开中的形式主要为“本色”。到了明代成弘年间，随着白银的使用，盐法发生了重大变革，由纳“本色”改为纳“折色”，即由纳粮改为纳银。</p>
 <p>最初的开中折色政策是政府为了吸引商人参与开中而出台的优惠政策。<br>据记载：天顺八年十一月，即宪宗即位尚未改元之时，明廷以报中商人稀少，下令降低当年八月在大同、宣府所开中引盐的价格，并规定“愿折银者听”，折银标准为淮盐每引折银五钱，其余盐种依中盐米数以次递减此时，运粮到边区开中的商人，也希望把纳粮开中改为纳银开中。在此之前内地盐商或纳粮输边或经营商囤以换取盐引，他们在洪武时期盐法通行之时不困守支、资金周转迅速，经营顺利。</p>
 <p>自永乐以后盐法日坏，商人们苦于守支，不少内地盐商纷纷破产，视开中为畏途。在这种情况下，正当盐商无法获利，只有那些投靠权贵者例外。事实上，盐商若不投靠权贵而免于守支，一般是不敢冒险去开中的。对商人们来说，纳银开中，缩短了守支的时间，缩短了经营周期，其益处自然不言自明。纳银开中不但有利于商人，而且有利于政府。</p>
 <p>当时白银已成为通用的货币，因而白银在财政上的运用较纳粮草为方便。很显然，在折色开中制下，商人向边关输送粮草改为折纳银两，实际上就失去了原来开中之本意。</p>
@@ -2494,8 +2505,7 @@
 <p>从内商手里批发到盐再转运各地的，叫水商。</p>
 </blockquote>
 <p>以徽商和南迁的秦晋富豪为骨干的内商构成了明代盐商的主体。由此可见,三商的分化实质上是促使内商演变为盐商的主角，边、水二商不过是它的经济附庸。但内商决不会坐困守支、正常经营，而是将投托权贵“奏讨”包占的盐引“价增数倍”卖出，以“买窝卖窝”形式坐享其成，这种脱离盐业经营转手倒卖盐引的商人实为一种寄生阶层。其通过投托权贵，牟取厚利，经弘治到万历百余年的发展，终于成为内商中的巨富，囤户。</p>
-<p>###（三）纲法</p>
-<h4 id="边镇纳粟的差别"><a href="#边镇纳粟的差别" class="headerlink" title="边镇纳粟的差别"></a>边镇纳粟的差别</h4><p>由于商屯在不同的边镇发展情况有差别，加大了各边镇开中纳粟的差距。开垦种植条件较好的地区，如陕西三边、山西诸边，商屯发达，中纳情况较好，而北京周围边镇，开垦种植条件较差，商屯难兴，开中纳粟就比较困难。极边地区如甘肃，极冲地区如大同、宣府、独石，开中纳粟仍不景气。国家只好用行政命令或其他手段进行调节。宣德中，因赴北京中盐的人少，规定召商纳中之盐“以十分为率，六分支与纳米京仓者，四分支与辽东、永平、山海、大同、宣府、万全已纳米者，他处中纳悉停之”。对于甘肃、宁夏、大同、宣府、独石、永平等道路险远、商人不乐赴中的地方，甚至允许“寓居官员及军余有粮之家纳米豆中盐”。
+<h3 id="（三）纲法"><a href="#（三）纲法" class="headerlink" title="（三）纲法"></a>（三）纲法</h3><h4 id="边镇纳粟的差别"><a href="#边镇纳粟的差别" class="headerlink" title="边镇纳粟的差别"></a>边镇纳粟的差别</h4><p>由于商屯在不同的边镇发展情况有差别，加大了各边镇开中纳粟的差距。开垦种植条件较好的地区，如陕西三边、山西诸边，商屯发达，中纳情况较好，而北京周围边镇，开垦种植条件较差，商屯难兴，开中纳粟就比较困难。极边地区如甘肃，极冲地区如大同、宣府、独石，开中纳粟仍不景气。国家只好用行政命令或其他手段进行调节。宣德中，因赴北京中盐的人少，规定召商纳中之盐“以十分为率，六分支与纳米京仓者，四分支与辽东、永平、山海、大同、宣府、万全已纳米者，他处中纳悉停之”。对于甘肃、宁夏、大同、宣府、独石、永平等道路险远、商人不乐赴中的地方，甚至允许“寓居官员及军余有粮之家纳米豆中盐”。
 　</p>
 <h4 id="解决守支问题的策略"><a href="#解决守支问题的策略" class="headerlink" title="解决守支问题的策略"></a>解决守支问题的策略</h4><ol>
 <li><p>出钞给商，冲消盐引。如成化十六年（1480）：</p>
@@ -2561,70 +2571,6 @@
 <p>　盐引：又称“盐钞”，是宋代的取盐凭证，“引”是指有价证券，可以作为“代币”流通。明朝时期，如果想要合法贩盐，商人必须先向政府取得“盐引”。每引一号，分前后两卷，盖印后从中间分成两份，后卷给商人的，叫“引纸”——盐引；前卷存根叫“引根”。商人凭盐引到盐场支盐，又到指定销盐区卖盐。</p>
 <p>　两淮盐引案：乾隆三十三年（1768），新任“盐政”查账，发现在他之前的20年里，“盐政”的官吏们私自“超发”盐引，从中克扣、提留“引银”竟达1000多万两。乾隆大怒，许多官吏和徽州大盐商都被抓捕至北京问罪，其中包括纪晓岚等知名“要员”（纪因此受到牵连，而被发配新疆）。</p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/18/huanglao/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/18/huanglao/" class="post-title-link" itemprop="url">黄老（未完）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-18 17:05:00" itemprop="dateCreated datePublished" datetime="2018-06-18T17:05:00+08:00">2018-06-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
       
     </div>
 
@@ -2708,7 +2654,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">464</span>
+          <span class="site-state-item-count">465</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2721,7 +2667,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1687</span>
+        <span class="site-state-item-count">1689</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -2807,6 +2753,8 @@
 
 
 
+
+  
 
   
 

@@ -265,23 +265,22 @@
 <li><p><code>eval</code>函数可以接收一个字符串作为参数，以动态形式插入程序的某个位置，并对其词法作用域的环境进行修改。</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 5</span><br></pre></td></tr></table></figure></li>
 <li><p>在严格模式下，<code>eval</code>函数在运行时拥有自己的词法作用域。这意味着其中的声明无法修改所在的作用域。</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 2</span><br><span class="line"></span><br><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;Uncaught ReferenceError: b is not defined</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 2</span><br><span class="line"></span><br><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;Uncaught ReferenceError: b is not defined</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="with"><a href="#with" class="headerlink" title="with"></a>with</h3><ol>
 <li><p><code>with</code>通常被当做重复引用同一个对象中的多个属性的快捷方式，可以不需要重复引用对象本身：</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: 2,</span><br><span class="line">    c: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.a = 2;</span><br><span class="line">obj.b = 3;</span><br><span class="line">obj.c = 4;</span><br><span class="line"></span><br><span class="line">with(obj) &#123;</span><br><span class="line">    a = 3;</span><br><span class="line">    b = 4;</span><br><span class="line">    c = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>实际上不仅仅是为了方便地访问对象属性：</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function foo(obj)&#123;</span><br><span class="line">    with(obj)&#123;</span><br><span class="line">        a = 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var o1 = &#123;</span><br><span class="line">     a: 3</span><br><span class="line">&#125;;</span><br><span class="line">var o2 = &#123;</span><br><span class="line">     b: 3</span><br><span class="line">&#125;;</span><br><span class="line">foo(o1);</span><br><span class="line">o1.a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line"></span><br><span class="line">foo(o2);</span><br><span class="line">o2.a;</span><br><span class="line">&gt;&gt;&gt;undefined</span><br><span class="line"></span><br><span class="line">a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line">//a被泄露到全局作用域中。</span><br></pre></td></tr></table></figure>
-<p> 因为，在非严格模式下，若a&#x3D;2中的变量a未声明，也就是在任何作用域中都查找不到变量a，那么就会在全局作用域中创建一个变量a，并将2赋值于它。</p>
+<p> 因为，在非严格模式下，若a=2中的变量a未声明，也就是在任何作用域中都查找不到变量a，那么就会在全局作用域中创建一个变量a，并将2赋值于它。</p>
 <p> <img src="http://qiniup.louyanspine.com/2018-07-12-foo-o1-.png" alt="foo(o1)"></p>
 <p> <img src="http://qiniup.louyanspine.com/2018-07-12-foo-o2-.png" alt="foo(o2)"></p>
 </li>
 <li><p><code>with</code>语句接收一个对象，这个对象有0个或多个属性，并将这个对象视为好像它是一个完全隔离的词法作用域，因此这个对象的属性被视为在这个“作用域”中词法定义的标识符。如上图中的<code>o1 Scope</code>和<code>o2 Scope</code>。</p>
 </li>
-<li><p>尽管一个<code>with</code>块将一个对象视为一个词法作用域，但在<code>with</code>块内部的一个普通<code>var</code>声明将不会归于这个<code>with</code>块的作用域，而是归于包含它的函数作用域。</p>
-</li>
-<li><p>当我们传递对象<code>o1</code>给<code>with</code>时，<code>with</code>所声明的作用域是<code>o1</code>，而这个作用域中含有一个与<code>o1.a</code>属性同名的标识符。但当我们将<code>o2</code>对象作为作用域时，其中没有<code>a</code>标识符，因此进行了正常的<code>LHS (Left Hand Side)</code>查找，最后导致创建了一个全局变量a并赋值为2。</p>
-</li>
+<li>尽管一个<code>with</code>块将一个对象视为一个词法作用域，但在<code>with</code>块内部的一个普通<code>var</code>声明将不会归于这个<code>with</code>块的作用域，而是归于包含它的函数作用域。</li>
+<li>当我们传递对象<code>o1</code>给<code>with</code>时，<code>with</code>所声明的作用域是<code>o1</code>，而这个作用域中含有一个与<code>o1.a</code>属性同名的标识符。但当我们将<code>o2</code>对象作为作用域时，其中没有<code>a</code>标识符，因此进行了正常的<code>LHS (Left Hand Side)</code>查找，最后导致创建了一个全局变量a并赋值为2。</li>
 </ol>
 <h2 id="二、性能"><a href="#二、性能" class="headerlink" title="二、性能"></a>二、性能</h2><p>JavaScript引擎在编译阶段期进行许多性能优化工作。其中的一些优化原理都归结为实质上在进行词法分析时可以静态地分析代码，并提前决定所有的变量和函数声明都在什么位置，这样在执行期间就可以少花些力气来解析标识符。</p>
 <p>但如果引擎在代码中找到一个<code>eval(..)</code>或<code>with</code>，它实质上就不得不假定自己知道的所有的标识符的位置可能是不合法的，因为它不可能在词法分析时就知道你将会向<code>eval(..)</code>传递什么样的代码来修改词法作用域，或者你可能会向<code>with</code>传递的对象有什么样的内容来创建一个新的将被查询的词法作用域。</p>
@@ -386,7 +385,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">464</span>
+          <span class="site-state-item-count">465</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -399,7 +398,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1687</span>
+        <span class="site-state-item-count">1689</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -485,6 +484,8 @@
 
 
 
+
+  
 
   
 
