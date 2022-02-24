@@ -20,21 +20,19 @@
     var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="基础使用simstudy包进行模拟有两个基本步骤。首先，用户在外部csv文件中或通过一组重复的定义语句在内部定义数据集的数据元素。其次，用户使用这些定义生成数据。 数据生成可以像横截面设计(cross-sectional design)或前瞻性队列设计(prospective cohort design)一样简单，也可以稍复杂一些。 模拟可以包括观察性或随机的治疗分配&#x2F;暴露，生存数据，纵向&#x2F;面板数">
+  <meta name="description" content="基础 使用simstudy包进行模拟有两个基本步骤。首先，用户在外部csv文件中或通过一组重复的定义语句在内部定义数据集的数据元素。其次，用户使用这些定义生成数据。 数据生成可以像横截面设计(cross-sectional design)或前瞻性队列设计(prospective cohort design)一样简单，也可以稍复杂一些。 模拟可以包括观察性或随机的治疗分配&#x2F;暴露，生存数据，纵向&#x2F;面板">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用simstudy包模拟出相似数据集（未完）">
 <meta property="og:url" content="http://lysp2017.github.io/2018/07/22/simstudypackage/index.html">
 <meta property="og:site_name" content="高山流水">
-<meta property="og:description" content="基础使用simstudy包进行模拟有两个基本步骤。首先，用户在外部csv文件中或通过一组重复的定义语句在内部定义数据集的数据元素。其次，用户使用这些定义生成数据。 数据生成可以像横截面设计(cross-sectional design)或前瞻性队列设计(prospective cohort design)一样简单，也可以稍复杂一些。 模拟可以包括观察性或随机的治疗分配&#x2F;暴露，生存数据，纵向&#x2F;面板数">
+<meta property="og:description" content="基础 使用simstudy包进行模拟有两个基本步骤。首先，用户在外部csv文件中或通过一组重复的定义语句在内部定义数据集的数据元素。其次，用户使用这些定义生成数据。 数据生成可以像横截面设计(cross-sectional design)或前瞻性队列设计(prospective cohort design)一样简单，也可以稍复杂一些。 模拟可以包括观察性或随机的治疗分配&#x2F;暴露，生存数据，纵向&#x2F;面板">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-22-data%20definition%20tables.png">
 <meta property="article:published_time" content="2018-07-22T11:32:55.000Z">
 <meta property="article:modified_time" content="2019-02-27T16:42:31.000Z">
 <meta property="article:author" content="Louyan">
 <meta property="article:tag" content="R">
 <meta property="article:tag" content="simstudy包">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-07-22-data%20definition%20tables.png">
 
 <link rel="canonical" href="http://lysp2017.github.io/2018/07/22/simstudypackage/">
 
@@ -80,7 +78,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -251,22 +251,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>使用<code>simstudy包</code>进行模拟有两个基本步骤。首先，用户在外部csv文件中或通过一组重复的定义语句在内部定义数据集的数据元素。其次，用户使用这些定义生成数据。</p>
-<p>数据生成可以像横截面设计(cross-sectional design)或前瞻性队列设计(prospective cohort design)一样简单，也可以稍复杂一些。</p>
-<p>模拟可以包括观察性或随机的治疗分配/暴露，生存数据，纵向/面板数据(longitudinal/panel data)，多级/分层数据(multi-level/hierarchical data)，基于特定协方差结构的相关变量的数据集，以及由任何类型的缺失模式导致的缺失数据的数据集。</p>
+        <h2 id="基础">基础</h2>
+<p>使用<code>simstudy包</code>进行模拟有两个基本步骤。首先，用户在外部csv文件中或通过一组重复的定义语句在内部定义数据集的数据元素。其次，用户使用这些定义生成数据。</p>
+<p>数据生成可以像横截面设计(cross-sectional
+design)或前瞻性队列设计(prospective cohort
+design)一样简单，也可以稍复杂一些。</p>
+<p>模拟可以包括观察性或随机的治疗分配/暴露，生存数据，纵向/面板数据(longitudinal/panel
+data)，多级/分层数据(multi-level/hierarchical
+data)，基于特定协方差结构的相关变量的数据集，以及由任何类型的缺失模式导致的缺失数据的数据集。</p>
 <blockquote>
 <ul>
-<li>Longitudinal Data/纵向数据：对同一组受试个体在不同时间上的重复观测。<br></li>
-<li>Panel Data/面板数据(平行数据)：指在时间序列上取多个截面,在这些截面上同时选取样本观测值所构成的样本数据。</li>
+<li>Longitudinal
+Data/纵向数据：对同一组受试个体在不同时间上的重复观测。<br></li>
+<li>Panel
+Data/面板数据(平行数据)：指在时间序列上取多个截面,在这些截面上同时选取样本观测值所构成的样本数据。</li>
 </ul>
 </blockquote>
-<p>在<code>simstudy包</code>中模拟数据的关键是创建一系列数据定义表(data definition table)，如下所示：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-07-22-data%20definition%20tables.png" alt="data definition tables"></p>
-<p>用于生成上述定义的代码<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">library(simstudy)</span><br><span class="line">library(data.table)</span><br><span class="line"></span><br><span class="line">def &lt;- defData(varname = &quot;nr&quot;, dist = &quot;nonrandom&quot;, formula = 7, id = &quot;idnum&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;x1&quot;, dist = &quot;uniform&quot;, formula = &quot;10;20&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;y1&quot;, formula = &quot;nr + x1 * 2&quot;, variance = 8)</span><br><span class="line">def &lt;- defData(def, varname = &quot;y2&quot;, dist = &quot;poisson&quot;, formula = &quot;nr - 0.2 * x1&quot;, link = &quot;log&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;xCat&quot;, formula = &quot;0.3;0.2;0.5&quot;, dist = &quot;categorical&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;g1&quot;, dist = &quot;gamma&quot;, formula = &quot;5+xCat&quot;, variance = 1, link = &quot;log&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;a1&quot;, dist = &quot;binary&quot;, formula = &quot;-3 + xCat&quot;, link = &quot;logit&quot;)</span><br></pre></td></tr></table></figure><br>要根据这些定义创建一个简单的数据集，所有人都需要执行一个<code>genData</code>命令。</p>
+<p>在<code>simstudy包</code>中模拟数据的关键是创建一系列数据定义表(data
+definition table)，如下所示：</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-22-data%20definition%20tables.png"
+alt="data definition tables" />
+<figcaption aria-hidden="true">data definition tables</figcaption>
+</figure>
+<p>用于生成上述定义的代码 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">library(simstudy)</span><br><span class="line">library(data.table)</span><br><span class="line"></span><br><span class="line">def &lt;- defData(varname = &quot;nr&quot;, dist = &quot;nonrandom&quot;, formula = 7, id = &quot;idnum&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;x1&quot;, dist = &quot;uniform&quot;, formula = &quot;10;20&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;y1&quot;, formula = &quot;nr + x1 * 2&quot;, variance = 8)</span><br><span class="line">def &lt;- defData(def, varname = &quot;y2&quot;, dist = &quot;poisson&quot;, formula = &quot;nr - 0.2 * x1&quot;, link = &quot;log&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;xCat&quot;, formula = &quot;0.3;0.2;0.5&quot;, dist = &quot;categorical&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;g1&quot;, dist = &quot;gamma&quot;, formula = &quot;5+xCat&quot;, variance = 1, link = &quot;log&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;a1&quot;, dist = &quot;binary&quot;, formula = &quot;-3 + xCat&quot;, link = &quot;logit&quot;)</span><br></pre></td></tr></table></figure>
+要根据这些定义创建一个简单的数据集，所有人都需要执行一个<code>genData</code>命令。</p>
 <p>在此示例中，我们生成500条记录，这些记录基于<code>def表</code>中的定义：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dt &lt;- genData(500, def)</span><br><span class="line"></span><br><span class="line">    idnum nr       x1       y1  y2 xCat          g1 a1</span><br><span class="line">  1:     1  7 11.14037 34.04765 138    3   637.50317  1</span><br><span class="line">  2:     2  7 11.92208 30.44868 100    1    79.01242  0</span><br><span class="line">  3:     3  7 16.18471 39.71205  37    3    73.57740  0</span><br><span class="line">  4:     4  7 15.99059 38.68228  37    1   115.78951  0</span><br><span class="line">  5:     5  7 10.61884 30.63140 137    3 11407.90428  1</span><br><span class="line"> ---                                                   </span><br><span class="line">496:   496  7 16.95754 38.20793  38    3   954.34293  0</span><br><span class="line">497:   497  7 17.38688 46.24585  41    1    23.14826  0</span><br><span class="line">498:   498  7 13.10723 38.21072  69    3  3799.37787  0</span><br><span class="line">499:   499  7 13.40657 33.17099  78    1  1512.06894  0</span><br><span class="line">500:   500  7 11.72582 36.90359 106    3  3903.30936  1</span><br></pre></td></tr></table></figure>
-<h2 id="用重复测量模拟一项前瞻性队列研究"><a href="#用重复测量模拟一项前瞻性队列研究" class="headerlink" title="用重复测量模拟一项前瞻性队列研究"></a>用重复测量模拟一项前瞻性队列研究</h2><p>问题是，我们是否可以模拟一项双臂研究(对照组和治疗组)，在三个时间点上重复测量：基线，1个月后和2个月后？ 答案当然是of course。</p>
+<h2
+id="用重复测量模拟一项前瞻性队列研究">用重复测量模拟一项前瞻性队列研究</h2>
+<p>问题是，我们是否可以模拟一项双臂研究(对照组和治疗组)，在三个时间点上重复测量：基线，1个月后和2个月后？
+答案当然是of course。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line"></span><br><span class="line"># Define the outcome</span><br><span class="line"> </span><br><span class="line">ydef &lt;- defDataAdd(varname = &quot;Y&quot;, dist = &quot;normal&quot;, </span><br><span class="line">                   formula = &quot;5 + 2.5*period + 1.5*T + 3.5*period*T&quot;, </span><br><span class="line">                   variance = 3)</span><br><span class="line"> </span><br><span class="line"># Generate a &#x27;blank&#x27; data.table with 24 observations and assign them to groups</span><br><span class="line"> </span><br><span class="line">set.seed(1234)</span><br><span class="line"> </span><br><span class="line">indData &lt;- genData(24)</span><br><span class="line">indData &lt;- trtAssign(indData, nTrt = 2, balanced = TRUE, grpName = &quot;T&quot;)</span><br><span class="line"> </span><br><span class="line"># Create a longitudinal data set of 3 records for each id</span><br><span class="line"> </span><br><span class="line">longData &lt;- addPeriods(indData, nPeriods = 3, idvars = &quot;id&quot;)</span><br><span class="line">longData &lt;- addColumns(dtDefs = ydef, longData)</span><br><span class="line"> </span><br><span class="line">longData[, `:=`(T, factor(T, labels = c(&quot;No&quot;, &quot;Yes&quot;)))]</span><br><span class="line"> </span><br><span class="line"># Let&#x27;s look at the data</span><br><span class="line"> </span><br><span class="line">ggplot(data = longData, aes(x = factor(period), y = Y)) + geom_line(aes(color = T, </span><br><span class="line">    group = id)) + scale_color_manual(values = c(&quot;#e38e17&quot;, &quot;#8e17e3&quot;)) + xlab(&quot;Time&quot;)</span><br></pre></td></tr></table></figure>
+
     </div>
 
     

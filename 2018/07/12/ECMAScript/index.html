@@ -20,19 +20,14 @@
     var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="说明  参考整理自Michael Aranda的文章What’s the difference between JavaScript and ECMAScript?   概念解释Ecma International(European Computer Manufacturers Association) 一个为科学技术制定标准的组织。 为了要举一个“标准”的例子，可以用我们曾用过的键盘来说明。是">
+  <meta name="description" content="说明 1. 参考整理自Michael Aranda的文章What’s the difference between JavaScript and ECMAScript?  概念解释 Ecma International(European Computer Manufacturers Association)  一个为科学技术制定标准的组织。 为了要举一个“标准”的例子，可以用我们曾用过的键盘来说">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript与ECMAScript的区别">
 <meta property="og:url" content="http://lysp2017.github.io/2018/07/12/ECMAScript/index.html">
 <meta property="og:site_name" content="高山流水">
-<meta property="og:description" content="说明  参考整理自Michael Aranda的文章What’s the difference between JavaScript and ECMAScript?   概念解释Ecma International(European Computer Manufacturers Association) 一个为科学技术制定标准的组织。 为了要举一个“标准”的例子，可以用我们曾用过的键盘来说明。是">
+<meta property="og:description" content="说明 1. 参考整理自Michael Aranda的文章What’s the difference between JavaScript and ECMAScript?  概念解释 Ecma International(European Computer Manufacturers Association)  一个为科学技术制定标准的组织。 为了要举一个“标准”的例子，可以用我们曾用过的键盘来说">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-12-ECMA-262.png">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-12-%E5%8F%AF%E4%BB%A5%E6%8A%8AECMA-262%20%E5%BD%93%E5%81%9AECMAScript%E7%9A%84%E5%8F%82%E8%80%83%E6%95%B0%E5%AD%97.png">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-12-JavaScript%E7%9A%84%E9%9D%9EECMAScript%E8%AF%AD%E8%A8%80%E5%8A%9F%E8%83%BD.png">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8.png">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E7%9A%84%E5%B7%AE%E5%BC%82.png">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-12-Firefox%E2%80%99s%20JavaScript%20changelog.png">
 <meta property="article:published_time" content="2018-07-12T06:26:01.000Z">
 <meta property="article:modified_time" content="2019-02-27T16:59:34.000Z">
 <meta property="article:author" content="Louyan">
@@ -85,7 +80,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -257,55 +254,151 @@
 
       
         <blockquote>
-<p>说明<br></p>
-<ol>
-<li>参考整理自Michael Aranda的文章What’s the difference between JavaScript and ECMAScript?</li>
-</ol>
+<p>说明<br> 1. 参考整理自Michael Aranda的文章What’s the difference
+between JavaScript and ECMAScript?</p>
 </blockquote>
-<h2 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h2><h3 id="Ecma-International-European-Computer-Manufacturers-Association"><a href="#Ecma-International-European-Computer-Manufacturers-Association" class="headerlink" title="Ecma International(European Computer Manufacturers Association)"></a>Ecma International(European Computer Manufacturers Association)</h3><ol>
-<li>一个为科学技术制定标准的组织。</li>
-<li>为了要举一个“标准”的例子，可以用我们曾用过的键盘来说明。是不是大多数的字母以同样的顺序排列，有一个空格键、一个输入键、箭头键，并将数字显示在最上面的一行?这是由于大多数键盘制造商的键盘设计是基于<code>QWERTY</code>布局标准的。</li>
-<li><p>ECMA-262：由Ecma International发布的标准。它包含通用目的的脚本语言的规范。</p>
-<p> <img src="http://qiniup.louyanspine.com/2018-07-12-ECMA-262.png" alt="ECMA-262"></p>
+<h2 id="概念解释">概念解释</h2>
+<h3
+id="ecma-internationaleuropean-computer-manufacturers-association">Ecma
+International(European Computer Manufacturers Association)</h3>
+<ol type="1">
+<li><p>一个为科学技术制定标准的组织。</p></li>
+<li><p>为了要举一个“标准”的例子，可以用我们曾用过的键盘来说明。是不是大多数的字母以同样的顺序排列，有一个空格键、一个输入键、箭头键，并将数字显示在最上面的一行?这是由于大多数键盘制造商的键盘设计是基于<code>QWERTY</code>布局标准的。</p></li>
+<li><p>ECMA-262：由Ecma
+International发布的标准。它包含通用目的的脚本语言的规范。</p>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-12-ECMA-262.png"
+alt="ECMA-262" />
+<figcaption aria-hidden="true">ECMA-262</figcaption>
+</figure>
 <ul>
-<li><p><code>ECMA-262</code>是一个类似<code>QWERTY</code>的标准，但不同于呈现一个键盘层的规范，它呈现了被称为<code>ECMAScript</code>的脚本语言规范。</p>
-</li>
-<li><p>可以把<code>ECMA-262</code>当做<code>ECMAScript</code>参考数字</p>
-<p><img src="http://qiniup.louyanspine.com/2018-07-12-%E5%8F%AF%E4%BB%A5%E6%8A%8AECMA-262%20%E5%BD%93%E5%81%9AECMAScript%E7%9A%84%E5%8F%82%E8%80%83%E6%95%B0%E5%AD%97.png" alt="可以把ECMA-262 当做ECMAScript的参考数字"></p>
-</li>
+<li><p><code>ECMA-262</code>是一个类似<code>QWERTY</code>的标准，但不同于呈现一个键盘层的规范，它呈现了被称为<code>ECMAScript</code>的脚本语言规范。</p></li>
+<li><p>可以把<code>ECMA-262</code>当做<code>ECMAScript</code>参考数字</p></li>
 </ul>
-</li>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-%E5%8F%AF%E4%BB%A5%E6%8A%8AECMA-262%20%E5%BD%93%E5%81%9AECMAScript%E7%9A%84%E5%8F%82%E8%80%83%E6%95%B0%E5%AD%97.png"
+alt="可以把ECMA-262 当做ECMAScript的参考数字" />
+<figcaption aria-hidden="true">可以把ECMA-262
+当做ECMAScript的参考数字</figcaption>
+</figure></li>
 </ol>
-<h3 id="脚本语言-A-scripting-language"><a href="#脚本语言-A-scripting-language" class="headerlink" title="脚本语言(A scripting language)"></a>脚本语言(A scripting language)</h3><p>A programming language designed specifically for acting on an existing entity or system</p>
-<p>什么样的编程语言是脚本语言？请思考下命令“walk”、“run” 和 “jump”。这些操作需要一些东西来执行，可能是一个人、一条狗或一个视频游戏角色。如果没有东西来执行这些命令，“walk”、“run” 和 “jump” 是没有意义的。这组操作类似于脚本语言，即专注于操纵外部实体。</p>
-<h3 id="ECMAScript-ECMAScript规范-ECMAScript-specification"><a href="#ECMAScript-ECMAScript规范-ECMAScript-specification" class="headerlink" title="ECMAScript/ECMAScript规范(ECMAScript specification)"></a>ECMAScript/ECMAScript规范(ECMAScript specification)</h3><p>ECMA-262中定义的标准，是用于创建通用目的脚本语言。ECMA-262是标准的名称，它代表了脚本语言规范ECMAScript。</p>
+<h3 id="脚本语言a-scripting-language">脚本语言(A scripting
+language)</h3>
+<p>A programming language designed specifically for acting on an
+existing entity or system</p>
+<p>什么样的编程语言是脚本语言？请思考下命令“walk”、“run” 和
+“jump”。这些操作需要一些东西来执行，可能是一个人、一条狗或一个视频游戏角色。如果没有东西来执行这些命令，“walk”、“run”
+和 “jump”
+是没有意义的。这组操作类似于脚本语言，即专注于操纵外部实体。</p>
+<h3
+id="ecmascriptecmascript规范ecmascript-specification">ECMAScript/ECMAScript规范(ECMAScript
+specification)</h3>
+<p>ECMA-262中定义的标准，是用于创建通用目的脚本语言。ECMA-262是标准的名称，它代表了脚本语言规范ECMAScript。</p>
 <p>ECMAScript提供脚本语言必须遵守的规则、细节和准则，这些才是其被视为兼容ECMAScript的判断标准。</p>
-<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>一种通用目的的脚本语言，遵循<code>ECMAScript</code>规范。它是<code>ECMAScript</code>语言的一个分支版本。</p>
-<p>通过阅读<code>ECMAScript</code>规范，你将学会如何创建脚本语言。通过阅读 JavaScript文档，你将学习如何使用脚本语言。</p>
+<h3 id="javascript">JavaScript</h3>
+<p>一种通用目的的脚本语言，遵循<code>ECMAScript</code>规范。它是<code>ECMAScript</code>语言的一个分支版本。</p>
+<p>通过阅读<code>ECMAScript</code>规范，你将学会如何创建脚本语言。通过阅读
+JavaScript文档，你将学习如何使用脚本语言。</p>
 <p>当人们把JavaScript称为“ECMAScript语言的方言”的时候，他们的意思就像谈论英语、法语或者中国方言时一样。一种方言从其母语中衍生出大部分的词汇和语法，但偏离得值得保留这些差异。</p>
-<p>JavaScript实现了多数ECMA-262中描述的<code>ECMAScript</code>规范，但存在少数差异。 Mozilla在此概述了JavaScript的非ECMAScript语言功能：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-07-12-JavaScript%E7%9A%84%E9%9D%9EECMAScript%E8%AF%AD%E8%A8%80%E5%8A%9F%E8%83%BD.png" alt="JavaScript的非ECMAScript语言功能"></p>
-<h3 id="JavaScript引擎-A-JavaScript-engine-JavaScript-interpreter解释器-JavaScript-implementation实现"><a href="#JavaScript引擎-A-JavaScript-engine-JavaScript-interpreter解释器-JavaScript-implementation实现" class="headerlink" title="JavaScript引擎(A JavaScript engine)/JavaScript interpreter解释器/JavaScript implementation实现"></a>JavaScript引擎(A JavaScript engine)/JavaScript interpreter解释器/JavaScript implementation实现</h3><p>能够理解和执行JavaScript代码的程序或解释器。</p>
-<p>JavaScript引擎通常可以在Web浏览器中被发现，包括Chrome中的 <code>V8</code>，火狐中的<code>SpiderMonkey</code>，以及Edge中的<code>Chakra</code>。每款引擎就像是一个用于其应用程序的语言模块，可以让其支持某种JavaScript语言的分支。</p>
-<p>JavaScript引擎对于浏览器来说就像是人类对语言的理解一样。如果我们重新拿我们日常行为中的“走”、“跑”、“跳”来举例的话，一个 JavaScript引擎是真正能够理解这些动作是何意义的根本机制。</p>
-<h3 id="浏览器性能的差异"><a href="#浏览器性能的差异" class="headerlink" title="浏览器性能的差异"></a>浏览器性能的差异</h3><p>两个人也许会识别“跳”的命令，但是一个人由于理解和对命令的处理比另一个人更快些，也许会比另一个人对命令的反应更快些。类似的是，两个浏览器都可以理解JavaScript代码，但是一个由于其JavaScript引擎实现起来效率更高而运行得更快。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8.png" alt="浏览器"></p>
-<h3 id="浏览器支持-browser-support-的差异"><a href="#浏览器支持-browser-support-的差异" class="headerlink" title="浏览器支持(browser support)的差异"></a>浏览器支持(browser support)的差异</h3><p>再以即使说同样语言的人们之间也会有差异为例。即使许多人讲英语，但是一些人也许懂得他人不懂的某些词、表达式和与语法规则，反之亦然。浏览器也是同样的道理。尽管浏览器的 JavaScript 引擎都理解 JavaScript ，但是某些浏览器会比其他的浏览器对 JavaScript 理解得更好些。在浏览器对 JavaScript 的支持中就存在着这一的差别。</p>
-<p>至于说到浏览器支持，人们通常会谈到 “ECMAScript 兼容性(compatibility)” 而非“ JavaScript 兼容性”，尽管 JavaScript 引擎解析和执行的是 JavaScript 。这个问题说起来有点绕，下面的表格可以对其作出解释。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E7%9A%84%E5%B7%AE%E5%BC%82.png" alt="浏览器支持(browser support)的差异"></p>
-<p>如果你还记得的话，ECMAScript 是一份规定了脚本语言可以看起来像什么的规范。发布一个新的 ECMAScript 版本并不意味着所有现存的 JavaScript 引擎突然就拥有了这些新功能。这取决于负责那款 JavaScript 引擎的团体或组织是否要更新到最新的 ECMAScript 规范并采用其所带来的变化。</p>
-<p>因此，开发者倾向于问这样的问题，“这款浏览器支持哪个版本的 ECMAScript ?”或者“这款浏览器支持哪些 ECMAScript 功能?”他们想知道是否 Google、Mozilla 和微软已经开始更新他们浏览器的 JavaScript 引擎了，例如 V8、SpiderMonkey 和 Chakra 是否都已经具有最新的 ECMAScript 中的功能了。</p>
-<p><a ref="http://kangax.github.io/compat-table/es6/">ECMASCript 兼容性列表</a>是回答这类问题的绝佳答案参考。</p>
-<p>如果新版的 ECMAScript 发布了，JavaScript 引擎不会一下子整合所有的更新。他们会逐渐地加入 ECMAScript 功能，这一点从火狐的 JavaScript 变更记录中可见一斑：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-07-12-Firefox%E2%80%99s%20JavaScript%20changelog.png" alt="Firefox’s JavaScript changelog"></p>
-<h3 id="JavaScript运行时-A-JavaScript-runtime-宿主环境-Host-environment"><a href="#JavaScript运行时-A-JavaScript-runtime-宿主环境-Host-environment" class="headerlink" title="JavaScript运行时(A JavaScript runtime)/宿主环境(Host environment)"></a>JavaScript运行时(A JavaScript runtime)/宿主环境(Host environment)</h3><p>The environment in which the JavaScript code runs and is interpreted by a JavaScript engine.The runtime provides the host objects that JavaScript can operate on and work with.</p>
-<p>The JavaScript runtime is the “existing entity or system” mentioned in the scripting language definition. Code passes through the JavaScript engine, and once parsed and understood, an entity or system performs the interpreted actions. A dog walks, a person runs, a video game character jumps (or in the case of the above image, wrecks).</p>
-<p>Applications make themselves available to JavaScript scripting by providing “host objects” at runtime. For the client side, the JavaScript runtime would be the web browser, where host objects like windows and HTML documents are made available for manipulation.<br>Have you ever worked with the window or document host objects? The window and document objects are not actually a part of the core JavaScript language. They are Web APIs, objects provided by a browser acting as JavaScript’s host environment. For the server side, the JavaScript runtime is Node.js. Server-related host objects such as the file system, processes, and requests are provided in Node.js.</p>
-<p>n interesting point: different JavaScript runtimes can share the same JavaScript engine. V8, for example, is the JavaScript engine used in both Google Chrome and Node.js — two very different environments.</p>
-<h3 id="ECMAScript-6"><a href="#ECMAScript-6" class="headerlink" title="ECMAScript 6"></a>ECMAScript 6</h3><ol>
-<li>它是 ECMA-262 标准的第六个版本，其特点是对 ECMAScript 规范有着显著的变化和改进。</li>
+<p>JavaScript实现了多数ECMA-262中描述的<code>ECMAScript</code>规范，但存在少数差异。
+Mozilla在此概述了JavaScript的非ECMAScript语言功能：</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-JavaScript%E7%9A%84%E9%9D%9EECMAScript%E8%AF%AD%E8%A8%80%E5%8A%9F%E8%83%BD.png"
+alt="JavaScript的非ECMAScript语言功能" />
+<figcaption
+aria-hidden="true">JavaScript的非ECMAScript语言功能</figcaption>
+</figure>
+<h3
+id="javascript引擎a-javascript-enginejavascript-interpreter解释器javascript-implementation实现">JavaScript引擎(A
+JavaScript engine)/JavaScript interpreter解释器/JavaScript
+implementation实现</h3>
+<p>能够理解和执行JavaScript代码的程序或解释器。</p>
+<p>JavaScript引擎通常可以在Web浏览器中被发现，包括Chrome中的
+<code>V8</code>，火狐中的<code>SpiderMonkey</code>，以及Edge中的<code>Chakra</code>。每款引擎就像是一个用于其应用程序的语言模块，可以让其支持某种JavaScript语言的分支。</p>
+<p>JavaScript引擎对于浏览器来说就像是人类对语言的理解一样。如果我们重新拿我们日常行为中的“走”、“跑”、“跳”来举例的话，一个
+JavaScript引擎是真正能够理解这些动作是何意义的根本机制。</p>
+<h3 id="浏览器性能的差异">浏览器性能的差异</h3>
+<p>两个人也许会识别“跳”的命令，但是一个人由于理解和对命令的处理比另一个人更快些，也许会比另一个人对命令的反应更快些。类似的是，两个浏览器都可以理解JavaScript代码，但是一个由于其JavaScript引擎实现起来效率更高而运行得更快。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8.png"
+alt="浏览器" />
+<figcaption aria-hidden="true">浏览器</figcaption>
+</figure>
+<h3 id="浏览器支持browser-support的差异">浏览器支持(browser
+support)的差异</h3>
+<p>再以即使说同样语言的人们之间也会有差异为例。即使许多人讲英语，但是一些人也许懂得他人不懂的某些词、表达式和与语法规则，反之亦然。浏览器也是同样的道理。尽管浏览器的
+JavaScript 引擎都理解 JavaScript ，但是某些浏览器会比其他的浏览器对
+JavaScript 理解得更好些。在浏览器对 JavaScript
+的支持中就存在着这一的差别。</p>
+<p>至于说到浏览器支持，人们通常会谈到 “ECMAScript 兼容性(compatibility)”
+而非“ JavaScript 兼容性”，尽管 JavaScript 引擎解析和执行的是 JavaScript
+。这个问题说起来有点绕，下面的表格可以对其作出解释。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E7%9A%84%E5%B7%AE%E5%BC%82.png"
+alt="浏览器支持(browser support)的差异" />
+<figcaption aria-hidden="true">浏览器支持(browser
+support)的差异</figcaption>
+</figure>
+<p>如果你还记得的话，ECMAScript
+是一份规定了脚本语言可以看起来像什么的规范。发布一个新的 ECMAScript
+版本并不意味着所有现存的 JavaScript
+引擎突然就拥有了这些新功能。这取决于负责那款 JavaScript
+引擎的团体或组织是否要更新到最新的 ECMAScript
+规范并采用其所带来的变化。</p>
+<p>因此，开发者倾向于问这样的问题，“这款浏览器支持哪个版本的 ECMAScript
+?”或者“这款浏览器支持哪些 ECMAScript 功能?”他们想知道是否
+Google、Mozilla 和微软已经开始更新他们浏览器的 JavaScript 引擎了，例如
+V8、SpiderMonkey 和 Chakra 是否都已经具有最新的 ECMAScript
+中的功能了。</p>
+<p><a ref="http://kangax.github.io/compat-table/es6/">ECMASCript
+兼容性列表</a>是回答这类问题的绝佳答案参考。</p>
+<p>如果新版的 ECMAScript 发布了，JavaScript
+引擎不会一下子整合所有的更新。他们会逐渐地加入 ECMAScript
+功能，这一点从火狐的 JavaScript 变更记录中可见一斑：</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-Firefox%E2%80%99s%20JavaScript%20changelog.png"
+alt="Firefox’s JavaScript changelog" />
+<figcaption aria-hidden="true">Firefox’s JavaScript
+changelog</figcaption>
+</figure>
+<h3
+id="javascript运行时a-javascript-runtime宿主环境host-environment">JavaScript运行时(A
+JavaScript runtime)/宿主环境(Host environment)</h3>
+<p>The environment in which the JavaScript code runs and is interpreted
+by a JavaScript engine.The runtime provides the host objects that
+JavaScript can operate on and work with.</p>
+<p>The JavaScript runtime is the “existing entity or system” mentioned
+in the scripting language definition. Code passes through the JavaScript
+engine, and once parsed and understood, an entity or system performs the
+interpreted actions. A dog walks, a person runs, a video game character
+jumps (or in the case of the above image, wrecks).</p>
+<p>Applications make themselves available to JavaScript scripting by
+providing “host objects” at runtime. For the client side, the JavaScript
+runtime would be the web browser, where host objects like windows and
+HTML documents are made available for manipulation. Have you ever worked
+with the window or document host objects? The window and document
+objects are not actually a part of the core JavaScript language. They
+are Web APIs, objects provided by a browser acting as JavaScript’s host
+environment. For the server side, the JavaScript runtime is Node.js.
+Server-related host objects such as the file system, processes, and
+requests are provided in Node.js.</p>
+<p>n interesting point: different JavaScript runtimes can share the same
+JavaScript engine. V8, for example, is the JavaScript engine used in
+both Google Chrome and Node.js — two very different environments.</p>
+<h3 id="ecmascript-6">ECMAScript 6</h3>
+<ol type="1">
+<li>它是 ECMA-262 标准的第六个版本，其特点是对 ECMAScript
+规范有着显著的变化和改进。</li>
 <li>同义词：ES6、ES2015 和 ECMAScript 2015</li>
-<li>这一版的 ECMAScript 将其名字由 ES6 改为了 ES2015 ，这是由于 Ecma 国际决定每年都对 ECMAScript 发布一次。相应地，Ecma 国际也开始基于每年所发布的来命名新版本的 ECMAScript 规范。简而言之， ES6 和 ES2015 是对同一件事情的两个不同的名字。</li>
+<li>这一版的 ECMAScript 将其名字由 ES6 改为了 ES2015 ，这是由于 Ecma
+国际决定每年都对 ECMAScript 发布一次。相应地，Ecma
+国际也开始基于每年所发布的来命名新版本的 ECMAScript 规范。简而言之， ES6
+和 ES2015 是对同一件事情的两个不同的名字。</li>
 </ol>
 
     </div>
@@ -391,7 +484,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">概念解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ecma-International-European-Computer-Manufacturers-Association"><span class="nav-number">1.1.</span> <span class="nav-text">Ecma International(European Computer Manufacturers Association)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80-A-scripting-language"><span class="nav-number">1.2.</span> <span class="nav-text">脚本语言(A scripting language)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript-ECMAScript%E8%A7%84%E8%8C%83-ECMAScript-specification"><span class="nav-number">1.3.</span> <span class="nav-text">ECMAScript&#x2F;ECMAScript规范(ECMAScript specification)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.4.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E5%BC%95%E6%93%8E-A-JavaScript-engine-JavaScript-interpreter%E8%A7%A3%E9%87%8A%E5%99%A8-JavaScript-implementation%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">JavaScript引擎(A JavaScript engine)&#x2F;JavaScript interpreter解释器&#x2F;JavaScript implementation实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%80%A7%E8%83%BD%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">1.6.</span> <span class="nav-text">浏览器性能的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81-browser-support-%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">1.7.</span> <span class="nav-text">浏览器支持(browser support)的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E8%BF%90%E8%A1%8C%E6%97%B6-A-JavaScript-runtime-%E5%AE%BF%E4%B8%BB%E7%8E%AF%E5%A2%83-Host-environment"><span class="nav-number">1.8.</span> <span class="nav-text">JavaScript运行时(A JavaScript runtime)&#x2F;宿主环境(Host environment)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript-6"><span class="nav-number">1.9.</span> <span class="nav-text">ECMAScript 6</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">概念解释</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ecma-internationaleuropean-computer-manufacturers-association"><span class="nav-number">1.1.</span> <span class="nav-text">Ecma
+International(European Computer Manufacturers Association)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80a-scripting-language"><span class="nav-number">1.2.</span> <span class="nav-text">脚本语言(A scripting
+language)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ecmascriptecmascript%E8%A7%84%E8%8C%83ecmascript-specification"><span class="nav-number">1.3.</span> <span class="nav-text">ECMAScript&#x2F;ECMAScript规范(ECMAScript
+specification)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript"><span class="nav-number">1.4.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript%E5%BC%95%E6%93%8Ea-javascript-enginejavascript-interpreter%E8%A7%A3%E9%87%8A%E5%99%A8javascript-implementation%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.5.</span> <span class="nav-text">JavaScript引擎(A
+JavaScript engine)&#x2F;JavaScript interpreter解释器&#x2F;JavaScript
+implementation实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%80%A7%E8%83%BD%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">1.6.</span> <span class="nav-text">浏览器性能的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81browser-support%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">1.7.</span> <span class="nav-text">浏览器支持(browser
+support)的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript%E8%BF%90%E8%A1%8C%E6%97%B6a-javascript-runtime%E5%AE%BF%E4%B8%BB%E7%8E%AF%E5%A2%83host-environment"><span class="nav-number">1.8.</span> <span class="nav-text">JavaScript运行时(A
+JavaScript runtime)&#x2F;宿主环境(Host environment)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ecmascript-6"><span class="nav-number">1.9.</span> <span class="nav-text">ECMAScript 6</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

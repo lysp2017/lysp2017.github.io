@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一、简介 Sublime Text是一款跨平台代码编辑器（Code Editor）。 编辑器的选择（Editor Choices）：推荐Vim和Sublime Text 跨平台：Vim和Sublime Text均为跨平台编辑器（在Linux、OS X和Windows下均可使用）。为了减少重复学习，使用一个跨平台的编辑器是很有必要的。 可扩展：Vim和Sublime Text都是可扩展的（Exten">
+  <meta name="description" content="一、简介  Sublime Text是一款跨平台代码编辑器（Code Editor）。 编辑器的选择（Editor Choices）：推荐Vim和Sublime Text  跨平台：Vim和Sublime Text均为跨平台编辑器（在Linux、OS X和Windows下均可使用）。为了减少重复学习，使用一个跨平台的编辑器是很有必要的。 可扩展：Vim和Sublime Text都是可扩展的（Ext">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sublime Text 3教程（未完）">
 <meta property="og:url" content="http://lysp2017.github.io/2018/05/26/SublimeText3/index.html">
 <meta property="og:site_name" content="高山流水">
-<meta property="og:description" content="一、简介 Sublime Text是一款跨平台代码编辑器（Code Editor）。 编辑器的选择（Editor Choices）：推荐Vim和Sublime Text 跨平台：Vim和Sublime Text均为跨平台编辑器（在Linux、OS X和Windows下均可使用）。为了减少重复学习，使用一个跨平台的编辑器是很有必要的。 可扩展：Vim和Sublime Text都是可扩展的（Exten">
+<meta property="og:description" content="一、简介  Sublime Text是一款跨平台代码编辑器（Code Editor）。 编辑器的选择（Editor Choices）：推荐Vim和Sublime Text  跨平台：Vim和Sublime Text均为跨平台编辑器（在Linux、OS X和Windows下均可使用）。为了减少重复学习，使用一个跨平台的编辑器是很有必要的。 可扩展：Vim和Sublime Text都是可扩展的（Ext">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-05-26T03:17:40.000Z">
 <meta property="article:modified_time" content="2018-10-29T06:47:00.000Z">
@@ -77,7 +77,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -248,28 +250,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ol>
+        <h2 id="一简介">一、简介</h2>
+<ol type="1">
 <li>Sublime Text是一款跨平台代码编辑器（Code Editor）。</li>
-<li>编辑器的选择（Editor Choices）：推荐Vim和Sublime Text<ul>
-<li>跨平台：Vim和Sublime Text均为跨平台编辑器（在Linux、OS X和Windows下均可使用）。为了减少重复学习，使用一个跨平台的编辑器是很有必要的。</li>
-<li>可扩展：Vim和Sublime Text都是可扩展的（Extensible），并包含大量实用插件，我们可以通过安装自己领域的插件来成倍提高工作效率。</li>
-<li>互补：Vim和Sublime Text分别是命令行环境（CLI）和图形界面环境（GUI）下的最佳选择，同时使用两者会大大提高工作效率。<ul>
-<li>GUI（Graphical User Interface，GUI，即图形用户界面/图形用户接口）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>编辑器（Editor） 和集成开发环境（Integrated Development Environment，IDE）的区别<ul>
+<li>编辑器的选择（Editor Choices）：推荐Vim和Sublime Text
+<ul>
+<li>跨平台：Vim和Sublime Text均为跨平台编辑器（在Linux、OS
+X和Windows下均可使用）。为了减少重复学习，使用一个跨平台的编辑器是很有必要的。</li>
+<li>可扩展：Vim和Sublime
+Text都是可扩展的（Extensible），并包含大量实用插件，我们可以通过安装自己领域的插件来成倍提高工作效率。</li>
+<li>互补：Vim和Sublime
+Text分别是命令行环境（CLI）和图形界面环境（GUI）下的最佳选择，同时使用两者会大大提高工作效率。
+<ul>
+<li>GUI（Graphical User
+Interface，GUI，即图形用户界面/图形用户接口）</li>
+</ul></li>
+</ul></li>
+<li>编辑器（Editor） 和集成开发环境（Integrated Development
+Environment，IDE）的区别
+<ul>
 <li>编辑器就是纯编辑文本的编辑器</li>
-<li>集成开发环境（IDE，Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面工具。集成了代码编写功能、分析功能、编译功能、调试功能等一体化的开发软件服务套。</li>
-</ul>
-</li>
+<li>集成开发环境（IDE，Integrated Development Environment
+）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面工具。集成了代码编写功能、分析功能、编译功能、调试功能等一体化的开发软件服务套。</li>
+</ul></li>
 </ol>
-<h2 id="二、命令面板"><a href="#二、命令面板" class="headerlink" title="二、命令面板"></a>二、命令面板</h2><p>shift+command+p</p>
-<h2 id="三、快捷键"><a href="#三、快捷键" class="headerlink" title="三、快捷键"></a>三、快捷键</h2><p>command kb 边框sidebar<br>super=command<br>command+n 打开新的界面<br>control+tab 两个界面间跳转<br>command j 合并两行<br>command+] 向右缩进一个级别<br>command+l 选择当前行<br>comman+回车 某一行下开辟一行<br>shift+command+回车 某一行上开辟一行<br>opt+鼠标选择 块选择，同时进入多点编辑模式（esc退出）<br>操作粒度（同时按shift则选择）<br>alt+左键，每次移动一个单词<br>command+左键，一下到头/尾<br>command+shift+下箭头（全选上面或下面）<br>command+a全选</p>
-<p>命令面板直接输入CSS，即可编辑CSS<br>调整缩进 rein lines<br>keybing users<br>ctrl+~反引号，调出控制台<br>command+s保存</p>
+<h2 id="二命令面板">二、命令面板</h2>
+<p>shift+command+p</p>
+<h2 id="三快捷键">三、快捷键</h2>
+<p>command kb 边框sidebar super=command command+n 打开新的界面
+control+tab 两个界面间跳转 command j 合并两行 command+] 向右缩进一个级别
+command+l 选择当前行 comman+回车 某一行下开辟一行 shift+command+回车
+某一行上开辟一行 opt+鼠标选择 块选择，同时进入多点编辑模式（esc退出）
+操作粒度（同时按shift则选择） alt+左键，每次移动一个单词
+command+左键，一下到头/尾 command+shift+下箭头（全选上面或下面）
+command+a全选</p>
+<p>命令面板直接输入CSS，即可编辑CSS 调整缩进 rein lines keybing users
+ctrl+~反引号，调出控制台 command+s保存</p>
 <p>+z撤销</p>
-<p>包的使用<br>调出命令行，然后复制代码到命令行中，运行</p>
+<p>包的使用 调出命令行，然后复制代码到命令行中，运行</p>
 
     </div>
 
@@ -353,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%91%BD%E4%BB%A4%E9%9D%A2%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">二、命令面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">3.</span> <span class="nav-text">三、快捷键</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%91%BD%E4%BB%A4%E9%9D%A2%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">二、命令面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">3.</span> <span class="nav-text">三、快捷键</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

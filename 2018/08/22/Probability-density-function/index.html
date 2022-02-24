@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一、概率密度函数(Probability Density Function,PDF)&#x2F;简称为密度函数（一）理解倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？ 于是引入密度的概念 \rho &#x3D; \lim _{V\rightarrow 0 }{\cfrac{\Delta m}{\Delta V}">
+  <meta name="description" content="一、概率密度函数(Probability Density Function,PDF)&#x2F;简称为密度函数 （一）理解 倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？ 于是引入密度的概念 \[\rho &#x3D; \lim _{V\rightarrow 0 }{\cfrac{\Delta m}{\Delt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率密度函数、概率质量函数和累积分布函数">
 <meta property="og:url" content="http://lysp2017.github.io/2018/08/22/Probability-density-function/index.html">
 <meta property="og:site_name" content="高山流水">
-<meta property="og:description" content="一、概率密度函数(Probability Density Function,PDF)&#x2F;简称为密度函数（一）理解倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？ 于是引入密度的概念 \rho &#x3D; \lim _{V\rightarrow 0 }{\cfrac{\Delta m}{\Delta V}">
+<meta property="og:description" content="一、概率密度函数(Probability Density Function,PDF)&#x2F;简称为密度函数 （一）理解 倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？ 于是引入密度的概念 \[\rho &#x3D; \lim _{V\rightarrow 0 }{\cfrac{\Delta m}{\Delt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-08-22T14:48:42.000Z">
 <meta property="article:modified_time" content="2018-10-29T06:47:00.000Z">
@@ -79,7 +79,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -250,36 +252,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、概率密度函数-Probability-Density-Function-PDF-简称为密度函数"><a href="#一、概率密度函数-Probability-Density-Function-PDF-简称为密度函数" class="headerlink" title="一、概率密度函数(Probability Density Function,PDF)/简称为密度函数"></a>一、概率密度函数(Probability Density Function,PDF)/简称为密度函数</h2><h3 id="（一）理解"><a href="#（一）理解" class="headerlink" title="（一）理解"></a>（一）理解</h3><p>倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？</p>
-<p>于是引入密度的概念</p>
-<script type="math/tex; mode=display">\rho = \lim _{V\rightarrow 0 }{\cfrac{\Delta m}{\Delta V}}</script><p>最后再把密度积分就可以得到质量m了。</p>
-<p>同理，如果在[0, 1]上随机取点，求取在某一点处的概率，点的长度无限小，此概率一定为0。这时情况和上面所述类似，我们需要引入概率密度p。</p>
-<script type="math/tex; mode=display">p = \lim _{x\rightarrow 0 }{\cfrac{\Delta p}{\Delta x}}</script><p>这样我们就可以求所取点落在某一段(a,b)上的概率P了。</p>
-<script type="math/tex; mode=display">P = \int ^{b}_{a}p\left( t\right) dt</script><p>总结：为什么要叫概率密度，因为它和物理上密度的定义本质上是一样的。通常会遇到两种情况：</p>
-<ol>
-<li>已知概率密度函数，求分布函数，积分即可。</li>
+        <h2
+id="一概率密度函数probability-density-functionpdf简称为密度函数">一、概率密度函数(Probability
+Density Function,PDF)/简称为密度函数</h2>
+<h3 id="一理解">（一）理解</h3>
+<p>倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？</p>
+<p>于是引入密度的概念 <span class="math display">\[\rho = \lim
+_{V\rightarrow 0 }{\cfrac{\Delta m}{\Delta V}}\]</span></p>
+<p>最后再把密度积分就可以得到质量m了。</p>
+<p>同理，如果在[0,
+1]上随机取点，求取在某一点处的概率，点的长度无限小，此概率一定为0。这时情况和上面所述类似，我们需要引入概率密度p。
+<span class="math display">\[p = \lim _{x\rightarrow 0 }{\cfrac{\Delta
+p}{\Delta x}}\]</span></p>
+<p>这样我们就可以求所取点落在某一段(a,b)上的概率P了。 <span
+class="math display">\[P = \int ^{b}_{a}p\left( t\right) dt\]</span></p>
+<p>总结：为什么要叫概率密度，因为它和物理上密度的定义本质上是一样的。通常会遇到两种情况：</p>
+<ol type="1">
+<li><p>已知概率密度函数，求分布函数，积分即可。</p></li>
 <li><p>已知分布函数，求概率密度函数，求导即可。</p>
 <blockquote>
 <p>概率密度函数是针对连续型随机变量定义的。</p>
-</blockquote>
-</li>
+</blockquote></li>
 </ol>
-<h3 id="（二）定义"><a href="#（二）定义" class="headerlink" title="（二）定义"></a>（二）定义</h3><p>若概率密度函数为$f_X(x)$，则可用PDF在某一区间上的积分来刻画随机变量落在这个区间中的概率。</p>
-<script type="math/tex; mode=display">P_{r}\left( a\leq X\leq b\right)=\int ^{b}_{a}f_{X}\left( x\right) dx</script><h2 id="二、概率质量函数（Probability-Mass-Function-PMF）"><a href="#二、概率质量函数（Probability-Mass-Function-PMF）" class="headerlink" title="二、概率质量函数（Probability Mass Function, PMF）"></a>二、概率质量函数（Probability Mass Function, PMF）</h2><ol>
+<h3 id="二定义">（二）定义</h3>
+<p>若概率密度函数为<span
+class="math inline">\(f_X(x)\)</span>，则可用PDF在某一区间上的积分来刻画随机变量落在这个区间中的概率。
+<span class="math display">\[P_{r}\left( a\leq X\leq b\right)=\int
+^{b}_{a}f_{X}\left( x\right) dx\]</span></p>
+<h2
+id="二概率质量函数probability-mass-function-pmf">二、概率质量函数（Probability
+Mass Function, PMF）</h2>
+<ol type="1">
 <li>类似于概率密度函数，只不过是离散型随机变量在各特定取值上的概率。</li>
-<li>以掷一枚均匀硬币为例，若正面令$X=1$，若反面令$X=0$，则其PMF就是</li>
+<li>以掷一枚均匀硬币为例，若正面令<span
+class="math inline">\(X=1\)</span>，若反面令<span
+class="math inline">\(X=0\)</span>，则其PMF就是</li>
 </ol>
-<script type="math/tex; mode=display">f_{X}\left( x\right) =\begin{cases}\dfrac {1}{2} if \ x\in \left\{ 0,1\right\} \\ 0 \ if \ x\notin \left\{ 0,1\right\} \end{cases}</script><h2 id="三、累积分布函数（Cumulative-Distribution-Function-CDF）-简称为分布函数"><a href="#三、累积分布函数（Cumulative-Distribution-Function-CDF）-简称为分布函数" class="headerlink" title="三、累积分布函数（Cumulative Distribution Function,CDF）/简称为分布函数"></a>三、累积分布函数（Cumulative Distribution Function,CDF）/简称为分布函数</h2><ol>
+<p><span class="math display">\[f_{X}\left( x\right)
+=\begin{cases}\dfrac {1}{2} if \ x\in \left\{ 0,1\right\} \\ 0 \ if \
+x\notin \left\{ 0,1\right\} \end{cases}\]</span></p>
+<h2
+id="三累积分布函数cumulative-distribution-functioncdf简称为分布函数">三、累积分布函数（Cumulative
+Distribution Function,CDF）/简称为分布函数</h2>
+<ol type="1">
 <li>是概率密度函数的积分，能完整描述一个实随机变量X的概率分布。</li>
-<li><p>CDF的定义是：$F_{X}\left( x\right) =P_{r}(X \leq x)$</p>
+<li>CDF的定义是：<span class="math inline">\(F_{X}\left( x\right)
+=P_{r}(X \leq x)\)</span>
 <ul>
-<li><p>连续型随机变量：$F_{X}\left( x\right) =P_{r}(X \leq x)=\int ^{x}_{-\infty }f_{X}\left( t\right) dt$</p>
-</li>
-<li><p>离散型随机变量，CDF是阶梯状的分段函数，以掷硬币为例<script type="math/tex">F_{X}\left( x\right) =P_{r}(X \leq x)=\begin{cases}0 \ if \ x<0\\ \dfrac {1}{2}\ if \ 0\leq x<1\\ 1\ if \ x\geq 1\end{cases}</script></p>
-</li>
-</ul>
-</li>
-<li>另外CDF的单调递增（不减）性质可以由它的定义和概率的性质推出:<script type="math/tex; mode=display">对任意x_1 < x_2，总有P_{r}(X \leq x_1)\leq P_{r}(X \leq x_2),所以F_{X}\left( x_1\right)\leq F_{X}\left( x_2\right)</script></li>
+<li><p>连续型随机变量：<span class="math inline">\(F_{X}\left( x\right)
+=P_{r}(X \leq x)=\int ^{x}_{-\infty }f_{X}\left( t\right)
+dt\)</span></p></li>
+<li><p>离散型随机变量，CDF是阶梯状的分段函数，以掷硬币为例<span
+class="math display">\[F_{X}\left( x\right) =P_{r}(X \leq
+x)=\begin{cases}0 \ if \ x&lt;0\\ \dfrac {1}{2}\ if \ 0\leq x&lt;1\\ 1\
+if \ x\geq 1\end{cases}\]</span></p></li>
+</ul></li>
+<li>另外CDF的单调递增（不减）性质可以由它的定义和概率的性质推出: <span
+class="math display">\[对任意x_1 &lt; x_2，总有P_{r}(X \leq x_1)\leq
+P_{r}(X \leq x_2),所以F_{X}\left( x_1\right)\leq F_{X}\left(
+x_2\right)\]</span></li>
 </ol>
 
     </div>
@@ -366,7 +397,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0-Probability-Density-Function-PDF-%E7%AE%80%E7%A7%B0%E4%B8%BA%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">一、概率密度函数(Probability Density Function,PDF)&#x2F;简称为密度函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E7%90%86%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">（一）理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">（二）定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A6%82%E7%8E%87%E8%B4%A8%E9%87%8F%E5%87%BD%E6%95%B0%EF%BC%88Probability-Mass-Function-PMF%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二、概率质量函数（Probability Mass Function, PMF）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%B4%AF%E7%A7%AF%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%EF%BC%88Cumulative-Distribution-Function-CDF%EF%BC%89-%E7%AE%80%E7%A7%B0%E4%B8%BA%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">三、累积分布函数（Cumulative Distribution Function,CDF）&#x2F;简称为分布函数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0probability-density-functionpdf%E7%AE%80%E7%A7%B0%E4%B8%BA%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">一、概率密度函数(Probability
+Density Function,PDF)&#x2F;简称为密度函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%90%86%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">（一）理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">（二）定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%A6%82%E7%8E%87%E8%B4%A8%E9%87%8F%E5%87%BD%E6%95%B0probability-mass-function-pmf"><span class="nav-number">2.</span> <span class="nav-text">二、概率质量函数（Probability
+Mass Function, PMF）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%B4%AF%E7%A7%AF%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0cumulative-distribution-functioncdf%E7%AE%80%E7%A7%B0%E4%B8%BA%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">三、累积分布函数（Cumulative
+Distribution Function,CDF）&#x2F;简称为分布函数</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

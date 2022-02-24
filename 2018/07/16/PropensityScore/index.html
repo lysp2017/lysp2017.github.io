@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="说明：  部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity Score 部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究   一、前言2015年有2项发表在JAMA上的研究涉及对观察性数据(observational data)的分析，以评估治疗对患者预后的影响。  在Rozé等人的研究中[1]，分析了一个大型观察性数据">
+  <meta name="description" content="说明： 1. 部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity Score 2. 部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究  一、前言 2015年有2项发表在JAMA上的研究涉及对观察性数据(observational data)的分析，以评估治疗对患者预后的影响。  在Rozé等人的研究中[1]，分析了一个大型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="倾向性评分（The Propensity Score）总述">
 <meta property="og:url" content="http://lysp2017.github.io/2018/07/16/PropensityScore/index.html">
 <meta property="og:site_name" content="高山流水">
-<meta property="og:description" content="说明：  部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity Score 部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究   一、前言2015年有2项发表在JAMA上的研究涉及对观察性数据(observational data)的分析，以评估治疗对患者预后的影响。  在Rozé等人的研究中[1]，分析了一个大型观察性数据">
+<meta property="og:description" content="说明： 1. 部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity Score 2. 部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究  一、前言 2015年有2项发表在JAMA上的研究涉及对观察性数据(observational data)的分析，以评估治疗对患者预后的影响。  在Rozé等人的研究中[1]，分析了一个大型">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-07-16T12:26:22.000Z">
 <meta property="article:modified_time" content="2018-10-29T06:47:00.000Z">
@@ -77,7 +77,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -249,102 +251,146 @@
 
       
         <blockquote>
-<p>说明：<br></p>
-<ol>
-<li>部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity Score<br></li>
-<li>部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究</li>
-</ol>
+<p>说明：<br> 1. 部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity
+Score<br> 2.
+部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究</p>
 </blockquote>
-<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>2015年有2项发表在JAMA上的研究涉及对观察性数据(observational data)的分析，以评估治疗对患者预后的影响。</p>
-<ol>
-<li><p>在Rozé等人的研究中<sup>[1]</sup>，分析了一个大型观察性数据集，以评估早期超声心动图(early echocardiography screening)筛查动脉导管未闭(patent ductus arteriosus)与早产儿死亡率之间的关系。作者比较了847名接受了筛查的婴儿和666名未接受筛查的婴儿的死亡率。</p>
-<p> 两个婴儿组不太相同：筛查组的婴儿年龄更小，女婴较多，并且很少接受过皮质类固醇激素的治疗。作者使用倾向性评分匹配(propensity score matching)创建了来自原始队列的605个匹配的婴儿对以调整这些差异因素。</p>
-</li>
-<li><p>另一项在Huybrechts等人的研究中<sup>[2]</sup>，分析了Medicaid Analytic eXtract数据集，以评估妊娠期使用抗抑郁药与新生儿持续性肺动脉高压之间的关系。</p>
-<p> 作者纳入了3 789 330名妇女，其中128 950名在妊娠期使用过抗抑郁药。使用抗抑郁药的妇女与没有使用抗抑郁药的妇女在年龄、种族/民族、慢性病、肥胖、吸烟和health care use方面存在差异。作者使用倾向性评分分层(propensity score stratification)方法部分地调整了这些差异。</p>
-</li>
+<h2 id="一前言">一、前言</h2>
+<p>2015年有2项发表在JAMA上的研究涉及对观察性数据(observational
+data)的分析，以评估治疗对患者预后的影响。</p>
+<ol type="1">
+<li><p>在Rozé等人的研究中<sup>[1]</sup>，分析了一个大型观察性数据集，以评估早期超声心动图(early
+echocardiography screening)筛查动脉导管未闭(patent ductus
+arteriosus)与早产儿死亡率之间的关系。作者比较了847名接受了筛查的婴儿和666名未接受筛查的婴儿的死亡率。</p>
+<p>两个婴儿组不太相同：筛查组的婴儿年龄更小，女婴较多，并且很少接受过皮质类固醇激素的治疗。作者使用倾向性评分匹配(propensity
+score
+matching)创建了来自原始队列的605个匹配的婴儿对以调整这些差异因素。</p></li>
+<li><p>另一项在Huybrechts等人的研究中<sup>[2]</sup>，分析了Medicaid
+Analytic
+eXtract数据集，以评估妊娠期使用抗抑郁药与新生儿持续性肺动脉高压之间的关系。</p>
+<p>作者纳入了3 789 330名妇女，其中128
+950名在妊娠期使用过抗抑郁药。使用抗抑郁药的妇女与没有使用抗抑郁药的妇女在年龄、种族/民族、慢性病、肥胖、吸烟和health
+care use方面存在差异。作者使用倾向性评分分层(propensity score
+stratification)方法部分地调整了这些差异。</p></li>
 </ol>
-<h2 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h2><h3 id="（一）为什么使用倾向性方法？"><a href="#（一）为什么使用倾向性方法？" class="headerlink" title="（一）为什么使用倾向性方法？"></a>（一）为什么使用倾向性方法？</h3><p>许多因素会影响治疗方法的选择。在许多情况下，患者会接受多种治疗方法。此外，接受不同治疗方法的患者显然不能混为一谈。这通常会导致患者影响结果的特征与治疗方法之间存在相关性(correlation)或混淆(confounding)。（通常称为“confounding by indication”）。</p>
+<h2 id="二使用方法">二、使用方法</h2>
+<h3 id="一为什么使用倾向性方法">（一）为什么使用倾向性方法？</h3>
+<p>许多因素会影响治疗方法的选择。在许多情况下，患者会接受多种治疗方法。此外，接受不同治疗方法的患者显然不能混为一谈。这通常会导致患者影响结果的特征与治疗方法之间存在相关性(correlation)或混淆(confounding)。（通常称为“confounding
+by indication”）。</p>
 <p>如果从常规的临床实践中获得观察性数据以比较使用不同治疗方法的患者的结局/预后，观察到的差异将是不同的患者特征和不同治疗方法的共同作用结果，难以描绘某一种治疗与另一种治疗的真实效果。</p>
-<p>在观察性研究中，随机化是不可能的，因此研究者必须调整组间差异，以获得进行比较的治疗方法与感兴趣结局之间相关性的有效估计。多变量统计方法(Multivariable statistical methods)通常用于评估这种关联，同时调整混淆。</p>
+<p>在观察性研究中，随机化是不可能的，因此研究者必须调整组间差异，以获得进行比较的治疗方法与感兴趣结局之间相关性的有效估计。多变量统计方法(Multivariable
+statistical methods)通常用于评估这种关联，同时调整混淆。</p>
 <p>倾向性评分的方法可减少评估治疗效果时的偏倚，并允许研究者在分析非随机的观察性数据时降低混淆的可能性。</p>
-<h3 id="（二）倾向性评分的概念及其原理"><a href="#（二）倾向性评分的概念及其原理" class="headerlink" title="（二）倾向性评分的概念及其原理"></a>（二）倾向性评分的概念及其原理</h3><ol>
-<li>倾向性评分是指在一定协变量条件下，一个观察对象接受某种暴露/处理因素（所研究的治疗方法）的可能性，它是一个从0到1的范围内连续分布的概率值。这种概率基于患者的特征，临床医生和临床环境。可以使用多变量统计方法（例如，logicistic回归）来估计这种概率。在这种情况下，所研究的治疗方法是因变量(dependent variable)，而患者的特征，处方医生和临床环境则是预测因子(predictors)。</li>
-<li><p>倾向性评分是指在给定一组协变量($X_i$)的条件下，将任意一个研究对象$i(i=1，2，⋯，n)$分配到处理组$(Z_i=1)$的条件概率。第$i$个研究对象被分配到处理组的条件概率可以表示为：<script type="math/tex">e(X_i)=P(Z_i=1\mid{X_i})</script></p>
-<p> 其中$e(X_i)$被称为倾向性评分。倾向性评分相同的两个不同组别的研究对象，其拥有的多个协变量整体上分布是相同的。因此，组间协变量的不均衡性对处理效应估计的干扰被消除了。</p>
-</li>
-<li>倾向性评分的基本原理是用⼀个分值来替代多个协变量，均衡处理组和对照组间协变量的分布。对⾮随机化研究中的混杂因素进行类似随机化的均衡处理，减少选择偏倚。计算得出PS分值后，可采⽤匹配、回归调整、加权、分层的方法来均衡各组间协变量的差异，最终估计处理效应。</li>
-<li>在生物医学研究中，倾向性评分通常用于比较治疗方法，但也可用于评估任何非随机因素（如接触毒素或病原体）与感兴趣结局之间的关系。</li>
+<h3 id="二倾向性评分的概念及其原理">（二）倾向性评分的概念及其原理</h3>
+<ol type="1">
+<li><p>倾向性评分是指在一定协变量条件下，一个观察对象接受某种暴露/处理因素（所研究的治疗方法）的可能性，它是一个从0到1的范围内连续分布的概率值。这种概率基于患者的特征，临床医生和临床环境。可以使用多变量统计方法（例如，logicistic回归）来估计这种概率。在这种情况下，所研究的治疗方法是因变量(dependent
+variable)，而患者的特征，处方医生和临床环境则是预测因子(predictors)。</p></li>
+<li><p>倾向性评分是指在给定一组协变量(<span
+class="math inline">\(X_i\)</span>)的条件下，将任意一个研究对象<span
+class="math inline">\(i(i=1，2，⋯，n)\)</span>分配到处理组<span
+class="math inline">\((Z_i=1)\)</span>的条件概率。第<span
+class="math inline">\(i\)</span>个研究对象被分配到处理组的条件概率可以表示为：<span
+class="math display">\[e(X_i)=P(Z_i=1\mid{X_i})\]</span></p>
+<p>其中<span
+class="math inline">\(e(X_i)\)</span>被称为倾向性评分。倾向性评分相同的两个不同组别的研究对象，其拥有的多个协变量整体上分布是相同的。因此，组间协变量的不均衡性对处理效应估计的干扰被消除了。</p></li>
+<li><p>倾向性评分的基本原理是用⼀个分值来替代多个协变量，均衡处理组和对照组间协变量的分布。对⾮随机化研究中的混杂因素进行类似随机化的均衡处理，减少选择偏倚。计算得出PS分值后，可采⽤匹配、回归调整、加权、分层的方法来均衡各组间协变量的差异，最终估计处理效应。</p></li>
+<li><p>在生物医学研究中，倾向性评分通常用于比较治疗方法，但也可用于评估任何非随机因素（如接触毒素或病原体）与感兴趣结局之间的关系。</p></li>
 </ol>
-<h3 id="（三）倾向性评分的四种常规方法"><a href="#（三）倾向性评分的四种常规方法" class="headerlink" title="（三）倾向性评分的四种常规方法"></a>（三）倾向性评分的四种常规方法</h3><h4 id="1-倾向性评分匹配"><a href="#1-倾向性评分匹配" class="headerlink" title="(1)倾向性评分匹配"></a>(1)倾向性评分匹配</h4><ol>
+<h3 id="三倾向性评分的四种常规方法">（三）倾向性评分的四种常规方法</h3>
+<h4 id="倾向性评分匹配">(1)倾向性评分匹配</h4>
+<ol type="1">
 <li>其通常包括2组研究对象，一组接受所研究的治疗而另一组则接受其他治疗，同时匹配具有相似或相同倾向性评分的个体。然后，直接比较接受所研究治疗的个体与接受其他治疗的个体之间的结果。</li>
-<li><p>常用的匹配方法：</p>
+<li>常用的匹配方法：
 <ul>
-<li><p>最邻近匹配(Nearest Neighbor Matching)</p>
+<li>最邻近匹配(Nearest Neighbor Matching)
 <ul>
 <li>首先利用logistic模型计算倾向性评分值，根据分组变量将处理组与对照组区分开。</li>
 <li>然后对处理组个体随机排序，从处理组中选出第一个个体，与对照组中全部个体的倾向性评分值进行比较，找出对照组中倾向性评分值相同或相近的个体进行配对，若对照组中有2个或2个以上与处理组个体倾向性评分值相同，则随机选取。</li>
 <li>配对成功的个体从数据中剔除，对下一个体重复如上步骤，直到处理组个体全部完成匹配。</li>
-</ul>
-</li>
-<li><p>卡钳匹配(caliper matching)</p>
+</ul></li>
+<li>卡钳匹配(caliper matching)
 <ul>
 <li>在最邻近匹配集的基础上根据倾向性评分值在最邻近匹配集中的分布设置不同的卡钳，删除两组倾向性评分值之差在卡钳值范围外的配对个体，得到不同精度的匹配集，然后计算协变量之间的均衡性及样本不平衡性，并将结果进行汇总。</li>
-</ul>
-</li>
+</ul></li>
 <li>全局最优匹配</li>
-</ul>
-</li>
-<li><p>使用倾向性评分匹配样本的分析结果可以接近随机对照试验的分析结果，因为考虑了数据的配对性质。</p>
-</li>
+</ul></li>
+<li>使用倾向性评分匹配样本的分析结果可以接近随机对照试验的分析结果，因为考虑了数据的配对性质。</li>
 </ol>
-<h4 id="2-倾向性评分分层"><a href="#2-倾向性评分分层" class="headerlink" title="(2)倾向性评分分层"></a>(2)倾向性评分分层</h4><ol>
-<li>估计出每个研究对象的倾向性评分值后，根据倾向性评分值将研究对象分为若干层。</li>
+<h4 id="倾向性评分分层">(2)倾向性评分分层</h4>
+<ol type="1">
+<li><p>估计出每个研究对象的倾向性评分值后，根据倾向性评分值将研究对象分为若干层。</p></li>
 <li><p>有文献指出，当估计线性处理效应的时候，将倾向性评分值分为五层可以消除组间近90%的混杂偏倚。经过分层后，每一层内处理组与对照组的协变量分布应该是均衡的。</p>
 <blockquote>
 <p>尽管增加层或组的数量可以减少偏倚的可能性，但通常使用五个层。</p>
-</blockquote>
-</li>
-<li>分析过程中，先在每一层内估计处理效应，最后将每层的效应整合成总的处理效应。这种方法基于于这样一种观念，即每个组/层中的个体比个体更相似。因此，他们的结果可以直接比较。</li>
+</blockquote></li>
+<li><p>分析过程中，先在每一层内估计处理效应，最后将每层的效应整合成总的处理效应。这种方法基于于这样一种观念，即每个组/层中的个体比个体更相似。因此，他们的结果可以直接比较。</p></li>
 </ol>
-<h4 id="3-使用倾向性评分进行协变量调整"><a href="#3-使用倾向性评分进行协变量调整" class="headerlink" title="(3)使用倾向性评分进行协变量调整"></a>(3)使用倾向性评分进行协变量调整</h4><p>在倾向性评分模型之后，构建单独的多变量模型，其中研究结果用作因变量(dependent variable)，治疗组和倾向性评分用作预测变量(predictor variables)。这允许研究者评估与所研究治疗相关的结果，同时调整接受治疗的概率，从而减少混淆。</p>
-<h4 id="4-倾向性评分逆处理概率加权-inverse-probability-of-treatment-weighting-using-the-propensity-score"><a href="#4-倾向性评分逆处理概率加权-inverse-probability-of-treatment-weighting-using-the-propensity-score" class="headerlink" title="(4)倾向性评分逆处理概率加权/inverse probability of treatment weighting using the propensity score"></a>(4)倾向性评分逆处理概率加权/inverse probability of treatment weighting using the propensity score</h4><p>在这种情况下，倾向性评分用于计算每个个体的统计权重(statistical weights)以创建样本，其中潜在的混杂因素的分布独立于暴露因素，允许对治疗和结果之间的关系进行无偏估计。</p>
-<ol>
-<li>是边缘结构模型这类因果推断⽅法中的一种，其基本原理与传统的标准化法类似。</li>
-<li>根据倾向性评分值赋予每个研究对象⼀个相应的权重，从⽽构建出⼀个虚拟的人群，在这个虚拟人群中，协变量的组间分布没有差异，因此消除了混杂因素的影响。</li>
-<li><p>在逆处理概率加权的方法中，权重被定义为研究对象实际分组情况的概率的倒数，计算如下：</p>
-<script type="math/tex; mode=display">w_i = \cfrac{z_i}{e_i}+\cfrac{(1-z_i)}{(1-e_i)}</script><ul>
-<li><p>若$z_i=1$(处理组)，则$w_i = \cfrac{1}{e_i}$</p>
-</li>
-<li><p>若$z_i=0$(对照组)，则$w_i = \cfrac{1}{1-e_i}$</p>
-</li>
-</ul>
-</li>
-<li><p>计算权重后，再应⽤用加权回归的⽅方法估计处理理效应。</p>
-</li>
+<h4
+id="使用倾向性评分进行协变量调整">(3)使用倾向性评分进行协变量调整</h4>
+<p>在倾向性评分模型之后，构建单独的多变量模型，其中研究结果用作因变量(dependent
+variable)，治疗组和倾向性评分用作预测变量(predictor
+variables)。这允许研究者评估与所研究治疗相关的结果，同时调整接受治疗的概率，从而减少混淆。</p>
+<h4
+id="倾向性评分逆处理概率加权inverse-probability-of-treatment-weighting-using-the-propensity-score">(4)倾向性评分逆处理概率加权/inverse
+probability of treatment weighting using the propensity score</h4>
+<p>在这种情况下，倾向性评分用于计算每个个体的统计权重(statistical
+weights)以创建样本，其中潜在的混杂因素的分布独立于暴露因素，允许对治疗和结果之间的关系进行无偏估计。</p>
+<ol type="1">
+<li><p>是边缘结构模型这类因果推断⽅法中的一种，其基本原理与传统的标准化法类似。</p></li>
+<li><p>根据倾向性评分值赋予每个研究对象⼀个相应的权重，从⽽构建出⼀个虚拟的人群，在这个虚拟人群中，协变量的组间分布没有差异，因此消除了混杂因素的影响。</p></li>
+<li><p>在逆处理概率加权的方法中，权重被定义为研究对象实际分组情况的概率的倒数，计算如下：
+<span class="math display">\[w_i =
+\cfrac{z_i}{e_i}+\cfrac{(1-z_i)}{(1-e_i)}\]</span></p>
+<ul>
+<li><p>若<span class="math inline">\(z_i=1\)</span>(处理组)，则<span
+class="math inline">\(w_i = \cfrac{1}{e_i}\)</span></p></li>
+<li><p>若<span class="math inline">\(z_i=0\)</span>(对照组)，则<span
+class="math inline">\(w_i = \cfrac{1}{1-e_i}\)</span></p></li>
+</ul></li>
+<li><p>计算权重后，再应⽤用加权回归的⽅方法估计处理理效应。</p></li>
 </ol>
-<h3 id="（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异"><a href="#（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异" class="headerlink" title="（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异"></a>（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异</h3><ol>
+<h3
+id="四倾向性评分以外的替代策略以调整观察性研究中各组之间的基线差异">（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异</h3>
+<ol type="1">
 <li>匹配基线特征/matching on baseline characteristics</li>
 <li>分层分析/stratified analyses</li>
 <li>多变量统计方法/multivariable statistical methods</li>
 </ol>
-<p>倾向性评分方法通常比这些方法更实用或在统计上更有效，部分原因是倾向性评分方法可以限制最终分析中使用的预测变量的数量。倾向性评分方法通常允许将更多变量包括在倾向性评分模型(propensity score model)中，从而增加了这些方法有效调整混淆的能力，而不是直接纳入研究结果的多变量分析。</p>
-<h2 id="三、倾向性评分方法的局限性是什么？"><a href="#三、倾向性评分方法的局限性是什么？" class="headerlink" title="三、倾向性评分方法的局限性是什么？"></a>三、倾向性评分方法的局限性是什么？</h2><ol>
+<p>倾向性评分方法通常比这些方法更实用或在统计上更有效，部分原因是倾向性评分方法可以限制最终分析中使用的预测变量的数量。倾向性评分方法通常允许将更多变量包括在倾向性评分模型(propensity
+score
+model)中，从而增加了这些方法有效调整混淆的能力，而不是直接纳入研究结果的多变量分析。</p>
+<h2
+id="三倾向性评分方法的局限性是什么">三、倾向性评分方法的局限性是什么？</h2>
+<ol type="1">
 <li>每个研究对象的倾向性评分基于能够测量的患者特征，如果无法测量的因素影响治疗选择，则可能仍存在未调整的混淆。因此，在倾向性评分模型中使用较少的变量降低了有效调整混淆的可能性。</li>
 <li>虽然倾向性评分匹配可用于组合可比较的研究组，但匹配的质量取决于倾向性评分模型的质量，而倾向性评分模型的质量又取决于进行分析的数据的质量、大小以及模型的构建方式。</li>
-<li>传统的建模方法（如，变量选择，交互的使用use of interactions，回归诊断regression diagnostics等）通常不推荐用于倾向性评分模型的构建。例如，倾向性评分模型可以纳入更多数量的预测变量。</li>
+<li>传统的建模方法（如，变量选择，交互的使用use of
+interactions，回归诊断regression
+diagnostics等）通常不推荐用于倾向性评分模型的构建。例如，倾向性评分模型可以纳入更多数量的预测变量。</li>
 </ol>
-<h2 id="四、结果该如何解释？"><a href="#四、结果该如何解释？" class="headerlink" title="四、结果该如何解释？"></a>四、结果该如何解释？</h2><p>鉴于这些研究属于观察性研究，治疗组和未治疗组中的个体不同。为了能够准确估计治疗与结局之间的关联，研究者必须调整两组之间的差异。</p>
+<h2 id="四结果该如何解释">四、结果该如何解释？</h2>
+<p>鉴于这些研究属于观察性研究，治疗组和未治疗组中的个体不同。为了能够准确估计治疗与结局之间的关联，研究者必须调整两组之间的差异。</p>
 <p>使用倾向性评分方法时，无论是通过匹配还是分层，结果的估计偏差小于不使用此类方法的估计偏差。</p>
 <p>尽管观察性数据不能像随机临床试验那样严格地建立因果关系或确定治疗效果，但如果倾向性评分方法得到适当使用且样本量足够大，这些方法可能提供治疗方法可能效果的可靠近似值。这种方法对于随机临床试验不可行或不可能进行的情况特别有价值。</p>
-<h2 id="五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？"><a href="#五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？" class="headerlink" title="五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？"></a>五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？</h2><p>Rozé等人和Huybrechts等人的研究分别使用了倾向性评分匹配和倾向性评分分层。尽管这两种方法在平衡研究组方面比基于基线特征的简单匹配或分层更有效，但它们在最小化偏倚(minimize bias)方面的能力各不相同。通常，倾向性评分匹配比倾向性评分分层更大程度地减少偏差。在使用倾向性评分方法后，评估各组之间的平衡对于让读者评估研究组的可比性非常重要。</p>
+<h2
+id="五在评估倾向性分析的结果时读者应该考虑哪些注意事项">五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？</h2>
+<p>Rozé等人和Huybrechts等人的研究分别使用了倾向性评分匹配和倾向性评分分层。尽管这两种方法在平衡研究组方面比基于基线特征的简单匹配或分层更有效，但它们在最小化偏倚(minimize
+bias)方面的能力各不相同。通常，倾向性评分匹配比倾向性评分分层更大程度地减少偏差。在使用倾向性评分方法后，评估各组之间的平衡对于让读者评估研究组的可比性非常重要。</p>
 <p>尽管没有单一的标准方法来评估平衡，但是比较治疗组和未治疗组患者之间的特征通常始于比较汇总的统计数据（例如，平均值或比例）和观察到的特征的整体分布。</p>
-<p>对于倾向性评分匹配的样本，经常使用标准化差异（standardized differences，即差异differences/合并的标准偏差pooled standard deviations）。尽管没有普遍接受的阈值，但小于0.1的标准化差异通常被认为是可忽略不计的。</p>
+<p>对于倾向性评分匹配的样本，经常使用标准化差异（standardized
+differences，即差异differences/合并的标准偏差pooled standard
+deviations）。尽管没有普遍接受的阈值，但小于0.1的标准化差异通常被认为是可忽略不计的。</p>
 <p>评估平衡提供了一般意义，即匹配或分层的良好程度，以及结果可能有效的程度。</p>
 <p>不幸的是，只能在研究中可以测量的患者特征中显示平衡。无法测量的差异仍可能存在于各组间，从而导致结果的偏倚。</p>
-<h2 id="六、参考文献"><a href="#六、参考文献" class="headerlink" title="六、参考文献"></a>六、参考文献</h2><ol>
-<li>Rozé JC, Cambonie G, Marchand-Martin L, et al. Hemodynamic EPIPAGE 2 Study Group. Association between early screening for patent ductus arteriosus and in-hospital mortality among extremely preterm infants. JAMA. 2015; 313(24):2441–2448. </li>
-<li>Huybrechts KF, Bateman BT, Palmsten K, et al. Antidepressant use late in pregnancy and risk of persistent pulmonary hypertension of the newborn. JAMA. 2015; 313(21):2142–2151. </li>
+<h2 id="六参考文献">六、参考文献</h2>
+<ol type="1">
+<li>Rozé JC, Cambonie G, Marchand-Martin L, et al. Hemodynamic EPIPAGE 2
+Study Group. Association between early screening for patent ductus
+arteriosus and in-hospital mortality among extremely preterm infants.
+JAMA. 2015; 313(24):2441–2448.</li>
+<li>Huybrechts KF, Bateman BT, Palmsten K, et al. Antidepressant use
+late in pregnancy and risk of persistent pulmonary hypertension of the
+newborn. JAMA. 2015; 313(21):2142–2151.</li>
 </ol>
 
     </div>
@@ -429,7 +475,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">二、使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%80%BE%E5%90%91%E6%80%A7%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">（一）为什么使用倾向性方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">（二）倾向性评分的概念及其原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%B8%B8%E8%A7%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">（三）倾向性评分的四种常规方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E5%8C%B9%E9%85%8D"><span class="nav-number">2.3.1.</span> <span class="nav-text">(1)倾向性评分匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E5%88%86%E5%B1%82"><span class="nav-number">2.3.2.</span> <span class="nav-text">(2)倾向性评分分层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E8%BF%9B%E8%A1%8C%E5%8D%8F%E5%8F%98%E9%87%8F%E8%B0%83%E6%95%B4"><span class="nav-number">2.3.3.</span> <span class="nav-text">(3)使用倾向性评分进行协变量调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E9%80%86%E5%A4%84%E7%90%86%E6%A6%82%E7%8E%87%E5%8A%A0%E6%9D%83-inverse-probability-of-treatment-weighting-using-the-propensity-score"><span class="nav-number">2.3.4.</span> <span class="nav-text">(4)倾向性评分逆处理概率加权&#x2F;inverse probability of treatment weighting using the propensity score</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E4%BB%A5%E5%A4%96%E7%9A%84%E6%9B%BF%E4%BB%A3%E7%AD%96%E7%95%A5%EF%BC%9A%E4%BB%A5%E8%B0%83%E6%95%B4%E8%A7%82%E5%AF%9F%E6%80%A7%E7%A0%94%E7%A9%B6%E4%B8%AD%E5%90%84%E7%BB%84%E4%B9%8B%E9%97%B4%E7%9A%84%E5%9F%BA%E7%BA%BF%E5%B7%AE%E5%BC%82"><span class="nav-number">2.4.</span> <span class="nav-text">（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E6%96%B9%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">三、倾向性评分方法的局限性是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BB%93%E6%9E%9C%E8%AF%A5%E5%A6%82%E4%BD%95%E8%A7%A3%E9%87%8A%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">四、结果该如何解释？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%9C%A8%E8%AF%84%E4%BC%B0%E5%80%BE%E5%90%91%E6%80%A7%E5%88%86%E6%9E%90%E7%9A%84%E7%BB%93%E6%9E%9C%E6%97%B6%EF%BC%8C%E8%AF%BB%E8%80%85%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E5%93%AA%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">6.</span> <span class="nav-text">六、参考文献</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">二、使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%80%BE%E5%90%91%E6%80%A7%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">（一）为什么使用倾向性方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%85%B6%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">（二）倾向性评分的概念及其原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%B8%B8%E8%A7%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">（三）倾向性评分的四种常规方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E5%8C%B9%E9%85%8D"><span class="nav-number">2.3.1.</span> <span class="nav-text">(1)倾向性评分匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E5%88%86%E5%B1%82"><span class="nav-number">2.3.2.</span> <span class="nav-text">(2)倾向性评分分层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E8%BF%9B%E8%A1%8C%E5%8D%8F%E5%8F%98%E9%87%8F%E8%B0%83%E6%95%B4"><span class="nav-number">2.3.3.</span> <span class="nav-text">(3)使用倾向性评分进行协变量调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E9%80%86%E5%A4%84%E7%90%86%E6%A6%82%E7%8E%87%E5%8A%A0%E6%9D%83inverse-probability-of-treatment-weighting-using-the-propensity-score"><span class="nav-number">2.3.4.</span> <span class="nav-text">(4)倾向性评分逆处理概率加权&#x2F;inverse
+probability of treatment weighting using the propensity score</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E4%BB%A5%E5%A4%96%E7%9A%84%E6%9B%BF%E4%BB%A3%E7%AD%96%E7%95%A5%E4%BB%A5%E8%B0%83%E6%95%B4%E8%A7%82%E5%AF%9F%E6%80%A7%E7%A0%94%E7%A9%B6%E4%B8%AD%E5%90%84%E7%BB%84%E4%B9%8B%E9%97%B4%E7%9A%84%E5%9F%BA%E7%BA%BF%E5%B7%AE%E5%BC%82"><span class="nav-number">2.4.</span> <span class="nav-text">（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E6%96%B9%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">3.</span> <span class="nav-text">三、倾向性评分方法的局限性是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E7%BB%93%E6%9E%9C%E8%AF%A5%E5%A6%82%E4%BD%95%E8%A7%A3%E9%87%8A"><span class="nav-number">4.</span> <span class="nav-text">四、结果该如何解释？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E5%9C%A8%E8%AF%84%E4%BC%B0%E5%80%BE%E5%90%91%E6%80%A7%E5%88%86%E6%9E%90%E7%9A%84%E7%BB%93%E6%9E%9C%E6%97%B6%E8%AF%BB%E8%80%85%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E5%93%AA%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">6.</span> <span class="nav-text">六、参考文献</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -20,17 +20,13 @@
     var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="说明  参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）   一、条件概率（Conditional probability） 条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。  根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。P(B\mid{A})&#x3D;\cfrac{P(A\b">
+  <meta name="description" content="说明 1. 参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）  一、条件概率（Conditional probability）  条件概率，就是指在事件A发生的情况下，事件B发生的概率，用\(P(B\mid{A})\)来表示。  根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是\(P(A\bigcap{B})\)除以\(P(A)\)。 \[P(B\mid{A})&#x3D;\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贝叶斯定理（Bayes&#39;s theorem）及贝叶斯推断(Bayesian inference)">
 <meta property="og:url" content="http://lysp2017.github.io/2018/08/10/Bayesianinference/index.html">
 <meta property="og:site_name" content="高山流水">
-<meta property="og:description" content="说明  参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）   一、条件概率（Conditional probability） 条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。  根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。P(B\mid{A})&#x3D;\cfrac{P(A\b">
+<meta property="og:description" content="说明 1. 参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）  一、条件概率（Conditional probability）  条件概率，就是指在事件A发生的情况下，事件B发生的概率，用\(P(B\mid{A})\)来表示。  根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是\(P(A\bigcap{B})\)除以\(P(A)\)。 \[P(B\mid{A})&#x3D;\">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-Unknown.png">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg">
 <meta property="article:published_time" content="2018-08-10T06:25:14.000Z">
 <meta property="article:modified_time" content="2019-02-27T17:03:42.000Z">
 <meta property="article:author" content="Louyan">
@@ -39,7 +35,6 @@
 <meta property="article:tag" content="贝叶斯定理">
 <meta property="article:tag" content="贝叶斯推断">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-08-10-Unknown.png">
 
 <link rel="canonical" href="http://lysp2017.github.io/2018/08/10/Bayesianinference/">
 
@@ -85,7 +80,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -257,45 +254,99 @@
 
       
         <blockquote>
-<p>说明<br></p>
-<ol>
-<li>参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）</li>
-</ol>
+<p>说明<br> 1.
+参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）</p>
 </blockquote>
-<h2 id="一、条件概率（Conditional-probability）"><a href="#一、条件概率（Conditional-probability）" class="headerlink" title="一、条件概率（Conditional probability）"></a>一、条件概率（Conditional probability）</h2><ol>
-<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。<br> <img src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png" alt=""></li>
-<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。<script type="math/tex; mode=display">P(B\mid{A})=\cfrac{P(A\bigcap{B})}{P(A)}</script> 因此：<script type="math/tex">P({A} \bigcap {B})=P(B\mid{A})\times P(A)</script><br> 同理可得：<script type="math/tex">P({A} \bigcap {B})=P(A\mid{B})\times P(B)</script><br> 所以：<script type="math/tex">P(B\mid{A})\times P(A)= P(A\mid{B})\times P(B)</script><br> 即：<script type="math/tex">P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B)}</script></li>
+<h2 id="一条件概率conditional-probability">一、条件概率（Conditional
+probability）</h2>
+<ol type="1">
+<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用<span
+class="math inline">\(P(B\mid{A})\)</span>来表示。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png" /></li>
+<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是<span
+class="math inline">\(P(A\bigcap{B})\)</span>除以<span
+class="math inline">\(P(A)\)</span>。 <span
+class="math display">\[P(B\mid{A})=\cfrac{P(A\bigcap{B})}{P(A)}\]</span>
+因此：<span class="math display">\[P({A} \bigcap {B})=P(B\mid{A})\times
+P(A)\]</span> 同理可得：<span class="math display">\[P({A} \bigcap
+{B})=P(A\mid{B})\times P(B)\]</span> 所以：<span
+class="math display">\[P(B\mid{A})\times P(A)= P(A\mid{B})\times
+P(B)\]</span> 即：<span class="math display">\[P(A\mid{B})=
+\cfrac{P(B\mid{A})\times P(A)}{P(B)} \]</span></li>
 </ol>
-<h2 id="二、全概率公式"><a href="#二、全概率公式" class="headerlink" title="二、全概率公式"></a>二、全概率公式</h2><p>假定样本空间S，是两个事件A与A’的和。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg" alt=""></p>
-<p>上图中，红色部分是事件A，绿色部分是事件A’，它们共同构成了样本空间S。</p>
-<p>在这种情况下，事件B可以划分成两个部分。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg" alt=""></p>
-<p>即：<script type="math/tex">P(B) = P({B} \bigcap {A}) + P({B} \bigcap {A'})</script></p>
-<p>在之前的推导当中，我们已知：<script type="math/tex">P({A} \bigcap {B})=P(B\mid{A})\times P(A)</script><br>所以：<script type="math/tex">P(B) = P(B\mid{A})\times P(A) + P(B\mid{A'})\times P(A')</script><br>把 $P(B)$代入上一节中的条件概率公式 $P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B)} $</p>
-<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A'})\times P(A')}</script><h2 id="三、贝叶斯定理及贝叶斯推断"><a href="#三、贝叶斯定理及贝叶斯推断" class="headerlink" title="三、贝叶斯定理及贝叶斯推断"></a>三、贝叶斯定理及贝叶斯推断</h2><p>对条件概率公式进行变形，可以得到如下形式：</p>
-<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B)} \times P(A)</script><ul>
-<li>$P(A)$称为”先验概率”（Prior Probability），即在B事件发生之前，我们对A事件概率的一个判断。</li>
-<li>$P(A\mid{B})$称为”后验概率”（Posterior Probability），即在B事件发生之后，我们对A事件概率的重新评估。</li>
-<li>$\cfrac{P(B\mid{A})}{P(B)}$称为”可能性函数”（likelihood），这是一个调整因子，使得预估概率更接近真实概率。</li>
-</ul>
-<p>所以，条件概率可以理解成：<br><code>后验概率　＝　先验概率 × 调整因子</code></p>
-<p>这就是贝叶斯推断的含义。我们先预估一个”先验概率”，然后加入实验结果，看这个实验到底是增强还是削弱了”先验概率”，由此得到更接近事实的”后验概率”。</p>
+<h2 id="二全概率公式">二、全概率公式</h2>
+<p>假定样本空间S，是两个事件A与A'的和。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg" /></p>
+<p>上图中，红色部分是事件A，绿色部分是事件A'，它们共同构成了样本空间S。</p>
+<p>在这种情况下，事件B可以划分成两个部分。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg" /></p>
+<p>即：<span class="math display">\[P(B) = P({B} \bigcap {A}) + P({B}
+\bigcap {A&#39;})\]</span></p>
+<p>在之前的推导当中，我们已知：<span class="math display">\[P({A}
+\bigcap {B})=P(B\mid{A})\times P(A)\]</span> 所以：<span
+class="math display">\[P(B) = P(B\mid{A})\times P(A) +
+P(B\mid{A&#39;})\times P(A&#39;)\]</span> 把 <span
+class="math inline">\(P(B)\)</span>代入上一节中的条件概率公式 $P(A)= $
+<span class="math display">\[P(A\mid{B})= \cfrac{P(B\mid{A})\times
+P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A&#39;})\times P(A&#39;)}
+\]</span></p>
+<h2 id="三贝叶斯定理及贝叶斯推断">三、贝叶斯定理及贝叶斯推断</h2>
+<p>对条件概率公式进行变形，可以得到如下形式： <span
+class="math display">\[P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B)} \times
+P(A)\]</span></p>
 <ul>
-<li>在这里，如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&gt;1，意味着”先验概率”被增强，事件A的发生的可能性变大；</li>
-<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$=1，意味着B事件无助于判断事件A的可能性；</li>
-<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&lt;1，意味着”先验概率”被削弱，事件A的可能性变小。</li>
+<li><span class="math inline">\(P(A)\)</span>称为"先验概率"（Prior
+Probability），即在B事件发生之前，我们对A事件概率的一个判断。</li>
+<li><span
+class="math inline">\(P(A\mid{B})\)</span>称为"后验概率"（Posterior
+Probability），即在B事件发生之后，我们对A事件概率的重新评估。</li>
+<li><span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>称为"可能性函数"（likelihood），这是一个调整因子，使得预估概率更接近真实概率。</li>
 </ul>
-<h2 id="四、水果糖的例子"><a href="#四、水果糖的例子" class="headerlink" title="四、水果糖的例子"></a>四、水果糖的例子</h2><p><img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg" alt=""></p>
+<p>所以，条件概率可以理解成：
+<code>后验概率　＝　先验概率 × 调整因子</code></p>
+<p>这就是贝叶斯推断的含义。我们先预估一个"先验概率"，然后加入实验结果，看这个实验到底是增强还是削弱了"先验概率"，由此得到更接近事实的"后验概率"。</p>
+<ul>
+<li>在这里，如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>&gt;1，意味着"先验概率"被增强，事件A的发生的可能性变大；</li>
+<li>如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>=1，意味着B事件无助于判断事件A的可能性；</li>
+<li>如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>&lt;1，意味着"先验概率"被削弱，事件A的可能性变小。</li>
+</ul>
+<h2 id="四水果糖的例子">四、水果糖的例子</h2>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg" /></p>
 <p>问题：两个一模一样的碗，一号碗有30颗水果糖和10颗巧克力糖，二号碗有水果糖和巧克力糖各20颗。现在随机选择一个碗，从中摸出一颗糖，发现是水果糖。请问这颗水果糖来自一号碗的概率有多大？</p>
-<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以$P(H_1)$ = $P(H_2)$，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，$P(H_1)$ = 0.5，我们把这个概率就叫做”先验概率”，即没有做实验之前，来自一号碗的概率是0.5。</p>
-<p>再假定，E表示水果糖，所以问题就变成了在已知E的情况下，来自一号碗的概率有多大，即求$P(H_1\mid{E})$。我们把这个概率叫做”后验概率”，即在E事件发生之后，对P(H1)的修正。</p>
-<p>根据条件概率公式，得到</p>
-<script type="math/tex; mode=display">P(H_1\mid{E}) = P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}</script><p>已知，$P(H_1)$ = 0.5，$P(E\mid{H_1})$为一号碗中取出水果糖的概率，等于0.75，那么求出$P(E)$就可以得到答案。</p>
-<p>根据全概率公式：</p>
-<script type="math/tex; mode=display">P(E)=P(E\mid{H_1}) \times P(H_1) +P(E\mid{H_2}) \times P(H_2)</script><p>所以：</p>
-<script type="math/tex; mode=display">P(E)=0.75\times0.5+0.5\times0.5=0.625</script><h2 id="五、假阳性问题"><a href="#五、假阳性问题" class="headerlink" title="五、假阳性问题"></a>五、假阳性问题</h2><p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
-<p>假定A事件表示得病，那么$P(A)$为0.001。这就是”先验概率”，即没有做试验之前，我们预计的发病率。</p>
-<p>再假定B事件表示阳性，那么要计算的就是$P(A\mid{B})$。这就是”后验概率”，即做了试验以后，对发病率的估计。</p>
-<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline {A}})\times P(\overline {A})} \times P(A)</script><script type="math/tex; mode=display">\approx \cfrac{0.99}{0.99 \times 0.001+0.05\times 0.999} \times {0.001}</script><p>我们得到了一个惊人的结果，$P(A\mid{B})$约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的”假阳性”，即阳性结果完全不足以说明病人得病。</p>
+<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以<span
+class="math inline">\(P(H_1)\)</span> = <span
+class="math inline">\(P(H_2)\)</span>，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，<span
+class="math inline">\(P(H_1)\)</span> =
+0.5，我们把这个概率就叫做"先验概率"，即没有做实验之前，来自一号碗的概率是0.5。</p>
+<p>再假定，E表示水果糖，所以问题就变成了在已知E的情况下，来自一号碗的概率有多大，即求<span
+class="math inline">\(P(H_1\mid{E})\)</span>。我们把这个概率叫做"后验概率"，即在E事件发生之后，对P(H1)的修正。</p>
+<p>根据条件概率公式，得到 <span class="math display">\[P(H_1\mid{E}) =
+P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}\]</span></p>
+<p>已知，<span class="math inline">\(P(H_1)\)</span> = 0.5，<span
+class="math inline">\(P(E\mid{H_1})\)</span>为一号碗中取出水果糖的概率，等于0.75，那么求出<span
+class="math inline">\(P(E)\)</span>就可以得到答案。</p>
+<p>根据全概率公式： <span class="math display">\[P(E)=P(E\mid{H_1})
+\times P(H_1) +P(E\mid{H_2}) \times P(H_2)\]</span></p>
+<p>所以： <span
+class="math display">\[P(E)=0.75\times0.5+0.5\times0.5=0.625\]</span></p>
+<h2 id="五假阳性问题">五、假阳性问题</h2>
+<p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
+<p>假定A事件表示得病，那么<span
+class="math inline">\(P(A)\)</span>为0.001。这就是"先验概率"，即没有做试验之前，我们预计的发病率。</p>
+<p>再假定B事件表示阳性，那么要计算的就是<span
+class="math inline">\(P(A\mid{B})\)</span>。这就是"后验概率"，即做了试验以后，对发病率的估计。</p>
+<p><span class="math display">\[P(A\mid{B})=
+\cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline
+{A}})\times P(\overline {A})} \times P(A)\]</span></p>
+<p><span class="math display">\[\approx \cfrac{0.99}{0.99 \times
+0.001+0.05\times 0.999} \times {0.001} \]</span></p>
+<p>我们得到了一个惊人的结果，<span
+class="math inline">\(P(A\mid{B})\)</span>约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的"假阳性"，即阳性结果完全不足以说明病人得病。</p>
 <p>为什么会这样？为什么这种检验的准确率高达99%，但是可信度却不到2%？</p>
 <p>首先是与误报率(5%)太高有关，其次也和发病率太低(0.1%)有关。</p>
 
@@ -384,7 +435,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%EF%BC%88Conditional-probability%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">一、条件概率（Conditional probability）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">二、全概率公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86%E5%8F%8A%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD"><span class="nav-number">3.</span> <span class="nav-text">三、贝叶斯定理及贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%B0%B4%E6%9E%9C%E7%B3%96%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">4.</span> <span class="nav-text">四、水果糖的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%81%87%E9%98%B3%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">五、假阳性问题</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87conditional-probability"><span class="nav-number">1.</span> <span class="nav-text">一、条件概率（Conditional
+probability）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">二、全概率公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86%E5%8F%8A%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD"><span class="nav-number">3.</span> <span class="nav-text">三、贝叶斯定理及贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E6%B0%B4%E6%9E%9C%E7%B3%96%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">4.</span> <span class="nav-text">四、水果糖的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E5%81%87%E9%98%B3%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">五、假阳性问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

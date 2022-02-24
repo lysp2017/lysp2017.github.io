@@ -72,7 +72,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -243,36 +245,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、概率密度函数-Probability-Density-Function-PDF-简称为密度函数"><a href="#一、概率密度函数-Probability-Density-Function-PDF-简称为密度函数" class="headerlink" title="一、概率密度函数(Probability Density Function,PDF)/简称为密度函数"></a>一、概率密度函数(Probability Density Function,PDF)/简称为密度函数</h2><h3 id="（一）理解"><a href="#（一）理解" class="headerlink" title="（一）理解"></a>（一）理解</h3><p>倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？</p>
-<p>于是引入密度的概念</p>
-<script type="math/tex; mode=display">\rho = \lim _{V\rightarrow 0 }{\cfrac{\Delta m}{\Delta V}}</script><p>最后再把密度积分就可以得到质量m了。</p>
-<p>同理，如果在[0, 1]上随机取点，求取在某一点处的概率，点的长度无限小，此概率一定为0。这时情况和上面所述类似，我们需要引入概率密度p。</p>
-<script type="math/tex; mode=display">p = \lim _{x\rightarrow 0 }{\cfrac{\Delta p}{\Delta x}}</script><p>这样我们就可以求所取点落在某一段(a,b)上的概率P了。</p>
-<script type="math/tex; mode=display">P = \int ^{b}_{a}p\left( t\right) dt</script><p>总结：为什么要叫概率密度，因为它和物理上密度的定义本质上是一样的。通常会遇到两种情况：</p>
-<ol>
-<li>已知概率密度函数，求分布函数，积分即可。</li>
+          <h2
+id="一概率密度函数probability-density-functionpdf简称为密度函数">一、概率密度函数(Probability
+Density Function,PDF)/简称为密度函数</h2>
+<h3 id="一理解">（一）理解</h3>
+<p>倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？</p>
+<p>于是引入密度的概念 <span class="math display">\[\rho = \lim
+_{V\rightarrow 0 }{\cfrac{\Delta m}{\Delta V}}\]</span></p>
+<p>最后再把密度积分就可以得到质量m了。</p>
+<p>同理，如果在[0,
+1]上随机取点，求取在某一点处的概率，点的长度无限小，此概率一定为0。这时情况和上面所述类似，我们需要引入概率密度p。
+<span class="math display">\[p = \lim _{x\rightarrow 0 }{\cfrac{\Delta
+p}{\Delta x}}\]</span></p>
+<p>这样我们就可以求所取点落在某一段(a,b)上的概率P了。 <span
+class="math display">\[P = \int ^{b}_{a}p\left( t\right) dt\]</span></p>
+<p>总结：为什么要叫概率密度，因为它和物理上密度的定义本质上是一样的。通常会遇到两种情况：</p>
+<ol type="1">
+<li><p>已知概率密度函数，求分布函数，积分即可。</p></li>
 <li><p>已知分布函数，求概率密度函数，求导即可。</p>
 <blockquote>
 <p>概率密度函数是针对连续型随机变量定义的。</p>
-</blockquote>
-</li>
+</blockquote></li>
 </ol>
-<h3 id="（二）定义"><a href="#（二）定义" class="headerlink" title="（二）定义"></a>（二）定义</h3><p>若概率密度函数为$f_X(x)$，则可用PDF在某一区间上的积分来刻画随机变量落在这个区间中的概率。</p>
-<script type="math/tex; mode=display">P_{r}\left( a\leq X\leq b\right)=\int ^{b}_{a}f_{X}\left( x\right) dx</script><h2 id="二、概率质量函数（Probability-Mass-Function-PMF）"><a href="#二、概率质量函数（Probability-Mass-Function-PMF）" class="headerlink" title="二、概率质量函数（Probability Mass Function, PMF）"></a>二、概率质量函数（Probability Mass Function, PMF）</h2><ol>
+<h3 id="二定义">（二）定义</h3>
+<p>若概率密度函数为<span
+class="math inline">\(f_X(x)\)</span>，则可用PDF在某一区间上的积分来刻画随机变量落在这个区间中的概率。
+<span class="math display">\[P_{r}\left( a\leq X\leq b\right)=\int
+^{b}_{a}f_{X}\left( x\right) dx\]</span></p>
+<h2
+id="二概率质量函数probability-mass-function-pmf">二、概率质量函数（Probability
+Mass Function, PMF）</h2>
+<ol type="1">
 <li>类似于概率密度函数，只不过是离散型随机变量在各特定取值上的概率。</li>
-<li>以掷一枚均匀硬币为例，若正面令$X=1$，若反面令$X=0$，则其PMF就是</li>
+<li>以掷一枚均匀硬币为例，若正面令<span
+class="math inline">\(X=1\)</span>，若反面令<span
+class="math inline">\(X=0\)</span>，则其PMF就是</li>
 </ol>
-<script type="math/tex; mode=display">f_{X}\left( x\right) =\begin{cases}\dfrac {1}{2} if \ x\in \left\{ 0,1\right\} \\ 0 \ if \ x\notin \left\{ 0,1\right\} \end{cases}</script><h2 id="三、累积分布函数（Cumulative-Distribution-Function-CDF）-简称为分布函数"><a href="#三、累积分布函数（Cumulative-Distribution-Function-CDF）-简称为分布函数" class="headerlink" title="三、累积分布函数（Cumulative Distribution Function,CDF）/简称为分布函数"></a>三、累积分布函数（Cumulative Distribution Function,CDF）/简称为分布函数</h2><ol>
+<p><span class="math display">\[f_{X}\left( x\right)
+=\begin{cases}\dfrac {1}{2} if \ x\in \left\{ 0,1\right\} \\ 0 \ if \
+x\notin \left\{ 0,1\right\} \end{cases}\]</span></p>
+<h2
+id="三累积分布函数cumulative-distribution-functioncdf简称为分布函数">三、累积分布函数（Cumulative
+Distribution Function,CDF）/简称为分布函数</h2>
+<ol type="1">
 <li>是概率密度函数的积分，能完整描述一个实随机变量X的概率分布。</li>
-<li><p>CDF的定义是：$F_{X}\left( x\right) =P_{r}(X \leq x)$</p>
+<li>CDF的定义是：<span class="math inline">\(F_{X}\left( x\right)
+=P_{r}(X \leq x)\)</span>
 <ul>
-<li><p>连续型随机变量：$F_{X}\left( x\right) =P_{r}(X \leq x)=\int ^{x}_{-\infty }f_{X}\left( t\right) dt$</p>
-</li>
-<li><p>离散型随机变量，CDF是阶梯状的分段函数，以掷硬币为例<script type="math/tex">F_{X}\left( x\right) =P_{r}(X \leq x)=\begin{cases}0 \ if \ x<0\\ \dfrac {1}{2}\ if \ 0\leq x<1\\ 1\ if \ x\geq 1\end{cases}</script></p>
-</li>
-</ul>
-</li>
-<li>另外CDF的单调递增（不减）性质可以由它的定义和概率的性质推出:<script type="math/tex; mode=display">对任意x_1 < x_2，总有P_{r}(X \leq x_1)\leq P_{r}(X \leq x_2),所以F_{X}\left( x_1\right)\leq F_{X}\left( x_2\right)</script></li>
+<li><p>连续型随机变量：<span class="math inline">\(F_{X}\left( x\right)
+=P_{r}(X \leq x)=\int ^{x}_{-\infty }f_{X}\left( t\right)
+dt\)</span></p></li>
+<li><p>离散型随机变量，CDF是阶梯状的分段函数，以掷硬币为例<span
+class="math display">\[F_{X}\left( x\right) =P_{r}(X \leq
+x)=\begin{cases}0 \ if \ x&lt;0\\ \dfrac {1}{2}\ if \ 0\leq x&lt;1\\ 1\
+if \ x\geq 1\end{cases}\]</span></p></li>
+</ul></li>
+<li>另外CDF的单调递增（不减）性质可以由它的定义和概率的性质推出: <span
+class="math display">\[对任意x_1 &lt; x_2，总有P_{r}(X \leq x_1)\leq
+P_{r}(X \leq x_2),所以F_{X}\left( x_1\right)\leq F_{X}\left(
+x_2\right)\]</span></li>
 </ol>
 
       
@@ -348,74 +379,114 @@
 
       
           <blockquote>
-<p>说明<br></p>
-<ol>
-<li>译自BetterExplained上的文章An Intuitive Guide To Exponential Functions &amp; e<br></li>
-</ol>
+<p>说明<br> 1. 译自BetterExplained上的文章An Intuitive Guide To
+Exponential Functions &amp; e<br></p>
 </blockquote>
-<p>$e$一直困扰着我，并不是字母e，而是数学常数。它到底意味着什么？在很多数学书籍，甚至我心爱的维基百科都用晦涩的术语来描述$e$：</p>
+<p><span
+class="math inline">\(e\)</span>一直困扰着我，并不是字母e，而是数学常数。它到底意味着什么？在很多数学书籍，甚至我心爱的维基百科都用晦涩的术语来描述<span
+class="math inline">\(e\)</span>：</p>
 <blockquote>
-<p>数学常数$e$是自然对数的底数。</p>
+<p>数学常数<span class="math inline">\(e\)</span>是自然对数的底数。</p>
 </blockquote>
 <p>当你查找自然对数时，你会得到：</p>
 <blockquote>
-<p>自然对数（以前称为双曲线对数）的底数为$e$，其中$e$是约等于2.718281828459的无理常数(irrational constant)。</p>
+<p>自然对数（以前称为双曲线对数）的底数为<span
+class="math inline">\(e\)</span>，其中<span
+class="math inline">\(e\)</span>是约等于2.718281828459的无理常数(irrational
+constant)。</p>
 </blockquote>
 <p>许多数学上的解释在追求严谨方面都是非常正式和枯燥乏味的。但这并不能帮助初学者尝试解决某个问题。</p>
-<h2 id="一、-e-不只是一个数字"><a href="#一、-e-不只是一个数字" class="headerlink" title="一、$e$不只是一个数字"></a>一、$e$不只是一个数字</h2><p>通常，我们将$e$描述为“约为2.71828……的常数”，就像称$\pi$为“约为3.1415……的无理数”。这当然是恰当的，但完全错过了要点。</p>
-<h3 id="（一）-pi-是所有圆的圆周和直径之间的比率"><a href="#（一）-pi-是所有圆的圆周和直径之间的比率" class="headerlink" title="（一）$\pi$是所有圆的圆周和直径之间的比率"></a>（一）$\pi$是所有圆的圆周和直径之间的比率</h3><p>它是所有圆中固有的基础比率，因此影响圆、球和圆柱等的周长、面积、体积和表面积的计算，以及从圆上得到的三角函数(sin，cos，tan)。</p>
-<h3 id="（二）-e-是所有连续增长过程都共有的基本增长率"><a href="#（二）-e-是所有连续增长过程都共有的基本增长率" class="headerlink" title="（二） $e$是所有连续增长过程都共有的基本增长率"></a>（二） $e$是所有连续增长过程都共有的基本增长率</h3><p>你可以用$e$表示一个简单的增长率（所有的增长都是发生在年末的一个瞬变），同时发现连续型复合增长的影响，每一纳秒（或者更快），你只需要增长一点点。</p>
-<p>只要当系统呈连续型指数级增长，$e$便会出现：种群密度、放射性衰变、利息计算等等。甚至并不是平稳增长的锯齿状增长系统都能用$e$来近似。</p>
+<h2 id="一e不只是一个数字">一、<span
+class="math inline">\(e\)</span>不只是一个数字</h2>
+<p>通常，我们将<span
+class="math inline">\(e\)</span>描述为“约为2.71828……的常数”，就像称<span
+class="math inline">\(\pi\)</span>为“约为3.1415……的无理数”。这当然是恰当的，但完全错过了要点。</p>
+<h3 id="一pi是所有圆的圆周和直径之间的比率">（一）<span
+class="math inline">\(\pi\)</span>是所有圆的圆周和直径之间的比率</h3>
+<p>它是所有圆中固有的基础比率，因此影响圆、球和圆柱等的周长、面积、体积和表面积的计算，以及从圆上得到的三角函数(sin，cos，tan)。</p>
+<h3 id="二-e是所有连续增长过程都共有的基本增长率">（二） <span
+class="math inline">\(e\)</span>是所有连续增长过程都共有的基本增长率</h3>
+<p>你可以用<span
+class="math inline">\(e\)</span>表示一个简单的增长率（所有的增长都是发生在年末的一个瞬变），同时发现连续型复合增长的影响，每一纳秒（或者更快），你只需要增长一点点。</p>
+<p>只要当系统呈连续型指数级增长，<span
+class="math inline">\(e\)</span>便会出现：种群密度、放射性衰变、利息计算等等。甚至并不是平稳增长的锯齿状增长系统都能用<span
+class="math inline">\(e\)</span>来近似。</p>
 <p>就像每个数字都可以被认为和1（基本单位）呈某个比例，每个圆可以认为和单位圆（半径为1）呈某个比例，同样每个增长率都可以认为和e（单位增长率）呈某个比例。</p>
-<p>因此$e$并不是一个模糊的、似乎随机的数字。$e$表示这样的思想，即所有连续型增长系统和某个一般比率呈比例关系。</p>
+<p>因此<span
+class="math inline">\(e\)</span>并不是一个模糊的、似乎随机的数字。<span
+class="math inline">\(e\)</span>表示这样的思想，即所有连续型增长系统和某个一般比率呈比例关系。</p>
 <blockquote>
-<p>$e$ represents the idea that all continually growing systems are scaled versions of a common rate.</p>
+<p><span class="math inline">\(e\)</span> represents the idea that all
+continually growing systems are scaled versions of a common rate.</p>
 </blockquote>
-<h2 id="二、理解指数增长"><a href="#二、理解指数增长" class="headerlink" title="二、理解指数增长"></a>二、理解指数增长</h2><p>首先来看一个基本系统，其在一段时间之后会翻倍。比如，</p>
+<h2 id="二理解指数增长">二、理解指数增长</h2>
+<p>首先来看一个基本系统，其在一段时间之后会翻倍。比如，</p>
 <ul>
-<li>细菌每24小时分裂并翻倍</li>
-<li>把面条对折，我们可以得到两倍数量。</li>
+<li><p>细菌每24小时分裂并翻倍</p></li>
+<li><p>把面条对折，我们可以得到两倍数量。</p></li>
 <li><p>如果你（幸运！）得到100%的利润率，那么你的财富每年翻倍。</p>
-<p>  <img src="http://qiniup.louyanspine.com/2018-08-22-growth_2_x.png" alt=""></p>
-</li>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-22-growth_2_x.png" /></p></li>
 </ul>
-<p>数学上，如果分裂x次，那么我们得到原始物品数量的$({2^x})$倍。一次分裂我们得到$(2^{1})$或者2倍。四次分裂我们得到$(2^{4})$或者16倍。通用公式如下：<script type="math/tex">growth = 2 ^x</script></p>
+<p>数学上，如果分裂x次，那么我们得到原始物品数量的<span
+class="math inline">\(({2^x})\)</span>倍。一次分裂我们得到<span
+class="math inline">\((2^{1})\)</span>或者2倍。四次分裂我们得到<span
+class="math inline">\((2^{4})\)</span>或者16倍。通用公式如下：<span
+class="math display">\[growth = 2 ^x\]</span></p>
 <p>另一种描述方式，双倍也就是100%的增长。我们可以重写公式如下：</p>
-<script type="math/tex; mode=display">growth = (1+100\%)^x</script><p>虽然两个等式相同，但我们对2的分割具有真实意义，即原始值1加上100%。聪明吧？</p>
+<p><span class="math display">\[growth = (1+100\%)^x\]</span></p>
+<p>虽然两个等式相同，但我们对2的分割具有真实意义，即原始值1加上100%。聪明吧？</p>
 <p>当然，我们可以用任意数字（50%，25%，200%）代替100%，然后得到关于新比率的growth公式。因此x个周期的回报的通用公式是：</p>
-<script type="math/tex; mode=display">growth = (1+return)^x</script><p>这只是意味着我们连续使用自定义的回报率，$(1 + return)$，“$x$”次。</p>
-<h2 id="三、深入了解指数增长"><a href="#三、深入了解指数增长" class="headerlink" title="三、深入了解指数增长"></a>三、深入了解指数增长</h2><p>上述公式假设增长是离散型的。细菌在等待，等待，然后爆发，它们在最后的最后数量加倍；利息收入在1年的刻度处魔幻般出现。基于上述公式的增长是离散的、瞬间发生的，即，绿点突然出现。</p>
+<p><span class="math display">\[growth = (1+return)^x\]</span>
+这只是意味着我们连续使用自定义的回报率，<span class="math inline">\((1 +
+return)\)</span>，“<span class="math inline">\(x\)</span>”次。</p>
+<h2 id="三深入了解指数增长">三、深入了解指数增长</h2>
+<p>上述公式假设增长是离散型的。细菌在等待，等待，然后爆发，它们在最后的最后数量加倍；利息收入在1年的刻度处魔幻般出现。基于上述公式的增长是离散的、瞬间发生的，即，绿点突然出现。</p>
 <p>事实并非如此，如果我们放大来看，会发现细菌随时间分裂：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_2x_zoomed.png" alt=""></p>
-<p>绿先生（Mr. Green）不只是突然出现：它缓慢增长，然后脱离蓝先生（Mr. Blue）。一个单位时间（本例中是24小时）之后，绿先生完成生长，然后成熟为蓝细胞，可以创造它自己的新绿细胞。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-22-growth_2x_zoomed.png" /></p>
+<p>绿先生（Mr. Green）不只是突然出现：它缓慢增长，然后脱离蓝先生（Mr.
+Blue）。一个单位时间（本例中是24小时）之后，绿先生完成生长，然后成熟为蓝细胞，可以创造它自己的新绿细胞。</p>
 <p>这个信息会改变我们的等式么？</p>
 <p>不！在细菌实例中，半成品的绿细胞仍然做不了任何事情，除非它们完全长大并从蓝色父母中分离。因此，等式保持不变。</p>
-<h2 id="四、金钱改变一切"><a href="#四、金钱改变一切" class="headerlink" title="四、金钱改变一切"></a>四、金钱改变一切</h2><p>然而财富却不一样。每收入1便士的利息，这1便士就能开始产生它自己的微便士（micro-pennies）。我们不需要等到收入完整的1美元利息：新的财富不需要成熟。</p>
+<h2 id="四金钱改变一切">四、金钱改变一切</h2>
+<p>然而财富却不一样。每收入1便士的利息，这1便士就能开始产生它自己的微便士（micro-pennies）。我们不需要等到收入完整的1美元利息：新的财富不需要成熟。</p>
 <p>基于我们旧的公式，利息增长看起来是这样的：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_1.png" alt=""></p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_1.png" /></p>
 <p>但是这样并不正确：所有的利息出现在最后一天。让我们把一年放大并分为两块。即每年收入100%的利息，或者每6个月收入50%。那么前六个月收入50美分，后六个月收入另外50美分：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months.png" alt=""></p>
-<p>但这依然不正确！当然，原始的财富（Mr. Blue）在一年之内收入1美元。但是6个月后我们收入了50美分，明白了吧，我们之前忽略了这一部分！这50美分本来也有它自己的收入：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months_compound.png" alt=""></p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months.png" /></p>
+<p>但这依然不正确！当然，原始的财富（Mr.
+Blue）在一年之内收入1美元。但是6个月后我们收入了50美分，明白了吧，我们之前忽略了这一部分！这50美分本来也有它自己的收入：</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_6_months_compound.png" /></p>
 <p>因为比率是每半年50%，那50美分本可以收入25美分（50美分的50%）。年末我们可以得到：</p>
 <ul>
 <li>原始财富（Mr. Blue）</li>
 <li>蓝先生创造的财富（Mr. Green）</li>
 <li>绿先生创造的25美分（Mr. Red）</li>
 </ul>
-<p>总共得到\$2.25，即从初始的财富中收益\$1.25，比翻倍要好！</p>
-<p>让我们把回报写成公式。两个50%的半周期的growth是：</p>
-<script type="math/tex; mode=display">growth = (1+50\%)^2 = 2.25</script><h2 id="五、复合增长的深入研究"><a href="#五、复合增长的深入研究" class="headerlink" title="五、复合增长的深入研究"></a>五、复合增长的深入研究</h2><p>是时候提升一个等级了。这次不再把增长为为两个50%的增长周期，而把它分为三段33%的增长周期。谁说我们必须等待6个月才能开始收入利息？毫厘必争！</p>
+<p>总共得到$2.25，即从初始的财富中收益$1.25，比翻倍要好！</p>
+<p>让我们把回报写成公式。两个50%的半周期的growth是： <span
+class="math display">\[growth = (1+50\%)^2 = 2.25\]</span></p>
+<h2 id="五复合增长的深入研究">五、复合增长的深入研究</h2>
+<p>是时候提升一个等级了。这次不再把增长为为两个50%的增长周期，而把它分为三段33%的增长周期。谁说我们必须等待6个月才能开始收入利息？毫厘必争！</p>
 <p>3个复合周期的增长得到下面有趣的图表：</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_4_months_compound.png" alt=""></p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-22-growth_interest_4_months_compound.png" /></p>
 <p>想象每种颜色将收益向上传送给另一种颜色（它的孩子），每个周期增长33%：</p>
 <ul>
 <li>0月：初始蓝先生为$1。</li>
 <li>4月：蓝先生已经收入它自己的1/3美元，同时创造出的绿先生拥有33美分。</li>
-<li>8月：蓝先生收入另外33美分，交给绿先生，绿先生拥有66美分。绿先生在它之前的值上收益33%，创造11美分$(33\% \times 33)$，这11美分变成红先生。</li>
-<li>12月：情况变得略疯狂了。蓝先生收入另外33美分，交给绿先生，绿先生拥有完整的1美元。绿先生在它8月份的值（66美分）上收入33%的回报，即22美分，这22美分加到红先生上，红先生现在总共33美分。而且红先生开始有11美分，并以此收入4美分$(33\% \times 11)$，创造出紫先生。</li>
+<li>8月：蓝先生收入另外33美分，交给绿先生，绿先生拥有66美分。绿先生在它之前的值上收益33%，创造11美分<span
+class="math inline">\((33\% \times
+33)\)</span>，这11美分变成红先生。</li>
+<li>12月：情况变得略疯狂了。蓝先生收入另外33美分，交给绿先生，绿先生拥有完整的1美元。绿先生在它8月份的值（66美分）上收入33%的回报，即22美分，这22美分加到红先生上，红先生现在总共33美分。而且红先生开始有11美分，并以此收入4美分<span
+class="math inline">\((33\% \times 11)\)</span>，创造出紫先生。</li>
 </ul>
-<p>12个月后的最终值是：$1 + 1 + .33 + .04 = 2.37$</p>
+<p>12个月后的最终值是：<span class="math inline">\(1 + 1 + .33 + .04 =
+2.37\)</span></p>
 <p>花点时间来真正搞懂这种增长的原委：</p>
 <ul>
 <li>每种颜色从其自身上收入利息，并交给另一种颜色。新创造的财富也可以产生它自己的利息，依次循环。</li>
@@ -423,103 +494,157 @@
 <li>绿先生喂养(feeds)红先生（绿色箭头），但是蓝先生并没有意识到。</li>
 <li>绿先生随时间增长（不断被蓝先生喂养），它对红先生的贡献越来越多。4-8月间，绿先生给了红先生11美分。8-12月间，因为绿先生在8月份有66美分，所以给了红先生22美分。如果我们扩展下图表，绿先生将给红先生33美分，因为绿先生在12月份达到了完整的1美元。</li>
 </ul>
-<p>通过在growth等式中使用3个周期，得到这样的公式：</p>
-<script type="math/tex; mode=display">growth = (1+100\%/3)^3 = 2.37037...</script><p>我们挣了\$1.37，比上次得到的\$1.25更好！</p>
-<h2 id="六、我们可以得到无尽的财富么？"><a href="#六、我们可以得到无尽的财富么？" class="headerlink" title="六、我们可以得到无尽的财富么？"></a>六、我们可以得到无尽的财富么？</h2><p>为什么不采用更短的时间周期呢？每月、每天、每小时，甚至每纳秒会怎么样？回报会猛涨么？</p>
+<p>通过在growth等式中使用3个周期，得到这样的公式： <span
+class="math display">\[growth = (1+100\%/3)^3 = 2.37037...\]</span></p>
+<p>我们挣了$1.37，比上次得到的$1.25更好！</p>
+<h2 id="六我们可以得到无尽的财富么">六、我们可以得到无尽的财富么？</h2>
+<p>为什么不采用更短的时间周期呢？每月、每天、每小时，甚至每纳秒会怎么样？回报会猛涨么？</p>
 <p>回报确实会变得更好，但也只是在某种意义上。尝试在我们魔幻般的公式中使用不同的数字n，来看下总的回报：</p>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center">n</th>
-<th style="text-align:center">$(1+\cfrac{1}{n})^n$</th>
+<tr class="header">
+<th style="text-align: center;">n</th>
+<th style="text-align: center;"><span
+class="math inline">\((1+\cfrac{1}{n})^n\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2.25</td>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2.25</td>
 </tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">2.37</td>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2.37</td>
 </tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">2.488</td>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2.488</td>
 </tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">2.5937</td>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">2.5937</td>
 </tr>
-<tr>
-<td style="text-align:center">100</td>
-<td style="text-align:center">2.7048</td>
+<tr class="even">
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">2.7048</td>
 </tr>
-<tr>
-<td style="text-align:center">1000</td>
-<td style="text-align:center">2.7169</td>
+<tr class="odd">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">2.7169</td>
 </tr>
-<tr>
-<td style="text-align:center">10000</td>
-<td style="text-align:center">2.71814</td>
+<tr class="even">
+<td style="text-align: center;">10000</td>
+<td style="text-align: center;">2.71814</td>
 </tr>
-<tr>
-<td style="text-align:center">100000</td>
-<td style="text-align:center">2.718268</td>
+<tr class="odd">
+<td style="text-align: center;">100000</td>
+<td style="text-align: center;">2.718268</td>
 </tr>
-<tr>
-<td style="text-align:center">1000000</td>
-<td style="text-align:center">2.7182804</td>
+<tr class="even">
+<td style="text-align: center;">1000000</td>
+<td style="text-align: center;">2.7182804</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>数字越来越大，最终收敛到2.718附近。</p>
-<p>如果在越来越小的时间周期上，连续复合100%的回报，$e$则被定义为其增长率：</p>
-<script type="math/tex; mode=display">growth = e = \lim _{n\rightarrow \infty }\left( 1+\cfrac {1}{n}\right) ^{n}</script><p>这个极限似乎是收敛的，而且存在相应的证明。但是如你所见，当我们采用更小的时间周期时，总的回报稳定在2.718附近。</p>
-<h2 id="七、-但这意味着什么呢？"><a href="#七、-但这意味着什么呢？" class="headerlink" title="七、 但这意味着什么呢？"></a>七、 但这意味着什么呢？</h2><p>当在一个时间周期内复合100%的增长时，数字$e（2.718…）$是最大的可能结果。当然，开始时你期望从1增长到2（一个100%的增长，对吧？）。但是每向前一小步，你所创造的微薄利润本身也在收益。当所有过程指明并结束，你在一个时间周期末最终得到$e（2.718…）$，而不是2。$e$是最大的，当我们尽可能多地复合100%时，又发生了什么呢？</p>
-<p>那么，如果我们以\$1.00为开始，以100%的回报连续复合，我们得到$1e$。如果我们以\$2.00为开始，我们得到$2e$。如果我们以\$11.79为开始，我们得到$11.79e$。</p>
-<p>$e$像是一个速度极限（类似光速$c$），表明在使用一个连续过程时，可能增长多快。你可能不总是达到速度极限，但它是一个参考点：你可以用这个通用常量表示每个增长率。</p>
+<p>如果在越来越小的时间周期上，连续复合100%的回报，<span
+class="math inline">\(e\)</span>则被定义为其增长率： <span
+class="math display">\[growth = e = \lim _{n\rightarrow \infty }\left(
+1+\cfrac {1}{n}\right) ^{n}\]</span></p>
+<p>这个极限似乎是收敛的，而且存在相应的证明。但是如你所见，当我们采用更小的时间周期时，总的回报稳定在2.718附近。</p>
+<p>##七、 但这意味着什么呢？
+当在一个时间周期内复合100%的增长时，数字<span
+class="math inline">\(e（2.718…）\)</span>是最大的可能结果。当然，开始时你期望从1增长到2（一个100%的增长，对吧？）。但是每向前一小步，你所创造的微薄利润本身也在收益。当所有过程指明并结束，你在一个时间周期末最终得到<span
+class="math inline">\(e（2.718…）\)</span>，而不是2。<span
+class="math inline">\(e\)</span>是最大的，当我们尽可能多地复合100%时，又发生了什么呢？</p>
+<p>那么，如果我们以$1.00为开始，以100%的回报连续复合，我们得到<span
+class="math inline">\(1e\)</span>。如果我们以$2.00为开始，我们得到<span
+class="math inline">\(2e\)</span>。如果我们以$11.79为开始，我们得到<span
+class="math inline">\(11.79e\)</span>。</p>
+<p><span class="math inline">\(e\)</span>像是一个速度极限（类似光速<span
+class="math inline">\(c\)</span>），表明在使用一个连续过程时，可能增长多快。你可能不总是达到速度极限，但它是一个参考点：你可以用这个通用常量表示每个增长率。</p>
 <blockquote>
-<p>注：将增量从最终结果中分离出来。1变成$e（2.718…）$是一个171.8%的增量（增长率）。$e$本身是在所有增量考虑进去之后（原始值+增量），你所观测到的最终结果。</p>
+<p>注：将增量从最终结果中分离出来。1变成<span
+class="math inline">\(e（2.718…）\)</span>是一个171.8%的增量（增长率）。<span
+class="math inline">\(e\)</span>本身是在所有增量考虑进去之后（原始值+增量），你所观测到的最终结果。</p>
 </blockquote>
-<h2 id="八、如果使用不同的比率呢？"><a href="#八、如果使用不同的比率呢？" class="headerlink" title="八、如果使用不同的比率呢？"></a>八、如果使用不同的比率呢？</h2><p>好问题。如果我们以每年50%增长，而不是100%呢？我们依然可以使用$e$么？</p>
-<p>来看看，50%的复合增长应该是这样的：</p>
-<script type="math/tex; mode=display">\lim _{n\rightarrow \infty }\left( 1+\cfrac {0.5}{n}\right) ^{n}</script><p>回想下，50%是总的回报，n是将增长分成复合增长的周期数。如果我们取n=50，我们可以将增长分成50块，每块1%的利息：</p>
-<script type="math/tex; mode=display">\left( 1+\cfrac {0.50}{50}\right) ^{50}=\left( 1+0.01\right) ^{50}</script><p>当然，这不是无穷的，但是已经相当小了。现在想象我们也将常规的100%分割成1%的块：</p>
-<script type="math/tex; mode=display">e\approx\left( 1+ \cfrac {1.00}{100}\right) ^{100}=\left( 1+0.01\right) ^{100}</script><p>殊途同归。在我们的常规案例中，有100个1%的累积变化。在50%的场景中，有50个1%的累积变化。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-22-different_exponential_rates.png" alt=""></p>
-<p>这两个数字间的差异是什么呢？好吧，只是差了一半的变化数目而已：</p>
-<script type="math/tex; mode=display">\left( 1+0.01\right) ^{50} = \left( 1+0.01\right) ^{100/2}=\left( \left( 1+0.01\right) ^{100}\right) ^{1/2}=e^{1/2}</script><p>相当有趣的是，$50/100 = 0.5$，0.5正是e的指数。这是普遍适用的：如果有300%的增长率，我们可以将它分成300个1%的增长块。这将是标准量的三倍，最终比率为$(e^{3})$。</p>
-<p>这里取了1%，但我们本可以选择任意小的增长单位（0.1%，0.0001%，甚至一个无穷小量）。重点是对于所选取的任意比率，它只是$e$上的一个新指数而已：</p>
-<script type="math/tex; mode=display">growth= e^{rate}</script><h2 id="九、如果使用不同的周期呢？"><a href="#九、如果使用不同的周期呢？" class="headerlink" title="九、如果使用不同的周期呢？"></a>九、如果使用不同的周期呢？</h2><p>假设我们以300%增长两年，我们要将一年的增长$e^{3}$乘以其自身：</p>
-<script type="math/tex; mode=display">growth= (e^{3})^2=e^{6}</script><p>推而广之：</p>
-<script type="math/tex; mode=display">growth= (e^{rate})^{time}=e^{rate \times time}</script><h3 id="大秘密：-e-整合了比率和时间"><a href="#大秘密：-e-整合了比率和时间" class="headerlink" title="大秘密：$e$整合了比率和时间"></a>大秘密：$e$整合了比率和时间</h3><p>$(e^{3})$可以表示两个东西：</p>
+<h2 id="八如果使用不同的比率呢">八、如果使用不同的比率呢？</h2>
+<p>好问题。如果我们以每年50%增长，而不是100%呢？我们依然可以使用<span
+class="math inline">\(e\)</span>么？</p>
+<p>来看看，50%的复合增长应该是这样的： <span class="math display">\[\lim
+_{n\rightarrow \infty }\left( 1+\cfrac {0.5}{n}\right) ^{n}\]</span></p>
+<p>回想下，50%是总的回报，n是将增长分成复合增长的周期数。如果我们取n=50，我们可以将增长分成50块，每块1%的利息：
+<span class="math display">\[\left( 1+\cfrac {0.50}{50}\right)
+^{50}=\left( 1+0.01\right) ^{50}\]</span></p>
+<p>当然，这不是无穷的，但是已经相当小了。现在想象我们也将常规的100%分割成1%的块：
+<span class="math display">\[e\approx\left( 1+ \cfrac {1.00}{100}\right)
+^{100}=\left( 1+0.01\right) ^{100}\]</span></p>
+<p>殊途同归。在我们的常规案例中，有100个1%的累积变化。在50%的场景中，有50个1%的累积变化。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-22-different_exponential_rates.png" /></p>
+<p>这两个数字间的差异是什么呢？好吧，只是差了一半的变化数目而已： <span
+class="math display">\[\left( 1+0.01\right) ^{50} = \left( 1+0.01\right)
+^{100/2}=\left( \left( 1+0.01\right) ^{100}\right)
+^{1/2}=e^{1/2}\]</span></p>
+<p>相当有趣的是，<span class="math inline">\(50/100 =
+0.5\)</span>，0.5正是e的指数。这是普遍适用的：如果有300%的增长率，我们可以将它分成300个1%的增长块。这将是标准量的三倍，最终比率为<span
+class="math inline">\((e^{3})\)</span>。</p>
+<p>这里取了1%，但我们本可以选择任意小的增长单位（0.1%，0.0001%，甚至一个无穷小量）。重点是对于所选取的任意比率，它只是<span
+class="math inline">\(e\)</span>上的一个新指数而已： <span
+class="math display">\[growth= e^{rate}\]</span></p>
+<h2 id="九如果使用不同的周期呢">九、如果使用不同的周期呢？</h2>
+<p>假设我们以300%增长两年，我们要将一年的增长<span
+class="math inline">\(e^{3}\)</span>乘以其自身： <span
+class="math display">\[growth= (e^{3})^2=e^{6}\]</span></p>
+<p>推而广之： <span class="math display">\[growth=
+(e^{rate})^{time}=e^{rate \times time}\]</span></p>
+<h3 id="大秘密e整合了比率和时间">大秘密：<span
+class="math inline">\(e\)</span>整合了比率和时间</h3>
+<p><span class="math inline">\((e^{3})\)</span>可以表示两个东西：</p>
 <ul>
-<li>x是时间乘以增长率：以100%增长三年是$e^{3}$</li>
-<li>x是增长率本身：以300%增长一年是$e^{3}$</li>
+<li>x是时间乘以增长率：以100%增长三年是<span
+class="math inline">\(e^{3}\)</span></li>
+<li>x是增长率本身：以300%增长一年是<span
+class="math inline">\(e^{3}\)</span></li>
 </ul>
-<p>这个重叠不会引起混淆么？当我们写为：<script type="math/tex">e^{x}</script></p>
-<p>变量$x$是比率和时间的组合。$x = rate \times time$</p>
+<p>这个重叠不会引起混淆么？当我们写为：<span
+class="math display">\[e^{x}\]</span></p>
+<p>变量<span class="math inline">\(x\)</span>是比率和时间的组合。<span
+class="math inline">\(x = rate \times time\)</span></p>
 <p>我来解释下。当处理连续型复合增长时，10年3%的增长和1年30%的增长是等价的（此后不增长的话）。</p>
 <ul>
 <li>10年的3%的增长意味着30个1%的变化，这些变化在10年内发生，所以你是以每年3%连续增长。</li>
 <li>1个周期的30%的增长意味着30个1%的变化，但是在一年内发生，所以一年增长30%，然后停止。</li>
 </ul>
 <p>每个案例中有同样的“30个1%的变化”发生。速率（30%）越快，达到同样的效果所用时间越少（1年）。速率越慢（3%），需要增长的时间越长（10年）。</p>
-<p>但是在两个案例中，最后的增长是$e^{0.30} = 1.35$。我们更加急切地希望大而快的增长，而不是慢而长的增长，但是$e$显示出它们的最终效果是一样的。</p>
-<p>所以我们的通用公式变为：</p>
-<script type="math/tex; mode=display">growth= e^x = e^{rt}</script><h2 id="十、实例"><a href="#十、实例" class="headerlink" title="十、实例"></a>十、实例</h2><h3 id="（一）实例1：最大利率"><a href="#（一）实例1：最大利率" class="headerlink" title="（一）实例1：最大利率"></a>（一）实例1：最大利率</h3><p>假设我有账户上有\$120，利率5%。银行很慷慨，给了我最大可能的复合。10年后我将得到多少呢？</p>
-<p>我们的比率是5%，而且很幸运得以连续复合。10年之后，我们得到<script type="math/tex">\$120\times e^{0.05\times 10 }= \$197.85</script></p>
-<h3 id="（二）实例2：72法则"><a href="#（二）实例2：72法则" class="headerlink" title="（二）实例2：72法则"></a>（二）实例2：72法则</h3><p>如果银行的利息率是5%的复利，请问100元存款翻倍需要多少时间？<br>计算结果是13.86年cfrac</p>
-<script type="math/tex; mode=display">100\times e^{5 \% \times t}= 200</script><script type="math/tex; mode=display">t=\cfrac {\ln 2}{5\% } = \cfrac {0.693}{5\% }= \cfrac {69.3}{5} \approx \cfrac {72}{5}</script><p>上式最后一个等号，表明用72除以增长率，可以得到翻倍的大致时间，这就是72法则的来源。</p>
-<h3 id="（三）实例3：放射性衰变"><a href="#（三）实例3：放射性衰变" class="headerlink" title="（三）实例3：放射性衰变"></a>（三）实例3：放射性衰变</h3><p>我有10kg的放射性材料，似乎以每年100%的速率连续衰变。3年后我将有多少呢？</p>
-<script type="math/tex; mode=display">10\times e^{-1 \times 3 }= 0.498kg</script>
+<p>但是在两个案例中，最后的增长是<span class="math inline">\(e^{0.30} =
+1.35\)</span>。我们更加急切地希望大而快的增长，而不是慢而长的增长，但是<span
+class="math inline">\(e\)</span>显示出它们的最终效果是一样的。</p>
+<p>所以我们的通用公式变为： <span class="math display">\[growth= e^x =
+e^{rt}\]</span></p>
+<h2 id="十实例">十、实例</h2>
+<h3 id="一实例1最大利率">（一）实例1：最大利率</h3>
+<p>假设我有账户上有$120，利率5%。银行很慷慨，给了我最大可能的复合。10年后我将得到多少呢？</p>
+<p>我们的比率是5%，而且很幸运得以连续复合。10年之后，我们得到<span
+class="math display">\[\$120\times e^{0.05\times 10 }=
+\$197.85\]</span></p>
+<h3 id="二实例272法则">（二）实例2：72法则</h3>
+<p>如果银行的利息率是5%的复利，请问100元存款翻倍需要多少时间？
+计算结果是13.86年cfrac <span class="math display">\[100\times e^{5 \%
+\times t}= 200\]</span> <span class="math display">\[t=\cfrac {\ln
+2}{5\% } = \cfrac {0.693}{5\% }= \cfrac {69.3}{5} \approx \cfrac
+{72}{5}\]</span>
+上式最后一个等号，表明用72除以增长率，可以得到翻倍的大致时间，这就是72法则的来源。</p>
+<h3 id="三实例3放射性衰变">（三）实例3：放射性衰变</h3>
+<p>我有10kg的放射性材料，似乎以每年100%的速率连续衰变。3年后我将有多少呢？</p>
+<p><span class="math display">\[10\times e^{-1 \times 3 }=
+0.498kg\]</span></p>
+
       
     </div>
 
@@ -593,49 +718,70 @@
 
       
           <blockquote>
-<p>说明：<br></p>
-<ol>
-<li>翻译自Weinstein JN,et al.Spinal pedicle fixation: reliability and validity of roentgenogram-based assessment and surgical factors on successful screw placement.Spine,1988,13(9):1012-8.<br></li>
-</ol>
+<p>说明：<br> 1. 翻译自Weinstein JN,et al.Spinal pedicle fixation:
+reliability and validity of roentgenogram-based assessment and surgical
+factors on successful screw placement.Spine,1988,13(9):1012-8.<br></p>
 </blockquote>
-<p>自从King于1944年首次将short screws几乎横向穿过腰椎后柱的lateral articulations（transfacet/关节突）。在此基础上，脊柱内固定技术在Boucher，Pennel，Roy-Camille，Louis and Maresca，Cabot，Steffee等人的努力下，不断改进。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-20-Internal%20fixation%20for%20lumbosacral%20fusion.jpg" alt=""></p>
+<p>自从King于1944年首次将short screws几乎横向穿过腰椎后柱的lateral
+articulations（transfacet/关节突）。在此基础上，脊柱内固定技术在Boucher，Pennel，Roy-Camille，Louis
+and Maresca，Cabot，Steffee等人的努力下，不断改进。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-20-Internal%20fixation%20for%20lumbosacral%20fusion.jpg" /></p>
 <p>总的来说，上述骨科医生的工作促进了以下四个方面的改进：</p>
-<ol>
+<ol type="1">
 <li>置钉技术</li>
 <li>螺钉、钢板和螺母(nuts)的设计</li>
 <li>骨移植技术</li>
 <li>在各种临床情况下使用内固定的适应症和禁忌症</li>
 </ol>
-<p>鉴于椎弓根螺钉内固定相对较长的历史，其技术的发展和目前的流行，却缺乏关于椎弓根螺钉内固定成功的实证研究(empirical research)，这是很令人惊讶的。</p>
-<p>这项研究的目的是调查椎弓根置钉相对于X线的可靠性和有效性，并评估与固定成功相关的技术因素，包括：方法（用于将螺钉置于椎弓根上的标记）; 外科医生的经验; 实践; 固定的节段; 螺钉尺寸。<br>这些问题不仅具有挑战性，而且代表了评估椎弓根置钉的必要信息。</p>
-<h3 id="成功率"><a href="#成功率" class="headerlink" title="成功率"></a>成功率</h3><p>在临床实践中，骨科医生在术中使用静态或动态X线片来辅助置钉并评估置钉的成功是否。这项技术的可靠性和有效性如何？</p>
-<h3 id="入路"><a href="#入路" class="headerlink" title="入路"></a>入路</h3><p>Roy-Camille建议，螺钉的进入点是两条线的交叉点：</p>
-<ol>
-<li>横突中线</li>
+<p>鉴于椎弓根螺钉内固定相对较长的历史，其技术的发展和目前的流行，却缺乏关于椎弓根螺钉内固定成功的实证研究(empirical
+research)，这是很令人惊讶的。</p>
+<p>这项研究的目的是调查椎弓根置钉相对于X线的可靠性和有效性，并评估与固定成功相关的技术因素，包括：方法（用于将螺钉置于椎弓根上的标记）;
+外科医生的经验; 实践; 固定的节段; 螺钉尺寸。
+这些问题不仅具有挑战性，而且代表了评估椎弓根置钉的必要信息。</p>
+<h3 id="成功率">成功率</h3>
+<p>在临床实践中，骨科医生在术中使用静态或动态X线片来辅助置钉并评估置钉的成功是否。这项技术的可靠性和有效性如何？</p>
+<h3 id="入路">入路</h3>
+<p>Roy-Camille建议，螺钉的进入点是两条线的交叉点：</p>
+<ol type="1">
+<li><p>横突中线</p></li>
 <li><p>经过关节面下1mm的关节突的垂线</p>
 <blockquote>
-<p>a vertical line given by the articular processes 1 mm under the facet joint</p>
-</blockquote>
-</li>
+<p>a vertical line given by the articular processes 1 mm under the facet
+joint</p>
+</blockquote></li>
 </ol>
-<p><img src="http://qiniup.louyanspine.com/2018-08-20-figure_1-7A.jpg" alt=""></p>
-<p>Weinstein建议将腰椎中的螺钉放置在远离facet joint的位置，以免干扰未固定和融合的节段的运动。</p>
-<p>最佳的进入点位于上关节面的lateral and inferior corner，Weinstein称之为上关节面的颈背(the nape of the neck)。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-20-figure_1-7A.jpg" /></p>
+<p>Weinstein建议将腰椎中的螺钉放置在远离facet
+joint的位置，以免干扰未固定和融合的节段的运动。</p>
+<p>最佳的进入点位于上关节面的lateral and inferior
+corner，Weinstein称之为上关节面的颈背(the nape of the neck)。</p>
 <p>因此，入路是否会对成功率产生影响，在下腰椎中，Weinstein入路是否比Roy-Camille入路更合适？</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-20-screw.jpg" alt=""></p>
-<h3 id="外科医生的经验"><a href="#外科医生的经验" class="headerlink" title="外科医生的经验"></a>外科医生的经验</h3><p>虽然外科医生接受过椎弓根固定技术方面的培训，但经验的长期影响是什么？ 从经验中获得额外的学问可以转化为更高的成功率吗？</p>
-<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>尽管与经验有关，但实践会促进短期内经验的改进。成功率是否会随着实践而提高，并且基于外科医生的经验，实践是否会产生有差异的效果？</p>
-<h3 id="固定节段"><a href="#固定节段" class="headerlink" title="固定节段"></a>固定节段</h3><p>虽然脊柱内固定的远期成功与固定的节段有关这个假设，可能是合理的，因为某些节段可能比其他节段承受更多的力量，置钉本身的成功与固定的节段有关么？</p>
-<h3 id="螺钉尺寸"><a href="#螺钉尺寸" class="headerlink" title="螺钉尺寸"></a>螺钉尺寸</h3><p>一些研究报道了尸体上椎弓根的直径(垂直和水平方向)。此外，还有许多不同节段（胸椎，腰椎，骶骨）的椎弓根测量有关的解剖学研究。</p>
-<p>然而，没有人讨论过这些测量在椎弓根置钉中的重要性。例如，如果椎弓根峡部的最窄尺寸是8.0毫米，那么7.0毫米或5.5毫米螺钉更合适吗？<br><img src="http://qiniup.louyanspine.com/2018-08-20-pars-injection-spondylolisthesis.jpg" alt=""></p>
-<p>当然，pedicle characteristics differ as a function of spine level，因此，螺钉尺寸和固定节段代表至少部分混淆因素。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<p><img src="http://qiniup.louyanspine.com/2018-08-20-screw.jpg" /></p>
+<h3 id="外科医生的经验">外科医生的经验</h3>
+<p>虽然外科医生接受过椎弓根固定技术方面的培训，但经验的长期影响是什么？
+从经验中获得额外的学问可以转化为更高的成功率吗？</p>
+<h3 id="实践">实践</h3>
+<p>尽管与经验有关，但实践会促进短期内经验的改进。成功率是否会随着实践而提高，并且基于外科医生的经验，实践是否会产生有差异的效果？</p>
+<h3 id="固定节段">固定节段</h3>
+<p>虽然脊柱内固定的远期成功与固定的节段有关这个假设，可能是合理的，因为某些节段可能比其他节段承受更多的力量，置钉本身的成功与固定的节段有关么？</p>
+<h3 id="螺钉尺寸">螺钉尺寸</h3>
+<p>一些研究报道了尸体上椎弓根的直径(垂直和水平方向)。此外，还有许多不同节段（胸椎，腰椎，骶骨）的椎弓根测量有关的解剖学研究。</p>
+<p>然而，没有人讨论过这些测量在椎弓根置钉中的重要性。例如，如果椎弓根峡部的最窄尺寸是8.0毫米，那么7.0毫米或5.5毫米螺钉更合适吗？
+<img
+src="http://qiniup.louyanspine.com/2018-08-20-pars-injection-spondylolisthesis.jpg" /></p>
+<p>当然，pedicle characteristics differ as a function of spine
+level，因此，螺钉尺寸和固定节段代表至少部分混淆因素。</p>
+<h2 id="方法">方法</h2>
+<h3 id="步骤">步骤</h3>
+<ol type="1">
 <li>获取八个新鲜的胸腰椎，并清除所有软组织。</li>
 <li>两名外科医生（S和B）在八个标本上的T11至S1节段的左侧和右侧分别使用两种椎弓根固定方法，Weinstein和Roy-Camille（W和R-C）。</li>
 <li>固定节段和固定方法的分配：在每一个脊柱内，每个外科医生在每个节段都实施内固定，并且均等使用W和R-C。两个医生在每个节段用每一种固定方法的数量均相同。</li>
 <li>在某一节段上，使用某一特定的固定方法，外科医生的操作顺序在每个样本内都随机化。</li>
-<li>在C臂机的前后位 (anteroposterior,AP)、侧位控制下。在T11-L1，使用5.5mm的螺钉，在L2-S1使用7.0mm的螺钉。</li>
+<li>在C臂机的前后位
+(anteroposterior,AP)、侧位控制下。在T11-L1，使用5.5mm的螺钉，在L2-S1使用7.0mm的螺钉。</li>
 <li>在样本3之后，调整螺钉的尺寸，使得在T11-L3处使用5.5mm螺钉，并且在L4-S1处使用7.0mm螺钉。</li>
 </ol>
 
@@ -792,19 +938,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、方差-Variance"><a href="#一、方差-Variance" class="headerlink" title="一、方差(Variance)"></a>一、方差(Variance)</h2><h3 id="（一）总体方差"><a href="#（一）总体方差" class="headerlink" title="（一）总体方差"></a>（一）总体方差</h3><script type="math/tex; mode=display">\sigma^2=\dfrac {1}{N}\sum ^{N}_{i=1}\left( x_{i}-\mu \right) ^{2}</script><h3 id="（二）样本方差"><a href="#（二）样本方差" class="headerlink" title="（二）样本方差"></a>（二）样本方差</h3><script type="math/tex; mode=display">s^2=\dfrac {1}{N-1}\sum ^{N}_{i=1}\left( x_{i}-\overline {x}\right) ^{2}</script><h2 id="二、标准差-Standard-Deviation-SD"><a href="#二、标准差-Standard-Deviation-SD" class="headerlink" title="二、标准差(Standard Deviation,SD)"></a>二、标准差(Standard Deviation,SD)</h2><h3 id="（一）总体标准差"><a href="#（一）总体标准差" class="headerlink" title="（一）总体标准差"></a>（一）总体标准差</h3><script type="math/tex; mode=display">\sigma=\sqrt{\dfrac {1}{N}\sum ^{N}_{i=1}\left( x_{i}-\mu \right) ^{2}}</script><h3 id="（二）样本标准差"><a href="#（二）样本标准差" class="headerlink" title="（二）样本标准差"></a>（二）样本标准差</h3><script type="math/tex; mode=display">s=\sqrt{\dfrac {1}{N-1}\sum ^{N}_{i=1}\left( x_{i}-\overline {x}\right) ^{2}}</script><h2 id="三、标准误-Standard-Error-SE"><a href="#三、标准误-Standard-Error-SE" class="headerlink" title="三、标准误(Standard Error,SE)"></a>三、标准误(Standard Error,SE)</h2><h3 id="（一）标准误和标准差的联系"><a href="#（一）标准误和标准差的联系" class="headerlink" title="（一）标准误和标准差的联系"></a>（一）标准误和标准差的联系</h3><ol>
+          <h2 id="一方差variance">一、方差(Variance)</h2>
+<h3 id="一总体方差">（一）总体方差</h3>
+<p><span class="math display">\[\sigma^2=\dfrac {1}{N}\sum
+^{N}_{i=1}\left( x_{i}-\mu \right) ^{2}\]</span></p>
+<h3 id="二样本方差">（二）样本方差</h3>
+<p><span class="math display">\[s^2=\dfrac {1}{N-1}\sum ^{N}_{i=1}\left(
+x_{i}-\overline {x}\right) ^{2}\]</span></p>
+<h2 id="二标准差standard-deviationsd">二、标准差(Standard
+Deviation,SD)</h2>
+<h3 id="一总体标准差">（一）总体标准差</h3>
+<p><span class="math display">\[\sigma=\sqrt{\dfrac {1}{N}\sum
+^{N}_{i=1}\left( x_{i}-\mu \right) ^{2}}\]</span></p>
+<h3 id="二样本标准差">（二）样本标准差</h3>
+<p><span class="math display">\[s=\sqrt{\dfrac {1}{N-1}\sum
+^{N}_{i=1}\left( x_{i}-\overline {x}\right) ^{2}}\]</span></p>
+<h2 id="三标准误standard-errorse">三、标准误(Standard Error,SE)</h2>
+<h3 id="一标准误和标准差的联系">（一）标准误和标准差的联系</h3>
+<ol type="1">
 <li>标准误也是标准差。</li>
 </ol>
-<h3 id="（二）标准误和标准差的区别"><a href="#（二）标准误和标准差的区别" class="headerlink" title="（二）标准误和标准差的区别"></a>（二）标准误和标准差的区别</h3><ol>
+<h3 id="二标准误和标准差的区别">（二）标准误和标准差的区别</h3>
+<ol type="1">
 <li>标准差是衡量某一次抽样得到的一个（样本量为N的）样本里所有个体之间的区别。</li>
-<li>标准误是衡量多次抽样得到的很多（样本量均为N的）样本（各自的平均值或其他统计量）之间的区别。<ul>
-<li>标准误衡量的是抽样分布的离散度，比如样本均值的标准误(standard error of sample mean)，衡量的就是样本均值的离散度。</li>
-</ul>
-</li>
+<li>标准误是衡量多次抽样得到的很多（样本量均为N的）样本（各自的平均值或其他统计量）之间的区别。
+<ul>
+<li>标准误衡量的是抽样分布的离散度，比如样本均值的标准误(standard error
+of sample mean)，衡量的就是样本均值的离散度。</li>
+</ul></li>
 </ol>
-<h3 id="（三）计算公式"><a href="#（三）计算公式" class="headerlink" title="（三）计算公式"></a>（三）计算公式</h3><ol>
-<li>样本均值的标准误<script type="math/tex; mode=display">SEM(S_{\overline {x}}) = \dfrac {s}{\sqrt {N}}</script></li>
-<li>样本均值之差的标准误<script type="math/tex; mode=display">\sqrt {\dfrac {S^{2}_{A}}{n_{A}}}+\sqrt {\dfrac {S^{2}_{B}}{n_{B}}}</script></li>
+<h3 id="三计算公式">（三）计算公式</h3>
+<ol type="1">
+<li>样本均值的标准误 <span class="math display">\[SEM(S_{\overline {x}})
+= \dfrac {s}{\sqrt {N}}\]</span></li>
+<li>样本均值之差的标准误 <span class="math display">\[\sqrt {\dfrac
+{S^{2}_{A}}{n_{A}}}+\sqrt {\dfrac {S^{2}_{B}}{n_{B}}}\]</span></li>
 </ol>
 
       
@@ -880,149 +1048,375 @@
 
       
           <blockquote>
-<p>说明：<br></p>
-<ol>
-<li>翻译自Joel M. Matta, M.D.的文章Excellence in Clinical Practice: How to Improve Your Clinical Results.Journal of Orthopaedic Trauma,2005,19(6):p432-434.<br><br></li>
-<li>译文部分参考自丁香园的帖子：Joel M. Matta大师的教义和作为一个普通的创伤骨科医师的我的感悟</li>
-</ol>
+<p>说明：<br> 1. 翻译自Joel M. Matta, M.D.的文章Excellence in Clinical
+Practice: How to Improve Your Clinical Results.Journal of Orthopaedic
+Trauma,2005,19(6):p432-434. <br> 2. 译文部分参考自丁香园的帖子：Joel M.
+Matta大师的教义和作为一个普通的创伤骨科医师的我的感悟</p>
 </blockquote>
-<p><img src="http://qiniup.louyanspine.com/2018-08-18-maxresdefault.jpg" alt=""></p>
-<p>Dr. Joel Matta is an Orthopaedic Surgeon Practicing Hip and Pelvic Reconstruction.  He is the founder and director of the Hip and Pelvis Institute at St. John’s Health Center in Santa Monica, Calif. A veteran of 35 years in the practice of orthopaedic surgery, Dr. Matta also is the founding President of the Anterior Hip Foundation.  He has published more than 30 articles and studies on the advancement of techniques and methods used to simplify and improve hip replacement, pelvic and acetabular fracture treatment and periacetabular osteotomy.</p>
-<h2 id="一、什么是卓越的临床效果"><a href="#一、什么是卓越的临床效果" class="headerlink" title="一、什么是卓越的临床效果"></a>一、什么是卓越的临床效果</h2><p>What is the formula for excellence in orthopaedicclinical practice? Certainly, there is no set formula for everyone. These aremy thoughts based on what I have learned from others, as well as my personal experience.</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-18-maxresdefault.jpg" /></p>
+<p>Dr. Joel Matta is an Orthopaedic Surgeon Practicing Hip and Pelvic
+Reconstruction. He is the founder and director of the Hip and Pelvis
+Institute at St. John’s Health Center in Santa Monica, Calif. A veteran
+of 35 years in the practice of orthopaedic surgery, Dr. Matta also is
+the founding President of the Anterior Hip Foundation. He has published
+more than 30 articles and studies on the advancement of techniques and
+methods used to simplify and improve hip replacement, pelvic and
+acetabular fracture treatment and periacetabular osteotomy.</p>
+<h2 id="一什么是卓越的临床效果">一、什么是卓越的临床效果</h2>
+<p>What is the formula for excellence in orthopaedicclinical practice?
+Certainly, there is no set formula for everyone. These aremy thoughts
+based on what I have learned from others, as well as my personal
+experience.</p>
 <blockquote>
 <p>什么是能在骨科临床实践中成就卓越的公式？诚然，对所有医生而言没有固定的公式。以下这些是我基于学习他人及个人经验的一些思索，谨供参考。</p>
 </blockquote>
-<p>There are a number of ways that excellence can be measured, but I think the most important one is the benefit or the clinical results that we provide to our patients. Excellent clinical results exist in many settings and are not necessarily related to the notoriety of the surgeon or institution.</p>
+<p>There are a number of ways that excellence can be measured, but I
+think the most important one is the benefit or the clinical results that
+we provide to our patients. Excellent clinical results exist in many
+settings and are not necessarily related to the notoriety of the surgeon
+or institution.</p>
 <blockquote>
 <p>有许多可以衡量临床诊疗卓越性的途径，然而，我认为其中最为重要的一条是我们医生能提供给病人的益处或临床结果。在很多种情况下，均可产生卓越的临床效果，其并非一定与外科医生或诊疗机构相关。</p>
 </blockquote>
-<h2 id="二、把激情和热爱放在首位，而不是赚钱"><a href="#二、把激情和热爱放在首位，而不是赚钱" class="headerlink" title="二、把激情和热爱放在首位，而不是赚钱"></a>二、把激情和热爱放在首位，而不是赚钱</h2><p>My first recommendation is to pursue a type of practice based on your passion. You should find your niche according to your interests and abilities. </p>
+<h2
+id="二把激情和热爱放在首位而不是赚钱">二、把激情和热爱放在首位，而不是赚钱</h2>
+<p>My first recommendation is to pursue a type of practice based on your
+passion. You should find your niche according to your interests and
+abilities.</p>
 <blockquote>
 <p>我的首要建议是追求一种自己有激情且这种激情能够扎根的临床实践。根据兴趣和能力找到自己的临床实践领域。</p>
 </blockquote>
-<p>Monetary reward will influence our activities to a degree; However, you sell yourself short if you place money first. Fortunately,in orthopaedics we can “have our cake and eat it too.” </p>
+<p>Monetary reward will influence our activities to a degree; However,
+you sell yourself short if you place money first. Fortunately,in
+orthopaedics we can “have our cake and eat it too.”</p>
 <blockquote>
 <p>金钱报酬会在一定程度上影响我们的临床诊疗行为；然而，当你将金钱放在首位时你就把自己的短板暴露无遗。庆幸的是，在骨科领域我们可以拥有自己的“蛋糕”并可以享用它。</p>
 </blockquote>
-<p>Our specialty allows us to enjoy our work as much as sport, gain personal satisfaction and community recognition, and also be well compensated. I think the key to all of these benefits is our passion and commitment to our work. There are few careers available that combine the pleasure of both manual and intellectual challenges.</p>
+<p>Our specialty allows us to enjoy our work as much as sport, gain
+personal satisfaction and community recognition, and also be well
+compensated. I think the key to all of these benefits is our passion and
+commitment to our work. There are few careers available that combine the
+pleasure of both manual and intellectual challenges.</p>
 <blockquote>
 <p>我们的专长允许我们像享受运动一样享受我们的工作，得到个人的满足和社会的认同，当然也可以获得很好的报偿。我想我们能得到这些实惠的关键在于我们对临床工作的激情和担当。世上没有多少职业能将挑战智力和体力的乐趣有机结合起来的。</p>
-<p>注：金钱的私欲是医生的短板。就此短短一截的距离即可使你对卓越的临床实践难以企及。就像Matta教授说的，金钱不是追求，而是你有所成就后的自然而然的回报；这种回报的对象，即医生，是被动的（be well compensated）。我们自己的蛋糕，即骨科领域，有着丰富的回报足以让我们享用。得到回报的前提是作为医者的你对临床工作的激情和担当。</p>
 </blockquote>
-<h2 id="三、与患者充分的沟通"><a href="#三、与患者充分的沟通" class="headerlink" title="三、与患者充分的沟通"></a>三、与患者充分的沟通</h2><p>Although we are surgeons, and the job we do in the operating room is probably the most important, we also must take pride in our one-on-one skills with patients. If patients are able, the more that they understand about their problem, the better. Detailed preoperative and postoperative explanations can help the final result. I also rely on patient-information publications and my own website to inform the patient and family.</p>
+<blockquote>
+<p>注：金钱的私欲是医生的短板。就此短短一截的距离即可使你对卓越的临床实践难以企及。就像Matta教授说的，金钱不是追求，而是你有所成就后的自然而然的回报；这种回报的对象，即医生，是被动的（be
+well
+compensated）。我们自己的蛋糕，即骨科领域，有着丰富的回报足以让我们享用。得到回报的前提是作为医者的你对临床工作的激情和担当。</p>
+</blockquote>
+<h2 id="三与患者充分的沟通">三、与患者充分的沟通</h2>
+<p>Although we are surgeons, and the job we do in the operating room is
+probably the most important, we also must take pride in our one-on-one
+skills with patients. If patients are able, the more that they
+understand about their problem, the better. Detailed preoperative and
+postoperative explanations can help the final result. I also rely on
+patient-information publications and my own website to inform the
+patient and family.</p>
 <blockquote>
 <p>作为外科医生，尽管我们在手术室所做的工作可能是最重要的，但是我们必须对我们有与病人面对面交流的能力引以为傲。如果病人拥有能动性，他们知晓自己存在的问题越多越好。因为，术前和术后详尽的沟通可益于最终的治疗结果。除了面对面的沟通外，我还借助病人诊疗信息出版物和我自己的网站对病人及其家属进行告知。</p>
 </blockquote>
-<h2 id="四、全面细致的检查，仔细耐心的聆听"><a href="#四、全面细致的检查，仔细耐心的聆听" class="headerlink" title="四、全面细致的检查，仔细耐心的聆听"></a>四、全面细致的检查，仔细耐心的聆听</h2><p>The surgeon must be disciplined regarding their physical examination of the patient with acute high-energy trauma. The patient should be completely undressed and all skin areas visualized. In addition to a complete and detailed neurovascular examination, all the extremities that do not have an obvious deformity should be palpated and moved. Use x-rays liberally.</p>
+<h2
+id="四全面细致的检查仔细耐心的聆听">四、全面细致的检查，仔细耐心的聆听</h2>
+<p>The surgeon must be disciplined regarding their physical examination
+of the patient with acute high-energy trauma. The patient should be
+completely undressed and all skin areas visualized. In addition to a
+complete and detailed neurovascular examination, all the extremities
+that do not have an obvious deformity should be palpated and moved. Use
+x-rays liberally.</p>
 <blockquote>
 <p>医生必须严格自律于对急性高能量损伤病人的体格检查。检查时需要脱去病人所有衣物，检视其每一寸肌肤。除全面、细致的神经血管功能检查外，还需要触诊和活动所有无明显畸形的肢体。要不吝进行X线检查。</p>
 </blockquote>
-<p>For the subacute or chronic problem,listen carefully to the patient. You need to always assume that the patient is telling the truth and is not crazy or a “crock.” There are many problems that we don’t yet understand,and everyone does not fit neatly into a category. Many old trauma problems,such as malunions and nonunions, require a unique solution that you need toinvent. The extra time that you spend in planning and consultation in these patients will make a difference.</p>
+<p>For the subacute or chronic problem,listen carefully to the patient.
+You need to always assume that the patient is telling the truth and is
+not crazy or a “crock.” There are many problems that we don’t yet
+understand,and everyone does not fit neatly into a category. Many old
+trauma problems,such as malunions and nonunions, require a unique
+solution that you need toinvent. The extra time that you spend in
+planning and consultation in these patients will make a difference.</p>
 <blockquote>
 <p>对亚急性或慢性病损，医生需要仔细的聆听病人的陈述。你需要总是假定病人是在述说实情而非夸大事实或“闷罐”一样有所隐瞒。有很多问题我们尚不甚了解，而且也不能对每一病例简单清晰地归类。许多陈旧创伤所导致的问题，诸如畸形愈合和不愈合，需要你制定一个独一无二的解决方案。对这些病例进行询诊和制定方案所精心花费的额外时间将会使治疗结果变得不同。</p>
 </blockquote>
-<h2 id="五、若无法提供帮助以改善患者的现状，实话实说"><a href="#五、若无法提供帮助以改善患者的现状，实话实说" class="headerlink" title="五、若无法提供帮助以改善患者的现状，实话实说"></a>五、若无法提供帮助以改善患者的现状，实话实说</h2><p>At times we find ourselves at a loss with patients, particularly those with chronic pain problems who often will say “you’ve got to do something” or “I can’t live likethis.” The justification for surgical treatment should not be based on such desperate reasoning. Surgery should always have a probability of success when undertaken. In some situations, you may have nothing to offer the patient, and in that case it is best to say so. </p>
+<h2
+id="五若无法提供帮助以改善患者的现状实话实说">五、若无法提供帮助以改善患者的现状，实话实说</h2>
+<p>At times we find ourselves at a loss with patients, particularly
+those with chronic pain problems who often will say “you’ve got to do
+something” or “I can’t live likethis.” The justification for surgical
+treatment should not be based on such desperate reasoning. Surgery
+should always have a probability of success when undertaken. In some
+situations, you may have nothing to offer the patient, and in that case
+it is best to say so.</p>
 <blockquote>
 <p>有时候我们会对一些（我们治疗过的）病人，特别是那些存在慢性疼痛的患者，会说“医生，你需要再为我做些什么”或“我不能这样活着”的病人，感到迷失。事实上，外科（手术）治疗效果的评判不可基于这样不顾一切的理由。一旦实施，手术总会有成功概率。在某些情况下，你可能无法提供给病人任何帮助以改善其现状；而此时，你最好实话实说。</p>
 </blockquote>
-<p>In a few cases, I have gone so far as to tell patients that they should quit seeing doctors before somebody operates on them. A large proportion of these difficult patients are chronic narcotic users. I believe it is our responsibility to limit prescription of these medications to acute or terminal situations, such as neoplasm.</p>
+<p>In a few cases, I have gone so far as to tell patients that they
+should quit seeing doctors before somebody operates on them. A large
+proportion of these difficult patients are chronic narcotic users. I
+believe it is our responsibility to limit prescription of these
+medications to acute or terminal situations, such as neoplasm.</p>
 <blockquote>
 <p>在少数情况下，我甚至告知病人说他们需要在有人为他们做手术之前停止四处就医。这类棘手病人的大多数都长期服用麻醉剂。而我认为我们有责任为急性期或终末期病人，如肿瘤病人，限制开具这类药物处方。</p>
+</blockquote>
+<blockquote>
 <p>注：医学科学有发展的限制，医生有知识和理解力的限制，这些造成手术必然存在成功的概率。医生所做的就是在诸多限制的情况下尽己所能使病人得到最大的临床效果。也正因为这些限制而使得有时候你没有能力去改善病人的现状而使其受益。那么，你该怎么办？为了挽留病人、满足私欲而强撑（最终必然是效果不佳），还是告知其实情（你真的没有能力）并协助其寻找更好的帮助？我想，随着不断的学习、领会、悟道和实践等，个人能力方面的限制就会变得越来越少且能为病人提供服务的质量就会越来越高。</p>
 </blockquote>
-<h2 id="六、手术一定要有指证"><a href="#六、手术一定要有指证" class="headerlink" title="六、手术一定要有指证"></a>六、手术一定要有指证</h2><p>Be an expert in the interpretation of x-rays,CT, and magnetic resonance imaging. These imaging studies combined with the clinical factors provide the main indications for surgery. </p>
-<p>Have indications for surgery; do not operate just because a fracture is present. The integrity of you and our specialty suffers with the application of faulty indications for surgery. Operating without the proper indication is not justunethical, it is an assault.</p>
+<h2 id="六手术一定要有指证">六、手术一定要有指证</h2>
+<p>Be an expert in the interpretation of x-rays,CT, and magnetic
+resonance imaging. These imaging studies combined with the clinical
+factors provide the main indications for surgery.</p>
+<p>Have indications for surgery; do not operate just because a fracture
+is present. The integrity of you and our specialty suffers with the
+application of faulty indications for surgery. Operating without the
+proper indication is not justunethical, it is an assault.</p>
 <blockquote>
 <p>我们需要成为阅读和理解X线、CT和磁共振影像的专家。与临床症征相结合，这些影像资料的研读提供了主要的手术指证。手术需要指证；不能仅仅因为骨折的出现而实施手术。因错误的指证（或无指证）而进行的手术会损害你和我们的专业形象。无恰当指证的手术不仅仅是不合伦理的，其简直就是人身攻击。</p>
 </blockquote>
-<h2 id="七、不断学习，向领域内的最高水准看齐"><a href="#七、不断学习，向领域内的最高水准看齐" class="headerlink" title="七、不断学习，向领域内的最高水准看齐"></a>七、不断学习，向领域内的最高水准看齐</h2><p>We all must aspire to perform the highest quality of orthopaedic surgery that we are capable of doing. Within your chosen niche, you should do everything you can to learn from the best. </p>
+<h2
+id="七不断学习向领域内的最高水准看齐">七、不断学习，向领域内的最高水准看齐</h2>
+<p>We all must aspire to perform the highest quality of orthopaedic
+surgery that we are capable of doing. Within your chosen niche, you
+should do everything you can to learn from the best.</p>
 <blockquote>
 <p>我们必须渴望实施我们的能力所能达到的最高质量的骨科手术。在你所选择的领域里，你需要倾尽全力向业界的最好看齐。</p>
 </blockquote>
-<p>Read publications and texts. Attend courses. As we interpret medical data, large multicenter studies report the standard level of care that is present as an average across centers. Pay attention to the results of experienced and knowledgeable single surgeon series. The large single surgeon series can represent the level of results that can beobtained with dedication to that subject.</p>
+<p>Read publications and texts. Attend courses. As we interpret medical
+data, large multicenter studies report the standard level of care that
+is present as an average across centers. Pay attention to the results of
+experienced and knowledgeable single surgeon series. The large single
+surgeon series can represent the level of results that can beobtained
+with dedication to that subject.</p>
 <blockquote>
 <p>阅读刊物和课本。参加培训课程。就像我们解读医学数据一样，大的多中心研究成果代表了跨中心（普遍）适用的医疗关怀的一般水准。然而，我们需要密切注意那些有着丰富经验和学识的单个医生的系列研究成果，因为单个医生的大系列研究成果能代表全身心致力于该课题（在此研究范围内的）所能获得的（世界最高）水平。</p>
+</blockquote>
+<blockquote>
 <p>注：</p>
-<ol>
-<li>高层次的学习方法：向业界最好学习并着重于学习单个医生的关于某一领域的大的代表世界最高水准的系列研究。代表普遍水准的多中心的研究成果可让我们知道业界的大多数精英都在怎么做、如何做。&lt;/br&gt;</li>
-<li>中等层次的学习方法：只看课本、书籍来学习处理问题的一般原则和方法。&lt;/br&gt;</li>
+<ol type="1">
+<li>高层次的学习方法：向业界最好学习并着重于学习单个医生的关于某一领域的大的代表世界最高水准的系列研究。代表普遍水准的多中心的研究成果可让我们知道业界的大多数精英都在怎么做、如何做。</br></li>
+<li>中等层次的学习方法：只看课本、书籍来学习处理问题的一般原则和方法。</br></li>
 <li>一般层次的学习方法：无阅读及思考而仅凭带教老师或主任言传身教的学习方法。</li>
 </ol>
 </blockquote>
-<h2 id="八、彻底的学习和运用现有的最好的技术"><a href="#八、彻底的学习和运用现有的最好的技术" class="headerlink" title="八、彻底的学习和运用现有的最好的技术"></a>八、彻底的学习和运用现有的最好的技术</h2><p>Visit and observe patient care and surgery with the field’s best. Most orthopaedic surgeons are open to this. A corollary to this is: learn and adopt the best existing techniques completely before attempting to modify them or develop new ones. By doing this, the maximum benefit to the patient can be obtained, and in some cases disasters can be avoided. </p>
+<h2
+id="八彻底的学习和运用现有的最好的技术">八、彻底的学习和运用现有的最好的技术</h2>
+<p>Visit and observe patient care and surgery with the field’s best.
+Most orthopaedic surgeons are open to this. A corollary to this is:
+learn and adopt the best existing techniques completely before
+attempting to modify them or develop new ones. By doing this, the
+maximum benefit to the patient can be obtained, and in some cases
+disasters can be avoided.</p>
 <blockquote>
 <p>参加和观察专业领域内最好的病人关怀和手术。大多数骨科医师是非常愿意这样的。对此可以这样推理：在尝试革新技术或者发展新技术之前，需要彻底的学习和运用现有的最好的技术。这样做了，医生就能使得病人最大程度上受益，并且在一些情况下能避免（给病人带来）灾难。</p>
 </blockquote>
-<p>As a resident in 1978, I attended my first Swiss AO Course. On returning home, I was delighted to be presented with a tibial plafond fracture. I operated enthusiastically; however, as the months progressed, I watched in horror as greenbone fell out of the wound. I had learned how to plate and screw the bone, but not how to make the proper incision and handle the soft tissues. </p>
+<p>As a resident in 1978, I attended my first Swiss AO Course. On
+returning home, I was delighted to be presented with a tibial plafond
+fracture. I operated enthusiastically; however, as the months
+progressed, I watched in horror as greenbone fell out of the wound. I
+had learned how to plate and screw the bone, but not how to make the
+proper incision and handle the soft tissues.</p>
 <blockquote>
 <p>作为一名住院医师，我在1978年参加了我的首次瑞士AO课程。回国后，我为能主刀一例胫骨平台骨折而欣喜若狂。我激情四射得做完手术。然而，数月过后，我惊诧的发现绿色的骨头自切口冒出（感染）。我学会了如何用接骨板和螺钉固定骨折，但没学会如何作切口和处理软组织。</p>
 </blockquote>
-<p>Similarly,successful acetabular fracture surgery is achievable with the specific combinations of the operating table, patient positioning, surgical approach, reduction techniques, and implants. </p>
-<p>I have a few visitors who wish only to peer into the open wound. It bears repetition that you should learn and adopt the best existing techniques in their entirety before attempting to modify and develop new ones.This knowledge will keep you from repeating the mistakes of past failed techniques and forms the basis of our technical evolution.</p>
+<p>Similarly,successful acetabular fracture surgery is achievable with
+the specific combinations of the operating table, patient positioning,
+surgical approach, reduction techniques, and implants.</p>
+<p>I have a few visitors who wish only to peer into the open wound. It
+bears repetition that you should learn and adopt the best existing
+techniques in their entirety before attempting to modify and develop new
+ones.This knowledge will keep you from repeating the mistakes of past
+failed techniques and forms the basis of our technical evolution.</p>
 <blockquote>
 <p>同样的道理，当一些特殊因素，如手术床、病人体位、手术入路、复位技术、内固定物等，有机融合于一体时髋臼骨折手术方能成功。我发现一些参观我手术的医生仅仅想看到手术切口（仅仅看我如何显露骨折而非整个手术过程）。在此有必要重申：在试图改良技术和发展新技术之前，你需要先将现有最好的技术进行整体的学习和运用。这一认识是技术革新的基石并能使你免于重复过去失败技术的谬误。</p>
-<p>注：除了认真学习以外，我们也应该虚心和踏实：不要轻易得怀疑知名学者的成果、推翻现有的诊疗常规、“改良”甚至“发明”新的器械及技术。如果经过论证你可以这样做，那么一定需要建立在熟练学习和应用现有最好技术的基础上。否则，常常会重蹈覆辙或失败。上世纪70年代末，Matta教授是带着怀疑的心态到法国向享誉世界的髋臼重建大师Emile Letournel学习的。通过逐渐的学习和认知，他逐渐拜服并把Emile Letournel尊为他人生中最为重要的两位mentor中的一位。他在一次近来的采访中说道他常会把一些新的想法运用于髋臼骨折的手术中而不遵循Emile Letournel所教授的方法，结果到最后发现行不通而还要用EL的方法从新来过（而此时的他早已蜚声世界）。他还说了以下三句话：</p>
-<p>“I think we have to learn to live with the fact that very few surgeons can invent something truly novel. Most of us should accept that they need to learn the knowledge that’s gone before, and to try to be as good as those who are achieving the excellent results. This may be hard to swallow, but that’s how it is.”</p>
-<p>“ The protocoland techniques developed by Emile Letournel have the merit of being there, of being efficacious, but also of being the best supported by clinical follow-up and clinical data. Everything proposed by Emile Letournel is supported by very advanced statistics. These results have been confirmed by Jeff, by Keith Mayo,by Eric Johnson, by myself, and by many other surgeons.</p>
-<p>Emile Letournel教授已离世20年了，他所创的髋臼骨折的分型标准、手术入路、复位技术等至今仍在应用而未被后辈（包括Keith Mayo、Eric Johnson还有Joel Matta本人）超越</p>
-<p>“It would be a shame if the surgery of acetabular fractures were to get overwhelmed by too many unproven novelties. It is one thing to devise a new technique; it is quite another to show that the techniqueis valid, and superior to the techniques currently available.”</p>
 </blockquote>
-<h2 id="九、聪明才智对外科医生更重要"><a href="#九、聪明才智对外科医生更重要" class="headerlink" title="九、聪明才智对外科医生更重要"></a>九、聪明才智对外科医生更重要</h2><p>Is everyone created equal as surgeons? Of course not. Surgery is a combination of intellect and motor skills. I would say that intellect is by far the most important factor. The most important factors before surgery are an understanding of the fracture and establishing a good preoperative plan, including setup, approach, reduction, and fixation strategies. Concentrate your plan more on how you will reduce the fracture rather than how you will fix it. Reduction is typically a bigger problem then placing the implant. For a given surgery, one of several implants may be applicable, and your familiarity with a device may be the reason to use it.</p>
+<blockquote>
+<p>注：除了认真学习以外，我们也应该虚心和踏实：不要轻易得怀疑知名学者的成果、推翻现有的诊疗常规、“改良”甚至“发明”新的器械及技术。如果经过论证你可以这样做，那么一定需要建立在熟练学习和应用现有最好技术的基础上。否则，常常会重蹈覆辙或失败。上世纪70年代末，Matta教授是带着怀疑的心态到法国向享誉世界的髋臼重建大师Emile
+Letournel学习的。通过逐渐的学习和认知，他逐渐拜服并把Emile
+Letournel尊为他人生中最为重要的两位mentor中的一位。他在一次近来的采访中说道他常会把一些新的想法运用于髋臼骨折的手术中而不遵循Emile
+Letournel所教授的方法，结果到最后发现行不通而还要用EL的方法从新来过（而此时的他早已蜚声世界）。他还说了以下三句话：</p>
+<p>“I think we have to learn to live with the fact that very few
+surgeons can invent something truly novel. Most of us should accept that
+they need to learn the knowledge that's gone before, and to try to be as
+good as those who are achieving the excellent results. This may be hard
+to swallow, but that's how it is.”</p>
+<p>“ The protocoland techniques developed by Emile Letournel have the
+merit of being there, of being efficacious, but also of being the best
+supported by clinical follow-up and clinical data. Everything proposed
+by Emile Letournel is supported by very advanced statistics. These
+results have been confirmed by Jeff, by Keith Mayo,by Eric Johnson, by
+myself, and by many other surgeons.</p>
+<p>Emile
+Letournel教授已离世20年了，他所创的髋臼骨折的分型标准、手术入路、复位技术等至今仍在应用而未被后辈（包括Keith
+Mayo、Eric Johnson还有Joel Matta本人）超越</p>
+<p>“It would be a shame if the surgery of acetabular fractures were to
+get overwhelmed by too many unproven novelties. It is one thing to
+devise a new technique; it is quite another to show that the techniqueis
+valid, and superior to the techniques currently available.”</p>
+</blockquote>
+<h2 id="九聪明才智对外科医生更重要">九、聪明才智对外科医生更重要</h2>
+<p>Is everyone created equal as surgeons? Of course not. Surgery is a
+combination of intellect and motor skills. I would say that intellect is
+by far the most important factor. The most important factors before
+surgery are an understanding of the fracture and establishing a good
+preoperative plan, including setup, approach, reduction, and fixation
+strategies. Concentrate your plan more on how you will reduce the
+fracture rather than how you will fix it. Reduction is typically a
+bigger problem then placing the implant. For a given surgery, one of
+several implants may be applicable, and your familiarity with a device
+may be the reason to use it.</p>
 <blockquote>
 <p>每一个外科医生生来就平等吗（能拥有等同的学识和成就吗）？当然不！外科手术是聪明才智和充沛体力的结合体。目前来看，我完全认为聪明才智是最为重要的因素。而手术前最为重要的因素包括对骨折的透彻理解和建立起来的包括组织实施、入路、复位和固定策略在内的术前计划。该术前计划需要更多的侧重于怎么对骨折进行复位而非固定。复位是典型的大难题，放置内固定物次之。针对一个特定的手术来说，（遵从原则的基础上）可能有多种内固定物可以选择，而你可以根据自己的熟练度来选择其中一种。</p>
 </blockquote>
-<h2 id="十、学会应对手术中的糟糕情况"><a href="#十、学会应对手术中的糟糕情况" class="headerlink" title="十、学会应对手术中的糟糕情况"></a>十、学会应对手术中的糟糕情况</h2><p>I think that surgeons are best judged not by a surgery in which everything goes well, but by how they react when things start to go wrong. I have witnessed ‘flails’ triggered by panic with the situation going from bad to worse. The high stress of a problem situation should ideally trigger your mind to a higher level of focus to deal effectively with the unexpected problem. Experience and contingent strategies can help in these situations.</p>
+<h2 id="十学会应对手术中的糟糕情况">十、学会应对手术中的糟糕情况</h2>
+<p>I think that surgeons are best judged not by a surgery in which
+everything goes well, but by how they react when things start to go
+wrong. I have witnessed ‘flails’ triggered by panic with the situation
+going from bad to worse. The high stress of a problem situation should
+ideally trigger your mind to a higher level of focus to deal effectively
+with the unexpected problem. Experience and contingent strategies can
+help in these situations.</p>
 <blockquote>
 <p>我认为，最优的评价医生的方式不是（他们所做的）一切都顺利的手术，而是当手术中某些环节变得糟糕时他们是如何应对的。我曾经亲眼目睹过在情况由不好变得更糟糕时因恐慌而颤抖得就像挥舞连枷一样的手臂。面临问题时的高度紧张状态，理论上可以激发你的精神达到更高程度的集中以有效地处理突发的难题。这种情况下，丰富的经验和灵活的策略可发挥作用。</p>
 </blockquote>
-<h2 id="十一、自我批判精神"><a href="#十一、自我批判精神" class="headerlink" title="十一、自我批判精神"></a>十一、自我批判精神</h2><p>We need to critically assess the result of the surgeries that we perform. I would say that a minority of my surgeries is performed completely to my satisfaction, particularly acetabular fractures. Postoperative x-rays always should be a stimulus for thoughts regarding how things could have been done a little better.</p>
+<h2 id="十一自我批判精神">十一、自我批判精神</h2>
+<p>We need to critically assess the result of the surgeries that we
+perform. I would say that a minority of my surgeries is performed
+completely to my satisfaction, particularly acetabular fractures.
+Postoperative x-rays always should be a stimulus for thoughts regarding
+how things could have been done a little better.</p>
 <blockquote>
 <p>我们需要批判性的评估我们所做手术的效果。我敢说，只有少数我所做过的手术能完全使我满意（多数都有瑕疵和遗憾），特别是髋臼骨折。我认为，术后X线片总是应该被视作让我们有“术中如何能做得再好一点”这样思索的刺激物。</p>
-<p>注：Matta教授这种时刻自我批判的品质，或许，是他能有如此大成就的秘诀。他的髋臼骨折手术的优良率在85%，比他的老师Emile Letournel提高了10%。</p>
-<p>采访原文：“In my series,I have had a 15 percent incidence of poor results. This includes, of course,the 3 per cent infections. There were, of course, patients who had lesions that could not possibly be treated, but also patients whom I should not have operated.”</p>
 </blockquote>
-<h2 id="十二、手术速度也是关键"><a href="#十二、手术速度也是关键" class="headerlink" title="十二、手术速度也是关键"></a>十二、手术速度也是关键</h2><p>How critical is speed when performing surgery?At the beginning of my career, I did not consider speed to be important; now I think it is, although admittedly not the most consequential factor. I think speed is a benefit in limiting tissue trauma and infection. It also is an economic factor for you and the hospital as well as one that limits the number of patients you can benefit. </p>
+<blockquote>
+<p>注：Matta教授这种时刻自我批判的品质，或许，是他能有如此大成就的秘诀。他的髋臼骨折手术的优良率在85%，比他的老师Emile
+Letournel提高了10%。</p>
+<p>采访原文：“In my series,I have had a 15 percent incidence of poor
+results. This includes, of course,the 3 per cent infections. There were,
+of course, patients who had lesions that could not possibly be treated,
+but also patients whom I should not have operated.”</p>
+</blockquote>
+<h2 id="十二手术速度也是关键">十二、手术速度也是关键</h2>
+<p>How critical is speed when performing surgery?At the beginning of my
+career, I did not consider speed to be important; now I think it is,
+although admittedly not the most consequential factor. I think speed is
+a benefit in limiting tissue trauma and infection. It also is an
+economic factor for you and the hospital as well as one that limits the
+number of patients you can benefit.</p>
 <blockquote>
 <p>在我们做手术时，速度有多关键？在我职业生涯的早期，我并不认为速度重要。而现在，我认识到了它的重要性，尽管它被公认不是最为重要的因素。我想，速度有利于限制软组织损伤和感染。速度对你和你的医院来说是一个经济指标，并且也是限制你所能造福的病人数目的指标。</p>
 </blockquote>
-<p>During my early years of operating on acetabular fractures, I was assisted for the first time by my chief, Gus Sarmiento, on a Kocher-Langenbeck approach to a transverse plus posterior wall fracture. If you know Gus Sarmiento, you know that he is not a particularly patient person. Gus’first words at the scrub sink were, ‘Joel, how long is this going to take?’My response, ‘Gus, relax and get ready for a 4-hour case.’ His response,‘Four hours, I’ll give you 2!’ The case took 2 hours and the result was asgood as my 4-hour cases; from that time forward, similar cases took approximately 2 hours. </p>
+<p>During my early years of operating on acetabular fractures, I was
+assisted for the first time by my chief, Gus Sarmiento, on a
+Kocher-Langenbeck approach to a transverse plus posterior wall fracture.
+If you know Gus Sarmiento, you know that he is not a particularly
+patient person. Gus’first words at the scrub sink were, ‘Joel, how long
+is this going to take?’My response, ‘Gus, relax and get ready for a
+4-hour case.’ His response,‘Four hours, I’ll give you 2!’ The case took
+2 hours and the result was asgood as my 4-hour cases; from that time
+forward, similar cases took approximately 2 hours.</p>
 <blockquote>
-<p>在我早年的主刀的髋臼骨折手术中，其中一例髋臼横形加后壁骨折的手术是经Locher-Langenbeck入路且第一次由我的主任(Gus Sarmiento)作为我的助手而完成的。假如你了解Gus Sarmiento，你会知道他不是一个特别有耐心的人。Gus在洗手池旁对我说的第一句话就是“Joel，这台手术需要多长时间？”我回答：“Gus，放松点，准备好做一台四小时的手术吧！”而他的回应却是“四小时？！我只给你两个小时！”结果，这台本来准备做四个小时的手术仅仅用了两个小时而且结果却一样得好。从那时起，类似的手术均耗时两小时左右。</p>
+<p>在我早年的主刀的髋臼骨折手术中，其中一例髋臼横形加后壁骨折的手术是经Locher-Langenbeck入路且第一次由我的主任(Gus
+Sarmiento)作为我的助手而完成的。假如你了解Gus
+Sarmiento，你会知道他不是一个特别有耐心的人。Gus在洗手池旁对我说的第一句话就是“Joel，这台手术需要多长时间？”我回答：“Gus，放松点，准备好做一台四小时的手术吧！”而他的回应却是“四小时？！我只给你两个小时！”结果，这台本来准备做四个小时的手术仅仅用了两个小时而且结果却一样得好。从那时起，类似的手术均耗时两小时左右。</p>
 </blockquote>
-<p>Conversely, you should take whatever time is necessary to achieve the desired result. Speed is not a primary goal but should increase progressively with your years of experience. Watching a good surgery go quickly means that you will not see particularly fast movements, but rather well planned and effective ones.</p>
+<p>Conversely, you should take whatever time is necessary to achieve the
+desired result. Speed is not a primary goal but should increase
+progressively with your years of experience. Watching a good surgery go
+quickly means that you will not see particularly fast movements, but
+rather well planned and effective ones.</p>
 <blockquote>
 <p>于此相反，为了达到你所渴望的效果，你需要用足所必需的时间。这就是说，速度虽然不是首要目标，但是它应该随着你逐年的经验而逐渐加快。然而，当你看到一个手术由好变快时，这将意味着你看到的操作动作与其说是格外的快，还不如说是计划得好和施展得有效。</p>
 </blockquote>
-<h2 id="十三、成为一个称职的领导者"><a href="#十三、成为一个称职的领导者" class="headerlink" title="十三、成为一个称职的领导者"></a>十三、成为一个称职的领导者</h2><p>As an orthopaedic surgeon, you are the organizer and leader of the operating room team. You assume this role, regardless of whether you are inherently organized or an obvious leader type. I don’t think that personal charisma or forcefulness is a prerequisite for leading an effective operating room team. The factors that I consider most important are planning, respect, education, and encouragement for your team members and working with your team in a hands-on way.The concern that you show for the patient and the commitment that you show to achieve an excellent surgical result will rub off. By all means, don’t be the one who is responsiblefor delays, or your tardiness and lack of efficiency also will rub off. Leading the teamto improve performance and efficiency is a job that never stops.</p>
+<h2 id="十三成为一个称职的领导者">十三、成为一个称职的领导者</h2>
+<p>As an orthopaedic surgeon, you are the organizer and leader of the
+operating room team. You assume this role, regardless of whether you are
+inherently organized or an obvious leader type. I don’t think that
+personal charisma or forcefulness is a prerequisite for leading an
+effective operating room team. The factors that I consider most
+important are planning, respect, education, and encouragement for your
+team members and working with your team in a hands-on way.The concern
+that you show for the patient and the commitment that you show to
+achieve an excellent surgical result will rub off. By all means, don’t
+be the one who is responsiblefor delays, or your tardiness and lack of
+efficiency also will rub off. Leading the teamto improve performance and
+efficiency is a job that never stops.</p>
 <blockquote>
 <p>作为一个骨科医生，你是手术室小组的组织者和领导者。你将自己假定为这样的角色，不管你是什么类型的性格。我并不认为个人的魅力或强健体魄是领导一个高效手术组的先决条件。相反，我所认为的最为重要的因素是对组员的规划、尊重、教诲和激励以及亲力亲为地与他们协作。与之相比，你所表现出的对病人的关怀和对优异手术效果的承诺将变得黯然失色。尽一切所能，不要使自己成为一个行事拖沓的人，则你的迟缓和效率低下也将不复存在。领导自己的小组以改善工作表现和提高工作效率是一项永远不能停歇的事业。</p>
 </blockquote>
-<h2 id="十四、正确地面对并发症"><a href="#十四、正确地面对并发症" class="headerlink" title="十四、正确地面对并发症"></a>十四、正确地面对并发症</h2><p>Surgical complications are inevitable, and the indication for any surgery must be judged relative to their potential incidence. When a complication occurs, an honest discussion with the patient at an early time is essential. There is a tendency to feel guilty and to avoid the inevitable discussion with the patient and family. It is important to use the word ‘complication’ and confront the situation openly and directly. The patient will at least take comfort that you are no less involved in their care and will do everything possible to ensure a positive outcome. </p>
+<h2 id="十四正确地面对并发症">十四、正确地面对并发症</h2>
+<p>Surgical complications are inevitable, and the indication for any
+surgery must be judged relative to their potential incidence. When a
+complication occurs, an honest discussion with the patient at an early
+time is essential. There is a tendency to feel guilty and to avoid the
+inevitable discussion with the patient and family. It is important to
+use the word ‘complication’ and confront the situation openly and
+directly. The patient will at least take comfort that you are no less
+involved in their care and will do everything possible to ensure a
+positive outcome.</p>
 <blockquote>
 <p>手术并发症是不可避免的，任何手术的适应症（指手术的执行与否）都必须通过该手术相关并发症的发生率进行评判。当并发症出现时，医生有必要尽早与病人进行一次诚恳的商讨。通常，医生会有愧疚感进而倾向于免却与病人及其家属进行此必要讨论。（然而，面对此情此境，我认为）有两件事显得（格外）重要：一是直接地开诚布公地面对（即与病人沟通），二是一定要用“并发症”这个词语（来告知病人）。（因为，这样做了）病人至少会因为了解到你不仅仅参与了他们的诊疗而且还将尽一切所能来保证他们能有好的预后而感到宽慰。</p>
 </blockquote>
-<p>Surgical wound complications, such as hematoma and infection, are some of the most difficult to face and potentially harmful to the patient. Three orthopaedic surgeons can look at a wound regarding infection and say no, maybe, or yes. It is easier to pronounce a colleague’s wound infected than your own. Saying ‘infection is present’ to you, the patient, and also writing it in the chart clears the way for providing effective treatment.</p>
+<p>Surgical wound complications, such as hematoma and infection, are
+some of the most difficult to face and potentially harmful to the
+patient. Three orthopaedic surgeons can look at a wound regarding
+infection and say no, maybe, or yes. It is easier to pronounce a
+colleague’s wound infected than your own. Saying ‘infection is present’
+to you, the patient, and also writing it in the chart clears the way for
+providing effective treatment.</p>
 <blockquote>
 <p>手术切口相关并发症，诸如血肿和感染，是我们所面临的会给病人带来潜在的危害的诸多难题中的一部分。三个骨科医生查验过切口后方可能会做出是否感染的诊断。通常，相对于我们自己的病人而言，我们能更轻易地说出某个同事的病人出现了感染并发症。直接告知（自己的）病人“你感染了”并且如实记录在病历中，这样做会为病人提供有效的治疗扫清道路。</p>
 </blockquote>
-<h2 id="十五、保持诚恳和谦逊的态度"><a href="#十五、保持诚恳和谦逊的态度" class="headerlink" title="十五、保持诚恳和谦逊的态度"></a>十五、保持诚恳和谦逊的态度</h2><p>The public often believes the myth that miracles in medicine are the norm. The truth is that we treat most problems with significant limitations with respect to our understanding and knowledge, and it is likely that we will retrospectively view many of our current treatments as primitive. Getting good results after orthopaedic trauma entails great difficulties. We,therefore, need to practice with honesty and humility.</p>
+<h2 id="十五保持诚恳和谦逊的态度">十五、保持诚恳和谦逊的态度</h2>
+<p>The public often believes the myth that miracles in medicine are the
+norm. The truth is that we treat most problems with significant
+limitations with respect to our understanding and knowledge, and it is
+likely that we will retrospectively view many of our current treatments
+as primitive. Getting good results after orthopaedic trauma entails
+great difficulties. We,therefore, need to practice with honesty and
+humility.</p>
 <blockquote>
 <p>大众总是相信医界存在奇迹这样的神话。而事实上，我们处理多数疑难杂症时面临着理解力和学识方面的显著限制；而且，等到将来我们回过头来审视我们目前治疗时，我们很可能会认为它们很原始。追求骨科创伤后良好预后这件事本身饱含艰辛。因此，我们需要带着诚恳和谦逊的态度投身于临床实践。</p>
 </blockquote>
-<h2 id="十六、系统管理病例"><a href="#十六、系统管理病例" class="headerlink" title="十六、系统管理病例"></a>十六、系统管理病例</h2><p>I believe that a simple documentation system,including diagnosis, treatment, complications, and results, is a big help in quality control. Simple data forms that can be coded in a prospective manner and entered into a computer database may not add a great deal of time and expense to your practice. This information can guide the evolution of yourpractice methods. It is important to have results to compare to improve ourresults. Changes to improve results are best used for groups of patients or fractures with a high level of poor results and/or complications.</p>
+<h2 id="十六系统管理病例">十六、系统管理病例</h2>
+<p>I believe that a simple documentation system,including diagnosis,
+treatment, complications, and results, is a big help in quality control.
+Simple data forms that can be coded in a prospective manner and entered
+into a computer database may not add a great deal of time and expense to
+your practice. This information can guide the evolution of yourpractice
+methods. It is important to have results to compare to improve
+ourresults. Changes to improve results are best used for groups of
+patients or fractures with a high level of poor results and/or
+complications.</p>
 <blockquote>
 <p>我相信，对质量控制来说，一个包括诊断、治疗、并发症和预后在内的简单的文案记录系统会有很大帮助。（而且我认为，）对于你的临床实践来说，一些可以前瞻性方式编辑并能输入电脑数据库的简单表格不会额外耗费多少时间和经费。这些文案信息能引导你的临床科研方法的革新。通过临床效果的比较以提高疗效，这样做很重要。由之而来的治疗方法上的变化最适用于那些有着较差疗效和较严重并发症的病例或骨折。</p>
 <p>注：世上没有太多捷径可循。为了达到目的地，你在行程中所做的一些小小的看似额外的实则相关的事情很可能会加快你的行程。正如这些小小的表格和病例资料记录，可能是你在临床实践中实现卓业的助燃剂。用通行的诊断分型、疗效评分、有效随访的机制将所做诊疗编码，做到易于提取，类比分析。我想，这样做了，不管能不能成名，一定能成功。我推荐骨盆髋臼领域的医生熟练掌握OTA分型。</p>
 </blockquote>
-<h2 id="十七、保持健康体格和生活方式"><a href="#十七、保持健康体格和生活方式" class="headerlink" title="十七、保持健康体格和生活方式"></a>十七、保持健康体格和生活方式</h2><p>I like to give credit to my mentors. In my own career, my most important mentors have been Augusto Gus Sarmiento and Emile Letournel. I take pride in my own contributions to orthopaedic knowledge, butrecognize that a huge basis of my practice is what I have learned from others.</p>
+<h2 id="十七保持健康体格和生活方式">十七、保持健康体格和生活方式</h2>
+<p>I like to give credit to my mentors. In my own career, my most
+important mentors have been Augusto Gus Sarmiento and Emile Letournel. I
+take pride in my own contributions to orthopaedic knowledge,
+butrecognize that a huge basis of my practice is what I have learned
+from others.</p>
 <blockquote>
-<p>我由衷地钦佩我的良师益友。在我的职业生涯中，我最为重要的师友是Augusto Gus Sarmiento和Emile Letournel。我对我对骨科学术领域所做的贡献感到自豪，但我清楚地知道我（卓越）临床实践的巨大基石乃为我自他人所学。</p>
+<p>我由衷地钦佩我的良师益友。在我的职业生涯中，我最为重要的师友是Augusto
+Gus Sarmiento和Emile
+Letournel。我对我对骨科学术领域所做的贡献感到自豪，但我清楚地知道我（卓越）临床实践的巨大基石乃为我自他人所学。</p>
 </blockquote>
-<p>I consider health and lifestyle to be important in my performance as an orthopaedic surgeon. Some restraint with food and alcohol, as well as exercise, benefits you and your patients. I think a mistake that most of us make is not taking enough time off. I once asked Harald Tscherne how much vacation he took. He answered, ‘Six weeks.’ I said that must include your educational travel. ‘No,’ he said, ‘six weeks vacation.’ None of us would question Prof. Tscherne’s commitment or productivity.</p>
+<p>I consider health and lifestyle to be important in my performance as
+an orthopaedic surgeon. Some restraint with food and alcohol, as well as
+exercise, benefits you and your patients. I think a mistake that most of
+us make is not taking enough time off. I once asked Harald Tscherne how
+much vacation he took. He answered, ‘Six weeks.’ I said that must
+include your educational travel. ‘No,’ he said, ‘six weeks vacation.’
+None of us would question Prof. Tscherne’s commitment or
+productivity.</p>
 <blockquote>
-<p>我认为，在我作为骨科医生的临床工作中，健康体格和生活方式很重要。有节制的饮食、酒精和锻炼会施惠于你和你的病人。我想，我们中大多数人所犯的错误就是没有花足够的时间来休养身心。我曾经问Harald Tscherne他一年休多长假期。他说六周。然后，我说那肯定包括他的教育（指参会授课等）旅行。“不”，他说：“纯粹的六周时间。”事实上，没有任何人会质疑Tscherne教授的贡献和成果。</p>
+<p>我认为，在我作为骨科医生的临床工作中，健康体格和生活方式很重要。有节制的饮食、酒精和锻炼会施惠于你和你的病人。我想，我们中大多数人所犯的错误就是没有花足够的时间来休养身心。我曾经问Harald
+Tscherne他一年休多长假期。他说六周。然后，我说那肯定包括他的教育（指参会授课等）旅行。“不”，他说：“纯粹的六周时间。”事实上，没有任何人会质疑Tscherne教授的贡献和成果。</p>
 </blockquote>
-<p>You have carefully selected your career and have passed an extensive training and selection process to become an orthopaedic trauma surgeon. The evolution of your practice toward improved clinical results will make it all the more exciting and rewarding.</p>
+<p>You have carefully selected your career and have passed an extensive
+training and selection process to become an orthopaedic trauma surgeon.
+The evolution of your practice toward improved clinical results will
+make it all the more exciting and rewarding.</p>
 <blockquote>
 <p>你已慎重的选择了你的职业并已然经历了深入的培训和严格的筛选程序而成为一名创伤骨科医师。通过不懈的努力，你的提高了临床效果的临床实践革新将变得愈加激动人心和富于回报。</p>
 </blockquote>
@@ -1099,14 +1493,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一、在Github-Pages上托管Reveal-js"><a href="#一、在Github-Pages上托管Reveal-js" class="headerlink" title="一、在Github Pages上托管Reveal.js"></a>一、在Github Pages上托管Reveal.js</h2><h3 id="（一）创建一个新的respository"><a href="#（一）创建一个新的respository" class="headerlink" title="（一）创建一个新的respository"></a>（一）创建一个新的respository</h3><p>在GitHub上创建一个新的respository，比如取名为PPT，然后在本地（比如Documents）打开git bash，clone这个respository到本地，输入</p>
+          <h2 id="一在github-pages上托管reveal.js">一、在Github
+Pages上托管Reveal.js</h2>
+<h3 id="一创建一个新的respository">（一）创建一个新的respository</h3>
+<p>在GitHub上创建一个新的respository，比如取名为PPT，然后在本地（比如Documents）打开git
+bash，clone这个respository到本地，输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/user/PPT.git</span><br><span class="line">		</span><br><span class="line">#user为你的github用户名</span><br><span class="line">#git clone表示从远程主机克隆一个版本库</span><br></pre></td></tr></table></figure>
-<h3 id="（二）创建gh-pages-branch"><a href="#（二）创建gh-pages-branch" class="headerlink" title="（二）创建gh-pages branch"></a>（二）创建gh-pages branch</h3><p>在终端中打开刚才创建的本地文件夹Documents，输入</p>
+<h3 id="二创建gh-pages-branch">（二）创建gh-pages branch</h3>
+<p>在终端中打开刚才创建的本地文件夹Documents，输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd Documents/Blog/PPT</span><br><span class="line">git checkout --orphan gh-pages</span><br><span class="line">	</span><br><span class="line">#创建orphan分支，命名为gh-pages</span><br><span class="line">#如果不提交内容，这个分支实际上没有创建</span><br></pre></td></tr></table></figure>
-<h3 id="（三）上传reveal-js到branch"><a href="#（三）上传reveal-js到branch" class="headerlink" title="（三）上传reveal.js到branch"></a>（三）上传reveal.js到branch</h3><p>将reveal.js文件下载下来，全部拷贝到本地Documents中的PPT文件夹，并在reveal.js文件夹中编辑好幻灯片，输入</p>
+<h3 id="三上传reveal.js到branch">（三）上传reveal.js到branch</h3>
+<p>将reveal.js文件下载下来，全部拷贝到本地Documents中的PPT文件夹，并在reveal.js文件夹中编辑好幻灯片，输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;1st commit&quot;</span><br><span class="line">git push origin gh-pages</span><br><span class="line">	</span><br><span class="line">#git add . 监控工作区的状态树(即文件夹或目录)，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。</span><br><span class="line">#git commit 主要是将暂存区里的改动给提交到本地的版本库</span><br><span class="line">#git commit -m表示可以直接输入后面的提示内容，如“1st commit”</span><br><span class="line">#git push origin gh-pages表示把本地代码（origin）提交到gh-pages分支</span><br></pre></td></tr></table></figure>
-<p>接下来，输入Github账户的用户名和密码即可。可以试着访问：<a href="https://lysp2017.github.io/PPT/战火炼成的生命之星.html">https://lysp2017.github.io/PPT/幻灯名.html</a>，就可以看到幻灯片了。</p>
-<h2 id="二、在Hexo博客中部署Reveal-js"><a href="#二、在Hexo博客中部署Reveal-js" class="headerlink" title="二、在Hexo博客中部署Reveal.js"></a>二、在Hexo博客中部署Reveal.js</h2><ol>
+<p>接下来，输入Github账户的用户名和密码即可。可以试着访问：<a
+href="https://lysp2017.github.io/PPT/战火炼成的生命之星.html">https://lysp2017.github.io/PPT/幻灯名.html</a>，就可以看到幻灯片了。</p>
+<h2 id="二在hexo博客中部署reveal.js">二、在Hexo博客中部署Reveal.js</h2>
+<ol type="1">
 <li>在Markdown中输入幻灯片的地址即可</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[https://lysp2017.github.io/PPT/幻灯名.html](https://lysp2017.github.io/PPT/战火炼成的生命之星.html)</span><br></pre></td></tr></table></figure>
@@ -1183,25 +1585,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ol>
-<li>在任意的页面右上角点击 <strong>+</strong>，然后点击新建仓库 New repository。</li>
+          <ol type="1">
+<li><p>在任意的页面右上角点击 <strong>+</strong>，然后点击新建仓库 New
+repository。</p></li>
 <li><p>为你的仓库创建一个简短便于记忆的名字。例如 “PPT”。</p>
-<p> <img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.40.12.png" alt=""></p>
-</li>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.40.12.png" /></p></li>
 <li><p>为你的仓库添加一个描述（非必须的）。</p>
 <blockquote>
 <p>例如 “My first repository on GitHub”。</p>
-</blockquote>
-</li>
-<li>选择你的仓库类型为公有或者私有：<ul>
-<li>Public：公有仓库对于一个刚入门的新手来说是一个不错的选择。这些仓库在 GitHub上对于每个人是可见，你可以从协作型社区中受益。</li>
+</blockquote></li>
+<li><p>选择你的仓库类型为公有或者私有：</p>
+<ul>
+<li>Public：公有仓库对于一个刚入门的新手来说是一个不错的选择。这些仓库在
+GitHub上对于每个人是可见，你可以从协作型社区中受益。</li>
 <li>Private：私有仓库需要更多的步骤。它们只对于你来说是可用的，这个仓库的所有者属于你和你所指定要分享的合作者。私有仓库仅对付费账户可用。</li>
-</ul>
-</li>
-<li>选择Initialize this repository with a README。</li>
+</ul></li>
+<li><p>选择Initialize this repository with a README。</p></li>
 <li><p>点击Create repository。</p>
-<p> <img src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.41.50.png" alt=""></p>
-</li>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-16-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-16%20%E4%B8%8B%E5%8D%888.41.50.png" /></p></li>
 </ol>
 
       
@@ -1277,10 +1680,8 @@
 
       
           <blockquote>
-<p>说明：<br></p>
-<ol>
-<li>部分参考LWW出版的Avoiding Common Surgical Errors<br></li>
-</ol>
+<p>说明：<br> 1. 部分参考LWW出版的Avoiding Common Surgical
+Errors<br></p>
 </blockquote>
 
       
@@ -1356,45 +1757,99 @@
 
       
           <blockquote>
-<p>说明<br></p>
-<ol>
-<li>参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）</li>
-</ol>
+<p>说明<br> 1.
+参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）</p>
 </blockquote>
-<h2 id="一、条件概率（Conditional-probability）"><a href="#一、条件概率（Conditional-probability）" class="headerlink" title="一、条件概率（Conditional probability）"></a>一、条件概率（Conditional probability）</h2><ol>
-<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用$P(B\mid{A})$来表示。<br> <img src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png" alt=""></li>
-<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是$P(A\bigcap{B})$除以$P(A)$。<script type="math/tex; mode=display">P(B\mid{A})=\cfrac{P(A\bigcap{B})}{P(A)}</script> 因此：<script type="math/tex">P({A} \bigcap {B})=P(B\mid{A})\times P(A)</script><br> 同理可得：<script type="math/tex">P({A} \bigcap {B})=P(A\mid{B})\times P(B)</script><br> 所以：<script type="math/tex">P(B\mid{A})\times P(A)= P(A\mid{B})\times P(B)</script><br> 即：<script type="math/tex">P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B)}</script></li>
+<h2 id="一条件概率conditional-probability">一、条件概率（Conditional
+probability）</h2>
+<ol type="1">
+<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用<span
+class="math inline">\(P(B\mid{A})\)</span>来表示。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png" /></li>
+<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是<span
+class="math inline">\(P(A\bigcap{B})\)</span>除以<span
+class="math inline">\(P(A)\)</span>。 <span
+class="math display">\[P(B\mid{A})=\cfrac{P(A\bigcap{B})}{P(A)}\]</span>
+因此：<span class="math display">\[P({A} \bigcap {B})=P(B\mid{A})\times
+P(A)\]</span> 同理可得：<span class="math display">\[P({A} \bigcap
+{B})=P(A\mid{B})\times P(B)\]</span> 所以：<span
+class="math display">\[P(B\mid{A})\times P(A)= P(A\mid{B})\times
+P(B)\]</span> 即：<span class="math display">\[P(A\mid{B})=
+\cfrac{P(B\mid{A})\times P(A)}{P(B)} \]</span></li>
 </ol>
-<h2 id="二、全概率公式"><a href="#二、全概率公式" class="headerlink" title="二、全概率公式"></a>二、全概率公式</h2><p>假定样本空间S，是两个事件A与A’的和。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg" alt=""></p>
-<p>上图中，红色部分是事件A，绿色部分是事件A’，它们共同构成了样本空间S。</p>
-<p>在这种情况下，事件B可以划分成两个部分。<br>    <img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg" alt=""></p>
-<p>即：<script type="math/tex">P(B) = P({B} \bigcap {A}) + P({B} \bigcap {A'})</script></p>
-<p>在之前的推导当中，我们已知：<script type="math/tex">P({A} \bigcap {B})=P(B\mid{A})\times P(A)</script><br>所以：<script type="math/tex">P(B) = P(B\mid{A})\times P(A) + P(B\mid{A'})\times P(A')</script><br>把 $P(B)$代入上一节中的条件概率公式 $P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B)} $</p>
-<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})\times P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A'})\times P(A')}</script><h2 id="三、贝叶斯定理及贝叶斯推断"><a href="#三、贝叶斯定理及贝叶斯推断" class="headerlink" title="三、贝叶斯定理及贝叶斯推断"></a>三、贝叶斯定理及贝叶斯推断</h2><p>对条件概率公式进行变形，可以得到如下形式：</p>
-<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B)} \times P(A)</script><ul>
-<li>$P(A)$称为”先验概率”（Prior Probability），即在B事件发生之前，我们对A事件概率的一个判断。</li>
-<li>$P(A\mid{B})$称为”后验概率”（Posterior Probability），即在B事件发生之后，我们对A事件概率的重新评估。</li>
-<li>$\cfrac{P(B\mid{A})}{P(B)}$称为”可能性函数”（likelihood），这是一个调整因子，使得预估概率更接近真实概率。</li>
-</ul>
-<p>所以，条件概率可以理解成：<br><code>后验概率　＝　先验概率 × 调整因子</code></p>
-<p>这就是贝叶斯推断的含义。我们先预估一个”先验概率”，然后加入实验结果，看这个实验到底是增强还是削弱了”先验概率”，由此得到更接近事实的”后验概率”。</p>
+<h2 id="二全概率公式">二、全概率公式</h2>
+<p>假定样本空间S，是两个事件A与A'的和。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg" /></p>
+<p>上图中，红色部分是事件A，绿色部分是事件A'，它们共同构成了样本空间S。</p>
+<p>在这种情况下，事件B可以划分成两个部分。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg" /></p>
+<p>即：<span class="math display">\[P(B) = P({B} \bigcap {A}) + P({B}
+\bigcap {A&#39;})\]</span></p>
+<p>在之前的推导当中，我们已知：<span class="math display">\[P({A}
+\bigcap {B})=P(B\mid{A})\times P(A)\]</span> 所以：<span
+class="math display">\[P(B) = P(B\mid{A})\times P(A) +
+P(B\mid{A&#39;})\times P(A&#39;)\]</span> 把 <span
+class="math inline">\(P(B)\)</span>代入上一节中的条件概率公式 $P(A)= $
+<span class="math display">\[P(A\mid{B})= \cfrac{P(B\mid{A})\times
+P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A&#39;})\times P(A&#39;)}
+\]</span></p>
+<h2 id="三贝叶斯定理及贝叶斯推断">三、贝叶斯定理及贝叶斯推断</h2>
+<p>对条件概率公式进行变形，可以得到如下形式： <span
+class="math display">\[P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B)} \times
+P(A)\]</span></p>
 <ul>
-<li>在这里，如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&gt;1，意味着”先验概率”被增强，事件A的发生的可能性变大；</li>
-<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$=1，意味着B事件无助于判断事件A的可能性；</li>
-<li>如果”可能性函数”$\cfrac{P(B\mid{A})}{P(B)}$&lt;1，意味着”先验概率”被削弱，事件A的可能性变小。</li>
+<li><span class="math inline">\(P(A)\)</span>称为"先验概率"（Prior
+Probability），即在B事件发生之前，我们对A事件概率的一个判断。</li>
+<li><span
+class="math inline">\(P(A\mid{B})\)</span>称为"后验概率"（Posterior
+Probability），即在B事件发生之后，我们对A事件概率的重新评估。</li>
+<li><span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>称为"可能性函数"（likelihood），这是一个调整因子，使得预估概率更接近真实概率。</li>
 </ul>
-<h2 id="四、水果糖的例子"><a href="#四、水果糖的例子" class="headerlink" title="四、水果糖的例子"></a>四、水果糖的例子</h2><p><img src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg" alt=""></p>
+<p>所以，条件概率可以理解成：
+<code>后验概率　＝　先验概率 × 调整因子</code></p>
+<p>这就是贝叶斯推断的含义。我们先预估一个"先验概率"，然后加入实验结果，看这个实验到底是增强还是削弱了"先验概率"，由此得到更接近事实的"后验概率"。</p>
+<ul>
+<li>在这里，如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>&gt;1，意味着"先验概率"被增强，事件A的发生的可能性变大；</li>
+<li>如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>=1，意味着B事件无助于判断事件A的可能性；</li>
+<li>如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>&lt;1，意味着"先验概率"被削弱，事件A的可能性变小。</li>
+</ul>
+<h2 id="四水果糖的例子">四、水果糖的例子</h2>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg" /></p>
 <p>问题：两个一模一样的碗，一号碗有30颗水果糖和10颗巧克力糖，二号碗有水果糖和巧克力糖各20颗。现在随机选择一个碗，从中摸出一颗糖，发现是水果糖。请问这颗水果糖来自一号碗的概率有多大？</p>
-<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以$P(H_1)$ = $P(H_2)$，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，$P(H_1)$ = 0.5，我们把这个概率就叫做”先验概率”，即没有做实验之前，来自一号碗的概率是0.5。</p>
-<p>再假定，E表示水果糖，所以问题就变成了在已知E的情况下，来自一号碗的概率有多大，即求$P(H_1\mid{E})$。我们把这个概率叫做”后验概率”，即在E事件发生之后，对P(H1)的修正。</p>
-<p>根据条件概率公式，得到</p>
-<script type="math/tex; mode=display">P(H_1\mid{E}) = P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}</script><p>已知，$P(H_1)$ = 0.5，$P(E\mid{H_1})$为一号碗中取出水果糖的概率，等于0.75，那么求出$P(E)$就可以得到答案。</p>
-<p>根据全概率公式：</p>
-<script type="math/tex; mode=display">P(E)=P(E\mid{H_1}) \times P(H_1) +P(E\mid{H_2}) \times P(H_2)</script><p>所以：</p>
-<script type="math/tex; mode=display">P(E)=0.75\times0.5+0.5\times0.5=0.625</script><h2 id="五、假阳性问题"><a href="#五、假阳性问题" class="headerlink" title="五、假阳性问题"></a>五、假阳性问题</h2><p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
-<p>假定A事件表示得病，那么$P(A)$为0.001。这就是”先验概率”，即没有做试验之前，我们预计的发病率。</p>
-<p>再假定B事件表示阳性，那么要计算的就是$P(A\mid{B})$。这就是”后验概率”，即做了试验以后，对发病率的估计。</p>
-<script type="math/tex; mode=display">P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline {A}})\times P(\overline {A})} \times P(A)</script><script type="math/tex; mode=display">\approx \cfrac{0.99}{0.99 \times 0.001+0.05\times 0.999} \times {0.001}</script><p>我们得到了一个惊人的结果，$P(A\mid{B})$约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的”假阳性”，即阳性结果完全不足以说明病人得病。</p>
+<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以<span
+class="math inline">\(P(H_1)\)</span> = <span
+class="math inline">\(P(H_2)\)</span>，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，<span
+class="math inline">\(P(H_1)\)</span> =
+0.5，我们把这个概率就叫做"先验概率"，即没有做实验之前，来自一号碗的概率是0.5。</p>
+<p>再假定，E表示水果糖，所以问题就变成了在已知E的情况下，来自一号碗的概率有多大，即求<span
+class="math inline">\(P(H_1\mid{E})\)</span>。我们把这个概率叫做"后验概率"，即在E事件发生之后，对P(H1)的修正。</p>
+<p>根据条件概率公式，得到 <span class="math display">\[P(H_1\mid{E}) =
+P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}\]</span></p>
+<p>已知，<span class="math inline">\(P(H_1)\)</span> = 0.5，<span
+class="math inline">\(P(E\mid{H_1})\)</span>为一号碗中取出水果糖的概率，等于0.75，那么求出<span
+class="math inline">\(P(E)\)</span>就可以得到答案。</p>
+<p>根据全概率公式： <span class="math display">\[P(E)=P(E\mid{H_1})
+\times P(H_1) +P(E\mid{H_2}) \times P(H_2)\]</span></p>
+<p>所以： <span
+class="math display">\[P(E)=0.75\times0.5+0.5\times0.5=0.625\]</span></p>
+<h2 id="五假阳性问题">五、假阳性问题</h2>
+<p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
+<p>假定A事件表示得病，那么<span
+class="math inline">\(P(A)\)</span>为0.001。这就是"先验概率"，即没有做试验之前，我们预计的发病率。</p>
+<p>再假定B事件表示阳性，那么要计算的就是<span
+class="math inline">\(P(A\mid{B})\)</span>。这就是"后验概率"，即做了试验以后，对发病率的估计。</p>
+<p><span class="math display">\[P(A\mid{B})=
+\cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline
+{A}})\times P(\overline {A})} \times P(A)\]</span></p>
+<p><span class="math display">\[\approx \cfrac{0.99}{0.99 \times
+0.001+0.05\times 0.999} \times {0.001} \]</span></p>
+<p>我们得到了一个惊人的结果，<span
+class="math inline">\(P(A\mid{B})\)</span>约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的"假阳性"，即阳性结果完全不足以说明病人得病。</p>
 <p>为什么会这样？为什么这种检验的准确率高达99%，但是可信度却不到2%？</p>
 <p>首先是与误报率(5%)太高有关，其次也和发病率太低(0.1%)有关。</p>
 

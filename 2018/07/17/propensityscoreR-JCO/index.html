@@ -20,18 +20,14 @@
     var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="说明  译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency Ablation Versus Stereotactic BodyRadiotherapy for Localized Hepatocellular Carcinoma inNonsurgically Managed Patients: Analysis of the National Cance">
+  <meta name="description" content="说明 1. 译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency Ablation Versus Stereotactic BodyRadiotherapy for Localized Hepatocellular Carcinoma inNonsurgically Managed Patients: Analysis of the National Can">
 <meta property="og:type" content="article">
 <meta property="og:title" content="倾向性评分在临床研究中的应用（未完）">
 <meta property="og:url" content="http://lysp2017.github.io/2018/07/17/propensityscoreR-JCO/index.html">
 <meta property="og:site_name" content="高山流水">
-<meta property="og:description" content="说明  译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency Ablation Versus Stereotactic BodyRadiotherapy for Localized Hepatocellular Carcinoma inNonsurgically Managed Patients: Analysis of the National Cance">
+<meta property="og:description" content="说明 1. 译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency Ablation Versus Stereotactic BodyRadiotherapy for Localized Hepatocellular Carcinoma inNonsurgically Managed Patients: Analysis of the National Can">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-17-CONSORT%20diagram.jpg">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-17-Table%201.jpg">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-17-Table%201c.jpg">
 <meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-17-Table%20A1.jpg">
-<meta property="og:image" content="http://qiniup.louyanspine.com/2018-07-17-Table%20A1c.jpg">
 <meta property="article:published_time" content="2018-07-17T12:47:28.000Z">
 <meta property="article:modified_time" content="2019-02-27T16:44:21.000Z">
 <meta property="article:author" content="Louyan">
@@ -39,7 +35,7 @@
 <meta property="article:tag" content="R">
 <meta property="article:tag" content="文献阅读">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-07-17-CONSORT%20diagram.jpg">
+<meta name="twitter:image" content="http://qiniup.louyanspine.com/2018-07-17-Table%20A1.jpg">
 
 <link rel="canonical" href="http://lysp2017.github.io/2018/07/17/propensityscoreR-JCO/">
 
@@ -85,7 +81,9 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -257,64 +255,100 @@
 
       
         <blockquote>
-<p>说明<br></p>
-<ol>
-<li>译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency Ablation Versus Stereotactic Body<br>Radiotherapy for Localized Hepatocellular Carcinoma in<br>Nonsurgically Managed Patients: Analysis of the National Cancer Database.</li>
-</ol>
+<p>说明<br> 1. 译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency
+Ablation Versus Stereotactic BodyRadiotherapy for Localized
+Hepatocellular Carcinoma inNonsurgically Managed Patients: Analysis of
+the National Cancer Database.</p>
 </blockquote>
-<h2 id="射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析"><a href="#射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析" class="headerlink" title="射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析"></a>射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析</h2><h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><h4 id="研究目的"><a href="#研究目的" class="headerlink" title="研究目的"></a>研究目的</h4><p>对于局部肝细胞癌（HCC）的管理，目前尚缺乏指导（医生）如何选择最佳局部消融治疗的数据。由于这些治疗方式的前瞻性、可比较数据有限，因此我们的目的是通过使用国家癌症数据库比较射频消融（radiofrequency ablation,RFA）与立体定向放射治疗（stereotactic body radiotherapy,SBRT）的有效性(effectiveness)。</p>
-<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ol>
-<li>我们进行了一项观察性研究，以比较RFA与SBRT在非手术治疗肝癌患者(stage I or II)中的有效性。</li>
+<h2
+id="射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响国家癌症数据库分析">射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析</h2>
+<h3 id="摘要">摘要</h3>
+<h4 id="研究目的">研究目的</h4>
+<p>对于局部肝细胞癌（HCC）的管理，目前尚缺乏指导（医生）如何选择最佳局部消融治疗的数据。由于这些治疗方式的前瞻性、可比较数据有限，因此我们的目的是通过使用国家癌症数据库比较射频消融（radiofrequency
+ablation,RFA）与立体定向放射治疗（stereotactic body
+radiotherapy,SBRT）的有效性(effectiveness)。</p>
+<h4 id="方法">方法</h4>
+<ol type="1">
+<li>我们进行了一项观察性研究，以比较RFA与SBRT在非手术治疗肝癌患者(stage
+I or II)中的有效性。</li>
 <li>通过使用基于患者(patient-)，医疗设施(facility-)和肿瘤水平(tumor-level)特征的倾向性评分加权和倾向性评分匹配分析来比较总体生存率。</li>
-<li>进行敏感性分析(A sensitivity analysis)以评估严重的肝纤维化/肝硬化程度。</li>
-<li>此外，我们进行了探索性分析(exploratory analyses)，以确定RFA和SBRT在临床相关患者子集中的有效性。</li>
+<li>进行敏感性分析(A sensitivity
+analysis)以评估严重的肝纤维化/肝硬化程度。</li>
+<li>此外，我们进行了探索性分析(exploratory
+analyses)，以确定RFA和SBRT在临床相关患者子集中的有效性。</li>
 </ol>
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><ol>
+<h4 id="结果">结果</h4>
+<ol type="1">
 <li>3,684例（92.6％）和296例（7.4％）非手术治疗的I期或II期HCC患者分别接受RFA或SBRT治疗。</li>
-<li>在倾向性评分匹配后，RFA组的5年总体生存率为29.8％（95％CI，24.5％-35.3％），而SBRT组则为19.3％（95％CI，13.5％-25.9％），两者差异显著(P=0.001)。 </li>
-<li>逆概率加权分析(Inverse probability–weighted analysis)也获得类似的结果。</li>
+<li>在倾向性评分匹配后，RFA组的5年总体生存率为29.8％（95％CI，24.5％-35.3％），而SBRT组则为19.3％（95％CI，13.5％-25.9％），两者差异显著(P=0.001)。</li>
+<li>逆概率加权分析(Inverse probability–weighted
+analysis)也获得类似的结果。</li>
 <li>RFA的获益在所有亚组中都是一致的，并且对严重肝纤维化/肝硬化的效果是稳健的。</li>
 </ol>
-<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><ol>
-<li>我们的研究表明，对于I或II期HCC的非手术治疗患者，与SBRT相比，RFA治疗可获得更高的存活率。 </li>
+<h4 id="结论">结论</h4>
+<ol type="1">
+<li>我们的研究表明，对于I或II期HCC的非手术治疗患者，与SBRT相比，RFA治疗可获得更高的存活率。</li>
 <li>尽管我们的结果受限于回顾性研究设计相关的偏倚。但我们认为，在没有随机临床试验的情况下，在推荐局部无法切除的HCC患者进行局部消融治疗时应考虑我们的研究结果。</li>
 </ol>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ol>
-<li>对于局限性肝细胞癌，可以通过手术切除或肝移植实现治愈。然而，大多数患者不适合手术，而是采用局部消融治疗(local ablative therapies)，包括射频消融（radiofrequency ablation,RFA），微波消融(microwave ablation)，冷冻消融(cryoablation)和立体定向放射治疗（stereotactic body radiation therapy,SBRT）。</li>
-<li>RFA广泛应用于体积较小（&lt; 3cm）的不可切除肝癌，可实现70％到90％的优良局部控制率，并且在某些情况下被认为是治愈性治疗。</li>
+<h3 id="前言">前言</h3>
+<ol type="1">
+<li>对于局限性肝细胞癌，可以通过手术切除或肝移植实现治愈。然而，大多数患者不适合手术，而是采用局部消融治疗(local
+ablative therapies)，包括射频消融（radiofrequency
+ablation,RFA），微波消融(microwave
+ablation)，冷冻消融(cryoablation)和立体定向放射治疗（stereotactic body
+radiation therapy,SBRT）。</li>
+<li>RFA广泛应用于体积较小（&lt;
+3cm）的不可切除肝癌，可实现70％到90％的优良局部控制率，并且在某些情况下被认为是治愈性治疗。</li>
 <li>其他介入技术，例如微波消融或联合热-经动脉化学栓塞已被用于改善局部控制率，特别是对于在3cm和5cm之间的HCC肿瘤。</li>
 <li>SBRT是RFA的新兴替代方法，似乎为较小的HCC提供了类似的局部控制率。</li>
-<li>尽管对SBRT的研究正在逐渐增加，但大多数SBRT的数据来自单中心，易于受到选择偏倚的影响。 此外，许多单中心的样本量相对较少，缺乏长期生存数据。</li>
+<li>尽管对SBRT的研究正在逐渐增加，但大多数SBRT的数据来自单中心，易于受到选择偏倚的影响。
+此外，许多单中心的样本量相对较少，缺乏长期生存数据。</li>
 <li>前瞻性随机试验对于比较RFA与SBRT治疗局部不可切除HCC的有效性是必要的。然而，目前尚无前瞻性随机试验，且进行此类试验面临许多挑战，耗时且花费较高。</li>
 </ol>
-<h3 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h3><h4 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h4><ol>
-<li>我们使用NCDB进行了回顾性分析，属于不受机构审查委员会监督的去标志数据(de-identified data)。</li>
-<li>NCDB是美国外科医师学会(American College of Surgeons)癌症委员会（Commission on Cancer,CoC）和美国癌症协会(the American Cancer Society)的联合项目。</li>
+<h3 id="研究方法">研究方法</h3>
+<h4 id="数据来源">数据来源</h4>
+<ol type="1">
+<li>我们使用NCDB进行了回顾性分析，属于不受机构审查委员会监督的去标志数据(de-identified
+data)。</li>
+<li>NCDB是美国外科医师学会(American College of
+Surgeons)癌症委员会（Commission on Cancer,CoC）和美国癌症协会(the
+American Cancer Society)的联合项目。</li>
 <li>NCDB包含来自美国1500多家拥有CoC认证项目的医院的数据，其中包括约70％全美所有新诊断的癌症病例，即超过2900万个独特的癌症病例。</li>
 <li>根据与每个认证机构签订的协议，删除来自美国退伍军人事务部、国防部，波多黎各的设施和其他某些计划的数据。</li>
-<li>我们从NCDB参与者用户文件（Participant User Files,PUF）获得数据。The data elements are collected prospectively from cancer registries of CoC-accredited programs by using nationally standardized data item and coding definitions as specified in the CoC’s facility oncology registry data standards and nationally standardized data transmission format specifications coordinated by the North American Association of Central Cancer Registries.</li>
-<li>数据元素包括患者特征、癌症分期、肿瘤的组织学特征、首次治疗的类型和时间以及结果。 </li>
+<li>我们从NCDB参与者用户文件（Participant User Files,PUF）获得数据。The
+data elements are collected prospectively from cancer registries of
+CoC-accredited programs by using nationally standardized data item and
+coding definitions as specified in the CoC’s facility oncology registry
+data standards and nationally standardized data transmission format
+specifications coordinated by the North American Association of Central
+Cancer Registries.</li>
+<li>数据元素包括患者特征、癌症分期、肿瘤的组织学特征、首次治疗的类型和时间以及结果。</li>
 <li>对于所有在5年内诊断出的符合条件的患者，合格评定(accreditation)要求每年有90％的随访率。</li>
 </ol>
-<h4 id="研究人群"><a href="#研究人群" class="headerlink" title="研究人群"></a>研究人群</h4><ol>
+<h4 id="研究人群">研究人群</h4>
+<ol type="1">
 <li><p>从2004年至2013年间诊断为原发性HCC的119,933名男性和女性人群中共识别了47,634例临床I期（T1N0M0）或II期（T2N0M0）患者</p>
 <blockquote>
-<p>International Classification of Disease-Oncology-3rd Edition code C22.0, histology codes 8170-8175</p>
-</blockquote>
-</li>
-<li><p>排除接受过肺叶切除术，扩大肺叶切除术，肝切除术或肝移植的患者。</p>
-</li>
-<li>以RFA或SBRT作为主要治疗方式，排除接受其他形式的局部消融治疗的患者。</li>
-<li>排除接受任何形式的化疗（辅助或新辅助）或化疗信息未知的患者。</li>
+<p>International Classification of Disease-Oncology-3rd Edition code
+C22.0, histology codes 8170-8175</p>
+</blockquote></li>
+<li><p>排除接受过肺叶切除术，扩大肺叶切除术，肝切除术或肝移植的患者。</p></li>
+<li><p>以RFA或SBRT作为主要治疗方式，排除接受其他形式的局部消融治疗的患者。</p></li>
+<li><p>排除接受任何形式的化疗（辅助或新辅助）或化疗信息未知的患者。</p></li>
 <li><p>本研究最终纳入3,980名患者。</p>
-<p> <img src="http://qiniup.louyanspine.com/2018-07-17-CONSORT%20diagram.jpg" alt="CONSORT diagram"></p>
-</li>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-17-CONSORT%20diagram.jpg"
+alt="CONSORT diagram" />
+<figcaption aria-hidden="true">CONSORT diagram</figcaption>
+</figure></li>
 </ol>
-<h4 id="Covariates-协变量"><a href="#Covariates-协变量" class="headerlink" title="Covariates/协变量"></a>Covariates/协变量</h4><blockquote>
+<h4 id="covariates协变量">Covariates/协变量</h4>
+<blockquote>
 <p>可以在NCDB PUF数据dictionary中找到所有变量的完整详细描述。</p>
 </blockquote>
-<ol>
-<li><p>Patient-level variables</p>
+<ol type="1">
+<li>Patient-level variables
 <ul>
 <li>诊断时的年龄</li>
 <li>性别</li>
@@ -323,78 +357,101 @@
 <li>根据患者邮政编码的家庭收入中位数</li>
 <li>患者人口普查区内低于高中教育的人口百分比</li>
 <li>Charlson-Deyo合并症评分(被NCDB分为0,1,≥2的得分类别)</li>
-</ul>
-</li>
-<li><p>Facility-level variables</p>
+</ul></li>
+<li>Facility-level variables
 <ul>
 <li>从患者居住区到治疗设施的距离</li>
 <li>case volume in quartiles</li>
 <li>地理区域</li>
-<li>type of treatment facilities(由CoC accreditation category指定，基于case volume和available services)<ul>
+<li>type of treatment facilities(由CoC accreditation
+category指定，基于case volume和available services)
+<ul>
 <li>社区</li>
 <li>综合性社区</li>
 <li>学术</li>
 <li>integrated network cancer program</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<ol>
-<li>Tumor-level variables<ul>
+</ul></li>
+</ul></li>
+<li>Tumor-level variables
+<ul>
 <li>TNM分期</li>
 <li>肿瘤大小</li>
 <li>诊断年份（2004-2008 v 2009-2013）</li>
 <li>甲胎蛋白</li>
 <li>肿瘤分级和Ishak纤维化评分可用于接受活检以评估肿瘤的患者</li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><ol>
-<li><p>本研究的主要目的是比较非手术治疗的I期或II期HCC患者的总体生存期（overall survival,OS），同时比较接受RFA治疗的患者与接受SBRT治疗的患者的OS。 </p>
-<blockquote>
-<p>OS的定义：从诊断日期到死亡(任何原因所导致)日期。</p>
-</blockquote>
-</li>
-<li><p>次要目标是确定RFA和SBRT在临床相关患者子集中的有效性。</p>
-</li>
+<h4 id="目标">目标</h4>
+<ol type="1">
+<li><p>本研究的主要目的是比较非手术治疗的I期或II期HCC患者的总体生存期（overall
+survival,OS），同时比较接受RFA治疗的患者与接受SBRT治疗的患者的OS。 &gt;
+OS的定义：从诊断日期到死亡(任何原因所导致)日期。</p></li>
+<li><p>次要目标是确定RFA和SBRT在临床相关患者子集中的有效性。</p></li>
 </ol>
-<h4 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h4><ol>
-<li>评估治疗方式与患者的特点，临床特点及和医疗设施特征之间的相关性<ul>
-<li>分类数据：Pearson卡方,Fisher’s exact test </li>
+<h4 id="统计分析">统计分析</h4>
+<ol type="1">
+<li>评估治疗方式与患者的特点，临床特点及和医疗设施特征之间的相关性
+<ul>
+<li>分类数据：Pearson卡方,Fisher’s exact test</li>
 <li>计量数据：Wilcoxon rank sum test</li>
-</ul>
-</li>
-<li>对于主要结果，构建了两种OS与治疗方式之间相关性的模型<ul>
-<li>a propensity score-and time-to-treatment-matched univariable Cox proportional hazards model /倾向性评分和治疗时间匹配的单因素Cox比例风险模型</li>
-<li>an unmatched univariable analysis based on the Kaplan-Meier estimator of inverse probability of treatment weight (IPTW)/基于IPTW的Kaplan-Meier估计量的未匹配的单因素分析</li>
-</ul>
-</li>
-<li>构建以接受SBRT为目标事件构建模型的倾向性评分模型。<ul>
+</ul></li>
+<li>对于主要结果，构建了两种OS与治疗方式之间相关性的模型
+<ul>
+<li>a propensity score-and time-to-treatment-matched univariable Cox
+proportional hazards model
+/倾向性评分和治疗时间匹配的单因素Cox比例风险模型</li>
+<li>an unmatched univariable analysis based on the Kaplan-Meier
+estimator of inverse probability of treatment weight
+(IPTW)/基于IPTW的Kaplan-Meier估计量的未匹配的单因素分析</li>
+</ul></li>
+<li>构建以接受SBRT为目标事件构建模型的倾向性评分模型。
+<ul>
 <li>通过逐步多因素logistic回归模型。</li>
-<li>变量选择：先进行单因素分析，纳入所有与治疗方法显著相关的变量(a threshold of P &lt;0.20 required for initial inclusion and P &lt;0.10 required to remain in the model)。</li>
-</ul>
-</li>
-<li>在倾向性评分的基础上，计算稳定的IPTW。IPTWs were truncated at 第5和第95百分位</li>
-<li>构建倾向性评分和治疗时间匹配的OS模型<ul>
-<li>通过使用a greedy, nearest neighbor matching algorithm，接受SBRT治疗的患者与接受RFA治疗的患者，在倾向性评分和诊断到治疗的时间上，匹配为1：2。倾向性评分的最大允许差异为±2％，诊断到治疗的时间的最大允许差异为±14天。</li>
-<li>计算每组的Kaplan-Meier估计量，并使用对数秩检验(log-rank test)进行比较。</li>
-</ul>
-</li>
-<li>对于OS的最终模型，计算所有患者的IPTW Kaplan-Meier估计量，并通过对数秩检验在各组之间进行比较。</li>
+<li>变量选择：先进行单因素分析，纳入所有与治疗方法显著相关的变量(a
+threshold of P &lt;0.20 required for initial inclusion and P &lt;0.10
+required to remain in the model)。</li>
+</ul></li>
+<li>在倾向性评分的基础上，计算稳定的IPTW。IPTWs were truncated at
+第5和第95百分位</li>
+<li>构建倾向性评分和治疗时间匹配的OS模型
+<ul>
+<li>通过使用a greedy, nearest neighbor matching
+algorithm，接受SBRT治疗的患者与接受RFA治疗的患者，在倾向性评分和诊断到治疗的时间上，匹配为1：2。倾向性评分的最大允许差异为±2％，诊断到治疗的时间的最大允许差异为±14天。</li>
+<li>计算每组的Kaplan-Meier估计量，并使用对数秩检验(log-rank
+test)进行比较。</li>
+</ul></li>
+<li>对于OS的最终模型，计算所有患者的IPTW
+Kaplan-Meier估计量，并通过对数秩检验在各组之间进行比较。</li>
 <li>所有计算均使用SAS软件9.4版进行。</li>
-<li>在匹配的患者组中，我们通过交互作用(interaction)和亚组分析(subgroup analyses)评估了治疗效果的异质性(heterogeneity of treatment effects)，探讨了年龄，性别，临床T分期，肿瘤大小，肿瘤分级，Charlson-Deyo合并症评分和设施类型的影响。</li>
+<li>在匹配的患者组中，我们通过交互作用(interaction)和亚组分析(subgroup
+analyses)评估了治疗效果的异质性(heterogeneity of treatment
+effects)，探讨了年龄，性别，临床T分期，肿瘤大小，肿瘤分级，Charlson-Deyo合并症评分和设施类型的影响。</li>
 <li>由于在NCDB中纤维化/肝硬化例数较少，以及纤维化/肝硬化与OS减少之间的已知关联。我们在匹配的患者组中进行了敏感性分析，以研究这种未测量的混杂因素对我们的结果的潜在影响。</li>
 <li>敏感性分析的目标是探索假设的结果情景，并在其中调整观察到的治疗效果以解释潜在的未测量的混杂因素。</li>
 <li>除了观察到的治疗效果外，敏感性分析还纳入了关于生存效应和未测量混杂因子的不同暴露的假设信息，以计算如果去除未测量的混杂因素将会观察到的真实治疗效果。</li>
 </ol>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><h4 id="Factors-Associated-With-Use-of-SBRT"><a href="#Factors-Associated-With-Use-of-SBRT" class="headerlink" title="Factors Associated With Use of SBRT"></a>Factors Associated With Use of SBRT</h4><ol>
+<h3 id="结果-1">结果</h3>
+<h4 id="factors-associated-with-use-of-sbrt">Factors Associated With Use
+of SBRT</h4>
+<ol type="1">
 <li>开始SBRT和RFA治疗的中位时间分别为72天和48天。</li>
-<li>患者基线特征列于表1中。<br> <img src="http://qiniup.louyanspine.com/2018-07-17-Table%201.jpg" alt="Table 1"><br> <img src="http://qiniup.louyanspine.com/2018-07-17-Table%201c.jpg" alt="Table 1_c"></li>
-<li>通过倾向性评分和time to treatment进行匹配，两组患者所有的协变量均取得了足够的组间平衡（见表A1）。<br> <img src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1.jpg" alt="表A1"><br> <img src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1c.jpg" alt="表A1_c"></li>
+<li>患者基线特征列于表1中。 <img
+src="http://qiniup.louyanspine.com/2018-07-17-Table%201.jpg"
+alt="Table 1" /> <img
+src="http://qiniup.louyanspine.com/2018-07-17-Table%201c.jpg"
+alt="Table 1_c" /></li>
+<li>通过倾向性评分和time to
+treatment进行匹配，两组患者所有的协变量均取得了足够的组间平衡（见表A1）。
+<img src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1.jpg"
+alt="表A1" /> <img
+src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1c.jpg"
+alt="表A1_c" /></li>
 <li>接受SBRT的患者比例随时间逐渐增加，年增长率为12％（P&lt;0.001;图2），大多数患者（79.7％）接受三至五次治疗。</li>
 </ol>
-<h4 id="生存分析"><a href="#生存分析" class="headerlink" title="生存分析"></a>生存分析</h4><h4 id="严重纤维化-肝硬化的影响"><a href="#严重纤维化-肝硬化的影响" class="headerlink" title="严重纤维化/肝硬化的影响"></a>严重纤维化/肝硬化的影响</h4><h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3>
+<h4 id="生存分析">生存分析</h4>
+<h4 id="严重纤维化肝硬化的影响">严重纤维化/肝硬化的影响</h4>
+<h3 id="讨论">讨论</h3>
+
     </div>
 
     
@@ -479,7 +536,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%84%E9%A2%91%E6%B6%88%E8%9E%8D%E4%B8%8E%E7%AB%8B%E4%BD%93%E5%AE%9A%E5%90%91%E6%94%BE%E7%96%97%E5%AF%B9%E9%9D%9E%E6%89%8B%E6%9C%AF%E6%B2%BB%E7%96%97%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7%E8%82%9D%E7%99%8C%E6%82%A3%E8%80%85%E7%9A%84%E5%BD%B1%E5%93%8D%EF%BC%9A%E5%9B%BD%E5%AE%B6%E7%99%8C%E7%97%87%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">研究目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">1.1.3.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">1.1.4.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">研究方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">数据来源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E4%BA%BA%E7%BE%A4"><span class="nav-number">1.3.2.</span> <span class="nav-text">研究人群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Covariates-%E5%8D%8F%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">Covariates&#x2F;协变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.3.4.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90"><span class="nav-number">1.3.5.</span> <span class="nav-text">统计分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-1"><span class="nav-number">1.4.</span> <span class="nav-text">结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Factors-Associated-With-Use-of-SBRT"><span class="nav-number">1.4.1.</span> <span class="nav-text">Factors Associated With Use of SBRT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90"><span class="nav-number">1.4.2.</span> <span class="nav-text">生存分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A5%E9%87%8D%E7%BA%A4%E7%BB%B4%E5%8C%96-%E8%82%9D%E7%A1%AC%E5%8C%96%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.4.3.</span> <span class="nav-text">严重纤维化&#x2F;肝硬化的影响</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A8%E8%AE%BA"><span class="nav-number">1.5.</span> <span class="nav-text">讨论</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%84%E9%A2%91%E6%B6%88%E8%9E%8D%E4%B8%8E%E7%AB%8B%E4%BD%93%E5%AE%9A%E5%90%91%E6%94%BE%E7%96%97%E5%AF%B9%E9%9D%9E%E6%89%8B%E6%9C%AF%E6%B2%BB%E7%96%97%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7%E8%82%9D%E7%99%8C%E6%82%A3%E8%80%85%E7%9A%84%E5%BD%B1%E5%93%8D%E5%9B%BD%E5%AE%B6%E7%99%8C%E7%97%87%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.1.</span> <span class="nav-text">摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">研究目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">1.1.3.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">1.1.4.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">研究方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">数据来源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E4%BA%BA%E7%BE%A4"><span class="nav-number">1.3.2.</span> <span class="nav-text">研究人群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#covariates%E5%8D%8F%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">Covariates&#x2F;协变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.3.4.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90"><span class="nav-number">1.3.5.</span> <span class="nav-text">统计分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-1"><span class="nav-number">1.4.</span> <span class="nav-text">结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#factors-associated-with-use-of-sbrt"><span class="nav-number">1.4.1.</span> <span class="nav-text">Factors Associated With Use
+of SBRT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90"><span class="nav-number">1.4.2.</span> <span class="nav-text">生存分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A5%E9%87%8D%E7%BA%A4%E7%BB%B4%E5%8C%96%E8%82%9D%E7%A1%AC%E5%8C%96%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.4.3.</span> <span class="nav-text">严重纤维化&#x2F;肝硬化的影响</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A8%E8%AE%BA"><span class="nav-number">1.5.</span> <span class="nav-text">讨论</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
