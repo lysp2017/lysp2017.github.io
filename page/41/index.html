@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/02/AutoHotkey/">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/12/Essential-Concepts-in-Clinical-Research16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,7 +205,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/02/AutoHotkey/" class="post-title-link" itemprop="url">AutoHotkey快速入门</a>
+            <a href="/2018/09/12/Essential-Concepts-in-Clinical-Research16/" class="post-title-link" itemprop="url">临床研究基本概念：随机对照试验（八）</a>
         </h2>
 
         <div class="post-meta">
@@ -215,903 +215,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-09-02 15:41:18" itemprop="dateCreated datePublished" datetime="2018-09-02T15:41:18+08:00">2018-09-02</time>
+              <time title="创建时间：2018-09-12 23:03:04" itemprop="dateCreated datePublished" datetime="2018-09-12T23:03:04+08:00">2018-09-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 01:04:11" itemprop="dateModified" datetime="2019-02-28T01:04:11+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>说明<br> 1.
-参考作者李辉在博客上的文章：<a target="_blank" rel="noopener" href="https://greyli.com/autohotkey-automate-your-life/">AutoHotkey——自动化你的生活</a><br></p>
-</blockquote>
-<h2 id="一autohotkey简介">一、AutoHotkey简介</h2>
-<p>AutoHotkey是一款免费的、Windows平台下开放源代码的热键脚本语言。从名字可以看出来，它可以用来设置热键。但是因为它是一门脚本语言，所以就不止设置快捷键那么简单了。帮助文档这样介绍它的功能：</p>
-<ul>
-<li>通过发送键盘键击和鼠标点击自动化几乎所有的操作。您可以手工编写宏或者使用宏录制器。</li>
-<li>为键盘，游戏杆和鼠标创建热键。几乎任何按键、按钮或组合键都可以设置为热键。</li>
-<li>在您键入缩写时扩展缩写。例如，键入 “btw” 能自动地生成 “by the
-way”。</li>
-<li>创建自定义的数据输入表格、用户界面和菜单栏。详见图形用户界面。</li>
-<li>重新映射您键盘、游戏杆和鼠标上的按键和按钮。</li>
-<li>通过WinLIRC客户端脚本对手执遥控器的信号作出反应。</li>
-<li>运行现有的AutoIt v2脚本，并用新功能增强它们。</li>
-<li>将任何的脚本转换为EXE文件，使其在没有安装AutoHotkey的计算机上也能运行。</li>
-</ul>
-<h2 id="二最简流程示例">二、最简流程示例</h2>
-<ol type="1">
-<li><p>到<a target="_blank" rel="noopener" href="https://www.autohotkey.com">www.autohotkey.com</a>下载或点击这里下载（AutoHotkey1.1），然后安装。</p></li>
-<li><p>使用编辑器或记事本新建一个脚本文件，格式为<code>.ahk</code>，编码格式为<code>UTF-8</code>。</p></li>
-<li><p>编辑脚本，在脚本中写入下面这行：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br></pre></td></tr></table></figure></p></li>
-<li><p>保存后双击运行。</p></li>
-<li><p>这时按下Windows键和h键就会打开我的博客。</p></li>
-<li><p>在上面这个命令中</p>
-<ul>
-<li><p>符号<code>#</code>表示<code>Windows键</code></p></li>
-<li><p><code>#</code>后紧跟着<code>h</code>表示组合键</p></li>
-<li><p>符号<code>::</code>用来分隔热键和命令（左边是热键，右边是命令）</p></li>
-<li><p><code>Run</code>命令用来打开一个文件或网页，中间空一个空格。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-09-02-windows-key-shortcut-tricks-670x335.jpg" /></p></li>
-</ul></li>
-</ol>
-<h2 id="三基本术语">三、基本术语</h2>
-<ol type="1">
-<li><p>脚本/宏（Script）：你要编辑的一个格式后缀为<code>.ahk</code>的纯文本文件（编码格式为<code>UTF-8</code>）。你把代码写进这个脚本里，双击执行后，你的热键就生效了。</p></li>
-<li><p>热键（hotkey）：用来触发操作的按键或组合键，也就是快捷键。</p></li>
-<li><p>命令：你为某个热键指定的一个动作（action），比如打开程序，打开网页等。</p></li>
-<li><p>热字串（hotstring）：类似于热键，当你输入热字串并按下回车或空格后触发相应的命令。</p></li>
-<li><p>宏录制器（AutoScriptWriter）：可以录制回放你的操作的工具，非常适合新手入门学习。</p></li>
-<li><p>多行热键：当通过热键触发多个命令时，这时的格式是命令从第二行开始，每个命令一行，最后以占据一行的return结束。</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span></span><br><span class="line">RunWait Notepad</span><br><span class="line">Msgbox Goodbye!</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>参数：自定义的数值，传递给命令执行，比如sleep后面的时间数就是参数。参数与命令通过空格或逗号隔开，多个参数使用逗号隔开。</p></li>
-<li><p>注释（comment）：注释是用来对你的代码进行解释和说明的文字</p>
-<ul>
-<li><p>单行的注释以<code>;</code>开头</p></li>
-<li><p>多行注释用<code>/*</code>和<code>*/</code>括住。</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;这是单行注释</span></span><br><span class="line"><span class="comment">/* 这里 </span></span><br><span class="line"><span class="comment">是 </span></span><br><span class="line"><span class="comment">多行注释 */</span></span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ol>
-<h2 id="四常用命令">四、常用命令</h2>
-<ol type="1">
-<li>Run：用来打开一个程序、文档、网页或者快捷方式</li>
-<li>Send：发送键击或一段字符</li>
-<li>Msgbox：消息窗口</li>
-<li>Inputbox：用户输入窗口</li>
-<li>Sleep：脚本等待指定的时间，然后执行下面的命令。后面接时间参数（毫秒）</li>
-<li>Click：在指定的位置点击鼠标</li>
-</ol>
-<h2 id="五常用符号">五、常用符号</h2>
-<ol type="1">
-<li><code>#</code>：Windows键</li>
-<li><code>^</code>：Control键</li>
-<li><code>!</code>：Alt键</li>
-<li><code>+</code>：Shift键</li>
-<li><code>&amp;</code>：用来连接两个按键组成组合键（使用除了上面四个按键外）</li>
-<li><code>&lt;</code>和<code>&gt;</code>：分别表示成对按键中左边和右边的的按键</li>
-<li><code>Tab</code>和<code>Enter</code>等：没有特殊符号。使用Send命令时用大括号括起来以和字符区分开。</li>
-</ol>
-<blockquote>
-<p>注：前四个为修饰键，可以和其他按键直接相连（比如写成#a），其他按键要做修饰键时需要用&amp;连接（比如a&amp;b）。</p>
-</blockquote>
-<h2 id="六基础应用示例">六、基础应用示例</h2>
-<h3
-id="一为常用软件网站设置快捷键">（一）为常用软件、网站设置快捷键</h3>
-<blockquote>
-<p>建议用热字串来启动常用的程序，把快捷键留给常用的操作。为了防止打字时冲突可以在热字串前加特定的符号，比如斜线。使用热字串启动命令要使用多行热键格式。</p>
-</blockquote>
-<ol type="1">
-<li><p>按下<code>Windows</code>键和<code>k</code>键打开Notepad++：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#k::</span>Run D:\Program Files (x86)\Notepad++\notepad++.exe</span><br></pre></td></tr></table></figure></p></li>
-<li><p>按下<code>Windows</code>键键和<code>h</code>键，或输入<code>hui</code>后按下回车或空格（推荐使用空格）可以打开我的博客：</p>
-<ul>
-<li><p>热字串在要触发的文本两边各有一对<code>::</code></p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br><span class="line"><span class="comment">;下面使用热字串运行同样的命令，这时要采用多行分隔</span></span><br><span class="line"><span class="title">::hui::</span> </span><br><span class="line">Run www.greyli.com</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>按下<code>Alt</code>键和<code>m</code>键打开一组网页和程序：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!m::</span></span><br><span class="line">Run www.google.com</span><br><span class="line"><span class="title">Run http:</span>//fm.douban.com</span><br><span class="line"><span class="title">Run D:</span>\Program Files (x86)\Notepad++\notepad++.exe</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h3
-id="二用热键或热字串保存常用文字">（二）用热键或热字串保存常用文字</h3>
-<ol type="1">
-<li><p>按下<code>Alt</code>键和<code>k</code>键发送我的签名：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!k::</span></span><br><span class="line">Send Sincerely,&#123;Enter&#125;Richard Hui.</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>写下<code>@g</code>键后按下空格或回车，自动转换为我的邮箱</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">::@g::</span>withlihui@gmail.com</span><br></pre></td></tr></table></figure></p></li>
-<li><p>按下<code>Alt</code>键和<code>g</code>键后填入我的账户和密码并登录（先把光标点在第一个输入框里）。</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!g::</span></span><br><span class="line">Send withlihui@qq.com &#123;Tab&#125;mimashi123 &#123;Enter&#125;</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h2 id="七tips与建议">七、Tips与建议</h2>
-<ol type="1">
-<li>命令不区分大小写。</li>
-<li>所有的符号均为英文符号。</li>
-<li>一个脚本里可以写入多个热键。</li>
-<li>发送的字符里包含的按键前要有一个空格。</li>
-<li>不分配热键的命令将从上往下依次执行。</li>
-<li>修改后的脚本要重新运行（双击执行脚本文件）才能生效。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/02/1-58medical-record/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/02/1-58medical-record/" class="post-title-link" itemprop="url">入院记录的内容要求及书写格式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-02 13:11:38" itemprop="dateCreated datePublished" datetime="2018-09-02T13:11:38+08:00">2018-09-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-06 10:36:07" itemprop="dateModified" datetime="2020-09-06T10:36:07+08:00">2020-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          欢迎访问我的博客，考虑到版权问题，本文不公开
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/09/02/1-58medical-record/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/02/WINPE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/02/WINPE/" class="post-title-link" itemprop="url">通过WinPE存取文档</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-02 11:19:18" itemprop="dateCreated datePublished" datetime="2018-09-02T11:19:18+08:00">2018-09-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:06:38" itemprop="dateModified" datetime="2019-02-28T00:06:38+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件教程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一相关软件介绍">一、相关软件介绍</h2>
-<h3 id="一windows-pe-winpe">（一）Windows PE (WinPE)</h3>
-<ol type="1">
-<li>Windows预先安装环境（英语：Microsoft Windows Preinstallation
-Environment），简称Windows PE或WinPE，是Microsoft
-Windows的轻量版本。</li>
-<li><a target="_blank" rel="noopener" href="http://qiniud.louyanspine.com/Win8PE.iso">Win8PE下载地址</a></li>
-</ol>
-<h3
-id="二基本输入输出系统basic-input-output-systembios">（二）基本输入输出系统(Basic
-Input Output System,BIOS)</h3>
-<ol type="1">
-<li>全称应该是ROM-BIOS，意思是只读存储器基本输入输出系统。</li>
-<li>是一组固化到计算机内主板上一个ROM芯片上的程序，它保存着计算机最重要的基本输入输出的程序、系统设置信息、开机上电自检程序和系统启动自举程序。</li>
-<li>其主要功能是为计算机提供最底层的、最直接的硬件设置和控制。</li>
-<li>BIOS设置程序是储存在BIOS芯片中的，只有在开机时才可以进行设置。</li>
-</ol>
-<h3 id="三ultraiso软碟通">（三）UltraISO软碟通</h3>
-<ol type="1">
-<li>从CD-ROM制作光盘映像文件</li>
-<li>编辑和转换各种映像格式</li>
-<li>将文件或文件夹制作成ISO文件</li>
-<li>制作可启动光盘/启动U盘
-<ul>
-<li>可直接使用UltraISO制作u盘启动盘，系统引导光盘(CD/DVD)制作。</li>
-<li>UltraISO涵盖了六种写入类型：
-<ul>
-<li>USB-HDD</li>
-<li>USB-ZIP</li>
-<li>USB-HDD+</li>
-<li>USB-ZIP+</li>
-<li>USB-HDD+ v2</li>
-<li>USB-HDD+ v2</li>
-</ul></li>
-</ul></li>
-<li>从ISO中直接提取文件或文件夹</li>
-<li>制作和编辑音乐CD文件</li>
-</ol>
-<h2 id="二原理">二、原理</h2>
-<ol type="1">
-<li>正常情况下，开机时，系统从电脑硬盘启动，插入的USB设备被识别为移动存储（即U盘）。</li>
-<li>通过设置BIOS，可以让系统从U盘里面的WinPE启动，把电脑硬盘变成“U盘”，这样原电脑硬盘系统里面的禁用程序就无法启动了。</li>
-</ol>
-<h2 id="二具体步骤">二、具体步骤</h2>
-<h3 id="一通过ultraiso制作启动u盘">（一）通过UltraISO制作启动U盘</h3>
-<ol type="1">
-<li>选中UltraISO图标，右键，点击“以管理员身份运行”</li>
-<li>打开UltraISO的窗口后，依次点击菜单栏中的“文件”-“打开”</li>
-<li>浏览到存放Win8PE的目录，选中Win8PE，点击“打开”按钮</li>
-<li>再次回到UltraISO窗口，点击菜单栏中的“启动”，选择“写入硬盘镜像”</li>
-<li>在弹出的窗口直接点击“写入”按钮（将写入方式选择为“USB-HDD+”）</li>
-</ol>
-<h3 id="二设置bios">（二）设置BIOS</h3>
-<ol type="1">
-<li>在开机的Lenovo画面自检处，快速、连续多次按键盘的“F12”按键，即可进入BIOS界面。</li>
-<li>等待片刻将出现如下图所示画面，使用光标移动至第三项即Enter
-Setup并回车，即可进入BIOS设置界面。 <img
-src="http://qiniup.louyanspine.com/2018-09-02-25241395919331_335963.jpg" /></li>
-<li>选择并进入Startup，选择并进入Primary Boot Sequence</li>
-<li>在下方"Excluded from boot order(未添加的启动项)"中，可以看到"USB
-HDD"，选择</li>
-<li>按键盘上的“X”键就可以把“未添加的启动项”移至上方的启动项中</li>
-<li>按键盘上的”+“键，将"USB HDD"移至启动项的最上方</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/01/Injectable-oxygen/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/01/Injectable-oxygen/" class="post-title-link" itemprop="url">可注射的氧气：材料化学与复苏科学的结合（未完）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-01 00:13:07" itemprop="dateCreated datePublished" datetime="2018-09-01T00:13:07+08:00">2018-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>说明：<br> 1. 翻译自Eric W. Wang,et al. A practical guide for
-understanding confidence intervals and P values. Otolaryngol Head Neck
-Surg,2009,140(6):794-9.<br></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/31/knee/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/31/knee/" class="post-title-link" itemprop="url">全膝关节置换术康复指导：从术前到术后</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-31 19:54:06" itemprop="dateCreated datePublished" datetime="2018-08-31T19:54:06+08:00">2018-08-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:51:39" itemprop="dateModified" datetime="2019-02-28T00:51:39+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>参考书籍<br> 1.
-翁习生《髋膝人工关节介绍和康复指导画册》中国协和医科大学出版社.2015年<br></p>
-</blockquote>
-<h2 id="一手术前">一、手术前</h2>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-1.jpg" /></p>
-<h2 id="二手术后">二、手术后</h2>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-2.jpg" /></p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-3.jpg" /></p>
-<h2 id="三住院期间">三、住院期间</h2>
-<blockquote>
-<p>术后的康复锻炼非常关键，一定要科学、严格、循序渐进地进行。</p>
-</blockquote>
-<h3 id="一术后尽早开始">（一）术后尽早开始</h3>
-<ol type="1">
-<li><p>活动踝关节</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-4.jpg" /></p></li>
-<li><p>伸腿</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-5.jpg" /></p></li>
-<li><p>伸腿和下压膝盖</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-6.jpg" /></p></li>
-<li><p>直腿抬高</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-7.jpg" /></p></li>
-<li><p>滑移屈膝</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-8.jpg" /></p></li>
-</ol>
-<h3 id="二术后第1天起">（二）术后第1天起</h3>
-<ol type="1">
-<li><p>自己压腿</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-31-9.jpg" /></p></li>
-<li><p>弯腿</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-10.jpg" /></p></li>
-<li><p>对于疼痛敏感者，可以从术后第1天起，使用CPM机练习回弯，直到膝关节可以弯到120°左右</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-11.jpg" /></p></li>
-</ol>
-<h3 id="三术后第2天起">（三）术后第2天起</h3>
-<blockquote>
-<p>术后第一天的练习也要继续</p>
-</blockquote>
-<ol type="1">
-<li><p>坐床边弯腿</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-12.jpg" /></p></li>
-<li><p>往回搂腿</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-13.jpg" /></p></li>
-</ol>
-<h3
-id="四术后第3天起练习站立和行走">（四）术后第3天起：练习站立和行走</h3>
-<blockquote>
-<ul>
-<li>在继续第1-2天练习的基础上，但一开始别走太多，逐渐增加距离。</li>
-<li>每一步最好都要脚跟先着地，也可用高抬腿的方式练习走路。</li>
-</ul>
-</blockquote>
-<ol type="1">
-<li><p>使用助步器</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-15.jpg" /></p></li>
-<li><p>沙袋压腿</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-16.jpg" /></p></li>
-<li><p>坐椅子回弯</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-17.jpg" /></p></li>
-</ol>
-<h2 id="四出院回家后">四、出院回家后</h2>
-<blockquote>
-<p>出院后的三月内，是康复训练的黄金期，一定要继续多加锻炼，并记住“三多一少”：多抬腿、多压腿、多弯腿、少走路。</p>
-</blockquote>
-<h3 id="一术后1周">（一）术后1周</h3>
-<ol type="1">
-<li><p>抬腿：增强股四头肌的力量</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-18.jpg" /></p></li>
-<li><p>压腿：伸直腿</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-19.jpg" /></p></li>
-<li><p>弯腿：练习膝关节活动度</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-20.jpg" /></p></li>
-</ol>
-<h3 id="二术后2-3周">（二）术后2-3周</h3>
-<ol type="1">
-<li><p>俯卧弯腿</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-21.jpg" /></p></li>
-<li><p>上楼练习</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-IMG_1411.jpg" /></p></li>
-<li><p>下楼练习</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-IMG_1410.jpg" /></p></li>
-<li><p>生活细节</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-31-23.jpg" /></p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/31/Dentalcaries/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/31/Dentalcaries/" class="post-title-link" itemprop="url">Dentalcaries</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-31 12:14:39" itemprop="dateCreated datePublished" datetime="2018-08-31T12:14:39+08:00">2018-08-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>说明<br> 1. 译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency
-Ablation Versus Stereotactic BodyRadiotherapy for Localized
-Hepatocellular Carcinoma inNonsurgically Managed Patients: Analysis of
-the National Cancer Database.</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/31/Permutation-test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/31/Permutation-test/" class="post-title-link" itemprop="url">置换检验(Permutation test)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-31 10:41:47" itemprop="dateCreated datePublished" datetime="2018-08-31T10:41:47+08:00">2018-08-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-04-22 10:56:21" itemprop="dateModified" datetime="2019-04-22T10:56:21+08:00">2019-04-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          欢迎访问我的博客，考虑到版权问题，本文不公开
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/31/Permutation-test/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/30/neuralnetworksanddeeplearning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/30/neuralnetworksanddeeplearning/" class="post-title-link" itemprop="url">neuralnetworksanddeeplearning（未完）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-30 00:15:42" itemprop="dateCreated datePublished" datetime="2018-08-30T00:15:42+08:00">2018-08-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>说明：<br> 1. 翻译自Weinstein JN,et al.Spinal pedicle fixation:
-reliability and validity of roentgenogram-based assessment and surgical
-factors on successful screw placement.Spine,1988,13(9):1012-8.<br></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/29/STROBE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/29/STROBE/" class="post-title-link" itemprop="url">流行病学观察性研究报告规范：STROBE声明介绍</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-29 23:10:23" itemprop="dateCreated datePublished" datetime="2018-08-29T23:10:23+08:00">2018-08-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
+                <time title="修改时间：2019-02-28 00:54:53" itemprop="dateModified" datetime="2019-02-28T00:54:53+08:00">2019-02-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1134,186 +245,272 @@ factors on successful screw placement.Spine,1988,13(9):1012-8.<br></p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="一strobe声明的来源">一、STROBE声明的来源</h2>
-<blockquote>
-<p>STROBE即strengthening the reporting of observational studies in
-epidemiology的缩写。</p>
+          <blockquote>
+<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of
+Essential Concepts in Clinical Research<br></p>
 </blockquote>
-<p>为了避免在报道观察性研究时重要信息缺失、不全或含混等现象，提高报道质量，2004年，一个由方法学家、科研人员及编辑组成的国际性合作小组成立，并就3种主要的流行病学观察性研究(即队列研究、病例对照研究、横断面研究)的报告内容制定了规范，即STROBE声明。</p>
-<p>随着研究的不断深入，工作组经过反复讨论、磋商，于2005年4月、2005年9月和2007年10月对STROBE声明进行了修订，使其更加全面、细致，更具科学性、合理性。包含22条被认为高质量的报告应写明的项目，具体见表1。这有利于提高作者撰写观察性研究的质量，帮助评审专家、编辑及读者系统地评价观察性研究报告的价值。</p>
-<h2 id="二strobe声明清单">二、STROBE声明清单</h2>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">项目</th>
-<th style="text-align: center;">条目序列</th>
-<th style="text-align: center;">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">题目和摘要</td>
-<td style="text-align: center;">1</td>
-<td
-style="text-align: center;">(1)采用专业术语描述研究类型(design)；(2)摘要内容丰富，能准确表述研究做了什么，发现了什么</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">前言</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">背景和合理性</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">解释研究的科学背景和合理性</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">研究目标</td>
-<td style="text-align: center;">3</td>
-<td
-style="text-align: center;">阐明研究目标，包括任何预先确定的假设</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">方法</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">研究设计</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">描述研究设计的关键要素</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">研究设定</td>
-<td style="text-align: center;">5</td>
-<td
-style="text-align: center;">描述研究现场，包括具体场所和相关时间(研究对象征集、暴露、随访和数据收集时间)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">研究对象</td>
-<td style="text-align: center;">6</td>
-<td
-style="text-align: center;">（1）队列研究描述研究对象的入选标准、来源和方法，描述随访方法;（2）病例对照研究描述病例和对照的入选标准、来源和方法，描述选择病例和对照的原理;（3）横断面研究描述研
-究对象的入选标准、来源和方法;（4）队列研究：配对研究需描述配对标准、暴露与非暴露数量；（5）病例对照研究：配对研究需描述配对标准和与每个病例匹配的对照</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">研究变量</td>
-<td style="text-align: center;">7</td>
-<td
-style="text-align: center;">明确界定结局指标、暴露因素、预测指标、潜在混杂因素及效应修饰因子，如有可能
-应给出诊断标准</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">资料来源/评估</td>
-<td style="text-align: center;">8</td>
-<td
-style="text-align: center;">描述每一研究变量的数据来源和详细的测定、评估方法(如有多组，应描述各组之间评估方法的可比性)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">偏倚</td>
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">描述潜在的偏倚及消除方法</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">样本量</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">描述两本量的确定方法</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">定量变量</td>
-<td style="text-align: center;">11</td>
-<td
-style="text-align: center;">解释定量指标的分析方法，如有可能应描述如何选择分组及其原因</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">统计学方法</td>
-<td style="text-align: center;">12</td>
-<td
-style="text-align: center;">(1)描述所用统计学方法，包括控制混杂因素的方法;(2)描述亚组分析和交互作用所用方法;(3)描述缺失值的处理方法;(4)如有可能，队列研究应解释失访资料的处理方法;病例对照研究应解释病例和对照的匹配方法;横断面研究应描述根据抽样策略确定的方法;(5)描述敏感性分析方法</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">结果</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">研究对象</td>
-<td style="text-align: center;">13</td>
-<td
-style="text-align: center;">(1)报告各阶段研究对象的数量，包括征集着、接受检验者、检验合格者、纳入研究者、完成随访者和进行分析者的数量;(2)描述各阶段研究对象退出的原因;(3)可考虑使用流程图</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">描述性资料</td>
-<td style="text-align: center;">14</td>
-<td
-style="text-align: center;">(1)描述研究对象的特征(如人口学、临床和社会特征)以及暴露因素和潜在混杂因素
-的信息;(2)描述各相关变量有缺失值的研究对象数量;(3)队列研究描述随访时间(如平均随访时间、总随访时间)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">结局资料</td>
-<td style="text-align: center;">15</td>
-<td
-style="text-align: center;">(1)队列研究报告发生结局事件的数量或根据时间总结发生结局事件的数量;(2)病例对照研究报告各暴露类别的数量或暴露的综合指标;(3)横断面研究报告结局事件的数量或总结暴露的测量结果</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">主要结果</td>
-<td style="text-align: center;">16</td>
-<td
-style="text-align: center;">(1)给出未校正和校正混杂因素的关联强度估计值、精确度(如
-95%CI)。阐明哪些混杂因素被校正及其原因;(2)对连续性变量分组时报告分组界值(切分点);(3)如果有关联，可将有意义时期内的相对危险度转换成绝对危险度</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">其他分析</td>
-<td style="text-align: center;">17</td>
-<td
-style="text-align: center;">报告其他分析结果，如亚组和交互作用分析、敏感度分析</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">讨论</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">重要结果</td>
-<td style="text-align: center;">18</td>
-<td style="text-align: center;">概括与研究目标有关的重要结果</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">局限性</td>
-<td style="text-align: center;">19</td>
-<td
-style="text-align: center;">结合潜在偏倚和误差的来源，讨论研究的局限性及潜在偏倚的方向和大小</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">解释</td>
-<td style="text-align: center;">20</td>
-<td
-style="text-align: center;">结合研究目的、局限性、多因素分析、类似研究的结果和其他相关证据，客观、全面地解释结果</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">可推广性</td>
-<td style="text-align: center;">21</td>
-<td
-style="text-align: center;">讨论研究结果的普适性及可推广性(外推有效性)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">其他信息</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">资助</td>
-<td style="text-align: center;">22</td>
-<td
-style="text-align: center;">给出研究的资金来源和资助者(如有可能，给出原始援救的资助情况)</td>
-</tr>
-</tbody>
-</table>
+<h1
+id="随机试验的多重比较之二亚组分析和期中分析">随机试验的多重比较之二：亚组分析和期中分析</h1>
+<h2 id="一摘要">一、摘要</h2>
+<ol type="1">
+<li>亚组分析可以发生严重的多重比较问题。</li>
+<li>对一定数量的亚组进行检验，就可能仅仅是由于机遇而得到假阳性的结果。</li>
+<li>研究者可能进行了很多的分析，但最终只报道了阳性的结果，扭曲了医学文献。</li>
+<li>总体上来说，亚组分析是不推荐的。</li>
+<li>如果亚组分析是必需的，研究者应该进行交互作用分析结果的真实性，而不是对每一个亚组进行分析。</li>
+<li>当数据监查显示有必要时，研究者不可避免进行期中分析。</li>
+<li>然而，在每一个期中进行重复的检验就有多重比较问题，如果不考虑多重比较问题就会逐步提高假阳性错误。必须应用统计学的终止方法。</li>
+<li>O’Brien-Fleming和Peto成组序贯终止方法容易操作，同时又保存了α水平和把握度。</li>
+<li>在期中分析时，两者都采用了严格标准(非常低的P)。</li>
+<li>运用这种终止原则的临床试验与传统试验类似，但当一种治疗表现出明显优越性的时候可以提早终止试验。</li>
+<li>研究者和读者需注意到，提早终止试验可能会(随机地)高估治疗效果。</li>
+</ol>
+<h2 id="二前言">二、前言</h2>
+<ol type="1">
+<li>亚组分析具有特殊的吸引力。对于研究者和读者而言，它们看上去符合逻辑和直觉，甚至是有趣的。</li>
+<li>然而这种阴险的吸引力可以引发严重的问题。多重比较问题及天真性(naiveté)使试验执行及报道过程中易发生解释性错误(missteps)。许多试验报道的亚组中的治疗效果都可能是错误的。</li>
+<li>相反，当数据监查显示有必要时(data monitoring is
+indicated)，研究者无法避免期中分析。在期中分析时也不能使用一般的统计学方法。</li>
+<li>统计学终止方法，尤其用于提醒而非终止的统计学校正必须用于数据监查中(Statistical
+stopping methods, essentially statistical adjustments for warning rather
+than stopping, must be used in support of data monitoring)。</li>
+<li>然而，这些方法常阻碍着研究者和读者。统计学方法即便没有将二阶函数引入终止方法也常常把人搞糊涂(Statistics
+frequently proves confusing anyway without throwing in second-order
+complications of stopping methods)。</li>
+<li>亚组分析和期中分析所导致的多重比较问题与多个终点事件和多个治疗分组所致的多重比较问题类似。
+<ul>
+<li>研究者常进行多个亚组分析和多次期中分析对数据进行挖掘。</li>
+<li>同时，研究者还进行无事先计划的亚组和期中分析。</li>
+<li>当然，一些处理亚组和期中分析多重比较问题的方法有别于那些用于多个终点事件和治疗分组的方法。</li>
+</ul></li>
+</ol>
+<h2 id="三亚组分析">三、亚组分析</h2>
+<h3
+id="一不加选择的亚组分析引起多重比较问题">（一）不加选择的亚组分析引起多重比较问题</h3>
+<ol type="1">
+<li>不加选择的亚组分析(subgroup
+analysis)会引起多重比较问题。医学文献中充斥着这一问题。在众多的警告之后，一些调查者还在固执地进行过多的亚组分析。</li>
+<li>研究者在基线时根据受试者的特点将他们分成各亚组。
+<ul>
+<li>他们通过分析来评价各亚组的治疗效果是否有差别。</li>
+<li>研究者的主要问题是在每一个亚组内都进行统计学检验。</li>
+<li>对多个亚组及多个终点事件的复合分析会使统计检验的次数显著增加。</li>
+<li>在总体没有效果的情况下，研究者会为了获得阳性结果进行亚组分析，即数据挖掘(data-dredging)。</li>
+<li>如果进行一定数目的亚组分析，就可能因为机遇而获得假阳性(false
+positive)结果。</li>
+</ul></li>
+<li>如果一个随机对照临床研究的结果没有证实一个人的想法，解决的方法不是进行亚组分析，直到看到想要的结果，而是应该重新仔细检视这个研究假设。</li>
+<li>同样地，在一个总体结果是阳性的临床试验中，进行亚组分析时可能会由于机遇和把握度较低等因素而产生假阴性(false
+negative)结果。</li>
+<li>《柳叶刀》杂志曾发表过一个很有启示性的例子。
+<ul>
+<li>阿司匹林对预防心肌梗死后死亡率有很强的益处(P&lt;0.00001，可信区间很窄)。</li>
+<li>编辑让研究者进行将近40次亚组分析。要求使用他们的数据显示亚组分析的不可信，研究者勉强同意进行了亚组分析。</li>
+<li>出生星座为双子座或天秤座的受试者服用阿司匹林后死亡等不良事件发生率增高(增高9%，标准差13，没有显著性差异)</li>
+<li>他星座的受试者有显著的治疗益处(相关死亡率下降28%，标准差5;P&lt;0.00001)。</li>
+<li>除了占星学家们，医学界对这一chance zodiac finding没有什么兴趣。</li>
+</ul></li>
+<li>对于亚组分析结果，研究者们是这样总结的：这些亚组分析不能作为谁治疗有效或无效的证据，而且还有可能造成误解。</li>
+<li>他们及其他经过深思的研究者强调，对某一个亚组而言，最可信的对疗效的估计是总体估计(合并所有的亚组)，而不是在某一亚组中观察到效果。我们同意这一观点。</li>
+</ol>
+<h3
+id="二如何解决亚组分析带来的多重比较问题">（二）如何解决亚组分析带来的多重比较问题</h3>
+<ol type="1">
+<li><p>正确的分析可以解决许多亚组分析带来的多重比较问题。</p>
+<ul>
+<li>研究者常对每一个亚组进行不恰当的亚组分析，导致机遇性发现的发生。</li>
+<li>例如，在基线时按年龄将受试者分成四组，仅此一项就可以产生四次统计检验(table
+1)。</li>
+</ul></li>
+<li><p>正确的分析方法是进行交互作用分析(statistical test of
+interaction)，以此评价治疗效果是否依赖于患者属于某一特定的亚组。</p>
+<ul>
+<li>这样的分析不仅回答了研究的问题，而且只进行了一次统计检验而不是四次，从而解决了多重比较问题。</li>
+<li>有研究者因缺少把握度而质疑交互作用检验。</li>
+<li>但事实上，交互作用检验这种方法比较谨慎。</li>
+<li>它既可以发现亚组中存在的有限的信息，是一种最有效的限制不恰当亚组分析的方法，与此同时当交互作用确实存在的话，又能发现它。</li>
+</ul>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%884.58.00-1.png" /></p>
+<blockquote>
+<p>对交互作用的统计检验(Breslow-Day检验法)未达显著性差异(P=0.103)，这表明在30~34岁组发现的阳性结果由机遇所致。如果过分强调这一亚组分析结果，就是亚组分析结果影响整体阴性结果的一个例子。</p>
+</blockquote></li>
+</ol>
+<h3
+id="三只报道亚组分析中的阳性结果">（三）只报道亚组分析中的阳性结果</h3>
+<ol type="1">
+<li>亚组分析的另一问题是研究者进行很多次检验，但最终只报道阳性的结果，这是一种误导他人的做法，如果是故意的，更是一种不道德的做法。这种情况与分析多个重点事件相似。</li>
+</ol>
+<h3 id="四如何正确进行亚组分析">（四）如何正确进行亚组分析</h3>
+<ol type="1">
+<li>我们不推荐亚组分析。但如果恰当地进行，亚组分析也并不一定是错误的。</li>
+<li>有时候进行亚组分析有其生物学意义，有时候进行亚组分析是因为公众或公司等资助者要求进行。</li>
+<li>如果进行亚组分析：
+<ul>
+<li>应该只限定于主要终点事件，而且分析的数目应该有所限制。</li>
+<li>研究方案中应事先列出拟进行的亚组分析。</li>
+<li>研究者应该报道所有亚组分析的结果，而不是只报道阳性的结果。</li>
+<li>更重要的是，研究者应该进行交互作用分析来评价不同的亚组中治疗效果是否不同，而不是在每个亚组中进行单独的检验。这种方法可以解决多重比较问题。单个亚组分析的结果很少会影响研究的结论。</li>
+</ul></li>
+<li>亚组分析的结果常被过度解释。常有人建议不要进行亚组分析(或不要过分相信亚组分析的结果)，但这一建议似乎与人们的天性相悖。</li>
+<li>方法学家对于亚组分析的批评过于谨慎。应该进行更强烈的谴责。</li>
+</ol>
+<h3
+id="五对于亚组分析读者应注意的问题">（五）对于亚组分析读者应注意的问题</h3>
+<ol type="1">
+<li>当某一临床试验报道了许多亚组分析时，读者应引起注意，除非研究者提供了正确的理由。</li>
+<li>同时，对那些只报道了一小部分亚组分析的研究也应注意，因为他们可能进行了很多亚组分析，却只报道了有阳性结果的部分。因而，错误的报告可能意味着亚组分析少的试验甚至比亚组分析较多的试验更糟糕。</li>
+<li>如果研究者报道了所有的分析，这样的结果更可信。</li>
+<li>而且，研究者应该将没有事先计划的亚组分析作为假说的产生，而不是对假说的肯定。这样的结果不能作为结论。</li>
+<li>各亚组中治疗效果的差异，应该用交互作用来检验。仅在亚组内进行分析是不对的。即便交互作用检验结果是阳性的，读者也应该根据生物学机制、事先制定的分析、统计相关性强度来判断与解释结果。</li>
+<li>一般来说，如果研究者进行的是交互作用检验，是无需对多重比较问题进行校正的。</li>
+<li>然而，由于现在存在为了结果而对数据进行过度挖掘的现象，支持其进行统计校正的论点强于对多个终点事件的。</li>
+<li>如果研究者没有使用交互作用检验而是对每个亚组进行检验，那么进行多重比较校正是正确的。</li>
+<li>多数亚组分析的结果夸大了效果。当研究者在一个总体没有疗效的试验中过度强调单一亚组分析结果时，要持有怀疑的态度。他们常常将此作为挽救效果不确定(阴性)研究的一种措施(table
+1)。</li>
+</ol>
+<h2 id="四期中分析interim-analyses">四、期中分析(Interim analyses)</h2>
+<h3 id="一为何要进行期中分析">（一）为何要进行期中分析</h3>
+<ol type="1">
+<li>对于临床试验的合理检测远不止统计学提醒其终止。回答所研究的治疗方式究竟是优于还是次于现有治疗方式是是否终止研究的最重要因素。</li>
+<li>然而，入组缓慢(slow
+accrual)、数据质量差、依从性差、资源匮乏、无法接受的副作用、作假、新出现的信息表明试验没有意义或不道德等都可以导致研究的终止。这一决定的过程很显然是非常复杂的。最好由一个独立的数据管理委员会来决定，并且事先确定一个终止试验的统计学方法。然而对这类统计学事件，研究者和读者常常是不了解的。</li>
+<li>随着试验数据的积累，研究者通常希望对主要终点事件进行分析。
+<ul>
+<li>如果试验结束时设定P&lt;0.05为具有统计学意义，那么进行所有的期中分析(interim
+analyses)时采用α水平为0.05是错误的。</li>
+<li>下面用一个图表来说明这种情况(figure)。
+<ul>
+<li>5年中，每6个月数据管理委员会进行一次期中分析。</li>
+<li>在第18个月时P小于0.05，然而在这之后再也未达统计学阳性。</li>
+<li>如果委员会根据该结果而提早终止试验可能得出治疗方法有效的错误结论。
+<img
+src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%888.36.16.png" /></li>
+</ul></li>
+</ul></li>
+<li>如果在P&lt;0.05水平进行许多的期中分析会增加假阳性（false
+positive）的概率（α）。
+<ul>
+<li>事实上，如果每一次期中分析时研究者都采用α=0.05的水平，那么最后的总体α水平随着检验次数而升高。</li>
+<li>这一多重比较问题表明了进行统计学校正的必要性：科学的可依靠性有赖于之。</li>
+</ul></li>
+</ol>
+<h3 id="二统计学终止方法">（二）统计学终止方法</h3>
+<p>统计学家发展了许多统计学终止(statistical warnings for
+stopping)的方法，有时被称为数据依赖终止规则(data-dependent stopping
+rules)或指南。如果研究者想进行期中分析，他们必须使用其中一种方法。</p>
+<h4 id="成组序贯设计">（1）成组序贯设计</h4>
+<ol type="1">
+<li>成组序贯设计(The group sequential
+designs)是最常用的。这一方法比较容易理解、执行及应用。</li>
+<li>该方法根据期中分析的次数决定最终终止试验的P，使总体的I类错误保持在一定范围内(α;table
+2)。</li>
+</ol>
+<h5 id="pocock方法">Pocock方法</h5>
+<ol type="1">
+<li>固定低水平P的方法(The fixed nominal level
+approach)，即Pocock方法(Pocock
+approach)，提出了简单并可以较早地终止研究的方法。但由于最终检验结果的P比常规固定样本的P小，使研究不容易得到阳性结果。</li>
+<li>例如，如果总体α水平在0.05，进行三次期中分析，研究者在每次检验时设定的P在0.022，包括最终检验(table
+2)。
+<ul>
+<li>如果最终检验得到的P=0.03，那么用这种成组序贯设计，该试验结果将被判断为非统计学阳性的。</li>
+<li>但如果没有使用成组序贯设计；试验结果是阳性的。</li>
+</ul></li>
+<li>这一方法具有历史意义，其他方法均是吸收了这一方法的优点避免了它的缺点而发展起来的。</li>
+</ol>
+<h5 id="obrien-fleming和peto方法">O’Brien-Fleming和Peto方法</h5>
+<ol type="1">
+<li>这两种方法在期中分析过程中均采用严格的标准（很低的P） (table
+2)。</li>
+<li>如果研究继续进行达到计划的样本量，那么最终的分析如同没有期中分析一样。</li>
+<li>这样的方法不仅保证了α水平，也保存了把握度。</li>
+<li>数据的收集方法与一个固定样本的研究一样。这两个终止方法的优点在于其简单性。</li>
+<li>用这两种方法来进行试验和传统试验很相似，只是当治疗方法被证明有很强的优势时可以提早终止试验。</li>
+<li>一条普遍的原则是：一个研究中进行多于四次或五次期中分析时，研究者很少有更多的收益。因此，只要付出一点额外的努力，研究者便可以满足伦理学的要求，在研究过程中检测治疗的效果，无论是正面的还是负面的。</li>
+<li>Peto方法，又称为Haybittle-Peto法（Haybittle-Peto
+procedure）易于理解、执行与描述。它采用一个固定且严格的终止研究的P水平，直至最终分析。但对于某些临床试验，研究者们认为用Peto法早期终止研究比较困难。</li>
+<li>O’Brien-Fleming法(O’Brien-Fleming
+porcedure)从直觉上更吸引研究者。在试验开始阶段，大家对不稳定的结果都不确定时，它采用的P更保守，随着试验的进行，结果变得可靠与稳定时，它的标准也随之放宽。与Peto法不同的是，O’Brien-Fleming法每个期中分析阶段的终止标准不同。
+<img
+src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%889.01.34.png" /></li>
+</ol>
+<h4 id="统计学终止方法的实施原则">（2）统计学终止方法的实施原则</h4>
+<ol type="1">
+<li>如果研究者计划进行期中分析，应事先制定所采用的统计学终止方法(statistical
+warnings for stopping)。</li>
+<li>此外，应由一位独立的试验统计学家来为数据监控委员会进行分析，而不是研究者自己。</li>
+<li>如何进行期中分析应写入研究方案，作为一个独立的统计章节，或在数据监控委员会章节内描述。</li>
+<li>分析计划和章节可以作为研究方案的附录。这样做可以让研究的执行者更好的根据研究方案来进行试验。</li>
+<li>许多临床试验并不需要进行期中分析和独立的数据监控。对2000年期间进行的622个合格的临床试验的回顾显示，24%的研究提到了数据监控、期中分析，或二者兼有。</li>
+</ol>
+<h3
+id="三早期终止与治疗效果的偏倚性评估">（三）早期终止与治疗效果的偏倚性评估</h3>
+<ol type="1">
+<li>如果数据监控委员会根据成组序贯设计的统计结果提早终止一项研究，这时对治疗效果的估计是有偏倚的，这仍旧是这一方法的缺点。</li>
+<li>如前面所解释的，如果研究者重复这个相同的研究，向着有较强疗效的随机波动将比向着较差疗效的波动更易终止研究。</li>
+<li>因此当一个研究被早期终止的时候，读者应该了解到这种情况下估计的治疗效果可能是被放大的(如一个随机的更强的效果)。</li>
+<li>如果无偏倚估计是研究的首要任务，研究者应该设计一个固定样本的试验并避免成组序贯设计。</li>
+</ol>
+<h3 id="四因为有害或无效终止试验">（四）因为有害或无效终止试验</h3>
+<ol type="1">
+<li><p>到目前为止，对于试验的早期终止，无论治疗是有效还是有害均采用了相同的原则。统计学家将这种方法称为成组序贯检验方法的对称性的终止界限(a
+strategy symmetric stopping boundaries with group sequential
+methods)，相当于双侧假设检验。</p></li>
+<li><p>然而一些研究者或数据监控委员会委员可能更倾向于采用一种非对称的终止界限。使用这种标准在终止有害情况时比终止有效情况下所采用的终止水平要低。</p>
+<blockquote>
+<p>例如，O’Brien-Fleming序列终止水平可以用于监测试验的有效性，而Pocock序列终止水平可以用于对有害性的监测。</p>
+</blockquote></li>
+<li><p>研究者或者数据监控委员会有时不想证明有害性。相反的，他们选择证明研究方法没有更有效，就算结束整个试验，所研究的方法也不可能产生显著性的保护性效果。这样的方法有助于无效性终止，当没有能力证明研究方法有效的时候终止试验。这种方法衍生出一些时髦的术语：</p>
+<ul>
+<li>条件把握度(conditional power)</li>
+<li>随机缩短(stochastic curtailment)</li>
+</ul></li>
+</ol>
+<h3 id="五其他统计学终止方法">（五）其他统计学终止方法</h3>
+<ol type="1">
+<li>Lan-Demets(α消耗函数） (alpha spending function)
+发展了一种更加灵活的成组序贯调整方法。
+<ul>
+<li>它将每次期中分析时所用的假阳性(false
+positive)率作为所见到的总体信息的比例的函数来控制，这样就可以在试验开始后改变期中分析的次数和确切时间。</li>
+<li>数据监控委员会开始的时候有一个日程安排，但随着数据的收集可以变化。</li>
+<li>因此α消耗函数允许未列入计划的观察。</li>
+</ul></li>
+<li>在临床决策领域中，贝叶斯理论(Bayesian
+approaches〉非常有用，但在期中分析中的运用仍遭怀疑。
+<ul>
+<li><p>贝叶斯方法代表了统计学的一个分支，如果正确应用的话，可以用于数据监查。</p></li>
+<li><p>然而因为贝叶斯理论在此运用得较少，所以读者并不需要具体去了解，而且这种方法的使用也有顾虑。</p>
+<blockquote>
+<p>如，虽然每次期中分析采用0.05的水平，但总体假阳性率(false
+positive)(α)会急剧升高。</p>
+</blockquote></li>
+<li><p>然而一些研究资助者很热衷于这种更可能发现显著性效果的方法。</p></li>
+</ul></li>
+</ol>
+<h3
+id="六在阅读期中分析时读者应注意的问题">（六）在阅读期中分析时读者应注意的问题</h3>
+<ol type="1">
+<li>读者需警惕那些没有被报道的期中分析。
+<ul>
+<li>如果研究者在报道中注明没有进行期中分析，那么多重比较多半不是问题。但这种透明式的报道较少。</li>
+<li>拙劣的报道可能让读者以为研究者进行了期中分析。</li>
+</ul></li>
+<li>对读者而言发现是否进行了期中分析比较困难。
+<ul>
+<li>其中一条线索是观察计算的P略小于0.05，意味着研究者可能重复检验，在P略小于0.05时结束研究。</li>
+<li>另一条线索是完成后研究样本小于计划样本。</li>
+<li>在方法学部分中报道样本量的计算可以用于判断是否早期终止了研究。</li>
+</ul></li>
+<li>读者应当注意是否有试验被早期终止了，却没有报道统计学终止原则的情况。</li>
+<li>如果研究者描述了统计学上的终止原则，读者应对其合适性进行评价。
+<ul>
+<li>Peto和O’Brien-Fleming方法既可达成期中分析的目标又无损总体试验分析。</li>
+<li>其他期中分析方法如α消耗函数和条件把握度一般情况下是恰当的方法</li>
+<li>但贝叶斯方法的应用尚有顾虑。</li>
+</ul></li>
+</ol>
 
       
     </div>
@@ -1333,7 +530,7 @@ style="text-align: center;">给出研究的资金来源和资助者(如有可能
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/28/Are-these-data-real/">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/12/Essential-Concepts-in-Clinical-Research15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1347,7 +544,7 @@ style="text-align: center;">给出研究的资金来源和资助者(如有可能
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/08/28/Are-these-data-real/" class="post-title-link" itemprop="url">如何让临床试验中的数据造假露出原型</a>
+            <a href="/2018/09/12/Essential-Concepts-in-Clinical-Research15/" class="post-title-link" itemprop="url">临床研究基本概念：随机对照试验（七）</a>
         </h2>
 
         <div class="post-meta">
@@ -1357,14 +554,14 @@ style="text-align: center;">给出研究的资金来源和资助者(如有可能
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-08-28 16:39:43" itemprop="dateCreated datePublished" datetime="2018-08-28T16:39:43+08:00">2018-08-28</time>
+              <time title="创建时间：2018-09-12 23:02:58" itemprop="dateCreated datePublished" datetime="2018-09-12T23:02:58+08:00">2018-09-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 01:04:35" itemprop="dateModified" datetime="2019-02-28T01:04:35+08:00">2019-02-28</time>
+                <time title="修改时间：2019-02-28 00:55:01" itemprop="dateModified" datetime="2019-02-28T00:55:01+08:00">2019-02-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1372,7 +569,7 @@ style="text-align: center;">给出研究的资金来源和资助者(如有可能
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
                 </span>
             </span>
 
@@ -1388,121 +585,2149 @@ style="text-align: center;">给出研究的资金来源和资助者(如有可能
 
       
           <blockquote>
-<p>说明<br> 1. 译自Al-Marzouki S,et al.Are these data real? Statistical
-methods for the detection of data fabrication in clinical
-trials.BMJ,2005,331(7511):267-70.<br></p>
+<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of
+Essential Concepts in Clinical Research<br></p>
 </blockquote>
-<h2 id="一前言">一、前言</h2>
-<p>大多数临床试验的统计分析是基于数据是真实的假设进行的，在数据分析过程中可以发现大量的随机误差(accidental
-errors)，但是如果人们试图“编造(make
-up)”数据，他们可能会以一种并不明显的方式进行，从而避免有较大的差异(discrepancies)。因此，人为编造的数据具有特定的统计特征，这些特征在包含随机误差的数据中不明显，但已经有若干统计分析方法来检测临床试验中的欺诈数据。</p>
-<p>在本文中，我们使用统计方法来检查发表在BMJ杂志上的两个随机对照试验的数据是否有问题。其中一项试验中，BMJ的referees提出了存在学术不端行为的可能性，这是基于所计算的P值与试验报道的均值，标准差和样本量不一致。另一项试验应该不存在学术不端行为，但我们使用相同的方法来分析，从而便于比较和说明问题。</p>
-<h2 id="二方法">二、方法</h2>
-<h3 id="一饮食试验">（一）饮食试验</h3>
+<h1
+id="随机试验的多重比较之一终点及治疗">随机试验的多重比较之一：终点及治疗</h1>
+<h2 id="一摘要">一、摘要</h2>
 <ol type="1">
-<li><p>存在问题的试验（简称为“饮食试验”）是一项单盲的随机对照试验。研究了富含水果和蔬菜的饮食对831名冠心病患者的影响。</p></li>
-<li><p>患者被随机分配到干预饮食组（I组，n=415）或对照组，即常规饮食组（C组，n=416）。</p></li>
-<li><p>该研究目的是分析干预饮食（富含水果和蔬菜）对两年后冠心病危险因素的影响。</p>
+<li>研究者同时研究多个终点和多种治疗方法导致了多重比较问题的产生。</li>
+<li>一个临床试验可以产生数以千计的比较。研究者可能仅报道结果阳性的比较。
+<ul>
+<li>如果不是故意的，那么是一种不科学的做法。</li>
+<li>如果是故意的，就是一种欺骗性的做法。</li>
+<li>研究者应该报道所有分析过的终点事件和比较。</li>
+</ul></li>
+<li>有些统计学家建议对这些多重比较问题进行统计学校正。</li>
+<li>简单来说，他们的无效假设是治疗对所有主要的终点事件无疗效，而有效假设是对其中一个或多个终点事件有效。</li>
+<li>一般来说，对多重比较的统计学校正可以提供针对性不太强的初步结果。</li>
+<li>如果临床决策完全依赖于其中一个或多个终点事件是否阳性，那么研究者必须进行校正。</li>
+<li>在这种情况下，校正在一定程度上解救了扫射式分析。</li>
+<li>读者需要意识到那些潜在的未被报道的分析。</li>
+</ol>
+<h2 id="二前言">二、前言</h2>
+<ol type="1">
+<li>许多临床试验的分析性问题来自多重比较(multiplicity)。研究者多数对这一问题持负责态度，但也有些人忽视这一问题，或者不清楚该问题带来的后果。</li>
+<li>说句玩笑话,有些研究者发表结果以前一直在玩弄数据。他们比较额外的终点，操控组间比较，做很多亚组分析，重复进行期中分析(interim
+analyses)。由于研究者增加了没有设计过的分析使分析过程变得更加困难。</li>
+<li>理论上一个临床试验可以产生数以千计的比较，在这种情况下，许多阳性的结果是机遇造成的。一些统计学家建议通过校正(adjustments)来解决这一问题，实际上，校正带来的是更多的问题。</li>
+<li>多重比较问题有几个因素造成。这里我们阐述的主要是多个终点和多项治疗。对多重比较问题的研究是充满争议和复杂的。在如何处理多重比较问题上，各种观点相去甚远(panel
+1)。多重比较引发了激烈的辩论。</li>
+<li>panel 1(多重比较统计学校正的不同观点)：
+<ul>
+<li>一些统计学家支持对多重比较进行校正，但另一些则反对。</li>
+<li>一些近期发表的文章在热烈的争论多重比较问题。但我认为……让以下观点达成一致是比较困难的……</li>
+<li>多重比较不需要进行校正。</li>
+<li>Bonferroni校正说好听点是多余的，说难听点是对统计推断有害的。</li>
+<li>每进行一次假设检验I类错误会累积，研究者应对此进行控制。</li>
+<li>流行病学及公共健康研究领域的研究者应报道I类错误是如何定义和校正的，包括多重比较。</li>
+</ul></li>
+</ol>
+<h2 id="三事件发生的问题所在">三、事件发生的问题所在</h2>
+<h3 id="一多重比较引发的问题">（一）多重比较引发的问题</h3>
+<ol type="1">
+<li>首先，研究者应该报告所有的分析比较。然而研究者有时会隐藏完整的分析，破坏读者对结果的理解。</li>
+<li>其次，如果研究者恰当地报告了所有的比较，统计学家会因多重比较而提出进行统计学校正。研究者想知道是否需要进行校正，以及读者是否期望看到它们。</li>
+</ol>
+<h3 id="二多重比较引发的后果">（二）多重比较引发的后果</h3>
+<ol type="1">
+<li>多重比较问题会增加统计检验的总体错误。
+<ul>
+<li>I类错误(α) (type I error， alpha
+error)是指两个因素之间实际上并不相关的情况下，因为机遇观察到两者相关的可能性。这告诉读者发生假阳性(false
+positive)结果的可能性。</li>
+<li>当进行多次独立检验时就会产生问题。如果用d来表示比较的数目，那么至少得到一个阳性结果的可能性是<span
+class="math inline">\(1-(1-α)^d\)</span>。</li>
+<li>通常情况下，我们设定α =
+0.05。因此，如果进行10次独立的相关性检验，在无效假设下(assuming the
+universal null hypothesis of no association in all
+ten)，那么至少一次检验结果为假阳性的概率<span
+class="math inline">\((1-[1-0.05]^{10}\)</span>为0.4。</li>
+<li>换句话说，进行10次独立的相关性检验至少发生一次假阳性的概率是40%。然而，无论是进行了一次检验还是百万次检验，对于每一次单一的比较而言，发生假阳性的概率仍是0.05
+(5%)。</li>
+</ul></li>
+</ol>
+<h2 id="四推荐使用的统计学方法">四、推荐使用的统计学方法</h2>
+<ol type="1">
+<li>多数统计学家建议通过减少比较的次数来解决多重比较问题。</li>
+<li>如果进行了多重比较，一些统计学家建议进行校正。</li>
+<li>当在研究中进行了d次比较后，应对所使用的α，也就是假阳性(false
+positive)率，进行相应校正。</li>
+<li>一些研究者使用Bonferroni校正(Bonferroni adjustment)。
+<ul>
+<li>如果一个试验的总体假阳性率是α，那么α/d是每次比较的显著性水平，而不是α。</li>
+<li>因此，当a为0.05，进行10次比较，那么每次检验的显著性水平应该是0.005。</li>
+<li>同样的，研究者可以使用原来的α，但把每个得到的P乘以d。一个试验进行了10次比较，观察到的P=0.02，此时校正的P即为0.2。</li>
+<li>值得注意的是，Bonferroni方法会使Ⅱ类错误β(type Ⅱ error，beta
+error)增大，因此会减弱统计把握度。</li>
+</ul></li>
+<li>但Bonferroni校正说明的是另一个错误的假设。
+<ul>
+<li>它假设存在一个普遍的无效假设(the universal null
+hypothesis)，非常简单，对所有研究终点(endpoints)而言，比较的两组结果相同。</li>
+<li>相反的假设是，在一个或多个终点中，两组有差异。</li>
+<li>在医学研究中，上述假设提出的是个无关紧要的问题。</li>
+<li>临床上，一个相似的情况可能是：“……医生为同一个病人申请了20种不同的试验室检查，结果除了被告知其中几项是异常的以外，没有进一步的信息。”</li>
+</ul></li>
+<li>药物管理需要明确是或否的答案，推动着多重比较问题校正的发展。校正符合假设-统计检验模式-支持或不支持-正好是药物管理需求。</li>
+<li>对要发表的研究，我们推荐用区间对效果进行估计(如相对危险度和可信区间)而不是假设检验(仅用P)。我们建议在多数临床决策研究中避免多重比较校正。</li>
+</ol>
+<h2 id="五多个终点">五、多个终点</h2>
+<h3 id="一多重比较的滥用">（一）多重比较的滥用</h3>
+<ol type="1">
+<li>虽然随机对照试验的理想设计和分析依赖于主要终点(primary
+endpoint)，但研究者常常会分析超过一个终点。</li>
+<li>最糟的对多重比较的滥用是那些背后的、未报道的数据挖掘(data-dredging)。
+<ul>
+<li>研究者对多个终点(multiple
+endpoints)进行了分析，但却只报道阳性的结果。</li>
+<li>不报道所有的比较，如果不是故意的，那么是一种不科学的做法。</li>
+<li>如果是故意的，就是一种欺骗性的做法。</li>
+<li>“事后选择具有显著性治疗差异的终点事件是一种欺骗性的做法，会过高估计治疗效果。”研究者必须停止这种欺骗性的做法。</li>
+</ul></li>
+</ol>
+<h3 id="二对策">（二）对策</h3>
+<ol type="1">
+<li><p>研究者应该限制主要终点检验的数目。</p>
+<ul>
+<li>在研究方案中预先设定一个或多个研究主要终点。</li>
+<li>关注研究可以提高试验的可行性和结果的可信性(increases the simplicity
+of implementation and the credibility of results)。</li>
+</ul></li>
+<li><p>在数据分析阶段也要遵行试验方案。</p></li>
+<li><p>方案以外的数据挖掘应标明和完全报道。</p>
+<ul>
+<li>令人失望的是，试验报告通常会包含对未包括在试验方案中的终点的检查，但忽略了protocol中计划的primary
+analyses。</li>
+</ul></li>
+<li><p>保证研究者遵循方案的安全措施可提供帮助</p>
 <blockquote>
-<p>我们不分析两年随访后的数据，因为干预措施可能会导致两组之间的差异。</p>
+<p>例如《柳叶刀》杂志要求所有随机对照临床试验提供试验方案，并进行追踪</p>
 </blockquote></li>
+<li><p>更广泛地注册和发表试验方案可以发挥更好的作用。</p></li>
+<li><p>研究者必须报道所有进行的比较。</p></li>
 </ol>
-<h3 id="二药物试验">（二）药物试验</h3>
+<h3 id="三统计学校正的影响">（三）统计学校正的影响</h3>
 <ol type="1">
-<li><p>第二个试验（简称为“药物试验”）是来自31个中心的21750名轻度高血压患者的药物治疗效果的随机对照试验。</p></li>
-<li><p>本文随机选择了5个中心，其中838名患者具有所选变量的完整数据。</p></li>
-<li><p>患者同样被随机分为接受药物组（I组，n=403）或安慰剂组（C组，n=435）。</p></li>
-<li><p>该研究的目的是确定药物治疗是否可以减少35-64岁男性和女性因高血压和冠状动脉事件导致的卒中发生率，随访两年。</p>
+<li>对多个终点进行统计学校正可能会影响结果解释。例如，研究者开展了一项随机对照临床试验，比较一种新型抗生素和传统抗生素对预防子宫切除术后发热发生率的差异。
+<ul>
+<li><p>发热作为主要终点</p>
+<ul>
+<li>结果显示新药组发热有50%的下降</li>
+<li>RR=0.50</li>
+<li>95%CI=0.25〜0.99</li>
+<li>P=0.048</li>
+<li>结果是阳性的</li>
+</ul></li>
+<li><p>现在假设他们定义了两个主要终点：伤口感染和发热。</p>
 <blockquote>
-<p>同样，我们不分析随访后的数据</p>
-</blockquote></li>
-</ol>
-<h3 id="三检验数据真伪的理论及方法">（三）检验数据真伪的理论及方法</h3>
-<p>我们对两个试验中两个随机分组(即干预组和对照组)的基线数据进行了各种分析，希望能够找到证明饮食试验中的数据并不是正常产生的证据。我们用来自药物试验的数据进行对比，期望它们能够显示在试验期间正常收集的数据的典型模式。</p>
-<h4 id="随机分组之间的基线数据相似">随机分组之间的基线数据相似</h4>
-<ol type="1">
-<li>在一项随机试验中，随机分组之间的基线数据应该相似。随机分组之间的均值、方差和数据分布的形状必然相似，因为这些随机分组之间的差异只可能是偶然因素造成的。</li>
-<li>这就是为什么通常在真实试验中不对基线资料进行统计学显著性检验的原因。如果进行这样的检验，大约每20个检验中就有一个是纯粹偶然的。</li>
-<li>本文中使用t检验来比较随机分组之间的变量的均值，用F检验来比较随机分组之间的变量的方差（标准差）。</li>
-</ol>
-<h4
-id="随机分组之间数字位偏好digit-preference相似">随机分组之间数字位偏好(digit
-preference)相似</h4>
-<ol type="1">
-<li>由人（而不是机器）记录（或编造）的数据倾向于显示某些数字的偏好，例如四舍五入到最接近的5或10。这可以在最后记录的数字位(digit
-of numbers)中看到，称为“数字位偏好(digit
-preference)”。这种数字位偏好应该在随机分组之间非常相似。</li>
-<li>我们使用<span
-class="math inline">\(\chi^2\)</span>检验来检查数据的最后一位数字是否存在特定值的趋势，以及随机创建的两个组中是否有任何观察到的相同的数字位偏好(digit
-preference)。</li>
-<li>数字位偏好可以在人为记录的所有数据中发生，但是这种偏好的任何模式在随机分组之间应该是相似的。</li>
-</ol>
-<h2 id="三结果">三、结果</h2>
-<ol type="1">
-<li>表1显示了每个试验中两组试验共有的变量的统计描述。
+<p>和许多临床试验的典型情况一样，终点事件是高度相关的。</p>
+</blockquote>
 <ul>
-<li><p>药物试验的值在干预组和对照组无显著差异。</p></li>
-<li><p>饮食试验中身高和胆固醇的标准差存在显著差异。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-28-table1.jpg" /></p></li>
+<li>发现新药组发热减少50%</li>
+<li>伤口感染也下降了52%</li>
+<li>RR=0.48</li>
+<li>95%CI=0.24〜0.97</li>
+<li>P=0.041</li>
 </ul></li>
-<li>表2显示了每个试验的t检验和F检验的结果
+</ul></li>
+<li>一些统计学家的观点是研究者应该进行多重比较校正(correct for multiple
+comparisons)
 <ul>
-<li><p>在饮食试验中，22个变量中有16个变量的方差显著不同，有10个变量的均值显著不同。并且其中有几个P值极端小。</p>
+<li>例如，将每一个P都乘以比较检验的次数
+<ul>
+<li>如<span class="math inline">\(0.048 \times 2=0.096\)</span>，<span
+class="math inline">\(0.041 \times 2=0.082\)</span></li>
+</ul></li>
+<li>校正后的两个P都&gt;0.05</li>
+<li>因此试验结果是阴性的</li>
+</ul></li>
+<li>经验丰富的临床试验专家却不这么看结果。
+<ul>
+<li>伤口感染是加强而不是减弱了发热这一终点结果。</li>
+<li>临床医师因为其生物学知识了解这两个终点事件高度相关。</li>
+<li>增加伤口感染这第二个终点事件并观察到相似结果，提高了新药能减少发热发生率这一结果的可信度。</li>
+<li>如果进行校正会破坏基本的发现也不符合逻辑。</li>
+<li>这好比一个医生发现患者的血红蛋白含量下降，却不进行治疗，因为他同时发现该患者的红细胞压积异常。</li>
+</ul></li>
+<li>事实上，一些统计学家也赞成在前述情况下无需进行多重比较校正。
+<ul>
+<li>一些之前倾向于多重比较校正的统计学家在某些临床决策情况下也认为不应该进行校正。</li>
+<li>如果研究者宣布一项治疗有效，同时所有的终点事件结果都阳性，或大多数(在方案中已确定的)都阳性，那么对多重比较的校正不是必需的。</li>
+</ul></li>
+</ol>
+<h3 id="四bonferroni校正">（四）Bonferroni校正</h3>
+<ol type="1">
+<li>对多重比较校正使用最多的Bonferroni校正(Bonferroni
+adjustment)至少是一种过度校正(overcorrection)。</li>
+<li>当终点事件相关时，它是一种严重的过度校正，而多数情况下终点事件常常是相关的。</li>
+<li>对P过度校正后影响了对试验结果的解释。
+<ul>
+<li>对多重比较校正“机械化后，会损害结果解释，否定了绝大多数试验数据所提供信息的价值”。</li>
+</ul></li>
+<li>临床见解(Clinical insights)还是相当重要的。
+<ul>
+<li>研究者需要关注那些有临床意义最少数目的终点(smallest number of
+endpoints that makes clinical sense)，然后报道所有终点的检验结果。</li>
+<li>如果研究多个主要终点，必须讨论附加的终点事件是加强还是减弱了核心发现。</li>
+<li>对多重比较形式上的校正常常是减弱而不是增强解释。</li>
+</ul></li>
+</ol>
+<h2 id="六复合终点composite-endpoints">六、复合终点(Composite
+endpoints)</h2>
+<h3 id="一优点">（一）优点</h3>
+<ol type="1">
+<li><p>复合终点(Composite endpoints)解决多重比较问题。</p></li>
+<li><p>当复合终点中的任何一项前瞻性定义的事件发生时复合终点事件就
+发生了。</p>
 <blockquote>
-<p>正常来说，在上述比较中，约5％的变量可能存在P&lt;0.05，并且不应出现极端小的P值的情况。</p>
+<p>例如，当以下任一项事件发生时(心肌梗死、卒中或心血
+管死亡)，一个心血管事件复合终点就发生了。</p>
 </blockquote></li>
-<li><p>在药物试验中，虽然只比较了五个变量，但没有一个变量的基线数据的均值和方差，在干预组和对照组之间有显著差异。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-28-table2.jpg" /></p></li>
-</ul></li>
-<li>表3显示了数字位偏好的分析（前提假设：最后一位数字的分布相同）
+<li><p>如果设计将复合终点作为主要终点：</p>
 <ul>
-<li><p>在饮食试验中，所有<span
-class="math inline">\(\chi^2\)</span>值都非常显著，表明所有变量都表现出强烈的数字位偏好，甚至连胆固醇检查的实验室结果，数字偏好也是明显的（这是出乎意料的）。</p></li>
-<li><p>在药物试验中，<span
-class="math inline">\(\chi^2\)</span>值对于身高非常显著（表示可能预期的强烈数字偏好），但对任何其他测量值都不显著。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-28-table3.jpg" /></p></li>
+<li>可以避免对各组分单独检验所致的多重比较问题。</li>
+<li>复合终点常常有较高的事件发生率，从而增加了检验把握度，或者减少了需要的样本量。</li>
 </ul></li>
-<li>表4显示了随机分组之间的数字位偏好模式差异的<span
-class="math inline">\(\chi^2\)</span>检验结果。
+</ol>
+<h3 id="二缺点">（二）缺点</h3>
+<ol type="1">
+<li>然而，复合终点有时会造成结果解释上的困难。</li>
+<li>例如，某一临床试验显示服用阿司匹林降低18%(相对危险度0.82[95%CI0.70〜0.96])正文定义的心血管终点事件(心肌梗死、卒中、心血管死亡)，看上去是一个值得推荐的结果。</li>
+<li>然而，进一步观察发现，它降低：
 <ul>
-<li><p>事实上，产生数字位偏好是很正常，但是在每个随机分组中都应该显示出类似的数字位偏好模式。</p></li>
-<li><p>在饮食试验中，除了胆固醇，空腹血糖，咖啡因，胡萝卜素和维生素A之外，干预组和对照组中其他所有变量的最后一位数字的分布显著不同。</p></li>
-<li><p>在药物试验中，两个随机分组在最后一位数字的分布上远远没有显著的差异。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-28-table4.jpg" /></p></li>
+<li>44%的心肌梗死</li>
+<li>增加22%的卒中</li>
+<li>对心血管死亡没有影响</li>
+<li>18%的下降对于更重要的终点事件死亡和卒中来讲是没有意义的</li>
+</ul></li>
+<li>复合终点常常会缺乏临床相关性。因此，复合终点解决了多重比较问题，提高了统计检验的效率，但却会带来结果解释上的困难。</li>
+</ol>
+<h2 id="七多种治疗多臂试验">七、多种治疗（多臂试验）</h2>
+<p>与多个终点相比，多种治疗时的多重比较问题较易解决。</p>
+<ol type="1">
+<li>首先，研究者可以对所有治疗比较组进行一个总体检验(如：在一个三臂的临床试验中比较A和B和C)，或者通过剂量反应关系(dose-response
+relation)模型，避免多重比较问题。</li>
+<li>其次，也是更重要的方面，研究者较少有机会对多种治疗进行数据挖掘（data-dredging)而不进行报道。
+<ul>
+<li>在数据分析时，增加终点事件进行分析较容易，而增加治疗组就很困难。</li>
+<li>在理论上，他们可以进行一个多组比较的临床试验，然后只报道有利结果组的比较。</li>
+<li>但实际中，这种情况较少发生。读者通常可以看到临床试验的所有治疗组。</li>
+<li>事实上，多臂临床试验(multi-arm
+trials)在医学研究中扮演着非常重要的角色(panel 2)。</li>
+</ul></li>
+<li>Panel 2：多臂临床试验在医学研究中的角色
+<ul>
+<li>多臂临床试验在医学文献中是十分常见的。</li>
+<li>一项对2000年Pubmed收录的平行设计随机对照临床试验的调查发现：25%的临床试验超过2个臂。其中，62%有三个臂，26%有四个臂，12%超过四个臂
+(Altman DG, personal communication)。</li>
+<li>多数临床试验教材中阐述的是双臂试验。而且，一些著名的学者反对多臂试验。“如果只对两组比较，结果比较明确，阳性即是阳性，阴性即是阴性。”</li>
+<li>对多臂试验的反对主要是出于对把握度的考虑。目前已发表的临床试验的把握度均较低。在受试者数目有限的情况下，增加比较的组别会减弱把握度。虽然我们从某种程度上同意这种观点，但多臂临床试验除了在某些情况下具备的优点外，还可能是更有效率的一种设计。</li>
+<li>例如，有一种标准治疗方法和两种新治疗方法。一个双臂临床试验的设计是比较其中一种新的治疗方法与标准方法。然后再设计另一个临床试验比较另一种新治疗方法与标准方法。总体上来说，这种序贯设计的双臂临床试验的总样本及费用高于一个多臂临床试验。因此，多臂临床试验是有益处的。</li>
+<li>另外，多臂临床试验不一定会增加方法上的难度，它们可以像双臂试验一样去除选择偏倚。虽然执行和分析起来可能更加复杂，但这种复杂可以为我们带来更多的信息。</li>
+</ul></li>
+<li>但形势也不是完全乐观的。读者可能没有看到所有治疗组间 的不同比较。
+<ul>
+<li>例如，一个三臂的临床试验，可以产生七个比较分析(Fig)。</li>
+<li>如果超过三个臂，那些潜在的比较会显著增加。</li>
+<li>在比较前，研究者应该专门设定准备比较的组别。 <img
+src="http://qiniup.louyanspine.com/2018-09-25-The%20Lancet%20Handbook%20of%20Essential%20Concepts%20in%20Clinical%20Research%20.jpg" /></li>
+</ul></li>
+<li>对于多臂临床试验一种推荐的方法是对所有治疗进行一个总体检验。
+<ul>
+<li>然而，一些方法学家认为这样的检验应用受限，因为它无法分辨究竟哪些治疗是有差异的，对发现真正的差异也缺少把握度。</li>
+<li>许多多臂临床试验设计成直接与对照组比较。</li>
+<li>因此，研究者应该事先计划所要进行的比较，限制比较的数目，在试验方案中事先写明。</li>
+</ul></li>
+<li>多组检验也不一定需要进行多重比较校正。
+<ul>
+<li>与多个终点事件的理由相似，临床医师常常发现增加一个组别是对结果的加强而不是减弱。</li>
+<li>例如，在上述描述的临床随机对照试验中，比较一个新型抗生素和传统抗生素对子宫切除术后发热的改善情况，研究者可能在200mg抗生素治疗的基础上，在该临床试验中增加一个300mg剂量的治疗组。
+<ul>
+<li>结果显示200mg剂量治疗组发热减少了40%(相对危险度0.60[95%CI
+0.37~0.98]，P=0.044)，结果是阳性的。</li>
+<li>300mg治疗组的结果是相似的，发热减少了45%(0.55[0.31〜0.98];P=0.041)。</li>
+</ul></li>
+<li>对多次比较的最简单的校正方法是对每一个P乘以比较的次数(如<span
+class="math inline">\(0.044 \times
+2=0.088，0.041\times2=0.082\)</span>)。
+<ul>
+<li>校正以后，治疗效果在α=0.05水平，没有显著性差异，因此效果是不确定的(即阴性)。</li>
+<li>临床试验者对此结果的解释是十分不同的。</li>
+<li>对发热这一终点，300mg治疗组的结果是增强而不是减弱200mg治疗组的结果。</li>
+<li>临床医师从生物学角度期待看到的是这样相似的结果，而不会信任校正多重比较后的结果。</li>
+<li>校正P，特别是当所校正的治疗组之间相关，并不能够帮助对结果的解释。</li>
+</ul></li>
+</ul></li>
+<li>在多个治疗组情况下，研究者会采用一个事先设定的比较次序。
+<ul>
+<li>例如，研究者可以决定将300mg治疗组与安慰剂组的比较作为首项试验，只有当该项比较阳性时，才进入到200mg治疗组的比较中。</li>
+<li>这样的步骤可以解决多重比较问题而不进行校正。</li>
+<li>对多重比较问题常规进行校正会使情况复杂化。</li>
 </ul></li>
 </ol>
-<h2 id="四讨论">四、讨论</h2>
-<h3 id="一p值的大小">（一）P值的大小</h3>
+<h2 id="八多重比较校正的作用">八、多重比较校正的作用</h2>
 <ol type="1">
-<li>饮食试验中基线资料的变量之间的均值和方差上的差异表明，这两组根本不可能通过真正的随机分配而产生。</li>
-<li>从几个变量差异的t检验得出的P值的大小（极端小）与随机分配入组的原则也相悖。</li>
-<li>同样，随机分组之间数字位偏好模式的显著差异提供了额外的证据，证明这不是真正的随机试验。</li>
+<li>某些情况下，对多重比较的正规校正是不可避免的。
+<ul>
+<li>一个显而易见的例子是向审批机构申报批准药物上市。</li>
+<li>如果研究者定义了一个以上主要终点事件，当一个或多个终点阳性时，如要宣布治疗是有效的，需要进行多重比较校正。</li>
+<li>扩展开来，如果研究者要基于多个终点中的任意一个阳性结果而决定宣称其效果，需要进行多重比较校正。</li>
+</ul></li>
+<li>如果研究者决定用扫射式分析(scattershot
+analysis)多臂临床试验，这时需进行校正。
+<ul>
+<li>例如，在一个四臂临床试验(治疗A，B，C，D)中，当下面任何两组的比较结果都是阳性时：A比B，A比C，A比D，A比B+C，A比B+D，A比C+D，或A比B+C+D，如要声称A有治疗作用，必须进行多重比较校正。</li>
+</ul></li>
+<li>总之，如果谨慎分析后指出需要进行多重比较校正，这表明试验设计较差且目标含糊。</li>
+<li>多重比较校正仅能部分恢复试验结果的可信度。而且，有时校正是恰当的，却很难进行。</li>
+<li>Bonferroni校正被广泛推荐，有很大一部分原因是其操作简便。但某些情况下，其他一些校正方式更加适用。</li>
+<li>根据终点事件之间相关程度的不同，模拟试验展示了不同的多重校正策略，在Ⅰ类错误和把握度上有较大的可变性。这些对不同的校正方法的对比评估结果给大家提供了一些帮助，但是仍然无法给出一个明确的选择。通常情况下，校正可以提供粗略答案。</li>
 </ol>
-<h3 id="二随机化过程">（二）随机化过程</h3>
+<h2 id="九读者应注意的问题">九、读者应注意的问题</h2>
 <ol type="1">
-<li>如果这不是随机试验，那么这些数据是如何产生的？一种可能性是数据本身是真实的，但随机化过程已被颠覆（实际操作上没有随机）。这可以解释基线资料的变量均值之间的一些差异。</li>
-<li>如果存在对随机化过程的颠覆：例如有意让胆固醇高的患者更多地进入对照组。那么就会在干预组和对照组的基线数据上出现较小的差异，并且在医学相关的变量之间也会更加一致。但是在表格2中，Cholesterol的方差在两组间有差异，而Total
-cholesterol的方差在两组间则没有差异。这就很难用“随机化过程的颠覆”来解释这些异常的数据表现。</li>
-<li>此外，更难以解释的是基线数据方差的差异。部分变量的方差和均值均存在非常显著的差异，而对于身高，Cholesterol和甘油三酯，在方差方面存在非常显著的差异，但均值却没有差异。如果有故意将血压较高的患者分配到某一组的倾向，那么我们可能会发现平均值存在显着差异，但方差没有差异。但是，我们没有找到这种情况。</li>
-<li>此外，在招募时，医生或卫生专业人员可以随时获得的变量的均值没有明显的差异。</li>
-</ol>
-<h3 id="三数字位偏好">（三）数字位偏好</h3>
-<ol type="1">
-<li>数字位偏好本身并不是学术不当行为的证据。例如可能出现两个随机分组之间的数字位偏好的不同模式，如果其中一个人记录了治疗组的数据，另一个记录了对照组的数据。</li>
-<li>然而，如果声称该试验是单盲的，这意味着那些记录数据的人不应该知道患者被分配到哪个组。因此，在这种情况下，随机分组之间的数字位偏好应该不存在显著的差异。</li>
-<li>但也许试验并非如文章所描述的那样采取单盲，并且记录数据的那些记录员会分成2组，分别记录对照组或者处理组的数据。这可能导致随机分组之间的变量的数字位偏好存在差异，因为这个过程带有人为判断的因素。</li>
-<li>但这仍然无法解释两组之间的均值和方差的差异，因为数字位偏好对均值和方差的影响只会很小。</li>
-</ol>
-<h2 id="五结论">五、结论</h2>
-<ol type="1">
-<li>随机分组之间的均值，方差和数字位偏好的差异，一起强有力地证明了在饮食试验中有数据造假的行为。</li>
-<li>饮食试验的数据要么是完全捏造的，要么是篡改过的，而且证据确凿，应该采取适当的措施来处理这个问题。</li>
+<li>读者应当期望研究者报道所有分析过的终点事件和比较过的治疗组的结果。
+<ul>
+<li>但是评价他们是否报道了全部分析和比较结果通常是很困难的。</li>
+<li>如果能获得研究方案将有所帮助，但这也是很难的。</li>
+<li>我们鼓励读者去获得研究方案。</li>
+<li>差的、不完整的报道，使读者无从得知研究者进行了多少分析。</li>
+<li>遵行CONSORT指南(CONSORT statement)报告标准可以避免这些困难。</li>
+</ul></li>
+<li>同时，读者应该期望研究者说明主要终点及其他终点事件，其他分析应标明为探索性分析。
+<ul>
+<li>没有直接说明的时候，去寻找间接的说明。</li>
+<li>如主要终点事件仍不清楚，希望作者提供提示主要终点的统计学上的把握度分析。</li>
+</ul></li>
+<li>如果作者进行了多重比较，读者应期待其进行说明。
+<ul>
+<li>如果作者进行了过多的比较，如15个终点事件中1个是阳性的，需要谨慎的报道这些结果。</li>
+<li>如果多次比较产生了多种效果，作者应说明结果的内在一致性。</li>
+<li>更重要的是，透明地报道所有的比较及其结果允许读者自己得出结论。</li>
+</ul></li>
+<li>如果某一试验报道的是一个复合终点，那么复合终点的组成成分应该具有共同的病理生理学基础。
+<ul>
+<li>研究者应该将复合终点作为一个整体报道，而不是单独报道对各组成成分的作用。</li>
+<li>然而各组成成分应作为二级终点事件，在主要分析外进行报道。</li>
+</ul></li>
+<li>总体上来说，读者并不需要期盼每个试验进行多重比较校正。
+<ul>
+<li>对多数临床试验而言，多重比较校正没有依据，也没有帮助。</li>
+<li>一种具有争议的医学研究的例外情况是，当其完全依赖于一项或几项主要终点事件是阳性时，特别是在检验同一个无效假设的时候，对多重比较的校正有时可以解决扫射式分析的问题。</li>
+</ul></li>
 </ol>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/08/Applied-Surgical-Anatomy-of-the-Thigh4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/08/Applied-Surgical-Anatomy-of-the-Thigh4/" class="post-title-link" itemprop="url">大腿的外科应用解剖：骨、关节及韧带</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-08 23:13:50" itemprop="dateCreated datePublished" datetime="2018-09-08T23:13:50+08:00">2018-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:04:55" itemprop="dateModified" datetime="2019-02-28T01:04:55+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明：<br> 1. 部分参考自Stanley Hoppenfeld MD, et al.Surgical
+Exposures in Orthopaedics:The Anatomic Approach.LWW,2016.<br> 2.
+部分参考自柏树令《系统解剖学（第7版）》人民卫生出版社.2008年<br></p>
+</blockquote>
+<h2 id="一骨骼">一、骨骼</h2>
+<h3 id="一股骨femur">（一）股骨(Femur)</h3>
+<ol type="1">
+<li>股骨头(femoral head)：与髋臼相关节，头中央稍下有小的股骨头凹</li>
+<li>股骨颈(neck of hemur)：头下外侧狭细部</li>
+<li>大转子(greater trochanter) ：颈与体连接处上外侧的方形隆起</li>
+<li>小转子(lesser trochanter) ：内下方的隆起</li>
+<li>大小转子之间，前面有转子间线，后面有转子间嵴。</li>
+<li>股骨体略弓向前，上端呈圆柱形，中段呈三棱柱形，下段前后略扁。
+<ul>
+<li>体后面有纵行骨嵴，为粗线(linea aspera)，此线上端分叉。
+<ul>
+<li>向上外：延续于粗糙的臀肌粗隆(gluteal tuberosity)</li>
+<li>向上内：延续为耻骨肌线</li>
+</ul></li>
+<li>粗线下端也分为内、外两线，两线间的骨面为腘面。</li>
+<li>粗线中点附近，有口朝下的滋养孔。</li>
+</ul></li>
+<li>内侧髁(medial condyle)：向后突出的膨大</li>
+<li>外侧髁(lateral condyle)：向后突出的膨大</li>
+<li>两髁前方：关节面彼此相连，形成髌面，与髌骨相连</li>
+<li>两髁后份：两髁之间的深窝称髁间窝(intercondylar fossa)</li>
+<li>两髁侧面最突起处，分别为：
+<ul>
+<li>内上髁(medial epicondyle)：内上髁上方的小突起，称收肌结节(adductor
+tubercle)</li>
+<li>外上髁(lateral epicondyle) <img
+src="http://qiniup.louyanspine.com/2018-09-03-%E8%82%A1%E9%AA%A8.png" /></li>
+</ul></li>
+</ol>
+<h3 id="二髌骨patella">（二）髌骨(Patella)</h3>
+<p>位于股骨下端前面，在股四头肌腱内，上宽下尖，前面粗糙，后面为关节面，与股骨髌面相关节。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-03-Blausen_0596_KneeAnatomy_Front.png" /></p>
+<h3 id="三胫骨tibia">（三）胫骨(Tibia)</h3>
+<ol type="1">
+<li>胫骨上端膨大，向两侧突出，分别形成内侧髁和外侧髁。</li>
+<li>两髁上面各有上关节面，与股骨髁相关节。</li>
+<li>两上关节面之间的粗糙小隆起，称髁间隆起(intercondylar
+eminence)。</li>
+<li>外侧髁后下方有腓关节面与腓骨头相关节。上端前面的隆起称胫骨粗隆(tibial
+tuberosity)。</li>
+<li>胫骨体呈三棱柱形，较锐的前缘和平滑的内侧面直接位于皮下，外侧缘有小腿骨间膜附着，称骨间缘。后面上份有斜向下内比目鱼肌线。</li>
+<li>胫骨下端稍膨大，其内下方有一突起，称内踝(medial malleolus)。
+<ul>
+<li>下端的下面和内踝的外侧面有关节面与距骨相关节</li>
+<li>下端的外侧面有腓切迹与腓骨相接 <img
+src="http://qiniup.louyanspine.com/2018-09-03-%E8%83%AB%E9%AA%A8.png" /></li>
+</ul></li>
+</ol>
+<h2 id="二关节及韧带">二、关节及韧带</h2>
+<h3 id="一膝关节knee-joint">（一）膝关节(knee joint)</h3>
+<h4 id="膝关节构成">膝关节构成</h4>
+<ol type="1">
+<li><p>由股骨下端、胫骨上端和髌骨构成。是人体最大最复杂的关节。</p></li>
+<li><p>髌骨与股骨的髌面相接，股骨的内、外侧髁分别与胫骨的内、外侧髁相对。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-13-Elbow_joint_-_deep_dissection_-anterior_view-_human_cadaver-.jpg" /></p></li>
+</ol>
+<h4 id="膝关节韧带">膝关节韧带</h4>
+<p>膝关节的关节囊薄而松弛，附着于各关节面的周缘，周围有韧带加固，以增加关节的稳定性。主要韧带有：</p>
+<ol type="1">
+<li>髌韧带(patellar
+ligament)为股四头肌腱的中央部纤维索，自髌骨向下止于胫骨粗隆，髌韧带扁平而强韧，其浅层纤维越过髌骨连于股四头肌腱。</li>
+<li>腓侧副韧带(fibular collateral
+ligament)为条索状坚韧的纤维索，起自股骨外上髁，向下延伸至腓骨头。韧带表面大部分被股二头肌腱所遮盖，与外侧半月板不直接相连。</li>
+<li>胫侧副韧带(tibial collateral
+ligament)呈宽扁束状，位于膝关节内侧后份。起自股骨内上髁，向下附着于胫骨内侧髁及相邻骨体，与关节囊和内侧半月板紧密结合。
+<ul>
+<li>胫侧副韧带和腓侧副韧带在伸膝时紧张，屈膝时松弛，半屈膝时最松弛。因此，在半屈膝位允许膝关节作少许旋内和旋外运动。</li>
+</ul></li>
+<li>腘斜韧带(oblique popliteal
+ligament)由半膜肌腱延伸而来，起自胫骨内侧髁，斜向外上方，止于股骨外上髁，部分纤维与关节囊融合，可防止膝关节过伸。</li>
+<li>弓状韧带(arcuate popliteal ligament)</li>
+<li>膝交叉韧带(cruciate
+ligament)位于膝关节中央稍后方，非常强韧，由滑膜衬覆，可分为前、后两条：
+<ul>
+<li>前交叉韧带(anterior cruciate ligament)
+<ul>
+<li>起自胫骨髁间隆起的前方内侧，与外侧半月板的前角愈着，斜向后上方外侧，纤维呈扇形附着于股骨外侧髁的内侧。</li>
+<li>前交叉韧带在伸膝时最紧张，能防止胫骨前移。</li>
+</ul></li>
+<li>后交叉韧带(posterior cruciate ligament)
+<ul>
+<li>较前交叉初带短而强韧，并较垂直。起自胫骨髁间降起的后方，斜向前上方内侧，附着于股骨内侧髁的外侧面。</li>
+<li>后交叉韧带在屈膝时最紧张，可防止胫骨后移。</li>
+</ul>
+<img
+src="http://qiniup.louyanspine.com/2018-09-13-Posterior-Ligaments-Oblique-Popliteal-Ligament.jpg" />
+<img src="http://qiniup.louyanspine.com/2018-09-03-slide_6.jpg" /> <img
+src="http://qiniup.louyanspine.com/2018-09-03-kneeanatomy.png" /> <img
+src="http://qiniup.louyanspine.com/2018-09-03-Cruciate_Ligaments.png" />
+<img src="http://qiniup.louyanspine.com/2018-09-13-Patella.jpg" /></li>
+</ul></li>
+</ol>
+<h4 id="膝关节囊">膝关节囊</h4>
+<p>膝关节囊的滑膜层是全身关节中最宽阔最复杂的，附着于该关节各骨的关节面周缘，覆盖关节内除了关节软骨和半月板以外的所有结构。</p>
+<ol type="1">
+<li><p>滑膜在髌骨上缘的上方，向上突起形成深达5cm左右的髌上囊于股四头肌腱和股骨体下部之间。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-13-Joint-synovial-membrane.jpg" /></p></li>
+<li><p>在髌骨下方的中线两侧，部分滑膜层突向关节腔内，形成一对翼状襞(alar
+folds)，襞内含有脂肪组织，充填关节腔内的空隙。</p></li>
+<li><p>还有不与关节腔相通的滑液囊，如位于髌韧带与胫骨上端之间的髌下深囊。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-03-bursae-de-genou-48747270.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-stock-photo-cross-section-through-a-typical-synovial-joint-showing-the-bone-synovial-membrane-synovial-fluid-280030736.jpg" /></p></li>
+</ol>
+<h4 id="半月板">半月板</h4>
+<p>半月板(menisci)是垫在股骨内、外侧髁与胫骨内、外侧髁关节面之间的两块半月形纤维软骨板，分别称为内、外侧半月板。</p>
+<ol type="1">
+<li>内侧半月板(medial
+meniscus)较大，呈“C”形，前端窄后份宽，外缘与关节囊及胫侧副韧带紧密相连。</li>
+<li>外侧半月板(lateral
+meniscus)，较小，近似形，外缘亦与关节囊相连。</li>
+</ol>
+<h3 id="二腘窝popliteal-fossa">（二）腘窝(popliteal fossa)</h3>
+<ol type="1">
+<li>位置和境界
+<ul>
+<li>膝关节后方，呈菱形</li>
+<li>上外侧界：股二头肌</li>
+<li>上内侧界：半腱肌和半膜肌</li>
+<li>下内侧界：腓肠肌内侧头</li>
+<li>下外侧界：腓肠肌外侧头</li>
+<li>底：
+<ul>
+<li>腘平面<br />
+</li>
+<li>膝关节囊后部(腘斜韧带)
+<ul>
+<li>Popliteal ligament
+<ul>
+<li>Arcuate popliteal ligament</li>
+<li>Oblique popliteal ligament/腘斜韧带</li>
+</ul></li>
+</ul></li>
+<li>腘肌及其筋膜</li>
+</ul></li>
+<li>顶：腘筋膜 <img
+src="http://qiniup.louyanspine.com/2018-09-03-3.-What-are-the-contents-of-the-popliteal-fossa.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-muscles-and-ligaments-of-the-knee-oblique-popliteal-ligament.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-popliteal-fossa-anatomy-popliteal-artery-location-entrapment-popliteal-artery-aneurysm.jpg" /></li>
+</ul></li>
+<li>内容（由浅层至深层） * 胫神经和腓总神经(tibial n. and common
+peroneal n.)
+<ul>
+<li>腘静脉及其属支(popliteal v.)</li>
+<li>腘动脉及其分支(popliteal a.)
+<ul>
+<li>终支：
+<ul>
+<li>胫前、后动脉</li>
+</ul></li>
+<li>关节支：
+<ul>
+<li>膝上内、外侧动脉</li>
+<li>膝中动脉</li>
+<li>膝下内、外侧动脉</li>
+</ul></li>
+</ul></li>
+<li>疏松结缔组织</li>
+<li>腘淋巴结(popliteal lymph nodes)<br />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-tietjen_inknpaint_final.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-13-fbb6a541143d14c9187167191d0c3897cd762736.png" /></li>
+</ul></li>
+</ol>
+<h3 id="三胫腓连结">（三）胫腓连结</h3>
+<p>胫、腓两骨之间的连结紧密。小腿两骨间的活动度甚小。</p>
+<ol type="1">
+<li>上端由胫骨外侧髁与腓骨头构成微动的胫腓关节</li>
+<li>两骨干之间有坚韧的小腿骨间膜相连</li>
+<li>下端借胫腓前、后韧带构成坚强的韧带连结。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/08/1-7Applied-Surgical-Anatomy-of-the-Thigh3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/08/1-7Applied-Surgical-Anatomy-of-the-Thigh3/" class="post-title-link" itemprop="url">大腿的外科应用解剖：神经</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-08 23:13:42" itemprop="dateCreated datePublished" datetime="2018-09-08T23:13:42+08:00">2018-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-06 13:28:56" itemprop="dateModified" datetime="2020-08-06T13:28:56+08:00">2020-08-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          欢迎访问我的博客，考虑到版权问题，本文不公开
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/09/08/1-7Applied-Surgical-Anatomy-of-the-Thigh3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/08/1-22Applied-Surgical-Anatomy-of-the-Thigh2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/08/1-22Applied-Surgical-Anatomy-of-the-Thigh2/" class="post-title-link" itemprop="url">大腿的外科应用解剖：血管</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-08 23:11:54" itemprop="dateCreated datePublished" datetime="2018-09-08T23:11:54+08:00">2018-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:07:30" itemprop="dateModified" datetime="2019-02-28T01:07:30+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明：<br> 1. 部分参考自Stanley Hoppenfeld MD, et al.Surgical
+Exposures in Orthopaedics:The Anatomic Approach.LWW,2016.<br> 2.
+部分参考自柏树令《系统解剖学（第7版）》人民卫生出版社.2008年<br></p>
+</blockquote>
+<h1 id="一系统解剖">一、系统解剖</h1>
+<h2 id="一动脉">（一）动脉</h2>
+<h3 id="股动脉femoral-artery">（1）股动脉(femoral artery)</h3>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="http://pdhavmjas.bkt.clouddn.com/Thigh%20Arteries%20-%203D%20Anatomy%20Tutorial.mp4">股动脉</a>是髂外动脉的直接延续，是下肢动脉的主干，在股三角内下行，穿过收肌管后出收肌腱裂孔至腘窝，移行为腘动脉。</li>
+<li>在腹股沟韧带中点的稍下方，股动脉位置表浅，在活体上可摸到其搏动。当下肢出血时，可在该处将股动脉压向耻骨上支进行压迫止血。</li>
+<li>股动脉的分支营养大腿肌、腹前壁下部的皮肤和外阴部等。</li>
+<li>股动脉的主要分支为股深动脉。
+<ul>
+<li>该动脉在腹股沟中点的下方2~5cm处起于股动脉，行向后内下方。</li>
+<li>股深动脉的分支：
+<ul>
+<li>旋股内侧动脉分布于大腿内侧群肌；
+<ul>
+<li>伸支</li>
+<li>横支</li>
+</ul></li>
+<li>旋股外侧动脉至大腿前群肌；
+<ul>
+<li>伸支</li>
+<li>降支</li>
+<li>横支</li>
+</ul></li>
+<li>穿动脉（3〜4条）至大腿后群肌、内侧群肌和股骨。</li>
+</ul></li>
+</ul></li>
+<li>此外，股动脉还发出：
+<ul>
+<li>腹壁浅动脉：腹前壁下部</li>
+<li>旋髂浅动脉：髂前上棘附近</li>
+<li>阴部外动脉：外阴部的皮肤和浅筋膜
+<ul>
+<li>superficial external pudendal artery</li>
+<li>deep external pudendal artery</li>
+</ul></li>
+</ul>
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-750px-Thigh_arteries_schema.svg.png" /></li>
+</ol>
+<h3 id="腘动脉popliteal-artery">（2）腘动脉(popliteal artery)</h3>
+<ol type="1">
+<li>在腘窝深部下行，至腘肌下缘分为：
+<ul>
+<li>胫前动脉</li>
+<li>胫后动脉</li>
+</ul></li>
+<li>腘动脉在腘窝内发出数条关节支和肌支至膝关节及邻近肌，并参与膝关节网的形成。</li>
+</ol>
+<h2 id="二静脉">（二）静脉</h2>
+<p>下肢静脉比上肢静脉瓣膜多，浅静脉与深静脉之间的交通丰富。</p>
+<h3
+id="下肢浅静脉包括小隐静脉和大隐静脉及其属支">（1）下肢浅静脉：包括小隐静脉和大隐静脉及其属支</h3>
+<ol type="1">
+<li>小隐静脉(small saphenous vein)
+<ul>
+<li>在足外侧缘起自足背静脉弓，经外踝后方，沿小腿后面上行，至腘窝下角处穿深筋膜，再经腓肠肌两头之间上行，注入腘静脉。</li>
+<li>小隐静脉收集足外侧部和小腿后部浅层结构的静脉血。</li>
+</ul></li>
+<li>大隐静脉(great saphenous vein)：全身最长的静脉
+<ul>
+<li>在足内侧缘起自足背静脉弓，经内踝前方，沿小腿内侧面、膝关节内后方、大腿内侧面上行，至耻骨结节外下方3~4cm处穿阔筋膜的隐静脉裂孔，注入股静脉。</li>
+<li>大隐静脉在注入股静脉之前接受下述五条属支：
+<ul>
+<li>股内侧浅静脉</li>
+<li>股外侧浅静脉</li>
+<li>阴部外静脉</li>
+<li>腹壁浅静脉</li>
+<li>旋髂浅静脉</li>
+</ul></li>
+<li>大隐静脉收集足、小腿和大腿的内侧部以及大腿前部浅层结构的静脉血。</li>
+<li>大隐静脉在内踝前方的位置表浅而恒定，是输液和注射的常用部位</li>
+<li>大隐静脉和小隐静脉借穿静脉与深静脉交通。
+<ul>
+<li>穿静脉的瓣膜朝向深静脉，可将浅静脉的血液引流入深静脉。</li>
+<li>当深静脉回流受阻时，穿静脉瓣膜关闭不全，深静脉血液返流入浅静脉，可导致下肢浅静脉曲张。</li>
+</ul></li>
+</ul>
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-stammvene-lexikon-neu.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-12745-PB3-R1.png" /></li>
+</ol>
+<h3 id="下肢深静脉">（2）下肢深静脉</h3>
+<ol type="1">
+<li>足和小腿的深静脉与同名动脉伴行，均为两条。</li>
+<li>胫前静脉和胫后静脉汇合成腘静脉。</li>
+<li>腘静脉穿收肌腱裂孔移行为股静脉(femoral vein)。</li>
+<li>股静脉伴股动脉上行，经腹股沟韧带后方续为髂外静脉。</li>
+<li>股静脉接受大隐静脉和与股动脉分支伴行的静脉。</li>
+<li>股静脉在腹股沟韧带的稍下方位于股动脉内侧，临床上常在此处作静脉穿刺插管。</li>
+</ol>
+<h1 id="二局部解剖">二、局部解剖</h1>
+<h2 id="一动脉-1">（一）动脉</h2>
+<h3 id="股动脉femoral-artery-1">（1）股动脉(femoral artery)</h3>
+<ol type="1">
+<li><p>股动脉是贯穿大腿的动脉，其主要分支：股深动脉，是大腿肌肉的主要血供来源。股动脉位于股三角内发出股深动脉后，它不再发出供应大腿的其他主要分支。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-12-Femoral%20artery.jpg" /></p>
+<blockquote>
+<p>股动脉和股深动脉的走行全程。注意股深动脉的穿支。注意，长收肌已切断，可见股深动脉的走行，其走行于长收肌后。</p>
+</blockquote></li>
+<li><p>实际上，股动脉在腹股沟韧带中点下方进入大腿，此处正好位于股骨头上方，因此，股动脉搏动处是股骨头的体表标志。</p></li>
+<li><p>然后，股动脉于髂腰肌表面向远侧走行，在缝匠肌下方、股三角的底部穿过，继续走行于长收肌表面。在此处，股动脉位于缝匠肌下Hunter管的陷窝内，Hunter管在大腿的伸肌筋膜室和内收肌筋膜室之间走行。
+<img
+src="http://qiniup.louyanspine.com/2018-09-08-cross-section-of-leg-image-anatomy-leg-compartment-anatomy-muscle-anatomy-cross-section-calf-leg.jpg" /></p></li>
+<li><p>股动脉最后在膝上一掌宽处穿过大收肌，在进入大腿后筋膜室之前穿经腘窝处的坐骨神经与其伴行，在该处，它位于坐骨神经的深层和内侧。</p>
+<ul>
+<li>在股三角处，股动脉位于股静脉的外侧，但在腘窝处又位于其内侧，这可能是由于胎儿发育过程中肢体旋转所致。</li>
+<li>股动脉与股骨的关系也有变化：
+<ul>
+<li><p>股骨上端，股动脉位于前方；</p></li>
+<li><p>股骨中间部分，股动脉位于其内侧；</p></li>
+<li><p>股骨下端，股动脉位于后方；</p>
+<blockquote>
+<p>这些变化不仅影响手术入路的选择，同时也影响the insertion of skeletal
+pins for traction和外固定支架</p>
+</blockquote></li>
+</ul>
+<img src="http://qiniup.louyanspine.com/2018-09-12-9-41.jpg" /></li>
+</ul></li>
+<li><p>收肌管(adductor canal)/缝匠肌下管(subsartorial or Hunter's
+canal)/Hunter管</p>
+<ul>
+<li>位置：位于股部中1/3段内侧，长约15～17cm，为三角形肌间隙<br />
+</li>
+<li>境界：
+<ul>
+<li>前壁：缝匠肌</li>
+<li>外侧壁：股内侧肌</li>
+<li>后壁：长收肌及大收肌</li>
+<li>上口：接股三角</li>
+<li>下口：内收肌腱裂孔</li>
+</ul></li>
+<li>主要内容：
+<ul>
+<li>股动脉</li>
+<li>股静脉</li>
+<li>膝降动脉</li>
+<li>隐神经</li>
+<li>股神经股内侧肌肌支</li>
+</ul>
+<img src="http://qiniup.louyanspine.com/2018-09-03-slide_3-1.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-ADDUCTOR-CANAL--Subsartorial-canal-.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-Adductor-Canal.jpg" />
+<img src="http://qiniup.louyanspine.com/2018-09-03-2.jpg" /></li>
+</ul></li>
+</ol>
+<h3 id="股深动脉">（2）股深动脉</h3>
+<ol type="1">
+<li><p>股深动脉供应大腿的肌肉，它在股三角内起自股动脉，开始走行于其内侧，旋即走行于股动脉后方，然后这两条动脉穿出股三角。</p></li>
+<li><p>股深动脉走行于长收肌后方，而股动脉则走行于其前方，长收肌像三明治一样夹于这两条动脉之间。
+<img src="http://qiniup.louyanspine.com/2018-09-12-9-40.jpg" /></p></li>
+<li><p>股深动脉的4条穿支向后穿过大腿的内侧筋膜室，它们同旋股内侧动脉一样环绕股骨，穿过外侧肌间隔后再次进入前方筋膜室。在采用股骨的后外侧入路时，一定要在此处将其结扎。</p></li>
+</ol>
+<h3 id="旋股内侧动脉">（3）旋股内侧动脉</h3>
+<ol type="1">
+<li>走行于髂腰肌和耻骨肌之间，位于长收肌上缘。它环绕股四头肌和大收肌之间的间隙，并发出分支。
+<ul>
+<li><p>升支沿股四头肌上缘走行</p>
+<ul>
+<li>在髋部后侧入路中，如果将其切断，出血不易控制</li>
+</ul></li>
+<li><p>水平支在股四头肌和大收肌之间走行，构成十字形吻合的一支</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-12-9-38.jpg" /></p></li>
+</ul></li>
+</ol>
+<h3 id="旋股外侧动脉">（4）旋股外侧动脉</h3>
+<ol type="1">
+<li>旋股外侧动脉走行于股直肌外侧，位于前外侧入路的上部，在该处它发出3个分支：
+<ul>
+<li>升支：在缝匠肌和阔筋膜张肌之间的肌间隙内向髂前上棘走行。在髋关节前侧入路需将其结扎。</li>
+<li>横支：继续环绕股骨并加入到旋股内侧动脉的横支，构成十字形吻合。</li>
+<li>降支：沿股中间肌和股外侧肌之间的间隙内走行。在股骨的前外侧入路会遇到此动脉。</li>
+</ul></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/08/Applied-Surgical-Anatomy-of-the-Thigh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/08/Applied-Surgical-Anatomy-of-the-Thigh/" class="post-title-link" itemprop="url">大腿的外科应用解剖：大腿肌</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-08 10:52:39" itemprop="dateCreated datePublished" datetime="2018-09-08T10:52:39+08:00">2018-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:07:56" itemprop="dateModified" datetime="2019-02-28T01:07:56+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明：<br> 1. 部分参考自Stanley Hoppenfeld MD, et al.Surgical
+Exposures in Orthopaedics:The Anatomic Approach.LWW,2016.<br> 2.
+部分参考自柏树令《系统解剖学（第7版）》人民卫生出版社.2008年<br></p>
+</blockquote>
+<h2 id="一系统解剖">一、系统解剖</h2>
+<h3 id="一概述">（一）概述</h3>
+<p><a target="_blank" rel="noopener" href="http://qiniud.louyanspine.com/Anatomy%20Of%20The%20Thigh.mp4">大腿有3组主要的肌肉群</a>，即前群、后群和内侧群。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-09-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-09%20%E4%B8%8B%E5%8D%888.24.22.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-13-B9781455770083000065_f006-014-9781455770083.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-08-cross-section-of-leg-image-anatomy-leg-compartment-anatomy-muscle-anatomy-cross-section-calf-leg.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-muscles-of-inner-thigh-muscles-of-inner-thigh-inner-thigh-muscles-anatomy-tutorial.jpg" /></p>
+<h3 id="二前群">（二）前群</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">起点</th>
+<th style="text-align: center;">止点</th>
+<th style="text-align: center;">作用</th>
+<th style="text-align: center;">神经支配</th>
+<th style="text-align: center;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td
+style="text-align: center;"><a target="_blank" rel="noopener" href="http://qiniud.louyanspine.com/Sartorius%20Muscle.mp4">缝匠肌(sartorius)</a></td>
+<td style="text-align: center;">髂前上棘</td>
+<td style="text-align: center;">胫骨上端内侧面</td>
+<td style="text-align: center;">屈髋屈膝，膝关节旋内</td>
+<td style="text-align: center;">股神经</td>
+<td style="text-align: center;">全身最长的肌</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">股直肌</td>
+<td style="text-align: center;">髂前下棘和髋臼上缘</td>
+<td style="text-align: center;">胫骨粗隆</td>
+<td style="text-align: center;">伸膝，屈髋</td>
+<td style="text-align: center;">股神经</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">股中间肌</td>
+<td style="text-align: center;">股骨体前面</td>
+<td style="text-align: center;">胫骨粗隆</td>
+<td style="text-align: center;">伸膝</td>
+<td style="text-align: center;">股神经</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">股内侧肌</td>
+<td style="text-align: center;">股骨粗线内侧唇</td>
+<td style="text-align: center;">胫骨粗隆</td>
+<td style="text-align: center;">伸膝</td>
+<td style="text-align: center;">股神经</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">股外侧肌</td>
+<td style="text-align: center;">股骨粗线外侧唇</td>
+<td style="text-align: center;">胫骨粗隆</td>
+<td style="text-align: center;">伸膝</td>
+<td style="text-align: center;">股神经</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>股四头肌(quadriceps
+femoris)的四个头向下形成一腱，包绕髌骨的两侧和前面，向下续为髌韧带</p>
+</blockquote>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-03-%E9%AB%8B%E8%87%BC.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-quads-anatomy.jpg" /><img
+src="http://qiniup.louyanspine.com/2018-09-09-Tailor-s-muscle.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-He%20sat%20in%20the%20window.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-knee_bursitis_pes_anserine_anatomy02.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-pes-anserinus-bursitis-image.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-quadriceps-muscles-origin-and-insertion-anatomy-of-quadricep-quadriceps-femoris-muscle-origin-lifeinharmony.jpg" />
+<img src="http://qiniup.louyanspine.com/2018-09-09-hip%20flexion.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-leg-extentions_Collage-1.jpg" /></p>
+<h3 id="三内侧群">（三）内侧群</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">起点</th>
+<th style="text-align: center;">止点</th>
+<th style="text-align: center;">作用</th>
+<th style="text-align: center;">神经支配</th>
+<th style="text-align: center;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">股薄肌(gracilis)</td>
+<td style="text-align: center;">耻骨支、坐骨支前面</td>
+<td style="text-align: center;">胫骨上端内侧</td>
+<td style="text-align: center;">髋关节内收、旋外</td>
+<td style="text-align: center;">股神经、闭孔神经</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">长收肌(adductor longus)</td>
+<td style="text-align: center;">耻骨支、坐骨支前面</td>
+<td style="text-align: center;">股骨粗线</td>
+<td style="text-align: center;">髋关节内收、旋外</td>
+<td style="text-align: center;">股神经、闭孔神经</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">耻骨肌(pectineus)</td>
+<td style="text-align: center;">耻骨支、坐骨支前面</td>
+<td style="text-align: center;">耻骨肌线</td>
+<td style="text-align: center;">髋关节内收、旋外</td>
+<td style="text-align: center;">股神经、闭孔神经</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">短收肌(adductor brevis)</td>
+<td style="text-align: center;">耻骨支、坐骨支前面</td>
+<td style="text-align: center;">股骨粗线</td>
+<td style="text-align: center;">髋关节内收、旋外</td>
+<td style="text-align: center;">股神经、闭孔神经</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">大收肌(adductor magnus)</td>
+<td style="text-align: center;">耻骨支、坐骨支和坐骨结节前面</td>
+<td style="text-align: center;">股骨粗线</td>
+<td style="text-align: center;">髋关节内收、旋外</td>
+<td style="text-align: center;">坐骨神经、闭孔神经</td>
+<td style="text-align: center;">收肌结节/收肌腱裂孔</td>
+</tr>
+</tbody>
+</table>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-09-6a00e55060a4d88834014e8bc8f5b5970d.gif" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-adductors-group-label.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-Adductor_Strain.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-da4d54c09d219385758158a4ed8a18d3a6e9e315.png" /></p>
+<h3 id="四后群">（四）后群</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">起点</th>
+<th style="text-align: center;">止点</th>
+<th style="text-align: center;">作用</th>
+<th style="text-align: center;">神经支配</th>
+<th style="text-align: center;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">股二头肌(biceps femoris)</td>
+<td style="text-align: center;">长头：坐骨结节；短头：股骨粗线</td>
+<td style="text-align: center;">腓骨头</td>
+<td style="text-align: center;">伸髋屈膝，旋外</td>
+<td
+style="text-align: center;">长头：坐骨神经（胫神经，L5,S1,S2）；短头：坐骨神经（腓总神经，S1,S2）</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">半腱肌(semitendinosus)</td>
+<td style="text-align: center;">坐骨结节</td>
+<td style="text-align: center;">胫骨上端内侧面</td>
+<td style="text-align: center;">伸髋屈膝，旋内</td>
+<td style="text-align: center;">坐骨神经（胫神经，L5,S1,S2）</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">半膜肌(semimembranosus)</td>
+<td style="text-align: center;">坐骨结节</td>
+<td style="text-align: center;">胫骨内侧髁后面</td>
+<td style="text-align: center;">伸髋屈膝，旋内</td>
+<td style="text-align: center;">坐骨神经（胫神经，L5,S1,S2）</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-03-hamasting-group-1024x583.jpg" /></p>
+<h2 id="二局部解剖">二、局部解剖</h2>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-09-femurmuscle.jpg" /> <img
+src="http://qiniup.louyanspine.com/2018-09-09-femurmuscle2.jpg" /> <img
+src="http://qiniup.louyanspine.com/2018-09-09-femurmuscle3.jpg" /> <img
+src="http://qiniup.louyanspine.com/2018-09-09-2iEeCHPsxbas46QC7ze0g_muscles-pelvis-hip-femur_english.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-09-leg-muscles-side-view-muscle-anatomy-skeletal-muscles-groin-muscles-calf-muscles.jpg" />
+<img src="http://qiniup.louyanspine.com/2018-09-09-slide_23.jpg" /></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/04/Reconstruction-with-preservation-of-the-epiphysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/04/Reconstruction-with-preservation-of-the-epiphysis/" class="post-title-link" itemprop="url">儿童股骨远端骨肉瘤保留骨骺的定制肿瘤型假体重建术</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-04 23:05:58" itemprop="dateCreated datePublished" datetime="2018-09-04T23:05:58+08:00">2018-09-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-27 23:42:44" itemprop="dateModified" datetime="2019-02-27T23:42:44+08:00">2019-02-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明：<br> 1.
+整理自董扬,阎洪亮,张智长等.儿童股骨远端骨肉瘤保留骨骺的定制肿瘤型假体重建术.中华骨科杂志[J],2015,35(2):121-126.<br></p>
+</blockquote>
+<h2 id="一前言">一、前言</h2>
+<ol type="1">
+<li>骨肉瘤是儿童最常见的原发性骨恶性肿瘤之一，年发病率为4~6/100万。骨肉瘤的发病机制尚不清楚，发病部位主要位于四肢长管状骨干骺端，尤其是股骨远端、胫骨近端和肱骨近端。</li>
+<li>儿童保肢的主要问题是患者成年后会出现因骨骺破坏导致的患肢短缩、关节畸形，甚至出现严重跛行和代偿性脊柱侧凸。虽然有可延长假体，但仍不能有效地解决肢体短缩问题。</li>
+<li>如肿瘤未侵犯骨骺，保留骨骺的保肢手术已成为当今治疗儿童股骨远端骨肉瘤的首选方法。</li>
+<li>目前，应用于临床的保留骨骺的保肢手术方法主要有：
+<ul>
+<li><p>保留骨骺的瘤段骨灭活再植术</p></li>
+<li><p>骨骺牵开+大段异体骨、自体骨移植术 <img
+src="http://qiniup.louyanspine.com/2018-09-07-Chondrodiatasis.png" /></p></li>
+<li><p>保留骨骺的转移性骨生长术 <img
+src="http://qiniup.louyanspine.com/2018-09-07-JOrthopAlliedSci_2016_4_1_1_180677_u1.jpg" /></p></li>
+<li><p>这些方法虽然均可以尽最大程度地减少骨骺损伤，但其主要并发症也很多</p>
+<ul>
+<li>手术时间长</li>
+<li>感染</li>
+<li>移植骨或灭活骨的吸收</li>
+<li>骨折端不愈合或延迟愈合</li>
+<li>内固定松动</li>
+</ul></li>
+</ul></li>
+<li>相对于以上保留骨骺的重建方式，肿瘤型假体具有如下特点：
+<ul>
+<li>由于保留了患者自身关节，术后关节活动基本不受影响，通过早期功能锻炼，可使膝关节功能早日恢复</li>
+<li>由于保留患者的自身骨骺，肢体有潜在的生长能力，可以最大限度地保留肢体长度；</li>
+<li>与灭活回植或大段异体骨重建相比，肿瘤型假体不会出现骨不连，因此患者肢体功能锻炼无需等待骨质愈合；</li>
+<li>肿瘤型假体的重建手术相对容易，手术时间或稍短，无须二次手术，早期并发症较少；</li>
+<li>提高患者的生存质量；</li>
+</ul></li>
+<li>保留骨骺的定制肿瘤型假体其关键在于如何将假体固定于残留的骨骺。因此，设计了保留骨骺的定制肿瘤型假体：
+<ul>
+<li>其近端依然采用假体柄利用骨水泥固定于髓腔</li>
+<li>远端则设计成“抓手”形式，内、外侧分别用2枚锁定螺钉将假体固定于骨骺</li>
+<li>“抓手”和假体柄以横连接相连</li>
+<li>由于假体与骨骺之间受力主要为纵向的重力，因此螺钉并不会出现横向松动，可以保证4枚锁定螺钉足以固定假体于骨骺</li>
+</ul></li>
+</ol>
+<h2 id="二资料与方法">二、资料与方法</h2>
+<h3 id="一病例资料">（一）病例资料</h3>
+<ol type="1">
+<li><p>3例患者均以局部疼痛就诊，疼痛时间2~3个月。</p></li>
+<li><p>X线、CT、MRI均显示局部骨质破坏及软组织肿块，边界不清。</p></li>
+<li><p>于术前CT片获取截骨与假体安装数据（图1）。</p></li>
+<li><p>全身骨扫描（ECT）示其他部位未见异常放射性浓聚。</p></li>
+<li><p>2例患者肺部CT未见明显转移灶，1例患者出现微小结节。</p></li>
+<li><p>术前均行穿刺活检术或切开活检术，病理证实为骨肉瘤。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-05-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-05%20%E4%B8%8B%E5%8D%887.27.53.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-05-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-05%20%E4%B8%8B%E5%8D%887.30.51.png" /></p></li>
+</ol>
+<h3 id="二病例筛选条件">（二）病例筛选条件</h3>
+<ol type="1">
+<li>儿童股骨远端骨骺未闭合的骨肉瘤患者；</li>
+<li>术前给予新辅助化疗（均采用阿霉素、顺铂、高剂量甲氨蝶呤及异环磷酰胺）1~2周期，化疗后根据相关检查结果（X线、CT、MRI及全身骨扫描等）进行综合评价，主要通过MRI判断肿瘤至骺板的距离及骨骺处有无肿瘤侵袭，筛选符合保留骨骺保肢术条件的患者。</li>
+</ol>
+<h3 id="二肿瘤分期与分型">（二）肿瘤分期与分型</h3>
+<h4 id="enneking外科分期">Enneking外科分期</h4>
+<ol type="1">
+<li>ⅡA期1例</li>
+<li>ⅡB期2例</li>
+</ol>
+<h4 id="san-julian影像学分型">San-Julian影像学分型</h4>
+<ol type="1">
+<li>Ⅰ型1例</li>
+<li>Ⅱ型2例</li>
+</ol>
+<h3 id="三手术方法">（三）手术方法</h3>
+<h4 id="准备工作">准备工作</h4>
+<ol type="1">
+<li>全身麻醉</li>
+<li>取仰卧位</li>
+<li>手术部位常规消毒、铺巾</li>
+<li>于大腿根部上止血带</li>
+</ol>
+<h4 id="肿瘤显露">肿瘤显露</h4>
+<ol type="1">
+<li>采用膝关节前内侧弧形切口，股部前侧的切口长短依据病变大小确定，一般较近端截骨面长约3cm。</li>
+<li>逐层切开皮肤、皮下及筋膜，梭形切除活检通道。</li>
+<li>按无瘤操作原则在肿瘤外分离，肉眼所见肿瘤水肿区外2~3cm，将肿瘤周围软组织与正常组织完全分离。</li>
+</ol>
+<h4 id="肿瘤切除">肿瘤切除</h4>
+<ol type="1">
+<li><p>于股内侧肌正常肌肉组织内向近端及远端分离，切除股中间肌，根据情况决定是否保留股外侧肌、股直肌（若以上肌肉有病灶累及则需切除，后行肌瓣转移重建）</p></li>
+<li><p>股骨近端分离至距肿瘤边缘上3cm。</p></li>
+<li><p>于内侧及后侧分离并保护血管、神经束，结扎股血管向股骨及肿瘤组织发出的分支。</p></li>
+<li><p>X线透视下定位骨骺线</p></li>
+<li><p>安装术前计算机辅助定制的模具</p></li>
+<li><p>根据模具于股骨近端及髁部截骨，将肿瘤完整切除，远端保留骨骺（图3）。</p></li>
+<li><p>取髓腔组织送冰冻活检。</p></li>
+<li><p>70℃蒸馏水浸泡创面，更换手套及器械后，松止血带，充分彻底止血。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-04-%E6%A8%A1%E5%85%B7%E6%88%AA%E9%AA%A8.png" /></p></li>
+</ol>
+<h4 id="假体重建">假体重建</h4>
+<ol type="1">
+<li>股骨近端髓腔常规扩髓，修正截骨面。</li>
+<li>置入试模，注意观察关节是否稳定，软组织张力是否合适，双下肢是否等长。</li>
+<li>取出试模，脉冲冲洗枪冲洗创面及髓腔，调制抗生素骨水泥，于中立位安装假体，同时将假体远端同保留的骨骺以螺钉固定，保持患肢中立位</li>
+<li>髌骨保持向前，直至骨水泥固化。</li>
+<li>再次冲洗创面，放置负压引流管，逐层关闭伤口。</li>
+</ol>
+<h3 id="四术后处理及后续治疗">（四）术后处理及后续治疗</h3>
+<ol type="1">
+<li>术后患者行常规抗炎、抗凝等支持治疗。</li>
+<li>患肢抬高，引流管放置3~5d，当引流量&lt;50ml时拔除。</li>
+<li>术后患者疼痛缓解后（一般于术后第2天）可进行股四头肌收缩锻炼</li>
+<li>在切口良好情况下，5d后可自行或采用CPM机进行膝关节伸屈功能锻炼。</li>
+<li>手术3周切口愈合良好后再行术后化疗。</li>
+</ol>
+<h3 id="五随访及疗效评价标准">（五）随访及疗效评价标准</h3>
+<ol type="1">
+<li>患者术后1、3、6、12个月门诊复查，询问病史、体格检查，并摄X线片</li>
+<li>术后18个月和24个月进行电话随访：
+<ul>
+<li>了解患者后续治疗情况</li>
+<li>询问患肢功能和双下肢长度</li>
+<li>是否发生局部复发以及远处转移</li>
+</ul></li>
+<li>随访时采用美国骨肿瘤学会评分系统（Musculoskeletal Tumor
+Society，MSTS）评价患肢功能。</li>
+<li>根据X线片等影像学资料观察假体情况。</li>
+</ol>
+<h2 id="三结果">三、结果</h2>
+<h3 id="一手术情况">（一）手术情况</h3>
+<ol type="1">
+<li><p>3例患者均顺利完成术前化疗及手术，手术时间分别为3h、4h和6h，平均4.3h，手术时间较其他保肢方法无明显差异。</p></li>
+<li><p>术中出血量分别为300ml、500ml和2200ml（该患者肿瘤与血管紧贴，分离时造成股血管破裂出血），手术出血量较其他保肢方法亦无明显差异。</p></li>
+<li><p>术中截骨端髓腔内组织经病理组织学证实未见肿瘤细胞残留，瘤段骨病理组织学检查报告均为骨肉瘤。</p></li>
+<li><p>术后X线见股骨远端瘤段切除假体置换术后，假体位置良好（图4）。 <img
+src="http://qiniup.louyanspine.com/2018-09-05-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-05%20%E4%B8%8B%E5%8D%883.22.21.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-05-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-05%20%E4%B8%8B%E5%8D%883.22.31.png" /></p>
+<p>男，15岁，右股骨远端骨肉瘤</p>
+<ul>
+<li>图4A：术前化疗后正位X线片示右股骨远端肿瘤成骨、边缘硬化增加，肿瘤远离骨骺</li>
+<li>图4B：术前化疗后矢状位CT重建示右股骨远端肿瘤成骨、边缘硬化增加，肿瘤远离骨骺</li>
+<li>图4C：术前化疗后MRI
+T1WI示右股骨远端肿瘤边界清晰，部分坏死，距离骨骺距离&gt;2cm</li>
+<li>图4D：术前化疗后MRI
+T2WI示右股骨远端肿瘤水肿较化疗前减轻，肿瘤边界清晰，距离骨骺距离&gt;2cm</li>
+<li>图4E：行瘤段骨切除、保留骨骺的定制肿瘤型假体重建术，术后2年正、侧位X线片示右股骨远端假体位置可，未见明显松动</li>
+</ul></li>
+</ol>
+<h3 id="二肿瘤转归">（二）肿瘤转归</h3>
+<ol type="1">
+<li>3例患者均得到随访，随访时间12~24个月。</li>
+<li>3例患者均未出现局部肿瘤复发，1例患者肺部CT显示微小结节有扩大趋势，疑似转移，经化疗目前肺部情况稳定。</li>
+</ol>
+<h3 id="三临床及影像学评价">（三）临床及影像学评价</h3>
+<ol type="1">
+<li>根据MSTS评分系统（1993年标准）术后功能评分分别为13分、26分和24分，平均为21分。术后患者功能恢复良好。</li>
+<li>末次随访除截肢者外，余2例患者膝关节屈曲均&gt;110°，双下肢长度相差均&lt;2cm。
+<img
+src="http://qiniup.louyanspine.com/2018-09-05-50562985.snap.jpg" /></li>
+</ol>
+<h3 id="四并发症">（四）并发症</h3>
+<ol type="1">
+<li>1例患者术后1个月出现假体感染，经过保守治疗无效，行大腿截肢术。</li>
+<li>余2例患者均未出现假体感染、无菌性松动等并发症。</li>
+</ol>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-05-Difference-Between-Epiphysis-and-Diaphysis-fig-1-627x1024.jpg" /></p>
+<h2 id="四讨论">四、讨论</h2>
+<p>随着新辅助化疗及术后化疗的开展，保肢手术已成为股骨远端骨肉瘤的主要治疗方式。保肢治疗的方法有很多：</p>
+<ul>
+<li>自体骨移植</li>
+<li>灭活再植</li>
+<li>异体骨移植</li>
+<li>肿瘤型关节假体重建</li>
+<li>复合重建</li>
+</ul>
+<p>由于骨肉瘤多发生在儿童中，其骨骺尚未完全闭合，以往为了彻底切除肿瘤，邻近关节的骨骺往往被切除，势必导致术后肢体不等长、关节功能恢复不理想等并发症。因此，保留骨骺的定制肿瘤型假体在儿童股骨远端骨肉瘤保肢治疗中就显得尤为重要。
+<img
+src="http://qiniup.louyanspine.com/2018-09-05-623_Epiphyseal_Plate-Line.jpg" />
+<img src="http://qiniup.louyanspine.com/2018-09-05-8388997_orig.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-05-age-estimation-by-bones-13-638.jpg" />
+<img src="http://qiniup.louyanspine.com/2018-09-05-enchond4.jpg" /> <img
+src="http://qiniup.louyanspine.com/2018-09-05-epiphysealplate_columbiaedu.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-05-LxrytlmDZ8H8zhpwdlIvlg43409.jpeg" />
+<img src="http://qiniup.louyanspine.com/2018-09-05-slide_20.jpg" /></p>
+<h3 id="一手术适应证">（一）手术适应证</h3>
+<ol type="1">
+<li><p>1999年San-Julian等根据肿瘤侵犯骨骺的距离进行影像学分型，即San-Julian分型（图2）认为保留骨骺的保肢手术主要适用于Ⅰ型和Ⅱ型患者。此外，还必须具备以下条件：</p>
+<ul>
+<li>（1）术前进行新辅助化疗、且化疗效果良好的患者；</li>
+<li>（2）骨生长尚未成熟，骺板未闭合；</li>
+<li>（3）术前必须应用一系列影像学检查证实肿瘤未侵犯骨骺，术中及术后必须经病理组织学检查证实。
+<img
+src="http://qiniup.louyanspine.com/2018-09-05-Healthy-on-left-and-Osteoarthritic-joints-1-Joint-components-such-as-articular.png" /></li>
+</ul></li>
+<li><p>San-Julian影像分型示意图 <img
+src="http://qiniup.louyanspine.com/2018-09-05-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-05%20%E4%B8%8B%E5%8D%886.31.45.png" /></p>
+<ul>
+<li>Ⅰ型：肿瘤与骺板相邻，肿瘤边缘距离骺板&gt;2cm；</li>
+<li>Ⅱ型：肿瘤与骺板距离&lt;2cm或相邻；</li>
+<li>Ⅲ型：骺板与肿瘤部分接触，距离关节端软骨下骨&gt;2cm，此类型是指骨骺体积较大的病例。</li>
+</ul></li>
+</ol>
+<h3 id="二手术技巧">（二）手术技巧</h3>
+<h4 id="切口">切口</h4>
+<ol type="1">
+<li>股骨远端骨肉瘤的保肢手术切口一般起自大腿中段，向内侧延伸经膝关节髌骨内侧至胫骨结节(胫骨粗隆)，同时一并切除活检通道。</li>
+<li>此切口可以暴露股骨远端和膝关节、肌间隙、缝匠肌管和股血管。</li>
+</ol>
+<h4 id="肿瘤显露与切除">肿瘤显露与切除</h4>
+<ol type="1">
+<li>在缝匠肌管内确认股动脉至收肌管，游离并保护股血管束，注意结扎血管分支。</li>
+<li>显露并保护腘血管、股骨后侧间隙及坐骨神经。肿瘤的分离与切除必须在瘤外进行（需带有足够距离的正常肌肉）。</li>
+<li>根据不同情况切除或保留不同肌肉。
+<ul>
+<li>如果股四头肌切除过多：
+<ul>
+<li>转移股二头肌重建股外侧肌覆盖假体</li>
+<li>转移缝匠肌取代股内侧肌覆盖假体的内侧面</li>
+</ul></li>
+<li>必要时可以转移腓肠肌内侧头肌瓣覆盖假体</li>
+</ul></li>
+<li>充分暴露股骨远端及近端后，安装计算机辅助定制的模具。</li>
+<li>C臂机透视下定位骺板位置，两端分别进行截骨，两端切缘分别取少量髓腔组织进行术中冰冻，以判断是否有肿瘤残存。</li>
+<li>注意截断股骨时需用湿纱布保护神经、血管束。</li>
+<li>另外，瘤段切除后切勿牵引肢体，以免损伤血管和神经。</li>
+</ol>
+<h4 id="假体安装">假体安装</h4>
+<ol type="1">
+<li>股骨近端髓腔扩髓，方法同全膝关节置换术。</li>
+<li>首先安装肿瘤型假体的远端“抓手”，内、外侧分别各用2枚锁定螺钉固定，再安装近端假体柄，最后将二者连接固定。</li>
+<li>注意观察软组织张力，双下肢长度等。</li>
+<li>缝合切口前将关节屈曲，以获得术后更好的膝关节功能。</li>
+</ol>
+<h3 id="三并发症及其防治">（三）并发症及其防治</h3>
+<ol type="1">
+<li>同其他假体一样，保留骨骺的定制肿瘤型假体也会出现一些并发症，如假体排异、假体周围感染及无菌性松动等。</li>
+<li>一般来说，假体周围感染是较为常见的早期并发症。
+<ul>
+<li>本组有1例在术后1个月左右出现假体周围感染，经过保守治疗（抗感染、换药等）无效后，再次行大腿截肢术。</li>
+<li>分析原因，该患者肿瘤侵犯主要在内侧，手术切除了股内侧肌、大部分股直肌，软组织缺损较多，未行肌瓣转移覆盖假体，导致感染后假体外露。</li>
+<li>当然，假体周围感染亦可再次尝试翻修术，但仍有再次感染的可能。</li>
+</ul></li>
+<li>假体无菌性松动一般出现在术后5年之后，本组患者随访时间较短，暂未出现假体松动的现象。</li>
+</ol>
+<h3 id="四本研究的局限性">（四）本研究的局限性</h3>
+<ol type="1">
+<li>保留骨骺的定制肿瘤型假体重建术也有一定的弊端，如可能出现的假体周围感染和假体远期松动。</li>
+<li>假体远端与骨骺的接触面并不完全匹配，手术操作时会导致误差。因此，可考虑：
+<ul>
+<li>股骨近端假体柄采用生物型固定。</li>
+<li>远端与骨骺接触的假体面采用羟基磷灰石涂层以便于骨长入。</li>
+<li>也可以采用3D打印技术，使假体与残留的远端骨骺完全匹配。</li>
+</ul></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/03/distal-femoral-resections-with-endoprosthetic-replacement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/03/distal-femoral-resections-with-endoprosthetic-replacement/" class="post-title-link" itemprop="url">股骨远端切除人工假体置换术（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-03 19:21:58" itemprop="dateCreated datePublished" datetime="2018-09-03T19:21:58+08:00">2018-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:00:31" itemprop="dateModified" datetime="2019-02-28T01:00:31+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明：<br> 1. 部分参考by Dr. Jacob Bickels MD, et al.Operative
+Techniques in Orthopaedic Surgical Oncology.LWW,2012.<br></p>
+</blockquote>
+<h2 id="一背景">一、背景</h2>
+<ol type="1">
+<li>Ralph C. Marcove (纪念Sloan Kettering肿瘤中心）和Kenneth C.
+Francis(纽约大学医学中心）于20世纪70年代早期开始采用保肢手术治疗恶性肿瘤，最初就是治疗股骨远端骨肉瘤。</li>
+<li>同时期有效化疗药物（阿霉素/多柔比星(Doxorubicin/Adriamycin)及甲氨蝶呤(Methotrexate)的应用，是促成这一技术发展的重要推动因素。这些医生希望通过结合手术治疗及化疗，包括术前及术后化疗（即辅助化疗），可以安全地对患者实施保肢手术，可以进行保肢肿瘤切除。</li>
+<li>股骨远端假体重建术经历了手术技术的改进及制造技术的变化(initially by
+Howmedica, Inc., Rutherford, NJ)，至今仍是最为满意可行的骨肿瘤手术技术。
+<ul>
+<li>组件锻造技术(Forging of components)极大地减少了力学失败问题</li>
+<li>模块化设计(modularity)增加了假体应用的适应证</li>
+<li>保留肌肉及软组织覆盖(Muscle-sparing and soft tissue
+coverage)技术的应用减少了伤口愈合问题</li>
+</ul></li>
+<li>保肢手术的三个主要步骤，构成了对低度或髙度恶性骨肿瘤进行可靠的及安全的保肢切除和重建的基础。
+<ul>
+<li>即在良好的肿瘤边界广泛切除</li>
+<li>骨缺损的可靠重建</li>
+<li>充足的肌肉转移和良好的假体覆盖(adequate muscle transfer and good
+prosthetic coverage)</li>
+</ul></li>
+<li>治疗骨原发骨肉瘤已经获得了最多的临床经验。
+<ul>
+<li>最常见的发病部位是股骨远端及胫骨近段。</li>
+<li>这项技术此后被应用到其他骨原发恶性肿瘤和复发的良性肿瘤的治疗。</li>
+<li>最近被应用到异体骨移植失败及复杂的多次失败的全膝关节置换术</li>
+</ul></li>
+<li>手术的目的是获得足够的肿瘤学切除，同时保留足够的肌肉以维持一个无痛的有功能的肢体。</li>
+</ol>
+<h2 id="二解剖">二、解剖</h2>
+<p>手术医师不仅要对骨骼解剖及定制肿瘤假体非常熟悉，同时也需要熟悉血管解剖、软组织结构及可能应用的局部肌瓣和保肢手术可能会用到的手术技术。</p>
+<h3 id="一股骨femur">（一）股骨(Femur)</h3>
+<ol type="1">
+<li>股骨头(femoral head)：与髋臼相关节，头中央稍下有小的股骨头凹</li>
+<li>股骨颈(neck of hemur)：头下外侧狭细部</li>
+<li>大转子(greater trochanter) ：颈与体连接处上外侧的方形隆起</li>
+<li>小转子(lesser trochanter) ：内下方的隆起</li>
+<li>大小转子之间，前面有转子间线，后面有转子间嵴。</li>
+<li>股骨体略弓向前，上端呈圆柱形，中段呈三棱柱形，下段前后略扁。
+<ul>
+<li>体后面有纵行骨嵴，为粗线(linea aspera)，此线上端分叉。
+<ul>
+<li>向上外：延续于粗糙的臀肌粗隆(gluteal tuberosity)</li>
+<li>向上内：延续为耻骨肌线</li>
+</ul></li>
+<li>粗线下端也分为内、外两线，两线间的骨面为腘面。</li>
+<li>粗线中点附近，有口朝下的滋养孔。7. 内侧髁(medial
+condyle)：向后突出的膨大</li>
+</ul></li>
+<li>外侧髁(lateral condyle)：向后突出的膨大</li>
+<li>两髁前方：关节面彼此相连，形成髌面，与髌骨相连</li>
+<li>两髁后份：两髁之间的深窝称髁间窝(intercondylar fossa)11.
+两髁侧面最突起处，分别为：
+<ul>
+<li>内上髁(medial epicondyle)：内上髁上方的小突起，称收肌结节(adductor
+tubercle)</li>
+<li>外上髁(lateral epicondyle) <img
+src="http://qiniup.louyanspine.com/2018-09-03-%E8%82%A1%E9%AA%A8.png" /></li>
+</ul></li>
+</ol>
+<h3
+id="二髌骨patella-位于股骨下端前面在股四头肌腱内上宽下尖前面粗糙后面为关节面与股骨髌面相关节">（二）髌骨(Patella)
+位于股骨下端前面，在股四头肌腱内，上宽下尖，前面粗糙，后面为关节面，与股骨髌面相关节。</h3>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-03-Blausen_0596_KneeAnatomy_Front.png" /></p>
+<h3 id="三胫骨tibia">（三）胫骨(Tibia)</h3>
+<ol type="1">
+<li>胫骨上端膨大，向两侧突出，分别形成内侧髁和外侧髁。</li>
+<li>两髁上面各有上关节面，与股骨髁相关节。</li>
+<li>两上关节面之间的粗糙小隆起，称髁间隆起(intercondylar
+eminence)。</li>
+<li>外侧髁后下方有腓关节面与腓骨头相关节。上端前面的隆起称胫骨粗隆(tibial
+tuberosity)。</li>
+<li>胫骨体呈三棱柱形，较锐的前缘和平滑的内侧面直接位于皮下，外侧缘有小腿骨间膜附着，称骨间缘。后面上份有斜向下内比目鱼肌线。</li>
+<li>胫骨下端稍膨大，其内下方有一突起，称内踝(medial malleolus)。
+<ul>
+<li>下端的下面和内踝的外侧面有关节面与距骨相关节</li>
+<li>下端的外侧面有腓切迹与腓骨相接 <img
+src="http://qiniup.louyanspine.com/2018-09-03-%E8%83%AB%E9%AA%A8.png" /></li>
+</ul></li>
+</ol>
+<h3 id="四股前肌群1.-缝匠肌sartorius">（四）股前肌群1.
+缝匠肌(sartorius)</h3>
+<pre><code>* 起：髂前上棘                                     
+* 止：胫骨内侧面上部
+* 作用：屈髋屈膝，膝关节旋内
+* 神经支配：股神经2. 股四头肌(quadriceps femoris)   * 股直肌：
+    * 起点：髂前下棘和髋臼上缘
+* 股中间肌：
+    * 起点：股骨体前面
+* 股内侧肌：
+    * 起点：股骨粗线内侧唇
+* 股外侧肌：
+    * 起点：股骨粗线外侧唇    * 股四头肌止点：胫骨粗隆   * 作用：
+    * 伸膝
+    * 股直肌尚能屈髋关节 * 神经支配：股神经  
+![](http://qiniup.louyanspine.com/2018-09-03-%E9%AB%8B%E8%87%BC.png)
+![](http://qiniup.louyanspine.com/2018-09-03-quadriceps-muscles-origin-and-insertion-anatomy-of-quadricep-quadriceps-femoris-muscle-origin-lifeinharmony.jpg)</code></pre>
+<h3 id="五股内侧肌群1.-浅层">（五）股内侧肌群1. 浅层</h3>
+<pre><code>* 股薄肌(gracilis) * 长收肌(adductor longus)  * 耻骨肌(pectineus)        ![](http://qiniup.louyanspine.com/2018-09-03-adductors-group-label.png)2. 深层：
+* 短收肌(adductor brevis)  * 大收肌(adductor magnus)3. 股内侧肌群的作用：
+* 内收和外旋大腿4. 神经支配：
+* 闭孔神经(obturator n.)
+    * 耻骨肌由股神经支配(femoral n.) 
+![](http://qiniup.louyanspine.com/2018-09-03-Adductor_Strain.jpg)
+![](http://qiniup.louyanspine.com/2018-09-03-da4d54c09d219385758158a4ed8a18d3a6e9e315.png)</code></pre>
+<h3 id="六股后肌群">（六）股后肌群</h3>
+<ol type="1">
+<li>股二头肌(biceps femoris)<br />
+</li>
+<li>半腱肌(semitendinosus)</li>
+<li>半膜肌(semimembranosus)4. 股后肌群的作用：屈膝、伸髋</li>
+<li>股后肌群的神经支配：坐骨神经(sciatic n.)<br />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-hamasting-group-1024x583.jpg" /></li>
+</ol>
+<h3
+id="七收肌管adductor-canal缝匠肌下管subsartorial-or-hunters-canal">（七）收肌管(adductor
+canal)/缝匠肌下管(subsartorial or Hunter's canal)</h3>
+<ol type="1">
+<li>位置：位于股部中1/3段内侧，长约15～17cm，为三角形肌间隙<br />
+</li>
+<li>境界： * 前壁：缝匠肌
+<ul>
+<li>外侧壁：股内侧肌</li>
+<li>后壁：长收肌及大收肌</li>
+<li>上口：接股三角</li>
+<li>下口：内收肌腱裂孔 <img
+src="http://qiniup.louyanspine.com/2018-09-03-slide_3-1.jpg" />3.
+主要内容： * 股动脉</li>
+<li>股静脉</li>
+<li>膝降动脉</li>
+<li>隐神经</li>
+<li>股神经股内侧肌肌支 <img
+src="http://qiniup.louyanspine.com/2018-09-03-ADDUCTOR-CANAL--Subsartorial-canal-.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-Adductor-Canal.jpg" />
+<img src="http://qiniup.louyanspine.com/2018-09-03-2.jpg" /></li>
+</ul></li>
+<li>缝匠肌下管位于股内侧肌、缝匠肌和大收肌之间的间隙。
+<ul>
+<li>股动脉经行大腿内侧部分（收肌裂孔）后进入腘窝。</li>
+<li>如果患者的肿瘤大于13cm，缝匠肌下管经常会移位。</li>
+<li>缝匠肌下管内的血管常会被股内侧肌深筋膜及血管周围鞘所保护。肿瘤极少会穿透这些筋膜。</li>
+</ul></li>
+</ol>
+<h3 id="八腘窝popliteal-fossa">（八）腘窝(popliteal fossa)</h3>
+<ol type="1">
+<li>位置和境界 * 膝关节后方，呈菱形
+<ul>
+<li>上外侧界：股二头肌</li>
+<li>上内侧界：半腱肌和半膜肌 * 下内侧界：腓肠肌内侧头 *
+下外侧界：腓肠肌外侧头 * 底：
+<ul>
+<li>腘平面 * 膝关节囊后部(腘斜韧带)
+<ul>
+<li>Popliteal ligament
+<ul>
+<li>Arcuate popliteal ligament</li>
+<li>Oblique popliteal ligament/腘斜韧带 * 腘肌及其筋膜 * 顶：腘筋膜 <img
+src="http://qiniup.louyanspine.com/2018-09-03-3.-What-are-the-contents-of-the-popliteal-fossa.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-muscles-and-ligaments-of-the-knee-oblique-popliteal-ligament.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-popliteal-fossa-anatomy-popliteal-artery-location-entrapment-popliteal-artery-aneurysm.jpg" /></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>内容（由浅层至深层） * 胫神经和腓总神经(tibial n. and common
+peroneal n.)
+<ul>
+<li>腘静脉及其属支(popliteal v.)</li>
+<li>腘动脉及其分支(popliteal a.)
+<ul>
+<li>终支：
+<ul>
+<li>胫前、后动脉 * 关节支： * 膝上内、外侧动脉 * 膝中动脉 *
+膝下内、外侧动脉</li>
+</ul></li>
+</ul></li>
+<li>疏松结缔组织</li>
+<li>腘淋巴结(popliteal lymph nodes)<br />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-tietjen_inknpaint_final.jpg" /></li>
+</ul></li>
+<li>腘窝内包含有腘动静脉及坐骨神经。腘血管经大腿内侧出缝匠肌管穿过收肌裂孔进入腘窝。通过增强CT,MRI及血管造影来评估腯血管。</li>
+<li>肿瘤极少直接侵犯血管。如果肿瘤向后方生长，血管可能被推挤移位，但通常会有由腘窝脂肪构成的正常的边界或界限。</li>
+<li>显露腘窝是决定是否可以进行保肢手术的第一步。
+<ul>
+<li>显露腘窝，结扎切断膝血管丛。</li>
+<li>如果血管未被肿瘤侵及，通常可以安全地切除肿瘤。</li>
+</ul></li>
+<li>术中应行腘窝脂肪或腘血管外膜的冰冻活检。
+<ul>
+<li>如果有明确的血管侵犯，可以行血管移植替换原有的血管。</li>
+</ul></li>
+<li>通常不需要修复腘静脉，因为它通常并不是术后唯一的回流血管。</li>
+</ol>
+<h3 id="九膝关节">（九）膝关节</h3>
+<ol type="1">
+<li>肉瘤极少直接侵犯膝关节。</li>
+<li>膝关节受侵的主要原因包括不恰当的活检，肿瘤沿关节内交叉韧带侵犯，以及病理骨折。</li>
+<li>可以通过CT及MRI检査可靠地评估膝关节。</li>
+<li>如果査体考虑存在关节积液，必须行针吸穿刺及病理学检査。</li>
+<li>关节积血常提示肿瘤已经侵犯滑膜组织。这种情况并不常见，且并不提示需要截肢。</li>
+<li>交叉韧带偶尔会被股骨远端肿瘤直接侵犯。
+<ul>
+<li>肿瘤通过股骨远端髁间窝(intercondylar
+notch)内的骨-腱结合部(bone-tendinous
+junction)侵犯。因为这一部位没有软骨，不能屏障肿瘤的生长。 <img
+src="http://qiniup.louyanspine.com/2018-09-03-slide_6.jpg" /></li>
+<li>MRI有时会对评估交叉韧带的侵犯有帮助。</li>
+<li>前后交叉韧带内的肿瘤结节有时会表现为关节积血。
+<ul>
+<li>最常见的表现是手术时发现交叉韧带内的肿瘤结节。</li>
+<li>但这并不妨碍进行保肢手术。</li>
+<li>交叉韧带止于胫骨平台，可以在胫骨平台截骨时连同肿瘤一起大块切除。这是一种安全的手术操作，可以避免行真正的关节外切除。</li>
+</ul>
+<img src="http://qiniup.louyanspine.com/2018-09-03-kneeanatomy.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-Cruciate_Ligaments.png" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-bursae-de-genou-48747270.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-09-03-stock-photo-cross-section-through-a-typical-synovial-joint-showing-the-bone-synovial-membrane-synovial-fluid-280030736.jpg" /></li>
+</ul></li>
+</ol>
+<h2 id="三适应证">三、适应证</h2>
+<ol type="1">
+<li><p>人工假体(Endoprostheses)最初只应用于恶性骨肿瘤切除术后的重建。制造时间可以长达3个月，这一期间可以进行术前化疗。</p></li>
+<li><p>已经证实假体重建的耐久性，并且假体设计在不断改进(Fig
+2)。</p></li>
+<li><p>组配式假体的出现使得手术可以随时进行，使股骨远端假体重建的适应证得到扩展：</p>
+<ul>
+<li><p>一些3期骨巨细胞瘤</p></li>
+<li><p>约占10%的不能进行常规囊内(intralesional)手术的转移性病变</p></li>
+<li><p>老年骨质疏松患者复杂的髁上骨折</p></li>
+<li><p>股骨远端骨折内固定失败</p></li>
+<li><p>异体骨或全膝关节置换术失败</p></li>
+<li><p>存在严重屈曲挛缩需要行一期膝关节置换的患者</p>
+<blockquote>
+<p>患者如果采用常规的膝关节置换、截骨或韧带切除可能会导致膝关节不稳定。</p>
+</blockquote></li>
+</ul>
+<p><img src="http://qiniup.louyanspine.com/2018-09-04-2.jpg" />
+图A.股骨远端假体的改进。</p>
+<ol type="1">
+<li><p>Walldius膝关节系统，1951年，采用固定的金属铰链。</p></li>
+<li><p>Spherocentric股骨远端假体由Harry
+Matthews在1975年设计并在1977年最先应用。</p>
+<ul>
+<li>应用金属球面及聚乙烯衬垫连接胫骨及股骨部分。
+<video controls width="480" height="320" src="http://qiniud.louyanspine.com/Spherocentric%E8%82%A1%E9%AA%A8%E8%BF%9C%E7%AB%AF%E5%81%87%E4%BD%93.mp4">
+</video></li>
+</ul></li>
+<li><p>1980年出现了最初的动力旋转铰链膝关节(kinematic rotating-hinge
+knee)。</p>
+<ul>
+<li>采用失蜡法(lost-wax method)制造钴铬空心(vitallium
+hollow)假体部分，Zickle髓内针柄(Zickel nail stem)焊接在假体上。 <img
+src="http://qiniup.louyanspine.com/2018-09-04-J30445_1_expert_lateral.png" /></li>
+</ul></li>
+<li><p>1985年出现了环周多孔长入珠(Circumferential porous ingrowth
+beads)覆盖假体促进骨长入。实际上极少会有骨长入，但是会有保护性软组织长入。
+<img
+src="http://qiniup.louyanspine.com/2018-09-04-B9781416058984000434_f1.jpg" /></p></li>
+<li><p>1988年出现了组配式假体(Modularity)。股骨髁及柄是锻造的，与莫尔斯锥形锁定系统(Morse
+taper locks)固定的多个钛段(titanium segments)组配成假体。</p></li>
+</ol>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-04-morse%20taper.jpg" /></p>
+<p>自从1980年Peter
+Walker为Howmedica设计了动力旋转铰链膝关节，至今没有太大的改动，只是少量增加了轴(axle)及聚乙烯套管(polyethylene
+bushings)的直径。旋转铰链膝的概念目前已经被广泛接受，是首选的股骨远端人工假体重建的膝关节类型。</p>
+<p>图B.在70年代早期采用Guepar假体（单纯铰链），当时还没有旋转铰链式假体。
+<img
+src="http://qiniup.louyanspine.com/2018-09-04-The-GUEPAR-fixed-hinge-prosthesis-Quickly-adaptations-of-the-fixed-hinge-design-were.png" /></p>
+<p>图C.80年代应用的定制假体。膝关节为旋转铰链式，由套管、轴及插入胫骨的可旋转的聚乙烯衬垫构成。</p>
+<p><img src="http://qiniup.louyanspine.com/2018-09-04-2.2.jpg" /></p>
+<p>图D.组配式置换系统(The modular replacement
+system)最早应用（国家肿瘤研究所，NCI)于1988年，并于1991年获得美国食品药品监督管理局（FDA)认证。</p>
+<ul>
+<li>这一系统由关节配件，多个节段体及不同直径的柄所构成。这一系统可以置换近端股骨、远端股骨、全股骨或近端肱骨。</li>
+<li>这套最初的系统由本书的资深作者（MM)及Howmedica(Rutherford，NJ)的工程师（首席工程师George
+Corsi)不断改进。</li>
+<li>这套系统称为Global MRS系统，由Stryker Orthopedics(Mahwah， NJ)制造。
+<img
+src="http://qiniup.louyanspine.com/2018-09-04-8985-500x500.png" /></li>
+</ul></li>
+</ol>
+<h2 id="四病史及体格检查">四、病史及体格检查</h2>
+<ol type="1">
+<li>30%〜40%的患者有局部外伤史。创伤和肿瘤并没有因果关系，但是创伤常常使患者就医，医生建议拍片从而发现肿瘤。这曾被称为“创伤决定论”。</li>
+<li>X线平片常可以区别经典骨肉瘤及骨旁骨肉瘤。</li>
+<li>体检可以发现压痛。区域淋巴结正常。骨肉瘤通过血行转移。极少伴有感染。</li>
+<li>在小于1%的骨肉瘤病例中可以发生病理性骨折。
+<ul>
+<li>骨折通常发生在单纯溶骨性亚型（约占全部骨肉瘤的25%)，这类肿瘤很少有矿化的肿瘤基质。</li>
+</ul></li>
+<li>超过90%的高度恶性骨肉瘤可以有骨外软组织包块。</li>
+<li>关节积液常提示肿瘤侵犯关节或病理性骨折。</li>
+<li>肢体远端脉搏通常正常并且对称。
+<ul>
+<li>脉搏减弱可能提示肿瘤侵犯血管。</li>
+</ul></li>
+<li>小腿肿胀可能提示腘静脉受阻或栓塞。</li>
+<li>肿大的腹股沟淋巴结可能提示淋巴结转移，但这很少发生。需要考虑行活检。</li>
+<li>腘窝淋巴结肿大极少发生（除外尤文肉瘤或淋巴瘤）。</li>
+</ol>
+<h3 id="一经典高度恶性骨肉瘤">（一）经典高度恶性骨肉瘤</h3>
+<ol type="1">
+<li>高度恶性骨肉瘤患者的平均年龄为5<sub>30岁，中位年龄为16</sub>21岁。</li>
+<li>高度恶性骨肉瘤患者最初的主诉几乎都是与活动无关的日间疼痛。
+<ul>
+<li>所有患者都主诉钝痛(dull aching pain)，晚期会出现夜间痛。</li>
+</ul></li>
+</ol>
+<h3 id="二骨旁骨肉瘤表面骨肉瘤">（二）骨旁骨肉瘤(表面骨肉瘤)</h3>
+<ol type="1">
+<li>骨旁骨肉瘤(表面骨肉瘤)好发于20〜30岁，女性更常见。</li>
+<li>骨旁骨肉瘤（表面骨肉瘤）常表现为不伴有疼痛的包块（Fig 3)。 <img
+src="http://qiniup.louyanspine.com/2018-09-04-Fig3.jpg" /></li>
+<li>骨旁骨肉瘤最常好发于股骨远端后方。占全部骨肉瘤的近4%。
+<ul>
+<li>腘窝饱满是最常见的表现。</li>
+</ul></li>
+</ol>
+<h2 id="五影像学及其他分期检查">五、影像学及其他分期检查</h2>
+<h3 id="一检查">（一）检查</h3>
+<ol type="1">
+<li>诊断性影像学检査应该包括
+<ul>
+<li>X线平片
+<ul>
+<li>若X线可以发现Codman三角，其与肿瘤的侵犯程度密切相关</li>
+</ul></li>
+<li>锝99骨扫描(technetium-99 bone scan)
+<ul>
+<li>锝99骨扫描显示股骨内肿瘤的范围及是否有跳跃病灶</li>
+<li>也可以发现多中心病灶或其他骨的转移性病灶</li>
+<li>骨扫描的早期及池期像(early and pool
+phases)提示肿瘤的血管分布，并可能与化疗效果（即肿瘤坏死）相关</li>
+</ul></li>
+<li>股骨全长MRI</li>
+<li>股骨远端CT检查</li>
+<li>血管造影
+<ul>
+<li>近年来应用三维CT血管造影代替了传统的血管造影</li>
+</ul></li>
+</ul></li>
+<li>术前的分期检查重点集中在上述四处解剖结构。这将帮助医疗团队决定手术类型、手术切口、关节内或关节外切除以及活检的部位和方法。
+<img src="http://qiniup.louyanspine.com/2018-09-04-fig4.jpg" />
+<ul>
+<li>示意图提示股骨远端肉瘤需要进行的术前检查，包括MRI、CT、骨扫描及血管造影。</li>
+</ul></li>
+</ol>
+<h3 id="二图例">（二）图例</h3>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-04-c00005_f005-006-9780323023962.jpg" /></p>
+<h2 id="六外科治疗">六、外科治疗</h2>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/03/Proximal-Tibia-Resection-With-Endoprosthetic-Reconstruction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/03/Proximal-Tibia-Resection-With-Endoprosthetic-Reconstruction/" class="post-title-link" itemprop="url">Proximal Tibia Resection With Endoprosthetic Reconstruction（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-03 19:17:59" itemprop="dateCreated datePublished" datetime="2018-09-03T19:17:59+08:00">2018-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/03/1-59medical-record2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/03/1-59medical-record2/" class="post-title-link" itemprop="url">入院病历（大病历）的书写要求及格式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-03 15:13:31" itemprop="dateCreated datePublished" datetime="2018-09-03T15:13:31+08:00">2018-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-06 10:36:12" itemprop="dateModified" datetime="2020-09-06T10:36:12+08:00">2020-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          欢迎访问我的博客，考虑到版权问题，本文不公开
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/09/03/1-59medical-record2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1520,7 +2745,7 @@ cholesterol的方差在两组间则没有差异。这就很难用“随机化过
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/40/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/42/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/40/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/42/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1586,7 +2811,7 @@ cholesterol的方差在两组间则没有差异。这就很难用“随机化过
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">480</span>
+          <span class="site-state-item-count">490</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1599,7 +2824,7 @@ cholesterol的方差在两组间则没有差异。这就很难用“随机化过
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1775</span>
+        <span class="site-state-item-count">1779</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
