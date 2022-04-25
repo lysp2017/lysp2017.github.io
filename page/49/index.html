@@ -191,6 +191,1358 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/12/ECMAScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/12/ECMAScript/" class="post-title-link" itemprop="url">JavaScript与ECMAScript的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-12 14:26:01" itemprop="dateCreated datePublished" datetime="2018-07-12T14:26:01+08:00">2018-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:59:34" itemprop="dateModified" datetime="2019-02-28T00:59:34+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明<br> 1. 参考整理自Michael Aranda的文章What’s the difference
+between JavaScript and ECMAScript?</p>
+</blockquote>
+<h2 id="概念解释">概念解释</h2>
+<h3
+id="ecma-internationaleuropean-computer-manufacturers-association">Ecma
+International(European Computer Manufacturers Association)</h3>
+<ol type="1">
+<li><p>一个为科学技术制定标准的组织。</p></li>
+<li><p>为了要举一个“标准”的例子，可以用我们曾用过的键盘来说明。是不是大多数的字母以同样的顺序排列，有一个空格键、一个输入键、箭头键，并将数字显示在最上面的一行?这是由于大多数键盘制造商的键盘设计是基于<code>QWERTY</code>布局标准的。</p></li>
+<li><p>ECMA-262：由Ecma
+International发布的标准。它包含通用目的的脚本语言的规范。</p>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-12-ECMA-262.png"
+alt="ECMA-262" />
+<figcaption aria-hidden="true">ECMA-262</figcaption>
+</figure>
+<ul>
+<li><p><code>ECMA-262</code>是一个类似<code>QWERTY</code>的标准，但不同于呈现一个键盘层的规范，它呈现了被称为<code>ECMAScript</code>的脚本语言规范。</p></li>
+<li><p>可以把<code>ECMA-262</code>当做<code>ECMAScript</code>参考数字</p></li>
+</ul>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-%E5%8F%AF%E4%BB%A5%E6%8A%8AECMA-262%20%E5%BD%93%E5%81%9AECMAScript%E7%9A%84%E5%8F%82%E8%80%83%E6%95%B0%E5%AD%97.png"
+alt="可以把ECMA-262 当做ECMAScript的参考数字" />
+<figcaption aria-hidden="true">可以把ECMA-262
+当做ECMAScript的参考数字</figcaption>
+</figure></li>
+</ol>
+<h3 id="脚本语言a-scripting-language">脚本语言(A scripting
+language)</h3>
+<p>A programming language designed specifically for acting on an
+existing entity or system</p>
+<p>什么样的编程语言是脚本语言？请思考下命令“walk”、“run” 和
+“jump”。这些操作需要一些东西来执行，可能是一个人、一条狗或一个视频游戏角色。如果没有东西来执行这些命令，“walk”、“run”
+和 “jump”
+是没有意义的。这组操作类似于脚本语言，即专注于操纵外部实体。</p>
+<h3
+id="ecmascriptecmascript规范ecmascript-specification">ECMAScript/ECMAScript规范(ECMAScript
+specification)</h3>
+<p>ECMA-262中定义的标准，是用于创建通用目的脚本语言。ECMA-262是标准的名称，它代表了脚本语言规范ECMAScript。</p>
+<p>ECMAScript提供脚本语言必须遵守的规则、细节和准则，这些才是其被视为兼容ECMAScript的判断标准。</p>
+<h3 id="javascript">JavaScript</h3>
+<p>一种通用目的的脚本语言，遵循<code>ECMAScript</code>规范。它是<code>ECMAScript</code>语言的一个分支版本。</p>
+<p>通过阅读<code>ECMAScript</code>规范，你将学会如何创建脚本语言。通过阅读
+JavaScript文档，你将学习如何使用脚本语言。</p>
+<p>当人们把JavaScript称为“ECMAScript语言的方言”的时候，他们的意思就像谈论英语、法语或者中国方言时一样。一种方言从其母语中衍生出大部分的词汇和语法，但偏离得值得保留这些差异。</p>
+<p>JavaScript实现了多数ECMA-262中描述的<code>ECMAScript</code>规范，但存在少数差异。
+Mozilla在此概述了JavaScript的非ECMAScript语言功能：</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-JavaScript%E7%9A%84%E9%9D%9EECMAScript%E8%AF%AD%E8%A8%80%E5%8A%9F%E8%83%BD.png"
+alt="JavaScript的非ECMAScript语言功能" />
+<figcaption
+aria-hidden="true">JavaScript的非ECMAScript语言功能</figcaption>
+</figure>
+<h3
+id="javascript引擎a-javascript-enginejavascript-interpreter解释器javascript-implementation实现">JavaScript引擎(A
+JavaScript engine)/JavaScript interpreter解释器/JavaScript
+implementation实现</h3>
+<p>能够理解和执行JavaScript代码的程序或解释器。</p>
+<p>JavaScript引擎通常可以在Web浏览器中被发现，包括Chrome中的
+<code>V8</code>，火狐中的<code>SpiderMonkey</code>，以及Edge中的<code>Chakra</code>。每款引擎就像是一个用于其应用程序的语言模块，可以让其支持某种JavaScript语言的分支。</p>
+<p>JavaScript引擎对于浏览器来说就像是人类对语言的理解一样。如果我们重新拿我们日常行为中的“走”、“跑”、“跳”来举例的话，一个
+JavaScript引擎是真正能够理解这些动作是何意义的根本机制。</p>
+<h3 id="浏览器性能的差异">浏览器性能的差异</h3>
+<p>两个人也许会识别“跳”的命令，但是一个人由于理解和对命令的处理比另一个人更快些，也许会比另一个人对命令的反应更快些。类似的是，两个浏览器都可以理解JavaScript代码，但是一个由于其JavaScript引擎实现起来效率更高而运行得更快。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8.png"
+alt="浏览器" />
+<figcaption aria-hidden="true">浏览器</figcaption>
+</figure>
+<h3 id="浏览器支持browser-support的差异">浏览器支持(browser
+support)的差异</h3>
+<p>再以即使说同样语言的人们之间也会有差异为例。即使许多人讲英语，但是一些人也许懂得他人不懂的某些词、表达式和与语法规则，反之亦然。浏览器也是同样的道理。尽管浏览器的
+JavaScript 引擎都理解 JavaScript ，但是某些浏览器会比其他的浏览器对
+JavaScript 理解得更好些。在浏览器对 JavaScript
+的支持中就存在着这一的差别。</p>
+<p>至于说到浏览器支持，人们通常会谈到 “ECMAScript 兼容性(compatibility)”
+而非“ JavaScript 兼容性”，尽管 JavaScript 引擎解析和执行的是 JavaScript
+。这个问题说起来有点绕，下面的表格可以对其作出解释。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%E7%9A%84%E5%B7%AE%E5%BC%82.png"
+alt="浏览器支持(browser support)的差异" />
+<figcaption aria-hidden="true">浏览器支持(browser
+support)的差异</figcaption>
+</figure>
+<p>如果你还记得的话，ECMAScript
+是一份规定了脚本语言可以看起来像什么的规范。发布一个新的 ECMAScript
+版本并不意味着所有现存的 JavaScript
+引擎突然就拥有了这些新功能。这取决于负责那款 JavaScript
+引擎的团体或组织是否要更新到最新的 ECMAScript
+规范并采用其所带来的变化。</p>
+<p>因此，开发者倾向于问这样的问题，“这款浏览器支持哪个版本的 ECMAScript
+?”或者“这款浏览器支持哪些 ECMAScript 功能?”他们想知道是否
+Google、Mozilla 和微软已经开始更新他们浏览器的 JavaScript 引擎了，例如
+V8、SpiderMonkey 和 Chakra 是否都已经具有最新的 ECMAScript
+中的功能了。</p>
+<p><a ref="http://kangax.github.io/compat-table/es6/">ECMASCript
+兼容性列表</a>是回答这类问题的绝佳答案参考。</p>
+<p>如果新版的 ECMAScript 发布了，JavaScript
+引擎不会一下子整合所有的更新。他们会逐渐地加入 ECMAScript
+功能，这一点从火狐的 JavaScript 变更记录中可见一斑：</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-12-Firefox%E2%80%99s%20JavaScript%20changelog.png"
+alt="Firefox’s JavaScript changelog" />
+<figcaption aria-hidden="true">Firefox’s JavaScript
+changelog</figcaption>
+</figure>
+<h3
+id="javascript运行时a-javascript-runtime宿主环境host-environment">JavaScript运行时(A
+JavaScript runtime)/宿主环境(Host environment)</h3>
+<p>The environment in which the JavaScript code runs and is interpreted
+by a JavaScript engine.The runtime provides the host objects that
+JavaScript can operate on and work with.</p>
+<p>The JavaScript runtime is the “existing entity or system” mentioned
+in the scripting language definition. Code passes through the JavaScript
+engine, and once parsed and understood, an entity or system performs the
+interpreted actions. A dog walks, a person runs, a video game character
+jumps (or in the case of the above image, wrecks).</p>
+<p>Applications make themselves available to JavaScript scripting by
+providing “host objects” at runtime. For the client side, the JavaScript
+runtime would be the web browser, where host objects like windows and
+HTML documents are made available for manipulation. Have you ever worked
+with the window or document host objects? The window and document
+objects are not actually a part of the core JavaScript language. They
+are Web APIs, objects provided by a browser acting as JavaScript’s host
+environment. For the server side, the JavaScript runtime is Node.js.
+Server-related host objects such as the file system, processes, and
+requests are provided in Node.js.</p>
+<p>n interesting point: different JavaScript runtimes can share the same
+JavaScript engine. V8, for example, is the JavaScript engine used in
+both Google Chrome and Node.js — two very different environments.</p>
+<h3 id="ecmascript-6">ECMAScript 6</h3>
+<ol type="1">
+<li>它是 ECMA-262 标准的第六个版本，其特点是对 ECMAScript
+规范有着显著的变化和改进。</li>
+<li>同义词：ES6、ES2015 和 ECMAScript 2015</li>
+<li>这一版的 ECMAScript 将其名字由 ES6 改为了 ES2015 ，这是由于 Ecma
+国际决定每年都对 ECMAScript 发布一次。相应地，Ecma
+国际也开始基于每年所发布的来命名新版本的 ECMAScript 规范。简而言之， ES6
+和 ES2015 是对同一件事情的两个不同的名字。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/27/JavaScriptbasic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/27/JavaScriptbasic/" class="post-title-link" itemprop="url">JavaScript笔记（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-27 10:20:48" itemprop="dateCreated datePublished" datetime="2018-06-27T10:20:48+08:00">2018-06-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:51:58" itemprop="dateModified" datetime="2019-02-28T00:51:58+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>说明<br> 1. 部分参考O'Reilly Media出版的JavaScript Programming_A
+Brain-Friendly Guide<br></p>
+</blockquote>
+<h2 id="一基本概念与简介">一、基本概念与简介</h2>
+<h3 id="javascript工作原理">JavaScript工作原理</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-JavaScript%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg"
+alt="JavaScript工作原理" />
+<figcaption aria-hidden="true">JavaScript工作原理</figcaption>
+</figure>
+<ol type="1">
+<li><p>JavaScript最初是解释型的，这意味着浏览器执行(execute)它遇到的每行JavaScript代码。浏览器厂商对现代JavaScript采取即时编译的做法，使其既可获得脚本语言的便利性，又可享受编译型语言的性能。</p>
+<blockquote>
+<p>编译型语言如C、C++和Java在执行代码前必须进行编译(compile)，编译是将代码转换为适合计算机的表达方式，通常可改善运行阶段的性能。</p>
+</blockquote></li>
+<li><p>JavaScript的使用范围不仅仅在网页上，还用在各种应用程序（如Photoshop）以及服务器端编程中。<br />
+</p></li>
+<li><p>使用HTMl和CSS时，两者主要都是声明型的(declarative)，JavaScript负责计算，利用它能在网页中添加行为。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">语言</th>
+<th style="text-align: center;">内容</th>
+<th style="text-align: center;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">HTMl</td>
+<td style="text-align: center;">markup标记</td>
+<td style="text-align: center;">statements结构</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CSS</td>
+<td style="text-align: center;">rules规则</td>
+<td style="text-align: center;">styles样式</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">JavaScript</td>
+<td style="text-align: center;">statements语句</td>
+<td style="text-align: center;">computation/behavior计算和行为</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<h3 id="如何将javascript代码加入网页">如何将JavaScript代码加入网页</h3>
+<p>可在HTML文档中的任何地方使用<code>&lt;script&gt;</code>标签添加JavaScript代码</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E4%BB%A3%E7%A0%81%E4%BD%8D%E7%BD%AE.jpg"
+alt="代码位置" />
+<figcaption aria-hidden="true">代码位置</figcaption>
+</figure>
+<ol type="1">
+<li><p>嵌入在<code>&lt;head&gt;</code>里</p></li>
+<li><p>嵌入在<code>&lt;body&gt;</code>里</p>
+<ul>
+<li>浏览器加载网页时，先加载<code>&lt;head&gt;</code>元素内的所有内容，再加载<code>&lt;body&gt;</code>元素。如果将代码放在<code>&lt;head&gt;</code>元素中，用户可能需要等一会儿才能看到网页，而放在<code>&lt;body&gt;</code>元素中，则用户在等待这些代码加载时，就能看到网页的内容。</li>
+</ul></li>
+<li><p>代码放在独立的文件中，并在<code>&lt;head&gt;</code>元素中链接该文件</p>
+<ul>
+<li>用<code>&lt;script&gt;</code>标签的src属性来指定JavaScript文件的URL</li>
+</ul></li>
+<li><p>代码放在独立的文件中，并在<code>&lt;body&gt;</code>元素中链接该文件</p></li>
+<li><p><code>&lt;script&gt;</code>元素</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;<span class="title function_">alert</span>(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>type可以省略</li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;myJavaScript.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>引用独立的JavaScript文件时，<code>&lt;script&gt;</code>元素不能包含任何JavaScript代码</li>
+</ul></li>
+</ol>
+<h3 id="section"></h3>
+<h2 id="二语法">二、语法</h2>
+<h3 id="语法基础">语法基础</h3>
+<ol type="1">
+<li>每条语句以<code>;</code>结尾</li>
+<li>单行注释用<code>//</code>两个斜杠打头</li>
+<li>空格不重要</li>
+<li>字符串必须使用单引号或者双引号括起，而布尔值<code>true</code>和<code>false</code>则不能</li>
+<li>JavaScript区分大小写，故变量名、关键字和函数名等几乎所有一切的大小写都很重要。</li>
+</ol>
+<h3 id="变量variables和值values">变量Variables和值values</h3>
+<ol type="1">
+<li><p>JavaScript语句通常包含变量，变量用来存储值（如数字、字符串和布尔值等）</p>
+<blockquote>
+<p>布尔值无需用引号括起</p>
+</blockquote></li>
+<li><p>var关键字用来声明变量，声明变量时可以给它赋值，也可以不指定初始值。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var winners = 2;</span><br><span class="line">var losers;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>变量名的命名规则和建议</p>
+<ul>
+<li><p>以字母、下划线或美元符号<code>$</code>开头，后接任意数量的字母，数字，下划线或美元符号<code>$</code>。</p></li>
+<li><p>不能使用任何内置的关键字作为变量名。</p></li>
+<li><p>不能包含空格和引号。</p></li>
+<li><p>推荐使用有意义的变量名，如currentPressure和passedExam</p></li>
+<li><p>用多个单词做变量名时通常采用骆驼式拼写法(camel
+case)，即将每个单词的首字母大写（第一个单词除外），如：twoHeadedDragonWithFire。</p></li>
+<li><p>通常不要用<code>_</code>和<code>$</code>开头的变量名</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%85%B3%E9%94%AE%E5%AD%97.jpg"
+alt="关键字" />
+<figcaption aria-hidden="true">关键字</figcaption>
+</figure>
+<blockquote>
+<p>关键字keyword：是JavaScript的保留字reserved
+word，JavaScript将其用于特殊目的。</p>
+</blockquote></li>
+</ul></li>
+</ol>
+<h3 id="表达式expressions">表达式expressions</h3>
+<ol type="1">
+<li><p>表达式用来计算结果，根据结果的值的不同可以分为数值表达式，字符串表达式，布尔表达式、数组表达式、对象表达式和函数表达式。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数值表达式 var total = price - (price * (discount / 100));</span><br><span class="line"></span><br><span class="line">字符串表达式 &quot;Dear &quot; + &quot;Reader&quot; + &quot;,&quot;</span><br><span class="line"></span><br><span class="line">布尔表达式 cost &gt;= 3.99</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="循环">循环</h3>
+<ol type="1">
+<li><p>while循环</p>
+<ul>
+<li><p>(scoops &gt;
+0)称为条件测试（简称为条件），包含一个布尔表达式</p></li>
+<li><p>如果条件测试为true，就执行代码块中所有的代码。如果条件测试为false，就结束循环。</p></li>
+<li><p>有些代码的条件是一个变量，其值为字符串而不是布尔值。任何包含非空字符串的变量都被视为<code>true</code>而没有设置值的变量都被视为<code>false</code></p></li>
+<li><p>仅使用布尔变量本身时，只要该变量为true，条件测试就为true，进而执行相应的代码块。</p>
+<ul>
+<li><code>if (inStock)&#123;...&#125;</code>如果inStock为false，条件测试将失败</li>
+</ul></li>
+<li><p>代码块即用花括号<code>&#123;&#125;</code>括起来的一组语句，代码块中的所有语句被视为一个整体，要么都执行，要么都不执行。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(scoops &gt; 0)&#123;</span><br><span class="line">	document.write(&quot;Another scoop!&quot;);</span><br><span class="line">	scoops = scoops - 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>for循环</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-for%E5%BE%AA%E7%8E%AF.jpg"
+alt="for循环" />
+<figcaption aria-hidden="true">for循环</figcaption>
+</figure>
+<ul>
+<li>for循环以关键字for打头</li>
+<li>圆括号中有三部分
+<ul>
+<li>第一部分是初始化循环变量，初始化只在循环开始前执行一次</li>
+<li>第二部分是条件测试，每次循环时都将执行该测试，如果为false就结束循环</li>
+<li>第三部分将计数器加1。每次循环都这么做，这是在执行完循环体的所有语句后进行的。</li>
+</ul></li>
+</ul></li>
+<li><p>for in循环</p></li>
+<li><p>forEach循环</p></li>
+<li><p>do while循环</p>
+<ul>
+<li>工作原理与while几乎相同，只是先执行循环体中的语句，再检查循环条件。</li>
+</ul></li>
+<li><p>if语句进行决策</p>
+<ul>
+<li><p>在if语句中还可以添加一个或多个else
+if语句，以执行多重检查。</p></li>
+<li><p>还可在最后添加一条else语句，以处理所有条件都不满足的情形。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	if (scoops &gt;= 5) &#123;	alert(&quot;Eat faster, the ice cream is going to melt!&quot;);&#125; </span><br><span class="line">	</span><br><span class="line">	else if (scoops &lt; 3) &#123;	alert(&quot;Ice cream is running low!&quot;);&#125;</span><br><span class="line">	</span><br><span class="line">	else &#123;</span><br><span class="line">		alert(&quot;Still lots of ice cream left, come and get it.&quot;); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ol>
+<h3 id="与用户交互的常见方式">与用户交互的常见方式</h3>
+<ol type="1">
+<li><p>创建提醒框</p>
+<ul>
+<li>调用函数alert()创建包含消息的提醒框</li>
+<li>仅当你要停止一切并提醒用户时，才应使用它</li>
+</ul></li>
+<li><p>直接写入文档</p>
+<ul>
+<li>调用函数document.write()将任何HTML和内容写入网页</li>
+</ul></li>
+<li><p>使用控制台console</p>
+<ul>
+<li>调用函数console.log()，并传入要写入的字符串</li>
+<li>可将console.log()视为杰出的故障排除工具</li>
+<li>console实际是一个对象，而log则是console的一个方法</li>
+<li>仅用于在开发网页期间调试代码troubleshoot，用户可能根本看不到控制台</li>
+<li>可将控制台视为具有特定功能的对象，其功能之一是写入日志，其语法为console.log，并将用圆括号括起的输出传递给它。</li>
+<li>如何打开控制台？</li>
+</ul>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0.jpg"
+alt="如何打开控制台" />
+<figcaption aria-hidden="true">如何打开控制台</figcaption>
+</figure></li>
+<li><p>直接操作文档</p>
+<ul>
+<li>利用文档对象模型（document object model,DOM）操作文档</li>
+</ul></li>
+<li><p>获取用户输入</p>
+<ul>
+<li>函数prompt()用于获取用户输入，它会弹出一个简单的对话框，包含传入该函数的字符串参数并且返回用户输入的字符串值。如果用户取消了对话框或没有输入任何响应，返回的将是null（表示没有值）。</li>
+</ul></li>
+<li><p>显示输出</p>
+<ul>
+<li>函数alert()</li>
+</ul></li>
+</ol>
+<h3 id="section-1"></h3>
+<h2 id="三函数">三、函数</h2>
+<h3 id="常用函数">常用函数</h3>
+<ol type="1">
+<li><p>Math.random()用来生成[0, 1)的随机数</p>
+<blockquote>
+<p>只要调用函数，都需要使用括号()</p>
+</blockquote></li>
+<li><p>Math.floor()用来对一个小数取整（直接舍弃小数位），即向下化整</p></li>
+</ol>
+<h3 id="函数语法">函数语法</h3>
+<ol type="1">
+<li><p>定义函数/声明函数</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function functionname(parameter1,parameter2) &#123;</span><br><span class="line">	这里是要执行的代码</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure> <img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%87%BD%E6%95%B0%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.jpg"
+alt="函数组成部分" /></p>
+<ul>
+<li>以关键词function打头，接下来指定函数名。函数名的命名规则与变量命名规则一样。</li>
+<li>parameters为函数的形参，将其放在函数名后面的括号内，将在调用函数时，给形参赋值</li>
+<li><code>&#123;&#125;</code>之间的内容被称为函数体(the body of the function)</li>
+</ul></li>
+<li><p>调用带参数的函数</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFunction(argument1,argument2)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>argument为实参，调用函数时，传给函数的实参的值被赋给相应的形参</li>
+<li>可以通过实参传递任何JavaScript值，如字符串、布尔值、数字、变量甚至表达式（对于表达式，先计算它的值，再将值传递给函数）。</li>
+</ul></li>
+<li><p>函数表达式(statement)</p>
+<ul>
+<li><p>没有函数名称，且位于一条赋值语句的右边，被赋给一个变量，是一个指向函数的引用。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var fly = function(num) &#123;</span><br><span class="line">	for (var i = 0; i &lt; num; i++) &#123;</span><br><span class="line">		console.log(&quot;Flying!&quot;); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">fly(3);</span><br><span class="line"># 通过变量fly来调用函数</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>函数声明和函数表达式之间的区别</p>
+<ul>
+<li>在分析(parses)
+网页期间（执行任何代码之前），浏览器查找函数声明，找到函数声明时，浏览器创建相应的函数，并将得到的函数引用赋给与函数同名的变量。在处理完所有的函数声明后，浏览器回到代码开头，开始按从头到尾的顺序执行代码。换言之，使用函数声明时，函数将在执行代码前创建，而使用函数表达式时，函数将在运行阶段执行代码时创建。</li>
+<li>函数声明是完整的语句，而函数表达式只是语句的一部分。可以认为函数声明包含一条隐藏的赋值语句，这条语句将函数引用赋给一个变量。</li>
+<li>函数表达式返回一个引用，该引用指向函数表达式创建的函数。</li>
+</ul></li>
+</ol>
+<h3 id="按值传递实参pass-by-value">按值传递实参(pass-by-value)</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92%E5%AE%9E%E5%8F%82-pass-by-value-.jpg"
+alt="按值传递实参" />
+<figcaption aria-hidden="true">按值传递实参</figcaption>
+</figure>
+<ol type="1">
+<li>即把每个实参的值复制给形参，其意义在于，在函数中修改形参的值时，只会影响形参，而不会影响传递给函数的变量。</li>
+<li>在函数中处理形参时，其影响范围将限制在函数中。</li>
+</ol>
+<h3 id="错误地调用函数">错误地调用函数</h3>
+<ol type="1">
+<li>传入的实参不够：将没有相应实参的形参设置为未定义undefined</li>
+<li>传入的实参太多：将忽略多余的实参</li>
+</ol>
+<h3 id="函数可返回值return">函数可返回值return</h3>
+<ol type="1">
+<li>函数体中遇到return语句，函数会直接返回return语句中的值，并停止函数运行，哪怕return语句之后还有语句。</li>
+<li>如果return语句没有指定值（空的），则返回undefined。</li>
+<li>如果一个函数没有return语句，则它的返回值是undefined。</li>
+</ol>
+<h3 id="作用域scope">作用域(scope)</h3>
+<ol type="1">
+<li>全局变量
+<ul>
+<li>在函数外使用关键字var声明。</li>
+<li>只有一个全局作用域，也就是说不同的JavaScript脚本共享同一个全局作用域。如果在网页链接到了其他的脚本，这些脚本也能够看到这些全局变量，而你也可以看到它们的全局变量。</li>
+<li>全局变量的寿命和网页一样长。重新加载网页时，将销毁并重新创建所有的全局变量。</li>
+<li>使用没有关键字var声明的变量，会被自动视为全局变量，即使在函数中首次使用它，亦如此。</li>
+</ul></li>
+<li>局部变量
+<ul>
+<li>在函数中声明的变量叫局部变量，这样的变量只在函数中可见，也只能用在函数中</li>
+<li>局部变量是在函数被调用后创建的，并一直活到函数返回（无论函数是否返回值）</li>
+<li>如果局部变量使用了与全局变量相同的变量名，那么在这个局部作用域中，全局变量是不可见的。即同名局部变量遮住(shadow)了全局变量</li>
+<li>将函数作为实参传递给另一个函数时，传入的函数引用将被复制到所调用函数的一个形参变量中，与其他形参一样，存储函数引用的形参也是局部变量。</li>
+</ul></li>
+<li>变量提升
+<ul>
+<li><p>JavaScript引擎会在正式执行之前先进行一次预编译，在这个过程中，首先将变量声明提升至当前作用域的顶端，然后进行接下来的处理。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line"></span><br><span class="line">    var foo = foo || 5;</span><br><span class="line"></span><br><span class="line">    console.log(foo); // 5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoistVariable();</span><br></pre></td></tr></table></figure> 预编译之后的代码逻辑是这样的：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">//预编译之后</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line">  		var foo;</span><br><span class="line"></span><br><span class="line">  		foo = foo || 5;</span><br><span class="line"></span><br><span class="line">  		console.log(foo); // 5</span><br><span class="line">  	&#125;</span><br><span class="line">  	</span><br><span class="line">  	hoistVariable();</span><br><span class="line">  	</span><br><span class="line">  	#只要“||”前面为true,不管“||”后面是true还是false，都返回“||”前面的值。</span><br><span class="line">  	#只要“||”前面为false,不管“||”后面是true还是false，都返回“||”后面的值。</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li>全局函数
+<ul>
+<li>在代码顶层定义的函数</li>
+</ul></li>
+<li>局部函数
+<ul>
+<li>在函数中定义的函数(nested，嵌套)</li>
+<li>在函数内部，如果你使用函数声明创建了一个嵌套函数，那么在这个函数的函数体的任何地方，嵌套函数都是已定义的；</li>
+<li>如果使用函数表达式创建了一个嵌套函数，则在这个函数的函数体内，仅当函数表达式执行后，嵌套函数才是已定义的。</li>
+</ul></li>
+<li>词法作用域(lexical scope)的工作原理
+<ul>
+<li><p>词法(lexical)意味着只需查看代码的结构就可确定变量的作用域，而不是等到代码执行时才明白。换而言之，即JavaScript的作用域规则完全基于代码的结构，而不是一些动态的运行阶段属性。</p></li>
+<li><p>因此，对于在函数中引用的变量，要确定它是在哪里定义的，可从最里面（当前函数）开始依次向最外面进行查找，直到找到它为止。</p></li>
+<li><p>实例</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#实例1 </span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">	return justAVar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result = whereAreYou(); </span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#实例2</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">function inner() &#123;</span><br><span class="line">	return justAVar;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">		 return inner();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		var result = whereAreYou(); </span><br><span class="line">		console.log(result);</span><br><span class="line">		</span><br><span class="line">		#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#实例3</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line"></span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">		var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">		function inner() &#123; </span><br><span class="line">				return justAVar;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return inner;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">var innerFunction = whereAreYou(); </span><br><span class="line">var result = innerFunction();</span><br><span class="line">	</span><br><span class="line">console.log(result);</span><br><span class="line">	</span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p></li>
+<li><p>环境(environment)存储了局部作用域内定义的所有变量。每个函数都有与之相关联的环境，其中包含它所处作用域内的局部变量。当返回这个函数时，返回的不仅仅是函数，还有与之相关联的环境。</p>
+<ul>
+<li>每个嵌套函数都有自己的小环境，其中包含它自己的变量，这将形成一个环境链，从内到外依次为各个嵌套函数的环境。在环境中查找变量时，也需要从最近的环境着手，沿环境链不断往下查找，直到找到变量为止。如果环境链中没有找到，再在全局环境中查找。</li>
+<li>可将形参视为函数的局部变量，因此形参也包含在环境(environment)中。</li>
+<li>JavaScript函数都是在定义它的环境中执行的。</li>
+</ul>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E7%8E%AF%E5%A2%83.jpg"
+alt="环境" />
+<figcaption aria-hidden="true">环境</figcaption>
+</figure></li>
+</ul></li>
+</ol>
+<h3 id="闭包closure">闭包(closure)</h3>
+<ol type="1">
+<li><p>闭包(closure) 的定义：闭包指的是函数和引用环境。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E9%97%AD%E5%8C%85.jpg"
+alt="闭包" />
+<figcaption aria-hidden="true">闭包</figcaption>
+</figure></li>
+<li><p>自由变量(free
+variables)的定义：不在本地作用域内定义的变量。</p></li>
+<li><p>可敲定函数(closes the
+function)的定义：给所有自由变量都提供了值的环境。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E6%95%B2%E5%AE%9A%E5%87%BD%E6%95%B0.jpg"
+alt="敲定函数" />
+<figcaption aria-hidden="true">敲定函数</figcaption>
+</figure></li>
+<li><p>从函数返回函数来创建闭包：计数器实例</p>
+<ul>
+<li><p>在全局作用域中，根本看不到变量count，但每次调用doCount时，都可以使用变量count。</p></li>
+<li><p>除了调用doCount外，没有其他任何办法能够获取变量count。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function makeCounter() &#123;</span><br><span class="line">	 var count = 0;</span><br><span class="line">	</span><br><span class="line">	function counter() &#123; </span><br><span class="line">		count = count + 1; </span><br><span class="line">		return count;	&#125;</span><br><span class="line"></span><br><span class="line">	return counter; </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">var doCount = makeCounter(); </span><br><span class="line">console.log(doCount());  #显示1</span><br><span class="line">console.log(doCount());  #显示2</span><br><span class="line">console.log(doCount());  #显示3</span><br></pre></td></tr></table></figure></p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E9%97%AD%E5%8C%85-%E8%AE%A1%E6%95%B0%E5%99%A8.jpg"
+alt="闭包-计数器" />
+<figcaption aria-hidden="true">闭包-计数器</figcaption>
+</figure></li>
+</ul></li>
+<li><p>将函数表达式用作实参来创建闭包</p>
+<ul>
+<li><p>我们传递给makeTimer的函数是一个闭包，带有将自由变量<code>doneMessage</code>绑定到字符串"Cookies
+are done!"的环境。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function makeTimer(doneMessage, n) &#123;</span><br><span class="line">	</span><br><span class="line">	setTimeout(function() &#123; </span><br><span class="line">		alert(doneMessage);</span><br><span class="line">	&#125;, n); </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">makeTimer(&quot;Cookies are done!&quot;, 1000);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>闭包包含的是实际环境，而非环境的副本</p>
+<ul>
+<li>环境引用的是实时变量，如果闭包函数外面的代码修改了变量，闭包函数执行时看到的将是变量的新值</li>
+</ul></li>
+</ol>
+<h3 id="函数提升">函数提升</h3>
+<ol type="1">
+<li><p>浏览器分两遍读取网页：</p>
+<ul>
+<li>第一遍读取所有的函数定义（由函数声明创建的函数）</li>
+<li>第二遍开始执行代码</li>
+</ul></li>
+<li><p>可将函数放在JavaScript脚本的任何地方。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var radius = 5;</span><br><span class="line">var area = circleArea(radius); </span><br><span class="line">alert(area);</span><br><span class="line"></span><br><span class="line">function circleArea(r) &#123; </span><br><span class="line">	var a = Math.PI * r * r; </span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="函数是一等值first-class-values">函数是一等值(first class
+values)</h3>
+<ol type="1">
+<li><p>一等值(first class
+values)的特点（数值、字符串、布尔值、函数和对象都是一等值）</p>
+<ul>
+<li>将其赋给变量或存储在数组和对象等数据结构中</li>
+<li>将其传递给函数</li>
+<li>从函数中返回它们</li>
+</ul></li>
+<li><p>一等值的定义：在编程语言中，可像对待其他任何值一样对待的值，包括赋给变量、作为实参传递给函数以及从函数中返回。</p></li>
+<li><p>向函数传递函数</p>
+<ul>
+<li><p>只需将函数名用作实参即可</p></li>
+<li><p>传递的是指向函数的引用，可将这种引用视为指针(pointer)，它指向函数本身的内部表示。引用本身可存储在变量中，可赋给变量，还可作为实参传递给函数。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var allCanFly = processPassengers(passengers, checkNoFlyList); </span><br><span class="line">if (!allCanFly) &#123;console.log(&quot;The plane can&#x27;t take off: we have a passenger on the no-fly-list.&quot;); </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">#checkNoFlyList即传入的函数</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>从函数返回函数</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createDrinkOrder(passenger) &#123;</span><br><span class="line">	var orderFunction;</span><br><span class="line"></span><br><span class="line">	if (passenger.ticket === &quot;firstclass&quot;) &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Would you like a cocktail or wine?&quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">	</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Your choice is cola or water.&quot;);</span><br><span class="line">			&#125;;		&#125;	return orderFunction;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="匿名函数anonymous-functions">匿名函数(anonymous functions)</h3>
+<ol type="1">
+<li><p>匿名函数是没有名称的函数表达式，用于通常需要函数引用的地方。</p>
+<p><code>window.onload = function() &#123; alert("Yeah, that page loaded!"); &#125;;</code></p>
+<ul>
+<li>如果需要将一个函数作为实参，可将实参指定为函数表达式
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">	alert(&quot;Time to take the cookies out of the oven&quot;);</span><br><span class="line">	&#125;, 600000);</span><br></pre></td></tr></table></figure></li>
+<li>如果需要从函数返回一个函数，也可返回一个函数表达式</li>
+</ul></li>
+</ol>
+<h2 id="四数据结构">四、数据结构</h2>
+<h3 id="数组arrays">数组(Arrays)</h3>
+<ol type="1">
+<li><p>创建数组</p>
+<ul>
+<li><p>用数组的字面量(array
+literal)创建数组（即详细地指定了该数组包含的元素）</p>
+<p><code>var flavors = ["vanilla", "butterscotch", "lavender", "chocolate", "cookie dough"];</code></p>
+<ul>
+<li>在<code>[]</code>中依次输入每个数据，用<code>,</code>隔开即可。</li>
+<li>数组中每一项的数据类型可以是任意的，字符串，布尔值，数值，甚至数组，函数和对象都可以。</li>
+<li>数据的个数也没有限制，但受制于计算机内存。</li>
+<li>不要求一个数组中所有值的类型都相同。</li>
+</ul></li>
+</ul></li>
+<li><p>访问数组元素</p>
+<p><code>var flavorOfTheDay = flavors[2];</code></p>
+<ul>
+<li><code>[]</code>中的数字表示数组的索引位置，数组的索引从0开始</li>
+</ul></li>
+<li><p>修改数组元素</p>
+<p><code>flavors[3] = "vanilla chocolate chip";</code></p></li>
+<li><p>确定数组的长度</p>
+<p><code>var numFlavors = flavors.length;</code></p>
+<ul>
+<li>每个数组都有一个length属性，它的值也就是数组的长度，等于数组的最大索引值+1</li>
+</ul></li>
+<li><p>给数组添加新元素</p>
+<ul>
+<li><p>只需给指定索引处的元素赋值即可，但必须小心地指定索引，否则数组将是稀疏的(sparse)</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var genres = []; </span><br><span class="line">genres[0] = &quot;Rockabilly&quot;; </span><br><span class="line">genres[1] = &quot;Ambient&quot;; </span><br><span class="line">var size = genres.length;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>稀疏数组是指有些索引处有值，而其他索引处没有值的数组。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var sparseArray = [ ]; </span><br><span class="line">sparseArray[0] = true; </span><br><span class="line">spraseArray[100] = true;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>犹如创建了99个变量，但没有对其初始化。这些变量虽然没有值，但是仍占用计算机的内存空间。</p></li>
+<li><p>检查元素的值是否是undefined，可编写如下代码：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (myarray[i] == undefined) &#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>undefined是一个值，而不是字符串，因此不能在前后加上引号。</p></li>
+</ul></li>
+<li><p>push方法</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var genres = []; </span><br><span class="line">genres.push(&quot;Rockabilly&quot;); </span><br><span class="line">genres.push(&quot;Ambient&quot;);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>平行数组(parallel arrays)</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%B9%B3%E8%A1%8C%E6%95%B0%E7%BB%84.jpg"
+alt="平行数组" />
+<figcaption aria-hidden="true">平行数组</figcaption>
+</figure></li>
+<li><p>数组方法<code>sort</code>的工作原理</p>
+<ul>
+<li><p>根据一个知道如何对两个数组元素进行比较的函数对数组进行排序。</p>
+<ul>
+<li>对于数字，使用<code>&lt;</code>、<code>&gt;</code>、和<code>==</code>进行比较；</li>
+<li>对于字符串，按字母顺序进行比较</li>
+<li>对于对象，采用自定义的方式根据对象的属性进行比较</li>
+</ul></li>
+<li><p><code>sort</code>方法要求我们的函数在第一个数字大于第二个数字时返回一个大于0的值，在它们相等时返回0，并在第一个数字小于第二个数字时返回一个小于0的值。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function compareNumbers(num1, num2) &#123; </span><br><span class="line">	if (num1 &gt; num2) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">&#125; else if (num1 === num2) &#123;</span><br><span class="line">	return 0;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	return -1; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">numbersArray.sort(compareNumbers);</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>sort</code>方法是破坏性的，将就地修改数组，而不是返回一个排序后的新数组。</p></li>
+</ul></li>
+</ol>
+<h3 id="section-2"></h3>
+<h3 id="section-3"></h3>
+<h3 id="section-4"></h3>
+<h2 id="五对象objects">五、对象(Objects)</h2>
+<h3 id="创建对象">创建对象</h3>
+<ol type="1">
+<li>定义并创建对象的实例
+<ul>
+<li><p>添加对象变量声明</p></li>
+<li><p>花括号<code>&#123;&#125;</code>内定义对象的所有属性(properties)</p></li>
+<li><p>每个属性的定义都包含名称、冒号和值，用逗号分隔属性名和属性值对，冒号分隔属性名和属性值。</p></li>
+<li><p>包含空格的字符串用作属性名时，必须用括号将其括起</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var widget = &#123; </span><br><span class="line">	cost$: 3.14,</span><br><span class="line">	&quot;on sale&quot;: true</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>属性名可以是任何字符，但通常遵循变量命名规则</p></li>
+<li><p>对象变量声明也以分号结束</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">		var chevy = &#123;</span><br><span class="line">			make: &quot;Chevy&quot;,</span><br><span class="line">			model: &quot;Bel Air&quot;, </span><br><span class="line">			year: 1957,</span><br><span class="line">			color: &quot;red&quot;, </span><br><span class="line">			passengers: 2, </span><br><span class="line">			convertible: false, </span><br><span class="line">			mileage: 1021&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1.png"
+alt="创建对象" />
+<figcaption aria-hidden="true">创建对象</figcaption>
+</figure></li>
+</ul></li>
+</ol>
+<h3 id="属性的工作原理">属性的工作原理</h3>
+<ol type="1">
+<li><p>访问属性(access a property)</p>
+<ul>
+<li><p>句点表示法(dot notation)</p>
+<p><code>fiat.mileage</code></p></li>
+<li><p>串接(chaining)</p>
+<p><code>var index = ship.locations.indexOf(guess);</code></p></li>
+<li><p>方括号表示法(bracket notation)</p>
+<ul>
+<li><code>chevy["color"]</code></li>
+<li><code>chevy["co" + "lor"]</code>
+<ul>
+<li>可将任何表达式放在方括号内，只要其结果为表示属性名的字符串即可</li>
+</ul></li>
+</ul></li>
+<li><p>访问不存在的属性</p>
+<p><code>if (fiat.make) &#123; ... &#125;</code></p>
+<p><code>fiat.make</code>的结果将为<code>undefined</code></p></li>
+</ul></li>
+<li><p>修改属性</p>
+<p><code>fiat.mileage = 10000;</code></p></li>
+<li><p>添加新属性</p>
+<p><code>fiat.needsWashing = true;</code></p></li>
+<li><p>将属性用于计算</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (fiat.year &lt; 1965) &#123; </span><br><span class="line">	classic = true;</span><br><span class="line">	&#125;for (var i = 0; i &lt; fiat.passengers; i++) &#123;</span><br><span class="line">	addPersonToCar(); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>增删属性</p>
+<ul>
+<li>增加属性，只指定一个新属性并给它赋值</li>
+<li>删除属性，可使用关键词delete：<code>delete fido.dogYears;</code>
+<ul>
+<li>删除属性时，同时删除属性值和属性本身</li>
+<li>成功删除属性，delete表达式返回true</li>
+<li>当属性无法删除时，delete表达式返回false</li>
+<li>如某个对象属于浏览器而受到保护</li>
+<li>即便你要删除的属性在对象中不存在，delete表达式仍返回true</li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="变量存储对象的原理">变量存储对象的原理</h3>
+<ol type="1">
+<li><p>变量并不实际存储对象</p></li>
+<li><p>变量存储指向对象的引用(reference)，故此对象变量也被称为引用变量(reference
+variables)</p></li>
+<li><p>引用就像指针(pointer)，是对象的存储地址</p></li>
+<li><p>当我们使用句点表示法时，JavaScript解释器将负责根据引用获取对象并访问其属性</p></li>
+<li><p>基本类型变量(primitive variable)表示的是实际值，而对象变量(object
+variable)表示一种获取对象的途径</p></li>
+<li><p>当使用句点表示法用于引用变量时，相当于使用句点前的引用来获取相应的对象，再访问句点后指定的属性。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8.jpg"
+alt="变量存储对象的引用" />
+<figcaption aria-hidden="true">变量存储对象的引用</figcaption>
+</figure></li>
+</ol>
+<h3 id="向函数传递对象">向函数传递对象</h3>
+<ol type="1">
+<li><p>调用函数并向它传递一个对象时，传递的是对象引用，而不是对象本身。根据按值传递的语义，传递给形参的是改引用的副本，而原来的引用依然是指向原始对象的指针。</p></li>
+<li><p>如果在函数中修改对象属性，修改的将是原始对象的属性。因此，函数结束时，在函数中对对象所做的修改都依然有效。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A12.jpg" /></p></li>
+</ol>
+<h3 id="给对象添加行为">给对象添加行为</h3>
+<ol type="1">
+<li><p>给对象添加行为,就是将函数定义赋给属性。在函数定义中没有指定函数名，而只是在关键词后面提供了函数体，属性名就是函数名。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var fiat = &#123; </span><br><span class="line">	make: &quot;Fiat&quot;,</span><br><span class="line">	model: &quot;500&quot;,</span><br><span class="line">	year: 1957,</span><br><span class="line">	color: &quot;Medium Blue&quot;, </span><br><span class="line">	passengers: 2, </span><br><span class="line">	convertible: false, </span><br><span class="line">	mileage: 88000,</span><br><span class="line">	drive: function() &#123;</span><br><span class="line">		alert.log(&quot;Zoom zoom!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>对象内的函数，通常被称为方法(method)。</p></li>
+<li><p>用句点法（串联，chaining）调用对象内的方法。</p>
+<ul>
+<li><code>fiat.drive();</code></li>
+<li><code>var index = ship.locations.indexOf(guess);</code></li>
+</ul></li>
+</ol>
+<h3 id="关键词this的工作原理">关键词<code>this</code>的工作原理</h3>
+<ol type="1">
+<li>可将<code>this</code>视为一个变量，指向其方法被调用的对象。 <img
+src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%862.jpg" /></li>
+</ol>
+<h3 id="如何知道对象包含哪些属性">如何知道对象包含哪些属性</h3>
+<ol type="1">
+<li>用<code>for in</code>迭代对象的属性
+<ul>
+<li><code>for in</code>以每次一个的方式遍历对象的属性，并依次将每个属性赋给变量prop</li>
+<li>用方括号表示法通过prop来访问当前属性</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var prop in chevy) &#123;</span><br><span class="line">	console.log(prop + &quot;: &quot; + chevy[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="javascript提供的内置对象">JavaScript提供的内置对象</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-JavaScript%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AF%B9%E8%B1%A1.jpg"
+alt="JavaScript提供的对象" />
+<figcaption aria-hidden="true">JavaScript提供的对象</figcaption>
+</figure>
+<h3 id="字符串对象">字符串对象</h3>
+<ol type="1">
+<li>属性<code>length</code>：指出字符串包含多少个字符</li>
+<li>方法<code>charAt</code>：获取字符串中指定索引处的字符。
+<ul>
+<li>JavaScript没有字符类型(character
+type)，通过返回一个字符串来返回字符，其中只包含特点的字符</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var input = &quot;jenny@wickedlysmart.com&quot;; </span><br><span class="line">for(var i = 0; i &lt; input.length; i++) &#123;</span><br><span class="line">	if (input.charAt(i) === &quot;@&quot;) &#123;</span><br><span class="line">		console.log(&quot;There&#x27;s an @ sign at index &quot; + i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法<code>indexOf</code>
+<ul>
+<li><p>将一个字符串作为第一个参数，并在字符串中该参数首次出现的位置返回该参数中第一个字符的索引</p></li>
+<li><p>第二个参数是一个索引，指定从什么位置开始查找</p></li>
+<li><p>如果没有找到指定的字符串，将返回索引-1</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index = phrase.indexOf(&quot;the&quot;, 5);</span><br><span class="line">console.log(&quot;there&#x27;s a the sitting at index &quot; + index);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li>方法<code>substring</code>
+<ul>
+<li><p>将两个索引作为参数，提取并返回这两个索引之间的子串</p>
+<p><code>var val = data.substring(5, 10);</code></p>
+<blockquote>
+<p>返回从索引5到索引10（不包括）的子串</p>
+</blockquote></li>
+<li><p>可以省略第二个参数，在这种情况下，<code>substring</code>将提取从指定索引到字符串末尾的子串。</p></li>
+</ul></li>
+<li>方法<code>split</code>
+<ul>
+<li><p>将一个用作分隔符(delimiter)的字符作为参数，并根据这个分隔符将字符串分成多个部分。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var data = &quot;name|phone|address&quot;;</span><br><span class="line">var vals = data.split(&quot;|&quot;); </span><br><span class="line">console.log(&quot;Split array is &quot;, vals);</span><br><span class="line">	</span><br><span class="line">//Split array is [&quot;name&quot;, &quot;phone&quot;, &quot;address&quot;]</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li>方法<code>toLowerCase</code>
+<ul>
+<li>将字符串中的所有大写字符都转换为小写，并返回结果。</li>
+</ul></li>
+<li>方法<code>slice</code>
+<ul>
+<li>删除字符串的一部分，并返回结果。</li>
+</ul></li>
+<li>方法<code>lastIndexOf</code>
+<ul>
+<li>查找最后一个子串</li>
+</ul></li>
+<li>方法<code>match</code>
+<ul>
+<li>查找与正则表达式匹配的子串</li>
+</ul></li>
+<li>方法<code>trim</code>
+<ul>
+<li>删除字符串开头和末尾的空白字符</li>
+</ul></li>
+<li>方法<code>replace</code>
+<ul>
+<li>查找子串并将其替换为另一个字符串</li>
+</ul></li>
+<li>方法<code>concat</code>
+<ul>
+<li>将字符串拼接起来</li>
+</ul></li>
+<li>方法<code>toUpperCase</code>
+<ul>
+<li>将字符串中的所有小写字符都转换为大写，并返回结果。</li>
+</ul></li>
+</ol>
+<h2
+id="六浏览器与文档对象模型document-object-modeldom">六、浏览器与文档对象模型(document
+object model,DOM)</h2>
+<h3
+id="网页与javascript通过文档对象模型dom交互">网页与JavaScript通过文档对象模型（DOM）交互</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-DOM%E6%A8%A1%E5%9E%8B.jpg"
+alt="DOM模型" />
+<figcaption aria-hidden="true">DOM模型</figcaption>
+</figure>
+<ol type="1">
+<li><code>document</code>是一个全局对象，表示浏览器显示的整个网页，包含完整的DOM。</li>
+<li><code>getElementById</code>是<code>document</code>的一个方法，查找id为指定值的元素对象。
+<ul>
+<li>若根据id从DOM获取元素时，如果指定的id不存在，getElementById将返回null。</li>
+</ul></li>
+<li><code>getElementsByClassName</code>是<code>document</code>的一个方法，查找类名为指定值的元素对象集合。</li>
+<li><code>getElementsByTagName</code>
+是<code>document</code>的一个方法，查找与指定标签名匹配的元素对象集合。</li>
+</ol>
+<ul>
+<li>返回的是一个NodeList对象。但可以像处理数组一样处理它（length属性、索引访问）。NodeList是一个Node集合，而Node指的其实就是DOM树中的element对象。</li>
+</ul>
+<ol start="5" type="1">
+<li><p><code>innerHTML</code>是元素对象的一个属性，表示包含在元素中的内容（除了元素的HTML标签外）。</p>
+<ul>
+<li>可以通过<code>innerHTML</code>来读取或替代元素的内容</li>
+<li><code>innerHTML</code>表示元素对象包含的所有内容，包括嵌套的元素/从对象的起始位置到终止位置的全部内容,不包括HTML标签。
+<ul>
+<li>例如，段落元素除文本外，还可能包含<code>&lt;em&gt;</code>和<code>&lt;img&gt;</code>元素</li>
+</ul></li>
+</ul></li>
+<li><p><code>outerHTML</code>是元素对象的一个属性，表示包含在元素对象中的全部内容</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;test&quot;&gt; </span><br><span class="line">  &lt;span style=&quot;color:red&quot;&gt;test1&lt;/span&gt; test2 </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>innerHTML</code>的值是<code>&lt;span style="color:red"&gt;test1&lt;/span&gt;test2</code></li>
+<li><code>outerHTML</code>的值是<code>&lt;div id="test"&gt;&lt;span style="color:red"&gt;test1&lt;/span&gt;test2&lt;/div&gt;</code></li>
+</ul></li>
+<li><p>处理DOM时，要确保代码在网页完全加载后，再执行，否则代码执行时，DOM很可能尚未创建。</p></li>
+</ol>
+<h3 id="网页加载完毕后执行代码的方法">网页加载完毕后执行代码的方法</h3>
+<ol type="1">
+<li>将代码放置于<code>&lt;body&gt;</code>元素末尾</li>
+<li>将函数赋给对象window的属性onload
+<ul>
+<li><p>window是一个JavaScript内置对象，表示浏览器窗口</p></li>
+<li><p>网页加载事件的触发时间点是：浏览器加载完网页，显示网页的所有内容并生成表示网页的DOM</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;function init() &#123;</span><br><span class="line">	var planet = document.getElementById(&quot;greenplanet&quot;);</span><br><span class="line">	planet.innerHTML = &quot;Red Alert: hit by phaser fire!&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.onload = init; #千万不要在函数名init后面添加括号，这里不是调用函数，而是将函数作为一个值赋给属性window.onload&lt;/script&gt;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ol>
+<h3 id="section-5"></h3>
+<h3 id="设置dom中元素对象的特性">设置DOM中元素对象的特性</h3>
+<ol type="1">
+<li><p><code>setAttribute</code>方法添加新特性或修改既有特性</p>
+<p><code>planet.setAttribute("class", "redtext");</code></p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-setAttribute%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%89%B9%E6%80%A7%E6%88%96%E4%BF%AE%E6%94%B9%E6%97%A2%E6%9C%89%E7%89%B9%E6%80%A7.jpg"
+alt="setAttribute方法添加新特性或修改既有特性" />
+<figcaption
+aria-hidden="true">setAttribute方法添加新特性或修改既有特性</figcaption>
+</figure></li>
+<li><p><code>getAttribute</code>方法获取HTML元素的特性的值</p>
+<ul>
+<li><p>如果指定的特性不存在，将返回null。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var scoop = document.getElementById(&quot;raspberry&quot;); </span><br><span class="line">var altText = scoop.getAttribute(&quot;alt&quot;);</span><br><span class="line">if (altText == null) &#123;</span><br><span class="line">	console.log(&quot;Oh, I guess there isn&#x27;t an alt attribute.&quot;); </span><br><span class="line">&#125; else &#123;</span><br><span class="line">console.log(&quot;I can&#x27;t see the image in the console,&quot;);</span><br><span class="line">console.log(&quot; but I&#x27;m told it looks like &quot; + altText); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>设置图像的属性(property)<code>src</code>与使用<code>getAttribute</code>和<code>setAttribute</code>设置特性(attribute)<code>src</code>相同么？</p>
+<ul>
+<li>对于<code>&lt;img&gt;</code>元素而言，效果是一样的。但是并非所有的HTML特性(attributes)都有对应的对象属性(object
+properties)，因此对于这些特性，必须使用<code>getAttribute</code>和<code>setAttribute</code>来设置和获取。</li>
+</ul></li>
+</ul></li>
+</ol>
+<h2 id="七类型types">七、类型(types)</h2>
+<h3 id="类型的种类">类型的种类</h3>
+<ol type="1">
+<li>基本类型(primitives)
+<ul>
+<li>数值（作为基本类型）</li>
+<li>布尔值（作为基本类型）</li>
+<li>字符串（作为基本类型）</li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+</ul></li>
+<li>对象（objects对象有属性和方法）
+<ul>
+<li>字符串（作为对象/JavaScript解释器会在需要时替你创建字符串对象，无需显式地这么做）</li>
+<li><ul>
+<li>数值（作为对象）</li>
+</ul></li>
+<li><ul>
+<li>布尔值（作为对象）</li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="undefined值"><code>undefined</code>值</h3>
+<ol type="1">
+<li><p>对于任何还没有值（即还未初始化）的东西，都将被赋予值<code>undefined</code>，<code>undefined</code>的类型是<code>undefined</code>。</p>
+<ul>
+<li>没有return语句的函数返回的值</li>
+<li>未赋值的变量的值</li>
+<li>稀疏数组中不存在的数组元素的值</li>
+<li>不存在的属性的值</li>
+<li>已删除的属性的值</li>
+</ul></li>
+<li><p>可以通过<code>undefined</code>来判断是否给变量（属性或数组元素）赋值了。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line"></span><br><span class="line">if (x == undefined) &#123;</span><br><span class="line">// x isn’t defined! just deal with it!</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var customer = &#123; </span><br><span class="line">		name: &quot;Jenny&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">if (customer.phoneNumber == undefined) &#123;</span><br><span class="line"></span><br><span class="line">	// get the customer&#x27;s phone number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#注意不要将值undefined与字符串&quot;undefined&quot;混淆</span><br></pre></td></tr></table></figure> ### <code>null</code>值</p></li>
+<li><p>表示”无对象/对象不存在“，在应该提供一个对象，但无法创建或找到时，将提供null，在变量未初始化，对象没有指定属性或数组没有指定元素时，将返回undefined。</p></li>
+<li><p><code>null</code>以前的类型是<code>object</code>，不过在最新的规范中<code>null</code>的类型是<code>null</code>。</p></li>
+</ol>
+<h3 id="nan值"><code>NaN</code>值</h3>
+<ol type="1">
+<li><p>表示JavaScript无法表示的数值结果，即(Not a Number)</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 0/0;</span><br><span class="line">var b = &quot;food&quot; * 1000;</span><br><span class="line">var c = Math.sqrt(-9);</span><br></pre></td></tr></table></figure></p></li>
+<li><p>JavaScript中唯一一个与自己不相等的值：<code>NaN != NaN</code> *
+因为NaN与任何东西都不相等，因此不能以任何方式检查变量与NaN是否相等。需要使用特殊函数isNaN。
+* NaN指的是无法表示的数字，但并非所有无法表示的数字都相等。 *
+如果变量存储的是NaN或其他任何不是数字的值，将其传递给isNaN时，都将返回<code>true</code>，否则将返回<code>false</code>。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (isNaN(myNum)) &#123; </span><br><span class="line">	myNum = 0;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>NaN</code>值的类型是"number"</p>
+<ul>
+<li><code>NaN</code>值可以认为是一个数字，只是无法表示（至少对计算机来说如此而已）</li>
+</ul></li>
+</ol>
+<h3 id="infinity值"><code>Infinity</code>值</h3>
+<ol type="1">
+<li>任何超过浮点数上限(1.7976931348623157E+10308)或下限(-1.7976931348623157E+10308,-Infinity)的值。</li>
+<li><code>Infinity</code>值的类型是"number"</li>
+<li><code>Infinity</code>与它自己相减时，结果为<code>NaN</code></li>
+</ol>
+<h3 id="检测类型">检测类型</h3>
+<ol type="1">
+<li><p><code>typeof</code>是一个内置的JavaScript运算符(operator)，可用于探测其操作数(operand)的类型</p>
+<blockquote>
+<p>操作数：要对其进行操作的东西</p>
+</blockquote>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var subject = &quot;Just a string&quot;;</span><br><span class="line">var probe = typeof subject; </span><br><span class="line">console.log(probe);</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>typeof</code>使用字符串来表示类型</p>
+<ul>
+<li>"string"</li>
+<li>"boolean"</li>
+<li>"number"</li>
+<li>"object"</li>
+<li>"undefined"</li>
+<li>"function"</li>
+</ul></li>
+</ol>
+<h3 id="类型转换">类型转换</h3>
+<ol type="1">
+<li>拼接和加法运算符<code>+</code>
+<ul>
+<li><p>用于数字时，运算符<code>+</code>表示加法运算，用于字符串时，运算符<code>+</code>表示拼接(concatenation)</p></li>
+<li><p>将数字和字符串相加时，数字转换为字符串，再进行拼接，顺序为从左至右</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var order = 1 + 2 + &quot; pizzas&quot;;</span><br><span class="line">3 pizza</span><br></pre></td></tr></table></figure></p></li>
+<li><p>布尔值与字符串相加时，结果为字符串。
+<code>true + “ love”</code>为<code>“true love”</code></p></li>
+</ul></li>
+<li>其他算数运算符
+<ul>
+<li>如乘法、除法和减法运算，JavaScript将认为你要执行的是算术运算，而不是字符串运算。</li>
+<li>运算符<code>-</code>对数字取负，将其用于<code>true</code>，结果将为-1</li>
+</ul></li>
+<li>将字符串转换为数字的函数<code>Number</code>
+<ul>
+<li>如果指定的实参无法转换为数字，Number将返回NaN。</li>
+</ul></li>
+</ol>
+<h2 id="八运算符">八、运算符</h2>
+<h3 id="算术运算符">算术运算符</h3>
+<ol type="1">
+<li>后递增运算符(post-increment operator)：<code>++</code>
+<ul>
+<li><code>myImportantCounter++;</code>这条语句执行完以后，myImportantCounter的值比原来大1。</li>
+</ul></li>
+<li>后递减运算符(post-decrement operator)：<code>--</code> ###<br />
+###<br />
+###<br />
+###</li>
+</ol>
+<h2 id="九比较">九、比较</h2>
+<h3 id="比较运算符">比较运算符</h3>
+<ol type="1">
+<li><code>&lt;</code>
+<ul>
+<li>可以比较布尔值、字符串和数字，<code>true</code>转换为1</li>
+<li>字符串比较规则
+<ul>
+<li>取决于计算机中用于表示各个字符的Unicode值的排列顺序</li>
+</ul></li>
+</ul></li>
+<li><code>&gt;</code>
+<ul>
+<li>可以比较布尔值、字符串和数字，<code>true</code>转换为1</li>
+</ul></li>
+<li><code>==</code>表示等于</li>
+</ol>
+<ul>
+<li>如果两个值的类型相等，就直接进行比较</li>
+<li>如果两个值的类型不同，则尝试将它们转换为相同的类型，再进行比较
+<ul>
+<li><p>比较数字和字符串</p>
+<ul>
+<li><p>把字符串转换为数字，再对两个数字进行比较</p></li>
+<li><p>字符串不能转换为数字时，结果为<code>NaN</code>，和数字的比较结果为<code>false</code></p>
+<p><code>99 == "vanilla"</code>→<code>99 == NaN</code>→<code>false</code></p></li>
+</ul></li>
+<li><p>比较布尔值和其他类型</p>
+<ul>
+<li><p>把布尔值转换为数字，再对两个数字进行比较</p></li>
+<li><p><code>true</code>将被转换为1，而<code>false</code>将被转换为0</p>
+<p><code>1 == true</code>→<code>1 == 1</code>→<code>true</code></p></li>
+</ul></li>
+<li><p>比较<code>null</code>和<code>undefined</code></p>
+<p><code>undefined == null</code>→<code>true</code></p></li>
+<li><p>其他情况</p>
+<ul>
+<li><p>空字符串转换为数字的结果是0</p>
+<p><code>1 == ""</code>→<code>1 == 0</code>→<code>false</code></p></li>
+</ul></li>
+<li><p>判断两个对象是否相等</p>
+<ul>
+<li><p>如果两个操作数都是对象，<code>==</code>和<code>===</code>都可以使用，工作原理完全相同</p></li>
+<li><p>检查两个对象变量是否相等时，比较的是指向对象的引用</p>
+<ul>
+<li>这些对象包含什么不重要，只要两个引用指向的对象不同，他们就不同</li>
+</ul></li>
+<li><p>当且仅当两个引用指向的是同一个对象时，它们才相等</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89.jpg"
+alt="判断两个对象是否相等" />
+<figcaption aria-hidden="true">判断两个对象是否相等</figcaption>
+</figure></li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li><p><code>===</code>表示正好等于/严格相等</p>
+<ul>
+<li>当且仅当两个值的类型和值都相等时，它们才是严格相等。</li>
+<li>有些开发人员称其为等同运算符<code>“identity” operator</code></li>
+</ul></li>
+<li><p><code>&lt;=</code></p>
+<ul>
+<li>只能比较字符串和数字</li>
+</ul></li>
+<li><p><code>&gt;=</code></p>
+<ul>
+<li>只能比较字符串和数字</li>
+</ul></li>
+<li><p><code>!=</code>表示不等于</p></li>
+<li><p><code>!==</code>表示严格不等于</p></li>
+</ol>
+<h3 id="逻辑运算符">逻辑运算符</h3>
+<ol type="1">
+<li><code>||</code>表示OR（或）</li>
+<li><code>&amp;&amp;</code>表示AND（与）</li>
+<li><code>!</code>表示NOT（非），仅当表达式为false时，结果才为true</li>
+</ol>
+<h3
+id="真值truthy和假值falseyfalsy">真值(truthy)和假值(falsey/falsy)</h3>
+<ol type="1">
+<li><p>定义：有些值并非<code>true</code>或<code>false</code>，但用于条件表达式中时，被视为<code>true</code>或<code>false</code>。这些值被称为真值(truthy)和假值(falsey/falsy)。因为严格地说它们并非<code>true</code>或<code>false</code>，但用于条件表达式时，它们的行为像<code>true</code>或<code>false</code>。</p></li>
+<li><p>假值(falsey/falsy)</p>
+<ul>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>0</code></li>
+<li>空字符串</li>
+<li><code>NaN</code></li>
+</ul></li>
+<li><p>真值(truthy)</p>
+<p>除了5个假值以外，其他都是真值</p></li>
+</ol>
+<h2
+id="十事件处理程序event-handler回调函数callback及异步编码asynchronous-coding">十、事件处理程序(event
+handler)/回调函数(callback)及异步编码(asynchronous coding)</h2>
+<h3 id="基本概念">基本概念</h3>
+<ol type="1">
+<li>有些事件(events)是浏览器生成的，如加载。有些事件是用户与网页交互时生成的。有些事件是JavaScript代码生成的。还有定时器事件。</li>
+<li>事件处理程序(event
+handler)/回调函数(callback)/监听器(listener)。从代码的角度说，就是一个函数。</li>
+<li>异步编码(asynchronous
+coding)，是一种以响应事件的方式组织代码的代码编写方式。 &gt;
+相对应的线性编码，就是从上到下的顺序逐步编写代码。</li>
+</ol>
+<h3 id="事件对象event-object的工作原理">事件对象(event
+object)的工作原理</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-01-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg"
+alt="事件对象(event object)的工作原理" />
+<figcaption aria-hidden="true">事件对象(event
+object)的工作原理</figcaption>
+</figure>
+<ol type="1">
+<li><p>每次调用单击事件处理程序时，都将向它传递一个事件对象(event
+object)，更准确地说是触发事件的元素，这被称为目标(target)。例如，当用户单击特定的图像时，目标就是这幅图像的元素对象。加载事件处理程序传递的一个事件对象的<code>target</code>是<code>window</code>对象。</p>
+<ul>
+<li><code>target</code>就是事件对象的一个属性(property)</li>
+</ul></li>
+<li><p>在事件处理程序中，你可以使用这个事件对象来获取有关事件的信息</p>
+<ul>
+<li>常规信息
+<ul>
+<li><p>属性<code>target</code>，它储存了一个引用，指向触发事件的元素对象（可以是各种不同的对象，但通常是元素对象）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function showAnswer(eventObj) &#123;</span><br><span class="line">	var image = eventObj.target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>属性<code>type</code>，是一个字符串，如<code>click</code>或<code>load</code>，指出了发生的是哪种事件</p></li>
+<li><p>属性<code>timeStamp</code>，事件是何时发生的</p></li>
+</ul></li>
+<li>具体信息（取决于事件的类型）
+<ul>
+<li>用户单击鼠标时，获得单击位置的坐标</li>
+<li>属性<code>keyCode</code>，用户刚按下了哪个键</li>
+<li>属性<code>clientX</code>和<code>clientY</code>，确定用户点击的位置离浏览器窗口的左边缘和上边缘的距离</li>
+<li>属性<code>touches</code>，在触摸设备上，确定用户使用了多少根手指来触摸屏幕</li>
+</ul></li>
+</ul></li>
+<li><p>浏览器把事件都放入队列，再遍历这个队列(queue)，并在必要时调用相应的处理程序。浏览器只有一个队列和一个控制线程(thread
+of control)，只能去逐个处理事件。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-01-%E4%BA%8B%E4%BB%B6%E5%92%8C%E9%98%9F%E5%88%97.jpg"
+alt="事件和队列" />
+<figcaption aria-hidden="true">事件和队列</figcaption>
+</figure></li>
+</ol>
+<h3 id="具体示例">具体示例</h3>
+<ol type="1">
+<li><p>将按钮（类型为button）的属性onclick设置为一个事件处理程序</p>
+<ul>
+<li><p>可以给网页中任何元素的onclick属性设置为一个函数。</p></li>
+<li><p>不会在网页中显示出来的元素（如<code>&lt;script&gt;</code>和<code>&lt;head&gt;</code>）不支持单击等事件</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;);</span><br><span class="line">	fireButton.onclick = handleFireButton;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handleFireButton() &#123;</span><br><span class="line">	// 从表单中获取值的代码</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">window.onload = init;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>通过迭代批量增加单击事件处理程序</li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var images = document.getElementsByTagName(&quot;img&quot;); </span><br><span class="line">	for (var i = 0; i &lt; images.length; i++) &#123;</span><br><span class="line">	images[i].onclick = showAnswer; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;		</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>处理回车键事件</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;);</span><br><span class="line">	fireButton.onclick = handleFireButton;</span><br><span class="line">	var guessInput = document.getElementById(&quot;guessInput&quot;);</span><br><span class="line">	guessInput.onkeypress = handleKeyPress;</span><br><span class="line">	# 按键</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handleKeyPress(e) &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;); </span><br><span class="line">	if (e.keyCode === 13) &#123;</span><br><span class="line">		fireButton.click();</span><br><span class="line">		return false; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"># 如果用户按下的是回车键，事件对象的属性keyCode将为13</span><br></pre></td></tr></table></figure></p></li>
+<li><p>mousemove事件</p>
+<ul>
+<li>当鼠标在特定元素上移动时，
+mousemove事件通知相应的处理程序。要指定处理程序，可使用元素的属性<code>onmousemove</code>。这样会给这种事件处理程序传递一个<code>event</code>对象。</li>
+<li><code>clientX, clientY</code>：鼠标相对于浏览器窗口左边缘和上边缘的距离，单位为像素</li>
+<li><code>screenX, screenY</code>：鼠标相对于设备屏幕左边缘和上边缘的距离，单位为像素</li>
+<li><code>pageX, pageY</code>:
+鼠标相对于网页左边缘和上边缘的距离，单位为像素</li>
+</ul></li>
+<li><p>鼠标移动事件</p>
+<ul>
+<li>属性<code>onmouseover</code>：鼠标移入元素</li>
+<li>属性<code>onmouseout</code>：鼠标移出元素</li>
+</ul></li>
+<li><p>其他</p>
+<ul>
+<li><code>resize</code>：每当用户调整浏览器窗口大小时，都将触发这个事件<br />
+</li>
+<li><code>play</code>：单击网页中<code>&lt;video&gt;</code>元素的播放按钮时，将触发这个事件<br />
+</li>
+<li><code>pause</code>：单击网页中<code>&lt;video&gt;</code>元素的暂停按钮时，将触发这个事件</li>
+<li><code>unload</code>：用户关闭浏览器窗口或切换到其他网页时，将触发这个事件<br />
+</li>
+<li><code>dragstart</code> ：用户拖曳网页中的元素时，将触发这个事件</li>
+<li><code>drop</code> ：用户放下拖曳的元素时，将触发这个事件</li>
+<li><code>touchstart</code>：在触摸设备上，用户触摸并按住元素时，将触发这个事件</li>
+<li><code>touchend</code> ：用户停止触摸时，将触发这个事件</li>
+</ul></li>
+<li><p>基于时间的事件</p>
+<ul>
+<li>调用函数<code>setTimeout</code>并向它传递处理程序，它接受两个参数，事件处理程序和时间间隔（单位为毫秒）。
+<ul>
+<li><p>向函数<code>setTimeout</code>传递一个指向处理程序函数的引用。函数<code>setTimeout</code>将这个引用存储起来，供定时器到期后使用。</p></li>
+<li><p>严格地说，应该写作<code>window.setTimeout</code>，<code>window</code>是全局对象，可省略对象名。</p>
+<p><code>setTimeout(timerHandler, 5000);</code></p></li>
+<li><p>还可以传入第三个参数：触发时间事件时，这个参数将被传递给处理程序（可向处理程序传递任意数量的参数）。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(reblur, 2000, image);</span><br><span class="line">	</span><br><span class="line">function reblur(image) &#123;</span><br><span class="line">	var name = image.id; </span><br><span class="line">	name = name + &quot;blur.jpg&quot;; </span><br><span class="line">	image.src = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>将处理程序指定为reblur，将时间间隔设置为2秒，并将第三个参数指定为要重新变模糊的图像</p>
+</blockquote></li>
+</ul></li>
+<li>调用函数<code>setInterval</code>
+<ul>
+<li><p>在定时器到期时触发事件，并重启定时器</p></li>
+<li><p>若要停止函数<code>setInterval</code>，可将其传递给另一个函数clearInterval</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var t = setInterval(ticker, 1000);</span><br><span class="line">clearInterval(t);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="section-6"></h3>
+<h3 id="section-7"></h3>
+<h3 id="section-8"></h3>
+<h2 id="十一">十一、</h2>
+<h3 id="section-9"></h3>
+<h3 id="section-10"></h3>
+<h3 id="section-11"></h3>
+<h3 id="section-12"></h3>
+<h2 id="十二">十二、</h2>
+<h3 id="section-13"></h3>
+<h3 id="section-14"></h3>
+<h3 id="section-15"></h3>
+<h3 id="section-16"></h3>
+<h2 id="十三">十三、</h2>
+<h3 id="section-17"></h3>
+<h3 id="section-18"></h3>
+<h3 id="section-19"></h3>
+<h3 id="section-20"></h3>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/26/1zhianshu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1698,1022 +3050,6 @@ id="丙辰咸丰六年被困南昌官绅人人目笑存之">丙辰（咸丰六�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/17/ZengGuofan14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/17/ZengGuofan14/" class="post-title-link" itemprop="url">曾国藩其人其事·十四</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-17 16:05:01" itemprop="dateCreated datePublished" datetime="2018-06-17T16:05:01+08:00">2018-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:30:56" itemprop="dateModified" datetime="2019-02-27T23:30:56+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E7%89%A9%E4%B8%8E%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">人物与历史</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>参考书籍<br> 1.
-张宏杰《曾国藩的正面与侧面》民主与建设出版社.2014年<br> 2.
-张宏杰《曾国藩的正面与侧面》国际文化出版公司.2011年<br> 3.
-林乾《曾国藩大传》人民文学出版社.2011年<br></p>
-</blockquote>
-<h2 id="九迷信与天命">九、迷信与天命</h2>
-<h3 id="一迷信">（一）迷信</h3>
-<p>曾国藩说过：</p>
-<blockquote>
-<p>“余生平不信鬼神怪异之说。”</p>
-</blockquote>
-<p>他在家书中谈及风水时说：</p>
-<blockquote>
-<p>“我平日最不信风水。”</p>
-</blockquote>
-<p>但是更多的文字和记载，却证明他是一个相当“迷信”的人。他一生进行过大量“迷信活动”。几乎实践过所有迷信种类：</p>
-<ol type="1">
-<li><p>他精通相面之术，有过大量相面实践。</p></li>
-<li><p>他会算卦，经常自己占卜吉凶。</p></li>
-<li><p>他相信托梦。</p>
-<p>曾国藩长子曾桢第夭折后，欧阳夫人梦见一个老太太，自称是曾家九世祖孟学公的夫人屈氏，诉说她的坟墓多年无人打扫。曾国藩夫妇认为这是导致幼子夭折的原因。曾国藩于是将屈氏之墓迁出另葬，重修立碑。其碑文至今尚存。</p></li>
-<li><p>他还相信扶乩。</p>
-<blockquote>
-<p>扶乩（fújī），是中国道教的一种占卜方法，又称扶箕、扶鸾、挥鸾、降笔、请仙、卜紫姑、架乩等等。在扶乩中，需要有人扮演被神明附身的角色，这种人被称为鸾生或乩身。神明会附身在鸾生身上，写出一些字迹，以传达神明的想法，做出神谕。信徒通过这种方式，与神灵沟通，以了解神灵的意思。</p>
-</blockquote>
-<p><img
-src="http://qiniup.louyanspine.com/2018-06-17-%E6%89%B6%E4%B9%A9.jpg" /></p>
-<p>咸丰八年四月，曾国藩乡居期间，家里请人扶了一次乩，预测曾家家运如何。一位赴任途中的城隍神下降曾家，预言说不久曾家将遭大难。半年后，六弟曾国华果然死于乱军之中。曾国藩晚年经常向人提起此事，以证明超自然力量的存在。</p></li>
-<li><p>他禳过灾。</p>
-<p>咸丰八年十月十三日，曾国藩在日记中写道：</p>
-<blockquote>
-<p>因各营患病者太多，且乡间居民亦病，斋醮三日，禳灾祈福。余亦诣坛拈香。</p>
-</blockquote></li>
-<li><p>他信关公。</p>
-<p>湘军攻下南京不久，曾国藩一边忙着为诸将请功，一边郑重其事地上了一道折子，请皇帝给关帝庙赐以匾额。据他折中所说，金陵之役的军功章中有关公老爷的一半。原来，曾国荃率部攻城之际，天气酷热，人不能堪，太平军趁势对攻城的湘军“屡掷火桶”，采用火攻。曾国荃乃向关公求雨，而据说关公亦欣然出手，扫去暑热，帮助湘军成此大功。曾国藩在《奏请钦颁金陵及湘乡县关帝庙匾额折》详述其过程说：</p>
-<blockquote>
-<p>本年六月初间，（曾国荃）督率诸军在龙膊子开挖地道，修筑炮垒，逼城猛攻。时值酷暑，烈日如焚，城贼屡掷火桶，几欲延烧。国荃因肉薄攻城，恐致贻误，乃望空长跪，虔祷关圣大帝速降雨泽，以代贼谋，十二日果得大雨一次，而数里之外亦皆无雨。……登城之日，酷热尤甚，国荃祷祝如前，并默许奏请钦颁金陵及湘乡县关帝庙匾额。午时火发之后，有阴云自钟山覆日而来，凉风习习，拥护兵勇登城，得以竟此全功。……恳请御颁匾额，以答神庥。</p>
-</blockquote></li>
-<li><p>他还信痘神。</p>
-<p>同治六年三月，曾国藩幼子纪鸿得了痘症，一时病势颇为凶险。曾国藩心为之悬悬，“乃打扫屋宇，择花园中厅净室敬奉痘神。傍夕沐浴，灯后拈香行礼”。纪鸿病愈后，曾国藩在日记中总结原因，将功劳一分为二，归之于大夫和痘神的共同努力：</p>
-<blockquote>
-<p>此次由至险而得至安，实初意所不到。一则赖痘神佑助，一则刘叟之老练精慎。</p>
-</blockquote>
-<p>他于四月初八日亲作祭文送痘神，还给“痘娘娘”扎了状元坊一座，彩亭三座，纸伞、纸旗十把，燃爆竹十余万。过后又“以二千金修痘神庙，保金陵城内男女永无病灾”。同年九月初七，痘神庙完工，他不仅亲至庙内拈香礼拜，还特地为此庙撰联一对：</p>
-<blockquote>
-<p>“善果征前因，愿斯世无灾无害；拈香参妙谛，惟神功能发能收。”</p>
-</blockquote></li>
-<li><p>至于祈雨敬神之类的清代地方官员公务范围内的正常举动，在他的年谱中更是多见。</p></li>
-</ol>
-<h3 id="二风水">（二）风水</h3>
-<h4 id="姑妄信之">姑妄信之</h4>
-<p>京官生涯中的曾国藩一方面精研理学，另一方面也热心功名。为求官运亨通，对官场中一些陋风庸习也亦步亦趋。道光二十二年，他的跟班陈升在口角之后一怒辞职。五天以后，朋友给他介绍了周某做跟班，曾国藩考察收用后，马上将此人改名为“周升”。直到咸丰八年，曾国藩日记中提及的五个仆人，还分别叫做“韩升”、“王福”、“何得”、“曾盛”、“曹荣”。可见他图吉利讲忌讳，与绝大多数官僚一般无二。</p>
-<p>曾国藩在京官生涯中曾多次搬家，阅读这一阶段日记，我们发现找房子这个事儿耗费了他许多的时间和精力。有几次搬家是因为官越做越大，越来越讲究体面排场；而风水吉凶方面的考虑则是另几次搬家的重要原因。因为据说阳宅风水与官运息息相关。</p>
-<p>道光二十年，进京不久的曾国藩想租一套大一些的房子，因此“至琉璃街看房子”。看好了一处院子后，却听人说这个屋子里死过人：</p>
-<blockquote>
-<p>“此屋曾经住狄老辈之夫人王恭人，在此屋殉节。”</p>
-</blockquote>
-<p>虽然殉节乃是儒学伦理中的光荣之事，曾国藩却因此打消了租这套房子的念头。他在日记中说，</p>
-<blockquote>
-<p>“京城住房者多求吉利，恭人殉节，……当时究非门庭之幸”。</p>
-</blockquote>
-<p>不过，曾国藩京官期间穷心竭力精研理学，发誓“学做圣人”，并没有多少余力研究风水。另外，他的祖父星冈公（曾玉屏）虽然识字不多，却颇有些高明的见识。曾国藩终生敬仰这位颇有主见的祖父。这位老人在村子里以“三不信”闻名：不信和尚、道士、巫师，不信风水先生，不信大夫。想必他一生惯见僧道、风水、庸医的骗人把戏，故以“三不信”授子孙。他“平日最恶人子欲求吉地久暴亲柩”。因为星冈公的影响，也因为对风水吉凶之验并无亲身体验，所以这一阶段他对风水的态度是实用主义的，谈不上笃信。直到风水对他家的家运产生“影响”了，他才一度转而真正相信。</p>
-<h4 id="祖母之丧的影响">祖母之丧的影响</h4>
-<p>道光二十六年九月，曾国藩的祖母王太夫人以八十余岁高龄去世。对于祖母的葬地，曾家发生了激烈争论。祖父星冈公执意将老妻葬于自己很喜欢的木斗冲，而其他人认为木斗冲地方狭隘，且风水不佳，都不赞同。弟弟们还特意写信到京，让曾国藩劝说祖父。</p>
-<p>曾国藩也不赞成祖父的主张。他知道祖父不信风水，因此另选角度来进行劝说。他说：</p>
-<blockquote>
-<p>自己身为翰林，祖母也得以荣封，因此选择坟地必须“面前宏敞”，有足够的地方树立碑坊，而“木斗冲规模隘小，离河太近，无立牌坊及神道碑之地，是以孙不甚放心。意欲从容另寻一地，以图改葬，不求富贵吉祥，但求无水蚁无凶险，面前宏敞而已，不知大人以为如何？”</p>
-</blockquote>
-<p>但是性格强硬的祖父固执己见，毫不动摇。对风水本不那么在意的曾国藩也就不再坚持，转而写信劝弟弟们听祖父的话。服膺理学的他以“天理说”来说服弟弟们：</p>
-<blockquote>
-<p>日前所开山向凶吉之说，亦未可尽信。山向之说，地理也；祖父有命而子孙从之，天理也。祖父之意已坚，而为子孙者乃拂违其意而改卜他处，则祖父一怒，肝气必郁，病势必加，是已大逆天理，虽得吉地，犹将变凶，而况未必吉乎？自今以后，不必再提改葬之说，或吉或凶，听天由命。</p>
-</blockquote>
-<p>也就是说，风水吉凶之说，是“地理”；而孙子听从爷爷的话，是“天理”。当“地理”与“天理”发生冲突时，作为程朱信徒，当然应该选择后者，何况爷爷此时还在病中，怎么能因为这个事惹他生气。</p>
-<p>巧合的是，就在祖母葬后不久，曾国藩家里喜事连连：</p>
-<blockquote>
-<p>“祖母大人葬后，家中诸事顺遂，祖父之病已愈，予之痹症亦愈，且骤升至二品。”</p>
-</blockquote>
-<p>祖父痊愈了，困扰曾国藩多时的风湿好了，且又升授内阁学士兼礼部侍郎衔。</p>
-<p>到了道光二十九年，这种好运仍然持续：家里添了三个男丁，九弟曾国荃也进了学成了秀才。当然更重要的是曾国藩本人升任实职侍郎。</p>
-<p>以前虽然听惯了风水发家的故事，但曾国藩对风水之说一直“存而不论”。但这次“亲身经历”，却让他确信风水对家运兴衰有着直接的影响。道光二十九年，他在家信中对此事总结出了两点：</p>
-<ol type="1">
-<li><p>第一，很显然，祖母葬地风水上佳，因此曾家家运才如此顺风顺水。</p>
-<blockquote>
-<p>“九弟生子大喜，敬贺敬贺。自丙午冬葬祖妣大人于木兜（斗）冲之后，我家已添三男丁，我则升阁学，升侍郎，九弟则进学补廪。其地之吉，已有明效可验。”</p>
-</blockquote></li>
-<li><p>第二，风水乃是天授，非人力所能强求。</p>
-<p>几个弟弟因认为此地风水不佳，差点和祖父冲突起来。而素来不信风水的祖父选定的地方，居然是如此上吉之地。</p>
-<blockquote>
-<p>“木兜（斗）冲之地，予平日不以为然，而葬后乃吉祥如此，可见福人自葬福地，绝非可以人力参预其间。”</p>
-</blockquote>
-<p>虽然吉地非人力可求，但既然葬到了吉地，就万万不可更动。他嘱咐几个弟弟：</p>
-<blockquote>
-<p>祖母坟地“风水之好可知，万万不可改葬。若再改葬，则谓之不祥，且大不孝矣”。</p>
-</blockquote>
-<p>但祖母坟地毕竟过于狭隘，“不便立牌坊，起诰封碑亭，亦不便起享堂，立神道碑”。“诰封碑亭”是体制和家族荣耀所关，不能不修。他的解决方案是将来将祖父母分别安葬，将碑亭等建于祖父坟前：</p>
-<blockquote>
-<p>予意乃欲求尧阶相一吉地，为祖父大人将来寿台，弟可将此意禀告祖父见允否？盖诰封碑亭，断不可不修，而祖母又不可改葬，将来势不能合葬，乞禀告祖父，总以祖父之意为定。</p>
-</blockquote></li>
-</ol>
-<p>经历此事后，曾国藩对风水之说的迷信度大涨。咸丰七年，曾国藩的父亲曾麟书去世。曾国藩委军回家，将父亲葬于周壁冲。不过时间仓促，葬地未经充分选择，葬后有风水师说此地有“凶煞”，因此他对这个葬地“实不放心”。虽然祖父留下了不信地仙的遗训，但曾国藩却在随后一段时间里，先后请过朱尧阶、刘为章、杜茂才、许九霞等多位有名的“地师”为父亲选择另葬之地。无如千挑万选后，还是没挑到各方面都符合要求的“吉地”。曾国藩在家信中郁闷地说，</p>
-<blockquote>
-<p>“吉壤难得，即仅图五患之免，亦不易易”。</p>
-</blockquote>
-<p>咸丰八年曾国藩再次出山，离开家乡时仍然为没有为父亲找到理想葬地而遗憾：</p>
-<blockquote>
-<p>“先大夫、太夫人葬地实不放心。……余于亲在日，不克笃一日之孝养；亲没之后，又不克求一善地用妥先灵。”</p>
-</blockquote>
-<p>因此嘱咐弟弟们再接再厉，甚至命曾国葆自学风水之说，必将父亲迁葬于大吉大利之地方才安心：</p>
-<blockquote>
-<p>澄弟向不信风水之说，洪弟在家无事，可留心学习，为二亲求一佳城，不必为子孙富贵功名，但求山环水抱，略有生气，俾二亲之体魄少安，即子孙之福荫亦未始不在其中。……诸弟若能尽心竭力肩任此事，则余寸心之疚可少释耳。</p>
-</blockquote>
-<p>可见他此时对风水之说，确是笃信非常了。</p>
-<h4 id="风水鬼神与理学">“风水鬼神”与“理学”</h4>
-<p>谈论风水鬼神，是理学家的本分之事。换句话说，“风水鬼神”是“理学”庞大体系之内的一个光明正大的分支。</p>
-<p>与早期儒学“六合之外，存而不论”不同，理学家们偏偏爱碰“天”、“人”、“性”、“命”、“宇宙”、“人心”这样的大命题。</p>
-<p>主要原因有二：</p>
-<ol type="1">
-<li>第一，理学兴起的原动力是为了与佛教抗衡。佛教理论宏阔奢华，特别是详尽解释了人死后何去何从这个大问题，吸引了大批信众。儒教要想与之争锋，就要求冲破“子不语怪力乱神”的局限，介入天道、性命的领域，建立一个可以解释一切宇宙现象的理论体系。</li>
-<li>第二，儒家学说建立在宗法传统之上，异常强调慎终追远的意义。孔子虽然敬鬼神而远之，却不敢直接否认鬼神的存在。以光大孔子思想，弥补孔子之不足为己任，发誓要“格”通宇宙间一切事物的理学家们，因此对“鬼、神”现象不得不“格”得格外用力。</li>
-</ol>
-<p>问题是今人“格”物，可以站在康德、黑格尔、牛顿、爱因斯坦们的肩膀上。而曾国藩只能站在孔子和朱熹们的肩膀上。孔子和朱熹们当然也很高明，不过中世纪及其以前的智慧与近代知识体系毕竟不可同日而语。朱熹以“格物致知”闻名，也就是说，提倡通过研究具体事物得出普遍真理。这听起来是很现代的观念，问题是他的操作思路实在太前现代了。</p>
-<p>且让我们来看看他格物的一项成果。他说他通过研究生物头部的朝向，弄明白了人、动物、植物的本质区别。他说：</p>
-<blockquote>
-<p>人头圆象天，足方象地，平正端直，以其受天地之正气，所以识道理，有知识。物受天地之偏气，所以禽兽（头）横生，草木头向下，尾反在上。物物间有知者，不过只通得一路，如乌之孝，獭之知祭，犬但能守御，牛但耕而已。人则无不知，无不能，人所以与物异者，所争者此耳。</p>
-</blockquote>
-<p>他说，天圆地方。人的头是圆的，像天。脚是方的，像地。人直立在天地之间，头顶天，脚踏地，所以能接受天地之正气，有知识，识道理。而其他动物足虽向下，头却向前而不向天，所以只接受了天地之偏气，只通得一路知识。比如乌鸦只知道孝顺（古人传说乌鸦能反哺），獭只会祭祀（獭喜欢将鱼排列在岸上，古人以为是在祭祀），狗只知道看家，牛只知道种地。而草木就更完了，头（根）向下，尾朝上，所以啥也不懂，乌漆麻黑。</p>
-<p>以这样的思维方式和水平去“究天人之际”，当然力所不逮。无力解释而又强作解人，理学最后只好发明了“气类相感”理论。而这“气类相感”的理论，和风水理论又恰好合拍。</p>
-<p>理学认为，万物都是由太极之气演化而成。既然都是气，就可以“相感通”。朱熹以此来解释鬼神的存在。他说，和宇宙万物一样，人也是由气凝聚而成的。</p>
-<blockquote>
-<p>天地之间，只是此一气耳。来者为神，往者为鬼。譬如一身，生者为神，死者为鬼，皆一气耳。</p>
-</blockquote>
-<p>人死了，魂魄之气并非一下子就散尽，而是慢慢消失归并到大化流行之中的。而子孙与祖先同此一气，血气贯通，没消失前，是可以感应到子孙的祭祀的：</p>
-<blockquote>
-<p>子孙是祖先之气，他气虽散，他根却在这里，尽其诚敬，则亦能呼召得他气聚在此。</p>
-</blockquote>
-<p>风水的原理，似乎很复杂，又似乎很简单。既然人死后“灵气”并不会马上消灭，那么必然会存在于空中某处。所谓</p>
-<blockquote>
-<p>“气乘风则散，界水则止。古人聚之使不散，行之使有止，故谓之风水”。可以藏聚于“山环水抱”、“藏风聚气”之处，并能福荫子孙。</p>
-</blockquote>
-<p>朱熹就是这样解释风水的。朱熹认为，在一个能藏聚天地祥和灵秀之气的地方建设住宅或者坟墓，对生人的精神状态和死者的灵魂安宁都会有良好的影响。宋孝宗死后，朱熹被新君赵扩召请入都。在受命那天，朱熹就上了《孝宗山陵议状》，主张举全国术士之力，为孝宗找一个好坟地，因为皇帝山陵是关乎“垂裕后昆，永永无极”的国家大计。他说：</p>
-<blockquote>
-<p>……葬为言藏也，所以藏其祖考之遗体也。以子孙而藏其祖考之遗体，则必致其谨重诚敬之心，以为安固久远之计，使其形体全而神灵得安，则其子孙盛而祭祀不绝，此自然之理也……或择之不精，地之不吉，则必有水泉蝼蚁地风之属以贼其内，使其形神不安，而子孙亦有死亡绝灭之忧，甚可畏也……</p>
-</blockquote>
-<p>但风水之说毕竟过于缥缈荒唐，理学内部众多派别对风水因此一直争论不断。理学的基本理路是人只需体认内心的天理，并循理而行，本不必惧怕和祈助什么外在的神异。从这一点看，理学具有一定的“理性主义”品格。</p>
-<p>张载就对风水之说嗤之以鼻：</p>
-<blockquote>
-<p>“葬法有风水山岗，此全无义理，不足取。”</p>
-</blockquote>
-<p>程颐也认为，葬地只要满足以下五个条件就可以了：</p>
-<blockquote>
-<p>“须使异日不为道路，不为城郭，不为沟池，不为贵势所夺，不为耕犁所及。”</p>
-</blockquote>
-<p>想通过风水发家兴运，乃“后代阴阳家流”的“诡异之说”。然而，毕竟朱子对后世影响最大。风水之说虽然发轫甚早，却是在宋代以后得以盛行，这主要得益于朱熹提供的“理论支持”。</p>
-<p>曾国藩的世界观基本建立在程朱之上，因此他相信鬼神，讲究风水，与其“理学家”的形象并不冲突。事实上，曾国藩也曾经致力于研究鬼神。他在《书学案小识后》一文中把“鬼神之情状”与“草木鸟兽之咸若”相提并论，一起作为应当深究细考的课题。只不过“研究结果”没有记载于书册。</p>
-<p>曾国藩说过，“我平日最不信风水”，接下来还有一句：只信朱熹“山环水抱”、“藏风聚气”的理论。</p>
-<p>道光二十七年，他在家书中这样谈论怎么样改善家中阳宅风水：</p>
-<blockquote>
-<p>老秧田背后三角丘，是竹山湾至我家的大路，男（曾国藩）曾对四弟言及，要将路改于墈下，在檀香嘴那边架一小桥，由豆土排横穿过来，其三角丘则多种竹树，上接新塘墈大枫树，下接檀香嘴大藤包里，甚为完紧，我家之气更聚，望堂上大人细思。</p>
-</blockquote>
-<p>这种安排依据的就是朱熹“藏风聚气”的阳宅风水原理。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-06-18-%E8%97%8F%E9%A3%8E%E8%81%9A%E6%B0%94.jpg" />
-<img
-src="http://qiniup.louyanspine.com/2018-06-18-%E8%97%8F%E9%A3%8E%E8%81%9A%E6%B0%942.jpg" /></p>
-<p>道光二十八年，曾国藩的叔父曾骥云认为附近彭姓山地内有一处吉壤，想买下来作为曾氏家族墓地。曾国藩在家书中这样表达意见：</p>
-<blockquote>
-<p>前叔父信言知广彭姓山内有地有干田十亩。男思好地峰回气聚，其田必膏腴，其山必易生树木，盖气之所积，自然丰润。若硗田童山（山无草木曰童），气本不聚，鲜有佳城，如庙山宗祠各山之童涸，断无吉穴矣。大抵凡至一处，觉得气势团聚山水环抱者，乃可以寻地，否则不免误认也。知广之地不知何如，男因有干田十亩之说，故进此说。</p>
-</blockquote>
-<p>这番言论所依据的是朱熹的“山环水抱”说。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-06-18-%E5%B1%B1%E7%8E%AF%E6%B0%B4%E6%8A%B1.jpg" /></p>
-<p>传统时代的“风水先生”是分层次的，许多士大夫都基于“义理”，对风水深有研究，比如，曾国藩的好友郭嵩焘，以及他在为父亲寻找葬地时请的新宁知县许久霞等人。在京城时，他之所以相信帮他看房子的王继贤，是因为王氏学有本源，能以朱子之理解释风水，“言之成理”。所以曾国藩实际上是将风水分成了两类：</p>
-<ol type="1">
-<li>一类是在朱子风水理论指导下的“学术风水”。</li>
-<li>另一类则是以那些不学无术的“地仙”为代表的“愚昧风水”。</li>
-</ol>
-<p>他是相信前者而鄙视后者的。乡间那些专以踏看坟地为生的风水先生，多数是半文盲，画虎不成，言语鄙陋，对他们，曾国藩和他祖父一样，是看不起的。通过这样的分类，曾国藩将自己的相信风水和祖父的不信地仙调和统一起来。曾国藩的妻弟欧阳凌云对风水极感兴趣，学会了为人看地，甚至打算以此为生。道光二十三年六月初六日，曾国藩写信给弟弟们，嘱咐他们劝阻凌云：</p>
-<blockquote>
-<p>“地仙为人主葬，害人一家，丧良心不少，未有不家败人亡者，不可不力阻凌云也。”</p>
-</blockquote>
-<p>曾国藩因祖母之丧对“风水之说”产生的笃信并没能一直持续下去。咸丰八年曾国藩再度出山之后不久发生的一件大事又使他对风水之说产生了深深的怀疑。</p>
-<h3 id="三天命">（三）天命</h3>
-<h4 id="三河之败前的扶乩">三河之败前的扶乩</h4>
-<p>就在曾国藩再度出山之后不久，湘军在三河战役中遭遇惨败。悍将李续宾部被全歼，曾国藩的弟弟曾国华也失踪于乱军之中。事后曾国藩极力搜寻，只找回一具无头之尸。</p>
-<p>这是几十年来曾氏家族中最大的惨祸。极重手足之情的曾国藩悲恸欲绝。在接到曾国华失踪之信的当日“万感交集，彻夜不寐”。此后一连多日“心绪极恶”，“悲恸填膺，减食数日”，甚至“不能办一事”。</p>
-<p>离家以后，曾国藩一直因为父母葬地有“凶煞”而放心不下。得到曾国华的死讯后，他的第一判断这是风水所致。曾国华生前曾力主为父母改葬，因此曾国藩马上写信到家里，要求尽快实施改葬：</p>
-<blockquote>
-<p>如温弟（曾国华字温甫）之变果与二坟相关，则改葬可以禳凶而迪吉；若温弟事不与二坟相关，亦宜改葬，以符温弟生平之议论，以慰渠九泉之孝思。</p>
-</blockquote>
-<p>按理说这两次的经验足以使曾国藩死心塌地迷信风水。但是静下心来，曾国藩想起这一年四月他还居湘乡时发生的一件怪事。</p>
-<p>当时曾国藩闲居家中，终日无事，听说曾国荃家人请人来扶乩，也步行赶去凑热闹：</p>
-<blockquote>
-<p>“闻老九宅中有乩仙降，步往视之。”</p>
-</blockquote>
-<p>扶乩和算卦一样，是旧时人们卜问吉凶的常用方式。其法是扶乩之人自称神灵附体，拿着一支笔，根据人们的提问，在沙盘上划字，据说划出的字句就是神灵的指示。</p>
-<p>当时湘军刚刚攻下九江，军机颇顺，曾国藩原以为可以顺流东下，迅速消灭太平天国。不料扶乩的结果却十分不吉利。</p>
-<blockquote>
-<p>乩初到，即判曰：“赋得偃武修文，得闲字。”字谜“败”字。余方讶败字不知何指？乩判曰：“为九江言之也，不可喜也。”余又讶九江初克，气机正盛，不知何所为而云然？乩又判曰：“为天下，即为曾宅言之。”</p>
-</blockquote>
-<p>扶乩得到了一个非常不吉利的“败”字。曾国藩大惊，以为刚刚取得九江大胜，怎么会出来一个“败”字？乩又判说，这个“败”字与九江之胜有关。曾国藩问，九江初克，运气正好，“败”字何指？乩又判到，这个“败”字不但关系到天下大局，也关系到曾家自己的家运。</p>
-<blockquote>
-<p>曾家人“又问仙何人何职位今欲何往”，也就是问降下这一预言的是哪路神仙，“仙自称名为彭某人，河南固始人，生时官都司，死于咸丰年固始之难。现为云南大理府城隍神。赴任路过云云”。仙人自称叫彭某某，是河南固始人，生前是咸丰年间的一个都司，死于战乱，刚被上天任命为云南大理府城隍神，在赴任途中路过湖南，所以下来降言。</p>
-</blockquote>
-<p>当时曾国藩听了之后，虽然“凛然神悚”，然终不解其故。也就只好将神仙的预言置于半信半疑之间。</p>
-<p>直到曾国华丧后，曾国藩才恍然大悟此“败”字何指：</p>
-<blockquote>
-<p>由今观之，三河之挫，六弟之变，正与“不可喜也”四字相符，岂非数皆前定耶？</p>
-</blockquote>
-<p>多年之后，和赵烈文谈起此事，曾国藩还认为此事足以证明鬼神确实存在：</p>
-<blockquote>
-<p>其效验昭昭之如此，且先半载知之，则世俗所云冥中诸神，造兵死册籍等语，非为荒唐之说矣。</p>
-</blockquote>
-<p>这件事使曾国藩相信，冥冥之中，“风水”之上，有更神秘、更有力的“天命”存在。</p>
-<h4 id="对风水与天命的思考">对“风水”与“天命”的思考</h4>
-<p>因为六弟之丧，曾国藩对“风水”与“天命”之间的关系进行了一次深入思考。他从头回顾了曾氏家族三十多年来的兴衰历史，总结出家运中的这样一个规律：</p>
-<blockquote>
-<p>即咸丰年之后，每当大得意之后，必有大失意相随。</p>
-<p>吾家自道光元年即处顺境，历三十余年均极平安。自咸丰年来，每遇得意之时，即有失意之事相随而至：壬子科，余典试江西，请假归省，即闻先太夫人之讣；甲寅冬，余克武汉田家镇，声名鼎盛，腊月二十五甫奉黄马褂之赏，是夜即大败，衣服、文卷荡然无存；六年之冬、七年之春，兄弟三人督师于外，瑞州合围之时，气象甚好，旋即遭先大夫之丧；今年九弟克复吉安，誉望极隆，十月初七接到知府道衔谕旨，初十即有温弟三河之变。</p>
-</blockquote>
-<p>也就是说，道光年间，曾氏家运一直蒸蒸日上，而自从咸丰皇帝即位以来，曾氏家运之规律变为大喜与大悲交错：他好不容易盼到江西主考的差事，就遇到了母亲之丧。他刚攻克武汉田家镇，湘军声望达于顶峰，紧接着就遇到水师大败。咸丰六七年间，湘军转危为安，军事进展顺利，不料父亲突然去世。今年曾国荃攻克吉安，声名大震，不料马上遇到了六弟之祸。</p>
-<p>曾国藩由此认定，祖母葬后家中出现的诸种吉祥，不过是第一波大得意中固有之事。而六弟之丧，则是吉安之大得意后的大失意。先人葬地，似乎不是决定性的原因。如果祖父母所葬之地果然是当初自己所信的那样大吉大利，何以家中会屡次出现横逆之事？六弟之丧既已由仙人半年前明示，则即使在其后移动父母坟茔，也必无济于事。一个人的穷通死生，怎么可以由一具枯骨的埋藏之所而决定和改变？如果那样，上天岂不是太容易左右了？天命岂不是太不严肃了？</p>
-<p>事隔多年后，他在日记里说：</p>
-<blockquote>
-<p>偶思咸丰八年四月葛睪(yì)山扶乩，即已预知有是年十月三河之败，温弟之变。天下万事皆有前定，丝毫不能从人力强求，纷纷思虑亦何补邪？</p>
-</blockquote>
-<p>“天命”之说，从此在曾国藩心中投下了浓重的阴影。</p>
-<h4 id="不知命无以为君子也">不知命，无以为君子也</h4>
-<p>和风水说一样，天命说对中国人的影响也是根深蒂固的。中华民族多灾多难，所谓富不过三代，三十年河东，绝大多数中国人终生都在造物的簸弄中颠沛挣扎。对风云之变幻，祸福之旦夕，命运之无常，自身之渺小，体认极深，中国人因此成为世界上命运感最强的民族之一。</p>
-<p>中国文化因此也痴迷于追问命运。甲骨文中绝大部分内容都是预测吉凶，六经之首的《易经》，创作初衷本也是为追问天命。诸子百家的著作中，理性与非理性，命运与鬼神，神秘的“天”与世俗的“人”，也往往纠缠难分。墨子重功利，不信命运，却信鬼神。老子认为宇宙之玄，是众妙之门。庄子主张要顺从命运，“知其不可奈何而安之若素”。孔子和孟子都明确主张人要顺从命运。“子不语怪力乱神”，但是孔子却信天命。他五次三番说：</p>
-<blockquote>
-<p>“君子有三畏：畏天命，畏大人，畏圣人之言”（《论语·季氏》）；</p>
-<p>“不知命，无以为君子也”（《论语·尧曰》）。</p>
-</blockquote>
-<p>程朱理学兴起之后，也继承并发展了孔子的天命理论。我们说，性格决定命运。而朱熹说，命运决定性格。朱熹说，和宇宙中的一切事物一样，人是禀气而生。因此，人的命运，也完全是由所禀之气决定的。</p>
-<blockquote>
-<p>“人之禀气，富贵贫贱长短，皆有定数寓其中”，“富贵、死生、祸福、贵贱，皆禀之气而不可移易者”。</p>
-</blockquote>
-<p>以孔子为例，他老人家先天所禀之气十分清明，所以做得圣人，但禀得的气又很低很薄，所以生来地位不高，终生也没有做太大的官。至于他的学生颜回禀的气很短，所以早夭。</p>
-<p>除了理学家之外，历代名人热衷谈命的还有不少。苏东坡有《东坡志林》，文天祥有《跋彭叔英谈命录》，明朝时刘伯温为《滴天髓》作注，宋濂作《禄命辨》。中国人对命运的兴趣，由此可见一斑。</p>
-<h4 id="志之所向金石为开">志之所向，金石为开</h4>
-<p>然而在曾国华之丧前，曾国藩很少谈论天命。青年时代的曾国藩其实是“人定胜天”主义者，非常推崇意志的力量。他认为人的意志是无所不能的：</p>
-<blockquote>
-<p>“志之所向，金石为开，谁能御之。”</p>
-</blockquote>
-<p>他相信，人的命运主要掌握在自己手中，外力对于蓬勃的向上意志无可奈何。凭借自己的意志力量，可以脱胎换骨成为完人，可以成就内圣外王之业：</p>
-<blockquote>
-<p>“我欲仁，斯仁至矣。我欲为孔孟，则日夜孜孜，唯孔孟之是学，人谁得而御我哉。”“人苟能自立志，则圣贤豪杰何事不可为。”“范、韩可学而至也，马迁、韩愈亦可学而至也，程、朱亦可学而至也。”“君子之立志也，有民胞物与之量，有内圣外王之业，而后不忝于父母之生，不愧为天地之完人。”</p>
-</blockquote>
-<p>正是这种观念激励着曾国藩精研理学，刻苦修身。青年时代曾国藩偶有几次谈论命运，都是为了安慰鼓励科举不顺的弟弟们。在得知四弟和六弟都没有考中秀才后，他写信安慰说：</p>
-<blockquote>
-<p>“功名富贵，悉由命定，丝毫不能自主。”</p>
-</blockquote>
-<p>然而他这样说的目的是为了让弟弟们</p>
-<blockquote>
-<p>“尽其在我，听其在天，万不可稍生妄想”。</p>
-</blockquote>
-<p>对于功名富贵，不必焦虑妄想系心萦怀，而是将全副精力用于进德、修业。所以曾国藩此时的命运观，还是为他的个人奋斗观服务的。</p>
-<p>初创湘军时的曾国藩，一无所有，有的只是意志。他相信超人凭借意志，他可以在大清王朝的生死关头，只手挽回社稷、再造乾坤。正是这种唯意志论的信念，支撑他穿越了本不可能穿越的重重艰险，以一介书生，赤地立新，创立起湘军。在湘军连获胜仗之际，曾国藩一度顾盼自得，予智予雄。</p>
-<blockquote>
-<p>“自负本领甚大，可屈可伸，可行可藏，又每见得人家不是”。对自己的主观能动能量相当自负。以为“天下事果能坚忍不懈，总可有志竟成”。</p>
-</blockquote>
-<h4 id="始知畏天命">始知畏天命</h4>
-<p>但是从经历咸丰七年被皇帝罢黜回家的大挫折和咸丰八年曾国华之丧以后，“天命”二字开始出现在曾国藩的词典中：</p>
-<blockquote>
-<p>余自经咸丰八年一番磨炼，始知畏天命、畏人言、畏君父之训诫，始知自己本领平常之至，昔年之倔强，不免客气用事……</p>
-</blockquote>
-<p>咸丰七年居家这一段时间，是曾国藩一生最痛苦的时期之一。他以耿耿孤忠，而不见信于皇帝，奋斗数载，功劳至大，却被投闲置冷，自然心不能平。曾国藩原本功名心极重、进取心极盛。得失之念、伎求之心也因此炽于常人。郁愤至极的他得了失眠之病，每日“心中纠缠，时忆往事，愧悔憧扰，不能摆脱”。</p>
-<p>命运由大荣瞬间转为大辱，状态由大喜急坠入大悲，使他恍然体悟到人力的无可奈何。极度痛苦之中，他找到了“天命”之说与“黄老之术”作为挽救心理危局的良药。</p>
-<p>他再一次翻阅历史。古人形形色色的命运给了他无数的感慨。很多时候，人的努力和收获是不成比例的。命运的不平并不只落在他一个人身上。</p>
-<blockquote>
-<p>历史上，有人“或碌碌而有声，或瑰材而蒙垢，或佳恶同时同位同，而显晦迥别，或覃思孤诣，而终古无人省录，彼各有幸有不幸，于来者何与”？</p>
-</blockquote>
-<p>也就是说，有的人庸碌无才，却获得美名。有的人才华横溢，却受尽屈辱。有的人，一辈子苦心钻研，学有所成，最终成果却被世界埋没。有些人，素质、能力、时代、地位都差不多，但一生命运却迥不相同。</p>
-<p>而揆诸自身，更让他体悟到天意的难以捉摸。他的一生有太多想不到。</p>
-<p>二十八岁之前，他考秀才考了七次才成功，考进士也落榜两次，可谓命运淹蹇。在前途茫茫之际，他怎么也料想不到从二十八岁起，自己的命运又变得出奇的顺利。</p>
-<p>二十八岁那年，他终于考中了进士，不过，仅列三甲第四十二名，本来没什么希望进入翰林院。据说是因为朋友苦劝才勉强参加了朝考。结果，朝考成绩却出奇好，列一等第三名（试卷进呈御览后，又特别提为一等第二名），因此得以入翰林院深造。这在当时，绝对是一个小概率事件。</p>
-<p>这已经是梦想不到之事了。谁又能知道，他在此后的京官生涯中，仅仅靠动动笔头，写写文章，就十年七迁，从道光二十年（1840）得授翰林院检讨，到道光二十九年（1849）升任礼部右侍郎，跃升十级，三十多岁就成了二品大员。“朝为田舍郎，暮登天子堂”，这是他的第二个想不到。</p>
-<p>当年的同学里，比他聪明俊秀的不在少数。和自己的朋友比起来，自己也算不上多么杰出。仕途成绩如此出色，难道仅仅是自己的主观奋斗，而没有上天的安排吗？</p>
-<p>离开北京后，他又遇到了第三个想不到：在太平军攻入湖南前，他从来没有想到这辈子还会领兵打仗，并且成了中国历史上最大一次农民起义战争中另一方的第一主角。</p>
-<p>如果说承平时代，一个人的生活按部就班，对命运的主宰力量感受并不强烈的话，大规模的军事战争却往往使人成为命运的信奉者。所谓胜败乃兵家常事，军事战争局面常常大起大落，忽而势如破竹，忽而陷入绝境，忽而又死里逢生。在瞬息万变的战场上，人们很容易感觉到自己是被冥冥中一种更强大的神秘力量所捉弄。即以曾国藩而论，他在战争中多次自杀，三度写下遗嘱，以为必死无疑，最终却屡屡化险为夷，转败为胜。生死有命，富贵在天，这八个字在战争中才让人体会得最深。</p>
-<p>回顾往事，细究天人，曾国藩恍然发觉，人生不过是一股水流，流到哪里，完全是由地形决定。自己其实不过如一粒豆粒，在命运的簸箕中随机跃动。</p>
-<p>天意从来高难问。事实上，那位天上的神秘人物，经常做出一些看起来乖戾无理的决定。人的幸运和不幸，也不是一时一世能看清楚的。古来如李斯、董卓、杨素，智力皆横绝一世，早年飞黄腾达，看起来命运对他们很厚待，结果“而其祸败亦迥乎寻常”。也有一些能力超群锐意进取者，终生不得施展，却幸运地逃过了动乱，得以享尽天年。</p>
-<blockquote>
-<p>“天或反厄之，使之蓄其光采，以昌其后而永其年。”</p>
-</blockquote>
-<p>大彻大悟的他由儒墨而入黄老，由执著事功而进入思考人生与宇宙的关系。仰观宇宙之大，俯察品类之盛，他悟到，人力其实是很弱小的。</p>
-<blockquote>
-<p>古今亿万年无有穷期，人生其间数十寒暑仅须臾耳。……事变万端，美名百途，人生才力之所能办者，不过太仓之一粒耳。</p>
-</blockquote>
-<p>须以相对的观点来看待个人的成败，用更大的维度来判断得失的价值，而不能像以前那样一味执著功名。如果把心胸放大到宇宙世界层面，则人间小小荣辱风波不值一提。</p>
-<p>看透了这一点，曾国藩觉得自己的精神境界又提升了一层，定力大大增长：</p>
-<blockquote>
-<p>知天之长而吾所历者短，则遇忧患横逆之来当少忍以待其定；知地之大而吾所居者小，则荣利争夺之境当退让以守其雌；知书籍之多而吾所见者寡，则不敢以一得自喜；知事变之多而吾所办者少，则不敢以功名自矜，而当思贤以共图之。</p>
-<p>夫如是，则自私自满之见可惭惭蠲除矣。</p>
-</blockquote>
-<p>似乎是为了奖励曾国藩对“天命”的悟性，上天又一次以出人意料的方式扭转了曾国藩的命运：他本以为这次被罢回家，将使他失去建立不世大勋的千载良机。因为此时正当太平军内乱初起，由盛转衰，看起来已经指日可平。没想到大局骤变，太平军势力复张，他又能再度出山，重新主宰战局。这一天旋地转更加坚固了他的天命观。</p>
-<h4 id="以天命疏导曾国荃">以天命疏导曾国荃</h4>
-<p>我们翻阅曾国藩家书，会发现一个明显的特点：曾国藩一生，每于人生道理有所体悟，必汲汲与兄弟们分享。天命说不久也成了他用来安慰疏导曾国荃心理疾病的良药。</p>
-<p>皈依天命说后，曾国藩一改过去的急切焦躁，在处理大事时变得从容不迫。他不再认为，王朝的命运可以由他一手左右。他相信，太平天国能不能平，大清王朝还能存在多少年，这些太大尺度的事件，不是某一个人甚至某一个集团能够决定的。在这些大事件背后，有着天时、历史、人心等诸多深层次力量，个人所能发挥的作用是很有限的。因此，他所要做的，只是在可能的范围内尽自己的能力而已，而不必杞人忧天，将太多无法承受之重揽到自己肩上。</p>
-<p>咸丰十一年，曾国荃围攻安庆，当年四月初三日，曾国藩写信给曾国荃说：</p>
-<blockquote>
-<p>凡办大事，半由人力，半由天事。如此次安庆之围，濠深而墙坚，稳静而不懈，此人力也。至于是否不至以一蚁溃堤，以一蝇玷圭，则天事也。……吾辈但当尽人力之所能为，而天事则听之彼苍而无所容心。</p>
-</blockquote>
-<p>当时曾国荃久攻天京不下，肝气上升，心情焦躁，行将得病。曾国藩写信告诉曾国荃，太平军能不能平，南京攻不攻得下，乃是天地间那神秘的大力量决定的，个人能发挥的空间十分有限。</p>
-<blockquote>
-<p>“金陵之克，亦本朝之大勋，千古之大名，全凭天意主张，岂尽关乎人力？”因此要求曾国荃将能否攻下南京“付诸可必不可必之数，不敢丝毫代天主张”。</p>
-<p>曾国藩说，战争之中，人只能全力发挥自己的主动精神，“墙濠之坚，军心之固，严断接济，痛剿援贼，此可以人谋主张者”，但至于“克城之迟速，杀贼之多寡，我军士卒之病否，良将之有无损折”，“此皆由天意主张者”。</p>
-</blockquote>
-<p>他这么说，是唯恐国荃在攻城时失去耐心，不择手段，蛮力强攻，致出危险。他打了这样一个比方，用科举考试来比喻天京之战：</p>
-<blockquote>
-<p>“譬如场屋考试，文有理法才气，诗不错平仄抬头，此人谋主张也。主司之取舍，科名之迟早，此天意之主张也。”</p>
-</blockquote>
-<p>天命难测，个人在天命力量面前，只能老老实实地努力，不可妄图侥幸，鲁莽裂灭：</p>
-<blockquote>
-<p>若恐天意难凭，而必广许神愿，行贿请枪；若恐人谋未臧，而多方设法，或作板绫衣以抄夹带，或蒸高丽参以磨墨，合是皆无识者之所为。弟现急求克城，颇有代天主张之意。愿弟常存畏天之念，而慎静以缓图之，则善耳。</p>
-</blockquote>
-<p>攻下天京后，朝廷打压功臣，有意贬抑曾国荃，气得他大病一场。曾国藩又开导他说：</p>
-<blockquote>
-<p>“汝虽才能，亦须让一半与天。”</p>
-</blockquote>
-<p>意思是湘军攻陷天京，半由人力，半由天命，并非全是你的本领，因此没有什么想不开的。一个人功名达到什么程度，不完全是由自己能决定的。</p>
-<blockquote>
-<p>“吾辈所可勉者，但求尽吾心力之所能及，而不必遽希千古难攀跻之人。”</p>
-</blockquote>
-<p>曾国荃身陷困境之际，曾国藩的日子也不好过。清廷因防他功高震主，不断地敲打他。他用来规劝曾国荃的话，何尝不是说给自己听的。天命说使曾国藩在宦海风波中能心平气和、沉稳练达，甚至“老奸巨猾”，帮助他成功地处理了功高震主之后的君臣关系。</p>
-<h4 id="天事居其半人事居其半">天事居其半，人事居其半</h4>
-<p>随着阅历加深和年龄增长，曾国藩谈论天命的语气越来越肯定，或者说，他对天命越来越迷信。</p>
-<p>他开始相信人不能胜天。同治五年他写给曾国荃的信中说：</p>
-<blockquote>
-<p>“弟谓命运作主，余所深信。谓自强者，每胜一筹，则余不甚深信。”</p>
-</blockquote>
-<p>他早前认为，对于建功立业来说，“天事居其半，人事居其半”。也就是说，人事与天命各占百分之五十。后来又认为对于事功来说，人力所能起到的作用不过百分之三十。他说：</p>
-<blockquote>
-<p>古来圣哲名儒之所以彪炳宇宙者，无非由于文学事功。然文学则资质居其七分，人力不过三分。事功则运气居其七分，人力不过三分。</p>
-</blockquote>
-<p>以身边的例子为言：</p>
-<blockquote>
-<p>当太平军兴起之初，其他清军将领，比如向荣、张国梁等人，“岂不切齿图功，思得当以报国”，也一心要灭了太平天国，但因为“事会未至，穷天下之力而无如何”。那时太平天国势力正张，“六七伪王者，各挟数十万之众，代兴迭盛，横行一时，而上游沿江千里，亦足转输盗粮”。而湘军后来取胜，与太平天国内乱及后期施政混乱直接相关。“及贼势将衰，诸酋次第僵毙，而广封娭竖，至百余王之多，权分而势益散。长江渐清，贼粮渐匮。厥后楚军围金陵，两载而告克”。</p>
-</blockquote>
-<p><code>注：娭作xī时，常指嬉戏，亦是古时对妇女的贱称</code>
-<code>注：娭作āi时，常用于对老年妇女的尊称</code></p>
-<p>由此曾国藩得出结论说：</p>
-<blockquote>
-<p>非前者果拙而后者果工也；时未可为，则圣哲亦终无成，时可为，则事半而功倍也，皆天也。</p>
-</blockquote>
-<p>回首往事，他越来越认同，人的主观努力能施展的范围其实相当狭窄，环境和时机远比人的努力重要。运来天地皆同力，运去英雄不自由。没有那个运气，一个人再挣扎奋斗也无济于事。</p>
-<p>对于自己一生功业，他以“运气”总结之：</p>
-<blockquote>
-<p>其初办理团练，略招勇丁以剿土匪，其后四方多故，事会相近，遂有不克中止之势。国家……正值剥极将复之际，不才会逢其适，侥幸有成。湘淮诸公应由布衣徒步以取将相，特借鄙人以发其端。其间离合得失，千变万态，纯关天意，不由人谋。</p>
-</blockquote>
-<p>这其中固有谦词，也有灼见。</p>
-<h4 id="不信书信命运">不信书、信命运</h4>
-<p>如果说，直到三七开时为止，曾国藩对命运的总结都不无正面意义。然而，晚年曾国藩对命运的迷信却超越了合理界限，达到了无以复加的地步。有时他甚至认为，人就是一个“运气口袋”，一切皆是运气为之。</p>
-<blockquote>
-<p>“人生皆运气为主，七尺之身实以盛运气。”</p>
-</blockquote>
-<p>一个人一生寿命、健康、穷富、贵贱，乃至赌博的输赢、科举的成败、军事的胜负，基本都是由命运主宰的，人力能及者甚少。</p>
-<blockquote>
-<p>“比之博者之大胜，会试之高第，在一时虽若可喜，实则值时命之偶然。”“兵事之成败利钝，皆天也，非人之所能为也。”</p>
-</blockquote>
-<p>运来天地皆同力，运去英雄不自由。没有那个运气，一个人再挣扎奋斗也无济于事。</p>
-<blockquote>
-<p>“以诸葛之智勇，不能克魏之一城；以范韩之经纶，不能制夏之一隅。”</p>
-</blockquote>
-<p>他迷信到这样的程度，以至于提出“不信书、信命运”这个“离经叛道”的结论。</p>
-<p>欧阳兆熊在《水窗春呓·卷上·一生三变》中说：</p>
-<blockquote>
-<p>（曾国藩）尝戏谓予曰：“他日有为吾作墓志者，铭文吾已撰：不信书，信运气；公之言，告万世。”</p>
-</blockquote>
-<p>不信书，代表他不相信任何后天的努力奋斗可以改变既定的命运。而“公之言，告万世”，则说明这是他一生的最后结论，不再更改。</p>
-<p>如果我们因为曾国藩的这些话语而嘲笑曾国藩愚昧落后，无疑是不恕不当的。我们从小所受的教育，是人定胜天，是主观能动性。但是细想起来，这也是一种蚍蜉撼树而已。人与天，主观与客观，当然是后者强大于前者。再顽强的意志，也冲不破某种客观限制，任何强人，最后都会发出天命难知的感慨。</p>
-<p>这一悲怆的宣告，实际上是曾国藩晚年悲观心理的一种体现。虽然出将入相、封侯开府，但曾国藩晚年的心境常常陷入灰心落寞之中。这既有个人家庭因素，也有对国家前途的悲观。</p>
-<p>从自己的亲人身上，他体会到了命运的无常。他的几个女儿，每一个择婿时都是千挑万选，这些女婿多是自己至亲好友之子，其公婆都是修身立品的正人。然而女儿个个命运悲惨。长女纪静之婿袁秉桢放荡凶暴，嫖娼酗酒，且不敬岳父，私取公款。纪静在夫家受尽了冷落，年仅二十九岁就去世了。二女纪耀之婿陈远济幼时十分聪明，长大后却平庸懈怠，了无生气，纪耀郁郁寡欢，终生未育。三女纪琛之婿罗允吉是个花花公子，不务正业，其母又刁悍刻薄。更想不到的是，刚出生一个多月的儿子，在南京被炮声惊吓而死，曾氏目睹伤心不堪。四女纪纯之婿郭刚基人品学问都不错，却又体质羸弱，二十一岁便病死，留下纪纯拖着两个儿子守空房……越到老年，阅历越深，他越动摇了青年时代“种瓜得瓜，种豆得豆”的信念。他因此认定上天在很多时候是不讲道理的，或者说，上天的“道理”超越了人类能理解的尺度。他嘲笑佛家“因果”之说，讥笑那些“朝耕而（图）暮获，一施而（望）十报”之人。</p>
-<p>而国家的现状，更让他伤心。他早年立下内圣外王之宏愿，并为此辛苦奋斗了一生。然而在垂暮之年，他猛然发现用尽一生精力换来的“同治中兴”不过是一片虚假繁荣。他遵循圣人之道一丝不苟地苦学苦修，却并没有达到“为天地立心，为生民立命，为往圣继绝学，为万世开太平”的理想。他眼看着神州不断陆沉，自己却无能为力。他以一人之力，无法挽回传统社会积千百年形成的强大颓势。一生的奋斗，最后竟然如拔刀斫水，并不能丝毫影响水之东流。</p>
-<p>自诩为“好汉”，“平生倔强”的曾国藩在晚年却失去了当年的豪气。悲观和失望成了他晚年生命的主色调。他经常和身边的幕僚赵烈文谈起清朝的前途，他说：</p>
-<blockquote>
-<p>“京城水泉皆枯，御河断流，朝无君子，人事偾乱，恐非能久之道。”“吾日夜望死，忧见宗社之陨。”</p>
-</blockquote>
-<p>他对晚清朝廷上下一如既往的昏聩混乱、对时世沧桑人心难复深为失望，对自己一生灯蛾扑火式的努力深为失望。</p>
-<blockquote>
-<p>“老年常多悔惧”，“近年焦虑过多，无一日游于坦荡之天”。</p>
-</blockquote>
-<p>在“补救无术，日暮道穷”之际，不免愈加以天命说来排解自己的郁怀。他在日记中写道：</p>
-<blockquote>
-<p>不特富贵功名及身家之顺逆，子孙之旺否，悉由天定，即学问德行之成立与否，亦大半关乎天事，一概淡而忘之，庶此心稍得自在。</p>
-</blockquote>
-<h4 id="勉励年轻人志之所向金石为开">勉励年轻人“志之所向，金石为开”</h4>
-<p>虽然如此深信天命，曾国藩一生却很少当众谈论这个话题。咸丰九年，他在日记中写道：</p>
-<blockquote>
-<p>圣人有所言有所不言：积善余庆，其所言者也；万事由命不由人，其所不言者也。</p>
-</blockquote>
-<p>也就是说，虽然天命决定一切，但是圣人们还是要自欺欺人地提倡人定胜天，告诉别人相信命运是掌握在自己手中的。他们从来不向世人揭开命运难违的悲惨真相，否则，生命这场游戏，就彻底失去了魅力。比如，孔子虽然深知天命不可违，还是以“知其不可而为之”的奋斗精神垂范后世。</p>
-<p>咸丰十年，在给幼弟曾贞干的信中，他承认弟弟所悟是对的：</p>
-<blockquote>
-<p>“季弟言‘出色之人断非有心所能做到’，此语确不可易。名位大小，万般由命不由人。特父兄之教家，将帅之训士，不能如此立言耳。”但同时他又提醒道：“季弟天分绝高，见道甚早，可善可爱。然办理营中小事，教训弁勇，仍宜以‘勤’字作主，不宜以‘命’字谕众。”</p>
-</blockquote>
-<p>“以不言者为体，以所言者为用，以不言者存诸心，以所言者勉诸身”，是皈依了天命说之后曾国藩的行事策略。也就是说，以天命说来排解心中的迷惑愤懑，以天人感应说来激励自己和他人继续奋斗。</p>
-<p>鉴于这种考虑，曾国藩从不在众人面前谈论天命，即使私下谈论，也总不出亲信僚属的小圈子，并且多在事后。他愈是感到“天命难违”，愈是强调主观意志的作用，甚至达到极端的程度。“志之所向，金石为开”一语，就是他晚年用来勉励年轻人的。</p>
-<p>虽然知道事不可为，他仍然为挽回清王朝江河日下的颓势鞠躬尽瘁，死而后已。同治元年，他就在日记中写道：</p>
-<blockquote>
-<p>“阅王而农所著张子《正蒙》，于尽性知命之旨略有所会。盖尽其所可知者于己性也，听其不可知者于天命也。”“若于性分当尽之事，百倍其功以赴之，而俟命之学则以淡如泊如为宗，庶几其近道乎。”</p>
-<p>尽性知命：平生尽人之努力为尽性，而凡是有天定为知命</p>
-<p>俟命之学：听天由命</p>
-</blockquote>
-<p>因此晚年的他仍然劳心苦力，片刻不休。他说：</p>
-<blockquote>
-<p>“盛世创业垂统之英雄以襟怀豁达为第一义，末世扶危救难之英雄，以心力劳苦为第一义。”</p>
-</blockquote>
-<p><code>注：创业垂统，把基业留传下去。</code></p>
-<p>曾国荃被任命为浙江巡抚时，他在信中与之相约道：</p>
-<blockquote>
-<p>“吾兄弟报称之道，仍不外‘拚命报国，侧身修行’八字。”</p>
-</blockquote>
-<p>这并非漂亮话，实际上，他一直是这样做的。虽然身患高血压、动脉硬化、下肢浮肿、脚软、疝气、失眠诸症，更因青光眼、白内障导致一目失明，“难于阅读”，“不能多见客，不能多说话”，他却仍然尽职尽责地为国工作，一点也不偷懒。</p>
-<p>他的幕僚赵烈文记载的一幕，见证了他督两江时的辛苦劳瘁：</p>
-<blockquote>
-<p>（同治六年七月二十七日），下午涤师来久谈。迩得微恙，神气殊乏，会客来请主考入闱茶宴仪节，絮絮不已。余云，小事不必亲躬，师曰，吾非专此而习久已成风气，细大不捐，亦无可托之人耳。（赵烈文又劝），师曰，吾以夙死为乐。君言虽切，无以易吾志矣。</p>
-</blockquote>
-<h4
-id="以天命为本风水鬼神报应之说并行不悖">以天命为本，风水鬼神报应之说并行不悖</h4>
-<p>晚年曾国藩的世界观，以天命说为本，而风水鬼神报应之说也并行不悖。他依然相信风水的存在，也相信因风水而得富贵的事实。因为这毕竟是从理学“气本论”原理推论出来的结论，何况还有他另一次“亲身体验”作为证明。</p>
-<p>那是发生在祁门县的事。安徽祁门清初中过举人，后来一位江西籍的县令将县城改建在山脚下，从此一百多年没有人中过举。曾国藩驻军祁门时，以县城局促，并无“形胜”，因拆毁城墙。竣工后曾国藩写了四句话：</p>
-<blockquote>
-<p>“拆去西北城，岁岁出科名。东南留一节，富贵永不歇。”</p>
-</blockquote>
-<p>说来奇怪，此后仅甲子（1864）科乡试，祁门县就考中了三个举人，丁卯（1867）科又考中了二人。曾国藩由此更加认为，风水之说绝非无稽之谈。</p>
-<p>因此曾国荃担任湖北巡抚同捻军交战屡遭惨败后，曾国藩推测，这也许是由鄂抚衙门不吉利造成的，敦劝曾国荃移居贡院。</p>
-<p>但更多时候他更坚信，正如同天命是人不可左右的，能不能得到风水之地也是人不能左右的。换句话说，风水实际上也是天命。好的风水往往都是得自无意之间，上天注定。有意营求，是难于获得明显效果的。孔子的“天命说”和朱子的“风水说”被他用这种方式统一了起来。他说：</p>
-<blockquote>
-<p>世之因地脉而获福荫者，其先必系贫贱之家，无心得之，至富贵成名之后，有心谋地，则难于获福矣。</p>
-</blockquote>
-<p>他举例说：</p>
-<blockquote>
-<p>吾亲友中，如长塘葛氏既富后则谋地，金兰常氏既贵后而谋地，邵阳魏默深既成名后而谋地，将两代改葬扬州，皆未见有福荫。</p>
-</blockquote>
-<p>究其原因，他认为是既然有意求富贵，则</p>
-<blockquote>
-<p>“皆不免以诈力与其间，造物忌巧，有心谋地则不应也”。</p>
-</blockquote>
-<p>所以他后来虽仍未放弃改葬父母的想法，但是已经不再固执于追求富贵功名的念头，而只要求葬地能使先人遗体免受水冲蚁啮等祸，使先人之灵魂能安宁适意而已：</p>
-<blockquote>
-<p>“人力所能谋，只能求免水、蚁、凶煞三事，断不能求富贵利达。明此理，绝此念，然后能寻平稳之地。不明此理，不绝此念，则并平稳者亦不可得。”“须将求富求贵之念消除净尽，但求免水蚁以安先灵，免凶煞以安后嗣而已……以吾所见所闻，凡已发之家，未有寻得大地者。沅弟（曾国荃字沅甫）主持此事，务望将此意拿得稳，把得定，至要至要！”</p>
-</blockquote>
-<p>对风水说的不以为意，从祖母的改葬一事上也体现出来。早年曾国藩虽然说过祖母葬地大吉，万不可动，但后来终于迁到了大界新安冲，与祖父合葬在了一起。</p>
-<p>曾国藩也还是相信鬼神的存在，特别是同治元年的一次“神秘体验”，更让他相信某种程度上的天人感应的存在。那是同治元年十一月二十九日那天晚上，他为阵亡的曾国华写铭旌，忽然闻到一股强烈的檀香味，而询问身边人，并无人焚香：</p>
-<blockquote>
-<p>昨日为季弟写铭旌，自外入室，闻檀香甚烈，意戈什哈等焚之，以致诚敬。及至写毕一问，并无人焚香者，殊为可异。</p>
-</blockquote>
-<p>过了半个月，他在家书中又一次谈起此事，认为这证明“神异之不虚”：</p>
-<blockquote>
-<p>余生平不信鬼神怪异之说，而八年五月三日扶乩，预料九江一军必败，厥后果有三何之变。及昨二十九日写铭旌时，异香满室，余所亲见亲闻，又觉神异之不尽虚妄也。</p>
-</blockquote>
-<p>因此，晚年他继续用鬼神说来解释一些生活现象。他与曾国潢都死了孙子，他认为这是有损阴德的结果：</p>
-<blockquote>
-<p>接沅弟信，知纪渠侄之子元十于六月初四日殇亡，殊为感怆。……念澄弟昔年于骨肉根本之地，尽心尽力，而两年连殇二孙，殊不可解。闻弟近年好帮官司，好罚人出钱，好送人关班房，岂有损于阴德耶？抑闻侄妇有不敬其姑之处，神示之儆耶？</p>
-</blockquote>
-<p>他仍然参与一些“迷信”活动。同治六年，江苏大旱，曾国藩迎神于密室，焚香祈祷，下雨之后复出重金还愿。平日在督署，他晚上经常登上内宅的上房，向天拜祷。</p>
-<p>然而，在做这些事时，他的心态已经不再像以前那样希望“有求必应”，他不过是祭神如神在，尽其责任而已。晚年的他，以“浑”为用，中国传统思想中相互矛盾的各种说法，皆并存于他的头脑中而不悖，如同十八般武器罗列库中，在需要时随手拈来。因为皈依了“天命”，曾国藩对于“功名富贵及身家之顺逆，子孙之旺否”一概归之于命，不再像以前那样患得患失。在更多的时候，他对“迷信”之说已经不再那么尊重。在许多事情上，在晚年的他看来都无可无不可。</p>
-<p>同治元年十二月二十日，正当金陵久攻不下，军营疫疾流行，曾国葆染病身死时，曾国潢在给他的信中说曾国荃的妻子找人算了命，非常担心曾国荃的命运，要求曾国藩放九弟回家：</p>
-<blockquote>
-<p>科四母子益信神，因有看八字者说沅弟明年断不可打仗亲自出队，话语颇不吉利。九娣妇母子苦欲求大伯父另派一人往金陵督兵，求谕沅弟来身边办事云云。弟不深信邪说，想兄亦不谓然。因九娣妇再三苦求，是以附呈。</p>
-<p>曾国藩以”甲科鼎盛”四字为子侄辈命小名，科一是曾纪鸿，是曾国藩的次子。科四是曾国荃的长子曾纪瑞</p>
-</blockquote>
-<p>曾国藩得信，甚为恼火，在信尾亲批道：</p>
-<blockquote>
-<p>金陵如何退得？亦无他人可以接手。只好不亲身督队，格外小心耳。八字以理推之，当不可信。若果可信，则天下每年只手得四千三百二十人矣。</p>
-</blockquote>
-<p>咸丰八年之后，他对风水及其他迷信活动的批评开始增多。咸丰十年，曾国藩闻听弟弟曾国潢在家经常做道场后，写信严厉地批评了他：</p>
-<blockquote>
-<p>吾祖星冈公在时，不信医药，不信僧巫，不信地仙。此三者，弟必能一一记忆。今我辈兄弟，亦宜略法此意，以绍家风。今年白玉堂做道场一次，大夫第做道场二次，此外祷祀之事，闻亦常有，是不信僧巫一节，已失家风矣。买地至数千金之多，是不信地仙一节，又与家风相背……地仙僧巫二者，弟向来不甚深信，近日亦不免为习俗所移，以后尚祈卓识坚定，略存祖父家风为要。天下信地信僧之人，曾见有一家不败者乎？</p>
-</blockquote>
-<p><code>注：绍，继承</code></p>
-<p>由此可见，到这一时期，曾国藩对风水活动已经以批评为主了。</p>
-<p>曾国藩晚年多次向兄弟子侄提及祖父的“三不信”，并约为家训：</p>
-<blockquote>
-<p>所欲常常告诫诸弟与子侄者，惟星冈公之“八字三不信”，……三不信曰“药医也，地仙也，僧巫也”。</p>
-<p>吾祖父星冈公在时，不信医药，不信僧巫，不信地仙。卓识定志，确乎不可摇夺，实为子孙者所当遵守！</p>
-</blockquote>
-<h4 id="自己寻找葬地的原则">自己寻找葬地的原则</h4>
-<p>既然相信灵魂暂时不灭，曾国藩对自己未来的葬地，也不能不有所考虑。</p>
-<p>曾国藩的老朋友冯树堂自认精通相地之法，在曾国藩去世前一年曾赴南京与曾会面，见曾精气大衰，预感其不久于人世，自告奋勇要求为曾氏选择葬地，曾国藩欣然同意。</p>
-<p>回到湖南后，冯树堂四处跋山涉水，经过千挑万选，为他相得湘乡东台山一地。东台山乃湘乡风景名胜地，“东台起凤”乃湘乡八景之一。它“南连华盖，下瞰涟水”，从风水角度来看，确属极佳。为了让曾国藩放心，冯树堂还约了另一个精通风水的朋友，即曾国藩的好友郭嵩焘一同相看了一回，得出结论是“龙、穴、沙、水、向五者，皆可惬心满意”。葬于此地，据说可保家族兴旺，万年不衰。他还精心撰写了《东台山地图说》一册，详细阐明此地的种种优异之处，寄给曾国藩阅看。</p>
-<p>出乎人们预料的是，曾国藩断然拒绝了这个选择。详细阅读了《东台山地图说》后，曾国藩发现此地是当地公会所在，按八卦的说法，又恰值县治的巽方，据说这个方向“关（一地之）文风”，早已为众人所瞩目。如果葬在这里，也许可保曾氏一族文风大盛，却可能影响湘乡县别的家族人才继起。</p>
-<p><code>注：巽方，东南方向</code></p>
-<p>故曾国藩在给冯树堂的复信中说：</p>
-<blockquote>
-<p>此地即为公会所在，又为文风所关，邑人必不乐从。即令巨绅应允，而士庶或窃有遗议。</p>
-</blockquote>
-<p>他又解释自己寻找葬地的原则说：</p>
-<blockquote>
-<p>鄙人平日论求地之道，不贵万众指目吉壤之区，不贵阴谋诡计巧取而得，苛于人情万无妨碍，方当营度，否则不为勉强。小地十一处中当有较佳者，容与舍弟商妥定议。〔36〕</p>
-</blockquote>
-<p>这一选择，反映了曾国藩晚年信条：</p>
-<blockquote>
-<p>天道忌巧，谦退不争，不伎不求。</p>
-</blockquote>
-<h3 id="四相术">（四）相术</h3>
-<h4 id="识人之明">识人之明</h4>
-<p>曾国藩以“识人之明”闻于史册。郭嵩焘所作墓志铭中说他：</p>
-<blockquote>
-<p>以知人名天下，一见能辨其才之高下，与其人贤否。</p>
-</blockquote>
-<p>清政府对他盖棺定论，有“尤得以人事君之义”一句。曾国藩发现人才之多，影响之大，史上确实无人可与匹敌。左宗棠、胡林翼、李鸿章、郭嵩焘、沈葆桢、丁日昌、杨岳斌、彭玉麟等晚清风云人物，都得到过曾国藩的荐拔。出身曾氏幕府位至巡抚、总督者多达三十余人，这种盛况在中国历史上十分罕见。</p>
-<h4 id="以相术相人">以“相术”相人</h4>
-<p>晚年曾国藩每接见生人，有一个特殊的习惯：先不说话，而是盯着客人，从上到下看上几分钟。《清史稿·曾国藩传》载：</p>
-<blockquote>
-<p>国藩为人威重，美须髯，目三角有棱。每对客，注视移时不语，见者悚然。</p>
-</blockquote>
-<p>这种相人方式当然不免使许多被接见者十分不舒服，曾国藩却在这几分钟内对这个人形成了自己的基本判断。据说</p>
-<blockquote>
-<p>“退则记其优劣，无或爽者”。</p>
-</blockquote>
-<p>有大量文字材料证明曾国藩精研相人之术。</p>
-<p>《湘乡曾氏文献》中有《同官册》一册，内容是曾国藩接见属员后写下的评语。从这些评语中我们可以看出曾国藩的相学素养。有一些人的身形面相为他所肯定，比如</p>
-<blockquote>
-<p>“唇薄而定，鼻正而长”，“面如条瓜”，“腰劲挺”。这类面相说明这些人“心术正”、“可造就”、“可用”。</p>
-</blockquote>
-<p>另一些人名下面则记有：</p>
-<blockquote>
-<p>“目有浊气”、“横纹入口”、“视下，言闪烁”、“鼻削下锐，面干瘦非福相”等从相法角度来说是恶相的描述，后面评以“心术或坏”、“庸俗”甚至“坏种”等词。</p>
-</blockquote>
-<p>很显然，许多下属仅凭这一面之缘，或者说，仅仅因为自己鼻子和眼睛的形状，就被曾国藩决定了政治前途的穷与通。</p>
-<p>除了这本《同官册》，曾国藩研究运用相术的记载还大量见于其日记之中。咸丰八九两年，曾国藩日记中大量记载了他接见部下时的相面结果，随手举出几例：</p>
-<blockquote>
-<p>陈青云……眼圆而动，不甚可靠。</p>
-<p>刘湘南……眼黄有神光，鼻梁平沓，口圆有童心，腰挺拔，面英气可爱。</p>
-<p>廖世霖……充哨长。鼻梁直，腰身正。在家小贸营生。头发、眉毛有浊气。</p>
-<p>熊登武……目有精光，三道分明。鼻准勾而梁方，口有神而纹俗……。三年入罗营，从救江西。</p>
-<p>周惠堂……充水营口官。颧骨好，方口好，面有昏浊气，色浮。不甚可靠。</p>
-<p>傅裕昆……鼻歪，不可恃，色亦不正。</p>
-</blockquote>
-<p>曾国藩之精通相术，与他的识人之明之间，是否有直接的因果关系，这自然仁者见仁，智者见智。但多数人认为二者是有必然联系的。清末著名学者俞樾就这样说：</p>
-<blockquote>
-<p>湘乡（指曾氏）出入将相，手定东南，勋业之盛，一时无两。尤善相士，其所识拔者，名臣名将，指不胜屈。</p>
-</blockquote>
-<p>春秋以降，相术大兴，历代著名的相人专家层出不穷，比如，汉朝时的许负、王充、王符，唐朝时袁天罡，宋朝时陈抟，明朝时袁珙、袁忠彻。各类相书更是汗牛充栋，像《麻衣相书》《五行相书》《柳庄神相全篇》《平镜宝库》《骨相法》……不一而足。及至明清，相面摊遍及城乡，相面术成为影响中国人生活的一种重要方术。在晚清政治高层人物中，以相术择人甚至成为一种风气。</p>
-<p>胡林翼在向曾国藩竭力推荐李鸿章时，理由之一就是李氏的相貌显示他肯定会飞黄腾达：</p>
-<blockquote>
-<p>少荃可治淮上之师，并带去营哨官也。……少荃如评骨法，必大阔，才力又宏远，择福将而使之，亦大勋之助也。大局安危只看丈之放手放胆耳！</p>
-</blockquote>
-<p>胡林翼还给曾国藩的另一位幕友冯卓怀相过面，结果评价很低，说他</p>
-<blockquote>
-<p>“唇不掩齿，非期颐之难致，即谗谤之易集”。</p>
-</blockquote>
-<p>冯卓怀就是曾国藩的朋友冯树堂，此人与曾国藩定交多年，关系深密，最后还是因种种原因终生未得大用。</p>
-<p>除了曾国藩的湘军集团，晚清另一些重臣也对相术很有研究，比如荣禄，在《梦蕉亭杂记》中，陈夔龙记载过荣禄和他的一次谈话，内容是谈论肃顺的相貌。荣禄说：</p>
-<blockquote>
-<p>以相法言，肃顺长身玉立，鸢肩，火色，头部长锐下丰，全系火形。五行火形最少，亦最贵。但忌声嘶。肃顺豺声，是以不克善终。</p>
-</blockquote>
-<p>曾国藩就是在这样的文化背景下研习相人之术的。阅读相关资料，我们发现，他的相术知识主要来源于历代相术名著。</p>
-<p>《湘乡曾氏文献》中有四页纸，是他的相学“札记”，记载了一系列相人原则。比如，</p>
-<blockquote>
-<p>面“色黄黑而润泽者吉，哑白而枯涩者凶”；</p>
-<p>“口唇太薄而颤动者靠不住”；“头如山者贵重”（谓头不乱动）；</p>
-<p>“腰长过人者贵重”；</p>
-<p>“视上者傲，视下者诐，侧头旁视者则奸”；</p>
-<p>诐，史书中多用形容人品卑劣，阴险狡诈之流。多见于《宋史》，也许是就是因为有宋一代，险诐之徒多如牛毛之故。</p>
-<p>“隆准而圆美如珠者贵，准削而歪者人心不正”；</p>
-<p>“指甲坚者心计定”；“行路稳重者贵”。</p>
-</blockquote>
-<p><code>注：诐bì，1.辩论。2.不正</code>
-<code>注：隆准，指高鼻梁</code></p>
-<p>曾国藩日记中记人相貌，重点也在观察眼睛有无“精光”或“神光”。</p>
-<blockquote>
-<p>如“目有精光，三道分明”；“眼黄有神光”；“目有精光数道”；“眼有清光”；“眼无神光”。</p>
-</blockquote>
-<p>《照胆经》卷上说：“睛屡转动者，多诈。”曾国藩也通过眼睛判断一个人在关键时刻能不能靠得住。他的评语中常见这样的结论：</p>
-<blockquote>
-<p>“目不妄动，为可靠”；“眼圆而动，不甚可靠”；“目精光而动，……不甚可靠”。</p>
-</blockquote>
-<p>传统相书次重鼻子，认为：</p>
-<blockquote>
-<p>“鼻为中岳，五行属土，……须要端正耸直”；“鼻梁不正，中年受困”；“鼻头斜曲，寿命亦促”。（《相理衡真》卷四）</p>
-</blockquote>
-<p>至于嘴则以方者为贵：</p>
-<blockquote>
-<p>“若口不方者不贵。”（《月波洞中记》卷上）</p>
-<p>“口如一撮，孤独贫苦。”（《玉管照神局》卷中）</p>
-</blockquote>
-<p>曾国藩对这些论断也奉为圭臬，日记中屡见：</p>
-<blockquote>
-<p>“鼻梁直”；</p>
-<p>“鼻准勾而梁方，口有神而纹俗”；</p>
-<p>“鼻歪，不可恃”，“口方鼻正”</p>
-<p>“方口好”</p>
-<p>“口小，不可恃”</p>
-<p>“鼻正眉疏”</p>
-</blockquote>
-<p>除此之外，曾国藩还注意观察对象的腰身及身段，如“腰身正”，“腰挺拔”，“身段稳称”。</p>
-<p>这也依据传统相术对人物腰身的判断标准：</p>
-<blockquote>
-<p>“腰者为腹之山，……直而厚者富贵，细而薄者贫苦。”（《太清神鉴》卷五）</p>
-<p>“男儿腰细，难主福财。”（《神相全编》卷六〔49〕）</p>
-</blockquote>
-<h4 id="相精神">相精神</h4>
-<p>但是，传统相术确有部分合理内容。因为除了相五官外，它还有“相精神”的传统。相书说：</p>
-<blockquote>
-<p>“有心无相，相随心生，有相无心，相随心灭。”</p>
-</blockquote>
-<p>刘劭在《人物志》中把人的举止概括为“神、精、筋、骨、气、色、仪、容、言”九项内容，称为“九征”，并说一个人的内心决定了他的外在气睿、质神态：</p>
-<blockquote>
-<p>故心质亮直，其仪劲固；心质休决，其仪进猛；心质平理，其仪安闲。夫仪动成容，各有态度：直容之动，矫矫行行；休容之动，业业跄跄；德容之动，颙颙昂昂。</p>
-<p>夫容之动作，发乎心气；心气之征，则声变是也。夫气合成声，声应律吕：有和平之声，有清畅之声，有回衍之声。夫声畅于气，则实存貌色，故：诚仁，必有温柔之色；诚勇，必有矜奋之色；诚智，必有明达之色。</p>
-</blockquote>
-<p>因此，心地与资质光亮、直正，其仪容则强劲而稳固；心地与资质美善、果决，其仪容则精进而勇猛；心地与资质平和、顺物，其仪容则安宁而闲逸。仪态变动而形成容色，各自有其仪态气度：直正之仪态变动，其容色勇武出众而健步刚强；美善之仪态变动，其容色强健可畏而步若飞扬；合德之仪态变动，其容色庄严肃穆而令人敬仰。</p>
-<p>容色发生变动，由心田之气息引发；心田之气息的征兆，即表现为声音的变化。气息相合而成为声音，其声音与律吕节奏相应和：有和谐平淡之声音，有清新流畅之声音，有迂徐悠长之声音。声音由流畅之气息而形成，则其效果表现于相貌表情。因此，真诚之仁者定然有温和宽容之表情，真诚之勇者定然有慎重奋发之表情，真诚之智者定然有开明通达之表情。</p>
-<p>除了对“相五官”做过研究外，曾国藩对于“相精神”、“相气质”、“相行动”更为注重。他在《日记》中这样写道：</p>
-<blockquote>
-<p>是日，意城为我抄陈希夷《心相篇》，因熟玩数过。</p>
-</blockquote>
-<p>《心相篇》是宋初术士陈传的名作。它也是主张从人的行动细节中去推测其性格的：</p>
-<blockquote>
-<p>心者貌之根，审心而善恶自见；行者心之发，观行而祸福可知。出纳不公平，难得儿孙长育；语言多反复，应知心腹无依。消沮闭藏，必是好贪之辈；披肝露胆，决为英杰之人。心和气平，可卜孙荣兼子贵；才偏性执，不遭大祸必奇穷。转眼无情，贫寒夭促；时谈念旧，富贵期颐。重富欺贫，焉可托妻寄子；敬老慈幼，必能裕后光前。轻口出违言，寿元短折；忘恩思小怨，科第难成……</p>
-</blockquote>
-<p>这里面既有“因果报应”的老生长谈，也有大量日常生活积累的宝贵经验，曾国藩自己也有一些相似的结论。比如咸丰八年他再出之前，曾经在日记中这样写道：</p>
-<blockquote>
-<p>端庄厚重是贵相，谦卑含容是贵相。事有归着是富相，心存济物是富相。</p>
-<p>“事有归着”，“归着”就是着落，这句意思是说做事情沉稳有着落，有头有尾。
-“心存济物”，“济”是“对……有帮助，有益”，这句意思是说心里要关心外物，关心别人、社会、天下，有志向。</p>
-</blockquote>
-<p>这与《心相篇》可谓异曲同工，精神相通。</p>
-<p>在日记中，曾国藩还结合自己多年相人之经验，总结出一套独特的看相方法：</p>
-<blockquote>
-<p>“邪正看眼鼻”、“真假看嘴唇”、“功名看器宇”、“事业看精神”、“寿夭看指爪”、“风波看脚跟”、“若要看条理，尽在语言中”……</p>
-</blockquote>
-<p>这都是曾国藩注重从精神气质角度去相人的明证。</p>
-<p>咸丰九年三月八日的日记中，他又一次总结相人经验：</p>
-<blockquote>
-<p>夜思相人之法，定十二字，六美六恶。美者曰长，黄，昂，紧，稳，称。恶者曰村，昏，屯，动，忿，遯。</p>
-</blockquote>
-<p>“长”是体格魁梧；“黄”是指肤色健康；“昂”是精神奕奕器宇轩昂。“稳”是立得稳，走得稳，坐得稳；“紧”是指其人精神集中，顾虑周到；“称”是均衡性好，为人处世，分寸感好，这六项是“六美”。而村头村脑，昏沉庸暗，懒惰黏滞，是谓“村、昏、屯”。“动”是指心无主宰，浮躁好动；“忿”是不问是非，动辄发怒；“遯”是逃避责任，委过他人，是所谓“六恶”。这又一次说明曾国藩识人，重点不止形状，更在神情。</p>
-<blockquote>
-<p>村头村脑：犹言土头土脑。形容粗俗。《二十年目睹之怪现状》第五二回：“这两个老妈子，是总理新代雇来，预备粗使的，村头村脑，不懂规矩。”</p>
-</blockquote>
-<p>因此，我们也许可以推断，曾国藩相术的有效性，主要来自于对精神气概的判断而非具体的五官相貌。</p>
-<h3 id="五算卦">（五）算卦</h3>
-<h4 id="用算卦来推测吉凶甚至决策">用算卦来推测吉凶甚至决策</h4>
-<p>曾国藩请人算过卦。</p>
-<p>咸丰八年十一月，因为深陷战争的九弟曾国荃“久无来信”，曾国藩“不胜悬悬”，于十一月十四日</p>
-<blockquote>
-<p>“请李笏生占牙牌数，似尚平安”。</p>
-</blockquote>
-<p>另一次记载是关于军事决策：</p>
-<blockquote>
-<p>请陈雪楼筮卦，筮浙江可保否。得《艮》之彖辞。筮余军是否南渡，得《解》之《师》。筮次青之应否赴浙，得《兑》之复。</p>
-</blockquote>
-<p>他自己也会算卦。每当军事进退两难之际，他常用算卦来推测吉凶。是否派兵，是否移营，全局利钝，都是他卜测的范围。</p>
-<blockquote>
-<p>进退两难，寸心终日纷扰。履次占卦，亦智略不足，故不能审定全局确有定计。</p>
-<p>早起郁郁，若无主者，又占二卦。</p>
-<p>自占一卦，问江北有兵来南岸否。遇“坎”之“观”，见者以为佳。</p>
-<p>夜占卦问左军利钝，卦象不吉，焦灼之至。</p>
-</blockquote>
-<p>因卦象不吉而焦灼之至，可见他对算卦确实是十分相信的。我们这些崇拜曾国藩的后人，可能很少想到，在曾国藩的军事策略背后，居然隐约晃动着“封建迷信”的影子。事实上，曾国藩幕府中，一度专门养着些占卜之士，以至于在他刚刚升任总督，征求朋友幕僚如何施政之建议时，汪梅村建议他“屏术数星卜之士”。</p>
-<h4 id="读易">读《易》</h4>
-<p>从文字记载来看，曾国藩算卦，纯用周易之理。比如，与太平军作战正紧张的时候，他在日记中说：</p>
-<blockquote>
-<p>“念金陵、宁国两处危急，焦灼不可言状。因占二卦：金陵卦，遇否之涣；宁国卦，遇屯之益。”</p>
-</blockquote>
-<p>周易占卦的方式是先占得一卦，再求得一相关的变卦。前者称“遇卦”（即本卦），后者称“之卦”（即变卦）。曾国藩为金陵局面占的卦“遇否之涣”，就是先占得否卦（遇卦），再得涣卦（之卦）。</p>
-<p>曾国藩算卦，是他读《易》的副产品。</p>
-<p>读《易》本是理学家的本行。理学的宇宙理论，就建立在《易经》的基础之上。世界的本源问题，是任何一个哲学理论无法回避的，然而孔子的平实言谈并没有给企图建立世界模式的程朱等人太多的启示，好在孔子十分推崇的《易经》给了他们以充分发挥想象力的机会。程子和朱子等理学大家通过注《易》，建立起了理学的宇宙原理，即“无极生太极，太极生两仪，两仪生万物”，因此《易》可以说是理学体系的奠基石。</p>
-<p>作为一个理学家，曾国藩一生对《易经》十分重视，用力至勤。考《曾国藩日记》，曾氏一生，至少五次通读《易经》。这五次分别是：</p>
-<ol type="1">
-<li>道光二十一年十一月到二十二年十二月。也就是三十岁和三十一岁。</li>
-<li>咸丰十一年正月到二月。五十岁。</li>
-<li>同治五年十月到十二月。五十五岁。</li>
-<li>同治九年十月。五十九岁。</li>
-<li>同治十年二月到三月。六十岁。</li>
-</ol>
-<p>由此可见曾国藩对《易》的喜爱，终其一生，至老弥笃。他从这部古老的经典中不但读出了辩证法，读出了大量为人处世的道理，也学会了算卦。</p>
-<p>曾国藩的卦算得准不准，日记中没有详细记载。但从他乐此不疲的事实判断，他对此中消息确有吟味。</p>
-<p>应该说，《易经》占卦，并非是百分之百的迷信，其中也有一点哲学启示在。《易经》认为，宇宙是个相互感应的大系统，系统内的每一事物都与全体相通。世相虽然繁杂，但多不碍感应，体不碍互通。因此《易经》认为，世事并非由神明前定，而是有规律地发展的（就是“道”）。这一规律，虽然混沌难明，但人竭尽全力，还是能探讨得一点消息。</p>
-<p>我们当然有充分的理由将曾国藩的“迷信”归入“愚昧”。他一生大量的迷信活动，反映出其思维的局限性和落后性的一面。但同时，在曾国藩与中国神秘文化的关系中，我们也可以得出另一个结论：曾国藩穷尽了他所能接触到的一切精神资源。</p>
-<p>曾国藩是浑厚、开阔，无所不包的。实事求是的思维方式，使他的思维保持着流动、敏锐、积极的状态。曾国藩像一只敏锐的雷达，收集分析着他能接收到的一切信息，从中厘取有用的成分。神秘文化也是中国传统文化的重要组成部分。神秘文化引起他的兴趣，自然在情理之中。当然，与经史子集比起来，神秘文化中的营养的成分少得可怜。但凡事都愿亲身尝试一遍的曾国藩仍然要榨取一过，才能放心。</p>
-<p>与其说曾国藩从《易经》、从相术中学到了知识，不如说他读易、读相法、读风水过程中与自己的生命经验偶有所印证而已。《易经》、相法之类对曾国藩来说，只不过是些钩子，用来系挂他自己的人生智慧。有人说，曾国藩从《易经》中学到了“盈虚消息之理”，读出了“一分为二”的观点，读出了谦虚谨慎，读出了自强不息，其实更应该说，他是借《易经》中这些经典名句使自己的生命经验系统化、分明化了而已。如果没有自己一生的复杂历练，曾国藩坐在书斋中读一辈子《易经》，也不会有什么所得。还是曾国藩自己总结得好：</p>
-<blockquote>
-<p>神者，人功与天机相凑泊，如卜筮之有繇辞，如《左传》诸史之有童谣，如佛书之有偈语，其义在于可解与不可解之间。</p>
-<p>盈虚消息：古人认为，时运循环，生灭不已，可由盛而衰，也可由衰而盛。</p>
-</blockquote>
-<p><code>注：繇zhòu辞，卦兆的占词</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/16/ZengGuofan13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/16/ZengGuofan13/" class="post-title-link" itemprop="url">曾国藩其人其事·十三</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-16 23:36:19" itemprop="dateCreated datePublished" datetime="2018-06-16T23:36:19+08:00">2018-06-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:31:04" itemprop="dateModified" datetime="2019-02-27T23:31:04+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E7%89%A9%E4%B8%8E%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">人物与历史</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>参考书籍<br> 1.
-张宏杰《曾国藩的正面与侧面》民主与建设出版社.2014年<br> 2.
-张宏杰《曾国藩的正面与侧面》国际文化出版公司.2011年<br> 3.
-林乾《曾国藩大传》人民文学出版社.2011年<br></p>
-</blockquote>
-<h2 id="八治学">八、治学</h2>
-<h3 id="一无书不读无学不窥">（一）无书不读，无学不窥</h3>
-<p>中国知识分子的缺点一个是太容易下结论，另一个是太容易听信别人的结论。曾国藩却不是这样。因为“笨”，曾国藩在一切知识面前都十分谦虚，不敢稍有成见，不敢戴有色眼镜去读书。因为“笨”，曾国藩不想省力，不想借用别人的脑子，每本书都要认认真真，一个字一个字地读。所以他一生视野广阔，无书不读，无学不窥。</p>
-<p>理学家多有学术洁癖。他们多以诸子之学为邪僻之说，不屑一顾。比如，曾国藩的好朋友罗泽南就坚决排斥佛、老及诸子之学，认为管、晏之学“卑陋”，杨、墨之学“淫邪”，都不利于世道人心，必灭之而后快。</p>
-<p>曾国藩却是一个杂家。他一生于书无所不读，尤好诸子之书，且嗜之甚甘。老子的简约博大，庄子的心灵自由，墨子的雄心苦力，法家的坐言立行，都给了他极大的启发。他推崇诸子皆豪杰之士，去孔子并不甚远：</p>
-<blockquote>
-<p>“豪杰之士所见类不甚远。韩氏有言：‘孔子必用墨子，墨子必用孔子。不相用，不足为孔墨。’”</p>
-</blockquote>
-<p>除了传统士大夫致力的经史，曾国藩对一般士大夫避之唯恐不及的“案牍之文”也很感兴趣。在曾国藩眼里，无处不是学问。因为怀抱经天纬地之志向，所以他的眼光极为开阔。所谓“案牍之文”，也就是历代“文件汇编”，内容当然枯燥乏味之至。然而曾国藩却认为这其中包含着大量的政治智慧，有志于拯救中国社会，这样的文章不可不读。</p>
-<p>曾国藩爱看地图，研究地理。《曾国藩年谱》说曾国藩在工部任侍郎时</p>
-<blockquote>
-<p>“尤究心方舆之学，左图右书，钩较不倦，于山川险要、河漕水利诸大政，详求折中”。他一生考察研究范围极广，认为：“天下之大事宜考究者凡十四宗：曰官制、曰财用、曰盐政、曰漕务、曰钱法、曰冠礼、曰昏礼、曰丧礼、曰祭礼、曰兵制、曰兵法、曰刑律、曰地舆、曰河渠”。</p>
-<p>昏礼hūn，指婚娶之礼。古时于黄昏举行，取其阴阳交替有渐之义，故称。古代昏礼有六：纳采、问名、纳吉、纳徵、请期、亲迎。</p>
-</blockquote>
-<p>这是他与当时诸多理学之士的明显不同之处。</p>
-<p>可以说，除了佛家外，曾国藩对他所能接触到的所有书籍都有涉猎研究。事实上，对于佛家，他也并非没有兴趣。他曾经多次向赵烈文讨教佛理，只是因为兵火连天之中静不下心，没有深入下去。</p>
-<h3 id="二从生活经验中汲取智慧">（二）从生活经验中汲取智慧</h3>
-<p>除了书本之外，曾国藩还从自身生长的土地中汲取了大量知识。曾国藩虽然是三榜进士出身，却终生对他那个没读过书的祖父敬服不已，在家书中经常引用祖父的话来教育子弟。这位终生没有出过湘乡县的乡下老人确实也有一些来自泥土的不凡见解。他劝弟弟曾国荃在官场上不可逞一时之快时说：</p>
-<blockquote>
-<p>“星冈公教人常言：‘晓得下塘，须要晓得上岸。’又云：‘怕临老打扫脚棍。’……望弟平平和和作一二年，送阿兄上岸后，再行轰轰烈烈做去。至嘱至嘱！”</p>
-<p>“怕临老打扫脚棍”意思是“到年纪老了怕的就是敌手给我来一记狠招，让我没有翻盘的机会”。</p>
-</blockquote>
-<p>曾国藩平生凡事算出三步以外，特别是功成之后，能迅速解散湘军，妥善解除了功高震主之忧，就与祖父这种凡事要有长远打算的教导有关。</p>
-<p>翻开曾国藩家书，引用湖南乡下俗语以及家乡邻里故事处处可见。</p>
-<blockquote>
-<p>“昔祖父在时，每讥人家好积私产者为将败之征，又常讥驼五爹开口便言水口，达六爹开口便言桂花树，想诸弟亦熟闻之。”</p>
-</blockquote>
-<p>可见农村生活经验构成了曾国藩智慧的重要基础。</p>
-<h3 id="三实事求是的经验主义者">（三）实事求是的经验主义者</h3>
-<h4 id="亲自体验乐于尝试">亲自体验，乐于尝试</h4>
-<p>曾国藩身体禀赋极为一般，特别是眼睛。从道光二十三年起，他留下的文字中越来越多地提到眼疾给他带来的困扰：</p>
-<blockquote>
-<p>“目光昏花”，“濛濛无似”，“目光犹苦涩”，“目光昏花作疼，难于久视”。</p>
-</blockquote>
-<p>为了治眼睛，他尝试过几乎所有方法。他吃过无数中药而不见效，后来又亲自研究中医理论，得出</p>
-<blockquote>
-<p>“大抵胸多抑郁，……中年以后，则肝肾交受其病。若抑郁不畅则伤木，心不上烁则伤水”的结论，说“余今日之目疾及夜不成寐，其由来不外乎此”。</p>
-</blockquote>
-<p>由这个理论出发，他得出了以“平和”二字相勖，治目先治心的治疗思路，结果也无大效。</p>
-<p>他从三十六岁时开始使用西洋“增光镜”（老花镜），后来也没有了效果：</p>
-<blockquote>
-<p>“近则虽有镜而无甚裨益。”</p>
-</blockquote>
-<p>后来朋友毛煦初送他一副“墨晶镜”，让他遮在眼上，挡风避光，以求保住“左目一隙之光”，也不见效。</p>
-<p>许仙屏又送他一块“中空积水”的玛瑙，让用金刚钻打开，取出其中积水，滴在眼中。</p>
-<p>他按别人建议，自己每天早起后将两掌摩擦发热，沾上舌尖的唾液在眼睑上擦八十一下。这些方法都毫无效用。</p>
-<p>为了治眼睛，他甚至还试过气功。一个叫马昌明的军官说自己擅长气功，可以用道家内功给他治好眼睛。于是从同治九年八月起，曾国藩天天请他来，</p>
-<blockquote>
-<p>“与余对坐，渠自运气，能移作五脏六腑等”。</p>
-</blockquote>
-<p>每天对坐发功四十五分钟。结果是请这个气功师治了二十一天，“而目光毫无效验”。不得不放弃了这个尝试。</p>
-<p>在这之后，曾国藩说：</p>
-<blockquote>
-<p>“惟目疾难治，近世亦无精于眼科者，不如不治为上策。”</p>
-</blockquote>
-<p>虽然曾国藩的种种尝试都以失败告终，但是从中我们确实可以看出他的试验精神和开放态度。曾国藩是一个经验主义者，凡事总愿意亲身经历，亲自体验，乐于尝试，勇于尝试，勤于尝试。他不被什么定论先入为主，总是要亲身尝试了，亲眼见到了，才下结论。</p>
-<h4 id="苦下身段去事上体察一番">苦下身段去事上体察一番</h4>
-<p>他做事讲究身到、心到、口到、眼到，特别强调要“苦下身段去事上体察一番”。他在谈到人才时说，</p>
-<blockquote>
-<p>“大抵人才约有两种，一种官气较多，一种乡气较多”。官气较多者“遇事但凭书办、家人之口说出，凭文书写出，不能身到、心到、口到、眼到，尤不能苦下身段去事上体察一番”。</p>
-</blockquote>
-<p>这“四到”的说法与他“十八条挺经”遇事“躬自入局，挺膺负责”的总精神是一致的。</p>
-<h4 id="脚踏实地的理学家">脚踏实地的理学家</h4>
-<p>曾国藩把汉学的宗旨概括为“实事求是”，宋学的宗旨概括为“即物穷理”，认为二者的基本精神同出一源。他在《书学案小识后》中指出：</p>
-<blockquote>
-<p>近世乾嘉之间，诸儒务为浩博。惠定宇、戴东原之流钩研诂训，本河间献王实事求是之旨，薄宋贤为空疏。夫所谓事者，非物乎？是者，非理乎？实事求是，非即朱子所称即物穷理者乎？</p>
-<p>据《汉书•河间献王传》，河间献王刘德，景帝第二子，景帝前二年立，在王国中高举儒学，且身体力行，言行举止都遵循儒家的礼仪法度，并推行儒家的仁政，以民为本，“温仁恭俭，笃敬爱下，明知深察，惠于鳏寡”。遭遇秦火之后，六艺经典已经残缺不完，佚散民间，他聘求幽隐，收拾余烬，以重金求购天下遗书，并抄写好的副本给原主，自己留下真本，“繇是四方道术之人不远千里，或有先祖旧书，多奉以奏献王者，故得书多与汉朝等”。</p>
-</blockquote>
-<p>在中国思想史上，曾国藩把“实事求是”这个原本是考据学的命题第一次变成了哲学认识论的命题。</p>
-<p>有了求实一念，人才会从道德制高点上下来，脚踏实地，不激不随。咸丰皇帝即位之初，曾让大家就“用人行政”发表意见，倭仁与曾国藩都上书。倭仁大谈“君子小人之辨”，咸丰倒也不糊涂，批了一个“名虽甚善，而实有难行”。曾国藩写得很具体，认为用人之事“大抵有转移之道，有培养之方，有考察之法，三者不可废一”，咸丰批“剀切明辩，切中情事”。</p>
-<p>理学的正面意义在于它会赋予人以面对这个艰难的世界必须具有的刚毅、清洁、坚决、彻底。同时，它也有巨大的“副作用”，比如守旧、固执、清刻、荒陋、脱离实际。</p>
-<p>因为“笨拙”，脚踏实地，曾国藩一方面获得了理学修养的巨大益处，另一方面却避免了许多理学家的毛病。曾国藩曾这样直言不讳地批评那些只知高谈阔论，于实际毫无补益的理学人士：</p>
-<blockquote>
-<p>“性理之说愈推愈密，苛责君子愈无容身之地，纵容小人愈得宽然无忌，如虎飞而鲸漏，谈性理者熟视而莫敢谁何，独于一二朴讷之君子攻击惨毒而已。”</p>
-</blockquote>
-<p>正因为自己心怀恕道，食人间烟火，所以他才能对杀人理学做出这样入木三分的评论。</p>
-<p>他利用理学者却不为之所惑。他的幕府中有一批道学先生，“然第给以厚糈，不假以事权”。有一次，他的亲信幕僚对这些人有不敬之词，他便直言不讳地告诫他：</p>
-<blockquote>
-<p>此辈皆虚声纯盗之流，言行必不能坦白如一，吾亦知之。然彼所以能猎得厚资者，正赖此虚名耳。今必揭破之，使失其衣食之资，则彼之仇汝，岂寻常睚眦之怨可比，杀身赤族之祸，伏于是矣。盍戢诸！</p>
-</blockquote>
-<p>理学好以道德分善恶，但曾国藩说他看人并不以君子、小人为分，强调他的标准是“晓事”，也就是明白事理。</p>
-<blockquote>
-<p>“不晓事，则挟私固谬秉公亦谬，小人固谬君子亦谬，乡愿固谬狂狷亦谬。”</p>
-<p>“天下无一成不变之君子，无一成不变之小人。今日能知人能晓事，则为君子，明日不知人不晓事，即为小人，寅刻公正光明，则为君子，卯刻偏私晻暧，即时为小人”。</p>
-</blockquote>
-<p>有这样的立场，才能以事实与证据为准绳，不轻取人，不轻毁人，独立无惧，确乎不拔。
-他说：“故群誉群毁之所在，下走常穆然深念，不敢附和。”</p>
-<p>年事渐长，挺身入局之后，他更渐渐看到事物本身的复杂性。他曾痛恨“不黑不白”之风气，强分善恶，但也讽刺自己身上的文人习气：</p>
-<blockquote>
-<p>“强分黑白，遇事激扬者，文人轻薄之习也。不察而效之，动辄区分善恶，品第高下，使优者未必加劝，而劣者几无以自处”。</p>
-</blockquote>
-<h4 id="自我更之自我创之">自我更之，自我创之</h4>
-<p>理学家往往是保守主义者，但“实事求是”的实践精神，却给了曾国藩突破藩篱、否定古人、开辟新知的勇气。曾国藩说：</p>
-<blockquote>
-<p>研究治国之术，应该以“本朝为主，而历溯前代之沿革本末，衷之以仁义，归之以简易。前世所袭误者，可以自我更之；前世所未及者，可以自我创之。其苟且者，知将来之必敝；其知当者，知将来之必因。所谓虽百世可知也”。</p>
-</blockquote>
-<p>正是因为他不迷信先王之道，而是敢于以“自我更之”、“自我创之”的态度变通其中的“袭误者”、“未及者”，所以他才能成为洋务运动的创始人。在近代中国，推动西学的几件大事都与曾氏有密切关系：创办安庆军械所和江南制造总局、幼童留美、在上海机器局添设翻译局、《几何原本》后九卷的翻译出版，他都是主要决策人。</p>
-<p>西学初入中国之际，一般士大夫视如仇敌。以他的好朋友倭仁为首的“理学家”更是仇洋的中坚。曾国藩却坦率地指出倭仁“才薄识短”。在理学大家中，只有曾国藩能以明智的态度认识到向西方学习的必要性，因为他看洋人，同样不戴有色眼镜。当时的士大夫多认为外国人是凶蛮诈狠的蛮夷，因此对他们不必讲诚信，只需讲“羁縻”。曾国藩却主张，要真诚地对待外国人。因为外国人也是人，有着与中国人一样的心理结构。适用于中国人的信条，一定也适于外国人。他说：</p>
-<blockquote>
-<p>夷务本难措置，然根本不外孔子忠信笃敬四字。笃者，厚也。敬者，慎也。信，只不说假话耳；然却难。吾辈当从此一字下手，今日说定之话，明日勿因小利害而变。</p>
-</blockquote>
-<p>理学家们在中国礼仪之争中态度尤其激烈，他们无论如何放不下天朝上国的虚骄自大，坚决要求外国人见皇上必须三跪九叩，为此不惜一战。曾国藩却主张与外国平等相处，在对外关系上他就主张舍去虚仪，重视实利：</p>
-<blockquote>
-<p>“其争彼我之虚仪者许之，其夺吾民生计者勿许。”</p>
-</blockquote>
-<p>这个见解在当时的历史背景之下实在是高明之至，在今天仍然有其实际功效。</p>
-<p>钱穆的话说得很中肯：</p>
-<blockquote>
-<p>曾国藩）虽极推唐镜海诸人，而能兼采当时汉学家、古文家之长处，以补理学枯槁狭隘之病。其气象之阔大，包蕴之宏丰，更非镜海诸人断断徒为传道、翼道之辩者所及。则涤生之所成就，不仅戡平大难，足以震烁一时，即论学之平正通达，宽宏博实，有清二百余年，固亦少见其匹也。</p>
-</blockquote>
-<h3 id="四尚拙">（四）尚拙</h3>
-<p><img
-src="http://qiniup.louyanspine.com/2018-06-17-%E5%AE%88%E6%8B%99%E9%95%9C%E5%BF%83%E6%B0%B4%E5%A2%A8%E7%BA%B8%E6%9C%AC.jpg" /></p>
-<p>曾国藩确实不算天分多高明，但也是少年成名，雄心很大，这样的心志，往往难以耐住琐屑，做事不能精细如发。他转学朱子：</p>
-<blockquote>
-<p>“立乎大者，如果没有辅以朱子铢积寸累工夫，则下梢全无把握”。</p>
-</blockquote>
-<p>对朱子，胡适有过一个评价，说朱子是一个绝顶聪明的人：</p>
-<blockquote>
-<p>“十五六岁时就研究禅学，中年以后才改邪归正”。</p>
-</blockquote>
-<p>他说的改邪归正，是从追求灵光乍现的绝对智慧，转向“宁详勿略，宁近勿远，宁下勿高，宁拙勿巧”的世俗学问。</p>
-<p>这就是胡说的:</p>
-<blockquote>
-<p>“有绝顶聪明而肯作笨功夫的人才有大成就”。</p>
-</blockquote>
-<p>老曾对“笨”字有种言若有憾、实则喜之的看法，“吾辈读书人，大约失之笨拙，即当自安于拙，而以勤补之，以慎出之，不可弄巧卖智，而所误更甚”。
-因为“笨拙”，曾国藩是平实的，谦虚的。曾国藩说，</p>
-<blockquote>
-<p>“不说大话，不好虚名，不行架空之事，不谈过高之理，如此可以少正天下浮伪之习”。</p>
-</blockquote>
-<p>他十分瞧不起那些随便评讥古人的轻薄之人。他这样对儿子曾纪泽说：</p>
-<blockquote>
-<p>不可轻率评讥古人，惟堂上乃可判堂下之曲直，惟仲尼乃可等百世之王，惟学问远过于古人乃可评讥古人而等差其高下。今之讲理学者，动好评贬汉唐诸儒而等差之，讲汉学者，又好评贬宋儒而等差之，皆狂妄不知自量之习。</p>
-</blockquote>
-<p>但同时，又是因为“笨拙”，凡事习惯亲身实践，这又使他有资本放言高论，直率地批评古人。</p>
-<p>通过大量的实践，他发现，迷信古书的结果常常是错误的：</p>
-<blockquote>
-<p>“尽信书则不如无书。”君子之作事，既征诸古籍，诹诸人言，而又必慎思而明辨之，庶不致冒昧从事耳。</p>
-</blockquote>
-<p><code>注：诹zōu，商量；咨询。</code></p>
-<p>他举例说，古代那些赫赫有名的兵书，大多是骗人的。以书生从戎之始，曾国藩对中国历代传下来的兵书战策十分推崇，曾经苦读恶补。然而，随着实战经验越来越多，他发现这些古书大多是玄而又玄的骗人东西。</p>
-<p>他在给尹耕耘的信中说：</p>
-<blockquote>
-<p>国藩久处兵间，虽薄立功绩，而自问所办者皆极钝之事，于“神速”二字几乎相背，即于古人论兵成法，亦千百中而无什一之合，私心深自愧叹，又因此颇疑古人之书皆装饰成文，而不可以尽信。敝部如塔、罗、李、鲍，外间有文人叙其战绩，已与当时实事迥不相符，窃疑古书亦复尔尔。</p>
-</blockquote>
-<p>他怀疑《史记》中一些战例的真实性：</p>
-<blockquote>
-<p>儒者记兵事以迁为最善，迁史以《淮阴传》为最详，其中如木罂渡河，沙囊壅潍，国藩颇疑其并无是事。今临晋之黄河尚在，果木罂所能渡乎？沙囊堵水，溢漏如故，断不能顷刻成堰，水大则不能忽堵忽决，水小则无损于敌。以物理推之，迁书尚可疑如此，则此外诸史叙述兵事，其与当年实迹相合者盖寡矣。</p>
-</blockquote>
-<p>因此他告诉别人，读《史记》、《汉书》不可太拘泥当真：</p>
-<blockquote>
-<p>太史公称庄子之书皆寓言，吾观子长所为《史记》，寓言亦居十之六七，班氏闳识孤怀不逮子长远甚。</p>
-</blockquote>
-<p><code>注：孤怀，远大的见解，独特的情操。</code></p>
-<p>一天，曾国藩与幕僚、将领淡论“军中阵法”，发现</p>
-<blockquote>
-<p>“虽同见同闻同局中人，而人人言殊，不足凭信”，遂由悟出史书记载为什么不可信：“古来史传之不足凭信，亦如是矣。”</p>
-</blockquote>
-<p>他认为，司马迁所载尚不足凭，则二十三史中其他作者记载的战争，更是文人之见，不足为信：</p>
-<blockquote>
-<p>廿三史除马、班外，皆文人以意为之，不知甲仗为何物，战阵为何事，浮词伪语，随意编造，断不可信。仆于《通鉴》中之不可信者，皆用笔识出矣。</p>
-</blockquote>
-<p>湘军平江营中有个名叫吴士迈的营官，摘录二十三史中有关战争的记载，编辑成册，打算以此作为治军的根据。曾国藩知道后，立即致函该军统领李元度：</p>
-<blockquote>
-<p>“军事是极质实之事”，“若以编辑二十三史成书为治军之蓝本，则门径已差，难与图功。阁下与之至交，须劝之尽弃故纸，专从事于点名、看操、查墙子诸事也”。</p>
-</blockquote>
-<p>还有一个名叫吴希颜的谋士，建议曾国藩“以古书考核将才，分派正副文武营官”。曾国藩认为“此皆书生之见”，并在批复中指出：</p>
-<blockquote>
-<p>读书之与用兵判若两途。古来名将如前汉之韩信、曹参，后汉之皇甫嵩、朱隽，未闻其著书。戚继光能著书而战功又甚平平。孙武之不能自践其言，则老苏已讥之矣。</p>
-</blockquote>
-<p>表面上看，这似乎与曾氏谦谨为人风格冲突，实际上，他敢于如此放言高论，实在是因为他站得比那些不明世事的文人高，看得比他们远。</p>
-<p>与众不同的“笨拙”精神，成就了曾国藩的浑厚、开阔，无所不包。实事求是的思维方式，使他的思维保持着流动、敏锐、积极的状态。他在广大神秘的世界面前是谦卑的，老实的，他不预设什么，也不禁止什么，更不妄断什么，只是有一说一，有二说二。他善于从庸常琐碎的现实生活中汲取提炼智慧，善于从他所接触的一切精神资源中探寻有用的东西。他的理想主义与现实主义不是相互冲突，而是相互滋养。因此，他才具有大眼光，大力量，才能成就大事业。</p>
-<p>用郭嵩焘的话来解释曾国藩的成功是最恰当的。郭嵩焘在日记中说，有一个朋友问他，为什么湖南这么出人才。他回答说：</p>
-<blockquote>
-<p>“楚人只带三分蠢气，盖孔子所谓其愚不可及。”</p>
-</blockquote>
-<p>柴静在博客中评价说：</p>
-<blockquote>
-<p>可以看到这样的心灵里，没有飞跃，没有灵光乍现、立地顿悟，每一步都是困而求知，而勉而行，但坚锐之感，就像一把刀不假思索深深扎入直没刀柄。</p>
-<p>这个路径意味着以中人之姿，人人可为。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2783,7 +3119,7 @@ src="http://qiniup.louyanspine.com/2018-06-17-%E5%AE%88%E6%8B%99%E9%95%9C%E5%BF%
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">507</span>
+          <span class="site-state-item-count">509</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
