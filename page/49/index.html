@@ -191,6 +191,333 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/16/PropensityScore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/16/PropensityScore/" class="post-title-link" itemprop="url">倾向性评分（The Propensity Score）总述</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-16 20:26:22" itemprop="dateCreated datePublished" datetime="2018-07-16T20:26:22+08:00">2018-07-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明：<br> 1. 部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity
+Score<br> 2.
+部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究</p>
+</blockquote>
+<h2 id="一前言">一、前言</h2>
+<p>2015年有2项发表在JAMA上的研究涉及对观察性数据(observational
+data)的分析，以评估治疗对患者预后的影响。</p>
+<ol type="1">
+<li><p>在Rozé等人的研究中<sup>[1]</sup>，分析了一个大型观察性数据集，以评估早期超声心动图(early
+echocardiography screening)筛查动脉导管未闭(patent ductus
+arteriosus)与早产儿死亡率之间的关系。作者比较了847名接受了筛查的婴儿和666名未接受筛查的婴儿的死亡率。</p>
+<p>两个婴儿组不太相同：筛查组的婴儿年龄更小，女婴较多，并且很少接受过皮质类固醇激素的治疗。作者使用倾向性评分匹配(propensity
+score
+matching)创建了来自原始队列的605个匹配的婴儿对以调整这些差异因素。</p></li>
+<li><p>另一项在Huybrechts等人的研究中<sup>[2]</sup>，分析了Medicaid
+Analytic
+eXtract数据集，以评估妊娠期使用抗抑郁药与新生儿持续性肺动脉高压之间的关系。</p>
+<p>作者纳入了3 789 330名妇女，其中128
+950名在妊娠期使用过抗抑郁药。使用抗抑郁药的妇女与没有使用抗抑郁药的妇女在年龄、种族/民族、慢性病、肥胖、吸烟和health
+care use方面存在差异。作者使用倾向性评分分层(propensity score
+stratification)方法部分地调整了这些差异。</p></li>
+</ol>
+<h2 id="二使用方法">二、使用方法</h2>
+<h3 id="一为什么使用倾向性方法">（一）为什么使用倾向性方法？</h3>
+<p>许多因素会影响治疗方法的选择。在许多情况下，患者会接受多种治疗方法。此外，接受不同治疗方法的患者显然不能混为一谈。这通常会导致患者影响结果的特征与治疗方法之间存在相关性(correlation)或混淆(confounding)。（通常称为“confounding
+by indication”）。</p>
+<p>如果从常规的临床实践中获得观察性数据以比较使用不同治疗方法的患者的结局/预后，观察到的差异将是不同的患者特征和不同治疗方法的共同作用结果，难以描绘某一种治疗与另一种治疗的真实效果。</p>
+<p>在观察性研究中，随机化是不可能的，因此研究者必须调整组间差异，以获得进行比较的治疗方法与感兴趣结局之间相关性的有效估计。多变量统计方法(Multivariable
+statistical methods)通常用于评估这种关联，同时调整混淆。</p>
+<p>倾向性评分的方法可减少评估治疗效果时的偏倚，并允许研究者在分析非随机的观察性数据时降低混淆的可能性。</p>
+<h3 id="二倾向性评分的概念及其原理">（二）倾向性评分的概念及其原理</h3>
+<ol type="1">
+<li><p>倾向性评分是指在一定协变量条件下，一个观察对象接受某种暴露/处理因素（所研究的治疗方法）的可能性，它是一个从0到1的范围内连续分布的概率值。这种概率基于患者的特征，临床医生和临床环境。可以使用多变量统计方法（例如，logicistic回归）来估计这种概率。在这种情况下，所研究的治疗方法是因变量(dependent
+variable)，而患者的特征，处方医生和临床环境则是预测因子(predictors)。</p></li>
+<li><p>倾向性评分是指在给定一组协变量(<span
+class="math inline">\(X_i\)</span>)的条件下，将任意一个研究对象<span
+class="math inline">\(i(i=1，2，⋯，n)\)</span>分配到处理组<span
+class="math inline">\((Z_i=1)\)</span>的条件概率。第<span
+class="math inline">\(i\)</span>个研究对象被分配到处理组的条件概率可以表示为：<span
+class="math display">\[e(X_i)=P(Z_i=1\mid{X_i})\]</span></p>
+<p>其中<span
+class="math inline">\(e(X_i)\)</span>被称为倾向性评分。倾向性评分相同的两个不同组别的研究对象，其拥有的多个协变量整体上分布是相同的。因此，组间协变量的不均衡性对处理效应估计的干扰被消除了。</p></li>
+<li><p>倾向性评分的基本原理是用⼀个分值来替代多个协变量，均衡处理组和对照组间协变量的分布。对⾮随机化研究中的混杂因素进行类似随机化的均衡处理，减少选择偏倚。计算得出PS分值后，可采⽤匹配、回归调整、加权、分层的方法来均衡各组间协变量的差异，最终估计处理效应。</p></li>
+<li><p>在生物医学研究中，倾向性评分通常用于比较治疗方法，但也可用于评估任何非随机因素（如接触毒素或病原体）与感兴趣结局之间的关系。</p></li>
+</ol>
+<h3 id="三倾向性评分的四种常规方法">（三）倾向性评分的四种常规方法</h3>
+<h4 id="倾向性评分匹配">(1)倾向性评分匹配</h4>
+<ol type="1">
+<li>其通常包括2组研究对象，一组接受所研究的治疗而另一组则接受其他治疗，同时匹配具有相似或相同倾向性评分的个体。然后，直接比较接受所研究治疗的个体与接受其他治疗的个体之间的结果。</li>
+<li>常用的匹配方法：
+<ul>
+<li>最邻近匹配(Nearest Neighbor Matching)
+<ul>
+<li>首先利用logistic模型计算倾向性评分值，根据分组变量将处理组与对照组区分开。</li>
+<li>然后对处理组个体随机排序，从处理组中选出第一个个体，与对照组中全部个体的倾向性评分值进行比较，找出对照组中倾向性评分值相同或相近的个体进行配对，若对照组中有2个或2个以上与处理组个体倾向性评分值相同，则随机选取。</li>
+<li>配对成功的个体从数据中剔除，对下一个体重复如上步骤，直到处理组个体全部完成匹配。</li>
+</ul></li>
+<li>卡钳匹配(caliper matching)
+<ul>
+<li>在最邻近匹配集的基础上根据倾向性评分值在最邻近匹配集中的分布设置不同的卡钳，删除两组倾向性评分值之差在卡钳值范围外的配对个体，得到不同精度的匹配集，然后计算协变量之间的均衡性及样本不平衡性，并将结果进行汇总。</li>
+</ul></li>
+<li>全局最优匹配</li>
+</ul></li>
+<li>使用倾向性评分匹配样本的分析结果可以接近随机对照试验的分析结果，因为考虑了数据的配对性质。</li>
+</ol>
+<h4 id="倾向性评分分层">(2)倾向性评分分层</h4>
+<ol type="1">
+<li><p>估计出每个研究对象的倾向性评分值后，根据倾向性评分值将研究对象分为若干层。</p></li>
+<li><p>有文献指出，当估计线性处理效应的时候，将倾向性评分值分为五层可以消除组间近90%的混杂偏倚。经过分层后，每一层内处理组与对照组的协变量分布应该是均衡的。</p>
+<blockquote>
+<p>尽管增加层或组的数量可以减少偏倚的可能性，但通常使用五个层。</p>
+</blockquote></li>
+<li><p>分析过程中，先在每一层内估计处理效应，最后将每层的效应整合成总的处理效应。这种方法基于于这样一种观念，即每个组/层中的个体比个体更相似。因此，他们的结果可以直接比较。</p></li>
+</ol>
+<h4
+id="使用倾向性评分进行协变量调整">(3)使用倾向性评分进行协变量调整</h4>
+<p>在倾向性评分模型之后，构建单独的多变量模型，其中研究结果用作因变量(dependent
+variable)，治疗组和倾向性评分用作预测变量(predictor
+variables)。这允许研究者评估与所研究治疗相关的结果，同时调整接受治疗的概率，从而减少混淆。</p>
+<h4
+id="倾向性评分逆处理概率加权inverse-probability-of-treatment-weighting-using-the-propensity-score">(4)倾向性评分逆处理概率加权/inverse
+probability of treatment weighting using the propensity score</h4>
+<p>在这种情况下，倾向性评分用于计算每个个体的统计权重(statistical
+weights)以创建样本，其中潜在的混杂因素的分布独立于暴露因素，允许对治疗和结果之间的关系进行无偏估计。</p>
+<ol type="1">
+<li><p>是边缘结构模型这类因果推断⽅法中的一种，其基本原理与传统的标准化法类似。</p></li>
+<li><p>根据倾向性评分值赋予每个研究对象⼀个相应的权重，从⽽构建出⼀个虚拟的人群，在这个虚拟人群中，协变量的组间分布没有差异，因此消除了混杂因素的影响。</p></li>
+<li><p>在逆处理概率加权的方法中，权重被定义为研究对象实际分组情况的概率的倒数，计算如下：
+<span class="math display">\[w_i =
+\cfrac{z_i}{e_i}+\cfrac{(1-z_i)}{(1-e_i)}\]</span></p>
+<ul>
+<li><p>若<span class="math inline">\(z_i=1\)</span>(处理组)，则<span
+class="math inline">\(w_i = \cfrac{1}{e_i}\)</span></p></li>
+<li><p>若<span class="math inline">\(z_i=0\)</span>(对照组)，则<span
+class="math inline">\(w_i = \cfrac{1}{1-e_i}\)</span></p></li>
+</ul></li>
+<li><p>计算权重后，再应⽤用加权回归的⽅方法估计处理理效应。</p></li>
+</ol>
+<h3
+id="四倾向性评分以外的替代策略以调整观察性研究中各组之间的基线差异">（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异</h3>
+<ol type="1">
+<li>匹配基线特征/matching on baseline characteristics</li>
+<li>分层分析/stratified analyses</li>
+<li>多变量统计方法/multivariable statistical methods</li>
+</ol>
+<p>倾向性评分方法通常比这些方法更实用或在统计上更有效，部分原因是倾向性评分方法可以限制最终分析中使用的预测变量的数量。倾向性评分方法通常允许将更多变量包括在倾向性评分模型(propensity
+score
+model)中，从而增加了这些方法有效调整混淆的能力，而不是直接纳入研究结果的多变量分析。</p>
+<h2
+id="三倾向性评分方法的局限性是什么">三、倾向性评分方法的局限性是什么？</h2>
+<ol type="1">
+<li>每个研究对象的倾向性评分基于能够测量的患者特征，如果无法测量的因素影响治疗选择，则可能仍存在未调整的混淆。因此，在倾向性评分模型中使用较少的变量降低了有效调整混淆的可能性。</li>
+<li>虽然倾向性评分匹配可用于组合可比较的研究组，但匹配的质量取决于倾向性评分模型的质量，而倾向性评分模型的质量又取决于进行分析的数据的质量、大小以及模型的构建方式。</li>
+<li>传统的建模方法（如，变量选择，交互的使用use of
+interactions，回归诊断regression
+diagnostics等）通常不推荐用于倾向性评分模型的构建。例如，倾向性评分模型可以纳入更多数量的预测变量。</li>
+</ol>
+<h2 id="四结果该如何解释">四、结果该如何解释？</h2>
+<p>鉴于这些研究属于观察性研究，治疗组和未治疗组中的个体不同。为了能够准确估计治疗与结局之间的关联，研究者必须调整两组之间的差异。</p>
+<p>使用倾向性评分方法时，无论是通过匹配还是分层，结果的估计偏差小于不使用此类方法的估计偏差。</p>
+<p>尽管观察性数据不能像随机临床试验那样严格地建立因果关系或确定治疗效果，但如果倾向性评分方法得到适当使用且样本量足够大，这些方法可能提供治疗方法可能效果的可靠近似值。这种方法对于随机临床试验不可行或不可能进行的情况特别有价值。</p>
+<h2
+id="五在评估倾向性分析的结果时读者应该考虑哪些注意事项">五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？</h2>
+<p>Rozé等人和Huybrechts等人的研究分别使用了倾向性评分匹配和倾向性评分分层。尽管这两种方法在平衡研究组方面比基于基线特征的简单匹配或分层更有效，但它们在最小化偏倚(minimize
+bias)方面的能力各不相同。通常，倾向性评分匹配比倾向性评分分层更大程度地减少偏差。在使用倾向性评分方法后，评估各组之间的平衡对于让读者评估研究组的可比性非常重要。</p>
+<p>尽管没有单一的标准方法来评估平衡，但是比较治疗组和未治疗组患者之间的特征通常始于比较汇总的统计数据（例如，平均值或比例）和观察到的特征的整体分布。</p>
+<p>对于倾向性评分匹配的样本，经常使用标准化差异（standardized
+differences，即差异differences/合并的标准偏差pooled standard
+deviations）。尽管没有普遍接受的阈值，但小于0.1的标准化差异通常被认为是可忽略不计的。</p>
+<p>评估平衡提供了一般意义，即匹配或分层的良好程度，以及结果可能有效的程度。</p>
+<p>不幸的是，只能在研究中可以测量的患者特征中显示平衡。无法测量的差异仍可能存在于各组间，从而导致结果的偏倚。</p>
+<h2 id="六参考文献">六、参考文献</h2>
+<ol type="1">
+<li>Rozé JC, Cambonie G, Marchand-Martin L, et al. Hemodynamic EPIPAGE 2
+Study Group. Association between early screening for patent ductus
+arteriosus and in-hospital mortality among extremely preterm infants.
+JAMA. 2015; 313(24):2441–2448.</li>
+<li>Huybrechts KF, Bateman BT, Palmsten K, et al. Antidepressant use
+late in pregnancy and risk of persistent pulmonary hypertension of the
+newborn. JAMA. 2015; 313(21):2142–2151.</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/12/evalwithScope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/12/evalwithScope/" class="post-title-link" itemprop="url">欺骗词法作用域的两种方式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-12 19:21:15" itemprop="dateCreated datePublished" datetime="2018-07-12T19:21:15+08:00">2018-07-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:54:47" itemprop="dateModified" datetime="2019-02-28T00:54:47+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1.
+部分参考作者姚屹晨在简书上的笔记https://www.jianshu.com/p/650e458bc9ce<br>
+2.
+部分参考作者m4jing在Github上的译文https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/scope%20%26%20closures/ch2.md</p>
+</blockquote>
+<h2 id="一欺骗词法作用域">一、欺骗词法作用域</h2>
+<h3 id="eval">eval</h3>
+<ol type="1">
+<li><p><code>eval</code>函数可以接收一个字符串作为参数，以动态形式插入程序的某个位置，并对其词法作用域的环境进行修改。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 5</span><br></pre></td></tr></table></figure></p></li>
+<li><p>在严格模式下，<code>eval</code>函数在运行时拥有自己的词法作用域。这意味着其中的声明无法修改所在的作用域。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 2</span><br><span class="line"></span><br><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;Uncaught ReferenceError: b is not defined</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="with">with</h3>
+<ol type="1">
+<li><p><code>with</code>通常被当做重复引用同一个对象中的多个属性的快捷方式，可以不需要重复引用对象本身：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: 2,</span><br><span class="line">    c: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.a = 2;</span><br><span class="line">obj.b = 3;</span><br><span class="line">obj.c = 4;</span><br><span class="line"></span><br><span class="line">with(obj) &#123;</span><br><span class="line">    a = 3;</span><br><span class="line">    b = 4;</span><br><span class="line">    c = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>实际上不仅仅是为了方便地访问对象属性：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function foo(obj)&#123;</span><br><span class="line">    with(obj)&#123;</span><br><span class="line">        a = 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var o1 = &#123;</span><br><span class="line">     a: 3</span><br><span class="line">&#125;;</span><br><span class="line">var o2 = &#123;</span><br><span class="line">     b: 3</span><br><span class="line">&#125;;</span><br><span class="line">foo(o1);</span><br><span class="line">o1.a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line"></span><br><span class="line">foo(o2);</span><br><span class="line">o2.a;</span><br><span class="line">&gt;&gt;&gt;undefined</span><br><span class="line"></span><br><span class="line">a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line">//a被泄露到全局作用域中。</span><br></pre></td></tr></table></figure>
+因为，在非严格模式下，若a=2中的变量a未声明，也就是在任何作用域中都查找不到变量a，那么就会在全局作用域中创建一个变量a，并将2赋值于它。</p>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-12-foo-o1-.png"
+alt="foo(o1)" />
+<figcaption aria-hidden="true">foo(o1)</figcaption>
+</figure>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-12-foo-o2-.png"
+alt="foo(o2)" />
+<figcaption aria-hidden="true">foo(o2)</figcaption>
+</figure></li>
+<li><p><code>with</code>语句接收一个对象，这个对象有0个或多个属性，并将这个对象视为好像它是一个完全隔离的词法作用域，因此这个对象的属性被视为在这个“作用域”中词法定义的标识符。如上图中的<code>o1 Scope</code>和<code>o2 Scope</code>。</p></li>
+<li><p>尽管一个<code>with</code>块将一个对象视为一个词法作用域，但在<code>with</code>块内部的一个普通<code>var</code>声明将不会归于这个<code>with</code>块的作用域，而是归于包含它的函数作用域。</p></li>
+<li><p>当我们传递对象<code>o1</code>给<code>with</code>时，<code>with</code>所声明的作用域是<code>o1</code>，而这个作用域中含有一个与<code>o1.a</code>属性同名的标识符。但当我们将<code>o2</code>对象作为作用域时，其中没有<code>a</code>标识符，因此进行了正常的<code>LHS (Left Hand Side)</code>查找，最后导致创建了一个全局变量a并赋值为2。</p></li>
+</ol>
+<h2 id="二性能">二、性能</h2>
+<p>JavaScript引擎在编译阶段期进行许多性能优化工作。其中的一些优化原理都归结为实质上在进行词法分析时可以静态地分析代码，并提前决定所有的变量和函数声明都在什么位置，这样在执行期间就可以少花些力气来解析标识符。</p>
+<p>但如果引擎在代码中找到一个<code>eval(..)</code>或<code>with</code>，它实质上就不得不假定自己知道的所有的标识符的位置可能是不合法的，因为它不可能在词法分析时就知道你将会向<code>eval(..)</code>传递什么样的代码来修改词法作用域，或者你可能会向<code>with</code>传递的对象有什么样的内容来创建一个新的将被查询的词法作用域。</p>
+<p>换句话说，悲观地看，如果<code>eval(..)</code>或<code>with</code>出现，那么它将做的几乎所有的优化都会变得没有意义，所以它就会简单地根本不做任何优化。没有优化，代码就运行的更慢。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/12/ECMAScript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,7 +572,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
 <p>说明<br> 1. 参考整理自Michael Aranda的文章What’s the difference
 between JavaScript and ECMAScript?</p>
 </blockquote>
@@ -465,7 +792,7 @@ both Google Chrome and Node.js — two very different environments.</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
 <p>说明<br> 1. 部分参考O'Reilly Media出版的JavaScript Programming_A
 Brain-Friendly Guide<br></p>
 </blockquote>
@@ -1678,7 +2005,7 @@ mousemove事件通知相应的处理程序。要指定处理程序，可使用�
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>盐在中国历史上本来就是一个长期被垄断经营的对象，汉代与唐代都曾把垄断盐利作为增加财政收入的重要手段。但是，授予盐商绝对的垄断经营权，这是明清时期才有的事。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>盐在中国历史上本来就是一个长期被垄断经营的对象，汉代与唐代都曾把垄断盐利作为增加财政收入的重要手段。但是，授予盐商绝对的垄断经营权，这是明清时期才有的事。</p>
 <h2 id="一明代">一、明代</h2>
 <p>###（一）开中法 #### 有明盐法，莫善于开中
 明政府为解决“九边”80多万驻军的粮饷供给，实施了军屯、民运粮、开中法三套制度。亦即军士屯种自给，百姓向边镇输纳，商人纳粮中盐办法，习惯上称为屯粮、民粮、盐粮。然而，北部长城一线地处高寒，屯田产量有限。因此，政府每年征调北直隶、晋、陕、豫、鲁数省农民将交纳后的粮食运送到指定边镇。但在交通不便，车拉驴驮的时代，要把数十万石粮食转运到边塞绝非易事，既妨碍农作，又成本很高。</p>
@@ -1907,7 +2234,7 @@ aria-hidden="true">边商、内商之间三种票据的交易价格</figcaption>
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
 
       
     </div>
@@ -1972,7 +2299,7 @@ aria-hidden="true">边商、内商之间三种票据的交易价格</figcaption>
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
 
       
     </div>
@@ -2046,7 +2373,7 @@ aria-hidden="true">边商、内商之间三种票据的交易价格</figcaption>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="心相篇">心相篇</h1>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="心相篇">心相篇</h1>
 <blockquote>
 <p>[宋] 陈希夷</p>
 </blockquote>
@@ -2562,479 +2889,7 @@ alt="太极图" />
     <div class="post-body" itemprop="articleBody">
 
       
-          
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/17/ZengGuofan2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/17/ZengGuofan2/" class="post-title-link" itemprop="url">ZengGuofan2（未完）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-17 19:55:00" itemprop="dateCreated datePublished" datetime="2018-06-17T19:55:00+08:00">2018-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:33:57" itemprop="dateModified" datetime="2019-02-27T23:33:57+08:00">2019-02-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/17/ZengGuofan3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/17/ZengGuofan3/" class="post-title-link" itemprop="url">曾国藩其人其事·三</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-17 19:54:52" itemprop="dateCreated datePublished" datetime="2018-06-17T19:54:52+08:00">2018-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:33:47" itemprop="dateModified" datetime="2019-02-27T23:33:47+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E7%89%A9%E4%B8%8E%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">人物与历史</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>参考书籍<br> 1.
-张宏杰《曾国藩的正面与侧面》民主与建设出版社.2014年<br> 2.
-张宏杰《曾国藩的正面与侧面》国际文化出版公司.2011年<br> 3.
-林乾《曾国藩大传》人民文学出版社.2011年<br></p>
-</blockquote>
-<h2 id="三困顿与坎坷">三、困顿与坎坷</h2>
-<p>曾国藩回顾平生几次大堑，认为挫折是他最大的助力。他说：</p>
-<blockquote>
-<p>吃此四堑，无地自容，故近虽忝窃大名，而不敢自诩为有本领，不敢自以为是。俯畏人言，仰畏天命，皆从磨炼后得来。</p>
-</blockquote>
-<p>总结生平，曾国藩多次说挫折是他长进的动力，因此鼓励他弟弟在挫折之际咬紧牙关，不屈不挠，化被动为主动，以扩展心胸、增长本领：</p>
-<blockquote>
-<p>吾生平长进，全在受挫辱之时。务须咬牙励志，蓄其气而长其智，切不可荼然自馁也。</p>
-</blockquote>
-<p><code>注：荼然自馁，不要无缘无故的自己看不起自己</code></p>
-<blockquote>
-<p>当此百端拂逆之时，亦只有逆来顺受之法，仍不外悔字诀，硬字诀而已。</p>
-<p>何为“悔字诀”呢？曾国藩说：“近年得力，惟一悔字，悔悟之后，才知自己全无本领，才看得到人家有几分是处”。有这一个悔字，其待人也，小心翼翼，就无一人敢轻慢；其行事也，兢兢业业，就无一丝疏忽。由悔而又生畏，曾国藩曾经说自己有“三畏”：畏天命、畏人言、畏君父。常存敬畏之心，才是惜福之道啊！所以，纵观曾国藩的一生，游刃官场，虽有不少坎坷，却终能化险为夷。</p>
-<p>凡事皆有极困极难之时，打得通的，便是好汉。</p>
-<p>梁启超说：“曾文正者，……在当时诸贤杰中，最称钝拙，其所遭遇事会，亦终身在拂逆之中，然乃立德、立功、立言三不朽，所成就震古烁今而莫与京者，其一生得力在立志自拔于流俗，而困而知，而勉而行，历百千艰阻而不挫屈，不求近效，铢积寸累，受之以虚，将之以勤，植之以刚，贞之以恒，帅之以诚，勇猛精进，卓绝坚苦，如斯而已，如斯而已。”</p>
-</blockquote>
-<p><code>注：莫之与京，出自《左传·庄公二十二年》，解释为首屈一指，无与伦比。</code></p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-06-18-%E6%9B%BD%E5%9B%BD%E8%97%A93.jpg" /></p>
-<h3
-id="一三次为众人所唾骂和三次军事大失败">（一）三次“为众人所唾骂”和三次军事大失败</h3>
-<p>同治五年（1866年），五十五岁的曾国藩在家书中对曾国荃回顾了他一生三次“为众人所唾骂”及三次军事大失败：</p>
-<blockquote>
-<p>余为京师权贵所唾骂，继为长沙所唾骂，再为江西所唾骂，以至岳州之败、靖港之败、湖口之败，盖打脱牙齿多矣，无一不和血吞之。</p>
-</blockquote>
-<h4 id="京师权贵所唾骂">京师权贵所唾骂</h4>
-<p>曾国藩晚年在家书中回忆：</p>
-<blockquote>
-<p>“昔余往年在京，好与诸有大名大位者为仇，亦未始无挺然特立不畏强御之意”。</p>
-</blockquote>
-<p>大名大位者之一，就是那位因鸦片战争而出名的琦善。琦善出身贵族，身名早达，二十岁就当了河南巡抚。一度位极人臣，在朝廷中根深蒂固。虽因鸦片战争而被道光皇帝“革职锁拿，查抄家产”，但不久就获重新起用，任陕甘总督。咸丰皇帝即位后，有人参奏他在陕甘总督任内“妄加诛戮”，“将雍沙番族刑求逼供，杀毙多名”。皇帝命革职交刑部审讯。</p>
-<p>虽然两度获罪，琦善在京中人缘却一直很好。回到北京后，会审人员只寻“微琐细事”令琦善回答，实际是为他开脱罪责。刑部尚书恒春甚至要将举报人萨迎阿的四名下属当做罪犯抓来，与琦善一同审讯。这明显是违反大清律的。然而对这个建议，满朝无人反对。只有当时兼属刑部侍郎的曾国藩挺身而出，拍案而起，说：</p>
-<blockquote>
-<p>琦善虽位至将相，然既奉旨查办，则研鞫乃其职分；司员职位虽卑，无有传入廷尉与犯官对质之理。若因此得罚，将来大员有罪，谁敢过问者？且谕旨但令会审琦善，未闻讯及司员，必欲传讯，当奏请奉旨然后可。</p>
-</blockquote>
-<p><code>注：鞫jū，审讯</code></p>
-<p>就是说，琦善虽然权高位重，但既然奉旨查办他的罪行，则自然应该以罪犯待之。举报他的那几个司员官位虽低，现在也仍然是朝廷命官，怎么能像罪犯一样抓来当堂对质？如果举报者被这样对待，将来再有大员犯罪，谁敢过问？况且皇帝只命会审琦善，并没有命令兼审其司员。如果一定要传讯司员，那必须先请旨。</p>
-<p>曾国藩“词气抗厉”，“四坐为之悚动”，刑部尚书恒春不得不取消了这个动议。慑于曾国藩的刚直，咸丰二年四月，琦善被革职，发往吉林效力赎罪。</p>
-<p>另一个“大名大位”者是赛尚阿。咸丰二年初，赛尚阿等因为在镇压太平天国起义军过程中调度不力，日久无功而“交部议处”。朝中众人多力图为之宽减，只有曾国藩认为：</p>
-<blockquote>
-<p>“以军务关系重大，议处罪名宜从重者，不当比照成例”。</p>
-</blockquote>
-<p>但会议还是决定从宽处罚。曾国藩不服，“会议罢后，公专摺奏请从严议处”。赛尚阿因此终被革职。</p>
-<p>本来，曾国藩在京官中人缘颇好。然而，这两次挑战“大名大位”者，却令他人际关系网出现巨大破洞。因为琦善门生故旧遍天下，与穆彰阿关系也颇深。曾国藩打破了“官官相护”的潜规则，成为官场上的异类。案子审完之后，许多人与曾国藩拉开距离，甚至不再往来。他在官场上的处境愈益孤立。“诸公贵人见之或引避，至不与同席。”在背后当然更是遭到无数诋毁之词。弹劾赛尚阿又得罪了一大批人。因此曾国藩在咸丰二年几乎成了京师人人唾骂的人物。</p>
-<p>在北京在最后一段日子，曾国藩动辄得咎，精神十分痛苦，愈来愈想念家乡了。国事颓唐，他百计奋斗，却丝毫无补，不免又一次萌生了退志：</p>
-<blockquote>
-<p>粤西事用银已及千万两而无确耗，户部日见支绌，内库亦仅余六百万。时事多艰，无策以补救万一，实可惭愧！明年拟告归，以避尸位素餐之咎。</p>
-</blockquote>
-<p>在给罗泽南的信中亦云：</p>
-<blockquote>
-<p>计稍迟岁时，即当解组归养，从吾子与孟容（即罗泽南与刘蓉）于万山恬寂中耳。</p>
-</blockquote>
-<p>咸丰二年六月，曾国藩终于得到了江西乡试正考官的外差，他兴冲冲逃离这个让他失望而厌恶的京城。不料刚走到安徽太和县，接到了母亲去世的讣闻，当即换装回乡奔丧，至此正式结束了他十四年的京宦生涯。</p>
-<h4 id="为长沙所唾骂">为长沙所唾骂</h4>
-<p>详见“癸丑六月（咸丰三年，即1853年6月被赶出长沙）不与焉”</p>
-<h4 id="为江西所唾骂">为江西所唾骂</h4>
-<p>详见“丙辰（咸丰六年）被困南昌，官绅人人目笑存之”</p>
-<h3 id="二平生四大堑">（二）平生“四大堑”</h3>
-<p>第二年（即同治六年，1867年）三月十二日，他又在家信中对曾国荃回顾了平生“四大堑”：</p>
-<blockquote>
-<p>余生平吃数大堑，而癸丑六月（咸丰三年，即1853年6月被赶出长沙）不与焉。第一次壬辰年（道光十二年，1832年）发佾生，学台悬牌，责其文理之浅；第二庚戌年（道光三十年，1850年）上日讲疏内，画一图甚陋，九卿中无人不冷笑而薄之；第三甲寅年（咸丰四年，1854年）岳州靖港败后，栖于高峰寺，为通省官绅所鄙夷；第四乙卯年（咸丰五年，1855年）九江败后，赧颜走入江西，又参抚臬，丙辰（咸丰六年）被困南昌，官绅人人目笑存之。</p>
-</blockquote>
-<p><code>注：不与焉,不算在内</code></p>
-<h4
-id="壬辰年发佾生学台悬牌责其文理之浅">壬辰年发佾生，学台悬牌，责其文理之浅</h4>
-<p>壬辰年是道光十二年（1832），这一年二十一岁的曾国藩第六次参加秀才考试。</p>
-<p>结果发榜之日，却被学台（即湖南省学政，相当今天的省教育厅厅长）悬牌（发布公告），责其“文理太浅”，以佾(yì)生注册（“佾生”是指未能考取秀才但成绩尚好者，选取充任孔庙中祭礼乐舞的人员。获“佾生”资格则下次考试可免县试、府试，只参加院试即可，故称“半个秀才”）。</p>
-<p>在一般人看来，获得“佾生”资格也算是小有收获，值得祝贺。曾国藩却视在大庭广众之下被悬牌批责为奇耻大辱。回到家塾“利见斋”，他闭门不出，咬牙发愤。没想到这一次“悬牌批责”，居然如当头棒喝、醍醐灌顶，豁然贯通，突破了父亲刻板教育下形成的僵化文笔思路，文理大进，转过年来，第七次参加考试，终于中了秀才。又一年，他就中了举人，又四年，中进士，点翰林，从此飞黄腾达。</p>
-<h4 id="画图甚陋">画图甚陋</h4>
-<p>道光三十年正月，道光皇帝去世，年方二十、血气方刚的咸丰登基，罢黜穆彰阿，下诏“求言”。一时“天下称快”，朝野上下，为之一振。</p>
-<p>曾国藩心情激奋，上了一道《应诏陈言疏》，痛斥当时的“以畏葸为惧，以柔靡为恭”的官场作风，曲尽当时官场的丑恶形状：</p>
-<blockquote>
-<p>“京官办事通病有二，曰退缩，曰琐屑。外官办事通病有二，曰敷衍，曰颟顸。退缩者，同官互推，不肯任怨，动辄请旨，不肯担责任咎。琐屑者，锱铢必较，不顾大体，察及秋毫，不见舆薪。敷衍者，装头盖面，但计目前，剜肉补疮，不问明日。颟顸者，外面完全，中已溃烂，奏章粉饰，而语无归宿。”</p>
-</blockquote>
-<p>曾国藩建议皇帝举行“日讲”，即“加强学习”，以本身的振作之气，扭转官场的泄沓之风，同时改革官员选拔办法，使进取之员有机会脱颖而出。</p>
-<p>这道奏折得到了良好的反应。皇帝对他大为赞赏：</p>
-<blockquote>
-<p>“礼部侍郎曾国藩奏陈用人三策，朕详加披览，剀切明辩，切中情事，深堪嘉纳。”</p>
-</blockquote>
-<p>皇帝对他提出的“日讲”建议最感兴趣，命令他详细解释。于是曾国藩精心准备讲稿，并且画了一张解释讲堂布局的图表。不过他本不擅画，这张图画得相当难看。</p>
-<p>讲稿在九卿中传阅之后，曾国藩成了北京官场议论的中心。大家议论的不是他的赤心血诚，而是讥笑他“画图太陋”。就这个水平，还充什么圣人门徒！</p>
-<p>这固然是曾国藩准备不充分导致的自取其辱，其实也何尝不是北京官场之上看他风头太盛、锋芒太露而引发的自然反应。官场之上，对曾国藩这个憨头憨脑的湖南愣头青早就憋了一肚子气了。木秀于林，风必摧之，锋芒毕露，人必非之。众人皆醉，我也只好喝上几杯。天塌大家死，中国的事，急不得。激动、愤怒、抨击、更张，都是不成熟的表现。因此，要成熟，要心胸宽阔，要辩证地、全面地看问题。天塌大家死，何必独着急？</p>
-<p>看到他的奏折中把京官描写得如此不堪，官员们气不打一处来。好嘛，满朝皆醉你独醒，满朝皆浊你独清？就你对大清朝忠心耿耿，我们都是废物？皇帝下了一个求言诏，你就真的独抒己见，把大家一竿子全打倒？</p>
-<h4
-id="癸丑六月咸丰三年即1853年6月被赶出长沙不与焉">癸丑六月（咸丰三年，即1853年6月被赶出长沙）不与焉</h4>
-<p>咸丰二年底，咸丰皇帝的一道紧急命令传到了荷叶。原来不久前太平军挥师北上，湖南各地，纷纷糜烂。咸丰皇帝情急之下，诏命在乡下老家为母亲守孝的曾国藩帮助地方官员兴办“团练”，也就是“民兵”，以保卫乡里。</p>
-<p>曾国藩一到长沙，就展现出雷厉风行的办事风格。曾国藩在自己的公馆里开设了一个“审案局”，专门审理社会治安案件。曾国藩命令，凡有地方土匪、流氓、抢劫犯被抓获，不必经过州县，直接送到这里。只要捆送来者，一不需要参照法律，二不需要任何实际证据，只以举报者口辞为信，稍加讯问，立即结案。处理方法只有三种：一是立刻砍头，二是活活打死在棍下，三是施以残酷的鞭刑。用曾国藩自己的话说就是：</p>
-<blockquote>
-<p>“匪类解到，重则立决，轻则毙之杖下，又轻则鞭之千百。敝处所为止此三科。”四个月内，审案局“计斩决之犯一百零四名，立毙杖下者二名，监毙狱中者三十一名”。</p>
-</blockquote>
-<p>曾国藩因此获得了“曾剃头”的著名外号。</p>
-<p>恐怖政策确实收到了一时之效，各地土匪不再敢轻举妄动，社会秩序迅速安定下来。奇怪的是，曾国藩勇于任事，没有赢得湖南政界的感激，相反却招致了重重怨怼。出山几个月后，谤名满城，长沙城中“文法吏大哗”，都视他为仇敌。甚至当时的一些老朋友如李瀚章、魁联、朱孙诒、郭嵩焘、欧阳兆熊等都给他写信，表示了对他种种做为的不理解和担心，“劝其缓刑”。</p>
-<p>成为众矢之的的原因，是曾国藩动了别人的奶酪。曾国藩悍然成立了不伦不类的“审案局”，将自布政使到各府州县长官的社会治安权收归自己名下，“巨案则自行汇奏，小者则惟吾专之”。他对那些贪鄙畏葸的地方官吏本来就极不信任，所以常常越过他们，直接下达命令。他规定，任何人都可以捆送土匪流氓，不必经过过去那些层层手续:</p>
-<blockquote>
-<p>“一切勘转之文、解犯之费都行省去，宽以处分，假以便宜”。</p>
-</blockquote>
-<p>他办案总是径自决定，从速处理，以免有人来说情纠缠：</p>
-<blockquote>
-<p>“期于立办，无所挂碍牵掣于其间。案至即时讯供，即时正法，亦无所期待迁延。”</p>
-</blockquote>
-<p>这就惹恼了通省文官。案子就是钱，不是现钱也是天大的人情，你把抓捕、审判、监禁、处决权统统收归自己所有，别人还有什么活路？</p>
-<p>曾国藩不尊重行政程序，视湖南通省官员如无物，更是大伤文官们的面子。你要当好官，出成绩，这可以理解，谁不想往上爬？但能不能别把我们踩得这样狠，反衬得这样无能？你半年里办的事，超过了湖南几十年的工作成绩，这样干法，别人的面子往哪里摆？</p>
-<p>咸丰皇帝任命的“帮办团练大臣”，并非曾国藩一人。从咸丰二年十一月至三年二月，他一口气任命了十个省共四十三位退休或者丁忧在家的前官员为团练大臣。</p>
-<p>绝大多数团练大臣行事都很明智。他们的做法有三类。洁身自好者深知自己不受地方官员欢迎，他们接到命令之后，在省城找间空办公室，挂个牌子敷衍两天，最后像大多数绅士那样，给团练捐些钱了事。</p>
-<p>精于打小算盘者则视皇帝的圣旨为以公济私的好机会。他们在地方上果真办起一支小小的民兵，不过主要目的却是保卫自己的庄园不受土匪抢劫。一旦太平军大股部队到来，则立刻“逃遁”或“托病藏匿”了。</p>
-<p>胃口更大者则把这个差事当成中饱私囊的绝佳机会。他们扯着皇帝的幌子，以筹款练兵为借口，大肆敲榨地方富户。</p>
-<blockquote>
-<p>“假公济私，百端纷扰，或逼勒州县供应，或苛派民间银钱，或于官设捐局之外，团练再设捐局，或于官抽厘金之外，团练再抽厘金”。</p>
-</blockquote>
-<p>只有曾国藩一个人，一不要钱，二不要利，只想真正想为国家分忧。这就触犯了官场潜规则。</p>
-<p>曾国藩混迹官场多年，当然不是不通世故之辈。他自己说：</p>
-<blockquote>
-<p>“今岁以来，所办之事，强半皆冒侵官越俎之嫌。”</p>
-</blockquote>
-<p>他悍然不顾，一意孤行，自有他的道理：</p>
-<blockquote>
-<p>“只以时事孔艰，苟利于国，或益于民，即不惜攘臂为之，冀以补疮痍之万一，而扶正气于将歇。”</p>
-</blockquote>
-<p>后来，在给翰林院同事龙启瑞的信中，他又这样进行解释：</p>
-<blockquote>
-<p>二三十年来，士大夫习于优容苟安，榆修袂而养姁步，倡为一种不黑不白、不痛不痒之风，见有慷慨感激以鸣不平者，则相与议其后，以为是不更事，轻浅而好自见。国藩昔厕六曹，目击此等风味，盖已痛恨刺骨。今年乏承团务，见一二当轴者，自藩弥善，深闭固拒，若恐人之攘臂而与其建业者。欲固执谦德，则于事无济，而于心亦多不可耐，于是攘臂越俎，诛斩匪徒，处分重案，不复以相关白。</p>
-</blockquote>
-<p><code>注：姁xū，神态和悦娇媚</code></p>
-<p>就是说，二三十年以来，官场形成一种黑白不辨、不痛不痒的含混作风。偶尔有人批评这种作风，则大家相与议论，说他不懂事，好显摆自己。我昔年做六部官员时，对此早已痛恨入骨。如今办理团练，又遇到几个有实权的人，不许我触及他们的势力范围。在这种情况下，如果我再谦逊退让，则一事无成。而且这么多年来，心里也憋着一股火，于是毅然出手，不再管那么多。</p>
-<p>他又说：</p>
-<blockquote>
-<p>“物穷则变，救浮华者莫如质。积玩之后，振之以猛，意在斯乎？”</p>
-</blockquote>
-<p>风波的触发点是练兵。他深知，依靠目前这支大清军队，打败太平军是不可能的。因为晚清国家军队是一支没有灵魂的、没有“天良”、没有精神力量的军队。曾国藩说过：</p>
-<blockquote>
-<p>“国藩历年来痛恨军营习气，武弁自守备以上无不丧尽天良！”</p>
-</blockquote>
-<p>要挽救这个国家，只有一个办法，那就是“赤地立新”，自己动手，练出一支崭新的有战斗力的队伍。所以，在接奉圣旨后的第十天，曾国藩就复奏，要在长沙创建一支新的军队。</p>
-<p>曾国藩练兵，首重给军队注入“良心”和“灵魂”。他在中国军事史上首先发明了“政治教育”。创立湘军之后，每逢三日、八日，他要把军队召集到操场上，进行政治动员。他亲自训话，用“杀身成仁，舍生取义”的孔孟之道和“不要钱，不怕死”的岳飞精神激励将士，教育他们忠君爱国，不得扰民。这当然是好事。但问题是曾国藩又一次把手伸向了自己的权力范围之外。和各地国家军队一样，驻长沙的绿营军，军纪废弛、四处扰民，令全长沙头疼。曾国藩命令驻省的正规军队每三、八两日，与湘军一起“会操”。曾国藩自己说，“传唤（绿）营兵，一同操演，亦不过会弁委前来听我教语”，开启他们的天良。他为了唤醒这些兵痞的良心，也确实苦口婆心：</p>
-<blockquote>
-<p>“每逢三、八操演集诸勇而教之，反复开说至千百语，但令其无扰百姓。”</p>
-<p>“每次与诸弁兵讲说，至一时数刻之久。虽不敢云说法点顽石之头，亦诚欲以苦口滴杜鹃之血。”</p>
-</blockquote>
-<p>其目的:</p>
-<blockquote>
-<p>“盖欲感动一二，冀其不扰百姓，以雪兵勇不如贼匪之耻，而稍变武弁漫无纪律之态”。</p>
-</blockquote>
-<p>大清政治惯例是文官不管军队的日常事务。即使是巡抚这样的实权大官，也不会具体过问军队的日常操练。文官们虽然痛恨曾国藩，但也只能形于辞色，性情粗野的军人们却没有这么好脾气，他们立刻付诸行动。</p>
-<p>带头闹事的，是长沙副将清德。他在太平军进攻湖南时曾临阵脱逃，此时面对曾国藩却很勇敢。他不仅带头抵制会操，“操演之期，该将从不一至”，而且摇唇鼓舌，四处鼓动各军不要受曾国藩的摆弄。</p>
-<p>行事至刚的曾国藩立刻给皇帝上了个折子，弹劾清德，并猛烈抨击湖南驻军</p>
-<blockquote>
-<p>“将士畏葸，疲玩已成痼习，劝之不听，威之不惧，竟无可以激励之术”。</p>
-</blockquote>
-<p>尚方宝剑很快显示了威力。咸丰皇帝立刻将清德革职拿办。这是曾国藩出山之后，与湖南官场发生的第一次正式冲突。</p>
-<p>表面上看曾国藩在这次冲突中取得大胜，实际上失败的隐患已根植在这场“大胜”之中。晚清官场最重要的潜规则是“官官相护”。常在河边走，谁能不湿鞋？只有彼此掩盖，才能最大限度保证大家的集体安全。动辄咬人，足以令人人自危。湖南官员从此对曾国藩更加恨之入骨。清德的上司、湖南提督，也就是驻湖南最高军事长官鲍起豹更伺机报复，而机会也很快就来了。</p>
-<p>绿营军看着曾国藩招来的这些湘勇土包子怎么看怎么不顺眼，经常借故与湘勇发生械斗。八月初四，鲍起豹的卫队又寻衅攻打湘勇，双方各有负伤。</p>
-<p>军队没有纪律，何以平贼，何以安民？曾国藩向鲍起豹发去文书，要求他逮捕带头闹事的绿营兵，以杜私斗之风。</p>
-<p>鲍起豹决意要借这个机会好好教训教训曾国藩。他故意将几名肇事士兵五花大绑捆起来，大张旗鼓地押送到曾国藩的公馆，同时派人散布曾国藩要严惩这几个绿营兵的消息，鼓动军人闹事。绿营一传二、二传三，越聚越多，群情激愤，纷纷上街，游行示威，要求曾国藩释放绿营兵。长沙城中一时大乱。</p>
-<p>张亮基调走之后，湖南通省官员都和曾国藩气味不投。出了这个事，满城官员都关起大门，袖手旁观，心中暗喜。“营兵既日夜游聚城中，文武官闭门不肯谁何。”等着要看曾国藩的笑话。绿营兵见状，胆子更大，居然开始公然围攻曾国藩的公馆。</p>
-<p>曾国藩的公馆就临时设在巡抚衙门的射圃里，与巡抚骆秉章的办公室仅一墙之隔。曾国藩以为绿营兵胆子再大，也绝不敢武装攻击他这个二品大员。所以被绿营兵包围后，他还若无其事地处理公文。不料绿营兵竟然破门而入，连伤了他的几个随从。连曾国藩自己都差点挨刀。曾国藩夺门而逃，几步窜到隔壁巡抚办公室门前，连连急叩。</p>
-<p>绿营在门外闹事，巡抚骆秉章听得一清二楚，但是却装聋作哑，暗暗发笑。他早应该出来调停，却一直假作不知。直到曾国藩来叩门，他才故作惊讶，出来调停。绿营兵一见巡抚驾到，马上规矩下来。骆秉章的调处办法是命人把鲍起豹捆送来的那几个绿营兵带过来，他亲自上前松绑，还连连向他们道歉，说让兄弟们受委屈了！</p>
-<p>绿营兵面子挣足，兴高采烈拥着这几人而去。只剩下骆曾二人了，骆秉章一句安慰的话也没对曾国藩说，只淡淡地说了一句：“将来打仗，还要靠他们啊！”就转身走了。</p>
-<p>曾国藩气得哑口无言。</p>
-<p>湖南官员们眼见前一段飞扬跋扈的二品大员这次被狠狠地修理，个个眉开眼笑，把这事当成笑话，四处飞传。一时间，满城都是对曾国藩的讥笑之声。</p>
-<blockquote>
-<p>“司道群官皆窃喜，以谓可惩多事矣。”</p>
-</blockquote>
-<p>曾国藩的第一反应当然是向皇上控告。干脆，借这个机会把到省办事以来所受的所有排挤委屈都痛快淋漓地向皇帝陈诉一番！然而细一想，他就知道这种做法行不通。这一道奏折上去，顶多打倒一个鲍起豹，能把湖南全省官员都扳倒吗？如果扳不倒全省官员，那么以后他在湖南的处境，岂不是更要寸步难行？</p>
-<p>经过几夜不眠的反思，曾国藩做出了一个出人意料的决定：“好汉打脱牙和血吞。”他不再和长沙官场纠缠争辩，而是卷起铺盖，带着自己募来的湘军，前往僻静的衡阳。全省官员瞧不起我，我不争一日之短长。等到我在衡阳练成一支劲旅，打几个胜仗给你们看看，那时自会分出高下。这才是挽回面子的最好办法！</p>
-<p>咸丰三年八月，曾国藩带着受伤的自尊心到达衡阳，开始赤手空拳创立湘军。刚到衡阳，他就遇到很多问题。</p>
-<p>一是无办公场所。二是没有名正言顺的职权。三是还没有经验。对于行军布阵，带兵训练，没有一点实际经验。如何招兵，如何筹饷，如何采购武器，如何编营，如何训练，如何制定营规，如何选择军官，如何设定军饷标准，如何排兵，如何布阵。四是没有朋友前来帮忙。长沙之辱使曾国藩脸面丧尽，人心离散。不但通省官员们不齿于他，甚至他的那些好友郭嵩焘、郭崑焘、刘蓉、左宗棠，也都认为他行事鲁莽，难以成功，竟没有一人愿意前来帮他。第五条：无制度保障。最突出的表现就是没有军饷来源。</p>
-<p>曾国藩说：</p>
-<blockquote>
-<p>“筹饷更难于督兵”，“大抵军政、吏治，非财用充足，竟无下手之处”。</p>
-</blockquote>
-<p>可以说，如果没有长沙之辱的刺激，曾国藩不可能克服这五难，开创湘军。长沙之辱如同一根针扎在心里，让他时刻难以自安，终于苦苦支撑，惨淡经营，斩关夺隘，排除万难。</p>
-<p>没有办公场所，他就借住在一户祠堂里。</p>
-<p>没有名位，他只好照旧用长沙时用过的“湖南审案局”五个字，来接送公文。</p>
-<p>没有经验，曾国藩就自己在黑暗中探索。他精心果力，认真思考绿营兵种种弊端之原因，创造了许多崭新的军事原则，比如招兵不用城市浮滑之人，只选朴实山农。比如“将必亲选，兵必自募”，比如实行厚饷和长夫制度。</p>
-<p>关于军饷，曾国藩想来想去，只想出了一个办法：劝捐。也就是说，劝那些大户捐款，回报是由国家授予他们一些荣誉性的虚职。他在衡阳设立劝捐总局，派人四出劝捐筹饷。</p>
-<p>然而，曾国藩本身非官非绅，权力不明，收据由曾国藩自己刊印，信用不高。从咸丰三年八月到咸丰四年底，总局费尽口舌，一共才弄到一万九千多两银子，根本无济于事。劝而不动，他只好强行勒派。巨绅们如果拒不捐款，他就派兵动用拘押手段。结果得钱不多，招怨不少。曾国藩因此叹息：</p>
-<blockquote>
-<p>“劝捐之难，难于登天，费尽心力，迄无一获。”</p>
-</blockquote>
-<p>甚至因为劝捐，他还得罪了皇帝。原来已故湖北巡抚杨健之孙杨江，急公好义，主动捐输军饷两万两银子，解了曾国藩的燃眉之急。曾国藩感动之下，想把他树为表率，带动捐输事业，于是上疏请旨，请朝廷批准将杨健列入祀乡贤祠。</p>
-<p>杨健生前为官平平，且受过处分，其官声、治绩均不足以入祀乡贤祠。不过兵务紧急，同意他这个请求也算不上什么大事。不想精于小事忽于大计的皇帝根本体谅不到曾国藩的难处，恪守“名位不能轻易予人”的教条，大发雷霆，将曾国藩痛骂一顿，说他“所奏荒谬之至”，并且说：</p>
-<blockquote>
-<p>“（曾国藩）实属袒护同乡，以私废公，显背圣旨，可恶已极。……着交部议处”。</p>
-</blockquote>
-<p>而京官们部议的结果竟提出给以革职的处分。好在皇帝尚未失去理智，知道曾国藩这样的人缺不得，于是将处分改为降二级调用，使曾国藩由二品京堂降到了三品。重重困难之中，曾国藩不止一次想打退堂鼓。但一想起长沙之辱，他便又鼓起了全部斗志。</p>
-<p>吃尽了千辛万苦，曾国藩终于练成了一支一万七千人的队伍。咸丰四年四月湘潭之战中，湘军水陆不足万人，与三万之众的太平军作殊死战，十战十捷，以少胜多，歼灭太平军万余人。这是太平军兴起以来清军取得的唯一一次重大胜利。</p>
-<p>接到战报，咸丰皇帝大喜过望。自从镇压太平军以来，他所接到的都是兵败如山倒的失败报告，这样重大的捷报还是头一次。皇帝发出一系列上谕，嘉奖湘军，还特命曾国藩单衔奏事，湖南省文武百官，除巡抚一人之外，曾国藩皆有权调遣。这道上谕从根本上转变了曾国藩在湖南的政治地位。上谕先发至巡抚衙门，骆秉章接旨后，立即带着藩、臬两司等一班官员，拥着一抬绿呢空轿，亲自来接一直住在城外船上的曾国藩入城。骂他最凶的布政使徐有壬当晚单独拜会曾国藩，恳切检讨过去的态度。曾国藩的仇人鲍起豹则被皇帝下旨严责，革职拿办。</p>
-<p>曾国藩的打掉牙和血吞，终于取得了胜利。他用自己的艰苦奋斗，成功地挽回了面子。</p>
-<p>可以说，没有长沙之辱，就没有曾国藩后半生的功名事业。这一次挫而后奋的成功，给了曾国藩一次印象极深的自我教育，更强化了他愈挫愈奋、百折不挠的性格特点。从这次经验中，曾国藩领悟到，对于有志者来说，挫辱是最大的动力，打击是最好的帮助。咬紧牙关，把挫辱活生生吞下，就成了滋养自己意志和决心的营养。这构成了曾国藩生命经验中最核心的部分。几十年后，他还在家书中教育儿子说：</p>
-<blockquote>
-<p>“天下事无所为而成者极少，有所为有所利而成者居半，有所激有所逼而成者居半”</p>
-<p>“百端拂逆之时”，“只有逆来顺受之法”</p>
-<p>“所谓好汉打脱牙和血吞，真处逆境之良法也”</p>
-</blockquote>
-<h4
-id="丙辰咸丰六年被困南昌官绅人人目笑存之">丙辰（咸丰六年）被困南昌，官绅人人目笑存之</h4>
-<p>湘军的意外崛起，使昏惨惨黄泉路近的大清王朝又看到了起死回生的希望。一时间，朝廷褒奖，绅民欢呼，曾国藩成了滔滔天下的中流砥柱。</p>
-<p>按理说，此时的曾国藩应该会呼风唤雨、八面逢源了吧？不是。曾国藩的日子仍不好过。因为体制仍然不顺，饷项仍须自筹。咸丰四年四月十四日，湘潭大胜之后仅仅九天，他在长沙给弟弟们所写信中沮丧地说：</p>
-<blockquote>
-<p>饷项已空，无从设法，艰难之状，不知所终。人心之坏，又处处使人寒心。吾惟尽一分心作一日事，至于成败，则不能复计较矣。……余近来因肝气太燥，动与人多所不合，所以办事多不能成。</p>
-</blockquote>
-<p>也就是说，湘军筹饷上的困难一如既往。曾国藩仍然经常和他人发生冲突，以致肝气上升，时常处于焦灼愤懑之中。</p>
-<p>问题的焦点在于曾国藩没有实权。大清王朝各省的实权掌握在总督和巡抚们的手中，他们是全省官僚系统的绝对主人。下级官员的身家性命掌握在他们手中，对他们唯命是从。
-因为出山之后，皇帝给曾国藩的只是虚衔，既没有提拔下属的权力，又很难左右地方官的命运。军事离不开民事，招兵、选将，购置武器，“处处与地方官相交涉”，而地方官却往往不予配合。</p>
-<p>曾国藩需要实权，这一点皇帝心里很明白。然而，目光短浅的咸丰却打起了自己的小算盘：他以前只知曾国藩胆子大，敢于撄皇帝之逆鳞。这次才知道此人本领大，以在籍侍郎，振臂一呼，就集兵数万，所向披靡。如果他打败了太平军后反戈朝廷，那岂不是比太平军还难对付？即使他不反戈，但由汉人立下拯救王朝之全功，以后满洲八旗的威信何在？皇帝的如意算盘是让曾国藩游击野战，歼灭太平军有生力量。最后仍由盘踞在天京脚下的满族将领收功。因此虽然屡获大胜，湘军与清王朝体制上的矛盾仍然没有理顺，曾国藩的处境仍然十分艰难。这种艰难在江西表现得最为充分。鉴于湘军是唯一有战斗力的部队，咸丰皇帝命曾国藩出省作战，支援困境中的江西。</p>
-<p>湘军出省作战实行的是“就地筹饷”，江西省官僚系统负有供饷之责。其时江西巡抚是陈启迈。其人气度狭隘，寸权必争。在他眼里，曾国藩不过是一个办团练起家的在籍官员而已，地位等同绅士，要在江西吃自己的军饷，就必须对自己唯命是从。因此他对曾国藩指手画脚，呼来喝去，而所下命令又朝三暮四，令人左右为难。</p>
-<p>曾国藩在奏折中有过这样的描述：</p>
-<blockquote>
-<p>罗泽南克复广信以后，臣本欲调之折回饶州、都昌，以便与水师会攻湖口。陈启迈则调之防景德镇，又调之保护省城，臣均已曲从之矣。旋又调之西剿义宁，臣方复函允从，而陈启迈忽有调往湖口之信；臣又复函允从，陈启迈忽有仍调往义宁之信。</p>
-</blockquote>
-<p>对这样一个毫不知兵的巡抚，曾国藩实在无法敷衍，只好拒不从命。这下子惹火了陈启迈，对曾国藩“多方掣肘，动以不肯给饷为词”。曾国藩没办法，只好自己想办法在江西筹饷，这又侵犯了陈启迈的财政权。在他的带领下，江西通省官员与曾国藩针锋相对。曾国藩要对商人抽税，地方官员马上也抽，强分一杯羹。曾国藩要任用一个地方上的绅士，地方官就扣住不放，甚至对敢于接近曾国藩的绅士打击报复。盖有曾国藩关防的捐输执照，不被地方官员承认，说:</p>
-<blockquote>
-<p>曾国藩“未奉明诏，不应称钦差字样”；</p>
-<p>又说他“曾经革职，不应专折奏事”；说他“系自请出征，不应支领官饷”等</p>
-</blockquote>
-<p>极尽污辱玩弄之能事，大有挤垮曾国藩之势。曾国藩在江西数年之间步步荆棘，处处碰壁。曾国藩自己说他在江西:</p>
-<blockquote>
-<p>“事事被人欺侮，故人得而玩易之也”</p>
-</blockquote>
-<p>连与曾国藩积怨很深的王錱，也不无同情地说:</p>
-<blockquote>
-<p>“涤帅遭际若是，直令人急煞”，“涤帅所处真是不易”</p>
-</blockquote>
-<p>曾国藩忍无可忍，拍案而起，于咸丰五年六月十二日，以陈启迈“劣迹太多，恐怕贻误大局”，上奏参劾。陈启迈所作所为确实让人无法为之辩解，咸丰皇帝阅之大怒，立刻将陈启迈革职查办。</p>
-<p>然而，接下来发生的事情又重复了湖南的经验，这次参劾不但没有使其他江西官员束手，反而令他们变本加厉。接替陈启迈任江西巡抚的文俊行事一如陈氏，江西官员在他的率领下团结起来处处给曾国藩下绊子设障碍。甚至曾国藩的兵勇也被人毒骂痛打，遭受侮辱。曾后来在给朋友的信中回忆这段经历说：</p>
-<blockquote>
-<p>“江西数载，人人以为诟病。”又形容当时的苦况说：“士饥将困，窘若拘囚，群疑众侮，积泪涨江，以夺此一关而不可得，何其苦也。”</p>
-</blockquote>
-<p>当然，使他“积泪涨江”的根本原因，不是江西官员的个人素质，而是咸丰皇帝对自己不信任。在籍之员出山带兵，本是基于对王室的忠心，不想皇帝却对他如此提防，曾国藩的寒心和委屈可想而知。他无时不想挂冠而去，但时势之危与圣人之教又不容许，只好百计隐忍，甘受煎熬，长年寸心如焚。</p>
-<blockquote>
-<p>“国藩昔在湖南江西，几於通国不能相容。六七年间，浩然不欲复闻世事。”</p>
-<p>“虹贯荆卿之心，而见者以为淫氛。碧化苌宏之血，而览者以为顽石。古今同慨，我岂伊殊。屈原所以一沈而万世不复者，良有以也。”</p>
-</blockquote>
-<p>委屈痛苦，溢于笔端。甚至这样对好友刘蓉说：</p>
-<blockquote>
-<p>“所至龃龉，百不遂志。今计日且死矣，君他日志墓，如不为我一鸣此屈，泉下不瞑目也。”</p>
-</blockquote>
-<p>种种不平之鸣，证明这是他一生中精神最痛苦的时期之一。一向对曾国藩多所讥评的王闿运，在编写《湘军志》时，也在日记中对曾国藩深表同情：</p>
-<blockquote>
-<p>“夜览涤公奏，其在江西时，实悲苦，令人泣下。……涤公言：‘闻春风之怒号，则寸心欲碎；见贼船之上驶，则绕屋彷徨’，《出师表》无此沉痛！”</p>
-</blockquote>
-<p>这就是曾国藩所说的“为江西所唾骂”，以及“又参抚臬，丙辰被困南昌，官绅人人目笑存之”的难堪经历。</p>
-<h3 id="三大悔大悟之年">（三）“大悔大悟”之年</h3>
-<p>正在曾国藩痛苦万分之时，他接到了父亲的讣告。这个噩耗此刻倒成了摆脱困境的天赐良机。他立刻上疏要求回家守孝，并且不等皇帝的回复，把军队抛在江西，径直回到了湖南老家。
-皇帝当然不会批准他在家守孝三年，催他立刻回到军中。曾国藩给皇帝上了一封奏折，一股脑地把自己压抑已久的愁苦愤懑都说了出来，期望皇帝会体谅他的苦衷，授与他职权。</p>
-<p>曾国藩在奏折中将官场的潜规则说得很清楚。</p>
-<p>他说，带兵打仗，必须依靠地方官员的支持。</p>
-<blockquote>
-<p>“至于筹饷之事，如地丁、漕折、劝捐、抽厘，何一不经由州县之手？”</p>
-</blockquote>
-<p>但地方官员只认他们权力体系内的运转规则，只听能掌握他们升迁权力者的话。他名义上为部长级官员，而</p>
-<blockquote>
-<p>“文武僚属，大率视臣为客，视本管上司为主。宾主既已歧视，呼应断难灵通”。</p>
-<p>他“身非地方大吏，州县未必奉行，百姓亦终难可信”，所以“或臣抽厘之处，而州县故为阻挠；或臣营已捐之户，而州县另行逼勒。欲听之，则深虑事势之窒碍；欲惩之，则恐与大吏相龃龉”。</p>
-</blockquote>
-<p>他虽有保举权，但由于所保人员非国家正规军出身：</p>
-<blockquote>
-<p>“徒有保举名，永无履任之实”。许多战功卓著的部下，“虽保举至二三品，而充哨长者，仍领哨长额饷。充队目者，仍领队目额饷。一旦告假，即时开除，终不得照绿营廉俸之例，长远支领”。</p>
-</blockquote>
-<p>他直言不讳地说：</p>
-<blockquote>
-<p>“以臣细察今日局势，非位任巡抚有察吏之权者，决不能以治军；纵能治军，决不能兼济筹饷。臣处客寄虚悬之位，又无圆通济变之才，恐终不免于贻误大局。”</p>
-</blockquote>
-<p>如果皇帝不给他督抚之权，他就只能“在籍终制”，不复出山。</p>
-<p>曾国藩以为他已经把委屈和困难说得够充分了，皇帝没有任何理由不给他这个卖命的“走狗”以必要的支持。没想到逞妇人之智的咸丰皇帝却和曾国藩较上了劲。适值此时天京内讧之后，太平军内部分裂，势力大衰，看起来已经指日可平，有没有曾国藩好像也没有大碍。于是顺水推舟，批准他在家守制三年，实际上解除了他的兵权。</p>
-<p>这当头一棒差点把曾国藩打昏。他万没料到苦战数年竟是这样一个结果。而他的那些夙敌，也就是长沙城中的湖南官员们闻听此讯却一个个喜形于色。从传统伦理上来说，不论曾国藩是何居心，如此要挟皇帝都有违臣道。以前曾国藩以唯我独忠之态，居高临下，睥睨众人。而这次他们可抓住了把柄，举城跳着脚大骂曾国藩假道学，假忠义。蛰居荷叶塘的曾国藩有口难辩，遂“得不寐之疾”、患了“怔悸之症”，卧病在床。他在给郭崑焘的信中亦称：</p>
-<blockquote>
-<p>“以兴举太大，号召过多，公事私事不乏未竟之绪，生者死者犹多愧负之言。用是触绪生感不能自克，亦由心血积亏不能养肝，本末均失其宜，遂成怔悸之象。”</p>
-</blockquote>
-<p>更让曾国藩痛苦的是，建立不世大勋的千载难逢之良机眼睁睁地从自己眼前溜走了。此际正当太平军由盛转衰的转折点，而他偏偏在这个时候回了家。他的许多部下，都因军功飞黄腾达。比如以知府投身于他的胡林翼早当上了湖北巡抚，以千总这样的低级军官身份加入湘军的杨载福也已经升为二品提督，而他却仍然是一个在籍侍郎，职位没有任何升迁。在他离开军队这段日子，湘军攻陷九江，杨载福、李续宾皆赏穿黄马褂，官文、胡林翼皆加太子少保，一时荣耀无比。只有他这个湘军创始人冷冷清清待在家里，受人嘲骂。曾国藩虽被视为理学名臣，但功名心一向极炽，失去这个永垂史册的千载良机，他怎么能不懊悔莫及！</p>
-<p>原本自诩硬汉的他这回有点挺不住了，举动大异常态，整日生闷气，“心殊忧郁”，动不动就骂人。他数着江西的一帮文武骂，骂够了就找几个弟弟的碴吆喝，一年之中和曾国荃、曾国华、曾国葆都发生过口角。弟弟们走了后，他又开始骂几个弟媳妇。语言粗俗，蛮不讲理，理学家的风度荡然无存。</p>
-<p>被酷热击中的荷叶，夜半仍然如同处于火炉之中。彻夜不眠的曾国藩时而在床上辗转反侧，时而在室内外踱来踱去。几年来的种种经历不断缠绕在他心头，在给曾国荃的信中他说自己在家中</p>
-<blockquote>
-<p>“回思往事，处处感怀”，“心中纠缠，时忆往事，愧悔憧扰，不能摆脱”，“近日天气炎热，余心绪尤劣，愧悔交集，每中夜起立，有怀吾弟而不能见”。</p>
-</blockquote>
-<p><code>注：憧chōng，1.心意不定；2.笨；不聪明。</code></p>
-<p>曾国藩反思到，在官场之上一再碰壁，碰得鼻青脸肿，不光是皇帝小心眼，大臣多私心。自己的个性、脾气、气质、风格上的诸多缺陷，也是重要原因。回想自己以前为人处世，总是怀着强烈的道德优越感，自以为居心正大，人浊我清，因此高己卑人，锋芒毕露，说话太冲，办事太直，当然容易引起他人的反感。他翻阅旧日信稿，发现了当日武昌告急时，他请求骆秉章发兵援救的一封信。写这封信时，他觉得字字有理有据，今天读来，却发现字字如锥如芒。信中称：</p>
-<blockquote>
-<p>湖南湖北“唇齿利害之间，不待智者而知也”</p>
-</blockquote>
-<p>不仅没有一点商量的口气，而且还略带嘲讽之意。为了防止骆秉章干预他募练水师，他又在信中早早地表明态度：</p>
-<blockquote>
-<p>“其水路筹备一端，则听侍（曾自称）在此兴办，老前辈不必分虑及之。断不可又派员别为措置”。</p>
-</blockquote>
-<p>仍是一副舍我其谁、比谁都高明的架势。</p>
-<p>怪不得当日骆秉章批评他刚愎自用。骆秉章回信的原话是说他：</p>
-<blockquote>
-<p>“行事犹是独行己见，不能择善而从，故进言者安于缄默，引身而退。”</p>
-</blockquote>
-<p>说他做事听不进别人意见，所以也就没人愿意给他出主意。当时听了这话他不以为然，今天想来，才发现确实说到了自己的痛处。他在给弟弟的信中承认说：</p>
-<blockquote>
-<p>“余生平在家在外，行事尚不十分悖谬，唯说些利害话，至今悔恨何及。”</p>
-</blockquote>
-<p>曾国藩回忆起在湖南时朋友们对他的批评：</p>
-<blockquote>
-<p>“近日友朋致书规我，多疑我近于妒功嫉能、忮薄险很者之所为，遂使我愤恨无已……仆之不能推诚与人，盖有岁年。”</p>
-</blockquote>
-<p>朋友们不能理解他，难道都是因为不明大义，身处局外？他自己就没有任何责任？“行有不得，反求诸己”这句圣人之言，虽然耳熟能详，实际上却没有真正做到过。</p>
-<p>他又想起弟弟对自己的批评：</p>
-<blockquote>
-<p>“曾记咸丰七年冬，余咎骆文、文耆待我之薄，温甫则曰：‘兄之面色，每予人以难堪。’”</p>
-</blockquote>
-<p>温甫是三弟曾国华。亲兄弟比别人说话更直接。确实，面对官场同僚，他确实常以圣贤自命，而以小人目人，面色如铁，话语如刀。</p>
-<p>不光是对同僚，就是对自己的亲兄弟，他也成天一副“唯我正确”、“你们都不争气”的神气，处处批评教训，弄得当年国荃、国华到北京投奔他，结果都待不了多久就返乡了。设身处地，推己及人，那些自尊心受挫的同僚当然也会以冷面冷心甚至排斥辱骂来对待自己。</p>
-<p>经过反复放电影，他越来越清楚地看到了自身的致命弱点：太自傲、太急切、一味蛮干、一味刚强。</p>
-<p>曾国藩终于认识到，行事过于方刚者，表面上似乎是强者，实际上却是弱者。这片土地上真正的强者，是表面上看起来柔弱退让之人。</p>
-<blockquote>
-<p>所谓“天下之至柔，驰骋天下之至坚”</p>
-<p>“江河所以为百谷之王者，以其善下”</p>
-<p>所谓“大柔非柔，至刚无刚”。</p>
-</blockquote>
-<p>中国社会的潜规则是不可能一下子被扫荡的。那些他以前所看不起的虚伪、麻木、圆滑、机诈，是在这片土地上生存的必需手段。只有必要时和光同尘，圆滑柔软，才能顺利通过一个个困难的隘口。只有海纳百川，藏污纳垢，才能调动各方面的力量，达到胜利的彼岸。</p>
-<p>曾国藩在这里把家居的两年称为“大悔大悟”之年，经过一年多的乡居，曾国藩的思维方式发生了重大转变。后来他回忆自己的这一变化说：</p>
-<blockquote>
-<p>“昔年自负本领甚大，可屈可伸，可行可藏，又每见人家不是。自从丁巳、戊午大悔大悟之后，乃知自己全无本领，凡事都见得人家几分是处，故自戊午至今九年，与四十岁前迥不相同。”</p>
-</blockquote>
-<p>和光同尘，指不露锋芒，与世无争的平和处世方法。</p>
-<p>和、同：混合。</p>
-<p>和光：混合各种光彩；</p>
-<p>同尘：与尘世相同。</p>
-<p>本意是道家无为而治思想的体现。出处《道德经》第四章和第五十六章：</p>
-<blockquote>
-<p>“挫其锐，解其纷，和其光，同其尘；是谓玄同。”</p>
-</blockquote>
-<p>挫其锐，解其纷：意为用虚柔不盈的方式来化解纷扰。</p>
-<p>和：涵蓄。同：相同，混同。</p>
-<p>玄同：微妙的同一。</p>
-<p>指不露锋芒，消解纷争，挫去人们的锋芒，解脱他们的纷争，收敛他们的光耀，混同他们的尘世，这就是深奥的玄同。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
 
       
     </div>
@@ -3053,7 +2908,7 @@ id="丙辰咸丰六年被困南昌官绅人人目笑存之">丙辰（咸丰六�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/48/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/50/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/48/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/50/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -3119,7 +2974,7 @@ id="丙辰咸丰六年被困南昌官绅人人目笑存之">丙辰（咸丰六�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">509</span>
+          <span class="site-state-item-count">511</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
