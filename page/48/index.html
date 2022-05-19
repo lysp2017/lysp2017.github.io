@@ -191,6 +191,175 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/10/Bayesianinference/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/10/Bayesianinference/" class="post-title-link" itemprop="url">贝叶斯定理（Bayes's theorem）及贝叶斯推断(Bayesian inference)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-10 14:25:14" itemprop="dateCreated datePublished" datetime="2018-08-10T14:25:14+08:00">2018-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:03:42" itemprop="dateModified" datetime="2019-02-28T01:03:42+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1.
+参考自阮一峰博客中的文章：贝叶斯推断及其互联网应用（一）</p>
+</blockquote>
+<h2 id="一条件概率conditional-probability">一、条件概率（Conditional
+probability）</h2>
+<ol type="1">
+<li>条件概率，就是指在事件A发生的情况下，事件B发生的概率，用<span
+class="math inline">\(P(B\mid{A})\)</span>来表示。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-Unknown.png" /></li>
+<li>根据文氏图，可以很清楚地看到在事件A发生的情况下，事件B发生的概率就是<span
+class="math inline">\(P(A\bigcap{B})\)</span>除以<span
+class="math inline">\(P(A)\)</span>。 <span
+class="math display">\[P(B\mid{A})=\cfrac{P(A\bigcap{B})}{P(A)}\]</span>
+因此：<span class="math display">\[P({A} \bigcap {B})=P(B\mid{A})\times
+P(A)\]</span> 同理可得：<span class="math display">\[P({A} \bigcap
+{B})=P(A\mid{B})\times P(B)\]</span> 所以：<span
+class="math display">\[P(B\mid{A})\times P(A)= P(A\mid{B})\times
+P(B)\]</span> 即：<span class="math display">\[P(A\mid{B})=
+\cfrac{P(B\mid{A})\times P(A)}{P(B)} \]</span></li>
+</ol>
+<h2 id="二全概率公式">二、全概率公式</h2>
+<p>假定样本空间S，是两个事件A与A'的和。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082503.jpg" /></p>
+<p>上图中，红色部分是事件A，绿色部分是事件A'，它们共同构成了样本空间S。</p>
+<p>在这种情况下，事件B可以划分成两个部分。 <img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082504.jpg" /></p>
+<p>即：<span class="math display">\[P(B) = P({B} \bigcap {A}) + P({B}
+\bigcap {A&#39;})\]</span></p>
+<p>在之前的推导当中，我们已知：<span class="math display">\[P({A}
+\bigcap {B})=P(B\mid{A})\times P(A)\]</span> 所以：<span
+class="math display">\[P(B) = P(B\mid{A})\times P(A) +
+P(B\mid{A&#39;})\times P(A&#39;)\]</span> 把 <span
+class="math inline">\(P(B)\)</span>代入上一节中的条件概率公式 $P(A)= $
+<span class="math display">\[P(A\mid{B})= \cfrac{P(B\mid{A})\times
+P(A)}{P(B\mid{A})\times P(A) + P(B\mid{A&#39;})\times P(A&#39;)}
+\]</span></p>
+<h2 id="三贝叶斯定理及贝叶斯推断">三、贝叶斯定理及贝叶斯推断</h2>
+<p>对条件概率公式进行变形，可以得到如下形式： <span
+class="math display">\[P(A\mid{B})= \cfrac{P(B\mid{A})}{P(B)} \times
+P(A)\]</span></p>
+<ul>
+<li><span class="math inline">\(P(A)\)</span>称为"先验概率"（Prior
+Probability），即在B事件发生之前，我们对A事件概率的一个判断。</li>
+<li><span
+class="math inline">\(P(A\mid{B})\)</span>称为"后验概率"（Posterior
+Probability），即在B事件发生之后，我们对A事件概率的重新评估。</li>
+<li><span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>称为"可能性函数"（likelihood），这是一个调整因子，使得预估概率更接近真实概率。</li>
+</ul>
+<p>所以，条件概率可以理解成：
+<code>后验概率　＝　先验概率 × 调整因子</code></p>
+<p>这就是贝叶斯推断的含义。我们先预估一个"先验概率"，然后加入实验结果，看这个实验到底是增强还是削弱了"先验概率"，由此得到更接近事实的"后验概率"。</p>
+<ul>
+<li>在这里，如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>&gt;1，意味着"先验概率"被增强，事件A的发生的可能性变大；</li>
+<li>如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>=1，意味着B事件无助于判断事件A的可能性；</li>
+<li>如果"可能性函数"<span
+class="math inline">\(\cfrac{P(B\mid{A})}{P(B)}\)</span>&lt;1，意味着"先验概率"被削弱，事件A的可能性变小。</li>
+</ul>
+<h2 id="四水果糖的例子">四、水果糖的例子</h2>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-10-bg2011082505.jpg" /></p>
+<p>问题：两个一模一样的碗，一号碗有30颗水果糖和10颗巧克力糖，二号碗有水果糖和巧克力糖各20颗。现在随机选择一个碗，从中摸出一颗糖，发现是水果糖。请问这颗水果糖来自一号碗的概率有多大？</p>
+<p>我们假定，H1表示一号碗，H2表示二号碗。由于这两个碗是一样的，所以<span
+class="math inline">\(P(H_1)\)</span> = <span
+class="math inline">\(P(H_2)\)</span>，也就是说，在取出水果糖之前，这两个碗被选中的概率相同。因此，<span
+class="math inline">\(P(H_1)\)</span> =
+0.5，我们把这个概率就叫做"先验概率"，即没有做实验之前，来自一号碗的概率是0.5。</p>
+<p>再假定，E表示水果糖，所以问题就变成了在已知E的情况下，来自一号碗的概率有多大，即求<span
+class="math inline">\(P(H_1\mid{E})\)</span>。我们把这个概率叫做"后验概率"，即在E事件发生之后，对P(H1)的修正。</p>
+<p>根据条件概率公式，得到 <span class="math display">\[P(H_1\mid{E}) =
+P(H_1) \times \cfrac{P(E\mid{H_1})}{P(E)}\]</span></p>
+<p>已知，<span class="math inline">\(P(H_1)\)</span> = 0.5，<span
+class="math inline">\(P(E\mid{H_1})\)</span>为一号碗中取出水果糖的概率，等于0.75，那么求出<span
+class="math inline">\(P(E)\)</span>就可以得到答案。</p>
+<p>根据全概率公式： <span class="math display">\[P(E)=P(E\mid{H_1})
+\times P(H_1) +P(E\mid{H_2}) \times P(H_2)\]</span></p>
+<p>所以： <span
+class="math display">\[P(E)=0.75\times0.5+0.5\times0.5=0.625\]</span></p>
+<h2 id="五假阳性问题">五、假阳性问题</h2>
+<p>已知某种疾病的发病率是0.001，即1000人中会有1个人得病。现有一种试剂可以检验患者是否得病，它的准确率是0.99，即在患者确实得病的情况下，它有99%的可能呈现阳性（灵敏度为99%）。它的误报率是5%，即在患者没有得病的情况下，它有5%的可能呈现阳性（特异度为95%）。现有一个病人的检验结果为阳性，请问他确实得病的可能性有多大？</p>
+<p>假定A事件表示得病，那么<span
+class="math inline">\(P(A)\)</span>为0.001。这就是"先验概率"，即没有做试验之前，我们预计的发病率。</p>
+<p>再假定B事件表示阳性，那么要计算的就是<span
+class="math inline">\(P(A\mid{B})\)</span>。这就是"后验概率"，即做了试验以后，对发病率的估计。</p>
+<p><span class="math display">\[P(A\mid{B})=
+\cfrac{P(B\mid{A})}{P(B\mid{A})\times P(A) + P(B\mid{\overline
+{A}})\times P(\overline {A})} \times P(A)\]</span></p>
+<p><span class="math display">\[\approx \cfrac{0.99}{0.99 \times
+0.001+0.05\times 0.999} \times {0.001} \]</span></p>
+<p>我们得到了一个惊人的结果，<span
+class="math inline">\(P(A\mid{B})\)</span>约等于0.019。也就是说，即使检验呈现阳性，病人得病的概率，也只是从0.1%增加到了2%左右。这就是所谓的"假阳性"，即阳性结果完全不足以说明病人得病。</p>
+<p>为什么会这样？为什么这种检验的准确率高达99%，但是可信度却不到2%？</p>
+<p>首先是与误报率(5%)太高有关，其次也和发病率太低(0.1%)有关。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/08/Ambulance-services/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2764,356 +2933,6 @@ shift)</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/02/Essential-Concepts-in-Clinical-Research4/" class="post-title-link" itemprop="url">临床研究基本概念：观察性研究（三）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-02 16:18:54" itemprop="dateCreated datePublished" datetime="2018-08-02T16:18:54+08:00">2018-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:57:02" itemprop="dateModified" datetime="2019-02-28T00:57:02+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of
-Essential Concepts in Clinical Research<br></p>
-</blockquote>
-<h1 id="队列研究迈向结局">队列研究：迈向结局</h1>
-<h2 id="一摘要">一、摘要</h2>
-<ol type="1">
-<li>队列研究将特定人群分两组或多组，从暴露到结局的方向进行研究</li>
-<li>该研究方法可以以现在为观察起点随访至将来某个时间点（前瞻性队列研究)。也可在过去的一个时间段里面确定一个队列，观察到现在为止（回顾性队列研究)。</li>
-<li>队列研究是明确疾病发病率及其自然史的最佳方法，还可用于研究由单一暴露因素导致的多种研究结局。但是该研究方法不适于检测罕见病及潜伏期长的疾病。</li>
-<li>队列研究对暴露和结局应有明确定义：该定义应尽可能客观。</li>
-<li>对照组（非暴露组）除了无暴露因素之外，其他各主要方面均应与暴露组相似。而这种相似程度在观察性研究中几乎无法达到，因此研究人员需要检测并控制各种混杂因素。</li>
-<li>处理失访问题是研究中的一大挑战，因为差异性失访会带来偏倚。</li>
-<li>在队列研究的框架下面还有多种不同的研究方法，如前后对照研究法和巢式病例对照研究法(研究限于队列内)。</li>
-<li>队列研究的优势在于计算发病率，相对危险度和95%可信区间（CI)，这种方式较之仅给出P值，能更好地表达研究结果。</li>
-</ol>
-<h2 id="二队列研究的分类">二、队列研究的分类</h2>
-<ol type="1">
-<li>队列（cohort)这个词起源于军事，而非医学。
-<ul>
-<li><p>一个队列指的是罗马军队中一个步兵大队，由300-600人组成。</p></li>
-<li><p>10个队列组成一个军团(legion)。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-03-maxresdefault.jpg" /></p></li>
-</ul></li>
-<li>该词的词源告诉我们一个很有用的概念：队列研究(cohort
-study)由一群或一组人群组成，在时间方向上从暴露迈向结局。</li>
-<li>队列研究的同义词：
-<ul>
-<li>发病率研究(incidence study)</li>
-<li>纵断面研究(longitudinal study)</li>
-<li>前瞻性研究(forward-looking study/perspective study)</li>
-<li>回顾性研究(prospective study)</li>
-<li>随访研究(follow-up study)</li>
-<li>并行性研究(concurrent study)</li>
-</ul></li>
-<li>队列研究是随访两组或多组人群从暴露到出现研究结局。
-<ul>
-<li>最简单的队列研究是将暴露于某种因素的暴露组和非暴露组进行对照。如果暴露组出现研究结局的发生率高于或者低于非暴露组，则可据此认为该因素与该结局之间存在联系。</li>
-</ul></li>
-<li>所有队列研究方法的最主要特点就是研究人员沿着从暴露到结局的时间轴来随访研究对象。</li>
-</ol>
-<h3
-id="一前瞻性队列研究perspectiveconcurrent-cohort-study">（一）前瞻性队列研究(perspective/concurrent
-cohort study)</h3>
-<ol type="1">
-<li>以现在为观察起点。 <img
-src="http://qiniup.louyanspine.com/2018-08-03-The%20Lancet%20Handbook%20of%20Essential%20Concepts%20in%20Clinical%20Research%20.jpg" /></li>
-<li>例如，对于辅助生殖技术引起的多胞胎生育的流行病学研究。研究人员随访一组通过辅助生殖技术受孕的孕妇和一组通过自然受孕的孕妇，比较两组多胞胎的发生率。</li>
-</ol>
-<h3 id="二回顾性队列研究">（二）回顾性队列研究</h3>
-<ol type="1">
-<li>从过去的某个时间点开始选定队列。</li>
-<li>例如，研究人员也可以利用现有的病历档案，上溯几年将孕妇分为暴露组和非暴露组。然后，追踪病历档案确定其生育的情况(研究结局)。</li>
-</ol>
-<h3
-id="三双向性队列研究ambidirectional-cohort-study">（三）双向性队列研究(ambidirectional
-cohort study)</h3>
-<ol type="1">
-<li>顾名思义，资料收集是双向的。该方法可用于暴露因素作用后可能会既有短期效应又有长期效应的研究。</li>
-<li>例如，辅助生殖技术也许与多胞胎生育有关，也可能与多年后卵巢癌有联系。因此，研究人员会追溯研究对象的多胞胎生育的病历档案，也会随访这些妇女今后卵巢癌的发生情况。</li>
-</ol>
-<h2 id="三队列研究的优点">三、队列研究的优点</h2>
-<blockquote>
-<p>是获得疾病发病率(incidence)及了解其自然史(natural
-history)的最佳方法</p>
-</blockquote>
-<ol type="1">
-<li>通常，假定的病因与结局发生之间的时间先后顺序明确：研究开始时，无论是暴露组还是非暴露组均未出现研究结局。而横断面研究和病例对照研究对于像先有鸡还是先有蛋这类问题却常常无能为力。</li>
-<li>队列研究法可用于单一暴露因素下可能发生多种结局的研究。典型的案例就是研究吸烟(暴露)与中风、肺气肿、口腔癌、心脏病(研究结局)的关系。
-<ul>
-<li>但该“优点”常被滥用。例如，在暴露和许多结局的关联上都做过统计学检验，但是仅仅报告具有统计学意义的关联，因而引起误导。</li>
-<li>合理的做法是，研究人员应该在研究计划中事先就明确研究的主要和次要联系，或称之为“假设确认(hypothesis
-confirmation)”。即使研究人员在实验中可以去检验暴露和其他结局之间的联系，或称之为“假设产生(hypothesis
-generation)”，他们也应该在报告中列出所有的检验结果，而非仅仅报告具有统计学意义的发现，这样读者就能够正确看待这些结果了。</li>
-</ul></li>
-<li>队列研究同样也适用于罕见暴露的研究：研究人员可以在特定的工作场所招募暴露在罕见因素(例如电离辐射或化学药品）下的工作人群。医院或工厂可以提供大量暴露于特定研究因素下的个体，在普通人群中暴露在这些特定因素的人非常罕见。暴露与否并非为研究人员所定，所以不涉及伦理的问题。</li>
-<li>队列研究还可以减少生存者偏倚(survivor
-bias)。生存者偏倚常常让快速致命疾病的研究变得困难。
-<ul>
-<li>例如分析铲雪和心肌梗死之间的联系，如果采用基于医院的病例对照研究的方法，就会遗漏所有死于途中的心肌梗死患者。而队列研究则是一种偏倚较小(但工作量较大)的方法：按是否铲雪将人群分为两组，比较其心肌梗死的发生率。</li>
-</ul></li>
-<li>队列研究可以计算：
-<ul>
-<li>发病率(incidence rates)</li>
-<li>相对危险度(relative risks)</li>
-<li>可信区间(confidence intervals)</li>
-</ul></li>
-<li>队列研究的其他结局指标还包括：
-<ul>
-<li>寿命表率(lifetable rates)</li>
-<li>生存曲线(survival curves)</li>
-<li>风险比(hazard ratios,HR)</li>
-<li>而病例对照研究无法直接计算发病率，仅当发病率很低的情况下，比值比(odds
-ratios,OR)很接近相对危险度。</li>
-</ul></li>
-</ol>
-<h2 id="四队列研究的缺点">四、队列研究的缺点</h2>
-<ol type="1">
-<li>队列研究中选择偏倚几乎是与生倶来的。例如，如果进行慢跑锻炼和心血管疾病的关系的队列研究，应当考虑到会进行慢跑锻炼的人在其他重要因素(如饮食和吸烟习惯等)上也会与不进行慢跑锻炼的人不一样。理论上来讲，两组之间除了所研究的暴露因素(慢跑锻炼)之外，其他重要方面都应该相似，但实际上这种理想状态几乎不会发生。</li>
-<li>队列研究也不适用于罕见疾病(如硬皮病)或潜伏期很长的疾病(如肿瘤)。不过几个大型的(当然也是昂贵的)队列研究为我们认识一些少见病的特点作出了突出的贡献。这些研究包括：
-<ul>
-<li>皇家全科医师学院(Royal College of General
-Practitioners)的口服避孕药研究</li>
-<li>Framingham心血管疾病研究</li>
-<li>护士健康研究/the Nurses Health Study</li>
-<li>英国医生研究/the British Physicians’Study</li>
-</ul></li>
-<li>失访是很棘手的问题，即使只是失访一个月。暴露组和非暴露组差异性失访可使得研究出现偏倚。</li>
-<li>随着时间延续，研究对象的暴露状态可能发生改变。
-<ul>
-<li>例如，使用口服避孕药的妇女可能转为使用宫内避孕器具，或者相反。</li>
-<li>研究者可能需要分区(Partitioning)避免暴露因素的模糊化/或有时称之为“污染（contamination)”。</li>
-</ul></li>
-</ol>
-<h2
-id="五队列研究中时间-事件结局关系time-to-event的报告">五、队列研究中时间-事件结局关系(time-to-event)的报告</h2>
-<h3 id="一生存分析survival-analysis">（一）生存分析（Survival
-analysis)</h3>
-<ol type="1">
-<li>生存分析适用于当研究对象随访时间长短不一时，或者当研究对象在不同时间点进入研究时。</li>
-<li>相对于把结局做简单的二分类变量处理，Kaplan-Meier
-method能更好地表达在时间维度上各个时间段结局发生的危险度。
-<ul>
-<li>该方法可以确定任意时间点上结局发生的可能性(概率<span
-class="math inline">\(P\)</span>)。</li>
-<li>分析结果以阶梯函数的曲线图表示(每发生一个结局，曲线进入下一个阶梯)。</li>
-<li>互补的镜像阶梯图，即Kaplan-Meier生存曲线(Kaplan-Meier
-curve)，则表现每一个时间点上不发生结局的概率(<span
-class="math inline">\(1-P\)</span>)。</li>
-<li>对数秩检验方法(log-rank test)可以进行生存曲线的组间比较。</li>
-</ul></li>
-</ol>
-<h3
-id="二比例风险模型proportional-hazard-model">（二）比例风险模型（Proportional
-hazard model)</h3>
-<ol type="1">
-<li>处理不同随访时间的另一种方法是Cox比例风险模型分析法(Cox proportional
-hazard model)。</li>
-<li>这是一种引入多变量的分析方法，其因变量是时间-事件结局(如疾病)；而多元logistic回归的因变量是“是/否”类型的二分类变量。</li>
-<li>该模型得到的回归系数可用于计算校正模型中其他变量后出现结局的风险比(risk
-ratio,hazard ratio)。这里的风险比(及其95%
-可信区间)的意义与二分类结局变量的相对危险度(relative risk)相仿。</li>
-</ol>
-<h2 id="六队列研究的要点">六、队列研究的要点</h2>
-<h3 id="一谁是潜在患病者">（一）谁是潜在患病者？</h3>
-<ol type="1">
-<li>队列研究的所有研究对象(无论是暴露或是非暴露组)均应是潜在的患病者。</li>
-<li>举例来说，进行过输卵管结扎术的妇女几乎不会罹患输卵管炎，因此如果要开展盆腔炎的队列研究就不应将其列入研究对象之中。</li>
-</ol>
-<h3 id="二谁是暴露人群">（二）谁是暴露人群？</h3>
-<ol type="1">
-<li>队列研究需要在研究之初即明确的、无歧义地确定暴露因素的定义</li>
-<li>有时候，其定义不仅仅是要区分“有或无”暴露，还要将暴露进行定量。如最低暴露剂量可能定义为每天14支或低于14支香烟，或者3~6个月的口服避孕药。这样来定义暴露的结果就是：研究的组别可能会超过2个组(如非吸烟组，轻度吸烟组和重度吸烟组)。</li>
-</ol>
-<h3 id="三谁是合适的对照">（三）谁是合适的对照？</h3>
-<ol type="1">
-<li>最关键的一点就是除了不在暴露因素之下，对照组(非暴露组)在各个重要的特征上均应和暴露组相似。如果这样的话，非暴露组可以提供所研究结局的基础发生率的信息(the
-background rate of the outcome in the community)。</li>
-<li>非暴露组可以是“内源性”的(相同的时间和地点的人群，如同一个病房)，也可以是“外源性”的。</li>
-<li>内源性者更为可取。在一个特定的人群中，个体会自动(或者因为医学干预)按一定暴露因素(如吸烟、职业、避孕等)分类聚集。
-<ul>
-<li>例如，在一个队列研究中纳入了138个HIV-1相关性Kaposi肉瘤的患者，并将其分为口腔病灶和皮肤病灶2组。出现口腔病灶(暴露因素)的预后更差，其中位生存时间(结局变量）仅为另一组的1/3。</li>
-</ul></li>
-<li>如果没有合适的内对照，也可寻找外对照，有时候称为“双重队列研究(doublecohort
-study)”。对于职业性暴露的研究，在同一个工厂中要找到足够的非暴露对照有时候很困难。这时候可以选择同一社区类似的工厂工人作为对照。这样做的前提是假设其他工厂工人和暴露组工人在所研究结局上的基础危险度是相同的，但这个假设往往不一定成立。</li>
-<li>更逊于前两种对照方法的是使用普通人群资料(population
-norms)作为对照，例如疾病特异性的病死率(disease-specific mortality
-rates)。
-<ul>
-<li>研究者可以比较工厂工人和同年龄同性别普通人群的肺癌病死率。</li>
-<li>不可避免的“健康工作者效应”（healthy worker
-effect)会导致这样的比较出现偏倚：工作者通常要比不工作者(或者不能工作)更健康。而且，工作带来的福利待遇和经济收入可能会进一步增加偏倚。</li>
-</ul></li>
-</ol>
-<h3 id="四结局评定是否公平公正">（四）结局评定是否公平公正？</h3>
-<ol type="1">
-<li>结局的定义也必须事先明确：其定义必须清楚、特异，并且可定量。</li>
-<li>为避免信息偏倚，在暴露组和非暴露组中评定结局必须公正。如果不能很好地、客观地定义结局变量，研究结果也无从解释。
-<ul>
-<li>这不单单是指一些以主观感觉为主的综合征如海湾战争综合征、慢性疲劳综合征，以及经前综合征。</li>
-<li>对于更多的普通疾病如子宫内膜炎等也是一个挑战。how tender must a
-uterus be？</li>
-</ul></li>
-<li>对于队列研究中的主观性结局(如疼痛、皮肤红斑等)，评定者应该不知道研究对象暴露与否，即盲法(blinding)，这非常重要。</li>
-<li>而对于客观性结局(如发热、死亡等)，盲法则相对不是那么重要。</li>
-<li>关于结局的信息可以有多种来源。
-<ul>
-<li>病死率的研究常采用死亡证明(death certificate)等。</li>
-<li>对于非死亡的结局，信息来源可以是医院病历，保险记录，实验室检查结果，疾病登记系统，出院记录，以及体检和测量资料等等。</li>
-<li>最佳的做法是，评定结局的研究人员应该不知道研究对象的暴露状态。如果诊断不是那么明确，可以加上一些修饰词，如确诊，可能或可疑。</li>
-</ul></li>
-</ol>
-<h2 id="七随访">七、随访</h2>
-<blockquote>
-<p>失访是否最小化？</p>
-</blockquote>
-<h3 id="一失访的影响">（一）失访的影响</h3>
-<ol type="1">
-<li>一般来讲，失访(loss to
-follow-up)会削弱研究的把握度(power)和准确性(precision)，其中差异性失访尤为甚者。</li>
-<li>中途退出（Bail-outs)并非随机事件。如果研究对象中途退出的原因与暴露和结局皆有关系，这就会导致偏倚。
-<ul>
-<li>例如一种新的抗生素可能导致很差的结果，因此研究对象无法完成问卷或者回来复查。他们从队列中的退出失访会让研究结果看上去显得这个新抗生素比其实际效果要好。</li>
-</ul></li>
-</ol>
-<h3 id="二处理失访">（二）处理失访</h3>
-<ol type="1">
-<li>处理失访的最好办法是避免失访。例如，将参加者限制为那些可能会完成随访的人。</li>
-<li>另外，一些方法也常用于保证随访的进行。
-<ul>
-<li>在研究开始时，可以取得几个不与研究对象住在一起的家庭成员或者朋友的姓名，或者知道他的家庭医生。如果研究对象搬家了，这些联系人员可能会知道他的新址。</li>
-<li>机动车登记资料也会有些帮助。</li>
-<li>国家死亡统计登记系统，如美国国家死亡人口索引(the National Death
-Index in the USA)等也可帮助记录随访资料。</li>
-<li>研究对象因为参加研究可能会损失工作时间，可以给予一定的经济补偿。</li>
-</ul></li>
-<li>努力地追踪随访研究对象是一项很累的工作，可以单独雇人从事这个任务。</li>
-</ol>
-<h2
-id="八队列研究报告所需展示的要素">八、队列研究报告所需展示的要素</h2>
-<ol type="1">
-<li>有多少选择偏倚？
-<ul>
-<li>是否只包括潜在的患病者？</li>
-<li>暴露的定义是否清楚、特异，并且可以定量？</li>
-<li>除了暴露状态之外，暴露组和非暴露组在其余各主要方面是否都相似?</li>
-</ul></li>
-<li>采用了哪些方法去减少信息偏倚？
-<ul>
-<li>结局的定义是否清楚、特异，并且可以定量？</li>
-<li>暴露组和非暴露组是否用相同的方法来评定结局？</li>
-<li>评定结局是否采用盲法？</li>
-</ul></li>
-<li>两组的随访是否完整？
-<ul>
-<li>用什么方法来减少失访？</li>
-<li>两组失访情况是否相仿？</li>
-</ul></li>
-<li>是否查找并在数据分析中校正潜在的混杂因素？
-<ul>
-<li>研究者是否考虑并收集潜在混杂因素的信息？</li>
-<li>采用什么方法来评估和校正混杂因素？</li>
-</ul></li>
-</ol>
-<p>研究人员首要的挑战就是让编辑(然后是读者)相信：暴露组和非暴露组除了在暴露状态上这一点之外，其余各主要方面都确实是非常相似。因此，研究报告的第一个表常常应该提供暴露组和非暴露组的基本人口学和其他预后因素资料，以及其假设检验(hypothesis
-testing)来显示所观察到的差异有多大的可能性是巧合所致。</p>
-<p>对于二分类的结果变量(如健康或患病)，研究者应该提供一定的原始数据，便于读者自己确认结果。对于累积发病率(cumulativeincidence)，研究者应该计算在研究期间出现结局的研究对象所占的比例。发病率的分母以单位时间来表示，还需要提供相对危险度和可信区间。P不能取代区间估计(即相对危险度和可信区间），只能用做补充信息。</p>
-<h2 id="九特殊的队列研究方法">九、特殊的队列研究方法</h2>
-<h3
-id="一前后对照时间续贯研究before-aftertime-series-studies">（一）前后对照（时间续贯）研究[before-after(time
-series) studies]</h3>
-<ol type="1">
-<li>研究者测量和比较受试者干预(通常是用药）前后的检测指标。</li>
-<li>这种做法存在一些问题：
-<ul>
-<li>首先，忽视了“趋均数回归效应”（regression to the
-mean)。如果在第一次检测时得到一个特别大的测量值，例如有一个较高的实验检测值，那么无论治疗与否（或者治疗是否有效），在随访的时候多数会得到较小的均值。</li>
-<li>其次，客观环境的变化可能会对检测产生影响，例如季节变化和肺炎发作的频率有关。</li>
-<li>再次，如果在第一个阶段给药，则在进行第二阶段观察前还应空出一个洗脱期(washout
-periods)以消除药物延滞效应(carryover effect)。</li>
-</ul></li>
-</ol>
-<h3
-id="二巢式病例对照研究nested-case-control-studies">（二）巢式病例对照研究/Nested
-case-control studies</h3>
-<p>为何研究者要在队列研究过程中挖掘出一个病例对照研究呢？因为有些暴露因素或者预测因子检测费用非常昂贵，例如有些复杂的血液标本检测。如果队列中每一个人都进行检测就不够经济。比较经济而明智的做法是开展一个能产生足够病例的队列研究。所有受试者入组时采集一份血液标本，血清冻存至研究结束。在研究中出现所期望结局的所有研究对象成为巢式病例对照研究的病例。研究者再在未出现结局的受试者中随机选取对照。接下来，研究者只需要检测病例和对照的血清标本，而非队列中所有暴露和非暴露的受试者。这样，实验室检测费用会大大减少，而同时保证暴露因素(如阳性的实验室检测结果)也是在出现结局之前即存在。通常，选取对照时在一些重要因素上(如年龄和性别)也会做配对。</p>
-<h2 id="十结论">十、结论</h2>
-<ol type="1">
-<li>队列研究在医学研究中十分常见。和其他研究设计一样，这种方法也是优缺点并存。</li>
-<li>读者应该弄清楚研究者报告中是否提供了关于暴露和结局的清楚、特异和可定量的定义。</li>
-<li>非暴露组和暴露组在各主要特征上应该相似</li>
-<li>结局的评定应该尽可能客观，如果有可能的话，采用盲法。</li>
-<li>对于二分类的结局变量，研究者不但应该提供率、相对危险度，还应该给出可信区间，这样比仅仅给出P值提供了更多的信息。</li>
-<li>报告时还应该分析和描述偏倚可能对结果和结论产生的作用。</li>
-<li>研究者还应该测量和控制潜在混杂因素，这一点非常重要。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -3183,7 +3002,7 @@ case-control studies</h3>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">526</span>
+          <span class="site-state-item-count">527</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
