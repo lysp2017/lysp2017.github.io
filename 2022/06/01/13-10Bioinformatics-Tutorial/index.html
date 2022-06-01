@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生物信息学教程">
+<meta property="og:url" content="http://lysp2017.github.io/2022/06/01/13-10Bioinformatics-Tutorial/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-01T15:16:48.000Z">
+<meta property="article:modified_time" content="2022-06-01T15:27:26.222Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="差异表达">
+<meta property="article:tag" content="R语言">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lysp2017.github.io/2022/06/01/13-10Bioinformatics-Tutorial/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>生物信息学教程 | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2022/06/01/13-10Bioinformatics-Tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          生物信息学教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-01 23:16:48 / 修改时间：23:27:26" itemprop="dateCreated datePublished" datetime="2022-06-01T23:16:48+08:00">2022-06-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">生命科学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="ad9da5a192026d9ce03d78fb6c092b61c00e9b6b9d8ebf60d219fc46504c84f6">a555339939183c972e355682e672fe9cc3bdbcf5c0e6ebcec9d135db7367d43cc8be6840f92e83fac7047de5112c7b3f84812ce35e9842236b272e40c21212f998b7149d58c804ef9fdcdd9e950cdc955e32620315245dee176ffc3ad1dc6743798bb88abd996a9e81301e67e90b0db654e2e5ac15a222eda4a455f66c4dfeb04776064b6dd336cb533f5b5a5bcec224e741967caecbec6300e94c628a506f488a70f7db94b19ce7ec3b884a90b273569868db237f6134808cc7bfeb30665156751fd4a5099efd7927262ecfd386cc64111d2950c39c4dece810993ba3fdf0fafc465b0537b59040278ee73c9ffc3bd9a34c42303503d4ee71b13beda3444f740f810c194271b1dd3d33f46d9219b38f715612bffcdd872258eed95874fb74d9cf2b28eb2e10ed1b52e30a7bc392121d02d4df738fe2ded54e8fd52af06555f9b770b83299617f6b0e0d4babc9ef65be3b45bde7cf5173bc5ab71c1f8f14d01a02961cd82fe6547e7971b50e1a841388c8cdfd41d43c9e66112b36912633726cafa037257c5fba20285cd32e428087e76d911f3adcefed53d68b6ab57a44a3422912d82b58ec365c5187ef29f42428fe5e5928e84dee5316f343319f98749994182486da46b7ae03fcda203c926eb85b279277e207c03c462cbaf3ffc829980b3b4bddd25f38af0bdc3326c26fc8f08c0fdf4eeb5fed5183dcd1591a891a150ce3e3bf8cc02af4c4735efab6da62669a681198867cf90e0d7566b06eb2da2ac7556325539c94562a76a46d9ef31b0bdd103b6bfcb6c6bfde346975e85ab6d2b079139aa62e49f7e378b1f0502c0c72eaccc490663aaa080f3a280a763e39562f0e724e5820b528338824ebb9f9064554e11c7b314991f67695dbd851b17f444919652500ac5b66ad91a4c778b3e280a3f69756d4c6ac97ca973c2f7d4b598cd06ac838f0d55905f873cbd68883d836d934862e3e3cd752544bc67c53422effd3357296605b77ffd2c37a11beace1407f55e24a2a0d40305d52fc111d660a8aebdca42fce0991dffd26dde3b16a934f592abc5bb5b39f3ba21d09d62c47c937a04c20b779b56824a200a96b61c9579ab6bc46d4bbadf22e91d8ebac3c4636b0b17c6371003076efd5f464fdd4c9d0cd99e2e3ebf65f484f67107faf87938bc04381b09eca18876393d99972f2a6efc3d4807472927ed5b090d5086ffa02e30bbc202d1cbe0777c2f77115f4542168ace4ffa86adc3f9cb1702b027dc5842e57916c83cfb121f18acb35a5368da96f37b81cd9df1eec1b025ba0437ee45ca275dc88589c76e26534ee974d7f62bfa65294af7686c0002984256226ee20d38d29ab6372298a5e82d40520e330b3b7a6f1934c4b3b817e613ef4c54afbbaff4cb51bfe97126e8943a64c8450b8eedfeaab722eed82e7fc6820586041a1e7ba96722a05e6d9d87bb6ae5792c18dc21a501c9a9927ca81c322bc806b0c40dd2dc850e4def20a65daf711fec18b55b8d1f6ff8aecd7f89fb2e6ce32ed6f9f23f502309b74545d265be9f6d7e96b5a34f26b8b27878e6244c0c37eefd5be9e30e06bdbc28315187336feac1e6dcff992b68510b8c7be84e2b1aec220fe325da9eeb2549c7c7deac06ab5337a8f6fe2d766cefbedfea8a255fb97c42062ceaac3519b8ea9953486f1b4c3dc7460c5caecd5fbff35738cf30ad4233f807acc8a26dbb541daf72d33003c62e831a48188209d64d8c13d0cf8bf11a4c9b2611a95f091e7d6501fb9675b6208a55c9e3944a1e1cfa893d2615bc1f7daf7af82f7abfe9514ba2634d61a026969930a51ed11aa0484ddb7f9babb7248e339c65cb3b489a1c5f52478fe635439af2aa7ceb9d909067a20de06a26203427b8589b2540078fde7af958b8701366ddf42b9a06177d4e8097066ead30a60b0e1e6638340678ff09faba16a892713d9f5e2f0f016144a1f729d3178138e0803e1bdb705ac8b61d392a9f715aa4e2503fcb2966bd5b1fee406039bfaea37ebda305b29a74682eb5967b0ac9b101f6a69ca4f07b86efecac8a653cf9385729696ef374f4b8963509d35b0d0605bd48c0cb2cde882dfda42ee267aa9867f1b94be36f18601dd28a4d57752602f2f13a6cd8350225dba575724451faa1a3634a67cc6344e02f690b12dbe9022588aef2835448aa8587a81a993726937044dc9ec24c819c37d5f4a4c60e3f564fe57fcce6c9d77c7917e859967b39dcc76842dfdde2550b19b38981b2bd8ffe67a7e3c7e7f2dff8067a7d199036321b9239fc55d73ce8a801ec350ecf5098eb4741628a9d574e227f604dffc7e5f0fa0163cdc1380d161720c2fce36109d5339af466270fa393422894e26a40f729d4a3c1bf03306d100a3ac94809ae13244c4ac73556fc0960cd0bdd374c91b3a1a891bd1f03a74a87d3d7136e7c85e05e3dfe38bdeba6bac625dd7462973e757bd9299ae878f874424d580723335d5c4db8d82d124204f8f41f343a01f65ade39225174f98688abc7cb7331df74638f5db2bb93258aac2c3c2bf7f90ccdae9fb2240bdcb3c22af0071d8d9f7f227a65f5f399e089dfedb94475f430414914528d326e94ba1be9fd2df5d42a0fa563ca01e916b1f303f3796dab98c1cf64c86fd5ee2d94a87e4a4de41933e52c54c879cd74f8a8fb2b703e1101b867db4114b5df70cc4fa198ba6d1a980eb7650d3fd1c7fefcb66e5961035a93a457bd4892a19075361117f960b8dad7506045ef561b98df606910d5b4d46669ae25d200351021e69d8fbec062e252ed93aff62b06c9fa1188bd61f77cd3e1acc3e45916331a649315e2b2b3cb34f66689cf9fd4d7015ee48cdbf9ebb23ee422ca7502efc5b7d5107deed9080a4390aec787355684c412c1348e9210a78babb32281be3a6b687d663cbd792777cbd4386960c0299a0e39c52cc38557e26c410ba05c88515e801e0968eeaeb0fc11341a645a0e2b9737a80efee0e95739d5445744eb50a03ae17f0edb67895726d5af7ccd9ff35cba5d69b99cab02589ac38aefda0efc23e239935416b49daa3fbff6f6bf6bb5318bef3d5094c88a1b33aab275c87ef3841351f2585dc71e32759220717bd25cc97c1c2e2499b34265bb2a900a6abb7cd0ef1fd26d2cb04af7ca6dd829cdb69997a7f8983de204d560a22198c7d9cdcdb04a3dd1bfd19755efd1c2c152069c7607a5c4142b9ce1da124af6b51c23d15afa370e23f49091bfdddc7f21f4ae3502486b2523569ab5f4afd523a7f49a86ecbf53c80b2e977dd6a24e182463929cd86808e6ff845cc11fb66e7e9b91ad731916ba7e816cd6117b1b98c6f28bbf404f1d1dbecc62836e5db5ccdb61010c870c52b4fd50ffa48ccab2f65793746059a370c44d3d7607245bcf423455c710163672e56e4619d93a2fe3b9977885261c9833946a66eef0644928b9d0df709410b8ebfc3a7f49079e48225411920790967f3823b1bf97c57c1722626e1da23a4ac46066d81238f9c76e334a8bc8c843123aba6ea466169354717b0533973586b4c3b49c8016285ec27399d9aeda264f65bc2a4408ee5e7f91eb0a6da36f95dc4038d0fde501ba170c466ee289f5fb4cbd665314fc4c6a5d47bea76a8366c232062b33452279e63fd4c7689b42e5558b3f155a0731cbd4029385f6b92402c55d7a4a15e3e4a729b8caeb35b2dc5eb119d8a566caf9c8e4042c4d22602092ce210c948619f81173e217d19cb9159e9e809fba5633b5d1e0daae02a45589669a7ee08e4941b669199aa4f08f63959c3497d1748e5d8ba8dc6d0b3570a9757700f4407f58106625d003c4097d0d49a9493c731c73ee40df79e4fc41eafb7df6efcab99cb3db3e4ebe4e220ecd7a31798b28b4bc701f35392399fd8f7df1600d6fceffafbce934b3e0427eb25c4571b3699db4e3a4a3488e1ecfba47e5d05023f351299a7b12a01748ef5e77707a4ebd6b92923b2175cd3ca1f46fdc2e6c38a03d2cc7695b2550a3c85b9dc07c5d4dd74bb94f2bf81eb603a7f134207b63db169007b6bd35d4077b71ee60143860148433ecb97925555c368cb3f5b1f121e8dfaaebe5fdc824bfa636fb4a8f4bc65186e9081522a56a49462211524f13eaf69e86a636b458edd12c429270d5441ba05867b69dc7ffb1d2ba29006d77fae3709e921d7ea72218abc2240ff35f7a6928c39d60ed8d69b9da334d07d70a56dcb8d3a1c3746995e419bbdf47d042f407ea2b145946840d66a29c4f9b81b20320854176fca7153bc7504f6a0f3907dd2ef8acc35932716b604b0c035d480e95806bcfb25cd55a4b4abe0c802adddd26abe8df62192a5b5026b5cd7ae75638a37a6cf2cb072e99882af12a314554ceda1e728882f3c32fb554d26d15ee66254a77f8e6723ef481b7d66f0ded6ab5abd7b276f8ee5ba12e6f9857d873482aa7bdf52398479a55afa1c0731dbb0651fba2fbed4b43bb2b7779b0e0a5906cc441a2f298ec76dcafc5da7e168ebf8e5d3f01ab4e1a89a02d5d3bab8900ca23054aef6e52353912c015defe854b11ccfc1c76bbe6b168c9d6cac267f9012b234d7227e0208da60753877e2b2dd2c4d777f143ae0812c3e5a1155ace264e6333b80c5c6b84a6237b06ad1ee5ffe866ac20b3acf5a51ad36a62861603c71abc563912c7ad83587e3bb34e5b44b94deafb43119899b953817c5c94d6ed7fe44ffbc308f10b9aeaa5bfdfe1c510e986d74f9704e3c8c69ba027f83fc74ba99ce98ab98fb6ae9a1e8b0daa6e69aad43399fd44baaf014b6d79023c04e73931e882fbb9d813865ff7908251f179fe1fc932af392f4b56e4cc8e58bf4bbcb5049c21b6cf6f482786d272841ed0a1135f6f013f2ebaec842efffcf5e2b617fb3e807ecaa20977394f28bb0ddcdc36f79a9d76225dee15620284407741331294ff68201a14899731873e5c4af6a60c6c342cf0d868517279eff3b2981fc4dbcceac9804be50f81d3bc530b7bac54fc1e012bcaab07e970c3bfceb661a51cf84bc686b951b78cc6622340b56c6e79284955976462e2b19316076d70b3c93605e9f91172ffb87413b3a4726b46433336e109224fa192d87420e6d9cb4e6b64279954f3c23d6b04f96839ce917d3452010a2591c21aac6cf505ec1f403a1547fd8b372927108fef77b89378d287b8447dad8f83060b191a025242c238aad59323523c59aff0153da132e9b1df265b6302b19e0330b6cc787629fc1fc3ebbc5b4132b8361887aa2d70315117c97e896cda2afc8a6a49468038f9e9b56af7af2255302382e8eb8ebb47261fcbc02dcce99a884445a22daa9936fcf92cac60de1e645936906ccc818b78ac2ce756b7266a841947710731282bcadce58c46f31dae8956a4d9893328f67b1514e5830b01e02ef2712c5cc0977535ea96aa2baf8c44246dae7e7b93564bec4869817f527d46ec9e3de1bc7b93d2ca9e41d70a196e2e010b4793c3b152c5c73f7184b42ecc42700480a721e2863b92dd5a47bed846d5fcad1b76e43d723fe9857fda51b23a19b84be87f7fb36117c5663a88deaff170c05cb11cf0d9b0d77ec29abd27d0edcc8721c201e26431d51db23c776103c77e81f9f9d150c</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">欢迎访问我的博客，考虑到版权问题，本文不公开</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE/" rel="tag"># 差异表达</a>
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/" rel="tag"># R语言</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/01/13-9Single-cell-RNA-seq/" rel="prev" title="单细胞转录组分析">
+      <i class="fa fa-chevron-left"></i> 单细胞转录组分析
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E4%B8%80%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE"><span class="nav-number">1.</span> <span class="nav-text">模块一：差异表达</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">一、前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%8C%BB%E5%AD%A6%E7%A7%91%E7%A0%94%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">（一）医学科研三种类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E4%B8%89%E7%A7%8D%E5%8C%BB%E5%AD%A6%E7%A7%91%E7%A0%94%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.2.</span> <span class="nav-text">（二）三种医学科研的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90%E6%96%87%E7%AB%A0%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.3.</span> <span class="nav-text">（三）生信分析文章特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E7%94%9F%E4%BF%A1%E7%A0%94%E7%A9%B6%E8%A6%81%E7%B4%A0%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.4.</span> <span class="nav-text">（四）生信研究要素结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%81%92%E9%87%8F"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">ⅰ 恒量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">ⅱ 变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E5%9B%9B%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A8%A1%E5%9D%97"><span class="nav-number">1.1.5.</span> <span class="nav-text">（五）四大数据分析模块</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">537</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2206</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
