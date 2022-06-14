@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DNA测序技术及其原理">
+<meta property="og:url" content="http://lysp2017.github.io/2022/06/14/13-12DNA-sequencing/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-14T14:01:24.000Z">
+<meta property="article:modified_time" content="2022-06-14T14:03:12.866Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="DNA测序">
+<meta property="article:tag" content="二代测序">
+<meta property="article:tag" content="Sanger测序">
+<meta property="article:tag" content="dNTP">
+<meta property="article:tag" content="ddNTP">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lysp2017.github.io/2022/06/14/13-12DNA-sequencing/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>DNA测序技术及其原理 | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2022/06/14/13-12DNA-sequencing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DNA测序技术及其原理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-14 22:01:24 / 修改时间：22:03:12" itemprop="dateCreated datePublished" datetime="2022-06-14T22:01:24+08:00">2022-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">生命科学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="93fa1a9e7f9250fadf4d21003aab77e096b4c811b9a6fd45fa88baf1da939f8f">a555339939183c972e355682e672fe9cc3bdbcf5c0e6ebcec9d135db7367d43cc8be6840f92e83fac7047de5112c7b3f84812ce35e9842236b272e40c21212f998b7149d58c804ef9fdcdd9e950cdc955e32620315245dee176ffc3ad1dc6743798bb88abd996a9e81301e67e90b0db654e2e5ac15a222eda4a455f66c4dfeb0b762465a9e4cdcd580021c3ef258cb39aa41d10de4cb2b3d53f9bc664f575b59ef31d47c7cf1bdea3466c226c42faa693563ef0b429cd0c6fb2af206c3e061898585b6bc3e989da8c1797bb435f8ddb3ca6d4a7cd72912885651275e6721fbed30b49eba2f56bd5e6a7f1a566e66d393224f7e8e145342cde74f5f0412b9b1a0ecb96443aff0ff104494dfb89ff09a8dfb3e4fab8c5dd958e30c36755b2b616b1243cb38d8ba3b751fcf60f693beefe06da328248a753f1e2644c59948c93a4130e2e707d3f5d84f018af7e9c7db14551d8155b2f4c4e206a7198d2c3a306420b7830725ac211454f895171742fbf84d6fee7e17338276bb594682b180ca8e92ed4586b4fa3797a731cc0289ff0934684d046d0087d01868286dcad6970f7ba8641f2d4daf252e6ced4caf16a023d0b899654f7e05513488b07059361506e93fe2ea92f0f8b3930e50821be1a5691f85f5d9f139c2f78b6525d8d814636241108e71d03112e78344393faa350a59e90dfad22c710bd6cba45c706f38b5d1b7901cdc4ab7bc6bb74b4dff4582bab51f886caaed3f4085c28f10d3c79e99301794fe6d84f6de789de6bd58c19774d84a5db1fd3c1870e60c1d4642bf60eeafa68e54dfd3106f6259aca5273e61ec93dfc00cf5b7dc98b5b451e178b2112616a2671a4c3126962619dfffd4d624a0c6261a3de0e440bf9041c8c0759f937a80d422ffa4419786f87f12aadafd413ff93f9e2535ef887cf60dc07de6a051e4dfb8f3f04034ebef5a83fe88850f9ae2a423db894fac690960d42705ebd59e20fc5ac77f39f9f368901126c3b27a93cd63f83d03947d3c1a3151187d206209bb5dbf145d9189f7157f0db42ca65cc06159530f37af7a73eef7440fea0e8bd9086b928568ce343b07813fe9c6bd51398663836c2ad11364ff5a16bb623aafdbdae41d55a42833a505611da2c2fe6b23e8057063791cf4ea48767db3a13362f1c69f550aee03ea2972a89d1542034c5793cc229a6ba43bed04a9899d890747db0bb628ad87a3450c809695868d6a0b27092b7436a3f63802766194ab9d6f4e02b830130c70e3c12095bd9970dee11078bfc6da2fdf61e1818ba15141f866a7c28ebe44751d62a584447e56f7d4200e2189ef12bf5fd6be5e7b990b0af3c34907291a58216aa980fd6c4a689cc5cb3187b3e218f8466a9638034775eab4edd0e24e21d8bf357fcc5d2e177b12efaeac91d14dbd4e8e714f61c1a353d0fe70c9b069ba7fd2d85e36f8be26ce343658e4838dc5adbd14c6a1e3efa4e5b6767b5e8f6b3e9ffe65d447d7ff5cba7504240c59ecc97c5927b64e4502e5c55c697c835bab97f0f2b079ec33acec3bb77593c434c37c96930cf6f46facd500165b488cee196d27c0c42e13613d7c886f4c2fdd933f778c30cc80c3fff8d18a903bf139f52bacd8da3adca0c9a982c27e366875f0e2d1ab1a86d6d721777f0357d8050f5ba6da0d3019b3fe29e2fc3377f202e51668a0c11431db865a5aacbbba2f2deeccb55e71eb7b24ccd3395d04333f0a743a23b9c54e7d1d32388334206ea3558e674369914851b32f767ace682e37622fccf06b28988abf9851c985ba344ecf90112884d6e033f8b7270516db7646c11ba6c4cdd60ed401c8223d7574fcbe8fa502e408acf5057e9afcbb0c38baec5629a211c2dc5b0af467a03e0ab36df909819cfd2b99a6124819f5e8c7f6031660239467cddc4aa6bef43d8fb6a45223fe04562a679cfe01ef82279438ae7181158137c74aadfdbc30dfcb7c0dca76efbeb9f2014b932ea5bdd4477436e75c35fe6d5f6113ab9cbdfdb60efb7352ee9be3e1843b5e4af4664f99683ac7b4460d8dd3d86828292fb41d42e4b83dd5e5890fcbf859dc8b8afba3885ff95c23810b56ab2a771c6b84c876e74b184ac10fb6c681105f130c61436ae8f4ddd3602b6de5a653b95e7b824052ceac5cdfdb836748a28bf2cd511263089413d89c014135d5716dce82095dc18c15a7d64d439e2c7b4eca2b7af3f3f4907a4e7fe38e503597fecd91b333d70ecf7250e923ed04b35cd43c9d56d0a030dd130f106754c720bfe73feebd1604264ad42cde2540cece0f487b723c4db5e647229ee2b52457ff71ea783049aefc24132997c700d3d20b9f73424997265832aa6876346f5069c4de927f1475cdfde0099a50b60f8477116c8b9e6523cd01e2ac9129dc8fc5683b770ef048a4078203ea0a2acb36f9816efe16efa5eae4936ed373089f1cd89ea045d35c322114ed2563628afc7510e2fb00f22ce4ad1e186acfdc65cf9f97a141d51387586db11dc5719a359f8bb6cc4ea9a262cccc151a7427bdf87d86702b3c1a400d5af85e82227e3d76937810158fa3a1c81668bf196c1d6dac0efdcd4e240af00caf53ff1708a52ce94fa305aab0d40ba96799af724f8195df204bc047e41063a643ec63038bb764b5be688dfe62ba6e6fc03f72e14337ee0aac0000482ef9e0a2e7cdb61945ba0f9c092caee27b6dca0ba2464bfc2e3fda216a80ac975f66640b045dac7c2e5c932d73833daf8f19043858e1ca0bdbcd1c234a87ac32066b41d11d61ff105a47920c490f85163f4c4ad667d3b61a94cabc7c656cf9efc54b1d7cdffd6553069da9045d553497e5ee6ec08af70c0c1faf176dcb6fb53b33b527bc2316714e6986b15bba402b658d13a42c007932c0a1739276c1803b0656c431d80569ed3f54b1e25a41afde2f0da1f3914d52b392d37e8f9b9ccfef8c463dbc0f0f5a90cc2827d8a7b95023ba983f2d62c95881f64cb2db3ee614fb75f4a8dc2f16f6fc65061cd979e5a3a088663cc0d9d7dc239e1b63728be54eabc2766269ff7183897d6f3da1680f6d732c2e6c2de1f552980ce6af57b208c90cfa963597298f9d46997e0db4edda2048742b7d010e9bad158590f136e17b26cc5eb5fcd2c23ac7449a06ec076a2df62f1dfbf1f8c2db20351cd5cb9a51b38163ba1e01de9d97c49e419b68d727371242217780ae12002bab3beb89605c0d7e2a957cbdf300da0758edfcfc610cad5e3ef34bdaa0a3d30d57208c7544243dd94e62c21d3659763d6ea6e7d2e20b9aadc329bb7eeb659d9a887c8025f65a252b340d7a91eafea6fd026fa46a1a568ae6368eea5ee8cc9d2533666ea2466f1af4e344daf73ce0d976aa9f9576e75efb9b3ab164895ef288be0aaff2dc423402f8ae9ee6988c313f0c0e0006f8288f8022ad2af31324e46632a7dae16db19eabe086397856feb9466b05f58204f68227d949e28372effadafd52e940eab68b0a852e978801155acb7182712070de6303e4f5ff2e2d82e127d60fa976c8cafc5e567b01db1c0e0bd3ae71213b99f56559071d851fe8fc756afbc3c91eab427f151da8c0b5e1a69ca45d4fd1d084292f345627de64abdd9252011421d147baac2ed1cadee0a3b20f545db899d6dc9e1a9c87e7c7b04ad1e3c526e0c13755ef232589726732231dbe81c5fb9cfbcb6601f375cb09c0d911e5451a8ab2a41295937c69fe96cebb20269d79a27119e1bd6ce0162b3911be34e11dbcb71cf42bf93bfba83ae079de7db9f6cf78c1571eaa77beacde620b229e54d45d897a70c94a964dabfc174395c0b7ffcba356fff1b214c302a6fdf3a78d540559a810fd9049fb03e3f0bdaef7af88d3c1606626aa56109327990db169a82b75f2309cff31ed2881893668a3d22927fdbec56c1c09108dc2b922353a6c7cd2a3da1527f3a6c7db3f57aa0628d18705f49174d9c1df301b81f88035733031e0f928a686f2e145a9a9a8a54ac3ffc755f6e3ea871ddc13ef99c2ee980cbd24d82f1d1c6c0111df3536e08f7a9f7f5851dfebc68c3fa2853238c5d2f386f37605fa9093b9274c20d2b3af1424af2022d4472cb2e858cb55a79df813844ada83b2165c6c4e47e3700ad950bb68d6ee211139e40c6f099d046f8d7b9f4767b4d7f56dc9e23393afc376aff988ccf9c5cfd53bbabf242405c55e657c05bd511e0c0a537159ef9553380b7e83779d7b299e8ed8e17b3bdfcc20851f10988f6a8291d7fb51518525074d1030f2fea9af29dfcb42e4d369eb35ea02251fdc68b5685031e36d390d827d735906c58e42e36b256a54395cc489fe15d9eac9be342062ed05856fee292e1454bbddcf7866e8cc2539d18e408c2874de9fae02ae0dbaa52eb2050d9bc5d5452a7f5f7109f93ec4ceaed84c694ccc3b51a783f4b5d17edb5938805f29d96f64772c73508790422b4653988ee2b85bbfd3a624a3aa6e2f283394c7a4a3b14ce5110a33a0743f7659e74480d8d806e73fc7dfeafa6c714233e3b438c79123c343cb82b2027ce744356259312772401cdf5faec30c623c8773c1aa68825c4bbbea79be87bb843fafb002e681ada95d17faa73a5ef7efdf220db78302ca7c78e2959b7c6761996ca8eee9bdff749df50c7bce9c5e6351178763f6be289482eb4ddaa9942b7995a7b57e3c36bcb6c937603942f5644c19de275c775e335e66ea39f0b0a139b0bfb3ae9067eb3de4664518a0bd63b8b771aadba16e163fd080bba8ef7dbe615e318e1613cc21407ceb3efc170ec56e97c9469b9c89d81f0c8597693e642ef927a7ed22f9b0cd32175a79a64338180ada1876ef704a082e84f8b1d437b77491ecdda1af4722305a0978a567d6db649e86ae75ac406c4dfa457717dad54cc01a34dd8c8ac2dd161b3e7953c5b0e1ccf587b74680e50b3fb0191b324e69ba894dbab7018feac0886e22da618a447c2789aa365ffd417c9c7571301f3102a9bed516b837da316b7cd4fe455b4d5564ffb6c650034df6c7675597bc5bbe3feae5e47f02aecaa6b4208d71eb64c29d0240c47f2de4cdac3e958c291d4004846f199f20c1499b28fba244be40fc7bcd9df65dc53e1ff961b0a3cb206d598134036f2b5d210b9ae457b23964ee07704072ff17b9d0f7db693e302d999c9f694d002c3746d7a905ad367861982241f1bf60982a1202e64b0610c0668c17229bab3c277ce208184c7a7b4f5eb836ceba0693a683d6ca0b2bd04fed12876fd0cc2a58c48a0358d237c1bc291cccb900ccacaacdced0f5f4ef091f6f226904a8ead7ffe34d00298647a9f044485030e2032c45c34486df0c8ddd81132d33db9b32677c6996fb61261d8f3b9c1c5e3f18ab3ee3e004a20414e995b7c2ae9a797f6cf725bde20c2045baab3c832f3c0cbdbcfdaaea99a985ef91446c2dd9f4277e41ef03d7487b7a1f5bc9a43f6de34ec62a27e94573478d2c28a42f47cdce7edf21a2ed5e64837b6cad5f7bddcb9653159da4917e0a9755bb8d0326381044cdaa0267be6a78b3ece881f4a7df471ffc5c5da2f223f6eed978f0f4ef77e9c9ddc7811a9453d9325842388fee257fea45c048913694ad6f2f8be3a743650945a30ee376847b72692c5c0d65f78bad378bce571a1d733c6efadba0df5d52430db5753edabf162d1cad8cc0487a4a9f574ca941eb2c69bc15d84b26ea6c4d72f971d60a1fed6c476bb31dfd3fa34e95b59c8901dd01fd21dd33f262c91ef651e960c96671251a649b5f91835108a486854a2c2167ae0590e5482c00afa8a66dd63455c0b846bbfbf0cc5ac1300c703e6c7719830d94139f24c079be867e238876ad426371124b140a4413b7d7d9237248f53f550df08758d5ea11763092c60a1e59cc4acfa440656e22204c400848509ae590e190c95aed86fa72d0d9f59b36130eeca6e43b01d5ec73d836d98a0ebdb2913f82080e1456943a725a09abc40a0b20fd606a3c615298155ed4e2126de02e01b164e07a4491be64ca9e0087ddf1b7ca6d2012ee4bfa88e768556c480f9d28af6e600a4a08e884f57d2da0813f51b71e64037fc70d79689ccd2feea1116431bad7ab599dd7521300f2d13cdb259de5cb35bdd5777f44fd096135a8fc57c96253b1a09b53e68d84b72dbbfdf33de8e80ef60853e67c1bc0c033d669d9490fd31af59160e3365ed505a2a19947f64611b25ca750ce8e3781b7c76b22fb54b72d3064b7c01990302655df472f61b0c1eb307389d8ff279fb725ac82813361e2684213a97fe4447b40d3c7998357f34ba0c48f63b4455b2fc04d1a96e2bfc6dd8f892d2f226c5c79052d8b03b45cca2fe4cbced6584e7b4b2b19c6c0987f2e2d9d21c7209b72e0549d53b99117dcb217e309bb0b90c49256fe9dd80fff6ba6cbfaa35a100016c54def75c4fa8f8442ca4d932f125cc86ae59bc1ae478b11b22766c5eab03633b01e39cc6215b9550826a71de06f402de913aef922762882a7140b418c0e36ec7e45576d2ae2361703d62e3108a5e17da337e3e25a9a8675f4bb794d609d78ecd6b5574ce8a757198f5c78986ebe5b9f95b602b2d733775cae2a9ab5b3fc3dd8a52dddda6ca2d3f9a77ce11798817e9dcc678698b0b439a186cd443ecd96ee541471a0931e79ae79e38d1548765adcc765e965a191720bd25e98fc4169f92289e6846e3030cff563132b8c8fdac319869059b8011a7082c59392a201caaf620b8900e6d6c8e7a11cd70d0548c56a309bc3df7cac0af6c8eeeb2e4d3eac5d7bf20fb3db587f1183bb42ac9a0bf17885bcf4fe9a22f5012ef34edd91a3f4541c11f46aeafafd47935187e55771a35ec4cc11209fb840406aa11f815e619ae4f16c7e5831c39f12ee3f9038235b6f9c1b56de140b4f5d91392491af1b7e68832b9244026a5ea949122a58934c7c01d5982208a022e9103dcabb4936b3619a30db1493760c7448c57c4dd7a78d1f41c8c06f65f3ecaff76a3eef56429badb760bd07f9b32d6a32aa6b78e63cb0aa32b2049a76fdb699c28ed9dbdd23b7c73c2be20cabada85ea6a2083ec10407287d42048f36a66d7cbaf991b3693f0ab6603cc296f23bfb044fad35e957d58b6c28fd8c91a918fb7e0768ecc8956876eb1f7effb70c02b79c1b59a1c99d32d0c77395bbdf044f019c182ae7fd736df08a2a7f99054ab2400e3ba58573bd5158a88eede1041148463f971d549b9b6900ccf7c6a8f25a581ae292a5f68c20182f33d739857cb595f2cd68cbfb56cd6b57dcf4ac64635ba5c4e00d71af3bba1d047ae5baf651f3204f174880b9013e22b3d78ec0bd592760387e862b14ce94f04a2a4ca8d4be5b1fc609fc2cbb52446ef1fd88b5736e56d859b5abfe8a3e5e5c9ae332690c60d35a8207f9fa478dcba6d0b017</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">欢迎访问我的博客，考虑到版权问题，本文不公开</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DNA%E6%B5%8B%E5%BA%8F/" rel="tag"># DNA测序</a>
+              <a href="/tags/%E4%BA%8C%E4%BB%A3%E6%B5%8B%E5%BA%8F/" rel="tag"># 二代测序</a>
+              <a href="/tags/Sanger%E6%B5%8B%E5%BA%8F/" rel="tag"># Sanger测序</a>
+              <a href="/tags/dNTP/" rel="tag"># dNTP</a>
+              <a href="/tags/ddNTP/" rel="tag"># ddNTP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/14/12-23weeklysummary220611/" rel="prev" title="每周总结和反思（2022-06-11）">
+      <i class="fa fa-chevron-left"></i> 每周总结和反思（2022-06-11）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sanger%E6%B5%8B%E5%BA%8F%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Sanger测序法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%9E%84%E5%BB%BA%E5%8F%8D%E5%BA%94%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.1.</span> <span class="nav-text">一、构建反应系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%89%A9%E5%A2%9E%E7%9B%AE%E7%9A%84%E7%89%87%E6%AE%B5"><span class="nav-number">1.2.</span> <span class="nav-text">二、扩增目的片段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%87%9D%E8%83%B6%E7%94%B5%E6%B3%B3%E5%92%8C%E5%BA%8F%E5%88%97%E8%AF%BB%E5%8F%96"><span class="nav-number">1.3.</span> <span class="nav-text">三、凝胶电泳和序列读取</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">546</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2242</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
