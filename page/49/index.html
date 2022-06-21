@@ -191,6 +191,194 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/28/Are-these-data-real/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/28/Are-these-data-real/" class="post-title-link" itemprop="url">如何让临床试验中的数据造假露出原型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-28 16:39:43" itemprop="dateCreated datePublished" datetime="2018-08-28T16:39:43+08:00">2018-08-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:04:35" itemprop="dateModified" datetime="2019-02-28T01:04:35+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1. 译自Al-Marzouki S,et al.Are these data real? Statistical
+methods for the detection of data fabrication in clinical
+trials.BMJ,2005,331(7511):267-70.<br></p>
+</blockquote>
+<h2 id="一前言">一、前言</h2>
+<p>大多数临床试验的统计分析是基于数据是真实的假设进行的，在数据分析过程中可以发现大量的随机误差(accidental
+errors)，但是如果人们试图“编造(make
+up)”数据，他们可能会以一种并不明显的方式进行，从而避免有较大的差异(discrepancies)。因此，人为编造的数据具有特定的统计特征，这些特征在包含随机误差的数据中不明显，但已经有若干统计分析方法来检测临床试验中的欺诈数据。</p>
+<p>在本文中，我们使用统计方法来检查发表在BMJ杂志上的两个随机对照试验的数据是否有问题。其中一项试验中，BMJ的referees提出了存在学术不端行为的可能性，这是基于所计算的P值与试验报道的均值，标准差和样本量不一致。另一项试验应该不存在学术不端行为，但我们使用相同的方法来分析，从而便于比较和说明问题。</p>
+<h2 id="二方法">二、方法</h2>
+<h3 id="一饮食试验">（一）饮食试验</h3>
+<ol type="1">
+<li><p>存在问题的试验（简称为“饮食试验”）是一项单盲的随机对照试验。研究了富含水果和蔬菜的饮食对831名冠心病患者的影响。</p></li>
+<li><p>患者被随机分配到干预饮食组（I组，n=415）或对照组，即常规饮食组（C组，n=416）。</p></li>
+<li><p>该研究目的是分析干预饮食（富含水果和蔬菜）对两年后冠心病危险因素的影响。</p>
+<blockquote>
+<p>我们不分析两年随访后的数据，因为干预措施可能会导致两组之间的差异。</p>
+</blockquote></li>
+</ol>
+<h3 id="二药物试验">（二）药物试验</h3>
+<ol type="1">
+<li><p>第二个试验（简称为“药物试验”）是来自31个中心的21750名轻度高血压患者的药物治疗效果的随机对照试验。</p></li>
+<li><p>本文随机选择了5个中心，其中838名患者具有所选变量的完整数据。</p></li>
+<li><p>患者同样被随机分为接受药物组（I组，n=403）或安慰剂组（C组，n=435）。</p></li>
+<li><p>该研究的目的是确定药物治疗是否可以减少35-64岁男性和女性因高血压和冠状动脉事件导致的卒中发生率，随访两年。</p>
+<blockquote>
+<p>同样，我们不分析随访后的数据</p>
+</blockquote></li>
+</ol>
+<h3 id="三检验数据真伪的理论及方法">（三）检验数据真伪的理论及方法</h3>
+<p>我们对两个试验中两个随机分组(即干预组和对照组)的基线数据进行了各种分析，希望能够找到证明饮食试验中的数据并不是正常产生的证据。我们用来自药物试验的数据进行对比，期望它们能够显示在试验期间正常收集的数据的典型模式。</p>
+<h4 id="随机分组之间的基线数据相似">随机分组之间的基线数据相似</h4>
+<ol type="1">
+<li>在一项随机试验中，随机分组之间的基线数据应该相似。随机分组之间的均值、方差和数据分布的形状必然相似，因为这些随机分组之间的差异只可能是偶然因素造成的。</li>
+<li>这就是为什么通常在真实试验中不对基线资料进行统计学显著性检验的原因。如果进行这样的检验，大约每20个检验中就有一个是纯粹偶然的。</li>
+<li>本文中使用t检验来比较随机分组之间的变量的均值，用F检验来比较随机分组之间的变量的方差（标准差）。</li>
+</ol>
+<h4
+id="随机分组之间数字位偏好digit-preference相似">随机分组之间数字位偏好(digit
+preference)相似</h4>
+<ol type="1">
+<li>由人（而不是机器）记录（或编造）的数据倾向于显示某些数字的偏好，例如四舍五入到最接近的5或10。这可以在最后记录的数字位(digit
+of numbers)中看到，称为“数字位偏好(digit
+preference)”。这种数字位偏好应该在随机分组之间非常相似。</li>
+<li>我们使用<span
+class="math inline">\(\chi^2\)</span>检验来检查数据的最后一位数字是否存在特定值的趋势，以及随机创建的两个组中是否有任何观察到的相同的数字位偏好(digit
+preference)。</li>
+<li>数字位偏好可以在人为记录的所有数据中发生，但是这种偏好的任何模式在随机分组之间应该是相似的。</li>
+</ol>
+<h2 id="三结果">三、结果</h2>
+<ol type="1">
+<li>表1显示了每个试验中两组试验共有的变量的统计描述。
+<ul>
+<li><p>药物试验的值在干预组和对照组无显著差异。</p></li>
+<li><p>饮食试验中身高和胆固醇的标准差存在显著差异。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-28-table1.jpg" /></p></li>
+</ul></li>
+<li>表2显示了每个试验的t检验和F检验的结果
+<ul>
+<li><p>在饮食试验中，22个变量中有16个变量的方差显著不同，有10个变量的均值显著不同。并且其中有几个P值极端小。</p>
+<blockquote>
+<p>正常来说，在上述比较中，约5％的变量可能存在P&lt;0.05，并且不应出现极端小的P值的情况。</p>
+</blockquote></li>
+<li><p>在药物试验中，虽然只比较了五个变量，但没有一个变量的基线数据的均值和方差，在干预组和对照组之间有显著差异。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-28-table2.jpg" /></p></li>
+</ul></li>
+<li>表3显示了数字位偏好的分析（前提假设：最后一位数字的分布相同）
+<ul>
+<li><p>在饮食试验中，所有<span
+class="math inline">\(\chi^2\)</span>值都非常显著，表明所有变量都表现出强烈的数字位偏好，甚至连胆固醇检查的实验室结果，数字偏好也是明显的（这是出乎意料的）。</p></li>
+<li><p>在药物试验中，<span
+class="math inline">\(\chi^2\)</span>值对于身高非常显著（表示可能预期的强烈数字偏好），但对任何其他测量值都不显著。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-28-table3.jpg" /></p></li>
+</ul></li>
+<li>表4显示了随机分组之间的数字位偏好模式差异的<span
+class="math inline">\(\chi^2\)</span>检验结果。
+<ul>
+<li><p>事实上，产生数字位偏好是很正常，但是在每个随机分组中都应该显示出类似的数字位偏好模式。</p></li>
+<li><p>在饮食试验中，除了胆固醇，空腹血糖，咖啡因，胡萝卜素和维生素A之外，干预组和对照组中其他所有变量的最后一位数字的分布显著不同。</p></li>
+<li><p>在药物试验中，两个随机分组在最后一位数字的分布上远远没有显著的差异。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-08-28-table4.jpg" /></p></li>
+</ul></li>
+</ol>
+<h2 id="四讨论">四、讨论</h2>
+<h3 id="一p值的大小">（一）P值的大小</h3>
+<ol type="1">
+<li>饮食试验中基线资料的变量之间的均值和方差上的差异表明，这两组根本不可能通过真正的随机分配而产生。</li>
+<li>从几个变量差异的t检验得出的P值的大小（极端小）与随机分配入组的原则也相悖。</li>
+<li>同样，随机分组之间数字位偏好模式的显著差异提供了额外的证据，证明这不是真正的随机试验。</li>
+</ol>
+<h3 id="二随机化过程">（二）随机化过程</h3>
+<ol type="1">
+<li>如果这不是随机试验，那么这些数据是如何产生的？一种可能性是数据本身是真实的，但随机化过程已被颠覆（实际操作上没有随机）。这可以解释基线资料的变量均值之间的一些差异。</li>
+<li>如果存在对随机化过程的颠覆：例如有意让胆固醇高的患者更多地进入对照组。那么就会在干预组和对照组的基线数据上出现较小的差异，并且在医学相关的变量之间也会更加一致。但是在表格2中，Cholesterol的方差在两组间有差异，而Total
+cholesterol的方差在两组间则没有差异。这就很难用“随机化过程的颠覆”来解释这些异常的数据表现。</li>
+<li>此外，更难以解释的是基线数据方差的差异。部分变量的方差和均值均存在非常显著的差异，而对于身高，Cholesterol和甘油三酯，在方差方面存在非常显著的差异，但均值却没有差异。如果有故意将血压较高的患者分配到某一组的倾向，那么我们可能会发现平均值存在显着差异，但方差没有差异。但是，我们没有找到这种情况。</li>
+<li>此外，在招募时，医生或卫生专业人员可以随时获得的变量的均值没有明显的差异。</li>
+</ol>
+<h3 id="三数字位偏好">（三）数字位偏好</h3>
+<ol type="1">
+<li>数字位偏好本身并不是学术不当行为的证据。例如可能出现两个随机分组之间的数字位偏好的不同模式，如果其中一个人记录了治疗组的数据，另一个记录了对照组的数据。</li>
+<li>然而，如果声称该试验是单盲的，这意味着那些记录数据的人不应该知道患者被分配到哪个组。因此，在这种情况下，随机分组之间的数字位偏好应该不存在显著的差异。</li>
+<li>但也许试验并非如文章所描述的那样采取单盲，并且记录数据的那些记录员会分成2组，分别记录对照组或者处理组的数据。这可能导致随机分组之间的变量的数字位偏好存在差异，因为这个过程带有人为判断的因素。</li>
+<li>但这仍然无法解释两组之间的均值和方差的差异，因为数字位偏好对均值和方差的影响只会很小。</li>
+</ol>
+<h2 id="五结论">五、结论</h2>
+<ol type="1">
+<li>随机分组之间的均值，方差和数字位偏好的差异，一起强有力地证明了在饮食试验中有数据造假的行为。</li>
+<li>饮食试验的数据要么是完全捏造的，要么是篡改过的，而且证据确凿，应该采取适当的措施来处理这个问题。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/27/Risk-Factors-for-Unintended-Durotomy-During-Spine-Surgery-a-Multivariate-Analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2218,456 +2406,10 @@ of sample mean)，衡量的就是样本均值的离散度。</li>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/17/Excellence-in-Clinical-Practice/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/17/Excellence-in-Clinical-Practice/" class="post-title-link" itemprop="url">在临床实践中成就卓越——如何提高你的临床效果</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-17 21:17:47" itemprop="dateCreated datePublished" datetime="2018-08-17T21:17:47+08:00">2018-08-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:54:38" itemprop="dateModified" datetime="2019-02-28T00:54:38+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">临床实践</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明：<br> 1. 翻译自Joel M. Matta, M.D.的文章Excellence in Clinical
-Practice: How to Improve Your Clinical Results.Journal of Orthopaedic
-Trauma,2005,19(6):p432-434. <br> 2. 译文部分参考自丁香园的帖子：Joel M.
-Matta大师的教义和作为一个普通的创伤骨科医师的我的感悟</p>
-</blockquote>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-18-maxresdefault.jpg" /></p>
-<p>Dr. Joel Matta is an Orthopaedic Surgeon Practicing Hip and Pelvic
-Reconstruction. He is the founder and director of the Hip and Pelvis
-Institute at St. John’s Health Center in Santa Monica, Calif. A veteran
-of 35 years in the practice of orthopaedic surgery, Dr. Matta also is
-the founding President of the Anterior Hip Foundation. He has published
-more than 30 articles and studies on the advancement of techniques and
-methods used to simplify and improve hip replacement, pelvic and
-acetabular fracture treatment and periacetabular osteotomy.</p>
-<h2 id="一什么是卓越的临床效果">一、什么是卓越的临床效果</h2>
-<p>What is the formula for excellence in orthopaedicclinical practice?
-Certainly, there is no set formula for everyone. These aremy thoughts
-based on what I have learned from others, as well as my personal
-experience.</p>
-<blockquote>
-<p>什么是能在骨科临床实践中成就卓越的公式？诚然，对所有医生而言没有固定的公式。以下这些是我基于学习他人及个人经验的一些思索，谨供参考。</p>
-</blockquote>
-<p>There are a number of ways that excellence can be measured, but I
-think the most important one is the benefit or the clinical results that
-we provide to our patients. Excellent clinical results exist in many
-settings and are not necessarily related to the notoriety of the surgeon
-or institution.</p>
-<blockquote>
-<p>有许多可以衡量临床诊疗卓越性的途径，然而，我认为其中最为重要的一条是我们医生能提供给病人的益处或临床结果。在很多种情况下，均可产生卓越的临床效果，其并非一定与外科医生或诊疗机构相关。</p>
-</blockquote>
-<h2
-id="二把激情和热爱放在首位而不是赚钱">二、把激情和热爱放在首位，而不是赚钱</h2>
-<p>My first recommendation is to pursue a type of practice based on your
-passion. You should find your niche according to your interests and
-abilities.</p>
-<blockquote>
-<p>我的首要建议是追求一种自己有激情且这种激情能够扎根的临床实践。根据兴趣和能力找到自己的临床实践领域。</p>
-</blockquote>
-<p>Monetary reward will influence our activities to a degree; However,
-you sell yourself short if you place money first. Fortunately,in
-orthopaedics we can “have our cake and eat it too.”</p>
-<blockquote>
-<p>金钱报酬会在一定程度上影响我们的临床诊疗行为；然而，当你将金钱放在首位时你就把自己的短板暴露无遗。庆幸的是，在骨科领域我们可以拥有自己的“蛋糕”并可以享用它。</p>
-</blockquote>
-<p>Our specialty allows us to enjoy our work as much as sport, gain
-personal satisfaction and community recognition, and also be well
-compensated. I think the key to all of these benefits is our passion and
-commitment to our work. There are few careers available that combine the
-pleasure of both manual and intellectual challenges.</p>
-<blockquote>
-<p>我们的专长允许我们像享受运动一样享受我们的工作，得到个人的满足和社会的认同，当然也可以获得很好的报偿。我想我们能得到这些实惠的关键在于我们对临床工作的激情和担当。世上没有多少职业能将挑战智力和体力的乐趣有机结合起来的。</p>
-</blockquote>
-<blockquote>
-<p>注：金钱的私欲是医生的短板。就此短短一截的距离即可使你对卓越的临床实践难以企及。就像Matta教授说的，金钱不是追求，而是你有所成就后的自然而然的回报；这种回报的对象，即医生，是被动的（be
-well
-compensated）。我们自己的蛋糕，即骨科领域，有着丰富的回报足以让我们享用。得到回报的前提是作为医者的你对临床工作的激情和担当。</p>
-</blockquote>
-<h2 id="三与患者充分的沟通">三、与患者充分的沟通</h2>
-<p>Although we are surgeons, and the job we do in the operating room is
-probably the most important, we also must take pride in our one-on-one
-skills with patients. If patients are able, the more that they
-understand about their problem, the better. Detailed preoperative and
-postoperative explanations can help the final result. I also rely on
-patient-information publications and my own website to inform the
-patient and family.</p>
-<blockquote>
-<p>作为外科医生，尽管我们在手术室所做的工作可能是最重要的，但是我们必须对我们有与病人面对面交流的能力引以为傲。如果病人拥有能动性，他们知晓自己存在的问题越多越好。因为，术前和术后详尽的沟通可益于最终的治疗结果。除了面对面的沟通外，我还借助病人诊疗信息出版物和我自己的网站对病人及其家属进行告知。</p>
-</blockquote>
-<h2
-id="四全面细致的检查仔细耐心的聆听">四、全面细致的检查，仔细耐心的聆听</h2>
-<p>The surgeon must be disciplined regarding their physical examination
-of the patient with acute high-energy trauma. The patient should be
-completely undressed and all skin areas visualized. In addition to a
-complete and detailed neurovascular examination, all the extremities
-that do not have an obvious deformity should be palpated and moved. Use
-x-rays liberally.</p>
-<blockquote>
-<p>医生必须严格自律于对急性高能量损伤病人的体格检查。检查时需要脱去病人所有衣物，检视其每一寸肌肤。除全面、细致的神经血管功能检查外，还需要触诊和活动所有无明显畸形的肢体。要不吝进行X线检查。</p>
-</blockquote>
-<p>For the subacute or chronic problem,listen carefully to the patient.
-You need to always assume that the patient is telling the truth and is
-not crazy or a “crock.” There are many problems that we don’t yet
-understand,and everyone does not fit neatly into a category. Many old
-trauma problems,such as malunions and nonunions, require a unique
-solution that you need toinvent. The extra time that you spend in
-planning and consultation in these patients will make a difference.</p>
-<blockquote>
-<p>对亚急性或慢性病损，医生需要仔细的聆听病人的陈述。你需要总是假定病人是在述说实情而非夸大事实或“闷罐”一样有所隐瞒。有很多问题我们尚不甚了解，而且也不能对每一病例简单清晰地归类。许多陈旧创伤所导致的问题，诸如畸形愈合和不愈合，需要你制定一个独一无二的解决方案。对这些病例进行询诊和制定方案所精心花费的额外时间将会使治疗结果变得不同。</p>
-</blockquote>
-<h2
-id="五若无法提供帮助以改善患者的现状实话实说">五、若无法提供帮助以改善患者的现状，实话实说</h2>
-<p>At times we find ourselves at a loss with patients, particularly
-those with chronic pain problems who often will say “you’ve got to do
-something” or “I can’t live likethis.” The justification for surgical
-treatment should not be based on such desperate reasoning. Surgery
-should always have a probability of success when undertaken. In some
-situations, you may have nothing to offer the patient, and in that case
-it is best to say so.</p>
-<blockquote>
-<p>有时候我们会对一些（我们治疗过的）病人，特别是那些存在慢性疼痛的患者，会说“医生，你需要再为我做些什么”或“我不能这样活着”的病人，感到迷失。事实上，外科（手术）治疗效果的评判不可基于这样不顾一切的理由。一旦实施，手术总会有成功概率。在某些情况下，你可能无法提供给病人任何帮助以改善其现状；而此时，你最好实话实说。</p>
-</blockquote>
-<p>In a few cases, I have gone so far as to tell patients that they
-should quit seeing doctors before somebody operates on them. A large
-proportion of these difficult patients are chronic narcotic users. I
-believe it is our responsibility to limit prescription of these
-medications to acute or terminal situations, such as neoplasm.</p>
-<blockquote>
-<p>在少数情况下，我甚至告知病人说他们需要在有人为他们做手术之前停止四处就医。这类棘手病人的大多数都长期服用麻醉剂。而我认为我们有责任为急性期或终末期病人，如肿瘤病人，限制开具这类药物处方。</p>
-</blockquote>
-<blockquote>
-<p>注：医学科学有发展的限制，医生有知识和理解力的限制，这些造成手术必然存在成功的概率。医生所做的就是在诸多限制的情况下尽己所能使病人得到最大的临床效果。也正因为这些限制而使得有时候你没有能力去改善病人的现状而使其受益。那么，你该怎么办？为了挽留病人、满足私欲而强撑（最终必然是效果不佳），还是告知其实情（你真的没有能力）并协助其寻找更好的帮助？我想，随着不断的学习、领会、悟道和实践等，个人能力方面的限制就会变得越来越少且能为病人提供服务的质量就会越来越高。</p>
-</blockquote>
-<h2 id="六手术一定要有指证">六、手术一定要有指证</h2>
-<p>Be an expert in the interpretation of x-rays,CT, and magnetic
-resonance imaging. These imaging studies combined with the clinical
-factors provide the main indications for surgery.</p>
-<p>Have indications for surgery; do not operate just because a fracture
-is present. The integrity of you and our specialty suffers with the
-application of faulty indications for surgery. Operating without the
-proper indication is not justunethical, it is an assault.</p>
-<blockquote>
-<p>我们需要成为阅读和理解X线、CT和磁共振影像的专家。与临床症征相结合，这些影像资料的研读提供了主要的手术指证。手术需要指证；不能仅仅因为骨折的出现而实施手术。因错误的指证（或无指证）而进行的手术会损害你和我们的专业形象。无恰当指证的手术不仅仅是不合伦理的，其简直就是人身攻击。</p>
-</blockquote>
-<h2
-id="七不断学习向领域内的最高水准看齐">七、不断学习，向领域内的最高水准看齐</h2>
-<p>We all must aspire to perform the highest quality of orthopaedic
-surgery that we are capable of doing. Within your chosen niche, you
-should do everything you can to learn from the best.</p>
-<blockquote>
-<p>我们必须渴望实施我们的能力所能达到的最高质量的骨科手术。在你所选择的领域里，你需要倾尽全力向业界的最好看齐。</p>
-</blockquote>
-<p>Read publications and texts. Attend courses. As we interpret medical
-data, large multicenter studies report the standard level of care that
-is present as an average across centers. Pay attention to the results of
-experienced and knowledgeable single surgeon series. The large single
-surgeon series can represent the level of results that can beobtained
-with dedication to that subject.</p>
-<blockquote>
-<p>阅读刊物和课本。参加培训课程。就像我们解读医学数据一样，大的多中心研究成果代表了跨中心（普遍）适用的医疗关怀的一般水准。然而，我们需要密切注意那些有着丰富经验和学识的单个医生的系列研究成果，因为单个医生的大系列研究成果能代表全身心致力于该课题（在此研究范围内的）所能获得的（世界最高）水平。</p>
-</blockquote>
-<blockquote>
-<p>注：</p>
-<ol type="1">
-<li>高层次的学习方法：向业界最好学习并着重于学习单个医生的关于某一领域的大的代表世界最高水准的系列研究。代表普遍水准的多中心的研究成果可让我们知道业界的大多数精英都在怎么做、如何做。</br></li>
-<li>中等层次的学习方法：只看课本、书籍来学习处理问题的一般原则和方法。</br></li>
-<li>一般层次的学习方法：无阅读及思考而仅凭带教老师或主任言传身教的学习方法。</li>
-</ol>
-</blockquote>
-<h2
-id="八彻底的学习和运用现有的最好的技术">八、彻底的学习和运用现有的最好的技术</h2>
-<p>Visit and observe patient care and surgery with the field’s best.
-Most orthopaedic surgeons are open to this. A corollary to this is:
-learn and adopt the best existing techniques completely before
-attempting to modify them or develop new ones. By doing this, the
-maximum benefit to the patient can be obtained, and in some cases
-disasters can be avoided.</p>
-<blockquote>
-<p>参加和观察专业领域内最好的病人关怀和手术。大多数骨科医师是非常愿意这样的。对此可以这样推理：在尝试革新技术或者发展新技术之前，需要彻底的学习和运用现有的最好的技术。这样做了，医生就能使得病人最大程度上受益，并且在一些情况下能避免（给病人带来）灾难。</p>
-</blockquote>
-<p>As a resident in 1978, I attended my first Swiss AO Course. On
-returning home, I was delighted to be presented with a tibial plafond
-fracture. I operated enthusiastically; however, as the months
-progressed, I watched in horror as greenbone fell out of the wound. I
-had learned how to plate and screw the bone, but not how to make the
-proper incision and handle the soft tissues.</p>
-<blockquote>
-<p>作为一名住院医师，我在1978年参加了我的首次瑞士AO课程。回国后，我为能主刀一例胫骨平台骨折而欣喜若狂。我激情四射得做完手术。然而，数月过后，我惊诧的发现绿色的骨头自切口冒出（感染）。我学会了如何用接骨板和螺钉固定骨折，但没学会如何作切口和处理软组织。</p>
-</blockquote>
-<p>Similarly,successful acetabular fracture surgery is achievable with
-the specific combinations of the operating table, patient positioning,
-surgical approach, reduction techniques, and implants.</p>
-<p>I have a few visitors who wish only to peer into the open wound. It
-bears repetition that you should learn and adopt the best existing
-techniques in their entirety before attempting to modify and develop new
-ones.This knowledge will keep you from repeating the mistakes of past
-failed techniques and forms the basis of our technical evolution.</p>
-<blockquote>
-<p>同样的道理，当一些特殊因素，如手术床、病人体位、手术入路、复位技术、内固定物等，有机融合于一体时髋臼骨折手术方能成功。我发现一些参观我手术的医生仅仅想看到手术切口（仅仅看我如何显露骨折而非整个手术过程）。在此有必要重申：在试图改良技术和发展新技术之前，你需要先将现有最好的技术进行整体的学习和运用。这一认识是技术革新的基石并能使你免于重复过去失败技术的谬误。</p>
-</blockquote>
-<blockquote>
-<p>注：除了认真学习以外，我们也应该虚心和踏实：不要轻易得怀疑知名学者的成果、推翻现有的诊疗常规、“改良”甚至“发明”新的器械及技术。如果经过论证你可以这样做，那么一定需要建立在熟练学习和应用现有最好技术的基础上。否则，常常会重蹈覆辙或失败。上世纪70年代末，Matta教授是带着怀疑的心态到法国向享誉世界的髋臼重建大师Emile
-Letournel学习的。通过逐渐的学习和认知，他逐渐拜服并把Emile
-Letournel尊为他人生中最为重要的两位mentor中的一位。他在一次近来的采访中说道他常会把一些新的想法运用于髋臼骨折的手术中而不遵循Emile
-Letournel所教授的方法，结果到最后发现行不通而还要用EL的方法从新来过（而此时的他早已蜚声世界）。他还说了以下三句话：</p>
-<p>“I think we have to learn to live with the fact that very few
-surgeons can invent something truly novel. Most of us should accept that
-they need to learn the knowledge that's gone before, and to try to be as
-good as those who are achieving the excellent results. This may be hard
-to swallow, but that's how it is.”</p>
-<p>“ The protocoland techniques developed by Emile Letournel have the
-merit of being there, of being efficacious, but also of being the best
-supported by clinical follow-up and clinical data. Everything proposed
-by Emile Letournel is supported by very advanced statistics. These
-results have been confirmed by Jeff, by Keith Mayo,by Eric Johnson, by
-myself, and by many other surgeons.</p>
-<p>Emile
-Letournel教授已离世20年了，他所创的髋臼骨折的分型标准、手术入路、复位技术等至今仍在应用而未被后辈（包括Keith
-Mayo、Eric Johnson还有Joel Matta本人）超越</p>
-<p>“It would be a shame if the surgery of acetabular fractures were to
-get overwhelmed by too many unproven novelties. It is one thing to
-devise a new technique; it is quite another to show that the techniqueis
-valid, and superior to the techniques currently available.”</p>
-</blockquote>
-<h2 id="九聪明才智对外科医生更重要">九、聪明才智对外科医生更重要</h2>
-<p>Is everyone created equal as surgeons? Of course not. Surgery is a
-combination of intellect and motor skills. I would say that intellect is
-by far the most important factor. The most important factors before
-surgery are an understanding of the fracture and establishing a good
-preoperative plan, including setup, approach, reduction, and fixation
-strategies. Concentrate your plan more on how you will reduce the
-fracture rather than how you will fix it. Reduction is typically a
-bigger problem then placing the implant. For a given surgery, one of
-several implants may be applicable, and your familiarity with a device
-may be the reason to use it.</p>
-<blockquote>
-<p>每一个外科医生生来就平等吗（能拥有等同的学识和成就吗）？当然不！外科手术是聪明才智和充沛体力的结合体。目前来看，我完全认为聪明才智是最为重要的因素。而手术前最为重要的因素包括对骨折的透彻理解和建立起来的包括组织实施、入路、复位和固定策略在内的术前计划。该术前计划需要更多的侧重于怎么对骨折进行复位而非固定。复位是典型的大难题，放置内固定物次之。针对一个特定的手术来说，（遵从原则的基础上）可能有多种内固定物可以选择，而你可以根据自己的熟练度来选择其中一种。</p>
-</blockquote>
-<h2 id="十学会应对手术中的糟糕情况">十、学会应对手术中的糟糕情况</h2>
-<p>I think that surgeons are best judged not by a surgery in which
-everything goes well, but by how they react when things start to go
-wrong. I have witnessed ‘flails’ triggered by panic with the situation
-going from bad to worse. The high stress of a problem situation should
-ideally trigger your mind to a higher level of focus to deal effectively
-with the unexpected problem. Experience and contingent strategies can
-help in these situations.</p>
-<blockquote>
-<p>我认为，最优的评价医生的方式不是（他们所做的）一切都顺利的手术，而是当手术中某些环节变得糟糕时他们是如何应对的。我曾经亲眼目睹过在情况由不好变得更糟糕时因恐慌而颤抖得就像挥舞连枷一样的手臂。面临问题时的高度紧张状态，理论上可以激发你的精神达到更高程度的集中以有效地处理突发的难题。这种情况下，丰富的经验和灵活的策略可发挥作用。</p>
-</blockquote>
-<h2 id="十一自我批判精神">十一、自我批判精神</h2>
-<p>We need to critically assess the result of the surgeries that we
-perform. I would say that a minority of my surgeries is performed
-completely to my satisfaction, particularly acetabular fractures.
-Postoperative x-rays always should be a stimulus for thoughts regarding
-how things could have been done a little better.</p>
-<blockquote>
-<p>我们需要批判性的评估我们所做手术的效果。我敢说，只有少数我所做过的手术能完全使我满意（多数都有瑕疵和遗憾），特别是髋臼骨折。我认为，术后X线片总是应该被视作让我们有“术中如何能做得再好一点”这样思索的刺激物。</p>
-</blockquote>
-<blockquote>
-<p>注：Matta教授这种时刻自我批判的品质，或许，是他能有如此大成就的秘诀。他的髋臼骨折手术的优良率在85%，比他的老师Emile
-Letournel提高了10%。</p>
-<p>采访原文：“In my series,I have had a 15 percent incidence of poor
-results. This includes, of course,the 3 per cent infections. There were,
-of course, patients who had lesions that could not possibly be treated,
-but also patients whom I should not have operated.”</p>
-</blockquote>
-<h2 id="十二手术速度也是关键">十二、手术速度也是关键</h2>
-<p>How critical is speed when performing surgery?At the beginning of my
-career, I did not consider speed to be important; now I think it is,
-although admittedly not the most consequential factor. I think speed is
-a benefit in limiting tissue trauma and infection. It also is an
-economic factor for you and the hospital as well as one that limits the
-number of patients you can benefit.</p>
-<blockquote>
-<p>在我们做手术时，速度有多关键？在我职业生涯的早期，我并不认为速度重要。而现在，我认识到了它的重要性，尽管它被公认不是最为重要的因素。我想，速度有利于限制软组织损伤和感染。速度对你和你的医院来说是一个经济指标，并且也是限制你所能造福的病人数目的指标。</p>
-</blockquote>
-<p>During my early years of operating on acetabular fractures, I was
-assisted for the first time by my chief, Gus Sarmiento, on a
-Kocher-Langenbeck approach to a transverse plus posterior wall fracture.
-If you know Gus Sarmiento, you know that he is not a particularly
-patient person. Gus’first words at the scrub sink were, ‘Joel, how long
-is this going to take?’My response, ‘Gus, relax and get ready for a
-4-hour case.’ His response,‘Four hours, I’ll give you 2!’ The case took
-2 hours and the result was asgood as my 4-hour cases; from that time
-forward, similar cases took approximately 2 hours.</p>
-<blockquote>
-<p>在我早年的主刀的髋臼骨折手术中，其中一例髋臼横形加后壁骨折的手术是经Locher-Langenbeck入路且第一次由我的主任(Gus
-Sarmiento)作为我的助手而完成的。假如你了解Gus
-Sarmiento，你会知道他不是一个特别有耐心的人。Gus在洗手池旁对我说的第一句话就是“Joel，这台手术需要多长时间？”我回答：“Gus，放松点，准备好做一台四小时的手术吧！”而他的回应却是“四小时？！我只给你两个小时！”结果，这台本来准备做四个小时的手术仅仅用了两个小时而且结果却一样得好。从那时起，类似的手术均耗时两小时左右。</p>
-</blockquote>
-<p>Conversely, you should take whatever time is necessary to achieve the
-desired result. Speed is not a primary goal but should increase
-progressively with your years of experience. Watching a good surgery go
-quickly means that you will not see particularly fast movements, but
-rather well planned and effective ones.</p>
-<blockquote>
-<p>于此相反，为了达到你所渴望的效果，你需要用足所必需的时间。这就是说，速度虽然不是首要目标，但是它应该随着你逐年的经验而逐渐加快。然而，当你看到一个手术由好变快时，这将意味着你看到的操作动作与其说是格外的快，还不如说是计划得好和施展得有效。</p>
-</blockquote>
-<h2 id="十三成为一个称职的领导者">十三、成为一个称职的领导者</h2>
-<p>As an orthopaedic surgeon, you are the organizer and leader of the
-operating room team. You assume this role, regardless of whether you are
-inherently organized or an obvious leader type. I don’t think that
-personal charisma or forcefulness is a prerequisite for leading an
-effective operating room team. The factors that I consider most
-important are planning, respect, education, and encouragement for your
-team members and working with your team in a hands-on way.The concern
-that you show for the patient and the commitment that you show to
-achieve an excellent surgical result will rub off. By all means, don’t
-be the one who is responsiblefor delays, or your tardiness and lack of
-efficiency also will rub off. Leading the teamto improve performance and
-efficiency is a job that never stops.</p>
-<blockquote>
-<p>作为一个骨科医生，你是手术室小组的组织者和领导者。你将自己假定为这样的角色，不管你是什么类型的性格。我并不认为个人的魅力或强健体魄是领导一个高效手术组的先决条件。相反，我所认为的最为重要的因素是对组员的规划、尊重、教诲和激励以及亲力亲为地与他们协作。与之相比，你所表现出的对病人的关怀和对优异手术效果的承诺将变得黯然失色。尽一切所能，不要使自己成为一个行事拖沓的人，则你的迟缓和效率低下也将不复存在。领导自己的小组以改善工作表现和提高工作效率是一项永远不能停歇的事业。</p>
-</blockquote>
-<h2 id="十四正确地面对并发症">十四、正确地面对并发症</h2>
-<p>Surgical complications are inevitable, and the indication for any
-surgery must be judged relative to their potential incidence. When a
-complication occurs, an honest discussion with the patient at an early
-time is essential. There is a tendency to feel guilty and to avoid the
-inevitable discussion with the patient and family. It is important to
-use the word ‘complication’ and confront the situation openly and
-directly. The patient will at least take comfort that you are no less
-involved in their care and will do everything possible to ensure a
-positive outcome.</p>
-<blockquote>
-<p>手术并发症是不可避免的，任何手术的适应症（指手术的执行与否）都必须通过该手术相关并发症的发生率进行评判。当并发症出现时，医生有必要尽早与病人进行一次诚恳的商讨。通常，医生会有愧疚感进而倾向于免却与病人及其家属进行此必要讨论。（然而，面对此情此境，我认为）有两件事显得（格外）重要：一是直接地开诚布公地面对（即与病人沟通），二是一定要用“并发症”这个词语（来告知病人）。（因为，这样做了）病人至少会因为了解到你不仅仅参与了他们的诊疗而且还将尽一切所能来保证他们能有好的预后而感到宽慰。</p>
-</blockquote>
-<p>Surgical wound complications, such as hematoma and infection, are
-some of the most difficult to face and potentially harmful to the
-patient. Three orthopaedic surgeons can look at a wound regarding
-infection and say no, maybe, or yes. It is easier to pronounce a
-colleague’s wound infected than your own. Saying ‘infection is present’
-to you, the patient, and also writing it in the chart clears the way for
-providing effective treatment.</p>
-<blockquote>
-<p>手术切口相关并发症，诸如血肿和感染，是我们所面临的会给病人带来潜在的危害的诸多难题中的一部分。三个骨科医生查验过切口后方可能会做出是否感染的诊断。通常，相对于我们自己的病人而言，我们能更轻易地说出某个同事的病人出现了感染并发症。直接告知（自己的）病人“你感染了”并且如实记录在病历中，这样做会为病人提供有效的治疗扫清道路。</p>
-</blockquote>
-<h2 id="十五保持诚恳和谦逊的态度">十五、保持诚恳和谦逊的态度</h2>
-<p>The public often believes the myth that miracles in medicine are the
-norm. The truth is that we treat most problems with significant
-limitations with respect to our understanding and knowledge, and it is
-likely that we will retrospectively view many of our current treatments
-as primitive. Getting good results after orthopaedic trauma entails
-great difficulties. We,therefore, need to practice with honesty and
-humility.</p>
-<blockquote>
-<p>大众总是相信医界存在奇迹这样的神话。而事实上，我们处理多数疑难杂症时面临着理解力和学识方面的显著限制；而且，等到将来我们回过头来审视我们目前治疗时，我们很可能会认为它们很原始。追求骨科创伤后良好预后这件事本身饱含艰辛。因此，我们需要带着诚恳和谦逊的态度投身于临床实践。</p>
-</blockquote>
-<h2 id="十六系统管理病例">十六、系统管理病例</h2>
-<p>I believe that a simple documentation system,including diagnosis,
-treatment, complications, and results, is a big help in quality control.
-Simple data forms that can be coded in a prospective manner and entered
-into a computer database may not add a great deal of time and expense to
-your practice. This information can guide the evolution of yourpractice
-methods. It is important to have results to compare to improve
-ourresults. Changes to improve results are best used for groups of
-patients or fractures with a high level of poor results and/or
-complications.</p>
-<blockquote>
-<p>我相信，对质量控制来说，一个包括诊断、治疗、并发症和预后在内的简单的文案记录系统会有很大帮助。（而且我认为，）对于你的临床实践来说，一些可以前瞻性方式编辑并能输入电脑数据库的简单表格不会额外耗费多少时间和经费。这些文案信息能引导你的临床科研方法的革新。通过临床效果的比较以提高疗效，这样做很重要。由之而来的治疗方法上的变化最适用于那些有着较差疗效和较严重并发症的病例或骨折。</p>
-<p>注：世上没有太多捷径可循。为了达到目的地，你在行程中所做的一些小小的看似额外的实则相关的事情很可能会加快你的行程。正如这些小小的表格和病例资料记录，可能是你在临床实践中实现卓业的助燃剂。用通行的诊断分型、疗效评分、有效随访的机制将所做诊疗编码，做到易于提取，类比分析。我想，这样做了，不管能不能成名，一定能成功。我推荐骨盆髋臼领域的医生熟练掌握OTA分型。</p>
-</blockquote>
-<h2 id="十七保持健康体格和生活方式">十七、保持健康体格和生活方式</h2>
-<p>I like to give credit to my mentors. In my own career, my most
-important mentors have been Augusto Gus Sarmiento and Emile Letournel. I
-take pride in my own contributions to orthopaedic knowledge,
-butrecognize that a huge basis of my practice is what I have learned
-from others.</p>
-<blockquote>
-<p>我由衷地钦佩我的良师益友。在我的职业生涯中，我最为重要的师友是Augusto
-Gus Sarmiento和Emile
-Letournel。我对我对骨科学术领域所做的贡献感到自豪，但我清楚地知道我（卓越）临床实践的巨大基石乃为我自他人所学。</p>
-</blockquote>
-<p>I consider health and lifestyle to be important in my performance as
-an orthopaedic surgeon. Some restraint with food and alcohol, as well as
-exercise, benefits you and your patients. I think a mistake that most of
-us make is not taking enough time off. I once asked Harald Tscherne how
-much vacation he took. He answered, ‘Six weeks.’ I said that must
-include your educational travel. ‘No,’ he said, ‘six weeks vacation.’
-None of us would question Prof. Tscherne’s commitment or
-productivity.</p>
-<blockquote>
-<p>我认为，在我作为骨科医生的临床工作中，健康体格和生活方式很重要。有节制的饮食、酒精和锻炼会施惠于你和你的病人。我想，我们中大多数人所犯的错误就是没有花足够的时间来休养身心。我曾经问Harald
-Tscherne他一年休多长假期。他说六周。然后，我说那肯定包括他的教育（指参会授课等）旅行。“不”，他说：“纯粹的六周时间。”事实上，没有任何人会质疑Tscherne教授的贡献和成果。</p>
-</blockquote>
-<p>You have carefully selected your career and have passed an extensive
-training and selection process to become an orthopaedic trauma surgeon.
-The evolution of your practice toward improved clinical results will
-make it all the more exciting and rewarding.</p>
-<blockquote>
-<p>你已慎重的选择了你的职业并已然经历了深入的培训和严格的筛选程序而成为一名创伤骨科医师。通过不懈的努力，你的提高了临床效果的临床实践革新将变得愈加激动人心和富于回报。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/48/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/50/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/48/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/50/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2733,7 +2475,7 @@ make it all the more exciting and rewarding.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">550</span>
+          <span class="site-state-item-count">551</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2746,7 +2488,7 @@ make it all the more exciting and rewarding.</p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2264</span>
+        <span class="site-state-item-count">2273</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
