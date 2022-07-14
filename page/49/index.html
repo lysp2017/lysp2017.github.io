@@ -191,6 +191,143 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/02/WINPE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/02/WINPE/" class="post-title-link" itemprop="url">通过WinPE存取文档</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-02 11:19:18" itemprop="dateCreated datePublished" datetime="2018-09-02T11:19:18+08:00">2018-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:06:38" itemprop="dateModified" datetime="2019-02-28T00:06:38+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件教程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一相关软件介绍">一、相关软件介绍</h2>
+<h3 id="一windows-pe-winpe">（一）Windows PE (WinPE)</h3>
+<ol type="1">
+<li>Windows预先安装环境（英语：Microsoft Windows Preinstallation
+Environment），简称Windows PE或WinPE，是Microsoft
+Windows的轻量版本。</li>
+<li><a target="_blank" rel="noopener" href="http://qiniud.louyanspine.com/Win8PE.iso">Win8PE下载地址</a></li>
+</ol>
+<h3
+id="二基本输入输出系统basic-input-output-systembios">（二）基本输入输出系统(Basic
+Input Output System,BIOS)</h3>
+<ol type="1">
+<li>全称应该是ROM-BIOS，意思是只读存储器基本输入输出系统。</li>
+<li>是一组固化到计算机内主板上一个ROM芯片上的程序，它保存着计算机最重要的基本输入输出的程序、系统设置信息、开机上电自检程序和系统启动自举程序。</li>
+<li>其主要功能是为计算机提供最底层的、最直接的硬件设置和控制。</li>
+<li>BIOS设置程序是储存在BIOS芯片中的，只有在开机时才可以进行设置。</li>
+</ol>
+<h3 id="三ultraiso软碟通">（三）UltraISO软碟通</h3>
+<ol type="1">
+<li>从CD-ROM制作光盘映像文件</li>
+<li>编辑和转换各种映像格式</li>
+<li>将文件或文件夹制作成ISO文件</li>
+<li>制作可启动光盘/启动U盘
+<ul>
+<li>可直接使用UltraISO制作u盘启动盘，系统引导光盘(CD/DVD)制作。</li>
+<li>UltraISO涵盖了六种写入类型：
+<ul>
+<li>USB-HDD</li>
+<li>USB-ZIP</li>
+<li>USB-HDD+</li>
+<li>USB-ZIP+</li>
+<li>USB-HDD+ v2</li>
+<li>USB-HDD+ v2</li>
+</ul></li>
+</ul></li>
+<li>从ISO中直接提取文件或文件夹</li>
+<li>制作和编辑音乐CD文件</li>
+</ol>
+<h2 id="二原理">二、原理</h2>
+<ol type="1">
+<li>正常情况下，开机时，系统从电脑硬盘启动，插入的USB设备被识别为移动存储（即U盘）。</li>
+<li>通过设置BIOS，可以让系统从U盘里面的WinPE启动，把电脑硬盘变成“U盘”，这样原电脑硬盘系统里面的禁用程序就无法启动了。</li>
+</ol>
+<h2 id="二具体步骤">二、具体步骤</h2>
+<h3 id="一通过ultraiso制作启动u盘">（一）通过UltraISO制作启动U盘</h3>
+<ol type="1">
+<li>选中UltraISO图标，右键，点击“以管理员身份运行”</li>
+<li>打开UltraISO的窗口后，依次点击菜单栏中的“文件”-“打开”</li>
+<li>浏览到存放Win8PE的目录，选中Win8PE，点击“打开”按钮</li>
+<li>再次回到UltraISO窗口，点击菜单栏中的“启动”，选择“写入硬盘镜像”</li>
+<li>在弹出的窗口直接点击“写入”按钮（将写入方式选择为“USB-HDD+”）</li>
+</ol>
+<h3 id="二设置bios">（二）设置BIOS</h3>
+<ol type="1">
+<li>在开机的Lenovo画面自检处，快速、连续多次按键盘的“F12”按键，即可进入BIOS界面。</li>
+<li>等待片刻将出现如下图所示画面，使用光标移动至第三项即Enter
+Setup并回车，即可进入BIOS设置界面。 <img
+src="http://qiniup.louyanspine.com/2018-09-02-25241395919331_335963.jpg" /></li>
+<li>选择并进入Startup，选择并进入Primary Boot Sequence</li>
+<li>在下方"Excluded from boot order(未添加的启动项)"中，可以看到"USB
+HDD"，选择</li>
+<li>按键盘上的“X”键就可以把“未添加的启动项”移至上方的启动项中</li>
+<li>按键盘上的”+“键，将"USB HDD"移至启动项的最上方</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/01/Injectable-oxygen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1804,148 +1941,6 @@ spondylectomy术后脑脊液漏的一个重要危险因素。术前放疗的患�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/24/Anatomy-in-Diagnostic-Imaging/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/24/Anatomy-in-Diagnostic-Imaging/" class="post-title-link" itemprop="url">影像解剖学：影像诊断的原理和技术（一）（未完）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-24 18:39:12" itemprop="dateCreated datePublished" datetime="2018-08-24T18:39:12+08:00">2018-08-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:57:16" itemprop="dateModified" datetime="2019-02-27T23:57:16+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BD%B1%E5%83%8F%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">影像学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明<br> 1. 译自Peter Fleckenstein的著作Anatomy in Diagnostic Imaging
-3e<br></p>
-</blockquote>
-<h1 id="以x线为基础的技术">以X线为基础的技术</h1>
-<h2 id="一x线的产生和性质">一、X线的产生和性质</h2>
-<p>X线(X-rays)是占据一定波谱范围的电磁波。用于X线诊断的波长在0.06~0.006nm之间。与可见光不同，X线不能被透镜或类似的设备检测出。因此在影像诊断上，X线的衍射及波动性常常被忽略。把X线想象成是通过直线传播且不可分的能量量子：光子(Photons)，是非常有用的。因此，人们通常用它们的光子能量特性而不是波长和频率去描述X线。</p>
-<p>当电子(electrons)通过一个以kV为等级的梯度电场(kilo-volt
-range)时，会被加速并获得动能，X线是从这些动能转换而来的。X线光子(photon)的能量单位是千电子伏特（keV)，与诊断有关的范围是20〜200keV(Figure
-1)。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-24-1_2.jpg" /></p>
-<blockquote>
-<ul>
-<li><p>电磁波在真空中的传播速度<span
-class="math inline">\(c\)</span>是常数：<span class="math inline">\(3
-\times 10^{17}nm/s\)</span>，与波长<span
-class="math inline">\(（\lambda）\)</span>和频率<span
-class="math inline">\((\nu)\)</span>的关系是：<span
-class="math inline">\(c = \lambda \times \nu\)</span>。</p></li>
-<li><p>电磁波以不连续的能量量子（光子）的形式发射。光子能量（E)和它的频率<span
-class="math inline">\((\nu)\)</span>的关系是：<span
-class="math inline">\(E=h \times \nu = h \times
-\cfrac{c}{\lambda}\)</span>，h是Planck常数。</p></li>
-<li><p>如果能量E以千电子伏特(keV)表示，波长<span
-class="math inline">\(\lambda\)</span>以纳米（nm)表示，关系式变成<span
-class="math inline">\(E = \cfrac{1.24}{\lambda}\)</span>。</p></li>
-<li><p>1个电子伏特（eV)是1个电子通过1伏特梯度电压加速后获得的能量。1000
-eV=1 keV</p></li>
-</ul>
-</blockquote>
-<p>用于影像诊断的X线来自球管(Figure
-2)。在球管内，通电后被加热的钨丝（阴极）发射窄电子束，电子束在真空管内加速，被静电聚焦后撞击阳极靶，阳极靶发射出能量，其中只占入射电子能量很小一部分的（0.2%-2%)能量形成X线，剩余的能量以热能的形式在阳极消散。</p>
-<p>阳极通常是钨合金构成，具有很高的热稳定性，做成盘状，并高速旋转，将接收的能量平均地大范围地扩散出去。</p>
-<p>通过调节阴阳两极间的电位差即加速电压来调节球管产生的X线能量（波长）。常见的50-60Hz的交流电(alternating
-current, AC)通过交流电整流(rectification)转变成50000Hz的交流电。</p>
-<p>X线球管的高电压设定通常是指峰值电压，并且用kVp表示。高电压呈波形而不是完全直线形的。波动(ripple)是以峰值电压的百分比来表示峰值电压和最低电压之间的差值，其值在大多数高压发生器为5-10％。</p>
-<p>在给定电压的条件下，由球管产生的X线强度由击中阳极的电子数量决定，即电子通过真空从阴极传递到阳极的电流，称为beam
-(or tube) current，以毫安（mA）表示。</p>
-<p>对于约40kV(饱和电压)以上的加速电压来说，beam
-current主要由阴极灯丝的温度决定，并且可以通过filament heating current
-supply调节。球管释放的X线的数量（剂量dose）与beam
-current流经的时间成正比，并且以毫安秒（milliampere seconds,
-mAs）表示。</p>
-<p>阳极发射的X线光子以不同强度分布，在球管加速电压峰值时，这种情况最明显。因此，X线束是多变的。即使加速电压不变，X线束仍然非常易变，这与X线在阳极产生过程中的处理特性（轫致辐射）有关，在此不详述。</p>
-<p>低于约20keV以下能量的光子通常在X线成像中没有用处，因为它们不能穿透身体受检部位。而且它们还是有害的，因为它们的能量被受照射的浅表组织（尤其是皮肤）吸收。在X线束通过的路径上插入薄铝或铜片(filters,滤器)，可以去除这些多余的低能光子（Figure
-3)，使光子的平均能量增加，这种X线束被称为硬X线(hardened)。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-24-21.jpg" /></p>
-<blockquote>
-<p>未滤过的线束在途经X线球管壁被滤过时，最低的能量被滤去，
-额外滤过降低了线束整体能量，但增加了平均光子能量。</p>
-</blockquote>
-<p>乳房摄影术(Mammography)在X线诊断中使用大约25-30keV的最低光子能量，以优化正常组织和癌组织之间对X线吸收的微弱差异的检测。X线球管被一层铅壳包绕，仅留一窗口允许X线束穿过。窗口（即孔）的大小和形状通过调节光圈来变化（Figure
-2)。来自被电子束撞击部位的阳极（焦点）的X线以散射束(diverging
-bundle)的方式从球管向外辐射，并被球管的出口孔径所限制。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-24-2.jpg" /></p>
-<p>散射束的中轴叫中心X线，沿轴线方向看到的焦点叫有效焦点（effective
-focal spot, Figure
-2)。这个焦点越小，获得的图像分辨率越高。有效焦点通常是<span
-class="math inline">\(1mm^2\)</span>或更小。乳房X线照相术甚至可达<span
-class="math inline">\(0.1mm^2\)</span>，可检测恶性乳腺肿瘤中常见的微小钙沉积物。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-26-F000018f001-008-9780323096331.jpg" /></p>
-<video controls width="780" height="480" src="http://qiniud.louyanspine.com/X%20Ray%20Production%20Animation.mp4">
-</video>
-<h2 id="二x线与物质的相互作用">二、X线与物质的相互作用</h2>
-<h2 id="三常规x线成像">三、常规X线成像</h2>
-<h2 id="四数字x线摄影">四、数字X线摄影</h2>
-<h2 id="五计算机辅助x线断层摄影">五、计算机辅助X线断层摄影</h2>
-<h2 id="六x线对比增强剂">六、X线对比增强剂</h2>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2015,7 +2010,7 @@ src="http://qiniup.louyanspine.com/2018-08-26-F000018f001-008-9780323096331.jpg"
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">557</span>
+          <span class="site-state-item-count">558</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2028,7 +2023,7 @@ src="http://qiniup.louyanspine.com/2018-08-26-F000018f001-008-9780323096331.jpg"
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2295</span>
+        <span class="site-state-item-count">2297</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
