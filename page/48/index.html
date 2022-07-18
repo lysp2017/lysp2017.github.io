@@ -191,6 +191,345 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/12/Essential-Concepts-in-Clinical-Research16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/12/Essential-Concepts-in-Clinical-Research16/" class="post-title-link" itemprop="url">临床研究基本概念：随机对照试验（八）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-12 23:03:04" itemprop="dateCreated datePublished" datetime="2018-09-12T23:03:04+08:00">2018-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:54:53" itemprop="dateModified" datetime="2019-02-28T00:54:53+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of
+Essential Concepts in Clinical Research<br></p>
+</blockquote>
+<h1
+id="随机试验的多重比较之二亚组分析和期中分析">随机试验的多重比较之二：亚组分析和期中分析</h1>
+<h2 id="一摘要">一、摘要</h2>
+<ol type="1">
+<li>亚组分析可以发生严重的多重比较问题。</li>
+<li>对一定数量的亚组进行检验，就可能仅仅是由于机遇而得到假阳性的结果。</li>
+<li>研究者可能进行了很多的分析，但最终只报道了阳性的结果，扭曲了医学文献。</li>
+<li>总体上来说，亚组分析是不推荐的。</li>
+<li>如果亚组分析是必需的，研究者应该进行交互作用分析结果的真实性，而不是对每一个亚组进行分析。</li>
+<li>当数据监查显示有必要时，研究者不可避免进行期中分析。</li>
+<li>然而，在每一个期中进行重复的检验就有多重比较问题，如果不考虑多重比较问题就会逐步提高假阳性错误。必须应用统计学的终止方法。</li>
+<li>O’Brien-Fleming和Peto成组序贯终止方法容易操作，同时又保存了α水平和把握度。</li>
+<li>在期中分析时，两者都采用了严格标准(非常低的P)。</li>
+<li>运用这种终止原则的临床试验与传统试验类似，但当一种治疗表现出明显优越性的时候可以提早终止试验。</li>
+<li>研究者和读者需注意到，提早终止试验可能会(随机地)高估治疗效果。</li>
+</ol>
+<h2 id="二前言">二、前言</h2>
+<ol type="1">
+<li>亚组分析具有特殊的吸引力。对于研究者和读者而言，它们看上去符合逻辑和直觉，甚至是有趣的。</li>
+<li>然而这种阴险的吸引力可以引发严重的问题。多重比较问题及天真性(naiveté)使试验执行及报道过程中易发生解释性错误(missteps)。许多试验报道的亚组中的治疗效果都可能是错误的。</li>
+<li>相反，当数据监查显示有必要时(data monitoring is
+indicated)，研究者无法避免期中分析。在期中分析时也不能使用一般的统计学方法。</li>
+<li>统计学终止方法，尤其用于提醒而非终止的统计学校正必须用于数据监查中(Statistical
+stopping methods, essentially statistical adjustments for warning rather
+than stopping, must be used in support of data monitoring)。</li>
+<li>然而，这些方法常阻碍着研究者和读者。统计学方法即便没有将二阶函数引入终止方法也常常把人搞糊涂(Statistics
+frequently proves confusing anyway without throwing in second-order
+complications of stopping methods)。</li>
+<li>亚组分析和期中分析所导致的多重比较问题与多个终点事件和多个治疗分组所致的多重比较问题类似。
+<ul>
+<li>研究者常进行多个亚组分析和多次期中分析对数据进行挖掘。</li>
+<li>同时，研究者还进行无事先计划的亚组和期中分析。</li>
+<li>当然，一些处理亚组和期中分析多重比较问题的方法有别于那些用于多个终点事件和治疗分组的方法。</li>
+</ul></li>
+</ol>
+<h2 id="三亚组分析">三、亚组分析</h2>
+<h3
+id="一不加选择的亚组分析引起多重比较问题">（一）不加选择的亚组分析引起多重比较问题</h3>
+<ol type="1">
+<li>不加选择的亚组分析(subgroup
+analysis)会引起多重比较问题。医学文献中充斥着这一问题。在众多的警告之后，一些调查者还在固执地进行过多的亚组分析。</li>
+<li>研究者在基线时根据受试者的特点将他们分成各亚组。
+<ul>
+<li>他们通过分析来评价各亚组的治疗效果是否有差别。</li>
+<li>研究者的主要问题是在每一个亚组内都进行统计学检验。</li>
+<li>对多个亚组及多个终点事件的复合分析会使统计检验的次数显著增加。</li>
+<li>在总体没有效果的情况下，研究者会为了获得阳性结果进行亚组分析，即数据挖掘(data-dredging)。</li>
+<li>如果进行一定数目的亚组分析，就可能因为机遇而获得假阳性(false
+positive)结果。</li>
+</ul></li>
+<li>如果一个随机对照临床研究的结果没有证实一个人的想法，解决的方法不是进行亚组分析，直到看到想要的结果，而是应该重新仔细检视这个研究假设。</li>
+<li>同样地，在一个总体结果是阳性的临床试验中，进行亚组分析时可能会由于机遇和把握度较低等因素而产生假阴性(false
+negative)结果。</li>
+<li>《柳叶刀》杂志曾发表过一个很有启示性的例子。
+<ul>
+<li>阿司匹林对预防心肌梗死后死亡率有很强的益处(P&lt;0.00001，可信区间很窄)。</li>
+<li>编辑让研究者进行将近40次亚组分析。要求使用他们的数据显示亚组分析的不可信，研究者勉强同意进行了亚组分析。</li>
+<li>出生星座为双子座或天秤座的受试者服用阿司匹林后死亡等不良事件发生率增高(增高9%，标准差13，没有显著性差异)</li>
+<li>他星座的受试者有显著的治疗益处(相关死亡率下降28%，标准差5;P&lt;0.00001)。</li>
+<li>除了占星学家们，医学界对这一chance zodiac finding没有什么兴趣。</li>
+</ul></li>
+<li>对于亚组分析结果，研究者们是这样总结的：这些亚组分析不能作为谁治疗有效或无效的证据，而且还有可能造成误解。</li>
+<li>他们及其他经过深思的研究者强调，对某一个亚组而言，最可信的对疗效的估计是总体估计(合并所有的亚组)，而不是在某一亚组中观察到效果。我们同意这一观点。</li>
+</ol>
+<h3
+id="二如何解决亚组分析带来的多重比较问题">（二）如何解决亚组分析带来的多重比较问题</h3>
+<ol type="1">
+<li><p>正确的分析可以解决许多亚组分析带来的多重比较问题。</p>
+<ul>
+<li>研究者常对每一个亚组进行不恰当的亚组分析，导致机遇性发现的发生。</li>
+<li>例如，在基线时按年龄将受试者分成四组，仅此一项就可以产生四次统计检验(table
+1)。</li>
+</ul></li>
+<li><p>正确的分析方法是进行交互作用分析(statistical test of
+interaction)，以此评价治疗效果是否依赖于患者属于某一特定的亚组。</p>
+<ul>
+<li>这样的分析不仅回答了研究的问题，而且只进行了一次统计检验而不是四次，从而解决了多重比较问题。</li>
+<li>有研究者因缺少把握度而质疑交互作用检验。</li>
+<li>但事实上，交互作用检验这种方法比较谨慎。</li>
+<li>它既可以发现亚组中存在的有限的信息，是一种最有效的限制不恰当亚组分析的方法，与此同时当交互作用确实存在的话，又能发现它。</li>
+</ul>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%884.58.00-1.png" /></p>
+<blockquote>
+<p>对交互作用的统计检验(Breslow-Day检验法)未达显著性差异(P=0.103)，这表明在30~34岁组发现的阳性结果由机遇所致。如果过分强调这一亚组分析结果，就是亚组分析结果影响整体阴性结果的一个例子。</p>
+</blockquote></li>
+</ol>
+<h3
+id="三只报道亚组分析中的阳性结果">（三）只报道亚组分析中的阳性结果</h3>
+<ol type="1">
+<li>亚组分析的另一问题是研究者进行很多次检验，但最终只报道阳性的结果，这是一种误导他人的做法，如果是故意的，更是一种不道德的做法。这种情况与分析多个重点事件相似。</li>
+</ol>
+<h3 id="四如何正确进行亚组分析">（四）如何正确进行亚组分析</h3>
+<ol type="1">
+<li>我们不推荐亚组分析。但如果恰当地进行，亚组分析也并不一定是错误的。</li>
+<li>有时候进行亚组分析有其生物学意义，有时候进行亚组分析是因为公众或公司等资助者要求进行。</li>
+<li>如果进行亚组分析：
+<ul>
+<li>应该只限定于主要终点事件，而且分析的数目应该有所限制。</li>
+<li>研究方案中应事先列出拟进行的亚组分析。</li>
+<li>研究者应该报道所有亚组分析的结果，而不是只报道阳性的结果。</li>
+<li>更重要的是，研究者应该进行交互作用分析来评价不同的亚组中治疗效果是否不同，而不是在每个亚组中进行单独的检验。这种方法可以解决多重比较问题。单个亚组分析的结果很少会影响研究的结论。</li>
+</ul></li>
+<li>亚组分析的结果常被过度解释。常有人建议不要进行亚组分析(或不要过分相信亚组分析的结果)，但这一建议似乎与人们的天性相悖。</li>
+<li>方法学家对于亚组分析的批评过于谨慎。应该进行更强烈的谴责。</li>
+</ol>
+<h3
+id="五对于亚组分析读者应注意的问题">（五）对于亚组分析读者应注意的问题</h3>
+<ol type="1">
+<li>当某一临床试验报道了许多亚组分析时，读者应引起注意，除非研究者提供了正确的理由。</li>
+<li>同时，对那些只报道了一小部分亚组分析的研究也应注意，因为他们可能进行了很多亚组分析，却只报道了有阳性结果的部分。因而，错误的报告可能意味着亚组分析少的试验甚至比亚组分析较多的试验更糟糕。</li>
+<li>如果研究者报道了所有的分析，这样的结果更可信。</li>
+<li>而且，研究者应该将没有事先计划的亚组分析作为假说的产生，而不是对假说的肯定。这样的结果不能作为结论。</li>
+<li>各亚组中治疗效果的差异，应该用交互作用来检验。仅在亚组内进行分析是不对的。即便交互作用检验结果是阳性的，读者也应该根据生物学机制、事先制定的分析、统计相关性强度来判断与解释结果。</li>
+<li>一般来说，如果研究者进行的是交互作用检验，是无需对多重比较问题进行校正的。</li>
+<li>然而，由于现在存在为了结果而对数据进行过度挖掘的现象，支持其进行统计校正的论点强于对多个终点事件的。</li>
+<li>如果研究者没有使用交互作用检验而是对每个亚组进行检验，那么进行多重比较校正是正确的。</li>
+<li>多数亚组分析的结果夸大了效果。当研究者在一个总体没有疗效的试验中过度强调单一亚组分析结果时，要持有怀疑的态度。他们常常将此作为挽救效果不确定(阴性)研究的一种措施(table
+1)。</li>
+</ol>
+<h2 id="四期中分析interim-analyses">四、期中分析(Interim analyses)</h2>
+<h3 id="一为何要进行期中分析">（一）为何要进行期中分析</h3>
+<ol type="1">
+<li>对于临床试验的合理检测远不止统计学提醒其终止。回答所研究的治疗方式究竟是优于还是次于现有治疗方式是是否终止研究的最重要因素。</li>
+<li>然而，入组缓慢(slow
+accrual)、数据质量差、依从性差、资源匮乏、无法接受的副作用、作假、新出现的信息表明试验没有意义或不道德等都可以导致研究的终止。这一决定的过程很显然是非常复杂的。最好由一个独立的数据管理委员会来决定，并且事先确定一个终止试验的统计学方法。然而对这类统计学事件，研究者和读者常常是不了解的。</li>
+<li>随着试验数据的积累，研究者通常希望对主要终点事件进行分析。
+<ul>
+<li>如果试验结束时设定P&lt;0.05为具有统计学意义，那么进行所有的期中分析(interim
+analyses)时采用α水平为0.05是错误的。</li>
+<li>下面用一个图表来说明这种情况(figure)。
+<ul>
+<li>5年中，每6个月数据管理委员会进行一次期中分析。</li>
+<li>在第18个月时P小于0.05，然而在这之后再也未达统计学阳性。</li>
+<li>如果委员会根据该结果而提早终止试验可能得出治疗方法有效的错误结论。
+<img
+src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%888.36.16.png" /></li>
+</ul></li>
+</ul></li>
+<li>如果在P&lt;0.05水平进行许多的期中分析会增加假阳性（false
+positive）的概率（α）。
+<ul>
+<li>事实上，如果每一次期中分析时研究者都采用α=0.05的水平，那么最后的总体α水平随着检验次数而升高。</li>
+<li>这一多重比较问题表明了进行统计学校正的必要性：科学的可依靠性有赖于之。</li>
+</ul></li>
+</ol>
+<h3 id="二统计学终止方法">（二）统计学终止方法</h3>
+<p>统计学家发展了许多统计学终止(statistical warnings for
+stopping)的方法，有时被称为数据依赖终止规则(data-dependent stopping
+rules)或指南。如果研究者想进行期中分析，他们必须使用其中一种方法。</p>
+<h4 id="成组序贯设计">（1）成组序贯设计</h4>
+<ol type="1">
+<li>成组序贯设计(The group sequential
+designs)是最常用的。这一方法比较容易理解、执行及应用。</li>
+<li>该方法根据期中分析的次数决定最终终止试验的P，使总体的I类错误保持在一定范围内(α;table
+2)。</li>
+</ol>
+<h5 id="pocock方法">Pocock方法</h5>
+<ol type="1">
+<li>固定低水平P的方法(The fixed nominal level
+approach)，即Pocock方法(Pocock
+approach)，提出了简单并可以较早地终止研究的方法。但由于最终检验结果的P比常规固定样本的P小，使研究不容易得到阳性结果。</li>
+<li>例如，如果总体α水平在0.05，进行三次期中分析，研究者在每次检验时设定的P在0.022，包括最终检验(table
+2)。
+<ul>
+<li>如果最终检验得到的P=0.03，那么用这种成组序贯设计，该试验结果将被判断为非统计学阳性的。</li>
+<li>但如果没有使用成组序贯设计；试验结果是阳性的。</li>
+</ul></li>
+<li>这一方法具有历史意义，其他方法均是吸收了这一方法的优点避免了它的缺点而发展起来的。</li>
+</ol>
+<h5 id="obrien-fleming和peto方法">O’Brien-Fleming和Peto方法</h5>
+<ol type="1">
+<li>这两种方法在期中分析过程中均采用严格的标准（很低的P） (table
+2)。</li>
+<li>如果研究继续进行达到计划的样本量，那么最终的分析如同没有期中分析一样。</li>
+<li>这样的方法不仅保证了α水平，也保存了把握度。</li>
+<li>数据的收集方法与一个固定样本的研究一样。这两个终止方法的优点在于其简单性。</li>
+<li>用这两种方法来进行试验和传统试验很相似，只是当治疗方法被证明有很强的优势时可以提早终止试验。</li>
+<li>一条普遍的原则是：一个研究中进行多于四次或五次期中分析时，研究者很少有更多的收益。因此，只要付出一点额外的努力，研究者便可以满足伦理学的要求，在研究过程中检测治疗的效果，无论是正面的还是负面的。</li>
+<li>Peto方法，又称为Haybittle-Peto法（Haybittle-Peto
+procedure）易于理解、执行与描述。它采用一个固定且严格的终止研究的P水平，直至最终分析。但对于某些临床试验，研究者们认为用Peto法早期终止研究比较困难。</li>
+<li>O’Brien-Fleming法(O’Brien-Fleming
+porcedure)从直觉上更吸引研究者。在试验开始阶段，大家对不稳定的结果都不确定时，它采用的P更保守，随着试验的进行，结果变得可靠与稳定时，它的标准也随之放宽。与Peto法不同的是，O’Brien-Fleming法每个期中分析阶段的终止标准不同。
+<img
+src="http://qiniup.louyanspine.com/2018-09-30-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-09-30%20%E4%B8%8B%E5%8D%889.01.34.png" /></li>
+</ol>
+<h4 id="统计学终止方法的实施原则">（2）统计学终止方法的实施原则</h4>
+<ol type="1">
+<li>如果研究者计划进行期中分析，应事先制定所采用的统计学终止方法(statistical
+warnings for stopping)。</li>
+<li>此外，应由一位独立的试验统计学家来为数据监控委员会进行分析，而不是研究者自己。</li>
+<li>如何进行期中分析应写入研究方案，作为一个独立的统计章节，或在数据监控委员会章节内描述。</li>
+<li>分析计划和章节可以作为研究方案的附录。这样做可以让研究的执行者更好的根据研究方案来进行试验。</li>
+<li>许多临床试验并不需要进行期中分析和独立的数据监控。对2000年期间进行的622个合格的临床试验的回顾显示，24%的研究提到了数据监控、期中分析，或二者兼有。</li>
+</ol>
+<h3
+id="三早期终止与治疗效果的偏倚性评估">（三）早期终止与治疗效果的偏倚性评估</h3>
+<ol type="1">
+<li>如果数据监控委员会根据成组序贯设计的统计结果提早终止一项研究，这时对治疗效果的估计是有偏倚的，这仍旧是这一方法的缺点。</li>
+<li>如前面所解释的，如果研究者重复这个相同的研究，向着有较强疗效的随机波动将比向着较差疗效的波动更易终止研究。</li>
+<li>因此当一个研究被早期终止的时候，读者应该了解到这种情况下估计的治疗效果可能是被放大的(如一个随机的更强的效果)。</li>
+<li>如果无偏倚估计是研究的首要任务，研究者应该设计一个固定样本的试验并避免成组序贯设计。</li>
+</ol>
+<h3 id="四因为有害或无效终止试验">（四）因为有害或无效终止试验</h3>
+<ol type="1">
+<li><p>到目前为止，对于试验的早期终止，无论治疗是有效还是有害均采用了相同的原则。统计学家将这种方法称为成组序贯检验方法的对称性的终止界限(a
+strategy symmetric stopping boundaries with group sequential
+methods)，相当于双侧假设检验。</p></li>
+<li><p>然而一些研究者或数据监控委员会委员可能更倾向于采用一种非对称的终止界限。使用这种标准在终止有害情况时比终止有效情况下所采用的终止水平要低。</p>
+<blockquote>
+<p>例如，O’Brien-Fleming序列终止水平可以用于监测试验的有效性，而Pocock序列终止水平可以用于对有害性的监测。</p>
+</blockquote></li>
+<li><p>研究者或者数据监控委员会有时不想证明有害性。相反的，他们选择证明研究方法没有更有效，就算结束整个试验，所研究的方法也不可能产生显著性的保护性效果。这样的方法有助于无效性终止，当没有能力证明研究方法有效的时候终止试验。这种方法衍生出一些时髦的术语：</p>
+<ul>
+<li>条件把握度(conditional power)</li>
+<li>随机缩短(stochastic curtailment)</li>
+</ul></li>
+</ol>
+<h3 id="五其他统计学终止方法">（五）其他统计学终止方法</h3>
+<ol type="1">
+<li>Lan-Demets(α消耗函数） (alpha spending function)
+发展了一种更加灵活的成组序贯调整方法。
+<ul>
+<li>它将每次期中分析时所用的假阳性(false
+positive)率作为所见到的总体信息的比例的函数来控制，这样就可以在试验开始后改变期中分析的次数和确切时间。</li>
+<li>数据监控委员会开始的时候有一个日程安排，但随着数据的收集可以变化。</li>
+<li>因此α消耗函数允许未列入计划的观察。</li>
+</ul></li>
+<li>在临床决策领域中，贝叶斯理论(Bayesian
+approaches〉非常有用，但在期中分析中的运用仍遭怀疑。
+<ul>
+<li><p>贝叶斯方法代表了统计学的一个分支，如果正确应用的话，可以用于数据监查。</p></li>
+<li><p>然而因为贝叶斯理论在此运用得较少，所以读者并不需要具体去了解，而且这种方法的使用也有顾虑。</p>
+<blockquote>
+<p>如，虽然每次期中分析采用0.05的水平，但总体假阳性率(false
+positive)(α)会急剧升高。</p>
+</blockquote></li>
+<li><p>然而一些研究资助者很热衷于这种更可能发现显著性效果的方法。</p></li>
+</ul></li>
+</ol>
+<h3
+id="六在阅读期中分析时读者应注意的问题">（六）在阅读期中分析时读者应注意的问题</h3>
+<ol type="1">
+<li>读者需警惕那些没有被报道的期中分析。
+<ul>
+<li>如果研究者在报道中注明没有进行期中分析，那么多重比较多半不是问题。但这种透明式的报道较少。</li>
+<li>拙劣的报道可能让读者以为研究者进行了期中分析。</li>
+</ul></li>
+<li>对读者而言发现是否进行了期中分析比较困难。
+<ul>
+<li>其中一条线索是观察计算的P略小于0.05，意味着研究者可能重复检验，在P略小于0.05时结束研究。</li>
+<li>另一条线索是完成后研究样本小于计划样本。</li>
+<li>在方法学部分中报道样本量的计算可以用于判断是否早期终止了研究。</li>
+</ul></li>
+<li>读者应当注意是否有试验被早期终止了，却没有报道统计学终止原则的情况。</li>
+<li>如果研究者描述了统计学上的终止原则，读者应对其合适性进行评价。
+<ul>
+<li>Peto和O’Brien-Fleming方法既可达成期中分析的目标又无损总体试验分析。</li>
+<li>其他期中分析方法如α消耗函数和条件把握度一般情况下是恰当的方法</li>
+<li>但贝叶斯方法的应用尚有顾虑。</li>
+</ul></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/12/Essential-Concepts-in-Clinical-Research15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2403,189 +2742,6 @@ src="http://qiniup.louyanspine.com/2018-09-04-c00005_f005-006-9780323023962.jpg"
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/02/AutoHotkey/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/02/AutoHotkey/" class="post-title-link" itemprop="url">AutoHotkey快速入门</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-02 15:41:18" itemprop="dateCreated datePublished" datetime="2018-09-02T15:41:18+08:00">2018-09-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 01:04:11" itemprop="dateModified" datetime="2019-02-28T01:04:11+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明<br> 1.
-参考作者李辉在博客上的文章：<a target="_blank" rel="noopener" href="https://greyli.com/autohotkey-automate-your-life/">AutoHotkey——自动化你的生活</a><br></p>
-</blockquote>
-<h2 id="一autohotkey简介">一、AutoHotkey简介</h2>
-<p>AutoHotkey是一款免费的、Windows平台下开放源代码的热键脚本语言。从名字可以看出来，它可以用来设置热键。但是因为它是一门脚本语言，所以就不止设置快捷键那么简单了。帮助文档这样介绍它的功能：</p>
-<ul>
-<li>通过发送键盘键击和鼠标点击自动化几乎所有的操作。您可以手工编写宏或者使用宏录制器。</li>
-<li>为键盘，游戏杆和鼠标创建热键。几乎任何按键、按钮或组合键都可以设置为热键。</li>
-<li>在您键入缩写时扩展缩写。例如，键入 “btw” 能自动地生成 “by the
-way”。</li>
-<li>创建自定义的数据输入表格、用户界面和菜单栏。详见图形用户界面。</li>
-<li>重新映射您键盘、游戏杆和鼠标上的按键和按钮。</li>
-<li>通过WinLIRC客户端脚本对手执遥控器的信号作出反应。</li>
-<li>运行现有的AutoIt v2脚本，并用新功能增强它们。</li>
-<li>将任何的脚本转换为EXE文件，使其在没有安装AutoHotkey的计算机上也能运行。</li>
-</ul>
-<h2 id="二最简流程示例">二、最简流程示例</h2>
-<ol type="1">
-<li><p>到<a target="_blank" rel="noopener" href="https://www.autohotkey.com">www.autohotkey.com</a>下载或点击这里下载（AutoHotkey1.1），然后安装。</p></li>
-<li><p>使用编辑器或记事本新建一个脚本文件，格式为<code>.ahk</code>，编码格式为<code>UTF-8</code>。</p></li>
-<li><p>编辑脚本，在脚本中写入下面这行：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br></pre></td></tr></table></figure></p></li>
-<li><p>保存后双击运行。</p></li>
-<li><p>这时按下Windows键和h键就会打开我的博客。</p></li>
-<li><p>在上面这个命令中</p>
-<ul>
-<li><p>符号<code>#</code>表示<code>Windows键</code></p></li>
-<li><p><code>#</code>后紧跟着<code>h</code>表示组合键</p></li>
-<li><p>符号<code>::</code>用来分隔热键和命令（左边是热键，右边是命令）</p></li>
-<li><p><code>Run</code>命令用来打开一个文件或网页，中间空一个空格。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-09-02-windows-key-shortcut-tricks-670x335.jpg" /></p></li>
-</ul></li>
-</ol>
-<h2 id="三基本术语">三、基本术语</h2>
-<ol type="1">
-<li><p>脚本/宏（Script）：你要编辑的一个格式后缀为<code>.ahk</code>的纯文本文件（编码格式为<code>UTF-8</code>）。你把代码写进这个脚本里，双击执行后，你的热键就生效了。</p></li>
-<li><p>热键（hotkey）：用来触发操作的按键或组合键，也就是快捷键。</p></li>
-<li><p>命令：你为某个热键指定的一个动作（action），比如打开程序，打开网页等。</p></li>
-<li><p>热字串（hotstring）：类似于热键，当你输入热字串并按下回车或空格后触发相应的命令。</p></li>
-<li><p>宏录制器（AutoScriptWriter）：可以录制回放你的操作的工具，非常适合新手入门学习。</p></li>
-<li><p>多行热键：当通过热键触发多个命令时，这时的格式是命令从第二行开始，每个命令一行，最后以占据一行的return结束。</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span></span><br><span class="line">RunWait Notepad</span><br><span class="line">Msgbox Goodbye!</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>参数：自定义的数值，传递给命令执行，比如sleep后面的时间数就是参数。参数与命令通过空格或逗号隔开，多个参数使用逗号隔开。</p></li>
-<li><p>注释（comment）：注释是用来对你的代码进行解释和说明的文字</p>
-<ul>
-<li><p>单行的注释以<code>;</code>开头</p></li>
-<li><p>多行注释用<code>/*</code>和<code>*/</code>括住。</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;这是单行注释</span></span><br><span class="line"><span class="comment">/* 这里 </span></span><br><span class="line"><span class="comment">是 </span></span><br><span class="line"><span class="comment">多行注释 */</span></span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ol>
-<h2 id="四常用命令">四、常用命令</h2>
-<ol type="1">
-<li>Run：用来打开一个程序、文档、网页或者快捷方式</li>
-<li>Send：发送键击或一段字符</li>
-<li>Msgbox：消息窗口</li>
-<li>Inputbox：用户输入窗口</li>
-<li>Sleep：脚本等待指定的时间，然后执行下面的命令。后面接时间参数（毫秒）</li>
-<li>Click：在指定的位置点击鼠标</li>
-</ol>
-<h2 id="五常用符号">五、常用符号</h2>
-<ol type="1">
-<li><code>#</code>：Windows键</li>
-<li><code>^</code>：Control键</li>
-<li><code>!</code>：Alt键</li>
-<li><code>+</code>：Shift键</li>
-<li><code>&amp;</code>：用来连接两个按键组成组合键（使用除了上面四个按键外）</li>
-<li><code>&lt;</code>和<code>&gt;</code>：分别表示成对按键中左边和右边的的按键</li>
-<li><code>Tab</code>和<code>Enter</code>等：没有特殊符号。使用Send命令时用大括号括起来以和字符区分开。</li>
-</ol>
-<blockquote>
-<p>注：前四个为修饰键，可以和其他按键直接相连（比如写成#a），其他按键要做修饰键时需要用&amp;连接（比如a&amp;b）。</p>
-</blockquote>
-<h2 id="六基础应用示例">六、基础应用示例</h2>
-<h3
-id="一为常用软件网站设置快捷键">（一）为常用软件、网站设置快捷键</h3>
-<blockquote>
-<p>建议用热字串来启动常用的程序，把快捷键留给常用的操作。为了防止打字时冲突可以在热字串前加特定的符号，比如斜线。使用热字串启动命令要使用多行热键格式。</p>
-</blockquote>
-<ol type="1">
-<li><p>按下<code>Windows</code>键和<code>k</code>键打开Notepad++：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#k::</span>Run D:\Program Files (x86)\Notepad++\notepad++.exe</span><br></pre></td></tr></table></figure></p></li>
-<li><p>按下<code>Windows</code>键键和<code>h</code>键，或输入<code>hui</code>后按下回车或空格（推荐使用空格）可以打开我的博客：</p>
-<ul>
-<li><p>热字串在要触发的文本两边各有一对<code>::</code></p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br><span class="line"><span class="comment">;下面使用热字串运行同样的命令，这时要采用多行分隔</span></span><br><span class="line"><span class="title">::hui::</span> </span><br><span class="line">Run www.greyli.com</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>按下<code>Alt</code>键和<code>m</code>键打开一组网页和程序：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!m::</span></span><br><span class="line">Run www.google.com</span><br><span class="line"><span class="title">Run http:</span>//fm.douban.com</span><br><span class="line"><span class="title">Run D:</span>\Program Files (x86)\Notepad++\notepad++.exe</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h3
-id="二用热键或热字串保存常用文字">（二）用热键或热字串保存常用文字</h3>
-<ol type="1">
-<li><p>按下<code>Alt</code>键和<code>k</code>键发送我的签名：</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!k::</span></span><br><span class="line">Send Sincerely,&#123;Enter&#125;Richard Hui.</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>写下<code>@g</code>键后按下空格或回车，自动转换为我的邮箱</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">::@g::</span>withlihui@gmail.com</span><br></pre></td></tr></table></figure></p></li>
-<li><p>按下<code>Alt</code>键和<code>g</code>键后填入我的账户和密码并登录（先把光标点在第一个输入框里）。</p>
-<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!g::</span></span><br><span class="line">Send withlihui@qq.com &#123;Tab&#125;mimashi123 &#123;Enter&#125;</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h2 id="七tips与建议">七、Tips与建议</h2>
-<ol type="1">
-<li>命令不区分大小写。</li>
-<li>所有的符号均为英文符号。</li>
-<li>一个脚本里可以写入多个热键。</li>
-<li>发送的字符里包含的按键前要有一个空格。</li>
-<li>不分配热键的命令将从上往下依次执行。</li>
-<li>修改后的脚本要重新运行（双击执行脚本文件）才能生效。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2655,7 +2811,7 @@ id="二用热键或热字串保存常用文字">（二）用热键或热字串�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">559</span>
+          <span class="site-state-item-count">560</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
