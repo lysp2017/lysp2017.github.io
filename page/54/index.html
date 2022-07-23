@@ -191,6 +191,292 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/17/propensityscoreR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/17/propensityscoreR/" class="post-title-link" itemprop="url">倾向性评分匹配的R语言实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-17 18:13:44" itemprop="dateCreated datePublished" datetime="2018-07-17T18:13:44+08:00">2018-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-27 23:44:15" itemprop="dateModified" datetime="2019-02-27T23:44:15+08:00">2019-02-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1. 译自Norbert Köhler的文章How to use R for matching samples
+(propensity score)</p>
+</blockquote>
+<p>根据维基百科，倾向性评分匹配（propensity score
+matching,PSM）是一种用来评估处置效应的统计方法。</p>
+<blockquote>
+<p><strong>Propensity score matching (PSM)</strong> is a statistical
+matching technique that attempts to estimate the effect of a treatment,
+policy, or other intervention by accounting for the covariates that
+predict receiving the treatment</p>
+</blockquote>
+<p>广义说来，倾向性评分分析假设只有当两组样本的研究对象具有相似特征时才能进行两组样本之间的无偏比较(unbiased
+comparison)。因此，PSM不仅仅是随机试验的一种替代方法，它也是流行病研究中进行样本比较的重要方法之一。让我们举个例子：</p>
+<blockquote>
+<p>与健康相关的生活质量（Health-related quality of
+life,HRQOL）被认为是癌症治疗的重要结果之一。对癌症患者而言，最常用的HRQOL测度是通过欧洲癌症研究与治疗中心(European
+Organisation for Research and Treatment of
+Cancer,EORTC)的调查问卷计算得出的。</p>
+<p>EORTC
+QLD-C30是一个由30个项目组成，包括5个功能量表，9个症状量表和一个整体生活质量量表的的问卷。所有量表都会给出一个0-100之间的得分。症状量表得分越高代表被调查人症状越重，其余两个量表得分越高代表生活质量越高。</p>
+</blockquote>
+<p>然而，如果没有任何参照，直接对数据进行解释是很困难的。幸运的是，<a target="_blank" rel="noopener" href="http://groups.eortc.be/qol/sites/default/files/img/slider/specimen_qlq-c30_english.pdf">EORTC
+QLQ-C30问卷</a>也在一些正常人群调查中使用，我们可以对比患者的得分和正常人群的得分差异，从而判断患者的一些症状和功能障碍是否能归因于癌症（或治疗）。PSM可以通过相似年龄和相同性别等特征，将患者和一般人群进行匹配。</p>
+<h3 id="生成两个随机数据框">生成两个随机数据框</h3>
+<blockquote>
+<p>本文用到的所有包可通过如下代码加载：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman::p_load(knitr, wakefield, MatchIt, tableone, captioner)</span><br></pre></td></tr></table></figure>
+<p>由于我们不希望在博客文章中使用真实数据，因此需要生成一些模拟数据。使用<code>wakefield</code>包可以很容易地实现这个功能。</p>
+<ol type="1">
+<li><p>创建一个名为<code>df.patients</code>的数据框，包含250个病人的年龄和性别数据，所有病人的年龄都要在30-78岁之间，并且70%的病人被设定为男性。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set.seed(180717)</span><br><span class="line">library(wakefield)</span><br><span class="line">df.patients &lt;- r_data_frame(n = 250, </span><br><span class="line">			age(x = 30:78, name = &#x27;Age&#x27;), </span><br><span class="line">			sex(x = c(&quot;Male&quot;, &quot;Female&quot;), </span><br><span class="line">			prob = c(0.70, 0.30), name = &quot;Sex&quot;))</span><br><span class="line">df.patients$Sample &lt;- as.factor(&#x27;Patients&#x27;)</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>summary函数</code>会返回创建的数据框的基本信息。患者平均年龄为53.7岁，并且大约70%为男性(66.8%)。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">summary(df.patients)</span><br><span class="line">     </span><br><span class="line">      Age            Sex           Sample   </span><br><span class="line">Min.   :30.00   Male  :167   Patients:250  </span><br><span class="line">1st Qu.:44.00   Female: 83                 </span><br><span class="line">Median :57.00                              </span><br><span class="line">Mean   :55.24                              </span><br><span class="line">3rd Qu.:67.00                              </span><br><span class="line">Max.   :78.00 </span><br></pre></td></tr></table></figure></p></li>
+<li><p>接下来，需要创建另一个名为<code>df.population</code>的数据框。我们希望这个数据集的数据和患者<code>df.patients</code>有些不同，因此正常人群的年龄区间被设定为18-80岁，并且男女各占一半。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">set.seed(180717)</span><br><span class="line"></span><br><span class="line">df.population &lt;- r_data_frame(n = 1000, age(x = 18:80, name = &#x27;Age&#x27;), </span><br><span class="line">sex(x = c(&quot;Male&quot;, &quot;Female&quot;),</span><br><span class="line">prob = c(0.50, 0.50), </span><br><span class="line">name = &quot;Sex&quot;))</span><br><span class="line"></span><br><span class="line">df.population$Sample &lt;- as.factor(&#x27;Population&#x27;)</span><br><span class="line"> </span><br><span class="line">#下方表格显示样本平均年龄为50.1岁，男女比例也大致相等。</span><br><span class="line"></span><br><span class="line">summary(df.population)</span><br><span class="line">     </span><br><span class="line">	Age           Sex             Sample    </span><br><span class="line">Min.   :18.0   Male  :489   Population:1000  </span><br><span class="line">1st Qu.:34.0   Female:511                    </span><br><span class="line">Median :51.0                                 </span><br><span class="line">Mean   :50.1                                 </span><br><span class="line">3rd Qu.:66.0                                 </span><br><span class="line">Max.   :80.0  </span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="合并数据框">合并数据框</h3>
+<p>在匹配样本之前，我们需要把两个数据框合并。首先，生成一个新变量<code>Group</code>来代表研究对象来自哪个全体（逻辑型变量），再添加另一个变量<code>Distress</code>来表示个体的痛苦程度。<code>Distress</code>变量是利用<code>wakefield包</code>中的<code>age函数</code>创建的，可以发现，女性承受的痛苦级别更高。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mydata &lt;- rbind(df.patients, df.population)</span><br><span class="line">mydata$Group &lt;- as.logical(mydata$Sample == &#x27;Patients&#x27;)</span><br><span class="line">mydata$Distress &lt;- ifelse(mydata$Sex == &#x27;Male&#x27;, </span><br><span class="line">                age(nrow(mydata), x = 0:42, name = &#x27;Distress&#x27;),</span><br><span class="line">                age(nrow(mydata), x = 15:42, name = &#x27;Distress&#x27;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; mydata</span><br><span class="line"># A tibble: 1,250 x 5</span><br><span class="line">     Age Sex    Sample   Group Distress</span><br><span class="line">   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;    &lt;lgl&gt;    &lt;int&gt;</span><br><span class="line"> 1    76 Female Patients TRUE        39</span><br><span class="line"> 2    49 Female Patients TRUE        25</span><br><span class="line"> 3    57 Male   Patients TRUE        39</span><br><span class="line"> 4    62 Male   Patients TRUE        32</span><br><span class="line"> 5    61 Male   Patients TRUE        21</span><br><span class="line"> 6    44 Male   Patients TRUE        27</span><br><span class="line"> 7    56 Female Patients TRUE        21</span><br><span class="line"> 8    54 Female Patients TRUE        28</span><br><span class="line"> 9    49 Male   Patients TRUE        17</span><br><span class="line">10    64 Male   Patients TRUE        28</span><br><span class="line"># ... with 1,240 more rows</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>if..else语句的基本语法是</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(boolean_expression) &#123;</span><br><span class="line">   // statement(s) will execute if the boolean expression is true.</span><br><span class="line">&#125; else &#123;</span><br><span class="line">   // statement(s) will execute if the boolean expression is false.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当我们比较两组样本的年龄和性别分布时，我们可以发现明显的区别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">library(pacman)</span><br><span class="line">pacman::p_load(tableone)</span><br><span class="line">table1 &lt;- CreateTableOne(vars = c(&#x27;Age&#x27;, &#x27;Sex&#x27;, &#x27;Distress&#x27;), </span><br><span class="line">                         data = mydata, </span><br><span class="line">                         factorVars = &#x27;Sex&#x27;, </span><br><span class="line">                         strata = &#x27;Sample&#x27;)</span><br><span class="line">table1 &lt;- print(table1, </span><br><span class="line">                printToggle = FALSE, </span><br><span class="line">                noSpaces = TRUE)</span><br><span class="line"></span><br><span class="line">library(knitr)</span><br><span class="line">kable(table1[,1:3],  </span><br><span class="line">      align = &#x27;c&#x27;, </span><br><span class="line">      caption = &#x27;Table 1: Comparison of unmatched samples&#x27;)</span><br></pre></td></tr></table></figure>
+<p><strong>Table 1: Comparison of unmatched samples</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Patients</th>
+<th style="text-align: center;">Population</th>
+<th style="text-align: center;">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">250</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age (mean (sd))</td>
+<td style="text-align: center;">55.24 (14.24)</td>
+<td style="text-align: center;">50.10 (18.37)</td>
+<td style="text-align: center;">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Sex = Female (%)</td>
+<td style="text-align: center;">83 (33.2)</td>
+<td style="text-align: center;">511 (51.1)</td>
+<td style="text-align: center;">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Distress (mean (sd))</td>
+<td style="text-align: center;">25.12 (11.58)</td>
+<td style="text-align: center;">24.35 (11.34)</td>
+<td style="text-align: center;">0.344</td>
+</tr>
+</tbody>
+</table>
+<h3 id="样本匹配">样本匹配</h3>
+<p>现在，我们已经完成了全部的准备工作，可以开始使用<code>MatchIT包</code>中的<code>matchit函数</code>来匹配两组样本了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">library(MatchIt)</span><br><span class="line">set.seed(180717)</span><br><span class="line"></span><br><span class="line">match.it &lt;- matchit(Group ~ Age + Sex, </span><br><span class="line">data = mydata, </span><br><span class="line">method=&quot;nearest&quot;, </span><br><span class="line">ratio=1)</span><br><span class="line"></span><br><span class="line">a &lt;- summary(match.it)</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>函数中<code>method=‘nearest’</code>的设定指明了使用近邻法(the
+nearest neighbors method)进行匹配。</li>
+<li>其他方法包括exact matching,subclassification,optimal
+matching,genetic matching,ull
+matching等（<code>method = c("exact", "subclass", "optimal", ""genetic", "full")</code>）。</li>
+<li><code>ratio=1</code>意味着这是一一配对。在我们的例子里，对于患者组中的每一个病例，将恰好匹配正常人群样本中的一个人。</li>
+<li>同时也请注意<code>Group变量</code>需要是逻辑型变量（TRUE与FALSE）。</li>
+</ol>
+<p>为了后续工作的便利，我们将<code>summary函数</code>的输出赋值给名为<code>a</code>的变量。在匹配完样本后，正常人群样本量减少到了和患者样本一致（n=250，详见Table
+2）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kable(a$nn, digits = 2, align = &#x27;c&#x27;, caption = &#x27;Table 2: Sample sizes&#x27;)</span><br></pre></td></tr></table></figure>
+<p><strong>Table 2: Sample sizes</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Control</th>
+<th style="text-align: center;">Treated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">All</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">250</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Matched</td>
+<td style="text-align: center;">250</td>
+<td style="text-align: center;">250</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Unmatched</td>
+<td style="text-align: center;">750</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Discarded</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>根据输出结果，匹配后的年龄和性别分布基本一致了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kable(a$sum.matched[c(1,2,4)], digits = 2, align = &#x27;c&#x27;, caption = &#x27;Table 3: Summary of balance for matched data&#x27;)</span><br></pre></td></tr></table></figure>
+<p><strong>Table 3: Summary of balance for matched data</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Means Treated</th>
+<th style="text-align: center;">Means Control</th>
+<th style="text-align: center;">Mean Diff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">distance</td>
+<td style="text-align: center;">0.23</td>
+<td style="text-align: center;">0.23</td>
+<td style="text-align: center;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">55.24</td>
+<td style="text-align: center;">55.22</td>
+<td style="text-align: center;">0.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SexMale</td>
+<td style="text-align: center;">0.67</td>
+<td style="text-align: center;">0.67</td>
+<td style="text-align: center;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SexFemale</td>
+<td style="text-align: center;">0.33</td>
+<td style="text-align: center;">0.33</td>
+<td style="text-align: center;">0.00</td>
+</tr>
+</tbody>
+</table>
+<p>倾向性评分的分布可以使用<code>MatchIt包</code>中的<code>plot函数</code>进行绘制。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(match.it, type = &#x27;jitter&#x27;, interactive = FALSE)</span><br></pre></td></tr></table></figure>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-17-%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E5%88%86%E5%B8%83.jpg" /></p>
+<h3 id="保存匹配样本">保存匹配样本</h3>
+<p>最后，匹配的样本将保存到名为<code>df.match</code>的新数据框中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 获得匹配数据集(含distance和weights列)的第1~ncol(mydata)列</span><br><span class="line"></span><br><span class="line">df.match &lt;- match.data(match.it)[1:ncol(mydata)]</span><br><span class="line"></span><br><span class="line"># rm()函数：删除变量函数</span><br><span class="line">rm(df.patients, df.population)</span><br><span class="line"></span><br><span class="line"># 我们可以对比两类人群间痛苦程度的差异是否依旧显著</span><br><span class="line">pacman::p_load(tableone)</span><br><span class="line">table4 &lt;- CreateTableOne(vars = c(&#x27;Age&#x27;, &#x27;Sex&#x27;, &#x27;Distress&#x27;), </span><br><span class="line">                         data = df.match, </span><br><span class="line">                         factorVars = &#x27;Sex&#x27;, </span><br><span class="line">                         strata = &#x27;Sample&#x27;)</span><br><span class="line"></span><br><span class="line"># printToggle：是否打印输出。如果为FALSE，则不创建输出，并返回一个矩阵。</span><br><span class="line"># noSpaces：是否删除为对齐添加的空格。如果您希望自己在其他软件中对齐数字，请使用此选项。</span><br><span class="line"></span><br><span class="line">table4 &lt;- print(table4, </span><br><span class="line">                printToggle = FALSE, </span><br><span class="line">                noSpaces = TRUE)</span><br><span class="line"></span><br><span class="line"># align/列对齐: &#x27;l&#x27; (left), &#x27;c&#x27; (center) and/or &#x27;r&#x27; (right). 默认则align = NULL, 数值列右对齐, 其他列左对齐.</span><br><span class="line"># kable函数：Create Tables In LaTeX, HTML, Markdown And ReStructuredText</span><br><span class="line"></span><br><span class="line">kable(table4[,1:3],  </span><br><span class="line">      align = &#x27;c&#x27;, </span><br><span class="line">      caption = &#x27;Table 4: Comparison of matched samples&#x27;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Patients</th>
+<th style="text-align: center;">Population</th>
+<th style="text-align: center;">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">250</td>
+<td style="text-align: center;">250</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age (mean (sd))</td>
+<td style="text-align: center;">55.24 (14.24)</td>
+<td style="text-align: center;">55.22 (14.21)</td>
+<td style="text-align: center;">0.987</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Sex = Female (%)</td>
+<td style="text-align: center;">83 (33.2)</td>
+<td style="text-align: center;">83 (33.2)</td>
+<td style="text-align: center;">1.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Distress (mean (sd))</td>
+<td style="text-align: center;">25.12 (11.58)</td>
+<td style="text-align: center;">22.87 (11.72)</td>
+<td style="text-align: center;">0.032</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/16/PropensityScore/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2840,71 +3126,6 @@ alt="太极图" />
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/17/ZengGuofan1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/17/ZengGuofan1/" class="post-title-link" itemprop="url">ZengGuofan1（未完）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-17 19:55:03" itemprop="dateCreated datePublished" datetime="2018-06-17T19:55:03+08:00">2018-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2974,7 +3195,7 @@ alt="太极图" />
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">561</span>
+          <span class="site-state-item-count">562</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2987,7 +3208,7 @@ alt="太极图" />
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2298</span>
+        <span class="site-state-item-count">2299</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
