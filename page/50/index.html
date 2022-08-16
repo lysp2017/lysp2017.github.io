@@ -191,6 +191,189 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/02/AutoHotkey/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/02/AutoHotkey/" class="post-title-link" itemprop="url">AutoHotkey快速入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-02 15:41:18" itemprop="dateCreated datePublished" datetime="2018-09-02T15:41:18+08:00">2018-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 01:04:11" itemprop="dateModified" datetime="2019-02-28T01:04:11+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1.
+参考作者李辉在博客上的文章：<a target="_blank" rel="noopener" href="https://greyli.com/autohotkey-automate-your-life/">AutoHotkey——自动化你的生活</a><br></p>
+</blockquote>
+<h2 id="一autohotkey简介">一、AutoHotkey简介</h2>
+<p>AutoHotkey是一款免费的、Windows平台下开放源代码的热键脚本语言。从名字可以看出来，它可以用来设置热键。但是因为它是一门脚本语言，所以就不止设置快捷键那么简单了。帮助文档这样介绍它的功能：</p>
+<ul>
+<li>通过发送键盘键击和鼠标点击自动化几乎所有的操作。您可以手工编写宏或者使用宏录制器。</li>
+<li>为键盘，游戏杆和鼠标创建热键。几乎任何按键、按钮或组合键都可以设置为热键。</li>
+<li>在您键入缩写时扩展缩写。例如，键入 “btw” 能自动地生成 “by the
+way”。</li>
+<li>创建自定义的数据输入表格、用户界面和菜单栏。详见图形用户界面。</li>
+<li>重新映射您键盘、游戏杆和鼠标上的按键和按钮。</li>
+<li>通过WinLIRC客户端脚本对手执遥控器的信号作出反应。</li>
+<li>运行现有的AutoIt v2脚本，并用新功能增强它们。</li>
+<li>将任何的脚本转换为EXE文件，使其在没有安装AutoHotkey的计算机上也能运行。</li>
+</ul>
+<h2 id="二最简流程示例">二、最简流程示例</h2>
+<ol type="1">
+<li><p>到<a target="_blank" rel="noopener" href="https://www.autohotkey.com">www.autohotkey.com</a>下载或点击这里下载（AutoHotkey1.1），然后安装。</p></li>
+<li><p>使用编辑器或记事本新建一个脚本文件，格式为<code>.ahk</code>，编码格式为<code>UTF-8</code>。</p></li>
+<li><p>编辑脚本，在脚本中写入下面这行：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br></pre></td></tr></table></figure></p></li>
+<li><p>保存后双击运行。</p></li>
+<li><p>这时按下Windows键和h键就会打开我的博客。</p></li>
+<li><p>在上面这个命令中</p>
+<ul>
+<li><p>符号<code>#</code>表示<code>Windows键</code></p></li>
+<li><p><code>#</code>后紧跟着<code>h</code>表示组合键</p></li>
+<li><p>符号<code>::</code>用来分隔热键和命令（左边是热键，右边是命令）</p></li>
+<li><p><code>Run</code>命令用来打开一个文件或网页，中间空一个空格。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-09-02-windows-key-shortcut-tricks-670x335.jpg" /></p></li>
+</ul></li>
+</ol>
+<h2 id="三基本术语">三、基本术语</h2>
+<ol type="1">
+<li><p>脚本/宏（Script）：你要编辑的一个格式后缀为<code>.ahk</code>的纯文本文件（编码格式为<code>UTF-8</code>）。你把代码写进这个脚本里，双击执行后，你的热键就生效了。</p></li>
+<li><p>热键（hotkey）：用来触发操作的按键或组合键，也就是快捷键。</p></li>
+<li><p>命令：你为某个热键指定的一个动作（action），比如打开程序，打开网页等。</p></li>
+<li><p>热字串（hotstring）：类似于热键，当你输入热字串并按下回车或空格后触发相应的命令。</p></li>
+<li><p>宏录制器（AutoScriptWriter）：可以录制回放你的操作的工具，非常适合新手入门学习。</p></li>
+<li><p>多行热键：当通过热键触发多个命令时，这时的格式是命令从第二行开始，每个命令一行，最后以占据一行的return结束。</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span></span><br><span class="line">RunWait Notepad</span><br><span class="line">Msgbox Goodbye!</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>参数：自定义的数值，传递给命令执行，比如sleep后面的时间数就是参数。参数与命令通过空格或逗号隔开，多个参数使用逗号隔开。</p></li>
+<li><p>注释（comment）：注释是用来对你的代码进行解释和说明的文字</p>
+<ul>
+<li><p>单行的注释以<code>;</code>开头</p></li>
+<li><p>多行注释用<code>/*</code>和<code>*/</code>括住。</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;这是单行注释</span></span><br><span class="line"><span class="comment">/* 这里 </span></span><br><span class="line"><span class="comment">是 </span></span><br><span class="line"><span class="comment">多行注释 */</span></span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ol>
+<h2 id="四常用命令">四、常用命令</h2>
+<ol type="1">
+<li>Run：用来打开一个程序、文档、网页或者快捷方式</li>
+<li>Send：发送键击或一段字符</li>
+<li>Msgbox：消息窗口</li>
+<li>Inputbox：用户输入窗口</li>
+<li>Sleep：脚本等待指定的时间，然后执行下面的命令。后面接时间参数（毫秒）</li>
+<li>Click：在指定的位置点击鼠标</li>
+</ol>
+<h2 id="五常用符号">五、常用符号</h2>
+<ol type="1">
+<li><code>#</code>：Windows键</li>
+<li><code>^</code>：Control键</li>
+<li><code>!</code>：Alt键</li>
+<li><code>+</code>：Shift键</li>
+<li><code>&amp;</code>：用来连接两个按键组成组合键（使用除了上面四个按键外）</li>
+<li><code>&lt;</code>和<code>&gt;</code>：分别表示成对按键中左边和右边的的按键</li>
+<li><code>Tab</code>和<code>Enter</code>等：没有特殊符号。使用Send命令时用大括号括起来以和字符区分开。</li>
+</ol>
+<blockquote>
+<p>注：前四个为修饰键，可以和其他按键直接相连（比如写成#a），其他按键要做修饰键时需要用&amp;连接（比如a&amp;b）。</p>
+</blockquote>
+<h2 id="六基础应用示例">六、基础应用示例</h2>
+<h3
+id="一为常用软件网站设置快捷键">（一）为常用软件、网站设置快捷键</h3>
+<blockquote>
+<p>建议用热字串来启动常用的程序，把快捷键留给常用的操作。为了防止打字时冲突可以在热字串前加特定的符号，比如斜线。使用热字串启动命令要使用多行热键格式。</p>
+</blockquote>
+<ol type="1">
+<li><p>按下<code>Windows</code>键和<code>k</code>键打开Notepad++：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#k::</span>Run D:\Program Files (x86)\Notepad++\notepad++.exe</span><br></pre></td></tr></table></figure></p></li>
+<li><p>按下<code>Windows</code>键键和<code>h</code>键，或输入<code>hui</code>后按下回车或空格（推荐使用空格）可以打开我的博客：</p>
+<ul>
+<li><p>热字串在要触发的文本两边各有一对<code>::</code></p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">#h::</span>Run www.greyli.com</span><br><span class="line"><span class="comment">;下面使用热字串运行同样的命令，这时要采用多行分隔</span></span><br><span class="line"><span class="title">::hui::</span> </span><br><span class="line">Run www.greyli.com</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>按下<code>Alt</code>键和<code>m</code>键打开一组网页和程序：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!m::</span></span><br><span class="line">Run www.google.com</span><br><span class="line"><span class="title">Run http:</span>//fm.douban.com</span><br><span class="line"><span class="title">Run D:</span>\Program Files (x86)\Notepad++\notepad++.exe</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3
+id="二用热键或热字串保存常用文字">（二）用热键或热字串保存常用文字</h3>
+<ol type="1">
+<li><p>按下<code>Alt</code>键和<code>k</code>键发送我的签名：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!k::</span></span><br><span class="line">Send Sincerely,&#123;Enter&#125;Richard Hui.</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>写下<code>@g</code>键后按下空格或回车，自动转换为我的邮箱</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">::@g::</span>withlihui@gmail.com</span><br></pre></td></tr></table></figure></p></li>
+<li><p>按下<code>Alt</code>键和<code>g</code>键后填入我的账户和密码并登录（先把光标点在第一个输入框里）。</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">!g::</span></span><br><span class="line">Send withlihui@qq.com &#123;Tab&#125;mimashi123 &#123;Enter&#125;</span><br><span class="line"><span class="keyword">return</span></span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h2 id="七tips与建议">七、Tips与建议</h2>
+<ol type="1">
+<li>命令不区分大小写。</li>
+<li>所有的符号均为英文符号。</li>
+<li>一个脚本里可以写入多个热键。</li>
+<li>发送的字符里包含的按键前要有一个空格。</li>
+<li>不分配热键的命令将从上往下依次执行。</li>
+<li>修改后的脚本要重新运行（双击执行脚本文件）才能生效。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/09/02/1-58medical-record/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1334,418 +1517,6 @@ cholesterol的方差在两组间则没有差异。这就很难用“随机化过
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/27/Risk-Factors-for-Unintended-Durotomy-During-Spine-Surgery-a-Multivariate-Analysis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/27/Risk-Factors-for-Unintended-Durotomy-During-Spine-Surgery-a-Multivariate-Analysis/" class="post-title-link" itemprop="url">脊柱手术中硬脊膜意外损伤的危险因素分析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-27 19:39:05" itemprop="dateCreated datePublished" datetime="2018-08-27T19:39:05+08:00">2018-08-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:42:10" itemprop="dateModified" datetime="2019-02-27T23:42:10+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明<br> 1. 译自Baker GA, Cizik AM, Bransford RJ, et al.Risk Factors
-for Unintended Durotomy During Spine Surgery: a Multivariate
-Analysis.Spine J,2012,12(2):121-6.<br></p>
-</blockquote>
-<h2 id="一前言">一、前言</h2>
-<ol type="1">
-<li><p>硬脊膜意外切开(unintended
-durotomies)在脊柱手术中经常发生，据报道其发生率为3％至16％。</p></li>
-<li><p>尽管大多数硬脊膜撕裂没有长期后遗症并且使用缝合线和/或修补物质（例如纤维蛋白胶）在手术中很容易修补。</p></li>
-<li><p>但是也可能发生各种术中，术后或长期并发症，包括：</p>
-<ul>
-<li>严重的头痛</li>
-<li>持续性渗漏（duro-cutaneous fistula）</li>
-<li>pseudomeningocele formation</li>
-<li>神经根压迫(nerve root entrapment)</li>
-<li>脑膜炎和蛛网膜炎</li>
-</ul>
-<blockquote>
-pseudomeningocele formation:<br>
-<ol type="1">
-<li>A pseudomeningocele is an abnormal collection of cerebrospinal fluid
-(CSF) that communicates with the CSF space around the brain or spinal
-cord.<br></li>
-<li>In contrast to a meningocele, in which the fluid is surrounded and
-confined by dura mater, in a pseudomeningocele, the fluid has no
-surrounding membrane, but is contained in a cavity within the soft
-tissues.<br></li>
-<li>Pseudomeningocele may result after brain surgery, spine surgery, or
-brachial plexus avulsion injury.<br></li>
-<li>Treatment for pseudomeningocele is conservative or may involve
-neurosurgical repair.<br></li>
-</ol>
-</blockquote>
-<p><img
-src="http://qiniup.louyanspine.com/2018-10-02-AMJI-3-42-g003.jpg" />
-<img src="http://qiniup.louyanspine.com/2018-10-02-14264_04X.jpg" />
-<img src="http://qiniup.louyanspine.com/2018-10-02-med_legal.png" />
-<img src="http://qiniup.louyanspine.com/2018-10-02-pmc2.jpg" /> <img
-src="http://qiniup.louyanspine.com/2018-10-02-1477509463351.png" /> <img
-src="http://qiniup.louyanspine.com/2018-10-02-nrdp20157-f1.jpg" /> <img
-src="http://qiniup.louyanspine.com/2018-10-02-Spina-bifida-meningocele.png" />
-<img src="http://qiniup.louyanspine.com/2018-10-02-Meningocele.jpg" />
-<img
-src="http://qiniup.louyanspine.com/2018-10-02-nejmicm1408098_f1.jpeg" /></p></li>
-<li><p>尽管一些患者的症状，在采取下述措施后可以改善，但有时需要再次手术来修补硬脊膜：</p>
-<ul>
-<li><p>采取卧床</p></li>
-<li><p>硬膜外自体血充填(blood patches)</p></li>
-<li><p>放置蛛网膜下腔引流管</p>
-<blockquote>
-<p>Epidural blood patch: A small amount of the patient's blood is
-injected into the epidural space near the site of the original puncture;
-the resulting blood clot then "patches" the meningeal leak.</p>
-</blockquote></li>
-</ul></li>
-<li><p>既往已经有很多报道，研究硬脊膜意外切开的各种危险因素及其治疗。报道认为无论外科医生的能力或经验如何，硬脊膜意外切开都有可能发生。</p></li>
-<li><p>研究还表明，硬脊膜意外切开与下列因素有关：</p>
-<ul>
-<li>患者的年龄</li>
-<li>所进行的手术类型</li>
-<li>初次手术还是翻修手术</li>
-<li>患者性别</li>
-<li>外科医生的经验以及既往病史
-<ul>
-<li>后纵韧带骨化</li>
-<li>糖尿病</li>
-<li>骨质疏松症</li>
-<li>关节炎</li>
-<li>黄韧带骨化</li>
-</ul></li>
-</ul>
-<blockquote>
-<p>然而，这些研究在很大程度上受到研究设计，方法学或样本量的限制。</p>
-</blockquote></li>
-<li><p>我们假设下列因素是脊柱手术期间硬脊膜意外切开的重要危险因素：</p>
-<ul>
-<li>手术侵袭性的增加(increased surgical invasiveness)</li>
-<li>翻修手术</li>
-<li>糖尿病</li>
-<li>年龄</li>
-</ul></li>
-</ol>
-<h2 id="二材料与方法">二、材料与方法</h2>
-<h3 id="一数据来源">（一）数据来源</h3>
-<ol type="1">
-<li>我们在2003年1月1日至2004年12月31日期间在两所学术医院，分析了一个接受脊柱手术的患者队列的前瞻性数据：
-<ul>
-<li>一所大学的医疗中心</li>
-<li>一个医院（覆盖多个州multi-state的唯一的一级创伤中心）</li>
-</ul></li>
-<li>所有在这两年内接受脊柱手术的患者都参加了登记，并在IRB(institutional
-review board)的批准下进行了为期两年的随访。</li>
-<li>使用先前公布的方法前瞻性地记录关于：
-<ul>
-<li>患者的人口特征(demographics)</li>
-<li>医学共患病(medical co-morbidity)</li>
-<li>疾病严重程度</li>
-<li>手术侵袭性</li>
-<li>不良事件(adverse occurrences)</li>
-</ul></li>
-</ol>
-<h3 id="二手术侵袭性">（二）手术侵袭性</h3>
-<ol type="1">
-<li>手术侵袭性指数是一个先前经过验证的度量，它考虑了：
-<ul>
-<li>减压</li>
-<li>融合</li>
-<li>内固定的节段（无论是前路还是后路）</li>
-</ul></li>
-<li>它的范围从0到48，得分越高表明侵袭性越强。</li>
-<li>该指数是6个加权手术组成(surgical components)的总和：
-<ul>
-<li>前路减压（ad）</li>
-<li>前路融合（af）</li>
-<li>前路内固定（ai）</li>
-<li>后路减压（pd）</li>
-<li>后路融合（pf）</li>
-<li>后路内固定（pi）</li>
-<li>每个组成的权重代表实施每个组成的椎体节段的数量</li>
-</ul></li>
-<li>例如，在C5-C6前路椎间盘切除术，包括融合和plating：
-<ul>
-<li>ad = 1（一个椎间盘）</li>
-<li>af = 2（两个椎间融合）</li>
-<li>ai = 2（2个椎体的plating）</li>
-<li>手术侵袭性指数为1+2+2=5</li>
-</ul></li>
-<li>为了达到研究目的，我们将分数分为六组：
-<ul>
-<li>1-5</li>
-<li>6-10</li>
-<li>11-15</li>
-<li>16-20</li>
-<li>21-25</li>
-<li>＞25</li>
-</ul></li>
-</ol>
-<h3 id="三排除标准">（三）排除标准</h3>
-<ol type="1">
-<li>排除了年龄小于18岁的患者和缺乏手术侵袭性数据的患者。</li>
-<li>排除了手术侵袭指数缺失或等于零的患者（closed casting, hardware
-removal, placement of halo）(Figure 1)。</li>
-</ol>
-<h3 id="四硬脑膜撕裂和危险因素定义">（四）硬脑膜撕裂和危险因素定义</h3>
-<ol type="1">
-<li><p>硬脊膜意外切开(unintended dural opening)定义为：</p>
-<ul>
-<li>在手术过程中意外切开硬脊膜，伴有脑脊液外渗(CSF
-extravasation)或蛛网膜层突起(bulging of the arachnoid layer)。</li>
-</ul></li>
-<li><p>脑脊液漏(CSF leak)定义为：</p>
-<ul>
-<li>需要额外治疗的从皮肤切口渗出脑脊液 (Table 1) <img
-src="http://qiniup.louyanspine.com/2018-10-01-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8811.18.57.png" /></li>
-</ul></li>
-<li><p>在创伤患者中，继发于创伤而非医源性原因的硬脊膜撕裂未包括在该分析中，因为它们不符合“硬脊膜意外切开”的定义。</p></li>
-<li><p>评估的危险因素包括：</p>
-<ul>
-<li>年龄</li>
-<li>性别</li>
-<li>吸烟状况</li>
-<li>酗酒</li>
-<li>吸毒</li>
-<li>糖尿病</li>
-<li>体重指数（BMI）</li>
-<li><a target="_blank" rel="noopener" href="https://www.mdcalc.com/charlson-comorbidity-index-cci">医学合并症（Charlson）</a></li>
-<li>既往脊柱手术</li>
-<li>主要诊断（退行性，创伤，肿瘤，其他）</li>
-<li>手术节段（颈椎，胸椎，腰骶）</li>
-<li>手术入路（前，后，前后联合）。</li>
-</ul></li>
-<li><p>从2003年至2004年，所有外科脊柱患者均有前瞻性记录是否存在硬脊膜意外切开。</p></li>
-<li><p>但是，危险因素相关的一些信息，如吸烟状况和酒精使用，有缺失。</p></li>
-<li><p>平均每个医学合并症，我们的登记表缺少7.43％的数据。</p></li>
-<li><p>我们假设缺失的危险因素数据没有显著的临床意义</p>
-<ul>
-<li>对风险编码为“否(no)”或“缺失(absent)”。</li>
-<li>为了测试这个假设，我们分别在存在缺失数据和不存在缺失数据的患者中进行了分析，并确认结果和结论未受影响</li>
-<li>因此，本文提出的主要结果，也包括那些存在缺失危险因素信息的患者。</li>
-</ul></li>
-</ol>
-<h3 id="五统计学分析">（五）统计学分析</h3>
-<ol type="1">
-<li>分类数据用病例数和百分比表示。</li>
-<li>对分类数据的值，用Pearson's Chi-square or Fisher's exact
-tests（当单元格计数较低时）评估各种危险因素的影响。</li>
-<li>对每一个分类变量使用单因素或多因素log-binomial回归分析计算相对风险（RR）和95％置信区间（95％CI）。</li>
-<li>逐步的多因素log-binomial分析，用以检验危险因素和并发症之间的关联，并调整混杂的危险因素。</li>
-<li>在该模型中，我们纳入被研究人员认为会导致SSI（Status of Surgical
-Invasiveness
-Index）的具有临床重要性的危险因素，或者是已知的混杂因素，或者单因素关联分析中具有p&lt;0.10。</li>
-<li>由于手术入路和手术节段的数量是侵袭性指数的组成部分，因此它们被排除在多因素模型之外。</li>
-<li>使用SAS 9.2软件（SAS
-Inc.，Cary，NC）进行统计分析，使用双侧显著性检验，α设为0.05。</li>
-</ol>
-<h2 id="三结果">三、结果</h2>
-<h3 id="一纳入例数">（一）纳入例数</h3>
-<ol type="1">
-<li>我们从入院、术前临床访视和/或手术病例日志(surgical case
-logs)中确定了1745名符合条件的患者，排除154例(9%)(Figure 1)。
-<ul>
-<li>116例（6.6％）缺失侵袭性评分或侵袭性评分为0
-<ul>
-<li>那些缺失侵袭性评分或侵袭性评分为0的患者经过：
-<ul>
-<li>石膏固定</li>
-<li>闭合复位</li>
-<li>取出内固定(hardware removal)</li>
-<li>全麻下经皮椎体成形术(percutaneous vertebral augmentation)</li>
-</ul></li>
-</ul></li>
-<li>38例不满18岁。</li>
-</ul>
-<img
-src="http://qiniup.louyanspine.com/2018-10-01-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8811.11.10.png" /></li>
-</ol>
-<h3 id="二患者特点">（二）患者特点</h3>
-<ol type="1">
-<li>平均手术侵袭性评分为8.4(range, 1–48)。</li>
-<li>患者多为男性（914/1591,57％）</li>
-<li>平均年龄为49.5岁</li>
-<li>平均Charlson score为1.2</li>
-<li>平均BMI为27.7 (table 2)</li>
-<li>疾病类型：
-<ul>
-<li>退行性疾病（991/1591,62％）</li>
-<li>创伤（372/1591,23％）</li>
-</ul></li>
-<li>入路：
-<ul>
-<li>后路（934/1591,59％）</li>
-<li>前后联合入路（365/1591,23％）</li>
-</ul></li>
-<li>平均随访时间为17.1个月（范围为0.43-65.5个月）。</li>
-<li>结局：
-<ul>
-<li>161例（10％）硬脊膜意外损伤</li>
-<li>14例通过皮肤切口出现脑脊液漏（需额外治疗）(Table 1)
-<ul>
-<li>占患者总数的0.9％</li>
-<li>占硬脊膜意外损伤患者的8.7％</li>
-</ul>
-<img
-src="http://qiniup.louyanspine.com/2018-10-01-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8811.18.57.png" /></li>
-</ul></li>
-</ol>
-<h3 id="三单因素分析">（三）单因素分析</h3>
-<ol type="1">
-<li>单因素分析结果如(Table
-2)所示，表明下列为脊柱手术中硬脊膜意外损伤的显著危险因素：
-<ul>
-<li>年龄</li>
-<li>糖尿病</li>
-<li>退行性疾病</li>
-<li>腰骶椎手术</li>
-<li>翻修手术</li>
-<li>手术侵袭性增加</li>
-<li>手术入路</li>
-</ul>
-<img
-src="http://qiniup.louyanspine.com/2018-10-01-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8811.19.48.png" />
-<img
-src="http://qiniup.louyanspine.com/2018-10-01-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8811.20.15.png" /></li>
-</ol>
-<h3 id="四多因素分析">（四）多因素分析</h3>
-<ol type="1">
-<li><p>多因素分析结果表明下列为显著危险因素 (Table 3)：</p>
-<ul>
-<li>年龄</li>
-<li>翻修手术</li>
-<li>腰骶椎手术</li>
-<li>手术侵袭性增加。</li>
-</ul>
-<p><img
-src="http://qiniup.louyanspine.com/2018-10-01-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-10-01%20%E4%B8%8B%E5%8D%8811.20.53.png" /></p></li>
-<li><p>单因素和多因素分析中硬脊膜意外损伤最强的危险因素是翻修手术（RR
-2.21，CI 2.63-2.98）。</p></li>
-</ol>
-<h2 id="四讨论">四、讨论</h2>
-<h3 id="一文献综述及其局限性">（一）文献综述及其局限性</h3>
-<ol type="1">
-<li>在脊柱手术期间，硬脊膜意外损伤相当常见，据报道发生率为1％至14％。</li>
-<li>报道的危险因素包括：翻修手术，后纵韧带骨化，外科医生的培训和患者年龄，尽管这些因素在各个研究之间并不一致。基于文献综述，翻修手术是最常报告的危险因素。</li>
-<li>尽管有一些研究试图研究发病率及其相关的危险因素，但它们受限于样本量，回顾性的数据收集方式和缺乏多因素分析。
-<ul>
-<li><p>Khan, et
-al.报道了文献中样本量最大的硬脊膜意外损伤系列（10年期间，在3183例患者中占10.6％）。</p></li>
-<li><p>Cammisa et al.报道在2144名患者中的发病率为3.1%。</p></li>
-<li><p>Wang et al.报道在641名患者中的发病率为14%。</p>
-<blockquote>
-<ol type="1">
-<li>这三项研究样本量非常大，描述了硬脊膜意外损伤的治疗及其并发症。<br></li>
-<li>但都是回顾性研究。<br></li>
-<li>此外，危险因素的评估主要是定性的，没有进行统计分析。<br></li>
-</ol>
-</blockquote></li>
-<li><p>Hamallah, et
-al回顾了1994年患者的医疗记录，报道颈椎术后脑脊液漏发生率为1％。</p>
-<ul>
-<li>他们确实找出了相对危险值升高的几个危险因素。但并非所有的危险因素都具有统计学上显著的置信区间。
-<ul>
-<li>例如，他们报告，颈椎前路翻修手术的患者发生脑脊液漏的可能性是颈椎前路初次手术的2.75倍，但95％的置信区间为0.85至8.93。</li>
-</ul></li>
-<li>但他们确实将性别为男性和后纵韧带骨化确定为具有显著置信区间的统计学显著危险因素。</li>
-<li>虽然这项研究确实在统计学上评估了潜在危险因素的影响，但它似乎采用了单因素而非多因素分析。因此，其他协变量的潜在混杂效应未得到控制。</li>
-</ul></li>
-<li><p>我们在文献检索中发现了一项专门检查硬脊膜撕裂的前瞻性研究。Tafazal
-and Sell报告了英国14个机构1549例前瞻性收集的数据。他们报道了在primary
-microdiscectomies中硬脊膜撕裂的发生率为3.5％，revision
-microdiscectomies的发生率为13.2％。</p>
-<ul>
-<li>然而，作者承认他们的大部分数据都是“估计的”，并且一名参与的外科医生坦白承认了猜测。</li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="二研究结果分析">（二）研究结果分析</h3>
-<ol type="1">
-<li>在单因素分析结果表明糖尿病是一个重要的危险因素。尽管在多引述分析中没有统计学意义（p&lt;0.081;
-CI 0.94-1.98），但这可能会在更大的样本人群中获得统计学意义。</li>
-<li>以前也曾报道过年龄是危险因素。尽管硬脊膜的外观没有记录在我们的注册系统中，但根据我们的观察显示，在老年患者中，硬脊膜往往更易碎，这可能使其更易在术中发生硬脊膜意外损伤。</li>
-<li>由于瘢痕组织可能使解剖结构变得模糊不清，因此翻修也被确定为危险因素。</li>
-<li>我们还报道了腰骶椎手术中硬膜囊损伤发生率更高。这并不奇怪，因为一般来说，外科医生更有可能操纵和缩进马尾神经周围的硬脊膜而不是脊髓本身。</li>
-<li>作为危险因素的高手术侵袭性在某种程度上是直观的，显而易见的。</li>
-</ol>
-<h3 id="三研究缺点">（三）研究缺点</h3>
-<ol type="1">
-<li>在患者登记中，许多数据被记录为分类数据而非连续性数据。因此，未能评估潜在协变量的严重性。
-<ul>
-<li>吸烟史记录为“是”或“否”，未提及吸烟的数量或持续时间。</li>
-<li>糖尿病记录为“是”或“否”。</li>
-<li>未记录Average glucose和血红蛋白A1c的值。</li>
-<li>未考虑作为危险因素的糖尿病的严重程度。</li>
-</ul></li>
-<li>其次，这是一项观察性研究。尽管存在大量创伤患者，但这些手术中的大部分都是择期的。因此具有多种合并症的患者可能不会做手术，从而削弱了这些合并症的潜在影响。这项研究的主要缺点是缺乏围绕实际硬脊膜意外损伤的详细信息。</li>
-<li>在像我们这样的学术培训机构中，外科主治医师在手术时有不同手术经验和水平的助手和住院医师来协助他们。直观地说，外科医生的经验水平似乎可能影响术中硬脊膜意外损伤的发生率。该分析未考虑外科医生的经验水平。</li>
-<li>此外，我们没有前瞻性地记录有关脑脊液漏的详细信息。在该数据登记中缺少关于CSF漏的时间（在减压还是在植入内固定期间）或与硬脊膜撕裂相关的内固定类型的信息。</li>
-<li>此次研究回顾性地浏览了手术报告以进行评估，但是这些信息并非始终可获得。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1815,7 +1586,7 @@ CI 0.94-1.98），但这可能会在更大的样本人群中获得统计学意�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">569</span>
+          <span class="site-state-item-count">570</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1828,7 +1599,7 @@ CI 0.94-1.98），但这可能会在更大的样本人群中获得统计学意�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2328</span>
+        <span class="site-state-item-count">2331</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
