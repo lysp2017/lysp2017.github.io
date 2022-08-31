@@ -191,6 +191,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/05/10/Revealjs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/10/Revealjs/" class="post-title-link" itemprop="url">Reveal.js初学者指南（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-10 10:49:09" itemprop="dateCreated datePublished" datetime="2018-05-10T10:49:09+08:00">2018-05-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Reveal.js允许您使用HTML创建美观的交互式幻灯片，并且免费。以下是使用默认主题的典型Reveal.js演示文稿的屏幕截图：</p>
+<p><img
+src="http://htmlcheats.com/wp-content/uploads/2013/03/reveal.js-example-default-theme.png" /></p>
+<p>##一、操作键 1. 使用空格键或方向键移动演示文稿 2.
+iOS风格的滑动功能也适用于任何带有触摸功能的屏幕 3. Escape键：缩略图视图
+4. <code>.键</code>：使屏幕变暗</p>
+<p>##二、下载和安装
+###（一）获取Reveal.js-master.zip文件并解压缩到工作目录 1.
+访问Reveal.js主页：<a
+target="_blank" rel="noopener" href="https://github.com/hakimel/reveal.js">https://github.com/hakimel/reveal.js</a>
+2. 寻找Zip图标，并点击下载</p>
+<pre><code>![](http://htmlcheats.com/wp-content/uploads/2013/03/gitub-download-as-zip.png)</code></pre>
+<ol start="3" type="1">
+<li>解压缩后获得<code>reveal.js master</code>文件夹</li>
+</ol>
+<p>###（二）将需要的文件复制到你的工作目录 1.
+将<code>reveal.js master</code>文件夹中的css，js，plugin和lib文档复制到用来写HTML文件，并制作演示文稿的目录中。</p>
+<p>###（三）将幻灯片创建为单个HTML文件</p>
+<p>##三、逐步创建Reveal.js演示文稿 1. 以最小的HTML文件开始</p>
+<pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;	</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></code></pre>
+<ol start="2" type="1">
+<li><p>给Reveal.js base增加references，给</p>
+<head>
+<p>section增加theme style sheets</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Reveal.js 3 Slide Demo&lt;/title&gt;</span><br><span class="line">	&lt;link rel=&quot;stylesheet&quot; href=&quot;css/reveal.min.css&quot;&gt;</span><br><span class="line">	&lt;link rel=&quot;stylesheet&quot; href=&quot;css/theme/default.css&quot; id=&quot;theme&quot;&gt;	</span><br><span class="line">	&lt;!--Add support for earlier versions of Internet Explorer --&gt;</span><br><span class="line">	&lt;!--[if lt IE 9]&gt;</span><br><span class="line">	&lt;script src=&quot;lib/js/html5shiv.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;![endif]--&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img
+src="http://omslg9lsb.bkt.clouddn.com/2018-05-13-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-13%20%E4%B8%8B%E5%8D%888.05.39.png" /></p>
+<blockquote>
+<p><code>&lt;head&gt;</code>部分必须包含两个样式表：reveal.min.css和一个主题，例如default.css</p>
+</blockquote>
+<ul>
+<li><p>按照惯例，minimized的文件像完整样式表一样被命名为（在本例中为reveal.css），但在“css”之前有“min”，因此为reveal.min.css。</p></li>
+<li><p>default.css文件表示默认的Reveal.js主题，它为您的演示文稿的整体外观提供了一个外观。
+如果用“sky.css”代替“default.css”，它会加载Sky主题，如下所示：</p>
+<p><img
+src="http://htmlcheats.com/wp-content/uploads/2013/03/reveal.js-example-sky-theme.png" /></p></li>
+<li><p>可以在目录css-theme中找到所有主题。</p></li>
+</ul></li>
+<li><p>将对Internet Explorer 9的支持添加到</p>
+<head>
+<p>部分</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/05/09/HTMLbasic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1492,7 +1607,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deplo
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">575</span>
+          <span class="site-state-item-count">576</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1505,7 +1620,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deplo
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2359</span>
+        <span class="site-state-item-count">2362</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
