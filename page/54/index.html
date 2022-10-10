@@ -191,6 +191,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/22/Probability-density-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/22/Probability-density-function/" class="post-title-link" itemprop="url">概率密度函数、概率质量函数和累积分布函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-22 22:48:42" itemprop="dateCreated datePublished" datetime="2018-08-22T22:48:42+08:00">2018-08-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2
+id="一概率密度函数probability-density-functionpdf简称为密度函数">一、概率密度函数(Probability
+Density Function,PDF)/简称为密度函数</h2>
+<h3 id="一理解">（一）理解</h3>
+<p>倘若有一个物体，求它在某一个点的质量是多少？因为一个点是无限小的，所以点的质量一定为0。然而这个物体是甶无数个点组成的，假如我们又需要求它质量，怎么办呢？</p>
+<p>于是引入密度的概念 <span class="math display">\[\rho = \lim
+_{V\rightarrow 0 }{\cfrac{\Delta m}{\Delta V}}\]</span></p>
+<p>最后再把密度积分就可以得到质量m了。</p>
+<p>同理，如果在[0,
+1]上随机取点，求取在某一点处的概率，点的长度无限小，此概率一定为0。这时情况和上面所述类似，我们需要引入概率密度p。
+<span class="math display">\[p = \lim _{x\rightarrow 0 }{\cfrac{\Delta
+p}{\Delta x}}\]</span></p>
+<p>这样我们就可以求所取点落在某一段(a,b)上的概率P了。 <span
+class="math display">\[P = \int ^{b}_{a}p\left( t\right) dt\]</span></p>
+<p>总结：为什么要叫概率密度，因为它和物理上密度的定义本质上是一样的。通常会遇到两种情况：</p>
+<ol type="1">
+<li><p>已知概率密度函数，求分布函数，积分即可。</p></li>
+<li><p>已知分布函数，求概率密度函数，求导即可。</p>
+<blockquote>
+<p>概率密度函数是针对连续型随机变量定义的。</p>
+</blockquote></li>
+</ol>
+<h3 id="二定义">（二）定义</h3>
+<p>若概率密度函数为<span
+class="math inline">\(f_X(x)\)</span>，则可用PDF在某一区间上的积分来刻画随机变量落在这个区间中的概率。
+<span class="math display">\[P_{r}\left( a\leq X\leq b\right)=\int
+^{b}_{a}f_{X}\left( x\right) dx\]</span></p>
+<h2
+id="二概率质量函数probability-mass-function-pmf">二、概率质量函数（Probability
+Mass Function, PMF）</h2>
+<ol type="1">
+<li>类似于概率密度函数，只不过是离散型随机变量在各特定取值上的概率。</li>
+<li>以掷一枚均匀硬币为例，若正面令<span
+class="math inline">\(X=1\)</span>，若反面令<span
+class="math inline">\(X=0\)</span>，则其PMF就是</li>
+</ol>
+<p><span class="math display">\[f_{X}\left( x\right)
+=\begin{cases}\dfrac {1}{2} if \ x\in \left\{ 0,1\right\} \\ 0 \ if \
+x\notin \left\{ 0,1\right\} \end{cases}\]</span></p>
+<h2
+id="三累积分布函数cumulative-distribution-functioncdf简称为分布函数">三、累积分布函数（Cumulative
+Distribution Function,CDF）/简称为分布函数</h2>
+<ol type="1">
+<li>是概率密度函数的积分，能完整描述一个实随机变量X的概率分布。</li>
+<li>CDF的定义是：<span class="math inline">\(F_{X}\left( x\right)
+=P_{r}(X \leq x)\)</span>
+<ul>
+<li><p>连续型随机变量：<span class="math inline">\(F_{X}\left( x\right)
+=P_{r}(X \leq x)=\int ^{x}_{-\infty }f_{X}\left( t\right)
+dt\)</span></p></li>
+<li><p>离散型随机变量，CDF是阶梯状的分段函数，以掷硬币为例<span
+class="math display">\[F_{X}\left( x\right) =P_{r}(X \leq
+x)=\begin{cases}0 \ if \ x&lt;0\\ \dfrac {1}{2}\ if \ 0\leq x&lt;1\\ 1\
+if \ x\geq 1\end{cases}\]</span></p></li>
+</ul></li>
+<li>另外CDF的单调递增（不减）性质可以由它的定义和概率的性质推出: <span
+class="math display">\[对任意x_1 &lt; x_2，总有P_{r}(X \leq x_1)\leq
+P_{r}(X \leq x_2),所以F_{X}\left( x_1\right)\leq F_{X}\left(
+x_2\right)\]</span></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/21/e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1734,88 +1867,6 @@ class="math inline">\(P(A\mid{B})\)</span>约等于0.019。也就是说，即使
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/08/Ambulance-services/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/08/Ambulance-services/" class="post-title-link" itemprop="url">伦敦和大不列颠救护车的历史：从1860年到现代(未完)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-08 12:48:13" itemprop="dateCreated datePublished" datetime="2018-08-08T12:48:13+08:00">2018-08-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E7%89%A9%E4%B8%8E%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">人物与历史</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of
-Essential Concepts in Clinical Research<br>???</p>
-</blockquote>
-<h1 id="一摘要">一、摘要</h1>
-<p>在21世纪，我们对于能够快速反应的救护车服务习以为常。救护车能够可靠地将重病员和伤者送到医院，同时伤病员在途中也可以获得熟练的复苏和医疗护理。然而在19世纪，并没有这样的服务，人们只能自己通过各种方式将伤病员送到医院。
-本文简要概述了伦敦救护车服务的形成历史，并描述了伦敦以外救护车服务的发展历史。</p>
-<p>本文描绘了一段时期中英国人生活的图景，正因为政府在大多数医疗保健领域的自由放任的态度逐渐形成了今天的国民健康服务（National
-Health Service,NHS）。历史揭示了每个时期政治气候的思维方式。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1885,7 +1936,7 @@ Health Service,NHS）。历史揭示了每个时期政治气候的思维方式�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">595</span>
+          <span class="site-state-item-count">596</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1898,7 +1949,7 @@ Health Service,NHS）。历史揭示了每个时期政治气候的思维方式�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2404</span>
+        <span class="site-state-item-count">2405</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
