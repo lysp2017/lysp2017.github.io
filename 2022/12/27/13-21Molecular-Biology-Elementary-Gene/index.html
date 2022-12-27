@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lysp2017.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初级分子生物学技术：基因">
+<meta property="og:url" content="http://lysp2017.github.io/2022/12/27/13-21Molecular-Biology-Elementary-Gene/index.html">
+<meta property="og:site_name" content="高山流水">
+<meta property="og:description" content="欢迎访问我的博客，考虑到版权问题，本文不公开">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-27T13:29:09.000Z">
+<meta property="article:modified_time" content="2022-12-27T13:38:47.759Z">
+<meta property="article:author" content="Louyan">
+<meta property="article:tag" content="基因">
+<meta property="article:tag" content="密码子">
+<meta property="article:tag" content="信使RNA">
+<meta property="article:tag" content="转运RNA">
+<meta property="article:tag" content="核糖体RNA">
+<meta property="article:tag" content="翻译">
+<meta property="article:tag" content="转录">
+<meta property="article:tag" content="稀有碱基">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lysp2017.github.io/2022/12/27/13-21Molecular-Biology-Elementary-Gene/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>初级分子生物学技术：基因 | 高山流水</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">高山流水</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">但问耕耘，莫问收获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2022/12/27/13-21Molecular-Biology-Elementary-Gene/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初级分子生物学技术：基因
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-27 21:29:09 / 修改时间：21:38:47" itemprop="dateCreated datePublished" datetime="2022-12-27T21:29:09+08:00">2022-12-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">生命科学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="cc8744bf41ce8917c54f56f390ee03869cbd13737c0ecf14db80a4e561095e61">a555339939183c972e355682e672fe9cc3bdbcf5c0e6ebcec9d135db7367d43cc8be6840f92e83fac7047de5112c7b3f84812ce35e9842236b272e40c21212f998b7149d58c804ef9fdcdd9e950cdc955e32620315245dee176ffc3ad1dc6743798bb88abd996a9e81301e67e90b0db6490b0c0d9ba4eed397dff12f24971fcc09b108a30a0f6d7e88a3dfb5f880ef3e85450c7dfe6617967a3094d7f0696178c316f754ff475cc7ce40fff81b12757f3f30a9339c4147d056a492471a2911cf2438559aeb864d57f8266d56d0e91f3eb704a67f30f64ea091906305b9df186bee3400bef48c37e3900a7ab4c470fe6e5383f198b56e86e3639e185f1726f1197c7df062bc76d5209b16d51eb7057ffa9a1c5d1cbd1570be181d0a6cc83293fac1d04e90b9778d4afced7cd94e5a34d58e46c341e3abfd51fe6a00e138f3f04f7928faa116635dc3adaa2fbc4523c233c7504cc17c4c5d98c148a64f57a7d29dea0299088bbae537fbc4cb56430f4748e964707594c19d56229145ed5f988ae75c71f0a7d55c5b49d4507a03f78dbe48389250afbad06a39d0388c286892e7ed63b709bb342d27313b1413a2ec7a603c824bfb51b3d48d53cd0fbc34dd0483c7f79a3818aad49ee77b4e36537013fe2cb04cbb0e80899e2a260d66ef11d202d55ea9e900831febaea32898fbc2c54754cd8a7d0eb2d889d1341e7891e6111b01e86c4eaeb2f6fd25750d23c80d9879e9aa1694d1d059c5370dfa6b44fd0d328d2149a35d8e1df72dcde39b6715255c71686dea8e7bbf7d592c7129d4a52b813a1cba9cd37af531a04585401872d36237796fda6c9dd408df21c7c9cdc196ab46adf4085e2d355cbc97bd1427b31fc3b037b99553fe50502deada9621d1bbc908332546c67b82eb9f017a4fd1ddf31ab57cda9d615b794152020d9adc68f27d1685b3bd85dc3cd47898bc33c7f93bfc56621adf3462ce9aa948699a84399aff78ca6f01014c660374cc648fc50eb16ff3d476c4133260456b1ad0d29dad09a62e5b804d2b221bfbb8c551b52cbb19888865a32985b80ac9878a27f33d616029d82e3e9fd73792fa201e64f49e52398db7b1925b7e3477f75c4f4236639bb67892ece7be8d194c40774e802c829301f3e1222cabc28e59584f2ba1455666e827fcd54da15e1441456ebbe83a3e070c2583d785341085a12c9bee7760abdc537431331956c53b408826de21b3dc77a9a3c59cb42b45b3b8a723ed9690f3fddba411e6b180487b5314572b04fa908b3e80210ea871a3c8f13626b21ac593994ca880a5204785e97d1b8b83896365d6b66a10992f55d3837cc4a21af818d42311afa1f78707c2b93f8799854d342fa12bfc907650a24654d7f776860e7715f20d78cd3a9fce9129f2197f4a524dc7ff5af7584045dd7d80b62c6720de03f225756e5df66a953c72c309a4eedac45eaa96d3f04e2413b546db552fb7b5890d8a8cbd2a44b758c181f2ef3427383b10f3c919588f4ba255d29bbae7c14dc9588959907766c30cdffe4edb5e20a24ba49bfa9d46727a3cc2a94c78a902f19ac3cde66d90950dfad2d7d110316d2831afcd8c3a0533b28db680850d22db18d5dc9038bc9f0181720d6dea5a106b86459c194b5734724b41cd5883aa9cdc44fd9c421f4b8c4ca7c45b122f393a1c2603112a221eadd68d7334039c7a66a6be1edf5cb60984a8a48833432d045f437d8944e6276512f4362fa16be490643017765ec468d2452f60dcd23fd905dd5a8173be4caaca8c0296f191a1c9cf614fcaf4821d0b25781755af6a8559b51f12ec54e48fd87c14e82919013e8df4b3221064d36321fc89a5e8936604350cedf53f8c44095df006706d0f0855d74ced069c5a7f9a95c3a72cc73945f14cc10345ec632fccfe15981c2ae800b4efd8cc58f38f34c8eb7f5f94faac3d8fb22444a59d76d8c640cd1e5d089ae3bddc2f67292570c5f2add6dfa5f1c47c52c042ff4bd54a7899048f6eb9ff16a5dda062c6351c64e8c468589a306957550775c6898d3171da04e962450e23b389e9eb4160e13df9c052b4e29cad3102d2ea0b2b753f7a8284433088bd3e5cb6bf7d06f9d2aac6b79837f542aacef9d913410d6095200d569467954f7ed2077626ff5c932de75d64c6d90d4e790706fe55511b06adfc6de28bd9222d1c2d9a84d325c8f47df06b91454dfee0a4297fe6bff627616a0264477c4532eabfcf5fe38d03d872763bd4ee07643bffbd4afb91d64af12d2cb78d6848ae16969323bdd8b7659ac17d0d8a975923bff26f3f9ac8cff61600372d193b6ca7628c4638ac1a8b51761f987dd8128823a2d08dd17ec142b7fdfa66e67fc4162a9d48446be84ebb6c15942c4159110ab4862717a03d2c8e4c7c6175534daa96f089df080621647833ba6dc2d33d8c1656c271c12c99615c9040d6ad4196012e11071adb00a0bdf1da2ab35cec074cc10ed119da9a53d3fed3b13e1387f335cad356111b1fd5ba62ae8b818cb36bb8b9bef9054563e4f4dc4991f48d20116b46aca8d15789144ba56550128025d7d7776337f557d129b0bccfaed66193e23d3443b4bda3bb4168b1c73a505960329ae093d1c9846cd04219873671670cac85181ff10d8f2b9b06d670934540244857fd2f0a8b7b85119b6a7164b9a3a5724982634d896c1e142c0ab166ef674aba5a775e8eff385de84408ca97c5e9936039270d0bea5247848be5e9d876037d54d825e4a5fd50752301d4566388bfb13a2c7064bd49d0277edf0135328d2c0c0ada842ecb822f500be32162bc9310440b2874e778fa3417f5e204c16dd5ef270a7704b913d76fc9e8830f0aa52ec976b0306ab82b93f51c8d3831bd45fe062a4f4134fa146a8c7a6578486f81bb597a029aa1f482cb892519cbc44ace9cbe9b0e3aaf4eb82ad94f8316066afdeff39b39627cf19109ddcee3991db68368c4b5513f77349fe8bca86f8768437d9e94f6562e7448ba1e71165790b8bfa5a14984e565b154a1e3f088db6029547049fad543530a78bd369769bbdb95285d54e5af864d062f5c1083c237816367a4d60f852e396442f0c4519cefe183f78002d5cdc0a2ea86a260ccae6f7b928c35c6968da55e1aeac5c177ac9255ad1bfe2202da17438d8658f33ade6c8b76891cb26d761d39fc486caf1504b92a3d2989ca115822e05dd930d5f01ce7dc734248f8365a8f21dfe51857dc2790c42946b4a3327e549494780ae93de279b57527e8a7f3abf13c58d44045b4258e8bbe0d3c6d63e4366573b91142e222ba9bf2e03c4ec9505d00ca9c24396ca2b5cf34013361e70b6245db51935be95808621a7c8355fbc48a3be7cc0ac56c0a7cf1c832f1665e6b8d810ebd9a0f4731b755bb2e160a259464d2f4bd2f3e9989a345e5ae77ccef386eed30d3f6f3e84d09e9362f3da94cfb41775e19dc3a90e26140c3b4b43a37542729d317d564e730e4278ed79f98785a9d730c0fd7c8ea2647fd7bd43df1793001ccba0cdeaf113ea108caaf989da9ab908427d7ba1cf9c68b76af6d7d16af01e12a7fff094db248a30f2473a9fdcb405a70bf272d68db34e038f0f61caea7d41b8980343f63dee19094ae907c0bfc6520b95fa296ebdac4cac02254e0d18b20f279bbea5b565849c33f92118a7041b124796efa7b5b98094f5a47438886fd7a3ab475d4a461d688b91caafcdce34cc21531828586ab5b7d52f6c7b887b3ca08b7f05bf10eb4fd36d0ac1ba8bf34facb8627cf9396d3a2f8559096af51bf9d3134fa5c1f38dea57e023cec88c1053cc4ad463a54b2d75172c27b01ada4970bdb8126cf18d211392b1fbd233ecc70f1fc62a0207ad55b23ec5515b6691d02a8155c37dc1a6b82186eac12a8061c7993b383cbed21d00d7cbdd1096ff773a59d273bdc6fbaf8471e044a29c31c727a3d4504895ddce529c3bf60bbb8d3f8914200f224d5a897ba6cfc94b14df73bfbf3d52b55bfe4e1aa46e4cf6366bb5d8e6e2af1ff767182ce4a710f15900c2ea1f47bec369f31991a54f97cf99185ec364e1b5bf23376f14eb09e04c9a0be17dab8bbaa71cc2f8f4f6eaa8ca1ff1d5d70634c96d45b05a633049da4d1856cdaa5d7fc86f37ab0d85ed4e650a5e1607e407c05f92ce7c5891ae61fd27b32abf8a5cfe2c1f1d94f84d1cbfcae918ee2e22b191f3b63df6eea2c0d01717cc36fc1c80e342a626db8ab9d9035103c40a95d8d5dc70ee48d492ce66a6bca2468d3ffd6f84b1004a099622ecf5600c7fed6176a993bc3b59c5a04b5b12027d4fc05c4c2714897c10391ee6254fe5771344339ef2f9c7f962d93c0644bd2dd3d5a20f9b43b092e1109a189a67332b37fb9cc95ba2f4f1ebd694df30b4f0be7bf681762d9df11f642c48f8a9dda281669e7066b76d14108dfabf300a77f4ea1c8067f4d3e6f95443d146979d0926ffa74010aa6e7f57698e3199399a7a99b40a32cadab9c139f2c0050acd36add4516c8e5a2f60a93b7ddcbe4f9156c598c52771565b542c48aca276352a3f87af0e63848a55bc27f9ed13a6bcf4728fe66f539f45c246a3f756437330f58602985fbb6659914234b1e8a9ae2de41ebad950ac1ea0d520310c5186951ec0bb4b57db8abed5d6cdcc9a50bbb85194d0ba4dacce1ecd87105e9d5e080e89820634b52e657a6b3cc8f3c8c540c2134c7cae48539054d83237c257293da9358a8b62263cfb4a13a6d612ef80ea30f7bff9ad4b199670171fa36dc2f61a6d8412f4ac6cf8fe82d6f1ec61b936012ca2f388afc38b5116d4d9881128c9a097ea8610bfb09228305a8c0dd6ef69a4a2c7c65c36a94775efa094b743bbb0e446e50715bcc44e34e3ea9174c0bd221a3b33c3b4e56569c98fa4b615e315c606c9cd1de010a642ade5f3617775a103d3a671d9af91e886b69badc64f09846c73ec24313731c97f6f8016b125175025a09cd6f8c15d6237ac8f69a6cf43aff3591fd7606f78facec91e8e025c0ef14e24f323b9d9d1b5f853a7aece65b039dc54648132714f64ac9dcc5b351c41efeff74523453d1bad4f9e7e7c34baf8184ecb491a0383bf3973b98dbcad2878715864fddb441dcdb193e48884cebae0be9b4b93e6c254fcbf92347614e081ac8a46e66ac65cd20cbcd5c0478cf4a947f51b05d75b5212d455a1350d2b49df9e640175c4d1e7fb0f0712fbb9a0541fb81cc2756d5acef763bfb4bcb1f89d3d740950e90b63d9d1a2b9bd33b1ed0a381da40a56e8825d7d119481da90f11b9fce515ea88edb11b5c647c0934516cc4bba3ae68c15d04ef75a4c973cb1421162c92467df87c834111d664351c19f02574ab38a04d0b144cb1af4f757af816cc0d8bfbb48a9972d3e8781f54b009a555da6455b251c434dde8d77220cccfcdced7b0a1b41e154e00e4ccb44046aa32e2be0d596495301d0c9c993b3365e2b3d29101a94df5364487d40ceef2ea299dc3a7b9386a61dd4588f5c121a838417e6ec3b372687445c66ff6d40a3901f70a838ef25743ea51ccb6c153498c6f894aff3d96cd5008d14cb6738dc78f4d37650314b2c15ecf77b480a55fe827c02d60ed0befb6f550115fc6ef497b6eadb3ad0e686290762af97570304aaa0fa3e80507645e1f4a6607f0d851115e8af21e74a15adc9e252310a3d9f186363e583bb9f6cf798164afb6b873ad8febcea93ca93af2292f5803e749ab57ab5e238b65054c344c220e174daad2cd71d59faae1f42b8b968875105474e5662546a2098d7a3134314d044187789cc7844f967ea06de3cb555005616d6cf46afde08a9ac378be10bb1ef65914ba3beae9e172c8e79a2326a5c50b2174c558294a14c3c8a4a1aa6284a801881272d36a299fe95f6de76729d4349c42d5300f63f0fa07ee0613e78d03ea19ca580b63a7788883c88acb71979d3690109cd8e1a357b89889ab1f3f908ea4ed5db1f73daf468e38a2e304fd03730b1858004c2e26f08880eb2933af408504bd703543e0e1f51d98a648b4f0d5487a143de493c9cc6f79dfc859bcebef2de44f1676b9863aaa535d90b90719d4f51964efa9d14fae5f52ea2e4a93c7fe494e35ed52bdba4db71b1deaf6b94099410963707c02767df174fe3aab3bf8b966cf47f22733a89efa24ca7f958710598a712d24aa7956d0a001ad2df569278f4b50e03f02a20811bfe8068e282e4d552616a1128c5e384b5c3089c3a284225caca2f4093a02274b5699fac11ea795ca82b8ffa544f74856d1edb4d282672fca0c1c022166001bd5fc14c354d9a691621f98a548e4a1f8236c43ebe84f7ceae9aad1951c117169f990f199060e39929d92a7b470892f8804cbcf23a15e66cf83dc217554f4acb84c7dfe49078132a77f545becad58c49c71b60c81b1e6bbb76d9ad095d598ca078e79093b67497ff13095de5a51e78cdb4b21f63d61216ddbac9ce18d50d4726254e9e351ebca4e1525d171664ac88c7a1aefebf37ad8d45f8f39b19a10366e6ad2919951b73d64c39ea5da8fb9a5e7aa287890e9e4aad286a7928f75df5d63631b51c17758040437237e1b6ccf673777239c7afa69a60b80e3e21b259e7953f795d20a270b26bd740a786551c9fce04b251644f0a094db015f9e6d088073eca251ecac80ff5ae62e673c600c80b5440e563c05f3c4120edebdd7f0919a203121f2164aae42ba43a396c3aaac409742e0868ee78808cdbf380e0a570bf1faab7d9f28b483d67fe4027a0e5043eff60aa8d5916ea755f7cf4028a137b2a5bd2023d16c9e6941c66f4d34d34fa4e81c445f9823ee5fbf62451d728724b8d876287ee9f5730101e551ddaf9d159c996f26f8d1e0a58eba56ecc27d17d113f566611528dbb091b01859b220776ad5161c6fee9c88ca29382010cc893800a89db88b21f335a2ef04eea2a8d38fc66df5142ec8b616bef91ebcdcfadf4bfc6c968bc70bc0830d8d2022b7e699a21d293fa5ca7d62fe2fef407f1d32f18f549bad4c5792c4c0a86406ca3785bd2d0bd47eafaf7633d233c3cf496375e6f108d01e0a934978c91acd0cb5493844e999a30abe601828a464d5612b118143d8a0aca3fdfcd3e52ad470849e956f6d64580d54adb8f0fa7f708355edea44b6a76b1502e00e31dbf290ea21bc220477e4fb7bc5233ad54ec528fb68220fecc2224555100b03f5d73aa92e5b1e679b98e9200ef7e5c5955e265bcdd224d2b53b025f37d10e2d0e2319c384a29b48847ea134eead2ce76a5ac807e2106409385f04a94ff0331aa05871924db5b6a3253fe1d8a71a73d0dc8c1fa628ae89eb9fe35cbaf683ed888ef92564f909a375a89a42f5e550a03cb4ddefeef2a49f8ee8b250d566792d91ca95b2afa05c5498d3f90fc95b7d8da7eb7f15a65549d7be2fb0b946b3d0828da9dc86d7afe8248dee6d5ff691a56c76202499ee1c95a99d0f064b7054d3b4772ab0012a2330051f436c7236cbc88687f6ca944786df40cb85215780cb7b3eef13a69cd0d102f4a3d6df19b148d9dd5332af900577f9f566db68fe77537c6e81f9f6629e06f876c790386c60f9000a5d8df33d58caa5fbf844f31e4be7c63615873f73b1b25d2c7216fb6a4a514249523b148f8d5eb26e19a31d14e6e0cc5621e65c6065d8d89a05b58956c2a7900722bc560fae5d13fbbb4fc5ecf5f2ddcf3ad462eeacceb5e95f2c285debb497911eb80c09633074e386109ee039e111d1eca5302b5b9a5e5d15492ccc1b18785969deb99335ce4cdae408247c626cc2a77efef9c1b1d9b7a289be7940e65bfaf658d393f411d02b21521873c48090bf10e565acf6906edc0a458023f6505c525ec09e1321769ac7811d5170adf692d50842bd9fde32ae3c652a931f02549ae456fb51fe4978fe1513fda9438818d5bb59d54d94578ea138f6782e47c7fded679fd9e0df4a15edc9391d9811e7487d7daa8f1eb824c90c1ea928146ff05dc1ca6b299f3f0bdd6a226b242fc2a40b9c9f28c569af3b8c0e1783a2d45193a0366b9a9139d1f50678676a16d610b8c941d61873747273136d1087541aad1683769b8c16eacbaf977cb931dede988408feacc35afdeece750effdeaf33fcfa6e87a76f2be1686eac9a0eda2f73b5d992a4b51a0a390e56e816aa1967f41c40b257e7a3337dc6290b94a9985205f602456ed575a2f22f7fe57fa30febe1ea47fffc185cc70b4db66955211f80834a7131849102b445cfb1f0e4e6a160ad1b9edc99468cca1e1f36addb969dd2cba12b63ca5d49f4f2c89d3c8425d704c73bd5627c301419266a735f5d3721e44460318cc9f1d0d923c54a34d8fc8b33e4b5f827a9866be923690a300c8bbdf7e3783d8c6fd8a53a794a8779e65f643a8f3e64a82b2c06d106449a68887c69c1989384cd50fdd663e4ad8c1db0957630eb3b801535dc335e81854bb58f08f3c06990c48ff911fc3dad6a2e56f8d55878d7a048e556e895696f0ba1ff65ee1acdd77e92015d6e53d819cda179a2dfd772596206599d2eb05560998aa2bae5565e20ef51440c5589267d7c5e7361437fec259672ce33debdb24ccbefbfbf779841d2eef9d4e45fd1d355ba1adc8eabaa8e4ca841ebef8adf1ae6488456bfcbc317e496f2d655fed8ccaa22c289692718d5d315bf63c31037ab4e411ea04af77c781e18ff48c6a887e482342956ad36eda1870b83a7c858c6ac145f3648d99db0775df97e9c9274053700b562cfe3c9ff8e5ffe6bee30fca817b4c830204564689aca2512f41d61a3800d4b8a63ae530ad01e52dc6cea951a0744f110557e1cce3c4adc6f10a0652a8894656dbded5c29687e70e40aea2c942d553974d895e9d60fb6dc168303005ceeea024546728ddada3ccfb03ee1aa9628b977de2cd7902cd07da514dfafcceaee29c062192d7569f6973452f36bbd10ae43c9b401f3f5392155b13cd205f994271a1fbd6b987fed0fc73ccc8a3d765845f71541ce21db76994b3c78605e95333905ba05636724409be0996fb79d54366e18ff5d838a062981bfe573f4d24ebf32cccbbfcf042a8988bcf2f8733a21c4c69e210d05035918dcbe7e397e0ed4986a0940ee9da273fd29e820e050020d5ffde3af54af6ae9cf0515e2ec4107d0f1775644e40c772adad3df906cf21beb7ed642157e882d4e776020ac69431837d05eafb0a0cdf220ed9cc32bf9dd1190be488767702ec654e15b5974d8103100e5cc17acd834a5771c0f6668661c234928dd29254a249ad69fdab899a050e09b60938be7235337d50bf57dbc76f86a136484dc516475509b5a71cd28a033bf257893d8b90e1dddbe4681d8325b091631b1115113896af691b48ab904834b3d064719df77aa4c3d5f49d3691769ccc2d53f5da8d39777c3c801d29b92f36961cf33fe020c91bf9b640304306bdde4d5f90c36718807034ef1f93ffecd7d639b67384ee633a559e494df3515d33a5533b4394a97ba2561d36adbe461f636841e3587eb805e4854f55f87f7b2096772ae9869c44765ab5ceef54eeefe9801d07b5bf0c93d4eb5dbdc4077fb251dd57937310e151751cd594c597960582d8380ae2eb949bc1f0c7b35be01770fca77d4687d11f6ab5e9b08de8fa95f1e02a06cb4f57ba4543a8c3ee4b750777b18bc53b47da622fbc066eeb9d6de8122777a41e7289b02c18e1a905c6714745310b2b147b91895ecd8b14d7155de9fade944ec92aa72e1deb2382639181bfa6ebb795d94197a7f9ee85b0f829af477fb672b41c684ec05d4828ecbfe5edf34f2479f6b8c7d6d14a867847ec78aef099b779b82531a6980320063b5257e3f614b7d605ece5dfc7e36f5a4df6cd75bd06b40d53de4ebba02c176212c78667f11e565ca7381f0cdde14c1ffb5a93a781b9c651e7dda6b061522f36556644938013dae8bf663652b85a9d1d4f0f13efcef24576d5b025f5fce9350ad3afedee69851224d81874600b76f94fc06094fdfb678c8a496fe1016d53816c6685ebd30f80855db4531b42111d15a05c34e3c9078e31e91bd4e00f848dba94386902b4dbdba4efa4c17ecd41c5f6f7b2d6bf9c7ce31808e935e5ae51d3d782c6e3cf29c1b4b08d78fb3aae807b28f168a7ab56cb7f7cda14b325dd40e9315e3ba7e85fccc8dad50f9b7aa49d4ec6621ecb2fb68587fa877b7e8fa93274ddc91cda2994e0f2b64ae2681d175b61f692089433be238a09ca90252f8f3fc46c7ff716cc07497d2f14e14c190542d451a0181753e553d0f5ab346b94eac1747dff32d1ad7975e780b58ecb26ed8585c30aacaa5c195537d89101aac6c4a04bbe3d3bd51d695e243e0b8c85585ecb8a6e1f836ed0bbf72d50e681b0ca91c02f1755a5fa2854ad2b5ded4ac2acc3e5aaaea62a703bc89352b203cd6e592a3319ff46cbe73079bfa67d9e1f60c15d3dbc74f82cde8603f39db9e798b59193edab404f3f547c8219b818f5955f56f8844f439eb2f6b3d24db52ea34bdc5e2611832e599046f680ba0c14b5b3bb3f553bf8ae1c982438f0db82773eab41f275bfadfe30436ee5d87964100959fc58d6d74d57c4ee2024046377f6e45d6731fc450318dfbae1e7eeb622ee7a29302d289467a096e1b27958ae0e5c3e377f36e0a9f257956acdd973abfdb5a63bf5197e96da1b6ece5dee03610ff7fd3e4a006004de49f8a1ac18eb55a9061468e325e723e7ca257576287a69355da55044ede9a268672afb7b74eb242be4b1177a4d899e0cd4985fc95936d65fe5df287e7a7e7ea859305383103d882b32f039ac2f73946ec9fcf10e867cc603d31de8ca6c55c3345af90f2919f9dcfb4b49a65e28908ed7c25de855b5449fc29785218f700049158be03fdf0a5269d663ea749e739782c5641e428d38aec80f3b9b77f378735b3fca4e9f840d74a3c2c83932d4f9c74e8e225b7148613668644c870a5c1f9cd2223976231183c817c868ee301c0dda8de8efcd934134331d5535a672bc3b6e3ef9869ad3396b8d33d5e868e58df0028bb8b2ded978432ce617e9cf3a4876b8dc8a33ad79cc672edd0b9277a1507926943e937a13f356aab8daea0808c43a22b27125f8e732bd4742b52b064526a58e6ef6493a61f97fa02fa4a735378ea894c1f7445ad161b5b77879b9e8357d7ab9ed7aaa36b6399b8128cc3f05f58a6b66c90f5b7bea69d9bd73d3f9fb2b23b3ad785f818ac1af8a66ae5440a6a5cc7618ff610c006ada030fbc4db9003baddc7d5dd793bcc449df6e64d47523d8e52b55f9ef7fc4f6bbb7ffda5c27b40a4007317c727a830154fc30350506a9ebfd80d69a5fed15baf4d7fc1a338f4a3f98a9a48d3356025c3215a32ea0bb6921f219a465325711dfdf80875b533aeca7f7c2d90b82ee8cc4b363832de3f05f427a3e91811c83dd7f0f4ec6f3a77f4c1b1f223f9b726d1a35ab26b0e5d25e980eee507301bd2a0d53f63e515be1fa1fc14ac8ab45a3a0a6f56e6869149a24464092fffc9f88e085360ca99ccad1e1e79e503774dca430dc5c94906054de5eb56af3d1c958d106695f4766b206b1e4f226c2c54f08eb2e5d7254ba5cc042416c9fed64028967a2c163e981224133043b3e108150b2e0551b0ad7fda85e84a93adc7d1991ccd2c10bb9835b373f48e3feb4f1653ba944da2463fe908707eb0975d3d1f61225d5de0d8420ec188ad96c6d0e823e2e546eb0b707f2ac063c643d09bca71a1dd4c7f7c49a14e42e6978ffb10d2b1efe4ca2f28e1a6828250633460d4bdba810ddcd225369bcb5d566801bc0ca966ba5d0aad0cca16c4160c91582db51c376a720886c45ad1dade00c3b6f8f570c2288f051bf0742daf7a894ef1d6aa43b6d6cdf3411bbf48a63526a4cd388fb32040ca650659874895771d744b1af9e64f0479ff7aac61ed7f6acae9532fd6553c138e3e69e7b19e9910ca68846f79e7130679a52623258c71e1aa1edc4676172bd81fc984410aa2aa13df39879ec124a337cb2c61b26c19070e87ecbcbbfb9dfe8b08f6619144f9e59ccc375f3abcecb3661692b488c4a0dd82bab50c52d8cb3a14a28f16215af358caf9b8dd24e3df7a1caf4ecde640fad492e35a068ab23cd4c484128af666579fbae479bb4ba62c37a1f56f80ee201c8688bc096bc9e199fd51eaa1b7d34c4285213860f329033ec0f01b4ea7ad68318a5cb73fdd365a406d5d1e3487fb4676d4f12c9adafac6a1ad73987efbef3121a79c5165dae193f082379f2d53f56293c807622142bda41b73e3c965bc3b0b</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">欢迎访问我的博客，考虑到版权问题，本文不公开</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E5%9B%A0/" rel="tag"># 基因</a>
+              <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%90/" rel="tag"># 密码子</a>
+              <a href="/tags/%E4%BF%A1%E4%BD%BFRNA/" rel="tag"># 信使RNA</a>
+              <a href="/tags/%E8%BD%AC%E8%BF%90RNA/" rel="tag"># 转运RNA</a>
+              <a href="/tags/%E6%A0%B8%E7%B3%96%E4%BD%93RNA/" rel="tag"># 核糖体RNA</a>
+              <a href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag"># 翻译</a>
+              <a href="/tags/%E8%BD%AC%E5%BD%95/" rel="tag"># 转录</a>
+              <a href="/tags/%E7%A8%80%E6%9C%89%E7%A2%B1%E5%9F%BA/" rel="tag"># 稀有碱基</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/07/13-20In-vitro-Osteoclastogenesis-Assays-Using-Primary-Mouse-Bone-Marrow-Cells/" rel="prev" title="原代小鼠骨髓细胞诱导生成体外破骨细胞试验">
+      <i class="fa fa-chevron-left"></i> 原代小鼠骨髓细胞诱导生成体外破骨细胞试验
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E5%9B%A0%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">第一章 基因基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%9F%BA%E5%9B%A0%E5%A6%82%E4%BD%95%E4%BC%A0%E9%80%92"><span class="nav-number">1.2.</span> <span class="nav-text">二、基因如何传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%9F%BA%E5%9B%A0%E6%8E%A7%E5%88%B6%E6%80%A7%E7%8A%B6%E7%94%9F%E7%89%A9%E5%AD%A6%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.</span> <span class="nav-text">三、基因控制性状（生物学功能）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%9F%BA%E5%9B%A0%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E6%80%A7%E7%8A%B6"><span class="nav-number">1.4.</span> <span class="nav-text">四、基因如何控制性状？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94dna%E7%BB%84%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">五、DNA组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%A2%B1%E5%9F%BA%E9%85%8D%E5%AF%B9"><span class="nav-number">1.5.1.</span> <span class="nav-text">（一）碱基配对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8Cdna%E5%8F%8C%E8%9E%BA%E6%97%8B%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.2.</span> <span class="nav-text">（二）DNA双螺旋结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E8%BD%AC%E5%BD%95transcription"><span class="nav-number">1.6.</span> <span class="nav-text">六、转录（Transcription）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83rna"><span class="nav-number">1.7.</span> <span class="nav-text">七、RNA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80mrnamessenger-rna"><span class="nav-number">1.7.1.</span> <span class="nav-text">（一）mRNA（messenger RNA）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8Ctrna"><span class="nav-number">1.7.2.</span> <span class="nav-text">（二）tRNA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89rrna"><span class="nav-number">1.7.3.</span> <span class="nav-text">（三）rRNA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E7%BF%BB%E8%AF%91"><span class="nav-number">1.8.</span> <span class="nav-text">八、翻译</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Louyan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">605</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2494</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Louyan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
