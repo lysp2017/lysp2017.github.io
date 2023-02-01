@@ -191,6 +191,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/16/revealjsgit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/16/revealjsgit/" class="post-title-link" itemprop="url">在Github Pages上托管Reveal.js</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-16 20:38:33" itemprop="dateCreated datePublished" datetime="2018-08-16T20:38:33+08:00">2018-08-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一在github-pages上托管reveal.js">一、在Github
+Pages上托管Reveal.js</h2>
+<h3 id="一创建一个新的respository">（一）创建一个新的respository</h3>
+<p>在GitHub上创建一个新的respository，比如取名为PPT，然后在本地（比如Documents）打开git
+bash，clone这个respository到本地，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/user/PPT.git</span><br><span class="line">		</span><br><span class="line">#user为你的github用户名</span><br><span class="line">#git clone表示从远程主机克隆一个版本库</span><br></pre></td></tr></table></figure>
+<h3 id="二创建gh-pages-branch">（二）创建gh-pages branch</h3>
+<p>在终端中打开刚才创建的本地文件夹Documents，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd Documents/Blog/PPT</span><br><span class="line">git checkout --orphan gh-pages</span><br><span class="line">	</span><br><span class="line">#创建orphan分支，命名为gh-pages</span><br><span class="line">#如果不提交内容，这个分支实际上没有创建</span><br></pre></td></tr></table></figure>
+<h3 id="三上传reveal.js到branch">（三）上传reveal.js到branch</h3>
+<p>将reveal.js文件下载下来，全部拷贝到本地Documents中的PPT文件夹，并在reveal.js文件夹中编辑好幻灯片，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;1st commit&quot;</span><br><span class="line">git push origin gh-pages</span><br><span class="line">	</span><br><span class="line">#git add . 监控工作区的状态树(即文件夹或目录)，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。</span><br><span class="line">#git commit 主要是将暂存区里的改动给提交到本地的版本库</span><br><span class="line">#git commit -m表示可以直接输入后面的提示内容，如“1st commit”</span><br><span class="line">#git push origin gh-pages表示把本地代码（origin）提交到gh-pages分支</span><br></pre></td></tr></table></figure>
+<p>接下来，输入Github账户的用户名和密码即可。可以试着访问：<a
+href="https://lysp2017.github.io/PPT/战火炼成的生命之星.html">https://lysp2017.github.io/PPT/幻灯名.html</a>，就可以看到幻灯片了。</p>
+<h2 id="二在hexo博客中部署reveal.js">二、在Hexo博客中部署Reveal.js</h2>
+<ol type="1">
+<li>在Markdown中输入幻灯片的地址即可</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[https://lysp2017.github.io/PPT/幻灯名.html](https://lysp2017.github.io/PPT/战火炼成的生命之星.html)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/16/New-repository/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2094,378 +2186,6 @@ pump infusion or for volumetric pump infusion)。”</li>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/08/02/Essential-Concepts-in-Clinical-Research9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/02/Essential-Concepts-in-Clinical-Research9/" class="post-title-link" itemprop="url">临床研究基本概念：随机对照试验（一）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-02 17:21:37" itemprop="dateCreated datePublished" datetime="2018-08-02T17:21:37+08:00">2018-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:55:59" itemprop="dateModified" datetime="2019-02-28T00:55:59+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%B4%E5%BA%8A%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">临床研究</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明：<br> 1. 部分参考Elsevier/The Lancet出版的The Lancet Handbook of
-Essential Concepts in Clinical Research<br></p>
-</blockquote>
-<h1 id="随机试验样本量的计算">随机试验样本量的计算</h1>
-<h2 id="一摘要">一、摘要</h2>
-<ol type="1">
-<li>研究者在进行随机试验前应该正确地计算样本量，并在他们的报道中充分描述细节。</li>
-<li>在这些先验的计算（a-priori
-calculations)中，检测效果大小的确定（例如：治疗组和对照组的事件概率）反映了内在主观的临床判断。而且，这些判断对样本量的计算影响很大。</li>
-<li>我们质疑那些没有精确计算样本量的试验缺乏伦理性。</li>
-<li>如果研究者使用严谨的方法来消除偏倚、恰当的描述来避免误解、始终公布结果来避免发表偏倚，那些低把握度的试验是可以被接受的。</li>
-<li>从关注样本量转变到注重方法学质量也许能使更多试验产生较少的偏倚。结果不够精确但没清偏倚的试验胜过完全没有结果的试验。</li>
-</ol>
-<h2 id="二前言">二、前言</h2>
-<p>随机试验样本量(Sample
-size)的计算似乎无从下手。事实上，研究者应该正确计算样本量，并在发表的报告中充分描述主要细节。研究的方法学家在相关文章和书籍中描述了步骤。协议起草委员会(Protocol
-committees)和伦理审查委员会(ethics review
-boards)要求附上相关内容。试验报告统一标准指南（CONSORT reporting
-guidelines)里详细规定了样本量的计算。几乎获得所有人的同意。</p>
-<p>早在四分之一个世纪前，一项重要的推动措施在医学界获得一致通过Tom
-Chalmers领导的研究小组发表了一篇里程碑式的文章，详细阐述了医学杂志上发表的所谓阴性随机试验（negative
-randomized trial)缺乏统计学把握度(statistical power)。</p>
-<figure>
-<img src="http://qiniup.louyanspine.com/2018-08-15-b010306.png"
-alt="Thomas Clark Chalmers, MD" />
-<figcaption aria-hidden="true">Thomas Clark Chalmers, MD</figcaption>
-</figure>
-<p>Chalmers在长期的职业生涯中，发表了数百篇文章。这篇关于样本量和把握度的文章被广泛引用。矛盾的是，他反而因此而困惑。甚至把这篇合著的文章视为危害性最大的文章。为什么？我们将在后面描述他的担忧。</p>
-<h2 id="三样本量计算的组成成分">三、样本量计算的组成成分</h2>
-<p>二分类结果的试验(如患病和健康)计算样本量的时候，要求四个组成成分：I类错误、把握度、对照组事件发生率以及所要研究的治疗效果(或近似的：治疗组事件发生率)。</p>
-<p>除了其他必需的假设外，其他类型结果的试验同样运用这些基本的成分。</p>
-<blockquote>
-<p>例如，对于计量结果的试验及其典型的统计检验，研究者可能会假设治疗和对照组之间的均数(means)和均数的方差(a
-variance for the means)有差异。</p>
-</blockquote>
-<h3 id="一i类错误type-i-errorα">（一）I类错误(type I error,α)</h3>
-<ol type="1">
-<li>当事实上两种治疗没有什么差别的时候，研究者却可能得出治疗者有差别的结论。</li>
-<li>I类错误（α)估计了发生假阳性(false-positive)结论的可能性。</li>
-<li>按照惯例，α最常被设定为0.05，意味着研究者希望得到假阳性结论的可能小于5%。</li>
-</ol>
-<h3
-id="二把握度power和ⅱ类错误type-ⅱ-errorβ">（二）把握度(power)和Ⅱ类错误(type
-Ⅱ error,β)</h3>
-<ol type="1">
-<li><p>其次，当事实上两种治疗确有不同的时候，研究者却可能得出治疗没有什么差别的结论，这也就是假阴性(false-negative)结论。</p></li>
-<li><p>Ⅱ类错误（β)估计了这种假阴性结论的可能性。</p></li>
-<li><p>通常，研究者将β设定为0.20，意味着他们希望得到假阴性结论的可能小于20%。</p></li>
-<li><p>把握度(power)衍生于β。把握度在数学上是β的补数(1-β)，代表避免假阴性结论的可能性。即当事实上两种治疗确有不同的时候，研究者确实得出治疗有差别的可能性。</p></li>
-<li><p>例如，β =
-0.20，则把握度就是0.80。即，如果假定两种治疗的差异在人群中是真实存在的，那么把握度为80%的试验就有80%的机会发现两种治疗方法的差别。</p>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">不同错误类型</th>
-<th style="text-align: center;">定义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">I类错误（α)</td>
-<td
-style="text-align: center;">在治疗效果相同的真实情况下，检测出统计学显著差异的可能性。（也就是假阳性结果的可能）</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Ⅱ类错误（β)</td>
-<td
-style="text-align: center;">在治疗效果的差异真实存在的情况下，没有能检测出统计学显著差异的可能性。（也就是假阴性结果的可能）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">把握度(1-β)</td>
-<td
-style="text-align: center;">在治疗效果的差异真实存在的情况下，检测出统计学显著差异的可能性</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<h3
-id="三对照组事件发生率event-rate-in-the-control-group">（三）对照组事件发生率(event
-rate in the control group)</h3>
-<p>研究者估计治疗组和对照组真实的事件发生率(true event
-rates)，并作为输入参数。通常，我们推荐估计整个人群的事件发生率，然
-后确定想要研究的疗效。</p>
-<h3
-id="四所研究的治疗效果治疗组事件发生率treatment-effect-of-interestevent-rate-in-the-treatment-group">（四）所研究的治疗效果/治疗组事件发生率(treatment
-effect of interest/event rate in the treatment group)</h3>
-<p>例如，研究者估计对照组事件发生率为10%。接着他们可能估计绝对变化(如绝对减少3%)，相对变化(相对减少30%)，或简单地估计治疗组事件发生率为7%。</p>
-<p><img src="http://qiniup.louyanspine.com/2018-08-16-10.jpg" /></p>
-<p>研究者利用上述这些假设来计算样本量。标准文件描述了包括二分类的、连续的和时间-结局事件（time-to-event
-measures)可测量的计算步骤。</p>
-<h2
-id="四选择不同的i类错误和把握度所产生的效果">四、选择不同的I类错误和把握度所产生的效果</h2>
-<h3 id="一合理的假设">（一）合理的假设</h3>
-<ol type="1">
-<li>通常情况下，α=0.05，把握度=0.80，就足够了。然而，根据研究课题的不同，其他的假设也是合理的。</li>
-<li>例如，如果一种子宫切除术的标准预防性抗生素是有效的且副作用很少，在一项研究新抗生素的试验中，我们可能为了减少假阳性(false-positive)结论的可能性将α错误设定得更低(如0.01)。我们甚至考虑将把握度降到0.80以下，因为我们并不在意错过一个有效的治疗：因为有效而安全的治疗已经存在了。</li>
-<li>相反，如果研究者进行一项试验，应用一种标准预防性抗生素的同时，补充了某种既便宜又安全的维生素，想观察下是否可以增强抗生素的效果。犯α错误几乎不会带来什么伤害，所以可以设定在0.10，这样可能更有意义。如果这种便宜而简单的干预能带来益处，我们当然不想错过它。因此，研究者可能提高把握度到0.99。</li>
-</ol>
-<h3 id="二直接改变了样本量的大小">（二）直接改变了样本量的大小</h3>
-<ol type="1">
-<li>减少α和增加把握度均会导致样本量的增多：
-<ul>
-<li><p>α从0.05减少到0.01促使样本量在把握度=0.50的时候增加70%以及把握度=0.80的时候增加50%。</p></li>
-<li><p>当α=0.05的时候，把握度从0.50增加到0.80使样本量翻了1倍，从0.50到0.99则几乎有5倍的增加。</p></li>
-<li><p>因此，α和把握度的选择决定了样本量和试验费用。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-08-16-103.jpg" /></p></li>
-</ul></li>
-</ol>
-<h3
-id="三i类错误的单侧检验还是双侧检验">（三）I类错误的单侧检验还是双侧检验</h3>
-<ol type="1">
-<li>一些研究使用α错误的单侧检验(one-sided
-tests)来减少对样本量的估计。我们不鼓励这种做法。</li>
-<li>迄今为止，就已知的生物学观点而言，在我们假设双侧检验的同时，单侧检验确实也是合理的。但是，这种决定不应该影响样本量的估计。</li>
-<li>我们建议无论是假设单侧或双侧检验，应该是相同的标准。因此，单侧检验α=0.025应该产生和双侧检验α=0.05相同水平的证据。</li>
-<li>利用单侧检验来减少所需样本量的大小被过度轻信了。</li>
-</ol>
-<h2
-id="五人群参数的估计population-parameters">五、人群参数的估计(population
-parameters)</h2>
-<p>对于一些研究者来说，估计人群参数(例如治疗组和对照组的事件发生率)有着非常神秘的寓意。另一些则嘲笑这种主张，因为估计参数是试验的目的：在试验前却需要进行猜测，多么滑稽可笑。</p>
-<p>然而，关键的一点是研究者并不是去估计人群参数本身，而是估计他们认为值得检测的治疗效果。这是有巨大差别的。</p>
-<blockquote>
-<p>The key point, however, is that they are not estimating the
-population parameters per se but the treatment effect they deem worthy
-of detecting.</p>
-</blockquote>
-<h3
-id="一估计对照组事件发生率event-rate-in-the-control-group">（一）估计对照组事件发生率(event
-rate in the control group)</h3>
-<ol type="1">
-<li>通常，研究者从估计对照组的事件发生率开始。有时候数据匮乏会导致不可信的估计。例如，我们需要估计肯尼亚内罗毕(Nairobi,Kenya)计划生育人群中使用宫内避孕器后盆腔炎事件的发生率。政府官方估计是40%，医学中心的临床医师则认为估计得太高了，建议改为12%。我们保守地计划定在6%上，但是在一项真实的随机试验中，安慰剂组的实际数据是1.9%。比第一个估计整整减少了20倍，如此极大影响了样本量的计算。</li>
-<li>发表的报告可以提供对对照组终点(endpoint)的估计。但是，他们通常整合了一大堆有差别的资料，例如不同的居住位置、纳入标准、终点和治疗。虽然如此，关于对照组的一些信息往往是存在的。这成为起点。</li>
-<li>在一项预防子宫切除术后发热的研究中，假设非常合理的数据显示在应用标准的预防性抗生素后，10%的妇女出现发热。这就成为对照组的事件发生率。</li>
-</ol>
-<h3
-id="二估计所研究的治疗效果治疗组事件发生率treatment-effect-of-interestevent-rate-in-the-treatment-group">（二）估计所研究的治疗效果/治疗组事件发生率(treatment
-effect of interest/event rate in the treatment group)</h3>
-<ol type="1">
-<li>对所要研究效果的估计应该反映临床的可鉴别度(clinical
-acumen)和潜在的公共健康利益(potential
-public-health。这个重要的方面不能由统计学家单独决定。其决策过程有赖于临床背景知识的积累。</li>
-<li>假设标准预防性抗生素的费用是10美元，副作用很少，口服给药。新
-的预防性抗生素的费用是200美元，副作用较多，静脉给药，但抗菌谱广。所有这些实际因素和临床因素均对决策过程施加了压力。考虑到对照组10%的发热发生率，了解了临床背景，我们将对什么样的研究结果感兴趣，从10%减少到9%、从20%降到8%、30%到7%、40%到6%、50%到5%，还是其他？决定对多大的差异进行检测反映了内在主观的临床判断，正确答案并不存在。我们只能说30%的减少量是值得研究的，但是其他研究者可能决定50%的下降幅度。</li>
-</ol>
-<h3 id="三人群参数对样本量的影响">（三）人群参数对样本量的影响</h3>
-<ol type="1">
-<li><p>这些参数假设显著影响了样本量的计算。保持对照组估计的参数为常量，疗效的减半必然使试验样本量增加4倍以上。类似地，疗效减到四分之一要求试验样本量增加16倍以上。换言之，样本量的增加与疗效减少的平方成反比，统计学家称之为二次方程相关(a
-quadratic relation)。</p></li>
-<li><p>以我们最初的参数估计为例，对照组10%，干预组6%，α=0.05，β=0.90，那么每组必须有大约965名参加者(Panel
-2)。疗效的轻微改变造成试验规模的巨大变化。</p>
-<ul>
-<li>将疗效减半，调整干预组的参数估计为8%，如此样本量需要4倍以上的增加，达到4301人。</li>
-<li>疗效减低到四分之一，调整干预组的估计为9%，那么试验规模必须有18倍以上的增加，达到每组18066人。</li>
-</ul></li>
-<li><p>巨大的研究样本量和低的事件发生率使研究者感到无比挫败。这种挫败感部分来源于缺乏对二分类终点试验的认识，是分子事件(numerator
-events)推动了试验的把握度，而不是分母(denominators)。</p>
-<blockquote>
-<p>分子指对照组或治疗组中发生结局的参与者，分母是对照组或治疗组的所有参与者。</p>
-</blockquote></li>
-<li><p>例如，假设α=0.05，希望结局事件的发生率下降40%。一项2000名参与者(1000名被分配到治疗组，1000名到对照组)、对照组事件发生率为10%的试验能提供的把握度等同于一项20000名参与者(每组分配10000人)、但对照组事件发生率只有1%的试验所产生的把握度。这两项试验需要的分子数值是一样的，都为160，大致满足把握度=90%。
-<span class="math display">\[1000 \times (0.1+0.1 \times 0.6) =
-160\]</span> <span class="math display">\[10000 \times (0.01+0.01 \times
-0.6) = 160\]</span></p></li>
-</ol>
-<h2
-id="六可纳入的参与者有限的解决办法">六、可纳入的参与者有限的解决办法</h2>
-<p>当样本量软件计算的试验样本量超过了可纳入的参与者人数的时候，会发生什么呢？通常，研究者会反向计算，为了能满足可纳入参与者的数量，他们使用低的把握度(如0.40)来估计样本量。</p>
-<p>一些方法学家建议临床医生放弃这种低把握度(low
-power)的研究。许多伦理审查委员会认为低把握度的试验缺乏伦理道德。Chalmers关于已发表试验缺乏把握度的早期文章促使了这种反应，并带我们回到本章节开始部分的疑问。他觉得是他的研究小组的文章引起了这些过度反应。</p>
-<p>Chalmers最后说明所谓的低把握度试验可以被接受，因为它们最后能通过meta分析（meta-analysis)整合起来。但是许多统计学家似乎并不支持这个观点，甚至包括那些赞同小规模试验的人。</p>
-<p>然而，我们同意Chalmers的观点，这毋庸置疑会引起许多统计学家和伦理学家的不满。但我们的支持附带了三个条件。</p>
-<h3
-id="一试验在方法学上非常严谨可以消除偏倚">（一）试验在方法学上非常严谨，可以消除偏倚</h3>
-<ol type="1">
-<li>不幸的是，需要足够把握度这个咒语往往盖过了方法学中的其他部分的讨论。</li>
-<li>例如，不充分的随机化往往产生偏倚的结果，并且这些偏倚的结果不能被补救，即使是能实现非常好的精确度(precision)的大样本量。</li>
-<li>相反，如果研究者充分地设计和执行了试验，最终仍能产生一个对效果没有偏倚的估计，即使试验有低的把握度(和精确度)。</li>
-<li>此外，因为结果是没有偏倚的，所以该项试验可以和类似的没有偏倚的试验在meta分析中整合起来。事实上，特别是合并进入前瞻性的meta分析，这种做法等同于多中心试验。</li>
-</ol>
-<h3
-id="二作者必须充分地报道他们的研究方法和结果以避免误解">（二）作者必须充分地报道他们的研究方法和结果，以避免误解</h3>
-<ol type="1">
-<li>如果作者在报道试验结果时使用了区间估计，那么治疗效果估计的较宽的可信区间在描述低把握度上较为准确。</li>
-<li>可信区间的报道很有价值，可以避免由简单的P&gt;0.05所带来的“无证据证明有，不等于有证据证明无(无有之据，非有无之据)”的问题。</li>
-</ol>
-<h3
-id="三低把握度的试验无论结果如何必须被报道才能被meta分析采用">（三）低把握度的试验无论结果如何必须被报道，才能被meta分析采用</h3>
-<ol type="1">
-<li>发表偏倚(Publication
-bias)最严重的问题就是不发表低把握度的试验。发表偏倚是指发表的试验不能代表所有已开展的试验，通常是因为统计学显著的结果比不确定的结果更容易被接受和发表。低把握度的试验易出现这样的问题，因为它们有更多的机会产生不确定的结果。</li>
-<li>但是，责难所有低把握度试验并阻止它们实施都会妨碍重要的研究。</li>
-<li>不发表已完成的试验被认为是不科学和缺乏伦理的。试验注册系 统(Trial
-registration
-schemes)将进行中的试验进行分类，从而避免结果的丢失。此外，大的系统综述机构，最著名的是Cochrane
-协作网（Cochrane Collaboration)，细査未发表的试验以减少发表 偏倚。</li>
-</ol>
-<h3
-id="四低把握度的试验low-powered-trials被指责为缺乏伦理的原因">（四）低把握度的试验(low-powered
-trials)被指责为缺乏伦理的原因</h3>
-<ol type="1">
-<li>对样本量的偏见使较多消除偏倚的中肯意见黯然失色。</li>
-<li>一个带着主观色彩的过程如何能引发对其伦理学正反面的辨证讨论？带着这种主观性，将试验伦理学建立于统计学把握度之上，这就显得过于简单和错位了。</li>
-</ol>
-<p>事实上，既然研究者估计样本量是以不确切的猜测为基础，如果认为执行低把握度的试验是不道德的，那么这就是一种逻辑的极端，也许我们的世界再也没有试验了，因为样本量的决定总是充满各种问题。</p>
-<blockquote>
-<p>“进行对照试验是不道德的，除非能够确保达到那个武断定义的统计把握度”</p>
-</blockquote>
-<p>如果默许的代价是忽视医疗保健作用的话，上述声明一点意义都没有。关于低把握度试验是不道德的观点是不理性的，此外，有时也忽略了渴望参加试验的潜在参与者。</p>
-<h2 id="七样本量的调整">七、样本量的调整</h2>
-<h3 id="一样本量桑巴舞sample-size-samba">（一）样本量桑巴舞(Sample size
-samba)</h3>
-<ol type="1">
-<li>研究者有时会表演一段“样本量桑巴舞(samplesizesamba)”，实现足够的把握度。舞蹈涉及了对可纳入的参加者参数估计的重新调整(特别是检验有价值的疗效)。这种实践在我们和其他人的经历中经常发生。</li>
-<li>基金赞助机构、协议起草委员会、甚至包括伦理审查委员会都鼓励这种回顾性的处理。这代表了一种对实际问题可运作的解决方法。</li>
-<li>考虑到各种细节问题，我们不能过多地批评这个桑巴舞，因为它可能使许多重要的研究得以顺利实施。</li>
-<li>此外，它如实描述了在给定假设的前体下，样本量估计的必要性。然而，在“低把握度试验是缺乏职业道德的”争论中，这种方法强调了不一致性(inconsistencies)：在“桑巴舞”之前，计划的试验是缺乏职业道德的，但通过简单调整对效应大小的估计，使之符合伦理原则。</li>
-<li>所有试验都有无数个把握度，低把握度只是相对而言。</li>
-</ol>
-<h3 id="二增加样本量">（二）增加样本量</h3>
-<ol type="1">
-<li>对于能够额外纳入参与者和研究经费充分的情况下，研究者应该考虑一种样本量调整的策略，这样可以解决一部分由样本量估算产生的问题。</li>
-<li>调整通常是增加样本量。实现调整的方法有赖于事件发生率的修正、终点或治疗效应的改变。</li>
-<li>重要的是，任何在试验中间阶段对样本量的调整都应该有避免偏倚的周密计划。</li>
-<li>发起或指导委员会(The sponsor or steering
-committee)在草案中应该描述一个易懂的计划，关于潜在调整的时间和方法(the
-timing and method of the potential modifications)。</li>
-</ol>
-<h2 id="八试验后计算把握度没有意义">八、试验后计算把握度没有意义</h2>
-<ol type="1">
-<li>试验得出治疗效应和结果的可信区间(confidence interval)。</li>
-<li>可信区间体现了试验的把握度。因此，继续关注把握度不再有意义。</li>
-<li>然而，试验结束后，一些研究者利用观察到的结果作为估计参数对统计学不显著的试验进行把握度的计算。这种尝试似是而非，但是，重复之
-后，可以得出低把握度的答案。换言之，这种不值得推荐的尝试回答了一个已经被回答的问题。</li>
-</ol>
-<h2
-id="九读者应该如何看待样本量的计算">九、读者应该如何看待样本量的计算？</h2>
-<p>读者应该在报告中看到样本量的估计是如何得来的。事实上，试验报告中的可信区间充分体现了把握度。然而，样本量计算仍提供了重要的信息。</p>
-<ul>
-<li>第一，它们规定了主要终点，这样可以保证结局变量不会改变，同时防止突出与非主要结局变量相关的明显效应。</li>
-<li>第二，知道了计划的样本量可以使读者对潜在的问题产生警觉。试验面临了募集困难？试验因统计学显著的结果提前中止？如果是这样的话，作者应该提供正式的统计学中止标准。如果他们没有使用正式的标准，那么多次审査数据就会加大I类错误(α)。类似的问题同样可以出现在比预期样本量大的试验。</li>
-</ul>
-<p>提供预计的样本量，尽管其带着些主观性，却是为了使报道更加透明而做的前提。</p>
-<h3
-id="一报告的低把握度或不报告样本量计算">（一）报告的低把握度或不报告样本量计算</h3>
-<ol type="1">
-<li>报告的低把握度或不报告样本量计算通常不是致命的错误。低把握度反映了方法学知识的缺乏，但也可能暗示了潜在参与者数目不足。即使是基于低把握度，样本量的计算仍能提供上述提及的重要信息。</li>
-<li>如果作者忽视描述预计样本量的计算，那么读者该怎么办？读者应该谨慎地解释结果，因为缺少主要终点的信息和中止标准。</li>
-<li>此外，忽视报告样本量的计算暗示了方法学的无知，这可能成为其他问题的先兆。</li>
-</ol>
-<h3
-id="二重视被研究者隐藏的系统误差偏倚">（二）重视被研究者隐藏的系统误差(偏倚)</h3>
-<ol type="1">
-<li>作者不会报告拙劣的随机化、不充分的分组隐藏、失败的盲法或缺失的参与者保持率，但这些均隐藏了能导致偏倚的研究设计缺点。</li>
-<li>因此，基于以下2个主要原因，读者应该减少对样本量不足的担心：
-<ul>
-<li>首先，样本量不足不会产生偏倚;</li>
-<li>其次，任何随机误差都能透明地体现在可信区间和P上。</li>
-</ul></li>
-<li>对读者来说，最严重的问题应该是没有被揭示的系统误差。换言之，读者不应该简单地因为低把握度而完全否认一项试验，相反应仔细衡量
-它的价值。过去或未来的其他研究可能会涉及这个价值。</li>
-</ol>
-<h3
-id="三发现所有样本量计算背后的假设">（三）发现所有样本量计算背后的假设</h3>
-<ol type="1">
-<li>读者应该发现所有样本量计算背后的假设：I类错误（α)、把握度(或β)、对照组事件发生率及感兴趣的疗效(或近似的治疗组事件发生率)。</li>
-<li>“当α=0.05及把握度=0.90时，我们计算必需的样本量为每组120人”的说法完全没有意义，因为忽视了对效应大小和对照组事件发生率的估计。</li>
-<li>即使是小规模的试验也能有高把握度，并足以检验大的治疗效应。</li>
-</ol>
-<h3 id="四检验样本量计算的各种假设">（四）检验样本量计算的各种假设</h3>
-<p>读者还应该检验样本量计算的各种假设。例如，他们可能相信更小的效应比预期的效应大小更有价值。因此，读者应意识到他们所偏好的效应大小相关的试验，其把握度较低。</p>
-<blockquote>
-<p>Readers should also examine the assumptions for thesample size
-calculation. For example, they might believe that a smaller effect size
-is more worthy than the planned effect size. Therefore, the reader would
-be aware of the lower power of the trial relative to their preferred
-effect size.</p>
-</blockquote>
-<h2 id="十结论">十、结论</h2>
-<ol type="1">
-<li><p>统计学的把握度是重要的概念，但不应作为伦理学的领导者。</p></li>
-<li><p>对于那些仅仅因为主观上样本量的计算不准确即认为试验不符合伦理原则的做法，是令人质疑的。</p></li>
-<li><p>我们赞同研究计划实现适当的把握度(adequate
-power)，并向ISIS-2这种大规模多中心试验表示敬意，事实上，更多这样的研究应该被开展。</p>
-<blockquote>
-<p>ISIS-2 (Second International Study of Infarct Survival) Collaborative
-Group. Randomised trial of intravenous streptokinase, oral aspirin,
-both, or neither among 17,187 cases of suspected acute myocardial
-infarction: ISIS-2. Lancet 1988; 2: 349–60.</p>
-</blockquote></li>
-<li><p>然而，如果科学领域只局限于大型试验，许多不能回答的医学问题仍将继续没有答案。</p></li>
-<li><p>从关注样本量转变到注重方法学质量也许能使更多试验产生较少的偏倚。结果不够精确的无偏倚试验优于完全没有结果的试验。</p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2535,7 +2255,7 @@ infarction: ISIS-2. Lancet 1988; 2: 349–60.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">609</span>
+          <span class="site-state-item-count">610</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2548,7 +2268,7 @@ infarction: ISIS-2. Lancet 1988; 2: 349–60.</p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2549</span>
+        <span class="site-state-item-count">2551</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
