@@ -191,6 +191,1138 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/27/JavaScriptbasic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/27/JavaScriptbasic/" class="post-title-link" itemprop="url">JavaScript笔记（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-27 10:20:48" itemprop="dateCreated datePublished" datetime="2018-06-27T10:20:48+08:00">2018-06-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:51:58" itemprop="dateModified" datetime="2019-02-28T00:51:58+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1. 部分参考O'Reilly Media出版的JavaScript Programming_A
+Brain-Friendly Guide<br></p>
+</blockquote>
+<h2 id="一基本概念与简介">一、基本概念与简介</h2>
+<h3 id="javascript工作原理">JavaScript工作原理</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-JavaScript%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg"
+alt="JavaScript工作原理" />
+<figcaption aria-hidden="true">JavaScript工作原理</figcaption>
+</figure>
+<ol type="1">
+<li><p>JavaScript最初是解释型的，这意味着浏览器执行(execute)它遇到的每行JavaScript代码。浏览器厂商对现代JavaScript采取即时编译的做法，使其既可获得脚本语言的便利性，又可享受编译型语言的性能。</p>
+<blockquote>
+<p>编译型语言如C、C++和Java在执行代码前必须进行编译(compile)，编译是将代码转换为适合计算机的表达方式，通常可改善运行阶段的性能。</p>
+</blockquote></li>
+<li><p>JavaScript的使用范围不仅仅在网页上，还用在各种应用程序（如Photoshop）以及服务器端编程中。<br />
+</p></li>
+<li><p>使用HTMl和CSS时，两者主要都是声明型的(declarative)，JavaScript负责计算，利用它能在网页中添加行为。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">语言</th>
+<th style="text-align: center;">内容</th>
+<th style="text-align: center;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">HTMl</td>
+<td style="text-align: center;">markup标记</td>
+<td style="text-align: center;">statements结构</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CSS</td>
+<td style="text-align: center;">rules规则</td>
+<td style="text-align: center;">styles样式</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">JavaScript</td>
+<td style="text-align: center;">statements语句</td>
+<td style="text-align: center;">computation/behavior计算和行为</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<h3 id="如何将javascript代码加入网页">如何将JavaScript代码加入网页</h3>
+<p>可在HTML文档中的任何地方使用<code>&lt;script&gt;</code>标签添加JavaScript代码</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E4%BB%A3%E7%A0%81%E4%BD%8D%E7%BD%AE.jpg"
+alt="代码位置" />
+<figcaption aria-hidden="true">代码位置</figcaption>
+</figure>
+<ol type="1">
+<li><p>嵌入在<code>&lt;head&gt;</code>里</p></li>
+<li><p>嵌入在<code>&lt;body&gt;</code>里</p>
+<ul>
+<li>浏览器加载网页时，先加载<code>&lt;head&gt;</code>元素内的所有内容，再加载<code>&lt;body&gt;</code>元素。如果将代码放在<code>&lt;head&gt;</code>元素中，用户可能需要等一会儿才能看到网页，而放在<code>&lt;body&gt;</code>元素中，则用户在等待这些代码加载时，就能看到网页的内容。</li>
+</ul></li>
+<li><p>代码放在独立的文件中，并在<code>&lt;head&gt;</code>元素中链接该文件</p>
+<ul>
+<li>用<code>&lt;script&gt;</code>标签的src属性来指定JavaScript文件的URL</li>
+</ul></li>
+<li><p>代码放在独立的文件中，并在<code>&lt;body&gt;</code>元素中链接该文件</p></li>
+<li><p><code>&lt;script&gt;</code>元素</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;<span class="title function_">alert</span>(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>type可以省略</li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;myJavaScript.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>引用独立的JavaScript文件时，<code>&lt;script&gt;</code>元素不能包含任何JavaScript代码</li>
+</ul></li>
+</ol>
+<h3 id="section"></h3>
+<h2 id="二语法">二、语法</h2>
+<h3 id="语法基础">语法基础</h3>
+<ol type="1">
+<li>每条语句以<code>;</code>结尾</li>
+<li>单行注释用<code>//</code>两个斜杠打头</li>
+<li>空格不重要</li>
+<li>字符串必须使用单引号或者双引号括起，而布尔值<code>true</code>和<code>false</code>则不能</li>
+<li>JavaScript区分大小写，故变量名、关键字和函数名等几乎所有一切的大小写都很重要。</li>
+</ol>
+<h3 id="变量variables和值values">变量Variables和值values</h3>
+<ol type="1">
+<li><p>JavaScript语句通常包含变量，变量用来存储值（如数字、字符串和布尔值等）</p>
+<blockquote>
+<p>布尔值无需用引号括起</p>
+</blockquote></li>
+<li><p>var关键字用来声明变量，声明变量时可以给它赋值，也可以不指定初始值。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var winners = 2;</span><br><span class="line">var losers;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>变量名的命名规则和建议</p>
+<ul>
+<li><p>以字母、下划线或美元符号<code>$</code>开头，后接任意数量的字母，数字，下划线或美元符号<code>$</code>。</p></li>
+<li><p>不能使用任何内置的关键字作为变量名。</p></li>
+<li><p>不能包含空格和引号。</p></li>
+<li><p>推荐使用有意义的变量名，如currentPressure和passedExam</p></li>
+<li><p>用多个单词做变量名时通常采用骆驼式拼写法(camel
+case)，即将每个单词的首字母大写（第一个单词除外），如：twoHeadedDragonWithFire。</p></li>
+<li><p>通常不要用<code>_</code>和<code>$</code>开头的变量名</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%85%B3%E9%94%AE%E5%AD%97.jpg"
+alt="关键字" />
+<figcaption aria-hidden="true">关键字</figcaption>
+</figure>
+<blockquote>
+<p>关键字keyword：是JavaScript的保留字reserved
+word，JavaScript将其用于特殊目的。</p>
+</blockquote></li>
+</ul></li>
+</ol>
+<h3 id="表达式expressions">表达式expressions</h3>
+<ol type="1">
+<li><p>表达式用来计算结果，根据结果的值的不同可以分为数值表达式，字符串表达式，布尔表达式、数组表达式、对象表达式和函数表达式。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数值表达式 var total = price - (price * (discount / 100));</span><br><span class="line"></span><br><span class="line">字符串表达式 &quot;Dear &quot; + &quot;Reader&quot; + &quot;,&quot;</span><br><span class="line"></span><br><span class="line">布尔表达式 cost &gt;= 3.99</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="循环">循环</h3>
+<ol type="1">
+<li><p>while循环</p>
+<ul>
+<li><p>(scoops &gt;
+0)称为条件测试（简称为条件），包含一个布尔表达式</p></li>
+<li><p>如果条件测试为true，就执行代码块中所有的代码。如果条件测试为false，就结束循环。</p></li>
+<li><p>有些代码的条件是一个变量，其值为字符串而不是布尔值。任何包含非空字符串的变量都被视为<code>true</code>而没有设置值的变量都被视为<code>false</code></p></li>
+<li><p>仅使用布尔变量本身时，只要该变量为true，条件测试就为true，进而执行相应的代码块。</p>
+<ul>
+<li><code>if (inStock)&#123;...&#125;</code>如果inStock为false，条件测试将失败</li>
+</ul></li>
+<li><p>代码块即用花括号<code>&#123;&#125;</code>括起来的一组语句，代码块中的所有语句被视为一个整体，要么都执行，要么都不执行。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(scoops &gt; 0)&#123;</span><br><span class="line">	document.write(&quot;Another scoop!&quot;);</span><br><span class="line">	scoops = scoops - 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>for循环</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-for%E5%BE%AA%E7%8E%AF.jpg"
+alt="for循环" />
+<figcaption aria-hidden="true">for循环</figcaption>
+</figure>
+<ul>
+<li>for循环以关键字for打头</li>
+<li>圆括号中有三部分
+<ul>
+<li>第一部分是初始化循环变量，初始化只在循环开始前执行一次</li>
+<li>第二部分是条件测试，每次循环时都将执行该测试，如果为false就结束循环</li>
+<li>第三部分将计数器加1。每次循环都这么做，这是在执行完循环体的所有语句后进行的。</li>
+</ul></li>
+</ul></li>
+<li><p>for in循环</p></li>
+<li><p>forEach循环</p></li>
+<li><p>do while循环</p>
+<ul>
+<li>工作原理与while几乎相同，只是先执行循环体中的语句，再检查循环条件。</li>
+</ul></li>
+<li><p>if语句进行决策</p>
+<ul>
+<li><p>在if语句中还可以添加一个或多个else
+if语句，以执行多重检查。</p></li>
+<li><p>还可在最后添加一条else语句，以处理所有条件都不满足的情形。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	if (scoops &gt;= 5) &#123;	alert(&quot;Eat faster, the ice cream is going to melt!&quot;);&#125; </span><br><span class="line">	</span><br><span class="line">	else if (scoops &lt; 3) &#123;	alert(&quot;Ice cream is running low!&quot;);&#125;</span><br><span class="line">	</span><br><span class="line">	else &#123;</span><br><span class="line">		alert(&quot;Still lots of ice cream left, come and get it.&quot;); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ol>
+<h3 id="与用户交互的常见方式">与用户交互的常见方式</h3>
+<ol type="1">
+<li><p>创建提醒框</p>
+<ul>
+<li>调用函数alert()创建包含消息的提醒框</li>
+<li>仅当你要停止一切并提醒用户时，才应使用它</li>
+</ul></li>
+<li><p>直接写入文档</p>
+<ul>
+<li>调用函数document.write()将任何HTML和内容写入网页</li>
+</ul></li>
+<li><p>使用控制台console</p>
+<ul>
+<li>调用函数console.log()，并传入要写入的字符串</li>
+<li>可将console.log()视为杰出的故障排除工具</li>
+<li>console实际是一个对象，而log则是console的一个方法</li>
+<li>仅用于在开发网页期间调试代码troubleshoot，用户可能根本看不到控制台</li>
+<li>可将控制台视为具有特定功能的对象，其功能之一是写入日志，其语法为console.log，并将用圆括号括起的输出传递给它。</li>
+<li>如何打开控制台？</li>
+</ul>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0.jpg"
+alt="如何打开控制台" />
+<figcaption aria-hidden="true">如何打开控制台</figcaption>
+</figure></li>
+<li><p>直接操作文档</p>
+<ul>
+<li>利用文档对象模型（document object model,DOM）操作文档</li>
+</ul></li>
+<li><p>获取用户输入</p>
+<ul>
+<li>函数prompt()用于获取用户输入，它会弹出一个简单的对话框，包含传入该函数的字符串参数并且返回用户输入的字符串值。如果用户取消了对话框或没有输入任何响应，返回的将是null（表示没有值）。</li>
+</ul></li>
+<li><p>显示输出</p>
+<ul>
+<li>函数alert()</li>
+</ul></li>
+</ol>
+<h3 id="section-1"></h3>
+<h2 id="三函数">三、函数</h2>
+<h3 id="常用函数">常用函数</h3>
+<ol type="1">
+<li><p>Math.random()用来生成[0, 1)的随机数</p>
+<blockquote>
+<p>只要调用函数，都需要使用括号()</p>
+</blockquote></li>
+<li><p>Math.floor()用来对一个小数取整（直接舍弃小数位），即向下化整</p></li>
+</ol>
+<h3 id="函数语法">函数语法</h3>
+<ol type="1">
+<li><p>定义函数/声明函数</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function functionname(parameter1,parameter2) &#123;</span><br><span class="line">	这里是要执行的代码</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure> <img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%87%BD%E6%95%B0%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.jpg"
+alt="函数组成部分" /></p>
+<ul>
+<li>以关键词function打头，接下来指定函数名。函数名的命名规则与变量命名规则一样。</li>
+<li>parameters为函数的形参，将其放在函数名后面的括号内，将在调用函数时，给形参赋值</li>
+<li><code>&#123;&#125;</code>之间的内容被称为函数体(the body of the function)</li>
+</ul></li>
+<li><p>调用带参数的函数</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFunction(argument1,argument2)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>argument为实参，调用函数时，传给函数的实参的值被赋给相应的形参</li>
+<li>可以通过实参传递任何JavaScript值，如字符串、布尔值、数字、变量甚至表达式（对于表达式，先计算它的值，再将值传递给函数）。</li>
+</ul></li>
+<li><p>函数表达式(statement)</p>
+<ul>
+<li><p>没有函数名称，且位于一条赋值语句的右边，被赋给一个变量，是一个指向函数的引用。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var fly = function(num) &#123;</span><br><span class="line">	for (var i = 0; i &lt; num; i++) &#123;</span><br><span class="line">		console.log(&quot;Flying!&quot;); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">fly(3);</span><br><span class="line"># 通过变量fly来调用函数</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>函数声明和函数表达式之间的区别</p>
+<ul>
+<li>在分析(parses)
+网页期间（执行任何代码之前），浏览器查找函数声明，找到函数声明时，浏览器创建相应的函数，并将得到的函数引用赋给与函数同名的变量。在处理完所有的函数声明后，浏览器回到代码开头，开始按从头到尾的顺序执行代码。换言之，使用函数声明时，函数将在执行代码前创建，而使用函数表达式时，函数将在运行阶段执行代码时创建。</li>
+<li>函数声明是完整的语句，而函数表达式只是语句的一部分。可以认为函数声明包含一条隐藏的赋值语句，这条语句将函数引用赋给一个变量。</li>
+<li>函数表达式返回一个引用，该引用指向函数表达式创建的函数。</li>
+</ul></li>
+</ol>
+<h3 id="按值传递实参pass-by-value">按值传递实参(pass-by-value)</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92%E5%AE%9E%E5%8F%82-pass-by-value-.jpg"
+alt="按值传递实参" />
+<figcaption aria-hidden="true">按值传递实参</figcaption>
+</figure>
+<ol type="1">
+<li>即把每个实参的值复制给形参，其意义在于，在函数中修改形参的值时，只会影响形参，而不会影响传递给函数的变量。</li>
+<li>在函数中处理形参时，其影响范围将限制在函数中。</li>
+</ol>
+<h3 id="错误地调用函数">错误地调用函数</h3>
+<ol type="1">
+<li>传入的实参不够：将没有相应实参的形参设置为未定义undefined</li>
+<li>传入的实参太多：将忽略多余的实参</li>
+</ol>
+<h3 id="函数可返回值return">函数可返回值return</h3>
+<ol type="1">
+<li>函数体中遇到return语句，函数会直接返回return语句中的值，并停止函数运行，哪怕return语句之后还有语句。</li>
+<li>如果return语句没有指定值（空的），则返回undefined。</li>
+<li>如果一个函数没有return语句，则它的返回值是undefined。</li>
+</ol>
+<h3 id="作用域scope">作用域(scope)</h3>
+<ol type="1">
+<li>全局变量
+<ul>
+<li>在函数外使用关键字var声明。</li>
+<li>只有一个全局作用域，也就是说不同的JavaScript脚本共享同一个全局作用域。如果在网页链接到了其他的脚本，这些脚本也能够看到这些全局变量，而你也可以看到它们的全局变量。</li>
+<li>全局变量的寿命和网页一样长。重新加载网页时，将销毁并重新创建所有的全局变量。</li>
+<li>使用没有关键字var声明的变量，会被自动视为全局变量，即使在函数中首次使用它，亦如此。</li>
+</ul></li>
+<li>局部变量
+<ul>
+<li>在函数中声明的变量叫局部变量，这样的变量只在函数中可见，也只能用在函数中</li>
+<li>局部变量是在函数被调用后创建的，并一直活到函数返回（无论函数是否返回值）</li>
+<li>如果局部变量使用了与全局变量相同的变量名，那么在这个局部作用域中，全局变量是不可见的。即同名局部变量遮住(shadow)了全局变量</li>
+<li>将函数作为实参传递给另一个函数时，传入的函数引用将被复制到所调用函数的一个形参变量中，与其他形参一样，存储函数引用的形参也是局部变量。</li>
+</ul></li>
+<li>变量提升
+<ul>
+<li><p>JavaScript引擎会在正式执行之前先进行一次预编译，在这个过程中，首先将变量声明提升至当前作用域的顶端，然后进行接下来的处理。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line"></span><br><span class="line">    var foo = foo || 5;</span><br><span class="line"></span><br><span class="line">    console.log(foo); // 5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoistVariable();</span><br></pre></td></tr></table></figure> 预编译之后的代码逻辑是这样的：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">//预编译之后</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line">  		var foo;</span><br><span class="line"></span><br><span class="line">  		foo = foo || 5;</span><br><span class="line"></span><br><span class="line">  		console.log(foo); // 5</span><br><span class="line">  	&#125;</span><br><span class="line">  	</span><br><span class="line">  	hoistVariable();</span><br><span class="line">  	</span><br><span class="line">  	#只要“||”前面为true,不管“||”后面是true还是false，都返回“||”前面的值。</span><br><span class="line">  	#只要“||”前面为false,不管“||”后面是true还是false，都返回“||”后面的值。</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li>全局函数
+<ul>
+<li>在代码顶层定义的函数</li>
+</ul></li>
+<li>局部函数
+<ul>
+<li>在函数中定义的函数(nested，嵌套)</li>
+<li>在函数内部，如果你使用函数声明创建了一个嵌套函数，那么在这个函数的函数体的任何地方，嵌套函数都是已定义的；</li>
+<li>如果使用函数表达式创建了一个嵌套函数，则在这个函数的函数体内，仅当函数表达式执行后，嵌套函数才是已定义的。</li>
+</ul></li>
+<li>词法作用域(lexical scope)的工作原理
+<ul>
+<li><p>词法(lexical)意味着只需查看代码的结构就可确定变量的作用域，而不是等到代码执行时才明白。换而言之，即JavaScript的作用域规则完全基于代码的结构，而不是一些动态的运行阶段属性。</p></li>
+<li><p>因此，对于在函数中引用的变量，要确定它是在哪里定义的，可从最里面（当前函数）开始依次向最外面进行查找，直到找到它为止。</p></li>
+<li><p>实例</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#实例1 </span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">	return justAVar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result = whereAreYou(); </span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#实例2</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">function inner() &#123;</span><br><span class="line">	return justAVar;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">		 return inner();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		var result = whereAreYou(); </span><br><span class="line">		console.log(result);</span><br><span class="line">		</span><br><span class="line">		#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#实例3</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line"></span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">		var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">		function inner() &#123; </span><br><span class="line">				return justAVar;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return inner;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">var innerFunction = whereAreYou(); </span><br><span class="line">var result = innerFunction();</span><br><span class="line">	</span><br><span class="line">console.log(result);</span><br><span class="line">	</span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p></li>
+<li><p>环境(environment)存储了局部作用域内定义的所有变量。每个函数都有与之相关联的环境，其中包含它所处作用域内的局部变量。当返回这个函数时，返回的不仅仅是函数，还有与之相关联的环境。</p>
+<ul>
+<li>每个嵌套函数都有自己的小环境，其中包含它自己的变量，这将形成一个环境链，从内到外依次为各个嵌套函数的环境。在环境中查找变量时，也需要从最近的环境着手，沿环境链不断往下查找，直到找到变量为止。如果环境链中没有找到，再在全局环境中查找。</li>
+<li>可将形参视为函数的局部变量，因此形参也包含在环境(environment)中。</li>
+<li>JavaScript函数都是在定义它的环境中执行的。</li>
+</ul>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E7%8E%AF%E5%A2%83.jpg"
+alt="环境" />
+<figcaption aria-hidden="true">环境</figcaption>
+</figure></li>
+</ul></li>
+</ol>
+<h3 id="闭包closure">闭包(closure)</h3>
+<ol type="1">
+<li><p>闭包(closure) 的定义：闭包指的是函数和引用环境。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E9%97%AD%E5%8C%85.jpg"
+alt="闭包" />
+<figcaption aria-hidden="true">闭包</figcaption>
+</figure></li>
+<li><p>自由变量(free
+variables)的定义：不在本地作用域内定义的变量。</p></li>
+<li><p>可敲定函数(closes the
+function)的定义：给所有自由变量都提供了值的环境。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E6%95%B2%E5%AE%9A%E5%87%BD%E6%95%B0.jpg"
+alt="敲定函数" />
+<figcaption aria-hidden="true">敲定函数</figcaption>
+</figure></li>
+<li><p>从函数返回函数来创建闭包：计数器实例</p>
+<ul>
+<li><p>在全局作用域中，根本看不到变量count，但每次调用doCount时，都可以使用变量count。</p></li>
+<li><p>除了调用doCount外，没有其他任何办法能够获取变量count。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function makeCounter() &#123;</span><br><span class="line">	 var count = 0;</span><br><span class="line">	</span><br><span class="line">	function counter() &#123; </span><br><span class="line">		count = count + 1; </span><br><span class="line">		return count;	&#125;</span><br><span class="line"></span><br><span class="line">	return counter; </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">var doCount = makeCounter(); </span><br><span class="line">console.log(doCount());  #显示1</span><br><span class="line">console.log(doCount());  #显示2</span><br><span class="line">console.log(doCount());  #显示3</span><br></pre></td></tr></table></figure></p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-06-%E9%97%AD%E5%8C%85-%E8%AE%A1%E6%95%B0%E5%99%A8.jpg"
+alt="闭包-计数器" />
+<figcaption aria-hidden="true">闭包-计数器</figcaption>
+</figure></li>
+</ul></li>
+<li><p>将函数表达式用作实参来创建闭包</p>
+<ul>
+<li><p>我们传递给makeTimer的函数是一个闭包，带有将自由变量<code>doneMessage</code>绑定到字符串"Cookies
+are done!"的环境。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function makeTimer(doneMessage, n) &#123;</span><br><span class="line">	</span><br><span class="line">	setTimeout(function() &#123; </span><br><span class="line">		alert(doneMessage);</span><br><span class="line">	&#125;, n); </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">makeTimer(&quot;Cookies are done!&quot;, 1000);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>闭包包含的是实际环境，而非环境的副本</p>
+<ul>
+<li>环境引用的是实时变量，如果闭包函数外面的代码修改了变量，闭包函数执行时看到的将是变量的新值</li>
+</ul></li>
+</ol>
+<h3 id="函数提升">函数提升</h3>
+<ol type="1">
+<li><p>浏览器分两遍读取网页：</p>
+<ul>
+<li>第一遍读取所有的函数定义（由函数声明创建的函数）</li>
+<li>第二遍开始执行代码</li>
+</ul></li>
+<li><p>可将函数放在JavaScript脚本的任何地方。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var radius = 5;</span><br><span class="line">var area = circleArea(radius); </span><br><span class="line">alert(area);</span><br><span class="line"></span><br><span class="line">function circleArea(r) &#123; </span><br><span class="line">	var a = Math.PI * r * r; </span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="函数是一等值first-class-values">函数是一等值(first class
+values)</h3>
+<ol type="1">
+<li><p>一等值(first class
+values)的特点（数值、字符串、布尔值、函数和对象都是一等值）</p>
+<ul>
+<li>将其赋给变量或存储在数组和对象等数据结构中</li>
+<li>将其传递给函数</li>
+<li>从函数中返回它们</li>
+</ul></li>
+<li><p>一等值的定义：在编程语言中，可像对待其他任何值一样对待的值，包括赋给变量、作为实参传递给函数以及从函数中返回。</p></li>
+<li><p>向函数传递函数</p>
+<ul>
+<li><p>只需将函数名用作实参即可</p></li>
+<li><p>传递的是指向函数的引用，可将这种引用视为指针(pointer)，它指向函数本身的内部表示。引用本身可存储在变量中，可赋给变量，还可作为实参传递给函数。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var allCanFly = processPassengers(passengers, checkNoFlyList); </span><br><span class="line">if (!allCanFly) &#123;console.log(&quot;The plane can&#x27;t take off: we have a passenger on the no-fly-list.&quot;); </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">#checkNoFlyList即传入的函数</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>从函数返回函数</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createDrinkOrder(passenger) &#123;</span><br><span class="line">	var orderFunction;</span><br><span class="line"></span><br><span class="line">	if (passenger.ticket === &quot;firstclass&quot;) &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Would you like a cocktail or wine?&quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">	</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Your choice is cola or water.&quot;);</span><br><span class="line">			&#125;;		&#125;	return orderFunction;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="匿名函数anonymous-functions">匿名函数(anonymous functions)</h3>
+<ol type="1">
+<li><p>匿名函数是没有名称的函数表达式，用于通常需要函数引用的地方。</p>
+<p><code>window.onload = function() &#123; alert("Yeah, that page loaded!"); &#125;;</code></p>
+<ul>
+<li>如果需要将一个函数作为实参，可将实参指定为函数表达式
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">	alert(&quot;Time to take the cookies out of the oven&quot;);</span><br><span class="line">	&#125;, 600000);</span><br></pre></td></tr></table></figure></li>
+<li>如果需要从函数返回一个函数，也可返回一个函数表达式</li>
+</ul></li>
+</ol>
+<h2 id="四数据结构">四、数据结构</h2>
+<h3 id="数组arrays">数组(Arrays)</h3>
+<ol type="1">
+<li><p>创建数组</p>
+<ul>
+<li><p>用数组的字面量(array
+literal)创建数组（即详细地指定了该数组包含的元素）</p>
+<p><code>var flavors = ["vanilla", "butterscotch", "lavender", "chocolate", "cookie dough"];</code></p>
+<ul>
+<li>在<code>[]</code>中依次输入每个数据，用<code>,</code>隔开即可。</li>
+<li>数组中每一项的数据类型可以是任意的，字符串，布尔值，数值，甚至数组，函数和对象都可以。</li>
+<li>数据的个数也没有限制，但受制于计算机内存。</li>
+<li>不要求一个数组中所有值的类型都相同。</li>
+</ul></li>
+</ul></li>
+<li><p>访问数组元素</p>
+<p><code>var flavorOfTheDay = flavors[2];</code></p>
+<ul>
+<li><code>[]</code>中的数字表示数组的索引位置，数组的索引从0开始</li>
+</ul></li>
+<li><p>修改数组元素</p>
+<p><code>flavors[3] = "vanilla chocolate chip";</code></p></li>
+<li><p>确定数组的长度</p>
+<p><code>var numFlavors = flavors.length;</code></p>
+<ul>
+<li>每个数组都有一个length属性，它的值也就是数组的长度，等于数组的最大索引值+1</li>
+</ul></li>
+<li><p>给数组添加新元素</p>
+<ul>
+<li><p>只需给指定索引处的元素赋值即可，但必须小心地指定索引，否则数组将是稀疏的(sparse)</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var genres = []; </span><br><span class="line">genres[0] = &quot;Rockabilly&quot;; </span><br><span class="line">genres[1] = &quot;Ambient&quot;; </span><br><span class="line">var size = genres.length;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>稀疏数组是指有些索引处有值，而其他索引处没有值的数组。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var sparseArray = [ ]; </span><br><span class="line">sparseArray[0] = true; </span><br><span class="line">spraseArray[100] = true;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>犹如创建了99个变量，但没有对其初始化。这些变量虽然没有值，但是仍占用计算机的内存空间。</p></li>
+<li><p>检查元素的值是否是undefined，可编写如下代码：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (myarray[i] == undefined) &#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>undefined是一个值，而不是字符串，因此不能在前后加上引号。</p></li>
+</ul></li>
+<li><p>push方法</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var genres = []; </span><br><span class="line">genres.push(&quot;Rockabilly&quot;); </span><br><span class="line">genres.push(&quot;Ambient&quot;);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>平行数组(parallel arrays)</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%B9%B3%E8%A1%8C%E6%95%B0%E7%BB%84.jpg"
+alt="平行数组" />
+<figcaption aria-hidden="true">平行数组</figcaption>
+</figure></li>
+<li><p>数组方法<code>sort</code>的工作原理</p>
+<ul>
+<li><p>根据一个知道如何对两个数组元素进行比较的函数对数组进行排序。</p>
+<ul>
+<li>对于数字，使用<code>&lt;</code>、<code>&gt;</code>、和<code>==</code>进行比较；</li>
+<li>对于字符串，按字母顺序进行比较</li>
+<li>对于对象，采用自定义的方式根据对象的属性进行比较</li>
+</ul></li>
+<li><p><code>sort</code>方法要求我们的函数在第一个数字大于第二个数字时返回一个大于0的值，在它们相等时返回0，并在第一个数字小于第二个数字时返回一个小于0的值。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function compareNumbers(num1, num2) &#123; </span><br><span class="line">	if (num1 &gt; num2) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">&#125; else if (num1 === num2) &#123;</span><br><span class="line">	return 0;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	return -1; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">numbersArray.sort(compareNumbers);</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>sort</code>方法是破坏性的，将就地修改数组，而不是返回一个排序后的新数组。</p></li>
+</ul></li>
+</ol>
+<h3 id="section-2"></h3>
+<h3 id="section-3"></h3>
+<h3 id="section-4"></h3>
+<h2 id="五对象objects">五、对象(Objects)</h2>
+<h3 id="创建对象">创建对象</h3>
+<ol type="1">
+<li>定义并创建对象的实例
+<ul>
+<li><p>添加对象变量声明</p></li>
+<li><p>花括号<code>&#123;&#125;</code>内定义对象的所有属性(properties)</p></li>
+<li><p>每个属性的定义都包含名称、冒号和值，用逗号分隔属性名和属性值对，冒号分隔属性名和属性值。</p></li>
+<li><p>包含空格的字符串用作属性名时，必须用括号将其括起</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var widget = &#123; </span><br><span class="line">	cost$: 3.14,</span><br><span class="line">	&quot;on sale&quot;: true</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>属性名可以是任何字符，但通常遵循变量命名规则</p></li>
+<li><p>对象变量声明也以分号结束</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">		var chevy = &#123;</span><br><span class="line">			make: &quot;Chevy&quot;,</span><br><span class="line">			model: &quot;Bel Air&quot;, </span><br><span class="line">			year: 1957,</span><br><span class="line">			color: &quot;red&quot;, </span><br><span class="line">			passengers: 2, </span><br><span class="line">			convertible: false, </span><br><span class="line">			mileage: 1021&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1.png"
+alt="创建对象" />
+<figcaption aria-hidden="true">创建对象</figcaption>
+</figure></li>
+</ul></li>
+</ol>
+<h3 id="属性的工作原理">属性的工作原理</h3>
+<ol type="1">
+<li><p>访问属性(access a property)</p>
+<ul>
+<li><p>句点表示法(dot notation)</p>
+<p><code>fiat.mileage</code></p></li>
+<li><p>串接(chaining)</p>
+<p><code>var index = ship.locations.indexOf(guess);</code></p></li>
+<li><p>方括号表示法(bracket notation)</p>
+<ul>
+<li><code>chevy["color"]</code></li>
+<li><code>chevy["co" + "lor"]</code>
+<ul>
+<li>可将任何表达式放在方括号内，只要其结果为表示属性名的字符串即可</li>
+</ul></li>
+</ul></li>
+<li><p>访问不存在的属性</p>
+<p><code>if (fiat.make) &#123; ... &#125;</code></p>
+<p><code>fiat.make</code>的结果将为<code>undefined</code></p></li>
+</ul></li>
+<li><p>修改属性</p>
+<p><code>fiat.mileage = 10000;</code></p></li>
+<li><p>添加新属性</p>
+<p><code>fiat.needsWashing = true;</code></p></li>
+<li><p>将属性用于计算</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (fiat.year &lt; 1965) &#123; </span><br><span class="line">	classic = true;</span><br><span class="line">	&#125;for (var i = 0; i &lt; fiat.passengers; i++) &#123;</span><br><span class="line">	addPersonToCar(); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>增删属性</p>
+<ul>
+<li>增加属性，只指定一个新属性并给它赋值</li>
+<li>删除属性，可使用关键词delete：<code>delete fido.dogYears;</code>
+<ul>
+<li>删除属性时，同时删除属性值和属性本身</li>
+<li>成功删除属性，delete表达式返回true</li>
+<li>当属性无法删除时，delete表达式返回false</li>
+<li>如某个对象属于浏览器而受到保护</li>
+<li>即便你要删除的属性在对象中不存在，delete表达式仍返回true</li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="变量存储对象的原理">变量存储对象的原理</h3>
+<ol type="1">
+<li><p>变量并不实际存储对象</p></li>
+<li><p>变量存储指向对象的引用(reference)，故此对象变量也被称为引用变量(reference
+variables)</p></li>
+<li><p>引用就像指针(pointer)，是对象的存储地址</p></li>
+<li><p>当我们使用句点表示法时，JavaScript解释器将负责根据引用获取对象并访问其属性</p></li>
+<li><p>基本类型变量(primitive variable)表示的是实际值，而对象变量(object
+variable)表示一种获取对象的途径</p></li>
+<li><p>当使用句点表示法用于引用变量时，相当于使用句点前的引用来获取相应的对象，再访问句点后指定的属性。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8.jpg"
+alt="变量存储对象的引用" />
+<figcaption aria-hidden="true">变量存储对象的引用</figcaption>
+</figure></li>
+</ol>
+<h3 id="向函数传递对象">向函数传递对象</h3>
+<ol type="1">
+<li><p>调用函数并向它传递一个对象时，传递的是对象引用，而不是对象本身。根据按值传递的语义，传递给形参的是改引用的副本，而原来的引用依然是指向原始对象的指针。</p></li>
+<li><p>如果在函数中修改对象属性，修改的将是原始对象的属性。因此，函数结束时，在函数中对对象所做的修改都依然有效。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A12.jpg" /></p></li>
+</ol>
+<h3 id="给对象添加行为">给对象添加行为</h3>
+<ol type="1">
+<li><p>给对象添加行为,就是将函数定义赋给属性。在函数定义中没有指定函数名，而只是在关键词后面提供了函数体，属性名就是函数名。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var fiat = &#123; </span><br><span class="line">	make: &quot;Fiat&quot;,</span><br><span class="line">	model: &quot;500&quot;,</span><br><span class="line">	year: 1957,</span><br><span class="line">	color: &quot;Medium Blue&quot;, </span><br><span class="line">	passengers: 2, </span><br><span class="line">	convertible: false, </span><br><span class="line">	mileage: 88000,</span><br><span class="line">	drive: function() &#123;</span><br><span class="line">		alert.log(&quot;Zoom zoom!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>对象内的函数，通常被称为方法(method)。</p></li>
+<li><p>用句点法（串联，chaining）调用对象内的方法。</p>
+<ul>
+<li><code>fiat.drive();</code></li>
+<li><code>var index = ship.locations.indexOf(guess);</code></li>
+</ul></li>
+</ol>
+<h3 id="关键词this的工作原理">关键词<code>this</code>的工作原理</h3>
+<ol type="1">
+<li>可将<code>this</code>视为一个变量，指向其方法被调用的对象。 <img
+src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" />
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%862.jpg" /></li>
+</ol>
+<h3 id="如何知道对象包含哪些属性">如何知道对象包含哪些属性</h3>
+<ol type="1">
+<li>用<code>for in</code>迭代对象的属性
+<ul>
+<li><code>for in</code>以每次一个的方式遍历对象的属性，并依次将每个属性赋给变量prop</li>
+<li>用方括号表示法通过prop来访问当前属性</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var prop in chevy) &#123;</span><br><span class="line">	console.log(prop + &quot;: &quot; + chevy[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="javascript提供的内置对象">JavaScript提供的内置对象</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-JavaScript%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AF%B9%E8%B1%A1.jpg"
+alt="JavaScript提供的对象" />
+<figcaption aria-hidden="true">JavaScript提供的对象</figcaption>
+</figure>
+<h3 id="字符串对象">字符串对象</h3>
+<ol type="1">
+<li>属性<code>length</code>：指出字符串包含多少个字符</li>
+<li>方法<code>charAt</code>：获取字符串中指定索引处的字符。
+<ul>
+<li>JavaScript没有字符类型(character
+type)，通过返回一个字符串来返回字符，其中只包含特点的字符</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var input = &quot;jenny@wickedlysmart.com&quot;; </span><br><span class="line">for(var i = 0; i &lt; input.length; i++) &#123;</span><br><span class="line">	if (input.charAt(i) === &quot;@&quot;) &#123;</span><br><span class="line">		console.log(&quot;There&#x27;s an @ sign at index &quot; + i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法<code>indexOf</code>
+<ul>
+<li><p>将一个字符串作为第一个参数，并在字符串中该参数首次出现的位置返回该参数中第一个字符的索引</p></li>
+<li><p>第二个参数是一个索引，指定从什么位置开始查找</p></li>
+<li><p>如果没有找到指定的字符串，将返回索引-1</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index = phrase.indexOf(&quot;the&quot;, 5);</span><br><span class="line">console.log(&quot;there&#x27;s a the sitting at index &quot; + index);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li>方法<code>substring</code>
+<ul>
+<li><p>将两个索引作为参数，提取并返回这两个索引之间的子串</p>
+<p><code>var val = data.substring(5, 10);</code></p>
+<blockquote>
+<p>返回从索引5到索引10（不包括）的子串</p>
+</blockquote></li>
+<li><p>可以省略第二个参数，在这种情况下，<code>substring</code>将提取从指定索引到字符串末尾的子串。</p></li>
+</ul></li>
+<li>方法<code>split</code>
+<ul>
+<li><p>将一个用作分隔符(delimiter)的字符作为参数，并根据这个分隔符将字符串分成多个部分。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var data = &quot;name|phone|address&quot;;</span><br><span class="line">var vals = data.split(&quot;|&quot;); </span><br><span class="line">console.log(&quot;Split array is &quot;, vals);</span><br><span class="line">	</span><br><span class="line">//Split array is [&quot;name&quot;, &quot;phone&quot;, &quot;address&quot;]</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li>方法<code>toLowerCase</code>
+<ul>
+<li>将字符串中的所有大写字符都转换为小写，并返回结果。</li>
+</ul></li>
+<li>方法<code>slice</code>
+<ul>
+<li>删除字符串的一部分，并返回结果。</li>
+</ul></li>
+<li>方法<code>lastIndexOf</code>
+<ul>
+<li>查找最后一个子串</li>
+</ul></li>
+<li>方法<code>match</code>
+<ul>
+<li>查找与正则表达式匹配的子串</li>
+</ul></li>
+<li>方法<code>trim</code>
+<ul>
+<li>删除字符串开头和末尾的空白字符</li>
+</ul></li>
+<li>方法<code>replace</code>
+<ul>
+<li>查找子串并将其替换为另一个字符串</li>
+</ul></li>
+<li>方法<code>concat</code>
+<ul>
+<li>将字符串拼接起来</li>
+</ul></li>
+<li>方法<code>toUpperCase</code>
+<ul>
+<li>将字符串中的所有小写字符都转换为大写，并返回结果。</li>
+</ul></li>
+</ol>
+<h2
+id="六浏览器与文档对象模型document-object-modeldom">六、浏览器与文档对象模型(document
+object model,DOM)</h2>
+<h3
+id="网页与javascript通过文档对象模型dom交互">网页与JavaScript通过文档对象模型（DOM）交互</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-DOM%E6%A8%A1%E5%9E%8B.jpg"
+alt="DOM模型" />
+<figcaption aria-hidden="true">DOM模型</figcaption>
+</figure>
+<ol type="1">
+<li><code>document</code>是一个全局对象，表示浏览器显示的整个网页，包含完整的DOM。</li>
+<li><code>getElementById</code>是<code>document</code>的一个方法，查找id为指定值的元素对象。
+<ul>
+<li>若根据id从DOM获取元素时，如果指定的id不存在，getElementById将返回null。</li>
+</ul></li>
+<li><code>getElementsByClassName</code>是<code>document</code>的一个方法，查找类名为指定值的元素对象集合。</li>
+<li><code>getElementsByTagName</code>
+是<code>document</code>的一个方法，查找与指定标签名匹配的元素对象集合。</li>
+</ol>
+<ul>
+<li>返回的是一个NodeList对象。但可以像处理数组一样处理它（length属性、索引访问）。NodeList是一个Node集合，而Node指的其实就是DOM树中的element对象。</li>
+</ul>
+<ol start="5" type="1">
+<li><p><code>innerHTML</code>是元素对象的一个属性，表示包含在元素中的内容（除了元素的HTML标签外）。</p>
+<ul>
+<li>可以通过<code>innerHTML</code>来读取或替代元素的内容</li>
+<li><code>innerHTML</code>表示元素对象包含的所有内容，包括嵌套的元素/从对象的起始位置到终止位置的全部内容,不包括HTML标签。
+<ul>
+<li>例如，段落元素除文本外，还可能包含<code>&lt;em&gt;</code>和<code>&lt;img&gt;</code>元素</li>
+</ul></li>
+</ul></li>
+<li><p><code>outerHTML</code>是元素对象的一个属性，表示包含在元素对象中的全部内容</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;test&quot;&gt; </span><br><span class="line">  &lt;span style=&quot;color:red&quot;&gt;test1&lt;/span&gt; test2 </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>innerHTML</code>的值是<code>&lt;span style="color:red"&gt;test1&lt;/span&gt;test2</code></li>
+<li><code>outerHTML</code>的值是<code>&lt;div id="test"&gt;&lt;span style="color:red"&gt;test1&lt;/span&gt;test2&lt;/div&gt;</code></li>
+</ul></li>
+<li><p>处理DOM时，要确保代码在网页完全加载后，再执行，否则代码执行时，DOM很可能尚未创建。</p></li>
+</ol>
+<h3 id="网页加载完毕后执行代码的方法">网页加载完毕后执行代码的方法</h3>
+<ol type="1">
+<li>将代码放置于<code>&lt;body&gt;</code>元素末尾</li>
+<li>将函数赋给对象window的属性onload
+<ul>
+<li><p>window是一个JavaScript内置对象，表示浏览器窗口</p></li>
+<li><p>网页加载事件的触发时间点是：浏览器加载完网页，显示网页的所有内容并生成表示网页的DOM</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;function init() &#123;</span><br><span class="line">	var planet = document.getElementById(&quot;greenplanet&quot;);</span><br><span class="line">	planet.innerHTML = &quot;Red Alert: hit by phaser fire!&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.onload = init; #千万不要在函数名init后面添加括号，这里不是调用函数，而是将函数作为一个值赋给属性window.onload&lt;/script&gt;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ol>
+<h3 id="section-5"></h3>
+<h3 id="设置dom中元素对象的特性">设置DOM中元素对象的特性</h3>
+<ol type="1">
+<li><p><code>setAttribute</code>方法添加新特性或修改既有特性</p>
+<p><code>planet.setAttribute("class", "redtext");</code></p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-setAttribute%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%89%B9%E6%80%A7%E6%88%96%E4%BF%AE%E6%94%B9%E6%97%A2%E6%9C%89%E7%89%B9%E6%80%A7.jpg"
+alt="setAttribute方法添加新特性或修改既有特性" />
+<figcaption
+aria-hidden="true">setAttribute方法添加新特性或修改既有特性</figcaption>
+</figure></li>
+<li><p><code>getAttribute</code>方法获取HTML元素的特性的值</p>
+<ul>
+<li><p>如果指定的特性不存在，将返回null。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var scoop = document.getElementById(&quot;raspberry&quot;); </span><br><span class="line">var altText = scoop.getAttribute(&quot;alt&quot;);</span><br><span class="line">if (altText == null) &#123;</span><br><span class="line">	console.log(&quot;Oh, I guess there isn&#x27;t an alt attribute.&quot;); </span><br><span class="line">&#125; else &#123;</span><br><span class="line">console.log(&quot;I can&#x27;t see the image in the console,&quot;);</span><br><span class="line">console.log(&quot; but I&#x27;m told it looks like &quot; + altText); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>设置图像的属性(property)<code>src</code>与使用<code>getAttribute</code>和<code>setAttribute</code>设置特性(attribute)<code>src</code>相同么？</p>
+<ul>
+<li>对于<code>&lt;img&gt;</code>元素而言，效果是一样的。但是并非所有的HTML特性(attributes)都有对应的对象属性(object
+properties)，因此对于这些特性，必须使用<code>getAttribute</code>和<code>setAttribute</code>来设置和获取。</li>
+</ul></li>
+</ul></li>
+</ol>
+<h2 id="七类型types">七、类型(types)</h2>
+<h3 id="类型的种类">类型的种类</h3>
+<ol type="1">
+<li>基本类型(primitives)
+<ul>
+<li>数值（作为基本类型）</li>
+<li>布尔值（作为基本类型）</li>
+<li>字符串（作为基本类型）</li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+</ul></li>
+<li>对象（objects对象有属性和方法）
+<ul>
+<li>字符串（作为对象/JavaScript解释器会在需要时替你创建字符串对象，无需显式地这么做）</li>
+<li><ul>
+<li>数值（作为对象）</li>
+</ul></li>
+<li><ul>
+<li>布尔值（作为对象）</li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="undefined值"><code>undefined</code>值</h3>
+<ol type="1">
+<li><p>对于任何还没有值（即还未初始化）的东西，都将被赋予值<code>undefined</code>，<code>undefined</code>的类型是<code>undefined</code>。</p>
+<ul>
+<li>没有return语句的函数返回的值</li>
+<li>未赋值的变量的值</li>
+<li>稀疏数组中不存在的数组元素的值</li>
+<li>不存在的属性的值</li>
+<li>已删除的属性的值</li>
+</ul></li>
+<li><p>可以通过<code>undefined</code>来判断是否给变量（属性或数组元素）赋值了。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line"></span><br><span class="line">if (x == undefined) &#123;</span><br><span class="line">// x isn’t defined! just deal with it!</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var customer = &#123; </span><br><span class="line">		name: &quot;Jenny&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">if (customer.phoneNumber == undefined) &#123;</span><br><span class="line"></span><br><span class="line">	// get the customer&#x27;s phone number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#注意不要将值undefined与字符串&quot;undefined&quot;混淆</span><br></pre></td></tr></table></figure> ### <code>null</code>值</p></li>
+<li><p>表示”无对象/对象不存在“，在应该提供一个对象，但无法创建或找到时，将提供null，在变量未初始化，对象没有指定属性或数组没有指定元素时，将返回undefined。</p></li>
+<li><p><code>null</code>以前的类型是<code>object</code>，不过在最新的规范中<code>null</code>的类型是<code>null</code>。</p></li>
+</ol>
+<h3 id="nan值"><code>NaN</code>值</h3>
+<ol type="1">
+<li><p>表示JavaScript无法表示的数值结果，即(Not a Number)</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 0/0;</span><br><span class="line">var b = &quot;food&quot; * 1000;</span><br><span class="line">var c = Math.sqrt(-9);</span><br></pre></td></tr></table></figure></p></li>
+<li><p>JavaScript中唯一一个与自己不相等的值：<code>NaN != NaN</code> *
+因为NaN与任何东西都不相等，因此不能以任何方式检查变量与NaN是否相等。需要使用特殊函数isNaN。
+* NaN指的是无法表示的数字，但并非所有无法表示的数字都相等。 *
+如果变量存储的是NaN或其他任何不是数字的值，将其传递给isNaN时，都将返回<code>true</code>，否则将返回<code>false</code>。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (isNaN(myNum)) &#123; </span><br><span class="line">	myNum = 0;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>NaN</code>值的类型是"number"</p>
+<ul>
+<li><code>NaN</code>值可以认为是一个数字，只是无法表示（至少对计算机来说如此而已）</li>
+</ul></li>
+</ol>
+<h3 id="infinity值"><code>Infinity</code>值</h3>
+<ol type="1">
+<li>任何超过浮点数上限(1.7976931348623157E+10308)或下限(-1.7976931348623157E+10308,-Infinity)的值。</li>
+<li><code>Infinity</code>值的类型是"number"</li>
+<li><code>Infinity</code>与它自己相减时，结果为<code>NaN</code></li>
+</ol>
+<h3 id="检测类型">检测类型</h3>
+<ol type="1">
+<li><p><code>typeof</code>是一个内置的JavaScript运算符(operator)，可用于探测其操作数(operand)的类型</p>
+<blockquote>
+<p>操作数：要对其进行操作的东西</p>
+</blockquote>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var subject = &quot;Just a string&quot;;</span><br><span class="line">var probe = typeof subject; </span><br><span class="line">console.log(probe);</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>typeof</code>使用字符串来表示类型</p>
+<ul>
+<li>"string"</li>
+<li>"boolean"</li>
+<li>"number"</li>
+<li>"object"</li>
+<li>"undefined"</li>
+<li>"function"</li>
+</ul></li>
+</ol>
+<h3 id="类型转换">类型转换</h3>
+<ol type="1">
+<li>拼接和加法运算符<code>+</code>
+<ul>
+<li><p>用于数字时，运算符<code>+</code>表示加法运算，用于字符串时，运算符<code>+</code>表示拼接(concatenation)</p></li>
+<li><p>将数字和字符串相加时，数字转换为字符串，再进行拼接，顺序为从左至右</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var order = 1 + 2 + &quot; pizzas&quot;;</span><br><span class="line">3 pizza</span><br></pre></td></tr></table></figure></p></li>
+<li><p>布尔值与字符串相加时，结果为字符串。
+<code>true + “ love”</code>为<code>“true love”</code></p></li>
+</ul></li>
+<li>其他算数运算符
+<ul>
+<li>如乘法、除法和减法运算，JavaScript将认为你要执行的是算术运算，而不是字符串运算。</li>
+<li>运算符<code>-</code>对数字取负，将其用于<code>true</code>，结果将为-1</li>
+</ul></li>
+<li>将字符串转换为数字的函数<code>Number</code>
+<ul>
+<li>如果指定的实参无法转换为数字，Number将返回NaN。</li>
+</ul></li>
+</ol>
+<h2 id="八运算符">八、运算符</h2>
+<h3 id="算术运算符">算术运算符</h3>
+<ol type="1">
+<li>后递增运算符(post-increment operator)：<code>++</code>
+<ul>
+<li><code>myImportantCounter++;</code>这条语句执行完以后，myImportantCounter的值比原来大1。</li>
+</ul></li>
+<li>后递减运算符(post-decrement operator)：<code>--</code> ###<br />
+###<br />
+###<br />
+###</li>
+</ol>
+<h2 id="九比较">九、比较</h2>
+<h3 id="比较运算符">比较运算符</h3>
+<ol type="1">
+<li><code>&lt;</code>
+<ul>
+<li>可以比较布尔值、字符串和数字，<code>true</code>转换为1</li>
+<li>字符串比较规则
+<ul>
+<li>取决于计算机中用于表示各个字符的Unicode值的排列顺序</li>
+</ul></li>
+</ul></li>
+<li><code>&gt;</code>
+<ul>
+<li>可以比较布尔值、字符串和数字，<code>true</code>转换为1</li>
+</ul></li>
+<li><code>==</code>表示等于</li>
+</ol>
+<ul>
+<li>如果两个值的类型相等，就直接进行比较</li>
+<li>如果两个值的类型不同，则尝试将它们转换为相同的类型，再进行比较
+<ul>
+<li><p>比较数字和字符串</p>
+<ul>
+<li><p>把字符串转换为数字，再对两个数字进行比较</p></li>
+<li><p>字符串不能转换为数字时，结果为<code>NaN</code>，和数字的比较结果为<code>false</code></p>
+<p><code>99 == "vanilla"</code>→<code>99 == NaN</code>→<code>false</code></p></li>
+</ul></li>
+<li><p>比较布尔值和其他类型</p>
+<ul>
+<li><p>把布尔值转换为数字，再对两个数字进行比较</p></li>
+<li><p><code>true</code>将被转换为1，而<code>false</code>将被转换为0</p>
+<p><code>1 == true</code>→<code>1 == 1</code>→<code>true</code></p></li>
+</ul></li>
+<li><p>比较<code>null</code>和<code>undefined</code></p>
+<p><code>undefined == null</code>→<code>true</code></p></li>
+<li><p>其他情况</p>
+<ul>
+<li><p>空字符串转换为数字的结果是0</p>
+<p><code>1 == ""</code>→<code>1 == 0</code>→<code>false</code></p></li>
+</ul></li>
+<li><p>判断两个对象是否相等</p>
+<ul>
+<li><p>如果两个操作数都是对象，<code>==</code>和<code>===</code>都可以使用，工作原理完全相同</p></li>
+<li><p>检查两个对象变量是否相等时，比较的是指向对象的引用</p>
+<ul>
+<li>这些对象包含什么不重要，只要两个引用指向的对象不同，他们就不同</li>
+</ul></li>
+<li><p>当且仅当两个引用指向的是同一个对象时，它们才相等</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-06-28-%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89.jpg"
+alt="判断两个对象是否相等" />
+<figcaption aria-hidden="true">判断两个对象是否相等</figcaption>
+</figure></li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li><p><code>===</code>表示正好等于/严格相等</p>
+<ul>
+<li>当且仅当两个值的类型和值都相等时，它们才是严格相等。</li>
+<li>有些开发人员称其为等同运算符<code>“identity” operator</code></li>
+</ul></li>
+<li><p><code>&lt;=</code></p>
+<ul>
+<li>只能比较字符串和数字</li>
+</ul></li>
+<li><p><code>&gt;=</code></p>
+<ul>
+<li>只能比较字符串和数字</li>
+</ul></li>
+<li><p><code>!=</code>表示不等于</p></li>
+<li><p><code>!==</code>表示严格不等于</p></li>
+</ol>
+<h3 id="逻辑运算符">逻辑运算符</h3>
+<ol type="1">
+<li><code>||</code>表示OR（或）</li>
+<li><code>&amp;&amp;</code>表示AND（与）</li>
+<li><code>!</code>表示NOT（非），仅当表达式为false时，结果才为true</li>
+</ol>
+<h3
+id="真值truthy和假值falseyfalsy">真值(truthy)和假值(falsey/falsy)</h3>
+<ol type="1">
+<li><p>定义：有些值并非<code>true</code>或<code>false</code>，但用于条件表达式中时，被视为<code>true</code>或<code>false</code>。这些值被称为真值(truthy)和假值(falsey/falsy)。因为严格地说它们并非<code>true</code>或<code>false</code>，但用于条件表达式时，它们的行为像<code>true</code>或<code>false</code>。</p></li>
+<li><p>假值(falsey/falsy)</p>
+<ul>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>0</code></li>
+<li>空字符串</li>
+<li><code>NaN</code></li>
+</ul></li>
+<li><p>真值(truthy)</p>
+<p>除了5个假值以外，其他都是真值</p></li>
+</ol>
+<h2
+id="十事件处理程序event-handler回调函数callback及异步编码asynchronous-coding">十、事件处理程序(event
+handler)/回调函数(callback)及异步编码(asynchronous coding)</h2>
+<h3 id="基本概念">基本概念</h3>
+<ol type="1">
+<li>有些事件(events)是浏览器生成的，如加载。有些事件是用户与网页交互时生成的。有些事件是JavaScript代码生成的。还有定时器事件。</li>
+<li>事件处理程序(event
+handler)/回调函数(callback)/监听器(listener)。从代码的角度说，就是一个函数。</li>
+<li>异步编码(asynchronous
+coding)，是一种以响应事件的方式组织代码的代码编写方式。 &gt;
+相对应的线性编码，就是从上到下的顺序逐步编写代码。</li>
+</ol>
+<h3 id="事件对象event-object的工作原理">事件对象(event
+object)的工作原理</h3>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-01-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg"
+alt="事件对象(event object)的工作原理" />
+<figcaption aria-hidden="true">事件对象(event
+object)的工作原理</figcaption>
+</figure>
+<ol type="1">
+<li><p>每次调用单击事件处理程序时，都将向它传递一个事件对象(event
+object)，更准确地说是触发事件的元素，这被称为目标(target)。例如，当用户单击特定的图像时，目标就是这幅图像的元素对象。加载事件处理程序传递的一个事件对象的<code>target</code>是<code>window</code>对象。</p>
+<ul>
+<li><code>target</code>就是事件对象的一个属性(property)</li>
+</ul></li>
+<li><p>在事件处理程序中，你可以使用这个事件对象来获取有关事件的信息</p>
+<ul>
+<li>常规信息
+<ul>
+<li><p>属性<code>target</code>，它储存了一个引用，指向触发事件的元素对象（可以是各种不同的对象，但通常是元素对象）</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function showAnswer(eventObj) &#123;</span><br><span class="line">	var image = eventObj.target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>属性<code>type</code>，是一个字符串，如<code>click</code>或<code>load</code>，指出了发生的是哪种事件</p></li>
+<li><p>属性<code>timeStamp</code>，事件是何时发生的</p></li>
+</ul></li>
+<li>具体信息（取决于事件的类型）
+<ul>
+<li>用户单击鼠标时，获得单击位置的坐标</li>
+<li>属性<code>keyCode</code>，用户刚按下了哪个键</li>
+<li>属性<code>clientX</code>和<code>clientY</code>，确定用户点击的位置离浏览器窗口的左边缘和上边缘的距离</li>
+<li>属性<code>touches</code>，在触摸设备上，确定用户使用了多少根手指来触摸屏幕</li>
+</ul></li>
+</ul></li>
+<li><p>浏览器把事件都放入队列，再遍历这个队列(queue)，并在必要时调用相应的处理程序。浏览器只有一个队列和一个控制线程(thread
+of control)，只能去逐个处理事件。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-01-%E4%BA%8B%E4%BB%B6%E5%92%8C%E9%98%9F%E5%88%97.jpg"
+alt="事件和队列" />
+<figcaption aria-hidden="true">事件和队列</figcaption>
+</figure></li>
+</ol>
+<h3 id="具体示例">具体示例</h3>
+<ol type="1">
+<li><p>将按钮（类型为button）的属性onclick设置为一个事件处理程序</p>
+<ul>
+<li><p>可以给网页中任何元素的onclick属性设置为一个函数。</p></li>
+<li><p>不会在网页中显示出来的元素（如<code>&lt;script&gt;</code>和<code>&lt;head&gt;</code>）不支持单击等事件</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;);</span><br><span class="line">	fireButton.onclick = handleFireButton;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handleFireButton() &#123;</span><br><span class="line">	// 从表单中获取值的代码</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">window.onload = init;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>通过迭代批量增加单击事件处理程序</li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var images = document.getElementsByTagName(&quot;img&quot;); </span><br><span class="line">	for (var i = 0; i &lt; images.length; i++) &#123;</span><br><span class="line">	images[i].onclick = showAnswer; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;		</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+<li><p>处理回车键事件</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;);</span><br><span class="line">	fireButton.onclick = handleFireButton;</span><br><span class="line">	var guessInput = document.getElementById(&quot;guessInput&quot;);</span><br><span class="line">	guessInput.onkeypress = handleKeyPress;</span><br><span class="line">	# 按键</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handleKeyPress(e) &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;); </span><br><span class="line">	if (e.keyCode === 13) &#123;</span><br><span class="line">		fireButton.click();</span><br><span class="line">		return false; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"># 如果用户按下的是回车键，事件对象的属性keyCode将为13</span><br></pre></td></tr></table></figure></p></li>
+<li><p>mousemove事件</p>
+<ul>
+<li>当鼠标在特定元素上移动时，
+mousemove事件通知相应的处理程序。要指定处理程序，可使用元素的属性<code>onmousemove</code>。这样会给这种事件处理程序传递一个<code>event</code>对象。</li>
+<li><code>clientX, clientY</code>：鼠标相对于浏览器窗口左边缘和上边缘的距离，单位为像素</li>
+<li><code>screenX, screenY</code>：鼠标相对于设备屏幕左边缘和上边缘的距离，单位为像素</li>
+<li><code>pageX, pageY</code>:
+鼠标相对于网页左边缘和上边缘的距离，单位为像素</li>
+</ul></li>
+<li><p>鼠标移动事件</p>
+<ul>
+<li>属性<code>onmouseover</code>：鼠标移入元素</li>
+<li>属性<code>onmouseout</code>：鼠标移出元素</li>
+</ul></li>
+<li><p>其他</p>
+<ul>
+<li><code>resize</code>：每当用户调整浏览器窗口大小时，都将触发这个事件<br />
+</li>
+<li><code>play</code>：单击网页中<code>&lt;video&gt;</code>元素的播放按钮时，将触发这个事件<br />
+</li>
+<li><code>pause</code>：单击网页中<code>&lt;video&gt;</code>元素的暂停按钮时，将触发这个事件</li>
+<li><code>unload</code>：用户关闭浏览器窗口或切换到其他网页时，将触发这个事件<br />
+</li>
+<li><code>dragstart</code> ：用户拖曳网页中的元素时，将触发这个事件</li>
+<li><code>drop</code> ：用户放下拖曳的元素时，将触发这个事件</li>
+<li><code>touchstart</code>：在触摸设备上，用户触摸并按住元素时，将触发这个事件</li>
+<li><code>touchend</code> ：用户停止触摸时，将触发这个事件</li>
+</ul></li>
+<li><p>基于时间的事件</p>
+<ul>
+<li>调用函数<code>setTimeout</code>并向它传递处理程序，它接受两个参数，事件处理程序和时间间隔（单位为毫秒）。
+<ul>
+<li><p>向函数<code>setTimeout</code>传递一个指向处理程序函数的引用。函数<code>setTimeout</code>将这个引用存储起来，供定时器到期后使用。</p></li>
+<li><p>严格地说，应该写作<code>window.setTimeout</code>，<code>window</code>是全局对象，可省略对象名。</p>
+<p><code>setTimeout(timerHandler, 5000);</code></p></li>
+<li><p>还可以传入第三个参数：触发时间事件时，这个参数将被传递给处理程序（可向处理程序传递任意数量的参数）。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(reblur, 2000, image);</span><br><span class="line">	</span><br><span class="line">function reblur(image) &#123;</span><br><span class="line">	var name = image.id; </span><br><span class="line">	name = name + &quot;blur.jpg&quot;; </span><br><span class="line">	image.src = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>将处理程序指定为reblur，将时间间隔设置为2秒，并将第三个参数指定为要重新变模糊的图像</p>
+</blockquote></li>
+</ul></li>
+<li>调用函数<code>setInterval</code>
+<ul>
+<li><p>在定时器到期时触发事件，并重启定时器</p></li>
+<li><p>若要停止函数<code>setInterval</code>，可将其传递给另一个函数clearInterval</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var t = setInterval(ticker, 1000);</span><br><span class="line">clearInterval(t);</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h3 id="section-6"></h3>
+<h3 id="section-7"></h3>
+<h3 id="section-8"></h3>
+<h2 id="十一">十一、</h2>
+<h3 id="section-9"></h3>
+<h3 id="section-10"></h3>
+<h3 id="section-11"></h3>
+<h3 id="section-12"></h3>
+<h2 id="十二">十二、</h2>
+<h3 id="section-13"></h3>
+<h3 id="section-14"></h3>
+<h3 id="section-15"></h3>
+<h3 id="section-16"></h3>
+<h2 id="十三">十三、</h2>
+<h3 id="section-17"></h3>
+<h3 id="section-18"></h3>
+<h3 id="section-19"></h3>
+<h3 id="section-20"></h3>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/26/1zhianshu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2453,267 +3585,6 @@ id="以天命为本风水鬼神报应之说并行不悖">以天命为本，风�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/16/ZengGuofan13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/16/ZengGuofan13/" class="post-title-link" itemprop="url">曾国藩其人其事·十三</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-16 23:36:19" itemprop="dateCreated datePublished" datetime="2018-06-16T23:36:19+08:00">2018-06-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:31:04" itemprop="dateModified" datetime="2019-02-27T23:31:04+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E7%89%A9%E4%B8%8E%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">人物与历史</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>参考书籍<br> 1.
-张宏杰《曾国藩的正面与侧面》民主与建设出版社.2014年<br> 2.
-张宏杰《曾国藩的正面与侧面》国际文化出版公司.2011年<br> 3.
-林乾《曾国藩大传》人民文学出版社.2011年<br></p>
-</blockquote>
-<h2 id="八治学">八、治学</h2>
-<h3 id="一无书不读无学不窥">（一）无书不读，无学不窥</h3>
-<p>中国知识分子的缺点一个是太容易下结论，另一个是太容易听信别人的结论。曾国藩却不是这样。因为“笨”，曾国藩在一切知识面前都十分谦虚，不敢稍有成见，不敢戴有色眼镜去读书。因为“笨”，曾国藩不想省力，不想借用别人的脑子，每本书都要认认真真，一个字一个字地读。所以他一生视野广阔，无书不读，无学不窥。</p>
-<p>理学家多有学术洁癖。他们多以诸子之学为邪僻之说，不屑一顾。比如，曾国藩的好朋友罗泽南就坚决排斥佛、老及诸子之学，认为管、晏之学“卑陋”，杨、墨之学“淫邪”，都不利于世道人心，必灭之而后快。</p>
-<p>曾国藩却是一个杂家。他一生于书无所不读，尤好诸子之书，且嗜之甚甘。老子的简约博大，庄子的心灵自由，墨子的雄心苦力，法家的坐言立行，都给了他极大的启发。他推崇诸子皆豪杰之士，去孔子并不甚远：</p>
-<blockquote>
-<p>“豪杰之士所见类不甚远。韩氏有言：‘孔子必用墨子，墨子必用孔子。不相用，不足为孔墨。’”</p>
-</blockquote>
-<p>除了传统士大夫致力的经史，曾国藩对一般士大夫避之唯恐不及的“案牍之文”也很感兴趣。在曾国藩眼里，无处不是学问。因为怀抱经天纬地之志向，所以他的眼光极为开阔。所谓“案牍之文”，也就是历代“文件汇编”，内容当然枯燥乏味之至。然而曾国藩却认为这其中包含着大量的政治智慧，有志于拯救中国社会，这样的文章不可不读。</p>
-<p>曾国藩爱看地图，研究地理。《曾国藩年谱》说曾国藩在工部任侍郎时</p>
-<blockquote>
-<p>“尤究心方舆之学，左图右书，钩较不倦，于山川险要、河漕水利诸大政，详求折中”。他一生考察研究范围极广，认为：“天下之大事宜考究者凡十四宗：曰官制、曰财用、曰盐政、曰漕务、曰钱法、曰冠礼、曰昏礼、曰丧礼、曰祭礼、曰兵制、曰兵法、曰刑律、曰地舆、曰河渠”。</p>
-<p>昏礼hūn，指婚娶之礼。古时于黄昏举行，取其阴阳交替有渐之义，故称。古代昏礼有六：纳采、问名、纳吉、纳徵、请期、亲迎。</p>
-</blockquote>
-<p>这是他与当时诸多理学之士的明显不同之处。</p>
-<p>可以说，除了佛家外，曾国藩对他所能接触到的所有书籍都有涉猎研究。事实上，对于佛家，他也并非没有兴趣。他曾经多次向赵烈文讨教佛理，只是因为兵火连天之中静不下心，没有深入下去。</p>
-<h3 id="二从生活经验中汲取智慧">（二）从生活经验中汲取智慧</h3>
-<p>除了书本之外，曾国藩还从自身生长的土地中汲取了大量知识。曾国藩虽然是三榜进士出身，却终生对他那个没读过书的祖父敬服不已，在家书中经常引用祖父的话来教育子弟。这位终生没有出过湘乡县的乡下老人确实也有一些来自泥土的不凡见解。他劝弟弟曾国荃在官场上不可逞一时之快时说：</p>
-<blockquote>
-<p>“星冈公教人常言：‘晓得下塘，须要晓得上岸。’又云：‘怕临老打扫脚棍。’……望弟平平和和作一二年，送阿兄上岸后，再行轰轰烈烈做去。至嘱至嘱！”</p>
-<p>“怕临老打扫脚棍”意思是“到年纪老了怕的就是敌手给我来一记狠招，让我没有翻盘的机会”。</p>
-</blockquote>
-<p>曾国藩平生凡事算出三步以外，特别是功成之后，能迅速解散湘军，妥善解除了功高震主之忧，就与祖父这种凡事要有长远打算的教导有关。</p>
-<p>翻开曾国藩家书，引用湖南乡下俗语以及家乡邻里故事处处可见。</p>
-<blockquote>
-<p>“昔祖父在时，每讥人家好积私产者为将败之征，又常讥驼五爹开口便言水口，达六爹开口便言桂花树，想诸弟亦熟闻之。”</p>
-</blockquote>
-<p>可见农村生活经验构成了曾国藩智慧的重要基础。</p>
-<h3 id="三实事求是的经验主义者">（三）实事求是的经验主义者</h3>
-<h4 id="亲自体验乐于尝试">亲自体验，乐于尝试</h4>
-<p>曾国藩身体禀赋极为一般，特别是眼睛。从道光二十三年起，他留下的文字中越来越多地提到眼疾给他带来的困扰：</p>
-<blockquote>
-<p>“目光昏花”，“濛濛无似”，“目光犹苦涩”，“目光昏花作疼，难于久视”。</p>
-</blockquote>
-<p>为了治眼睛，他尝试过几乎所有方法。他吃过无数中药而不见效，后来又亲自研究中医理论，得出</p>
-<blockquote>
-<p>“大抵胸多抑郁，……中年以后，则肝肾交受其病。若抑郁不畅则伤木，心不上烁则伤水”的结论，说“余今日之目疾及夜不成寐，其由来不外乎此”。</p>
-</blockquote>
-<p>由这个理论出发，他得出了以“平和”二字相勖，治目先治心的治疗思路，结果也无大效。</p>
-<p>他从三十六岁时开始使用西洋“增光镜”（老花镜），后来也没有了效果：</p>
-<blockquote>
-<p>“近则虽有镜而无甚裨益。”</p>
-</blockquote>
-<p>后来朋友毛煦初送他一副“墨晶镜”，让他遮在眼上，挡风避光，以求保住“左目一隙之光”，也不见效。</p>
-<p>许仙屏又送他一块“中空积水”的玛瑙，让用金刚钻打开，取出其中积水，滴在眼中。</p>
-<p>他按别人建议，自己每天早起后将两掌摩擦发热，沾上舌尖的唾液在眼睑上擦八十一下。这些方法都毫无效用。</p>
-<p>为了治眼睛，他甚至还试过气功。一个叫马昌明的军官说自己擅长气功，可以用道家内功给他治好眼睛。于是从同治九年八月起，曾国藩天天请他来，</p>
-<blockquote>
-<p>“与余对坐，渠自运气，能移作五脏六腑等”。</p>
-</blockquote>
-<p>每天对坐发功四十五分钟。结果是请这个气功师治了二十一天，“而目光毫无效验”。不得不放弃了这个尝试。</p>
-<p>在这之后，曾国藩说：</p>
-<blockquote>
-<p>“惟目疾难治，近世亦无精于眼科者，不如不治为上策。”</p>
-</blockquote>
-<p>虽然曾国藩的种种尝试都以失败告终，但是从中我们确实可以看出他的试验精神和开放态度。曾国藩是一个经验主义者，凡事总愿意亲身经历，亲自体验，乐于尝试，勇于尝试，勤于尝试。他不被什么定论先入为主，总是要亲身尝试了，亲眼见到了，才下结论。</p>
-<h4 id="苦下身段去事上体察一番">苦下身段去事上体察一番</h4>
-<p>他做事讲究身到、心到、口到、眼到，特别强调要“苦下身段去事上体察一番”。他在谈到人才时说，</p>
-<blockquote>
-<p>“大抵人才约有两种，一种官气较多，一种乡气较多”。官气较多者“遇事但凭书办、家人之口说出，凭文书写出，不能身到、心到、口到、眼到，尤不能苦下身段去事上体察一番”。</p>
-</blockquote>
-<p>这“四到”的说法与他“十八条挺经”遇事“躬自入局，挺膺负责”的总精神是一致的。</p>
-<h4 id="脚踏实地的理学家">脚踏实地的理学家</h4>
-<p>曾国藩把汉学的宗旨概括为“实事求是”，宋学的宗旨概括为“即物穷理”，认为二者的基本精神同出一源。他在《书学案小识后》中指出：</p>
-<blockquote>
-<p>近世乾嘉之间，诸儒务为浩博。惠定宇、戴东原之流钩研诂训，本河间献王实事求是之旨，薄宋贤为空疏。夫所谓事者，非物乎？是者，非理乎？实事求是，非即朱子所称即物穷理者乎？</p>
-<p>据《汉书•河间献王传》，河间献王刘德，景帝第二子，景帝前二年立，在王国中高举儒学，且身体力行，言行举止都遵循儒家的礼仪法度，并推行儒家的仁政，以民为本，“温仁恭俭，笃敬爱下，明知深察，惠于鳏寡”。遭遇秦火之后，六艺经典已经残缺不完，佚散民间，他聘求幽隐，收拾余烬，以重金求购天下遗书，并抄写好的副本给原主，自己留下真本，“繇是四方道术之人不远千里，或有先祖旧书，多奉以奏献王者，故得书多与汉朝等”。</p>
-</blockquote>
-<p>在中国思想史上，曾国藩把“实事求是”这个原本是考据学的命题第一次变成了哲学认识论的命题。</p>
-<p>有了求实一念，人才会从道德制高点上下来，脚踏实地，不激不随。咸丰皇帝即位之初，曾让大家就“用人行政”发表意见，倭仁与曾国藩都上书。倭仁大谈“君子小人之辨”，咸丰倒也不糊涂，批了一个“名虽甚善，而实有难行”。曾国藩写得很具体，认为用人之事“大抵有转移之道，有培养之方，有考察之法，三者不可废一”，咸丰批“剀切明辩，切中情事”。</p>
-<p>理学的正面意义在于它会赋予人以面对这个艰难的世界必须具有的刚毅、清洁、坚决、彻底。同时，它也有巨大的“副作用”，比如守旧、固执、清刻、荒陋、脱离实际。</p>
-<p>因为“笨拙”，脚踏实地，曾国藩一方面获得了理学修养的巨大益处，另一方面却避免了许多理学家的毛病。曾国藩曾这样直言不讳地批评那些只知高谈阔论，于实际毫无补益的理学人士：</p>
-<blockquote>
-<p>“性理之说愈推愈密，苛责君子愈无容身之地，纵容小人愈得宽然无忌，如虎飞而鲸漏，谈性理者熟视而莫敢谁何，独于一二朴讷之君子攻击惨毒而已。”</p>
-</blockquote>
-<p>正因为自己心怀恕道，食人间烟火，所以他才能对杀人理学做出这样入木三分的评论。</p>
-<p>他利用理学者却不为之所惑。他的幕府中有一批道学先生，“然第给以厚糈，不假以事权”。有一次，他的亲信幕僚对这些人有不敬之词，他便直言不讳地告诫他：</p>
-<blockquote>
-<p>此辈皆虚声纯盗之流，言行必不能坦白如一，吾亦知之。然彼所以能猎得厚资者，正赖此虚名耳。今必揭破之，使失其衣食之资，则彼之仇汝，岂寻常睚眦之怨可比，杀身赤族之祸，伏于是矣。盍戢诸！</p>
-</blockquote>
-<p>理学好以道德分善恶，但曾国藩说他看人并不以君子、小人为分，强调他的标准是“晓事”，也就是明白事理。</p>
-<blockquote>
-<p>“不晓事，则挟私固谬秉公亦谬，小人固谬君子亦谬，乡愿固谬狂狷亦谬。”</p>
-<p>“天下无一成不变之君子，无一成不变之小人。今日能知人能晓事，则为君子，明日不知人不晓事，即为小人，寅刻公正光明，则为君子，卯刻偏私晻暧，即时为小人”。</p>
-</blockquote>
-<p>有这样的立场，才能以事实与证据为准绳，不轻取人，不轻毁人，独立无惧，确乎不拔。
-他说：“故群誉群毁之所在，下走常穆然深念，不敢附和。”</p>
-<p>年事渐长，挺身入局之后，他更渐渐看到事物本身的复杂性。他曾痛恨“不黑不白”之风气，强分善恶，但也讽刺自己身上的文人习气：</p>
-<blockquote>
-<p>“强分黑白，遇事激扬者，文人轻薄之习也。不察而效之，动辄区分善恶，品第高下，使优者未必加劝，而劣者几无以自处”。</p>
-</blockquote>
-<h4 id="自我更之自我创之">自我更之，自我创之</h4>
-<p>理学家往往是保守主义者，但“实事求是”的实践精神，却给了曾国藩突破藩篱、否定古人、开辟新知的勇气。曾国藩说：</p>
-<blockquote>
-<p>研究治国之术，应该以“本朝为主，而历溯前代之沿革本末，衷之以仁义，归之以简易。前世所袭误者，可以自我更之；前世所未及者，可以自我创之。其苟且者，知将来之必敝；其知当者，知将来之必因。所谓虽百世可知也”。</p>
-</blockquote>
-<p>正是因为他不迷信先王之道，而是敢于以“自我更之”、“自我创之”的态度变通其中的“袭误者”、“未及者”，所以他才能成为洋务运动的创始人。在近代中国，推动西学的几件大事都与曾氏有密切关系：创办安庆军械所和江南制造总局、幼童留美、在上海机器局添设翻译局、《几何原本》后九卷的翻译出版，他都是主要决策人。</p>
-<p>西学初入中国之际，一般士大夫视如仇敌。以他的好朋友倭仁为首的“理学家”更是仇洋的中坚。曾国藩却坦率地指出倭仁“才薄识短”。在理学大家中，只有曾国藩能以明智的态度认识到向西方学习的必要性，因为他看洋人，同样不戴有色眼镜。当时的士大夫多认为外国人是凶蛮诈狠的蛮夷，因此对他们不必讲诚信，只需讲“羁縻”。曾国藩却主张，要真诚地对待外国人。因为外国人也是人，有着与中国人一样的心理结构。适用于中国人的信条，一定也适于外国人。他说：</p>
-<blockquote>
-<p>夷务本难措置，然根本不外孔子忠信笃敬四字。笃者，厚也。敬者，慎也。信，只不说假话耳；然却难。吾辈当从此一字下手，今日说定之话，明日勿因小利害而变。</p>
-</blockquote>
-<p>理学家们在中国礼仪之争中态度尤其激烈，他们无论如何放不下天朝上国的虚骄自大，坚决要求外国人见皇上必须三跪九叩，为此不惜一战。曾国藩却主张与外国平等相处，在对外关系上他就主张舍去虚仪，重视实利：</p>
-<blockquote>
-<p>“其争彼我之虚仪者许之，其夺吾民生计者勿许。”</p>
-</blockquote>
-<p>这个见解在当时的历史背景之下实在是高明之至，在今天仍然有其实际功效。</p>
-<p>钱穆的话说得很中肯：</p>
-<blockquote>
-<p>曾国藩）虽极推唐镜海诸人，而能兼采当时汉学家、古文家之长处，以补理学枯槁狭隘之病。其气象之阔大，包蕴之宏丰，更非镜海诸人断断徒为传道、翼道之辩者所及。则涤生之所成就，不仅戡平大难，足以震烁一时，即论学之平正通达，宽宏博实，有清二百余年，固亦少见其匹也。</p>
-</blockquote>
-<h3 id="四尚拙">（四）尚拙</h3>
-<p><img
-src="http://qiniup.louyanspine.com/2018-06-17-%E5%AE%88%E6%8B%99%E9%95%9C%E5%BF%83%E6%B0%B4%E5%A2%A8%E7%BA%B8%E6%9C%AC.jpg" /></p>
-<p>曾国藩确实不算天分多高明，但也是少年成名，雄心很大，这样的心志，往往难以耐住琐屑，做事不能精细如发。他转学朱子：</p>
-<blockquote>
-<p>“立乎大者，如果没有辅以朱子铢积寸累工夫，则下梢全无把握”。</p>
-</blockquote>
-<p>对朱子，胡适有过一个评价，说朱子是一个绝顶聪明的人：</p>
-<blockquote>
-<p>“十五六岁时就研究禅学，中年以后才改邪归正”。</p>
-</blockquote>
-<p>他说的改邪归正，是从追求灵光乍现的绝对智慧，转向“宁详勿略，宁近勿远，宁下勿高，宁拙勿巧”的世俗学问。</p>
-<p>这就是胡说的:</p>
-<blockquote>
-<p>“有绝顶聪明而肯作笨功夫的人才有大成就”。</p>
-</blockquote>
-<p>老曾对“笨”字有种言若有憾、实则喜之的看法，“吾辈读书人，大约失之笨拙，即当自安于拙，而以勤补之，以慎出之，不可弄巧卖智，而所误更甚”。
-因为“笨拙”，曾国藩是平实的，谦虚的。曾国藩说，</p>
-<blockquote>
-<p>“不说大话，不好虚名，不行架空之事，不谈过高之理，如此可以少正天下浮伪之习”。</p>
-</blockquote>
-<p>他十分瞧不起那些随便评讥古人的轻薄之人。他这样对儿子曾纪泽说：</p>
-<blockquote>
-<p>不可轻率评讥古人，惟堂上乃可判堂下之曲直，惟仲尼乃可等百世之王，惟学问远过于古人乃可评讥古人而等差其高下。今之讲理学者，动好评贬汉唐诸儒而等差之，讲汉学者，又好评贬宋儒而等差之，皆狂妄不知自量之习。</p>
-</blockquote>
-<p>但同时，又是因为“笨拙”，凡事习惯亲身实践，这又使他有资本放言高论，直率地批评古人。</p>
-<p>通过大量的实践，他发现，迷信古书的结果常常是错误的：</p>
-<blockquote>
-<p>“尽信书则不如无书。”君子之作事，既征诸古籍，诹诸人言，而又必慎思而明辨之，庶不致冒昧从事耳。</p>
-</blockquote>
-<p><code>注：诹zōu，商量；咨询。</code></p>
-<p>他举例说，古代那些赫赫有名的兵书，大多是骗人的。以书生从戎之始，曾国藩对中国历代传下来的兵书战策十分推崇，曾经苦读恶补。然而，随着实战经验越来越多，他发现这些古书大多是玄而又玄的骗人东西。</p>
-<p>他在给尹耕耘的信中说：</p>
-<blockquote>
-<p>国藩久处兵间，虽薄立功绩，而自问所办者皆极钝之事，于“神速”二字几乎相背，即于古人论兵成法，亦千百中而无什一之合，私心深自愧叹，又因此颇疑古人之书皆装饰成文，而不可以尽信。敝部如塔、罗、李、鲍，外间有文人叙其战绩，已与当时实事迥不相符，窃疑古书亦复尔尔。</p>
-</blockquote>
-<p>他怀疑《史记》中一些战例的真实性：</p>
-<blockquote>
-<p>儒者记兵事以迁为最善，迁史以《淮阴传》为最详，其中如木罂渡河，沙囊壅潍，国藩颇疑其并无是事。今临晋之黄河尚在，果木罂所能渡乎？沙囊堵水，溢漏如故，断不能顷刻成堰，水大则不能忽堵忽决，水小则无损于敌。以物理推之，迁书尚可疑如此，则此外诸史叙述兵事，其与当年实迹相合者盖寡矣。</p>
-</blockquote>
-<p>因此他告诉别人，读《史记》、《汉书》不可太拘泥当真：</p>
-<blockquote>
-<p>太史公称庄子之书皆寓言，吾观子长所为《史记》，寓言亦居十之六七，班氏闳识孤怀不逮子长远甚。</p>
-</blockquote>
-<p><code>注：孤怀，远大的见解，独特的情操。</code></p>
-<p>一天，曾国藩与幕僚、将领淡论“军中阵法”，发现</p>
-<blockquote>
-<p>“虽同见同闻同局中人，而人人言殊，不足凭信”，遂由悟出史书记载为什么不可信：“古来史传之不足凭信，亦如是矣。”</p>
-</blockquote>
-<p>他认为，司马迁所载尚不足凭，则二十三史中其他作者记载的战争，更是文人之见，不足为信：</p>
-<blockquote>
-<p>廿三史除马、班外，皆文人以意为之，不知甲仗为何物，战阵为何事，浮词伪语，随意编造，断不可信。仆于《通鉴》中之不可信者，皆用笔识出矣。</p>
-</blockquote>
-<p>湘军平江营中有个名叫吴士迈的营官，摘录二十三史中有关战争的记载，编辑成册，打算以此作为治军的根据。曾国藩知道后，立即致函该军统领李元度：</p>
-<blockquote>
-<p>“军事是极质实之事”，“若以编辑二十三史成书为治军之蓝本，则门径已差，难与图功。阁下与之至交，须劝之尽弃故纸，专从事于点名、看操、查墙子诸事也”。</p>
-</blockquote>
-<p>还有一个名叫吴希颜的谋士，建议曾国藩“以古书考核将才，分派正副文武营官”。曾国藩认为“此皆书生之见”，并在批复中指出：</p>
-<blockquote>
-<p>读书之与用兵判若两途。古来名将如前汉之韩信、曹参，后汉之皇甫嵩、朱隽，未闻其著书。戚继光能著书而战功又甚平平。孙武之不能自践其言，则老苏已讥之矣。</p>
-</blockquote>
-<p>表面上看，这似乎与曾氏谦谨为人风格冲突，实际上，他敢于如此放言高论，实在是因为他站得比那些不明世事的文人高，看得比他们远。</p>
-<p>与众不同的“笨拙”精神，成就了曾国藩的浑厚、开阔，无所不包。实事求是的思维方式，使他的思维保持着流动、敏锐、积极的状态。他在广大神秘的世界面前是谦卑的，老实的，他不预设什么，也不禁止什么，更不妄断什么，只是有一说一，有二说二。他善于从庸常琐碎的现实生活中汲取提炼智慧，善于从他所接触的一切精神资源中探寻有用的东西。他的理想主义与现实主义不是相互冲突，而是相互滋养。因此，他才具有大眼光，大力量，才能成就大事业。</p>
-<p>用郭嵩焘的话来解释曾国藩的成功是最恰当的。郭嵩焘在日记中说，有一个朋友问他，为什么湖南这么出人才。他回答说：</p>
-<blockquote>
-<p>“楚人只带三分蠢气，盖孔子所谓其愚不可及。”</p>
-</blockquote>
-<p>柴静在博客中评价说：</p>
-<blockquote>
-<p>可以看到这样的心灵里，没有飞跃，没有灵光乍现、立地顿悟，每一步都是困而求知，而勉而行，但坚锐之感，就像一把刀不假思索深深扎入直没刀柄。</p>
-<p>这个路径意味着以中人之姿，人人可为。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2783,7 +3654,7 @@ src="http://qiniup.louyanspine.com/2018-06-17-%E5%AE%88%E6%8B%99%E9%95%9C%E5%BF%
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">627</span>
+          <span class="site-state-item-count">628</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
