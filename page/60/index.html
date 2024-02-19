@@ -191,6 +191,508 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/28/rate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/28/rate/" class="post-title-link" itemprop="url">标准化(Standardization)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-28 12:36:58" itemprop="dateCreated datePublished" datetime="2018-07-28T12:36:58+08:00">2018-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-27 23:43:51" itemprop="dateModified" datetime="2019-02-27T23:43:51+08:00">2019-02-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一摘要">一、摘要</h2>
+<ol type="1">
+<li>要比较两个总率时，发现两组人群的内部构成（如年龄、性别构成等）存在明显不同，而且影响到了总率比较的结果，这时就不宜再直接比较总率，而应考虑采用标准化法。标准化法的基本思想，就是采用统一的标准（统一的内部构成）计算出消除内部构成不同影响后的标准化率，然后再进行比较。</li>
+<li>在直接年龄调整中(direct
+age-adjustment)，使用常见的年龄结构人口作为标准。这个年龄结构人口可能是实际存在的（例如1999年的美国人口），也可能是虚构的（例如，可以组合两个群体以创建标准人群）。</li>
+<li>在间接年龄调整中(indirect
+age-adjustment)，一组共同的年龄特定比率(age-specific
+rates)应用于将率标准化的人群。最简单和最有用的间接调整形式是标准化死亡率（SMR）。</li>
+</ol>
+<h2 id="二前言">二、前言</h2>
+<p>比较两个或多个不同地理区域的死亡率和发病率对于评估社区健康状况非常重要。由于在不同的人群中可能存在不同的频率分布，因此粗率(crude
+rates)之间的比较容易产生误导，因为粗率对人群的健康状况的信息不是很全面。需要对在比较中有差异的特征进行标准化。</p>
+<p>年龄和性别是两个最常见的用于标准化的变量，它们被称为标准化率(standardized
+rates)。</p>
+<p>粗率与标准化率之间的区别在于，粗率是根据所研究的人群整体计算的，而标准化率则是基于特定的作为标准的特征(particular
+characteristics)。</p>
+<p>如果基于特定特征计算“率”，则将它们称为“特定的率”(specific
+rates)（例如age-specific mortality rate/特定年龄死亡率）。</p>
+<p>本文试图帮助研究者选择和使用合适的标准化方法。有两种计算标准化率的方法，即直接和间接标准化(direct
+and indirect standardization)。</p>
+<p>下面的例子都是围绕基于年龄标准化率(age-standardized
+rates)的标准化方法。</p>
+<h2 id="三直接标准化">三、直接标准化</h2>
+<h3
+id="一直接标准化的概念与应用条件">（一）直接标准化的概念与应用条件</h3>
+<ol type="1">
+<li>当已知两个或更多人群的特定年龄死亡率(age-specific mortality
+rates)时，可以应用直接标准化方法。</li>
+<li>直接标准化的思路：调整原因，即人口构成差异。利用标准人口构成调整死亡率。</li>
+</ol>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-28-MJMS-7-1-010-g1.jpg"
+alt="Figure 1: Concept of direct standardization" />
+<figcaption aria-hidden="true">Figure 1: Concept of direct
+standardization</figcaption>
+</figure>
+<h3 id="二直接标准化方法步骤">（二）直接标准化方法步骤</h3>
+<ol type="1">
+<li><p>计算每个人群中每个年龄组的特定年龄死亡率。</p></li>
+<li><p>然后选择其中一个人群作为标准（参考）人群。</p>
+<blockquote>
+<p>注意：如果将特定人群的死亡率与全国人口进行比较，则全国人口将被视为“标准”人群</p>
+</blockquote></li>
+<li><p>将所研究的其他人群的特定年龄死亡率乘以标准人口的每个年龄组的人数。</p></li>
+<li><p>通过这种方式，可以获得每个人群每个年龄组的预期死亡人数(expected
+death)。将预期死亡总数除以标准人口数(standard population)
+，从而得到年龄校正的死亡率(age-adjusted mortality rates)。</p></li>
+<li><p>通过比较两个人群的特定年龄死亡率来得出结论。</p>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-28-MJMS-7-1-010-g2.jpg"
+alt="Figure 2:Procedure for application of direct standardization method" />
+<figcaption aria-hidden="true">Figure 2:Procedure for application of
+direct standardization method</figcaption>
+</figure></li>
+</ol>
+<h3 id="三实例">（三）实例</h3>
+<p>在讨论粗死亡率时，人群B的死亡率似乎高于人群A。选择全国人口作为参考人群(reference
+population)，因此计算如下：</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-31-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8A%E5%8D%8810.53.14.png" /></p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-31-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8A%E5%8D%8810.14.23.png"
+alt="Table 2:Calculation of expected deaths by applying direct standardization method" />
+<figcaption aria-hidden="true">Table 2:Calculation of expected deaths by
+applying direct standardization method</figcaption>
+</figure>
+<p>预计死亡(expected deaths)总人数：</p>
+<ul>
+<li><p>Population A = 1186.18</p></li>
+<li><p>Population B = 1158.99</p></li>
+<li><p>Age adjusted death rate for population A</p>
+<p><span
+class="math display">\[=\cfrac{1186.18}{51000}\times1000=23.3/1000
+population\]</span></p></li>
+<li><p>Age adjusted death rate for population B</p>
+<p><span
+class="math display">\[=\cfrac{1158.99}{51000}\times1000=22.7/1000
+population\]</span></p></li>
+<li><p>当讨论age-adjusted
+rates时，实际上人群A的死亡风险高于人群B。如果仅仅依靠粗死亡率，你可能会得到误导性的结论。</p></li>
+</ul>
+<h2 id="四间接标准化">四、间接标准化</h2>
+<h3
+id="一间接标准化的概念与应用条件">（一）间接标准化的概念与应用条件</h3>
+<ol type="1">
+<li>当感兴趣的人群的特定年龄死亡率未知时，只有每个年龄组人口数和观察到的死亡总数时，可应用间接标准化方法。</li>
+<li>间接标准化的思路：调整结果，即死亡率。利用标准死亡率调整粗死亡率。</li>
+</ol>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-31-MJMS-7-1-010-g3.jpg"
+alt="Figure 3:Concept of indirect standardization" />
+<figcaption aria-hidden="true">Figure 3:Concept of indirect
+standardization</figcaption>
+</figure>
+<h3 id="二间接标准化的步骤">（二）间接标准化的步骤</h3>
+<ol type="1">
+<li><p>选择参考或标准人口。</p></li>
+<li><p>计算感兴趣的人群中观察到的死亡人数。</p></li>
+<li><p>将所选参考人群的特定年龄死亡率应用于感兴趣的人群。</p></li>
+<li><p>将感兴趣人群的每个年龄组中的人数乘以参考人群中相应年龄组中的特定年龄死亡率。</p></li>
+<li><p>将每个感兴趣的人群的预期死亡总数相加。</p></li>
+<li><p>将观察到的人群死亡总数除以预期的死亡人数。</p>
+<figure>
+<img src="http://qiniup.louyanspine.com/2018-07-31-MJMS-7-1-010-g4.jpg"
+alt="Figure 4:Procedure for application of indirect standardization method" />
+<figcaption aria-hidden="true">Figure 4:Procedure for application of
+indirect standardization method</figcaption>
+</figure>
+<ul>
+<li><p>观察到的死亡人数与预期死亡人数的比率称为“标准化死亡率”或SMR：<span
+class="math display">\[SMR=\cfrac{观察到的死亡人数}{预期的死亡人数}\]</span></p></li>
+<li><p>调整后的死亡率（Adjusted mortality rates,AMR）：<span
+class="math display">\[AMR = SMR \times CDR(Standard)\]</span></p>
+<blockquote>
+<p>如果应用参考人群的特定年龄死亡率，必须从该参考人群中计算粗死亡率(CDR)。</p>
+</blockquote></li>
+</ul></li>
+</ol>
+<h3 id="三实例-1">（三）实例</h3>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-31-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-07-31%20%E4%B8%8A%E5%8D%8810.53.19.png" /></p>
+<p>观察到的人群A和B的死亡情况如下（前提已知条件）：</p>
+<ul>
+<li>Observed deaths in population A = 120</li>
+<li>Observed deaths in population B = 30</li>
+</ul>
+<p>将观察到的死亡总人数除以预期死亡总人数。</p>
+<ul>
+<li><p>SMR for population A <span
+class="math inline">\(=\cfrac{120}{195.5}\times1000=0.61\)</span></p></li>
+<li><p>SMR for population B <span
+class="math inline">\(=\cfrac{30}{69.5}\times1000=0.43\)</span></p></li>
+<li><p>在根据年龄调整差异后，人群A中的死亡风险实际上高于人群B。</p></li>
+</ul>
+<h2 id="五结论">五、结论</h2>
+<p>标准化方法并不困难，但有时研究者对选择哪种方法以及如何计算和应用特定的方法存在一些困惑。真诚希望本文可以提高研究者对标准化方法的理解，从而可以比较两种或更多在某些特征上存在差异的群体。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/26/post-exposure-covariate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/26/post-exposure-covariate/" class="post-title-link" itemprop="url">post-exposure covariate????（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-26 10:35:05" itemprop="dateCreated datePublished" datetime="2018-07-26T10:35:05+08:00">2018-07-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:45:36" itemprop="dateModified" datetime="2019-02-28T00:45:36+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1. 译自Keith Goldfeld的文章：Be careful not to control for a
+post-exposure covariate</p>
+</blockquote>
+<p>一位研究人员正在分析不同类型的童年创伤可能对成年时药物滥用产生的影响。显然，这是一个非常有趣且具有挑战性的研究问题。显然，这是一个非常有趣且具有挑战性的研究问题。</p>
+<p>统计模型包含了对若干因素的调整。这些因素是童年创伤和药物滥用之间关系可能的混淆因素，如儿童时家境贫穷。然而，该模型还包括对成年时家境贫穷的测量(a
+measurement for poverty in adulthood)
+，认为它在某种程度上混淆了童年创伤和药物滥用之间的关系。</p>
+<p>混淆是暴露/治疗(exposure/treatment)与结果(outcome)之间的常见原因(cause)。很难将成年时家境贫穷视为童年时事件(childhood
+events)的原因(cause)，尽管它可能与成年时药物滥用有关（或许无关）。</p>
+<p>最多，成年时家境贫穷这个因素被调整控制(control)后，对研究结论没有影响；然而，不太好的是，它可能导致童年创伤的影响小于实际的结果。</p>
+<p>使用模拟的数据和潜在结果的抽象概念，我希望能够阐明这种分析引起的一些问题。</p>
+<h3
+id="潜在的结果与因果效应potential-outcomes-and-causal-effects">潜在的结果与因果效应/Potential
+outcomes and causal effects</h3>
+<p>我的目标是提出潜在结果的概念，以便我们能够至少清楚地阐明一种可以定义因果效应的明确方法。</p>
+<p>在这个框架下，我们生成模拟数据，从而可以找到因果效应的“真实”测量(“true”
+measure of causal
+effect)。然后我们可以使用简单的回归模型来看看他们是否很够很好地重新获得这些“已知”的因果效应。</p>
+<p>如果某一个体 <span
+class="math inline">\(i\)</span>，在儿童期经历了创伤(traumatic
+effect)，我们可以说该个体 <span
+class="math inline">\(i\)</span>的暴露(exposure)为 <span
+class="math inline">\(X_i=1\)</span>,反之，没有经历创伤，则为 <span
+class="math inline">\(X_i=0\)</span>。可以认为，每一个个体，都有潜在的结果(possible
+outcomes) <span class="math inline">\(Y_{1i}\)</span> 和 <span
+class="math inline">\(Y_{0i}\)</span>。<span
+class="math inline">\(Y_{1i}\)</span>
+是指如果个体经历过创伤，我们会观察到的结果。<span
+class="math inline">\(Y_{0i}\)</span>
+则相反，是指如果个体没有经历过创伤，我们会观察到的结果。</p>
+<p>我们定义<span class="math inline">\(Y\)</span>为结果，<span
+class="math inline">\(X\)</span>为原因，则潜在结果的差异为 <span
+class="math inline">\(CE_i= Y_{1i} - Y_{0i}\)</span>。如果<span
+class="math inline">\(Y_{1i} =
+Y_{0i}\)</span>，即两者的潜在结果相同，那么我们可以说，对于个体 <span
+class="math inline">\(i\)</span>而言，<span
+class="math inline">\(X\)</span>并不会导致<span
+class="math inline">\(Y\)</span>。</p>
+<p>在现实世界中，我们只观察到一个潜在的结果：与实际暴露相关的结果。</p>
+<p>在因果推理领域，对于我们使用观测数据估计平均因果效应所需的假设和条件有很多限制。许多人会说，除非我们使用随机对照研究，否则这些假设不合理。但在使用模拟数据时，我们可以产生潜在结果(potential
+outcomes)和观测结果(observed
+outcomes)。因此，我们知道个体水平和平均人口水平的因果效应。同时，我们还可以看到我们的模型拟合得有多好。</p>
+<h3 id="simple-confounding简单的混淆">Simple confounding/简单的混淆</h3>
+<p>这是一个相对简单的例子。<span
+class="math inline">\(Y\)</span>为结果，<span
+class="math inline">\(X\)</span>为原因。还有一个共同的影响因素<span
+class="math inline">\(C\)</span>。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-26-SimpleCausal.png" /></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>broom<span class="punctuation">)</span> </span><br><span class="line"><span class="comment">#用于将统计模型的结果整理成数据框形式</span></span><br><span class="line"></span><br><span class="line">library<span class="punctuation">(</span>data.table<span class="punctuation">)</span></span><br><span class="line"><span class="comment">#快速处理大数据集</span></span><br><span class="line"></span><br><span class="line">library<span class="punctuation">(</span>simstudy<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">def <span class="operator">&lt;-</span> defData<span class="punctuation">(</span>varname <span class="operator">=</span> <span class="string">&quot;C&quot;</span><span class="punctuation">,</span> formula <span class="operator">=</span> <span class="number">0.4</span><span class="punctuation">,</span> dist <span class="operator">=</span> <span class="string">&quot;binary&quot;</span><span class="punctuation">)</span></span><br><span class="line">def <span class="operator">&lt;-</span> defData<span class="punctuation">(</span>def<span class="punctuation">,</span> <span class="string">&quot;X&quot;</span><span class="punctuation">,</span> formula <span class="operator">=</span> <span class="string">&quot;0.3 + 0.4 * C&quot;</span><span class="punctuation">,</span> dist <span class="operator">=</span> <span class="string">&quot;binary&quot;</span><span class="punctuation">)</span></span><br><span class="line">def <span class="operator">&lt;-</span> defData<span class="punctuation">(</span>def<span class="punctuation">,</span> <span class="string">&quot;e&quot;</span><span class="punctuation">,</span> formula <span class="operator">=</span> <span class="number">0</span><span class="punctuation">,</span> variance <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span> dist <span class="operator">=</span> <span class="string">&quot;normal&quot;</span><span class="punctuation">)</span></span><br><span class="line">def <span class="operator">&lt;-</span> defData<span class="punctuation">(</span>def<span class="punctuation">,</span> <span class="string">&quot;Y0&quot;</span><span class="punctuation">,</span> formula <span class="operator">=</span> <span class="string">&quot;2 * C + e&quot;</span><span class="punctuation">,</span> dist<span class="operator">=</span><span class="string">&quot;nonrandom&quot;</span><span class="punctuation">)</span></span><br><span class="line">def <span class="operator">&lt;-</span> defData<span class="punctuation">(</span>def<span class="punctuation">,</span> <span class="string">&quot;Y1&quot;</span><span class="punctuation">,</span> formula <span class="operator">=</span> <span class="string">&quot;0.5 + 2 * C + e&quot;</span><span class="punctuation">,</span> dist<span class="operator">=</span><span class="string">&quot;nonrandom&quot;</span><span class="punctuation">)</span></span><br><span class="line">def <span class="operator">&lt;-</span> defData<span class="punctuation">(</span>def<span class="punctuation">,</span> <span class="string">&quot;Y_obs&quot;</span><span class="punctuation">,</span> formula <span class="operator">=</span> <span class="string">&quot;Y0 + (Y1 - Y0) * X&quot;</span><span class="punctuation">,</span> dist <span class="operator">=</span> <span class="string">&quot;nonrandom&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">def</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">##        varname        formula   variance  dist     link</span><br><span class="line">## 1:       C                0.4        0    binary identity</span><br><span class="line">## 2:       X      0.3 + 0.4 * C        0    binary identity</span><br><span class="line">## 3:       e                  0        2    normal identity</span><br><span class="line">## 4:      Y0          2 * C + e        0 nonrandom identity</span><br><span class="line">## 5:      Y1    0.5 + 2 * C + e        0 nonrandom identity</span><br><span class="line">## 6:   Y_obs Y0 + (Y1 - Y0) * X        0 nonrandom identity</span><br></pre></td></tr></table></figure>
+<p>在上述的例子里，<span class="math inline">\(X\)</span>和<span
+class="math inline">\(C\)</span>均对<span
+class="math inline">\(Y\)</span>产生了一定的影响。如果我们在评估<span
+class="math inline">\(X\)</span>对<span
+class="math inline">\(Y\)</span>的效应大小时，忽略了因素<span
+class="math inline">\(C\)</span>，我们会高估这种效应大小(即0.5)。</p>
+<p>我们可以生成数据并看到这种情况：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set.seed<span class="punctuation">(</span><span class="number">5</span><span class="punctuation">)</span></span><br><span class="line">dt <span class="operator">&lt;-</span> genData<span class="punctuation">(</span><span class="number">1000</span><span class="punctuation">,</span> def<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">        id C X       e            Y0          Y1         Y_obs</span><br><span class="line">   1:    1 0 0 -2.057757922 -2.057757922 -1.5577579 -2.057757922</span><br><span class="line">   2:    2 1 1  1.760077725  3.760077725  4.2600777  4.260077725</span><br><span class="line">   3:    3 1 1 -0.610865399  1.389134601  1.8891346  1.889134601</span><br><span class="line">   4:    4 0 0  0.009714623  0.009714623  0.5097146  0.009714623</span><br><span class="line">   5:    5 0 1  0.176141782  0.176141782  0.6761418  0.676141782</span><br><span class="line">  ---                                                           </span><br><span class="line"> 996:  996 1 1 -0.147379631  1.852620369  2.3526204  2.352620369</span><br><span class="line"> 997:  997 0 0  1.336474722  1.336474722  1.8364747  1.336474722</span><br><span class="line"> 998:  998 0 0 -0.127816908 -0.127816908  0.3721831 -0.127816908</span><br><span class="line"> 999:  999 0 1  0.022055022  0.022055022  0.5220550  0.522055022</span><br><span class="line">1000: 1000 0 0 -0.292353254 -0.292353254  0.2076467 -0.292353254</span><br></pre></td></tr></table></figure>
+<p>我们看到，如果我们能够获得潜在的结果<span
+class="math inline">\(Y_{1}\)</span> 和 <span
+class="math inline">\(Y_{0}\)</span>，那么就很容易获得真正的因果效应，但显然，我们无法获得潜在的结果<span
+class="math inline">\(Y_{1}\)</span> 和 <span
+class="math inline">\(Y_{0}\)</span>。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dt<span class="punctuation">[</span><span class="punctuation">,</span> mean<span class="punctuation">(</span>Y1 <span class="operator">-</span> Y0<span class="punctuation">)</span><span class="punctuation">]</span> <span class="comment"># True causal effect</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## [1] 0.5</span></span><br></pre></td></tr></table></figure>
+<p>如果我们比较每个暴露组的平均观察结果而忽略混杂因素(confounder)，我们会高估暴露的影响：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dt<span class="punctuation">[</span>X <span class="operator">==</span> <span class="number">1</span><span class="punctuation">,</span> mean<span class="punctuation">(</span>Y_obs<span class="punctuation">)</span><span class="punctuation">]</span> <span class="operator">-</span> dt<span class="punctuation">[</span>X <span class="operator">==</span> <span class="number">0</span><span class="punctuation">,</span> mean<span class="punctuation">(</span>Y_obs<span class="punctuation">)</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## [1] 1.285009</span></span><br></pre></td></tr></table></figure>
+<p>我们可以使用简单的线性回归估计相同的效果：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lm1 <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>Y_obs <span class="operator">~</span> X<span class="punctuation">,</span> data <span class="operator">=</span> dt<span class="punctuation">)</span></span><br><span class="line">tidy<span class="punctuation">(</span>lm1<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##          term  estimate  std.error statistic      p.value</span></span><br><span class="line"><span class="comment">## 1 (Intercept) 0.5515963 0.07325865  7.529436 1.137854e-13</span></span><br><span class="line"><span class="comment">## 2           X 1.2850091 0.10674523 12.038094 2.916261e-31</span></span><br></pre></td></tr></table></figure>
+<p>如果我们调整混淆因素<span
+class="math inline">\(C\)</span>，我们可以获得<span
+class="math inline">\(X\)</span>对<span
+class="math inline">\(Y\)</span>的真正（或接近）因果效应。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lm2 <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>Y_obs <span class="operator">~</span> X <span class="operator">+</span> C<span class="punctuation">,</span> data <span class="operator">=</span> dt<span class="punctuation">)</span></span><br><span class="line">tidy<span class="punctuation">(</span>lm2<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##          term   estimate  std.error statistic      p.value</span><br><span class="line">## 1 (Intercept) 0.08491216 0.06502545  1.305830 1.919117e-01</span><br><span class="line">## 2           X 0.48935880 0.09678110  5.056347 5.083959e-07</span><br><span class="line">## 3           C 2.05729945 0.09825925 20.937464 5.767575e-81</span><br></pre></td></tr></table></figure>
+<h3 id="调整暴露后的协变量">调整暴露后的协变量</h3>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-26-ComplexCausal.png" /></p>
+<p>在这种情况下，混淆因素<span
+class="math inline">\(C\)</span>在两个阶段被测量，同时，暴露在period
+1的效应与period
+2有关（例如，如果童年时贫穷，成年后就更容易贫穷）。我们关心的是，是否<span
+class="math inline">\(X\)</span>(童年创伤)会导致<span
+class="math inline">\(Y\)</span>（药物滥用）。困难在于<span
+class="math inline">\(C_2\)</span>和<span
+class="math inline">\(X\)</span>、<span
+class="math inline">\(Y\)</span>均有关系。</p>
+<p>为了充分了解<span class="math inline">\(X\)</span>对于<span
+class="math inline">\(Y\)</span>的效果，我们不能控制<span
+class="math inline">\(C_2\)</span>。直觉在于<span
+class="math inline">\(X\)</span>对于<span
+class="math inline">\(Y\)</span>的部分效应，来源于<span
+class="math inline">\(X\)</span>对<span
+class="math inline">\(C_2\)</span>的作用。如果我们控制了<span
+class="math inline">\(C_2\)</span>，则移除了因果机制中关键部分。下面是数据生成过程：</p>
+<ol type="1">
+<li>基于暴露因素<span class="math inline">\(X\)</span>，<span
+class="math inline">\(C_2\)</span>有潜在的结果。</li>
+<li>我们限制了潜在的结果<span
+class="math inline">\(C_{21}\)</span>为1，如果<span
+class="math inline">\(C_{20}\)</span>是1的话。例如，如果有人在没有受到童年创伤的情况下，成年后也很穷。我们则会认为，如果他们在童年遭受创伤，他们成年后也会很穷。</li>
+<li><span class="math inline">\(Y\)</span>的潜在结果，依赖于<span
+class="math inline">\(C_2\)</span>的相关潜在结果。<span
+class="math inline">\(Y_0\)</span>依赖于<span
+class="math inline">\(C_{20}\)</span>，而<span
+class="math inline">\(Y_1\)</span>则依赖于<span
+class="math inline">\(C_{21}\)</span>。</li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##     varname                  formula variance      dist     link</span></span><br><span class="line"><span class="comment">##  1:      C1                     0.25        0    binary identity</span></span><br><span class="line"><span class="comment">##  2:       X            -2 + 0.8 * C1        0    binary    logit</span></span><br><span class="line"><span class="comment">##  3:    C2.0            -2.0 + 1 * C1        0    binary    logit</span></span><br><span class="line"><span class="comment">##  4:   C2.1x            -1.5 + 1 * C1        0    binary    logit</span></span><br><span class="line"><span class="comment">##  5:    C2.1        pmax(C2.0, C2.1x)        0 nonrandom identity</span></span><br><span class="line"><span class="comment">##  6:       e                        0        4    normal identity</span></span><br><span class="line"><span class="comment">##  7:      Y0          -3 + 5*C2.0 + e        0 nonrandom identity</span></span><br><span class="line"><span class="comment">##  8:      Y1           0 + 5*C2.1 + e        0 nonrandom identity</span></span><br><span class="line"><span class="comment">##  9:  C2_obs C2.0 + (C2.1 - C2.0) * X        0 nonrandom identity</span></span><br><span class="line"><span class="comment">## 10:   Y_obs       Y0 + (Y1 - Y0) * X        0 nonrandom identity</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set.seed<span class="punctuation">(</span><span class="number">25</span><span class="punctuation">)</span></span><br><span class="line">dt <span class="operator">&lt;-</span> genData<span class="punctuation">(</span><span class="number">5000</span><span class="punctuation">,</span> def2<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/22/simstudypackage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/22/simstudypackage/" class="post-title-link" itemprop="url">用simstudy包模拟出相似数据集（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-22 19:32:55" itemprop="dateCreated datePublished" datetime="2018-07-22T19:32:55+08:00">2018-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:42:31" itemprop="dateModified" datetime="2019-02-28T00:42:31+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基础">基础</h2>
+<p>使用<code>simstudy包</code>进行模拟有两个基本步骤。首先，用户在外部csv文件中或通过一组重复的定义语句在内部定义数据集的数据元素。其次，用户使用这些定义生成数据。</p>
+<p>数据生成可以像横截面设计(cross-sectional
+design)或前瞻性队列设计(prospective cohort
+design)一样简单，也可以稍复杂一些。</p>
+<p>模拟可以包括观察性或随机的治疗分配/暴露，生存数据，纵向/面板数据(longitudinal/panel
+data)，多级/分层数据(multi-level/hierarchical
+data)，基于特定协方差结构的相关变量的数据集，以及由任何类型的缺失模式导致的缺失数据的数据集。</p>
+<blockquote>
+<ul>
+<li>Longitudinal
+Data/纵向数据：对同一组受试个体在不同时间上的重复观测。<br></li>
+<li>Panel
+Data/面板数据(平行数据)：指在时间序列上取多个截面,在这些截面上同时选取样本观测值所构成的样本数据。</li>
+</ul>
+</blockquote>
+<p>在<code>simstudy包</code>中模拟数据的关键是创建一系列数据定义表(data
+definition table)，如下所示：</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-22-data%20definition%20tables.png"
+alt="data definition tables" />
+<figcaption aria-hidden="true">data definition tables</figcaption>
+</figure>
+<p>用于生成上述定义的代码 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">library(simstudy)</span><br><span class="line">library(data.table)</span><br><span class="line"></span><br><span class="line">def &lt;- defData(varname = &quot;nr&quot;, dist = &quot;nonrandom&quot;, formula = 7, id = &quot;idnum&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;x1&quot;, dist = &quot;uniform&quot;, formula = &quot;10;20&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;y1&quot;, formula = &quot;nr + x1 * 2&quot;, variance = 8)</span><br><span class="line">def &lt;- defData(def, varname = &quot;y2&quot;, dist = &quot;poisson&quot;, formula = &quot;nr - 0.2 * x1&quot;, link = &quot;log&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;xCat&quot;, formula = &quot;0.3;0.2;0.5&quot;, dist = &quot;categorical&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;g1&quot;, dist = &quot;gamma&quot;, formula = &quot;5+xCat&quot;, variance = 1, link = &quot;log&quot;)</span><br><span class="line">def &lt;- defData(def, varname = &quot;a1&quot;, dist = &quot;binary&quot;, formula = &quot;-3 + xCat&quot;, link = &quot;logit&quot;)</span><br></pre></td></tr></table></figure>
+要根据这些定义创建一个简单的数据集，所有人都需要执行一个<code>genData</code>命令。</p>
+<p>在此示例中，我们生成500条记录，这些记录基于<code>def表</code>中的定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dt &lt;- genData(500, def)</span><br><span class="line"></span><br><span class="line">    idnum nr       x1       y1  y2 xCat          g1 a1</span><br><span class="line">  1:     1  7 11.14037 34.04765 138    3   637.50317  1</span><br><span class="line">  2:     2  7 11.92208 30.44868 100    1    79.01242  0</span><br><span class="line">  3:     3  7 16.18471 39.71205  37    3    73.57740  0</span><br><span class="line">  4:     4  7 15.99059 38.68228  37    1   115.78951  0</span><br><span class="line">  5:     5  7 10.61884 30.63140 137    3 11407.90428  1</span><br><span class="line"> ---                                                   </span><br><span class="line">496:   496  7 16.95754 38.20793  38    3   954.34293  0</span><br><span class="line">497:   497  7 17.38688 46.24585  41    1    23.14826  0</span><br><span class="line">498:   498  7 13.10723 38.21072  69    3  3799.37787  0</span><br><span class="line">499:   499  7 13.40657 33.17099  78    1  1512.06894  0</span><br><span class="line">500:   500  7 11.72582 36.90359 106    3  3903.30936  1</span><br></pre></td></tr></table></figure>
+<h2
+id="用重复测量模拟一项前瞻性队列研究">用重复测量模拟一项前瞻性队列研究</h2>
+<p>问题是，我们是否可以模拟一项双臂研究(对照组和治疗组)，在三个时间点上重复测量：基线，1个月后和2个月后？
+答案当然是of course。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line"></span><br><span class="line"># Define the outcome</span><br><span class="line"> </span><br><span class="line">ydef &lt;- defDataAdd(varname = &quot;Y&quot;, dist = &quot;normal&quot;, </span><br><span class="line">                   formula = &quot;5 + 2.5*period + 1.5*T + 3.5*period*T&quot;, </span><br><span class="line">                   variance = 3)</span><br><span class="line"> </span><br><span class="line"># Generate a &#x27;blank&#x27; data.table with 24 observations and assign them to groups</span><br><span class="line"> </span><br><span class="line">set.seed(1234)</span><br><span class="line"> </span><br><span class="line">indData &lt;- genData(24)</span><br><span class="line">indData &lt;- trtAssign(indData, nTrt = 2, balanced = TRUE, grpName = &quot;T&quot;)</span><br><span class="line"> </span><br><span class="line"># Create a longitudinal data set of 3 records for each id</span><br><span class="line"> </span><br><span class="line">longData &lt;- addPeriods(indData, nPeriods = 3, idvars = &quot;id&quot;)</span><br><span class="line">longData &lt;- addColumns(dtDefs = ydef, longData)</span><br><span class="line"> </span><br><span class="line">longData[, `:=`(T, factor(T, labels = c(&quot;No&quot;, &quot;Yes&quot;)))]</span><br><span class="line"> </span><br><span class="line"># Let&#x27;s look at the data</span><br><span class="line"> </span><br><span class="line">ggplot(data = longData, aes(x = factor(period), y = Y)) + geom_line(aes(color = T, </span><br><span class="line">    group = id)) + scale_color_manual(values = c(&quot;#e38e17&quot;, &quot;#8e17e3&quot;)) + xlab(&quot;Time&quot;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/22/Essential-Concepts-in-Clinical-Research/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1935,623 +2437,10 @@ alt="表A1_c" /></li>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/17/propensityscoreR/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/17/propensityscoreR/" class="post-title-link" itemprop="url">倾向性评分匹配的R语言实现</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-17 18:13:44" itemprop="dateCreated datePublished" datetime="2018-07-17T18:13:44+08:00">2018-07-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:44:15" itemprop="dateModified" datetime="2019-02-27T23:44:15+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明<br> 1. 译自Norbert Köhler的文章How to use R for matching samples
-(propensity score)</p>
-</blockquote>
-<p>根据维基百科，倾向性评分匹配（propensity score
-matching,PSM）是一种用来评估处置效应的统计方法。</p>
-<blockquote>
-<p><strong>Propensity score matching (PSM)</strong> is a statistical
-matching technique that attempts to estimate the effect of a treatment,
-policy, or other intervention by accounting for the covariates that
-predict receiving the treatment</p>
-</blockquote>
-<p>广义说来，倾向性评分分析假设只有当两组样本的研究对象具有相似特征时才能进行两组样本之间的无偏比较(unbiased
-comparison)。因此，PSM不仅仅是随机试验的一种替代方法，它也是流行病研究中进行样本比较的重要方法之一。让我们举个例子：</p>
-<blockquote>
-<p>与健康相关的生活质量（Health-related quality of
-life,HRQOL）被认为是癌症治疗的重要结果之一。对癌症患者而言，最常用的HRQOL测度是通过欧洲癌症研究与治疗中心(European
-Organisation for Research and Treatment of
-Cancer,EORTC)的调查问卷计算得出的。</p>
-<p>EORTC
-QLD-C30是一个由30个项目组成，包括5个功能量表，9个症状量表和一个整体生活质量量表的的问卷。所有量表都会给出一个0-100之间的得分。症状量表得分越高代表被调查人症状越重，其余两个量表得分越高代表生活质量越高。</p>
-</blockquote>
-<p>然而，如果没有任何参照，直接对数据进行解释是很困难的。幸运的是，<a target="_blank" rel="noopener" href="http://groups.eortc.be/qol/sites/default/files/img/slider/specimen_qlq-c30_english.pdf">EORTC
-QLQ-C30问卷</a>也在一些正常人群调查中使用，我们可以对比患者的得分和正常人群的得分差异，从而判断患者的一些症状和功能障碍是否能归因于癌症（或治疗）。PSM可以通过相似年龄和相同性别等特征，将患者和一般人群进行匹配。</p>
-<h3 id="生成两个随机数据框">生成两个随机数据框</h3>
-<blockquote>
-<p>本文用到的所有包可通过如下代码加载：</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman::p_load(knitr, wakefield, MatchIt, tableone, captioner)</span><br></pre></td></tr></table></figure>
-<p>由于我们不希望在博客文章中使用真实数据，因此需要生成一些模拟数据。使用<code>wakefield</code>包可以很容易地实现这个功能。</p>
-<ol type="1">
-<li><p>创建一个名为<code>df.patients</code>的数据框，包含250个病人的年龄和性别数据，所有病人的年龄都要在30-78岁之间，并且70%的病人被设定为男性。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set.seed(180717)</span><br><span class="line">library(wakefield)</span><br><span class="line">df.patients &lt;- r_data_frame(n = 250, </span><br><span class="line">			age(x = 30:78, name = &#x27;Age&#x27;), </span><br><span class="line">			sex(x = c(&quot;Male&quot;, &quot;Female&quot;), </span><br><span class="line">			prob = c(0.70, 0.30), name = &quot;Sex&quot;))</span><br><span class="line">df.patients$Sample &lt;- as.factor(&#x27;Patients&#x27;)</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>summary函数</code>会返回创建的数据框的基本信息。患者平均年龄为53.7岁，并且大约70%为男性(66.8%)。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">summary(df.patients)</span><br><span class="line">     </span><br><span class="line">      Age            Sex           Sample   </span><br><span class="line">Min.   :30.00   Male  :167   Patients:250  </span><br><span class="line">1st Qu.:44.00   Female: 83                 </span><br><span class="line">Median :57.00                              </span><br><span class="line">Mean   :55.24                              </span><br><span class="line">3rd Qu.:67.00                              </span><br><span class="line">Max.   :78.00 </span><br></pre></td></tr></table></figure></p></li>
-<li><p>接下来，需要创建另一个名为<code>df.population</code>的数据框。我们希望这个数据集的数据和患者<code>df.patients</code>有些不同，因此正常人群的年龄区间被设定为18-80岁，并且男女各占一半。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">set.seed(180717)</span><br><span class="line"></span><br><span class="line">df.population &lt;- r_data_frame(n = 1000, age(x = 18:80, name = &#x27;Age&#x27;), </span><br><span class="line">sex(x = c(&quot;Male&quot;, &quot;Female&quot;),</span><br><span class="line">prob = c(0.50, 0.50), </span><br><span class="line">name = &quot;Sex&quot;))</span><br><span class="line"></span><br><span class="line">df.population$Sample &lt;- as.factor(&#x27;Population&#x27;)</span><br><span class="line"> </span><br><span class="line">#下方表格显示样本平均年龄为50.1岁，男女比例也大致相等。</span><br><span class="line"></span><br><span class="line">summary(df.population)</span><br><span class="line">     </span><br><span class="line">	Age           Sex             Sample    </span><br><span class="line">Min.   :18.0   Male  :489   Population:1000  </span><br><span class="line">1st Qu.:34.0   Female:511                    </span><br><span class="line">Median :51.0                                 </span><br><span class="line">Mean   :50.1                                 </span><br><span class="line">3rd Qu.:66.0                                 </span><br><span class="line">Max.   :80.0  </span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h3 id="合并数据框">合并数据框</h3>
-<p>在匹配样本之前，我们需要把两个数据框合并。首先，生成一个新变量<code>Group</code>来代表研究对象来自哪个全体（逻辑型变量），再添加另一个变量<code>Distress</code>来表示个体的痛苦程度。<code>Distress</code>变量是利用<code>wakefield包</code>中的<code>age函数</code>创建的，可以发现，女性承受的痛苦级别更高。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mydata &lt;- rbind(df.patients, df.population)</span><br><span class="line">mydata$Group &lt;- as.logical(mydata$Sample == &#x27;Patients&#x27;)</span><br><span class="line">mydata$Distress &lt;- ifelse(mydata$Sex == &#x27;Male&#x27;, </span><br><span class="line">                age(nrow(mydata), x = 0:42, name = &#x27;Distress&#x27;),</span><br><span class="line">                age(nrow(mydata), x = 15:42, name = &#x27;Distress&#x27;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; mydata</span><br><span class="line"># A tibble: 1,250 x 5</span><br><span class="line">     Age Sex    Sample   Group Distress</span><br><span class="line">   &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;    &lt;lgl&gt;    &lt;int&gt;</span><br><span class="line"> 1    76 Female Patients TRUE        39</span><br><span class="line"> 2    49 Female Patients TRUE        25</span><br><span class="line"> 3    57 Male   Patients TRUE        39</span><br><span class="line"> 4    62 Male   Patients TRUE        32</span><br><span class="line"> 5    61 Male   Patients TRUE        21</span><br><span class="line"> 6    44 Male   Patients TRUE        27</span><br><span class="line"> 7    56 Female Patients TRUE        21</span><br><span class="line"> 8    54 Female Patients TRUE        28</span><br><span class="line"> 9    49 Male   Patients TRUE        17</span><br><span class="line">10    64 Male   Patients TRUE        28</span><br><span class="line"># ... with 1,240 more rows</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>if..else语句的基本语法是</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(boolean_expression) &#123;</span><br><span class="line">   // statement(s) will execute if the boolean expression is true.</span><br><span class="line">&#125; else &#123;</span><br><span class="line">   // statement(s) will execute if the boolean expression is false.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当我们比较两组样本的年龄和性别分布时，我们可以发现明显的区别：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">library(pacman)</span><br><span class="line">pacman::p_load(tableone)</span><br><span class="line">table1 &lt;- CreateTableOne(vars = c(&#x27;Age&#x27;, &#x27;Sex&#x27;, &#x27;Distress&#x27;), </span><br><span class="line">                         data = mydata, </span><br><span class="line">                         factorVars = &#x27;Sex&#x27;, </span><br><span class="line">                         strata = &#x27;Sample&#x27;)</span><br><span class="line">table1 &lt;- print(table1, </span><br><span class="line">                printToggle = FALSE, </span><br><span class="line">                noSpaces = TRUE)</span><br><span class="line"></span><br><span class="line">library(knitr)</span><br><span class="line">kable(table1[,1:3],  </span><br><span class="line">      align = &#x27;c&#x27;, </span><br><span class="line">      caption = &#x27;Table 1: Comparison of unmatched samples&#x27;)</span><br></pre></td></tr></table></figure>
-<p><strong>Table 1: Comparison of unmatched samples</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">Patients</th>
-<th style="text-align: center;">Population</th>
-<th style="text-align: center;">p</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">n</td>
-<td style="text-align: center;">250</td>
-<td style="text-align: center;">1000</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Age (mean (sd))</td>
-<td style="text-align: center;">55.24 (14.24)</td>
-<td style="text-align: center;">50.10 (18.37)</td>
-<td style="text-align: center;">&lt;0.001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Sex = Female (%)</td>
-<td style="text-align: center;">83 (33.2)</td>
-<td style="text-align: center;">511 (51.1)</td>
-<td style="text-align: center;">&lt;0.001</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Distress (mean (sd))</td>
-<td style="text-align: center;">25.12 (11.58)</td>
-<td style="text-align: center;">24.35 (11.34)</td>
-<td style="text-align: center;">0.344</td>
-</tr>
-</tbody>
-</table>
-<h3 id="样本匹配">样本匹配</h3>
-<p>现在，我们已经完成了全部的准备工作，可以开始使用<code>MatchIT包</code>中的<code>matchit函数</code>来匹配两组样本了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">library(MatchIt)</span><br><span class="line">set.seed(180717)</span><br><span class="line"></span><br><span class="line">match.it &lt;- matchit(Group ~ Age + Sex, </span><br><span class="line">data = mydata, </span><br><span class="line">method=&quot;nearest&quot;, </span><br><span class="line">ratio=1)</span><br><span class="line"></span><br><span class="line">a &lt;- summary(match.it)</span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li>函数中<code>method=‘nearest’</code>的设定指明了使用近邻法(the
-nearest neighbors method)进行匹配。</li>
-<li>其他方法包括exact matching,subclassification,optimal
-matching,genetic matching,ull
-matching等（<code>method = c("exact", "subclass", "optimal", ""genetic", "full")</code>）。</li>
-<li><code>ratio=1</code>意味着这是一一配对。在我们的例子里，对于患者组中的每一个病例，将恰好匹配正常人群样本中的一个人。</li>
-<li>同时也请注意<code>Group变量</code>需要是逻辑型变量（TRUE与FALSE）。</li>
-</ol>
-<p>为了后续工作的便利，我们将<code>summary函数</code>的输出赋值给名为<code>a</code>的变量。在匹配完样本后，正常人群样本量减少到了和患者样本一致（n=250，详见Table
-2）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kable(a$nn, digits = 2, align = &#x27;c&#x27;, caption = &#x27;Table 2: Sample sizes&#x27;)</span><br></pre></td></tr></table></figure>
-<p><strong>Table 2: Sample sizes</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">Control</th>
-<th style="text-align: center;">Treated</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">All</td>
-<td style="text-align: center;">1000</td>
-<td style="text-align: center;">250</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Matched</td>
-<td style="text-align: center;">250</td>
-<td style="text-align: center;">250</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Unmatched</td>
-<td style="text-align: center;">750</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Discarded</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-</tr>
-</tbody>
-</table>
-<p>根据输出结果，匹配后的年龄和性别分布基本一致了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kable(a$sum.matched[c(1,2,4)], digits = 2, align = &#x27;c&#x27;, caption = &#x27;Table 3: Summary of balance for matched data&#x27;)</span><br></pre></td></tr></table></figure>
-<p><strong>Table 3: Summary of balance for matched data</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">Means Treated</th>
-<th style="text-align: center;">Means Control</th>
-<th style="text-align: center;">Mean Diff</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">distance</td>
-<td style="text-align: center;">0.23</td>
-<td style="text-align: center;">0.23</td>
-<td style="text-align: center;">0.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Age</td>
-<td style="text-align: center;">55.24</td>
-<td style="text-align: center;">55.22</td>
-<td style="text-align: center;">0.02</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">SexMale</td>
-<td style="text-align: center;">0.67</td>
-<td style="text-align: center;">0.67</td>
-<td style="text-align: center;">0.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SexFemale</td>
-<td style="text-align: center;">0.33</td>
-<td style="text-align: center;">0.33</td>
-<td style="text-align: center;">0.00</td>
-</tr>
-</tbody>
-</table>
-<p>倾向性评分的分布可以使用<code>MatchIt包</code>中的<code>plot函数</code>进行绘制。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(match.it, type = &#x27;jitter&#x27;, interactive = FALSE)</span><br></pre></td></tr></table></figure>
-<p><img
-src="http://qiniup.louyanspine.com/2018-07-17-%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86%E7%9A%84%E5%88%86%E5%B8%83.jpg" /></p>
-<h3 id="保存匹配样本">保存匹配样本</h3>
-<p>最后，匹配的样本将保存到名为<code>df.match</code>的新数据框中。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 获得匹配数据集(含distance和weights列)的第1~ncol(mydata)列</span><br><span class="line"></span><br><span class="line">df.match &lt;- match.data(match.it)[1:ncol(mydata)]</span><br><span class="line"></span><br><span class="line"># rm()函数：删除变量函数</span><br><span class="line">rm(df.patients, df.population)</span><br><span class="line"></span><br><span class="line"># 我们可以对比两类人群间痛苦程度的差异是否依旧显著</span><br><span class="line">pacman::p_load(tableone)</span><br><span class="line">table4 &lt;- CreateTableOne(vars = c(&#x27;Age&#x27;, &#x27;Sex&#x27;, &#x27;Distress&#x27;), </span><br><span class="line">                         data = df.match, </span><br><span class="line">                         factorVars = &#x27;Sex&#x27;, </span><br><span class="line">                         strata = &#x27;Sample&#x27;)</span><br><span class="line"></span><br><span class="line"># printToggle：是否打印输出。如果为FALSE，则不创建输出，并返回一个矩阵。</span><br><span class="line"># noSpaces：是否删除为对齐添加的空格。如果您希望自己在其他软件中对齐数字，请使用此选项。</span><br><span class="line"></span><br><span class="line">table4 &lt;- print(table4, </span><br><span class="line">                printToggle = FALSE, </span><br><span class="line">                noSpaces = TRUE)</span><br><span class="line"></span><br><span class="line"># align/列对齐: &#x27;l&#x27; (left), &#x27;c&#x27; (center) and/or &#x27;r&#x27; (right). 默认则align = NULL, 数值列右对齐, 其他列左对齐.</span><br><span class="line"># kable函数：Create Tables In LaTeX, HTML, Markdown And ReStructuredText</span><br><span class="line"></span><br><span class="line">kable(table4[,1:3],  </span><br><span class="line">      align = &#x27;c&#x27;, </span><br><span class="line">      caption = &#x27;Table 4: Comparison of matched samples&#x27;)</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">Patients</th>
-<th style="text-align: center;">Population</th>
-<th style="text-align: center;">p</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">n</td>
-<td style="text-align: center;">250</td>
-<td style="text-align: center;">250</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Age (mean (sd))</td>
-<td style="text-align: center;">55.24 (14.24)</td>
-<td style="text-align: center;">55.22 (14.21)</td>
-<td style="text-align: center;">0.987</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Sex = Female (%)</td>
-<td style="text-align: center;">83 (33.2)</td>
-<td style="text-align: center;">83 (33.2)</td>
-<td style="text-align: center;">1.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Distress (mean (sd))</td>
-<td style="text-align: center;">25.12 (11.58)</td>
-<td style="text-align: center;">22.87 (11.72)</td>
-<td style="text-align: center;">0.032</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/16/PropensityScore/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/16/PropensityScore/" class="post-title-link" itemprop="url">倾向性评分（The Propensity Score）总述</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-16 20:26:22" itemprop="dateCreated datePublished" datetime="2018-07-16T20:26:22+08:00">2018-07-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-29 14:47:00" itemprop="dateModified" datetime="2018-10-29T14:47:00+08:00">2018-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明：<br> 1. 部分参考自Jason S. Haukoos, MD, MSc的文章The Propensity
-Score<br> 2.
-部分参考孙婷，秦国友等的文章自不同混杂结构条件下各倾向性评分方法的模拟比较研究</p>
-</blockquote>
-<h2 id="一前言">一、前言</h2>
-<p>2015年有2项发表在JAMA上的研究涉及对观察性数据(observational
-data)的分析，以评估治疗对患者预后的影响。</p>
-<ol type="1">
-<li><p>在Rozé等人的研究中<sup>[1]</sup>，分析了一个大型观察性数据集，以评估早期超声心动图(early
-echocardiography screening)筛查动脉导管未闭(patent ductus
-arteriosus)与早产儿死亡率之间的关系。作者比较了847名接受了筛查的婴儿和666名未接受筛查的婴儿的死亡率。</p>
-<p>两个婴儿组不太相同：筛查组的婴儿年龄更小，女婴较多，并且很少接受过皮质类固醇激素的治疗。作者使用倾向性评分匹配(propensity
-score
-matching)创建了来自原始队列的605个匹配的婴儿对以调整这些差异因素。</p></li>
-<li><p>另一项在Huybrechts等人的研究中<sup>[2]</sup>，分析了Medicaid
-Analytic
-eXtract数据集，以评估妊娠期使用抗抑郁药与新生儿持续性肺动脉高压之间的关系。</p>
-<p>作者纳入了3 789 330名妇女，其中128
-950名在妊娠期使用过抗抑郁药。使用抗抑郁药的妇女与没有使用抗抑郁药的妇女在年龄、种族/民族、慢性病、肥胖、吸烟和health
-care use方面存在差异。作者使用倾向性评分分层(propensity score
-stratification)方法部分地调整了这些差异。</p></li>
-</ol>
-<h2 id="二使用方法">二、使用方法</h2>
-<h3 id="一为什么使用倾向性方法">（一）为什么使用倾向性方法？</h3>
-<p>许多因素会影响治疗方法的选择。在许多情况下，患者会接受多种治疗方法。此外，接受不同治疗方法的患者显然不能混为一谈。这通常会导致患者影响结果的特征与治疗方法之间存在相关性(correlation)或混淆(confounding)。（通常称为“confounding
-by indication”）。</p>
-<p>如果从常规的临床实践中获得观察性数据以比较使用不同治疗方法的患者的结局/预后，观察到的差异将是不同的患者特征和不同治疗方法的共同作用结果，难以描绘某一种治疗与另一种治疗的真实效果。</p>
-<p>在观察性研究中，随机化是不可能的，因此研究者必须调整组间差异，以获得进行比较的治疗方法与感兴趣结局之间相关性的有效估计。多变量统计方法(Multivariable
-statistical methods)通常用于评估这种关联，同时调整混淆。</p>
-<p>倾向性评分的方法可减少评估治疗效果时的偏倚，并允许研究者在分析非随机的观察性数据时降低混淆的可能性。</p>
-<h3 id="二倾向性评分的概念及其原理">（二）倾向性评分的概念及其原理</h3>
-<ol type="1">
-<li><p>倾向性评分是指在一定协变量条件下，一个观察对象接受某种暴露/处理因素（所研究的治疗方法）的可能性，它是一个从0到1的范围内连续分布的概率值。这种概率基于患者的特征，临床医生和临床环境。可以使用多变量统计方法（例如，logicistic回归）来估计这种概率。在这种情况下，所研究的治疗方法是因变量(dependent
-variable)，而患者的特征，处方医生和临床环境则是预测因子(predictors)。</p></li>
-<li><p>倾向性评分是指在给定一组协变量(<span
-class="math inline">\(X_i\)</span>)的条件下，将任意一个研究对象<span
-class="math inline">\(i(i=1，2，⋯，n)\)</span>分配到处理组<span
-class="math inline">\((Z_i=1)\)</span>的条件概率。第<span
-class="math inline">\(i\)</span>个研究对象被分配到处理组的条件概率可以表示为：<span
-class="math display">\[e(X_i)=P(Z_i=1\mid{X_i})\]</span></p>
-<p>其中<span
-class="math inline">\(e(X_i)\)</span>被称为倾向性评分。倾向性评分相同的两个不同组别的研究对象，其拥有的多个协变量整体上分布是相同的。因此，组间协变量的不均衡性对处理效应估计的干扰被消除了。</p></li>
-<li><p>倾向性评分的基本原理是用⼀个分值来替代多个协变量，均衡处理组和对照组间协变量的分布。对⾮随机化研究中的混杂因素进行类似随机化的均衡处理，减少选择偏倚。计算得出PS分值后，可采⽤匹配、回归调整、加权、分层的方法来均衡各组间协变量的差异，最终估计处理效应。</p></li>
-<li><p>在生物医学研究中，倾向性评分通常用于比较治疗方法，但也可用于评估任何非随机因素（如接触毒素或病原体）与感兴趣结局之间的关系。</p></li>
-</ol>
-<h3 id="三倾向性评分的四种常规方法">（三）倾向性评分的四种常规方法</h3>
-<h4 id="倾向性评分匹配">(1)倾向性评分匹配</h4>
-<ol type="1">
-<li>其通常包括2组研究对象，一组接受所研究的治疗而另一组则接受其他治疗，同时匹配具有相似或相同倾向性评分的个体。然后，直接比较接受所研究治疗的个体与接受其他治疗的个体之间的结果。</li>
-<li>常用的匹配方法：
-<ul>
-<li>最邻近匹配(Nearest Neighbor Matching)
-<ul>
-<li>首先利用logistic模型计算倾向性评分值，根据分组变量将处理组与对照组区分开。</li>
-<li>然后对处理组个体随机排序，从处理组中选出第一个个体，与对照组中全部个体的倾向性评分值进行比较，找出对照组中倾向性评分值相同或相近的个体进行配对，若对照组中有2个或2个以上与处理组个体倾向性评分值相同，则随机选取。</li>
-<li>配对成功的个体从数据中剔除，对下一个体重复如上步骤，直到处理组个体全部完成匹配。</li>
-</ul></li>
-<li>卡钳匹配(caliper matching)
-<ul>
-<li>在最邻近匹配集的基础上根据倾向性评分值在最邻近匹配集中的分布设置不同的卡钳，删除两组倾向性评分值之差在卡钳值范围外的配对个体，得到不同精度的匹配集，然后计算协变量之间的均衡性及样本不平衡性，并将结果进行汇总。</li>
-</ul></li>
-<li>全局最优匹配</li>
-</ul></li>
-<li>使用倾向性评分匹配样本的分析结果可以接近随机对照试验的分析结果，因为考虑了数据的配对性质。</li>
-</ol>
-<h4 id="倾向性评分分层">(2)倾向性评分分层</h4>
-<ol type="1">
-<li><p>估计出每个研究对象的倾向性评分值后，根据倾向性评分值将研究对象分为若干层。</p></li>
-<li><p>有文献指出，当估计线性处理效应的时候，将倾向性评分值分为五层可以消除组间近90%的混杂偏倚。经过分层后，每一层内处理组与对照组的协变量分布应该是均衡的。</p>
-<blockquote>
-<p>尽管增加层或组的数量可以减少偏倚的可能性，但通常使用五个层。</p>
-</blockquote></li>
-<li><p>分析过程中，先在每一层内估计处理效应，最后将每层的效应整合成总的处理效应。这种方法基于于这样一种观念，即每个组/层中的个体比个体更相似。因此，他们的结果可以直接比较。</p></li>
-</ol>
-<h4
-id="使用倾向性评分进行协变量调整">(3)使用倾向性评分进行协变量调整</h4>
-<p>在倾向性评分模型之后，构建单独的多变量模型，其中研究结果用作因变量(dependent
-variable)，治疗组和倾向性评分用作预测变量(predictor
-variables)。这允许研究者评估与所研究治疗相关的结果，同时调整接受治疗的概率，从而减少混淆。</p>
-<h4
-id="倾向性评分逆处理概率加权inverse-probability-of-treatment-weighting-using-the-propensity-score">(4)倾向性评分逆处理概率加权/inverse
-probability of treatment weighting using the propensity score</h4>
-<p>在这种情况下，倾向性评分用于计算每个个体的统计权重(statistical
-weights)以创建样本，其中潜在的混杂因素的分布独立于暴露因素，允许对治疗和结果之间的关系进行无偏估计。</p>
-<ol type="1">
-<li><p>是边缘结构模型这类因果推断⽅法中的一种，其基本原理与传统的标准化法类似。</p></li>
-<li><p>根据倾向性评分值赋予每个研究对象⼀个相应的权重，从⽽构建出⼀个虚拟的人群，在这个虚拟人群中，协变量的组间分布没有差异，因此消除了混杂因素的影响。</p></li>
-<li><p>在逆处理概率加权的方法中，权重被定义为研究对象实际分组情况的概率的倒数，计算如下：
-<span class="math display">\[w_i =
-\cfrac{z_i}{e_i}+\cfrac{(1-z_i)}{(1-e_i)}\]</span></p>
-<ul>
-<li><p>若<span class="math inline">\(z_i=1\)</span>(处理组)，则<span
-class="math inline">\(w_i = \cfrac{1}{e_i}\)</span></p></li>
-<li><p>若<span class="math inline">\(z_i=0\)</span>(对照组)，则<span
-class="math inline">\(w_i = \cfrac{1}{1-e_i}\)</span></p></li>
-</ul></li>
-<li><p>计算权重后，再应⽤用加权回归的⽅方法估计处理理效应。</p></li>
-</ol>
-<h3
-id="四倾向性评分以外的替代策略以调整观察性研究中各组之间的基线差异">（四）倾向性评分以外的替代策略：以调整观察性研究中各组之间的基线差异</h3>
-<ol type="1">
-<li>匹配基线特征/matching on baseline characteristics</li>
-<li>分层分析/stratified analyses</li>
-<li>多变量统计方法/multivariable statistical methods</li>
-</ol>
-<p>倾向性评分方法通常比这些方法更实用或在统计上更有效，部分原因是倾向性评分方法可以限制最终分析中使用的预测变量的数量。倾向性评分方法通常允许将更多变量包括在倾向性评分模型(propensity
-score
-model)中，从而增加了这些方法有效调整混淆的能力，而不是直接纳入研究结果的多变量分析。</p>
-<h2
-id="三倾向性评分方法的局限性是什么">三、倾向性评分方法的局限性是什么？</h2>
-<ol type="1">
-<li>每个研究对象的倾向性评分基于能够测量的患者特征，如果无法测量的因素影响治疗选择，则可能仍存在未调整的混淆。因此，在倾向性评分模型中使用较少的变量降低了有效调整混淆的可能性。</li>
-<li>虽然倾向性评分匹配可用于组合可比较的研究组，但匹配的质量取决于倾向性评分模型的质量，而倾向性评分模型的质量又取决于进行分析的数据的质量、大小以及模型的构建方式。</li>
-<li>传统的建模方法（如，变量选择，交互的使用use of
-interactions，回归诊断regression
-diagnostics等）通常不推荐用于倾向性评分模型的构建。例如，倾向性评分模型可以纳入更多数量的预测变量。</li>
-</ol>
-<h2 id="四结果该如何解释">四、结果该如何解释？</h2>
-<p>鉴于这些研究属于观察性研究，治疗组和未治疗组中的个体不同。为了能够准确估计治疗与结局之间的关联，研究者必须调整两组之间的差异。</p>
-<p>使用倾向性评分方法时，无论是通过匹配还是分层，结果的估计偏差小于不使用此类方法的估计偏差。</p>
-<p>尽管观察性数据不能像随机临床试验那样严格地建立因果关系或确定治疗效果，但如果倾向性评分方法得到适当使用且样本量足够大，这些方法可能提供治疗方法可能效果的可靠近似值。这种方法对于随机临床试验不可行或不可能进行的情况特别有价值。</p>
-<h2
-id="五在评估倾向性分析的结果时读者应该考虑哪些注意事项">五、在评估倾向性分析的结果时，读者应该考虑哪些注意事项？</h2>
-<p>Rozé等人和Huybrechts等人的研究分别使用了倾向性评分匹配和倾向性评分分层。尽管这两种方法在平衡研究组方面比基于基线特征的简单匹配或分层更有效，但它们在最小化偏倚(minimize
-bias)方面的能力各不相同。通常，倾向性评分匹配比倾向性评分分层更大程度地减少偏差。在使用倾向性评分方法后，评估各组之间的平衡对于让读者评估研究组的可比性非常重要。</p>
-<p>尽管没有单一的标准方法来评估平衡，但是比较治疗组和未治疗组患者之间的特征通常始于比较汇总的统计数据（例如，平均值或比例）和观察到的特征的整体分布。</p>
-<p>对于倾向性评分匹配的样本，经常使用标准化差异（standardized
-differences，即差异differences/合并的标准偏差pooled standard
-deviations）。尽管没有普遍接受的阈值，但小于0.1的标准化差异通常被认为是可忽略不计的。</p>
-<p>评估平衡提供了一般意义，即匹配或分层的良好程度，以及结果可能有效的程度。</p>
-<p>不幸的是，只能在研究中可以测量的患者特征中显示平衡。无法测量的差异仍可能存在于各组间，从而导致结果的偏倚。</p>
-<h2 id="六参考文献">六、参考文献</h2>
-<ol type="1">
-<li>Rozé JC, Cambonie G, Marchand-Martin L, et al. Hemodynamic EPIPAGE 2
-Study Group. Association between early screening for patent ductus
-arteriosus and in-hospital mortality among extremely preterm infants.
-JAMA. 2015; 313(24):2441–2448.</li>
-<li>Huybrechts KF, Bateman BT, Palmsten K, et al. Antidepressant use
-late in pregnancy and risk of persistent pulmonary hypertension of the
-newborn. JAMA. 2015; 313(21):2142–2151.</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/12/evalwithScope/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/07/12/evalwithScope/" class="post-title-link" itemprop="url">欺骗词法作用域的两种方式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-12 19:21:15" itemprop="dateCreated datePublished" datetime="2018-07-12T19:21:15+08:00">2018-07-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:54:47" itemprop="dateModified" datetime="2019-02-28T00:54:47+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明<br> 1.
-部分参考作者姚屹晨在简书上的笔记https://www.jianshu.com/p/650e458bc9ce<br>
-2.
-部分参考作者m4jing在Github上的译文https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/scope%20%26%20closures/ch2.md</p>
-</blockquote>
-<h2 id="一欺骗词法作用域">一、欺骗词法作用域</h2>
-<h3 id="eval">eval</h3>
-<ol type="1">
-<li><p><code>eval</code>函数可以接收一个字符串作为参数，以动态形式插入程序的某个位置，并对其词法作用域的环境进行修改。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 5</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在严格模式下，<code>eval</code>函数在运行时拥有自己的词法作用域。这意味着其中的声明无法修改所在的作用域。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;1 2</span><br><span class="line"></span><br><span class="line">function foo(str,a)&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    eval(str);</span><br><span class="line">    console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">foo(&#x27;var b = 5;&#x27;,1);</span><br><span class="line">&gt;&gt;&gt;Uncaught ReferenceError: b is not defined</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h3 id="with">with</h3>
-<ol type="1">
-<li><p><code>with</code>通常被当做重复引用同一个对象中的多个属性的快捷方式，可以不需要重复引用对象本身：</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: 2,</span><br><span class="line">    c: 3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.a = 2;</span><br><span class="line">obj.b = 3;</span><br><span class="line">obj.c = 4;</span><br><span class="line"></span><br><span class="line">with(obj) &#123;</span><br><span class="line">    a = 3;</span><br><span class="line">    b = 4;</span><br><span class="line">    c = 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>实际上不仅仅是为了方便地访问对象属性：</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function foo(obj)&#123;</span><br><span class="line">    with(obj)&#123;</span><br><span class="line">        a = 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var o1 = &#123;</span><br><span class="line">     a: 3</span><br><span class="line">&#125;;</span><br><span class="line">var o2 = &#123;</span><br><span class="line">     b: 3</span><br><span class="line">&#125;;</span><br><span class="line">foo(o1);</span><br><span class="line">o1.a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line"></span><br><span class="line">foo(o2);</span><br><span class="line">o2.a;</span><br><span class="line">&gt;&gt;&gt;undefined</span><br><span class="line"></span><br><span class="line">a;</span><br><span class="line">&gt;&gt;&gt;2</span><br><span class="line">//a被泄露到全局作用域中。</span><br></pre></td></tr></table></figure>
-因为，在非严格模式下，若a=2中的变量a未声明，也就是在任何作用域中都查找不到变量a，那么就会在全局作用域中创建一个变量a，并将2赋值于它。</p>
-<figure>
-<img src="http://qiniup.louyanspine.com/2018-07-12-foo-o1-.png"
-alt="foo(o1)" />
-<figcaption aria-hidden="true">foo(o1)</figcaption>
-</figure>
-<figure>
-<img src="http://qiniup.louyanspine.com/2018-07-12-foo-o2-.png"
-alt="foo(o2)" />
-<figcaption aria-hidden="true">foo(o2)</figcaption>
-</figure></li>
-<li><p><code>with</code>语句接收一个对象，这个对象有0个或多个属性，并将这个对象视为好像它是一个完全隔离的词法作用域，因此这个对象的属性被视为在这个“作用域”中词法定义的标识符。如上图中的<code>o1 Scope</code>和<code>o2 Scope</code>。</p></li>
-<li><p>尽管一个<code>with</code>块将一个对象视为一个词法作用域，但在<code>with</code>块内部的一个普通<code>var</code>声明将不会归于这个<code>with</code>块的作用域，而是归于包含它的函数作用域。</p></li>
-<li><p>当我们传递对象<code>o1</code>给<code>with</code>时，<code>with</code>所声明的作用域是<code>o1</code>，而这个作用域中含有一个与<code>o1.a</code>属性同名的标识符。但当我们将<code>o2</code>对象作为作用域时，其中没有<code>a</code>标识符，因此进行了正常的<code>LHS (Left Hand Side)</code>查找，最后导致创建了一个全局变量a并赋值为2。</p></li>
-</ol>
-<h2 id="二性能">二、性能</h2>
-<p>JavaScript引擎在编译阶段期进行许多性能优化工作。其中的一些优化原理都归结为实质上在进行词法分析时可以静态地分析代码，并提前决定所有的变量和函数声明都在什么位置，这样在执行期间就可以少花些力气来解析标识符。</p>
-<p>但如果引擎在代码中找到一个<code>eval(..)</code>或<code>with</code>，它实质上就不得不假定自己知道的所有的标识符的位置可能是不合法的，因为它不可能在词法分析时就知道你将会向<code>eval(..)</code>传递什么样的代码来修改词法作用域，或者你可能会向<code>with</code>传递的对象有什么样的内容来创建一个新的将被查询的词法作用域。</p>
-<p>换句话说，悲观地看，如果<code>eval(..)</code>或<code>with</code>出现，那么它将做的几乎所有的优化都会变得没有意义，所以它就会简单地根本不做任何优化。没有优化，代码就运行的更慢。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/59/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><span class="page-number current">60</span><a class="page-number" href="/page/61/">61</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/61/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/59/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><span class="page-number current">60</span><a class="page-number" href="/page/61/">61</a><span class="space">&hellip;</span><a class="page-number" href="/page/64/">64</a><a class="extend next" rel="next" href="/page/61/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2617,7 +2506,7 @@ alt="foo(o2)" />
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">629</span>
+          <span class="site-state-item-count">632</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2657,7 +2546,7 @@ alt="foo(o2)" />
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
