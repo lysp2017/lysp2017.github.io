@@ -191,6 +191,276 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/17/propensityscoreR-JCO/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/17/propensityscoreR-JCO/" class="post-title-link" itemprop="url">倾向性评分在临床研究中的应用（未完）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-17 20:47:28" itemprop="dateCreated datePublished" datetime="2018-07-17T20:47:28+08:00">2018-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:44:21" itemprop="dateModified" datetime="2019-02-28T00:44:21+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">统计学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1. 译自Rajyaguru DJ于2018年发表在JCO上的文章：Radiofrequency
+Ablation Versus Stereotactic BodyRadiotherapy for Localized
+Hepatocellular Carcinoma inNonsurgically Managed Patients: Analysis of
+the National Cancer Database.</p>
+</blockquote>
+<h2
+id="射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响国家癌症数据库分析">射频消融与立体定向放疗对非手术治疗的局限性肝癌患者的影响：国家癌症数据库分析</h2>
+<h3 id="摘要">摘要</h3>
+<h4 id="研究目的">研究目的</h4>
+<p>对于局部肝细胞癌（HCC）的管理，目前尚缺乏指导（医生）如何选择最佳局部消融治疗的数据。由于这些治疗方式的前瞻性、可比较数据有限，因此我们的目的是通过使用国家癌症数据库比较射频消融（radiofrequency
+ablation,RFA）与立体定向放射治疗（stereotactic body
+radiotherapy,SBRT）的有效性(effectiveness)。</p>
+<h4 id="方法">方法</h4>
+<ol type="1">
+<li>我们进行了一项观察性研究，以比较RFA与SBRT在非手术治疗肝癌患者(stage
+I or II)中的有效性。</li>
+<li>通过使用基于患者(patient-)，医疗设施(facility-)和肿瘤水平(tumor-level)特征的倾向性评分加权和倾向性评分匹配分析来比较总体生存率。</li>
+<li>进行敏感性分析(A sensitivity
+analysis)以评估严重的肝纤维化/肝硬化程度。</li>
+<li>此外，我们进行了探索性分析(exploratory
+analyses)，以确定RFA和SBRT在临床相关患者子集中的有效性。</li>
+</ol>
+<h4 id="结果">结果</h4>
+<ol type="1">
+<li>3,684例（92.6％）和296例（7.4％）非手术治疗的I期或II期HCC患者分别接受RFA或SBRT治疗。</li>
+<li>在倾向性评分匹配后，RFA组的5年总体生存率为29.8％（95％CI，24.5％-35.3％），而SBRT组则为19.3％（95％CI，13.5％-25.9％），两者差异显著(P=0.001)。</li>
+<li>逆概率加权分析(Inverse probability–weighted
+analysis)也获得类似的结果。</li>
+<li>RFA的获益在所有亚组中都是一致的，并且对严重肝纤维化/肝硬化的效果是稳健的。</li>
+</ol>
+<h4 id="结论">结论</h4>
+<ol type="1">
+<li>我们的研究表明，对于I或II期HCC的非手术治疗患者，与SBRT相比，RFA治疗可获得更高的存活率。</li>
+<li>尽管我们的结果受限于回顾性研究设计相关的偏倚。但我们认为，在没有随机临床试验的情况下，在推荐局部无法切除的HCC患者进行局部消融治疗时应考虑我们的研究结果。</li>
+</ol>
+<h3 id="前言">前言</h3>
+<ol type="1">
+<li>对于局限性肝细胞癌，可以通过手术切除或肝移植实现治愈。然而，大多数患者不适合手术，而是采用局部消融治疗(local
+ablative therapies)，包括射频消融（radiofrequency
+ablation,RFA），微波消融(microwave
+ablation)，冷冻消融(cryoablation)和立体定向放射治疗（stereotactic body
+radiation therapy,SBRT）。</li>
+<li>RFA广泛应用于体积较小（&lt;
+3cm）的不可切除肝癌，可实现70％到90％的优良局部控制率，并且在某些情况下被认为是治愈性治疗。</li>
+<li>其他介入技术，例如微波消融或联合热-经动脉化学栓塞已被用于改善局部控制率，特别是对于在3cm和5cm之间的HCC肿瘤。</li>
+<li>SBRT是RFA的新兴替代方法，似乎为较小的HCC提供了类似的局部控制率。</li>
+<li>尽管对SBRT的研究正在逐渐增加，但大多数SBRT的数据来自单中心，易于受到选择偏倚的影响。
+此外，许多单中心的样本量相对较少，缺乏长期生存数据。</li>
+<li>前瞻性随机试验对于比较RFA与SBRT治疗局部不可切除HCC的有效性是必要的。然而，目前尚无前瞻性随机试验，且进行此类试验面临许多挑战，耗时且花费较高。</li>
+</ol>
+<h3 id="研究方法">研究方法</h3>
+<h4 id="数据来源">数据来源</h4>
+<ol type="1">
+<li>我们使用NCDB进行了回顾性分析，属于不受机构审查委员会监督的去标志数据(de-identified
+data)。</li>
+<li>NCDB是美国外科医师学会(American College of
+Surgeons)癌症委员会（Commission on Cancer,CoC）和美国癌症协会(the
+American Cancer Society)的联合项目。</li>
+<li>NCDB包含来自美国1500多家拥有CoC认证项目的医院的数据，其中包括约70％全美所有新诊断的癌症病例，即超过2900万个独特的癌症病例。</li>
+<li>根据与每个认证机构签订的协议，删除来自美国退伍军人事务部、国防部，波多黎各的设施和其他某些计划的数据。</li>
+<li>我们从NCDB参与者用户文件（Participant User Files,PUF）获得数据。The
+data elements are collected prospectively from cancer registries of
+CoC-accredited programs by using nationally standardized data item and
+coding definitions as specified in the CoC’s facility oncology registry
+data standards and nationally standardized data transmission format
+specifications coordinated by the North American Association of Central
+Cancer Registries.</li>
+<li>数据元素包括患者特征、癌症分期、肿瘤的组织学特征、首次治疗的类型和时间以及结果。</li>
+<li>对于所有在5年内诊断出的符合条件的患者，合格评定(accreditation)要求每年有90％的随访率。</li>
+</ol>
+<h4 id="研究人群">研究人群</h4>
+<ol type="1">
+<li><p>从2004年至2013年间诊断为原发性HCC的119,933名男性和女性人群中共识别了47,634例临床I期（T1N0M0）或II期（T2N0M0）患者</p>
+<blockquote>
+<p>International Classification of Disease-Oncology-3rd Edition code
+C22.0, histology codes 8170-8175</p>
+</blockquote></li>
+<li><p>排除接受过肺叶切除术，扩大肺叶切除术，肝切除术或肝移植的患者。</p></li>
+<li><p>以RFA或SBRT作为主要治疗方式，排除接受其他形式的局部消融治疗的患者。</p></li>
+<li><p>排除接受任何形式的化疗（辅助或新辅助）或化疗信息未知的患者。</p></li>
+<li><p>本研究最终纳入3,980名患者。</p>
+<figure>
+<img
+src="http://qiniup.louyanspine.com/2018-07-17-CONSORT%20diagram.jpg"
+alt="CONSORT diagram" />
+<figcaption aria-hidden="true">CONSORT diagram</figcaption>
+</figure></li>
+</ol>
+<h4 id="covariates协变量">Covariates/协变量</h4>
+<blockquote>
+<p>可以在NCDB PUF数据dictionary中找到所有变量的完整详细描述。</p>
+</blockquote>
+<ol type="1">
+<li>Patient-level variables
+<ul>
+<li>诊断时的年龄</li>
+<li>性别</li>
+<li>种族</li>
+<li>保险状况</li>
+<li>根据患者邮政编码的家庭收入中位数</li>
+<li>患者人口普查区内低于高中教育的人口百分比</li>
+<li>Charlson-Deyo合并症评分(被NCDB分为0,1,≥2的得分类别)</li>
+</ul></li>
+<li>Facility-level variables
+<ul>
+<li>从患者居住区到治疗设施的距离</li>
+<li>case volume in quartiles</li>
+<li>地理区域</li>
+<li>type of treatment facilities(由CoC accreditation
+category指定，基于case volume和available services)
+<ul>
+<li>社区</li>
+<li>综合性社区</li>
+<li>学术</li>
+<li>integrated network cancer program</li>
+</ul></li>
+</ul></li>
+<li>Tumor-level variables
+<ul>
+<li>TNM分期</li>
+<li>肿瘤大小</li>
+<li>诊断年份（2004-2008 v 2009-2013）</li>
+<li>甲胎蛋白</li>
+<li>肿瘤分级和Ishak纤维化评分可用于接受活检以评估肿瘤的患者</li>
+</ul></li>
+</ol>
+<h4 id="目标">目标</h4>
+<ol type="1">
+<li><p>本研究的主要目的是比较非手术治疗的I期或II期HCC患者的总体生存期（overall
+survival,OS），同时比较接受RFA治疗的患者与接受SBRT治疗的患者的OS。 &gt;
+OS的定义：从诊断日期到死亡(任何原因所导致)日期。</p></li>
+<li><p>次要目标是确定RFA和SBRT在临床相关患者子集中的有效性。</p></li>
+</ol>
+<h4 id="统计分析">统计分析</h4>
+<ol type="1">
+<li>评估治疗方式与患者的特点，临床特点及和医疗设施特征之间的相关性
+<ul>
+<li>分类数据：Pearson卡方,Fisher’s exact test</li>
+<li>计量数据：Wilcoxon rank sum test</li>
+</ul></li>
+<li>对于主要结果，构建了两种OS与治疗方式之间相关性的模型
+<ul>
+<li>a propensity score-and time-to-treatment-matched univariable Cox
+proportional hazards model
+/倾向性评分和治疗时间匹配的单因素Cox比例风险模型</li>
+<li>an unmatched univariable analysis based on the Kaplan-Meier
+estimator of inverse probability of treatment weight
+(IPTW)/基于IPTW的Kaplan-Meier估计量的未匹配的单因素分析</li>
+</ul></li>
+<li>构建以接受SBRT为目标事件构建模型的倾向性评分模型。
+<ul>
+<li>通过逐步多因素logistic回归模型。</li>
+<li>变量选择：先进行单因素分析，纳入所有与治疗方法显著相关的变量(a
+threshold of P &lt;0.20 required for initial inclusion and P &lt;0.10
+required to remain in the model)。</li>
+</ul></li>
+<li>在倾向性评分的基础上，计算稳定的IPTW。IPTWs were truncated at
+第5和第95百分位</li>
+<li>构建倾向性评分和治疗时间匹配的OS模型
+<ul>
+<li>通过使用a greedy, nearest neighbor matching
+algorithm，接受SBRT治疗的患者与接受RFA治疗的患者，在倾向性评分和诊断到治疗的时间上，匹配为1：2。倾向性评分的最大允许差异为±2％，诊断到治疗的时间的最大允许差异为±14天。</li>
+<li>计算每组的Kaplan-Meier估计量，并使用对数秩检验(log-rank
+test)进行比较。</li>
+</ul></li>
+<li>对于OS的最终模型，计算所有患者的IPTW
+Kaplan-Meier估计量，并通过对数秩检验在各组之间进行比较。</li>
+<li>所有计算均使用SAS软件9.4版进行。</li>
+<li>在匹配的患者组中，我们通过交互作用(interaction)和亚组分析(subgroup
+analyses)评估了治疗效果的异质性(heterogeneity of treatment
+effects)，探讨了年龄，性别，临床T分期，肿瘤大小，肿瘤分级，Charlson-Deyo合并症评分和设施类型的影响。</li>
+<li>由于在NCDB中纤维化/肝硬化例数较少，以及纤维化/肝硬化与OS减少之间的已知关联。我们在匹配的患者组中进行了敏感性分析，以研究这种未测量的混杂因素对我们的结果的潜在影响。</li>
+<li>敏感性分析的目标是探索假设的结果情景，并在其中调整观察到的治疗效果以解释潜在的未测量的混杂因素。</li>
+<li>除了观察到的治疗效果外，敏感性分析还纳入了关于生存效应和未测量混杂因子的不同暴露的假设信息，以计算如果去除未测量的混杂因素将会观察到的真实治疗效果。</li>
+</ol>
+<h3 id="结果-1">结果</h3>
+<h4 id="factors-associated-with-use-of-sbrt">Factors Associated With Use
+of SBRT</h4>
+<ol type="1">
+<li>开始SBRT和RFA治疗的中位时间分别为72天和48天。</li>
+<li>患者基线特征列于表1中。 <img
+src="http://qiniup.louyanspine.com/2018-07-17-Table%201.jpg"
+alt="Table 1" /> <img
+src="http://qiniup.louyanspine.com/2018-07-17-Table%201c.jpg"
+alt="Table 1_c" /></li>
+<li>通过倾向性评分和time to
+treatment进行匹配，两组患者所有的协变量均取得了足够的组间平衡（见表A1）。
+<img src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1.jpg"
+alt="表A1" /> <img
+src="http://qiniup.louyanspine.com/2018-07-17-Table%20A1c.jpg"
+alt="表A1_c" /></li>
+<li>接受SBRT的患者比例随时间逐渐增加，年增长率为12％（P&lt;0.001;图2），大多数患者（79.7％）接受三至五次治疗。</li>
+</ol>
+<h4 id="生存分析">生存分析</h4>
+<h4 id="严重纤维化肝硬化的影响">严重纤维化/肝硬化的影响</h4>
+<h3 id="讨论">讨论</h3>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/17/propensityscoreR/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2601,531 +2871,6 @@ aria-hidden="true">边商、内商之间三种票据的交易价格</figcaption>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/18/xinxiangpian/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/18/xinxiangpian/" class="post-title-link" itemprop="url">心相篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-18 14:36:26" itemprop="dateCreated datePublished" datetime="2018-06-18T14:36:26+08:00">2018-06-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-27 23:38:28" itemprop="dateModified" datetime="2019-02-27T23:38:28+08:00">2019-02-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">杂谈</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="心相篇">心相篇</h1>
-<blockquote>
-<p>[宋] 陈希夷</p>
-</blockquote>
-<h3 id="原文及注释">原文及注释</h3>
-<p>心者貌之根，审心而善恶自见；</p>
-<blockquote>
-<p>心地是相貌的根本，审察一个人的心地，就可以了解他的善恶之性；</p>
-</blockquote>
-<p>行者心之发，观行而祸福可知。</p>
-<blockquote>
-<p>行为是心性的外在表现，观察一个人的行为，就可以知道他的祸福吉凶。</p>
-</blockquote>
-<p>出纳不公平，难得儿孙长育；</p>
-<blockquote>
-<p>买卖出纳不公平的人，儿女常常短命夭折；</p>
-</blockquote>
-<p>语言多反复，应知心腹无依。</p>
-<blockquote>
-<p>说话无信多反复的人，没有几个心腹好友。</p>
-</blockquote>
-<p>消沮闭藏，必是好贪之辈；</p>
-<blockquote>
-<p>耗损别人的钱财和资源的人，必是贪婪之辈；</p>
-</blockquote>
-<p>披肝露胆，决为英杰之人。</p>
-<blockquote>
-<p>为人坦荡，竭诚相待，待人忠诚，这样的人一定是英雄豪杰。</p>
-</blockquote>
-<p>心和气平，可卜孙荣兼子贵；</p>
-<blockquote>
-<p>遇事从容，心平气和的人，其子孙必然享尽荣华富贵；</p>
-</blockquote>
-<p>才偏性执，不遭大祸必奇穷。</p>
-<blockquote>
-<p>才走偏锋，性格固执的人，不遭大祸就一定很贫穷。</p>
-</blockquote>
-<p>转眼无情，贫寒夭促；</p>
-<blockquote>
-<p>翻脸无情的人一生贫寒，夭折短寿；</p>
-</blockquote>
-<p>时谈念旧，富贵期颐。</p>
-<blockquote>
-<p>时时念旧，发迹不忘故友的人，富贵绵远，长寿多福。</p>
-</blockquote>
-<p>重富欺贫，焉可托妻寄子；</p>
-<blockquote>
-<p>嫌贫爱富的人，心地刻薄，怎么能够在外出时把家中妻儿托付给他？</p>
-</blockquote>
-<p>敬老慈幼，必然裕后光前。</p>
-<blockquote>
-<p>能够敬老爱幼，关怀弱者，这样的人将来必定会立身扬名，光耀祖宗，福荫子孙。</p>
-</blockquote>
-<p>轻口出违言，寿元短折；</p>
-<blockquote>
-<p>动辄就讲一些不合情理、违心的话，最易折损自己的寿命；</p>
-</blockquote>
-<p>忘恩思小怨，科第难成。</p>
-<blockquote>
-<p>忘恩负义、记小仇的人，难以考学科第。</p>
-</blockquote>
-<p>小富小贵易盈，刑灾准有；</p>
-<blockquote>
-<p>小成就骄傲自满、目空四海的人成不了大气候；</p>
-</blockquote>
-<p>大富大贵不动，厚福无疆。</p>
-<blockquote>
-<p>大成就而不骄傲的人，福报深厚无边。</p>
-</blockquote>
-<p>欺蔽阴私，纵有荣华儿不享；</p>
-<blockquote>
-<p>恶行隐蔽、行为不光明的人，纵有荣华富贵，儿孙也享用不到。</p>
-</blockquote>
-<p>公平正直，虽无子息死为神。</p>
-<blockquote>
-<p>而公平正直的人虽没有子嗣，死后也可以做神。</p>
-</blockquote>
-<p>开口说轻生，临大节决然规避；</p>
-<blockquote>
-<p>平时“为国献身、为朋友献身”的豪言壮语不离口，这样的人在大事关头、大节时刻，一定会逃掉；</p>
-</blockquote>
-<p>逢人称知己，即深交究竟平常。</p>
-<blockquote>
-<p>滥交朋友的人，即使所谓的“深交”实际上很平常。</p>
-</blockquote>
-<p>处大事不辞劳怨，堪为梁栋之材；</p>
-<blockquote>
-<p>能挑起重担又任劳任怨的人，一定是国家的栋梁；</p>
-</blockquote>
-<p>遇小故辄避嫌疑，岂是腹心之寄。</p>
-<blockquote>
-<p>碰到一点小事就避嫌，不肯承担一点责任的人，怎么能重用呢。</p>
-</blockquote>
-<p>与物难堪，不测亡身还害子；</p>
-<blockquote>
-<p>平时待人待物刻薄，常常令人下不来台，不但引来杀身之祸，还会遗害子孙；</p>
-</blockquote>
-<p>待人有地，无端得福更延年。</p>
-<blockquote>
-<p>待人接物，殷勤热情的人，会获得意外的福禄和长寿。</p>
-</blockquote>
-<p>迷花恋酒，阃kǔn中妻妾参商；</p>
-<blockquote>
-<p>寻花问柳、贪杯恋酒的人，家中的女眷一定不和睦；</p>
-<p>参商指的是参星与商星，二者在星空中此出彼没，彼出此没，古人以此比喻彼此对立，不和睦、亲友隔绝，不能相见、有差别；有距离。
-古书左传上有记载。</p>
-</blockquote>
-<p>利己损人，膝下儿孙悖逆。</p>
-<blockquote>
-<p>利己损人的人，一定会有不肖子孙。</p>
-</blockquote>
-<p>贱买田园，决生败子；</p>
-<blockquote>
-<p>趁火打劫、贱买人家财产，一定会生出败家子；</p>
-</blockquote>
-<p>尊崇师傅，定产贤郎。</p>
-<blockquote>
-<p>尊师重道的人家一定出孝子贤孙。</p>
-</blockquote>
-<p>愚鲁人，说话尖酸刻薄，既贫穷，必损寿元；</p>
-<blockquote>
-<p>愚蠢鲁莽的人，说话尖酸刻薄，不但会贫穷而且会缩减自己的寿命；</p>
-</blockquote>
-<p>聪明子，语言木讷优容，享安康，且膺封诰。</p>
-<blockquote>
-<p>聪明的人，平时不随便说话，一举一动优雅从容，这样的人一生平安健康而且还会得到朝廷的赐封。</p>
-</blockquote>
-<p>患难中能守者，若读书，可作朝廷柱石之臣；</p>
-<blockquote>
-<p>在艰难困苦中还能坚持自己的操守，不随波逐流的人，如果读书、走仕途之路，一定是国家的柱石之臣；</p>
-</blockquote>
-<p>安乐中若忘者，纵低才，岂非金榜青云之客。</p>
-<blockquote>
-<p>安乐中忘记安乐、依然能发奋图强的人，即使才学低一些，未必就不能够金榜题名，青云直上。</p>
-</blockquote>
-<p>鄙吝勤劳，亦有大富小康之别，宜观其量；</p>
-<blockquote>
-<p>节俭勤劳的人有大富有小康的区别，关键看其人的器量；</p>
-</blockquote>
-<p>奢侈靡丽，宁无奇人浪子之分，必视其才。</p>
-<blockquote>
-<p>奢侈豪华的人有奇人也有浪子，关键看其人的才能。</p>
-</blockquote>
-<p>弗以见小为守成，惹祸破家难免；</p>
-<blockquote>
-<p>不要把爱占小便宜为“守成”，这样的人难免惹祸破家；</p>
-</blockquote>
-<p>莫认惜福为悭吝，轻财仗义尽多。</p>
-<blockquote>
-<p>不要以为爱惜财物是吝啬，这样的人遇到他人有困难，往往是仗义疏财的人。</p>
-</blockquote>
-<p>处事迟而不急，大器晚成；</p>
-<blockquote>
-<p>处事沉稳不着急的，必是大器晚成的人；</p>
-</blockquote>
-<p>见机决而能藏，高才早发。</p>
-<blockquote>
-<p>自己能谋划决断而又能深藏不露的人，必然才高而年轻得志。</p>
-</blockquote>
-<p>有能吝教，己无成子亦无成；</p>
-<blockquote>
-<p>有才能而不肯教给他人，自己不但没有成就，子女也一无所成；</p>
-</blockquote>
-<p>见过隐规，身可托家亦可托。</p>
-<blockquote>
-<p>见到他人有过错，能够在暗中规劝的人，可以托身寄家。</p>
-</blockquote>
-<p>知足与自满不同，一则矜而受灾，一则谦而获福；</p>
-<blockquote>
-<p>知足与自满不一样，知足的人谦虚谨慎必有福报，骄矜自大的人必然招致灾祸</p>
-</blockquote>
-<p>大才与庸才自别，一则诞而多败，一则实而有成。</p>
-<blockquote>
-<p>大才与庸才自然有区别：一种是有实际能力可以做出成绩，另一种是夸夸其谈却无法做成一事。</p>
-</blockquote>
-<p>忮求念胜，图名利，到底逊人；</p>
-<blockquote>
-<p>因为嫉妒别人的成就和才华，非要胜过别人，心里没有远大的抱负，只是追求名誉和利益，这种人的人品到底是逊人一筹；</p>
-</blockquote>
-<p>恻隐心多，遇艰难，中途获救。</p>
-<blockquote>
-<p>常常怀有恻隐之心的人，即使遇到艰难，也会获得别人的帮助。</p>
-</blockquote>
-<p>不分德怨，料难至乎遐年；</p>
-<blockquote>
-<p>对人不分德怨，只知道按自己的情绪来对人的人，估计很难长寿；</p>
-</blockquote>
-<p>较量锱铢，岂足期乎大受？</p>
-<blockquote>
-<p>斤斤计较的人，怎么能承受的了大富大贵呢。</p>
-</blockquote>
-<p>过刚者图谋易就，灾伤岂保全无？</p>
-<blockquote>
-<p>过于刚强的人，做事虽容易成功，但容易伤人伤己，很难善终；</p>
-</blockquote>
-<p>太柔者作事难成，平福亦能安受。</p>
-<blockquote>
-<p>过于柔弱的人，做事不容易成功，福报平平但能安享。</p>
-</blockquote>
-<p>乐处生悲，一生辛苦；</p>
-<blockquote>
-<p>高兴的时候却生出悲伤的情绪，这样的人难免辛苦一辈子；</p>
-</blockquote>
-<p>怒时反笑，至老奸邪。</p>
-<blockquote>
-<p>明明非常生气却反而露出笑容，这样的人一生都是奸诈凶邪之辈。</p>
-</blockquote>
-<p>好矜己善，弗再望乎功名；</p>
-<blockquote>
-<p>喜欢自夸己善的人，就不要再想自己在仕途上有什么成就了；</p>
-</blockquote>
-<p>乐摘人非，最足伤乎性命。</p>
-<blockquote>
-<p>喜欢挑剔别人的过错，最容易伤害自己的性命。</p>
-</blockquote>
-<p>责人重而责己轻，弗与同谋共事；</p>
-<blockquote>
-<p>指责别人重，批评自己轻，这种人既不能共同谋划事情、一起工作。</p>
-</blockquote>
-<p>功归人而过归己，尽堪救患扶灾。</p>
-<blockquote>
-<p>功劳归别人过错归自己，这种人可以任命他去解除危机、扶助灾患。</p>
-</blockquote>
-<p>处家孝弟无亏，簪缨奕世；</p>
-<blockquote>
-<p>在家中孝顺父母长辈，照顾兄弟姐妹，即使有困难也不亏德行，这样的家族世世代代都会有人在朝为官；</p>
-</blockquote>
-<p>与世吉凶同患，血食千年。</p>
-<blockquote>
-<p>在民族国家生死存亡的时刻，与世人同生死共进退的人，会被人永远铭记，祭祀千年不忘（屈原、岳飞、介子推）</p>
-</blockquote>
-<p>曲意周全知有后，</p>
-<blockquote>
-<p>自己吃亏受气、曲意周全他人的，其后人一定会非常贤明；</p>
-</blockquote>
-<p>任情激搏必凶亡。</p>
-<blockquote>
-<p>任性暴烈、一意孤行的，必定凶亡。</p>
-</blockquote>
-<p>易变脸，薄福之人奚较；</p>
-<blockquote>
-<p>易变脸的人薄福，何必与之计较呢？</p>
-</blockquote>
-<p>耐久朋，能容之士可宗。</p>
-<blockquote>
-<p>耐久可交的朋友，大肚能容，是值得信任、依靠的人。</p>
-</blockquote>
-<p>好与人争，滋培浅而前程有限；</p>
-<blockquote>
-<p>争强好胜的人虽能风光一时，却前程有限；</p>
-</blockquote>
-<p>必求自反，蓄积厚而事业能伸。</p>
-<blockquote>
-<p>一定要经常自我反省，品重德厚，事业自然一帆风顺。</p>
-</blockquote>
-<p>少年飞扬浮动，颜子之限难过；</p>
-<blockquote>
-<p>少年人飞扬浮动的，往往都寿不过三十二岁；</p>
-</blockquote>
-<p>壮岁冒昧昏迷，不惑之期怎免？</p>
-<blockquote>
-<p>壮年人还鲁莽行事的，四十岁上难免有大难。</p>
-</blockquote>
-<p>喜怒不择轻重，一事无成；</p>
-<blockquote>
-<p>不分轻重、喜怒无常的人一事无成</p>
-</blockquote>
-<p>笑骂不审是非，知交断绝。</p>
-<blockquote>
-<p>不分是非、喜欢拿别人开玩笑的人，好朋友也会与之断交。</p>
-</blockquote>
-<p>济急拯危，亦有时乎贫乏，福自天来；</p>
-<blockquote>
-<p>救人于危难之中的人，有时也遭遇贫困，自有天赐福；</p>
-</blockquote>
-<p>解纷排难，恐亦涉乎囹圄，名扬海内。</p>
-<blockquote>
-<p>为人分忧解难的人，虽然有时也有牢狱之灾，自有神来保佑他。</p>
-</blockquote>
-<p>饿死岂在纹描，抛衣撒饭；</p>
-<blockquote>
-<p>被饿死的人仅仅因为面相上有“螣蛇纹入口”了吗？是这些人不知惜福，糟踏五谷；</p>
-</blockquote>
-<p>瘟亡不由运数，骂地咒天。</p>
-<blockquote>
-<p>得瘟疫而亡的人是因为运数不好吗？是这些人自己造孽还咒骂天地。</p>
-</blockquote>
-<p>甘受人欺，有子忽然大发；</p>
-<blockquote>
-<p>甘心忍受他人的欺辱，后代一定发达；</p>
-</blockquote>
-<p>常思退步，一身终得安闲。</p>
-<blockquote>
-<p>常退一步为他考虑，终身自在安闲。</p>
-</blockquote>
-<p>举止不失其常，非贵亦须大富，寿可知矣；</p>
-<blockquote>
-<p>一举一动不失常态的人，不是贵也是大富，长寿更不用说了；</p>
-</blockquote>
-<p>喜怒不形于色，成名还立大功，奸亦有之。</p>
-<blockquote>
-<p>喜怒不形于色的人，功名可成，也有大奸之人。</p>
-</blockquote>
-<p>无事失措仓皇，光如闪电；</p>
-<blockquote>
-<p>无事仓皇失措的人，福禄薄如电光雷火；</p>
-</blockquote>
-<p>有难怡然不动，安若泰山。</p>
-<blockquote>
-<p>有难怡然不动的人，福禄重如泰山。</p>
-</blockquote>
-<p>积功累仁，百年必报；</p>
-<blockquote>
-<p>积功累仁的善行必得善果，即使等上一百年，也会得善报；</p>
-</blockquote>
-<p>大出小入，数世其昌。</p>
-<blockquote>
-<p>借贷米粮，用大斗出借，以小斗回收，这样的家道一定会数世昌盛。</p>
-</blockquote>
-<p>人事可凭，天道不爽。</p>
-<blockquote>
-<p>可以凭借人事，验证天道（天理、承负）的准确。</p>
-</blockquote>
-<p>如何飧刀饮剑？君子刚愎自用，小人行险侥幸。</p>
-<blockquote>
-<p>为什么有人走上绝路自杀呢？君子刚愎自用而失败，小人心怀侥幸心理而去做冒险的事，都可以导致自杀。</p>
-</blockquote>
-<p>如何投河自缢？男人才短蹈危，女子气盛见逼。</p>
-<p>如何短折亡身？出薄言，做薄事，存薄心，种种皆薄；</p>
-<blockquote>
-<p>为什么有人夭折亡身，作了短命鬼呢？因为是出薄言、做薄事、存薄心，处处都薄。</p>
-</blockquote>
-<p>如何凶灾恶死？多阴毒，积阴私，有阴行，事事皆阴。</p>
-<blockquote>
-<p>为什么有人遭遇横祸，凶灾恶死呢？因为这些人多阴毒、积阴私、有阴行、事事皆阴。</p>
-</blockquote>
-<p>如何暴疾而殁？色欲空虚。</p>
-<blockquote>
-<p>为什么有人暴病而亡？因为恣情纵欲，精气耗尽。</p>
-</blockquote>
-<p>如何毒疮而终？肥甘凝腻。</p>
-<blockquote>
-<p>为什么有人毒疮而死呢？因为这些人饮食上肥甘凝腻。</p>
-</blockquote>
-<p>如何老后无嗣？性情孤洁。</p>
-<blockquote>
-<p>为什么有些人年老尚无子嗣呢？大多因为性情孤洁。</p>
-</blockquote>
-<p>如何盛年丧子？心地欺瞒。</p>
-<blockquote>
-<p>为什么有人于盛年丧子呢？心地欺瞒——阴损事做多了，亏心事做多了。</p>
-</blockquote>
-<p>如何多遭火盗？刻剥民财。</p>
-<blockquote>
-<p>为什么有人总是遭遇水火盗贼之灾呢？因为刻剥民财，损人利己。</p>
-</blockquote>
-<p>如何时犯官府？强梁作胆。</p>
-<blockquote>
-<p>为什么总是有人违法乱纪？倚仗着权势、地位，胆大妄为。</p>
-</blockquote>
-<p>何知端揆首辅？常怀济物之心。</p>
-<blockquote>
-<p>什么人能当宰相？常怀济物之心的人。</p>
-</blockquote>
-<p>何知拜将封侯？独挟盖世之气。</p>
-<blockquote>
-<p>什么人能拜将封侯呢？有独挟盖世的胸襟、气魄的人。</p>
-</blockquote>
-<p>何知玉堂金马？动容清丽。</p>
-<blockquote>
-<p>什么人能以文章博得功名呢？格局清丽，神清气秀的人。</p>
-</blockquote>
-<p>何知建牙拥节？气概凌霄。</p>
-<blockquote>
-<p>什么有人能够委以重任，镇守一方？志存高远，气概凌霄的人。</p>
-</blockquote>
-<p>何知丞簿下吏？量平胆薄。</p>
-<blockquote>
-<p>为什么有人只能当小职员呢？因为量平胆薄。</p>
-</blockquote>
-<p>何知明经教职？志近行拘。</p>
-<blockquote>
-<p>为什么有的人靠通明经典却以教书糊口呢？因为胸无大志，行为拘谨。</p>
-</blockquote>
-<p>何知苗而不秀？非惟愚蠢更荒唐。</p>
-<blockquote>
-<p>为什么有些人看着是好苗子却成不了才呢？因为作人愚蠢，行事荒唐；</p>
-</blockquote>
-<p>何知秀而不实？盖谓自贤兼短行。</p>
-<blockquote>
-<p>为什么有些人只得到虚名虚利，人生没有实际的结果呢？因为自以为很有才，且德行有亏或行动跟不上。</p>
-</blockquote>
-<p>若论妇人，先须静默；从来淑女，不贵才能。</p>
-<blockquote>
-<p>说到妇德女相，首先要沉稳安静，从来淑女都不是贵在才能上。</p>
-</blockquote>
-<p>有威严，当膺一品之封；少修饰，准掌万金之重。</p>
-<blockquote>
-<p>有威严的女人天命大，可封一品诰命；少修饰的女人宿命大，能管理大的家业。</p>
-</blockquote>
-<p>多言好胜，纵然有嗣必伤身；尽孝兼慈，不特助夫还旺子。</p>
-<blockquote>
-<p>多言好胜的女人，即使有后代也必受伤克；尽孝兼慈的女人，不但助夫还能旺子。</p>
-</blockquote>
-<p>贫苦中毫无怨詈，两国褒封；富贵时常惜衣粮，满堂荣庆。</p>
-<blockquote>
-<p>贫苦中无怨言，会受到婆娘两地的褒奖；富贵还能勤俭持家，一定满堂荣庆。</p>
-</blockquote>
-<p>奴婢成群，定是宽宏待下；资财盈箧，决然勤俭持家。</p>
-<blockquote>
-<p>府中奴婢成群，主人一定是宽宏待下；家中资财丰厚，主人一定是勤俭持家。</p>
-</blockquote>
-<p>悍妇多因性妒，老后无归；奚婆定是情乖，少年浪走。</p>
-<blockquote>
-<p>凶蛮泼辣的悍妇，多因嫉妒成性，晚年一定孤独无靠；卖淫为娼的奚婆，定是性情乖戾轻浮，年轻时行为浪荡。</p>
-</blockquote>
-<p>为甚欺夫？显然淫行。缘何无子？暗里伤人。</p>
-<blockquote>
-<p>为什么欺辱丈夫？显然是淫行；为什么没有子嗣？暗地里伤人。</p>
-</blockquote>
-<p>合观前论，历试无差；勉教后来，犹期善变。</p>
-<p>信乎骨格步位，相辅而行；允矣血气精神，由之而显。</p>
-<blockquote>
-<p>骨格与其位相辅相成，血色与气色互为表里，这是确信无疑的。</p>
-</blockquote>
-<p>知其善而守之，锦上添花；知其恶而弗为，祸转为福！、</p>
-<blockquote>
-<p>知其善而守住善道，有福之人可以锦上添花；知其恶而不去做，有祸之人可以转祸为福</p>
-</blockquote>
-<h3 id="陈希夷简介">陈希夷简介</h3>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-18-%E9%99%88%E6%8A%9F%E8%80%81%E7%A5%96.jpg"
-alt="陈抟" />
-<figcaption aria-hidden="true">陈抟</figcaption>
-</figure>
-<p>陈抟（公元872年—989年），字“图南”，号“扶摇子”、“白云先生”、“希夷先生”（“夷”指视而不见，“希”指听而不闻），知名道教人士，常被视为神仙，尊称为陈抟老祖、希夷祖师等。</p>
-<p>五代末，宋朝初期人，其生平事迹和出生时地众说纷纭，真伪难辨，一说普州崇龛县人（今重庆市潼南县崇龛镇）。一说华州华阴人（今陕西华阴一带），祖籍谯郡（今安徽亳州一带）。一说亳州真源县（今河南省鹿邑县）人。</p>
-<p>主张以睡眠，休养生息，时常一眠数日，人称睡仙。相传紫微斗数及无极图说皆为陈抟之创作。</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-18-%E9%99%B3%E5%B8%8C%E5%A4%B7%E7%9D%A1%E5%9B%BE.jpg"
-alt="陳希夷睡图" />
-<figcaption aria-hidden="true">陳希夷睡图</figcaption>
-</figure>
-<p>据史书记载，陈抟曾将《太极图》(原名《无极图》)、《先天图》、《河图》以及《洛书》传给其学生种放，种放以之分别传穆修、李溉等人，后来穆修将《太极图》传给周敦颐。周敦颐著《太极图说》加以解释。现在我们看到的太极图，就是周敦颐所传的。</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-18-%E5%A4%AA%E6%9E%81.png"
-alt="太极图" />
-<figcaption aria-hidden="true">太极图</figcaption>
-</figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -3195,7 +2940,7 @@ alt="太极图" />
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">642</span>
+          <span class="site-state-item-count">643</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -3208,7 +2953,7 @@ alt="太极图" />
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2869</span>
+        <span class="site-state-item-count">2889</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
