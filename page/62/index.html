@@ -191,6 +191,829 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/21/Markdownmath/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/21/Markdownmath/" class="post-title-link" itemprop="url">在Markdown中写数学公式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-21 23:54:36" itemprop="dateCreated datePublished" datetime="2018-07-21T23:54:36+08:00">2018-07-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-14 02:08:32" itemprop="dateModified" datetime="2022-02-14T02:08:32+08:00">2022-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="行内公式">行内公式</h2>
+<p>语法是<code>$行内公式$</code>。可以让公式在文中与文字或其他东西混编，不独占一行。</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>质能方程$E = mc^2$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li>质能方程<span class="math inline">\(E = mc^2\)</span></li>
+</ul></li>
+</ol>
+<h2 id="独立公式">独立公式</h2>
+<p>语法是<code>$$行内公式$$</code>。使公式单独占一行，不与文中其他文字等混编。</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>质能方程$$E = mc^2$$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li>质能方程<span class="math display">\[E = mc^2\]</span></li>
+</ul></li>
+</ol>
+<h2 id="普通公式">普通公式</h2>
+<p>普通的加减乘除数学公式的输入方法与平常的书写一样。</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>$$x = 100 * y + z - 10 / 33 + 10 % 3$$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li><span class="math display">\[x = 100 * y + z - 10 / 33 + 10 %
+3\]</span></li>
+</ul></li>
+</ol>
+<h2 id="上下标">上下标</h2>
+<p>使用<code>^</code>来表示上标，<code>_</code>来表示下标，同时如果上下标的内容多于一个字符，可以使用<code>&#123;&#125;</code>来将这些内容括起来当做一个整体。</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>$$x = a_&#123;1&#125;^n + a_&#123;2&#125;^n + a_&#123;3&#125;^n$$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li><span class="math display">\[x = a_{1}^n + a_{2}^n +
+a_{3}^n\]</span></li>
+</ul></li>
+</ol>
+<p>如果希望左右两边都能有上下标，可以使用<code>\sideset</code>语法</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>$$\sideset&#123;^1_2&#125;&#123;^3_4&#125;A$$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li><span class="math display">\[\sideset{^1_2}{^3_4}A\]</span></li>
+</ul></li>
+</ol>
+<h2 id="括号">括号</h2>
+<p><code>()</code>，<code>[]</code>和<code>|</code>都表示它们自己，但是<code>&#123;&#125;</code>因为有特殊作用因此当需要显示大括号时一般使用<code>\lbrace \rbrace</code>来表示。</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>$$f(x, y) = 100 * \lbrace[(x + y) * 3] - 5\rbrace$$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li><span class="math display">\[f(x, y) = 100 * \lbrace[(x + y) * 3] -
+5\rbrace\]</span></li>
+</ul></li>
+</ol>
+<h2 id="分数">分数</h2>
+<p>分数使用<code>\frac&#123;分子&#125;&#123;分母&#125;</code>这样的语法，不过推荐使用<code>\cfrac</code>来代替<code>\frac</code>，显示公式不会太挤。</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>$$\frac&#123;1&#125;&#123;3&#125; 与 \cfrac&#123;1&#125;&#123;3&#125;$$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li><span class="math display">\[\frac{1}{3} 与
+\cfrac{1}{3}\]</span></li>
+</ul></li>
+</ol>
+<h2 id="开方">开方</h2>
+<p>开方使用<code>\sqrt[次数]&#123;被开方数&#125;</code>这样的语法</p>
+<ol type="1">
+<li>示例
+<ul>
+<li><code>$$\sqrt[3]&#123;X&#125;$$</code></li>
+<li><code>$$\sqrt&#123;5 - x&#125;$$</code></li>
+</ul></li>
+<li>显示
+<ul>
+<li><span class="math display">\[\sqrt[3]{X}\]</span></li>
+<li><span class="math display">\[\sqrt{5 - x}\]</span></li>
+</ul></li>
+</ol>
+<h2 id="希腊字母">希腊字母</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">代码</th>
+<th style="text-align: center;">大写</th>
+<th style="text-align: center;">代码</th>
+<th style="text-align: center;">小写</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>A</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><code>\alpha</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\alpha\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>B</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><code>\beta</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\beta\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\Gamma</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Gamma\)</span></td>
+<td style="text-align: center;"><code>\gamma</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\gamma\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\Delta</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Delta\)</span></td>
+<td style="text-align: center;"><code>\delta</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\delta\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>E</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(E\)</span></td>
+<td style="text-align: center;"><code>\epsilon</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\epsilon\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>Z</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(Z\)</span></td>
+<td style="text-align: center;"><code>\zeta</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\zeta\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>H</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(H\)</span></td>
+<td style="text-align: center;"><code>\eta</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\eta\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\Theta</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Theta\)</span></td>
+<td style="text-align: center;"><code>\theta</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\theta\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>I</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(I\)</span></td>
+<td style="text-align: center;"><code>\iota</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\iota\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>K</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(K\)</span></td>
+<td style="text-align: center;"><code>\kappa</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\kappa\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\Lambda</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Lambda\)</span></td>
+<td style="text-align: center;"><code>\lambda</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>M</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(M\)</span></td>
+<td style="text-align: center;"><code>\mu</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mu\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>N</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(N\)</span></td>
+<td style="text-align: center;"><code>\nu</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\nu\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\Xi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Xi\)</span></td>
+<td style="text-align: center;"><code>\xi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\xi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>O</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(O\)</span></td>
+<td style="text-align: center;"><code>\omicron</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\omicron\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\Pi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Pi\)</span></td>
+<td style="text-align: center;"><code>\pi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\pi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>P</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(P\)</span></td>
+<td style="text-align: center;"><code>\rho</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\rho\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\Sigma</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Sigma\)</span></td>
+<td style="text-align: center;"><code>\sigma</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\sigma\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>T</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: center;"><code>\tau</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\tau\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\Upsilon</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Upsilon\)</span></td>
+<td style="text-align: center;"><code>\upsilon</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\upsilon\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\Phi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Phi\)</span></td>
+<td style="text-align: center;"><code>\phi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\phi\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>X</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(X\)</span></td>
+<td style="text-align: center;"><code>\chi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\chi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\Psi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Psi\)</span></td>
+<td style="text-align: center;"><code>\psi</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\psi\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\Omega</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\Omega\)</span></td>
+<td style="text-align: center;"><code>\omega</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\omega\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="关系运算符">关系运算符</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">代码</th>
+<th style="text-align: center;">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>\pm</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\pm\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\times</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\times\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\div</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\div\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\mid</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mid\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\nmid</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\nmid\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\cdot</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\cdot\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\circ</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\circ\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\ast</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\ast\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\bigodot</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigodot\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\bigotimes</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigotimes\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\bigoplus</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigoplus\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\leq</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\leq\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\geq</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\geq\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\neq</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\neq\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\approx</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\approx\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\equiv</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\equiv\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\sum</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\sum\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\prod</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\prod\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\coprod</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\coprod\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="集合运算符">集合运算符</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">代码</th>
+<th style="text-align: center;">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>\emptyset</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\emptyset\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\in</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\in\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\notin</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\notin\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\subset</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\subset\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\supset</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\supset\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\subseteq</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\subseteq\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\supseteq</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\supseteq\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\bigcap</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigcap\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\bigcup</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigcup\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\bigvee</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigvee\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\bigwedge</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigwedge\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\biguplus</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\biguplus\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\bigsqcup</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bigsqcup\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="对数运算符">对数运算符</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">代码</th>
+<th style="text-align: center;">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>\log</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\log\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\lg</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\lg\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\ln</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\ln\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="三角运算符">三角运算符</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">代码</th>
+<th style="text-align: center;">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>\bot</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\bot\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\angle</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\angle\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\sin</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\sin\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\cos</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\cos\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\tan</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\tan\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\cot</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\cot\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\sec</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\sec\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\csc</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\csc\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="微积分运算符">微积分运算符</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">代码</th>
+<th style="text-align: center;">符号</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>\prime</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\prime\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\int</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\int\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\iint</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\iint\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\iiint</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\iiint\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\iiiint</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\iiiint\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\oint</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\oint\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\lim</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\lim\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\infty</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\infty\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>\nabla</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\nabla\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\mathrm&#123;d&#125;</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{d}\)</span></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/21/mathjax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Louyan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高山流水">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/21/mathjax/" class="post-title-link" itemprop="url">使用mathjax引擎在Markdown中插入数学公式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-21 08:02:28" itemprop="dateCreated datePublished" datetime="2018-07-21T08:02:28+08:00">2018-07-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-02-28 00:50:29" itemprop="dateModified" datetime="2019-02-28T00:50:29+08:00">2019-02-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>说明<br> 1.
+部分参考自博客[始终]上文章：<a target="_blank" rel="noopener" href="https://liam0205.me/2015/09/09/fix-conflict-between-mathjax-and-markdown/">解决MathJax与Markdown的冲突</a><br>
+2.
+部分参考自博客[天空的城]上的文章：<a target="_blank" rel="noopener" href="http://shomy.top/2016/10/22/hexo-markdown-mathjax/">Hexo下mathjax的转义问题</a></p>
+</blockquote>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-22-Tutorial%20add%20MathJax%20with%20Blogger%20-1-.png" /></p>
+<h2 id="启用mathjax插件">启用Mathjax插件</h2>
+<ol type="1">
+<li><p>安装：<code>cd</code>进入Hexo的根目录</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure></p></li>
+<li><p>配置</p>
+<p>在站点配置文件<code>_config.yml</code>中加入下述代码：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">math:</span><br><span class="line">  engine: &#x27;mathjax&#x27; # or &#x27;katex&#x27;</span><br><span class="line">  mathjax:</span><br><span class="line">    src: custom_mathjax_source</span><br><span class="line">    config:</span><br><span class="line">      # MathJax config</span><br><span class="line">  katex:</span><br><span class="line">    css: custom_css_source</span><br><span class="line">    js: custom_js_source # not used</span><br><span class="line">    config:</span><br><span class="line">      # KaTeX config</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h2 id="next如何集成mathjax">NexT如何集成mathjax？</h2>
+<p>可以在<code>next</code>文件中的主题配置文件<code>_config.xml</code>下做类似如下配置后便可用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># MathJax Support</span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  per_page: false</span><br><span class="line">  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure>
+<h2
+id="如果框架不提供配置怎么集成mathjax">如果框架不提供配置怎么集成mathjax?</h2>
+<p>只要在需要集成的页面上加载一个script即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line">   src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="如何复制别人的mathjax代码">如何复制别人的mathjax代码？</h2>
+<ol type="1">
+<li><p>可以查看网页源码。</p></li>
+<li><p>可以直接在公式上右键，按照如下图的操作后便可看到代码。</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-22-mathjax.jpg" /></p></li>
+<li><p>在线识别手写数学公式并转换为的mathjax代码<a target="_blank" rel="noopener" href="https://webdemo.myscript.com/views/main/math.html">网站</a></p></li>
+</ol>
+<h2 id="mathjax与markdown的冲突">MathJax与Markdown的冲突</h2>
+<p>MathJax是一个JavaScript引擎，能够将LaTeX语法书写的公式在网页上显示出来。Markdown是一种轻量级的标记语言。用Markdown书写的文章，可以用Markdown解释器处理成标准的HTML文档。因此Markdown很适合用来写博客。</p>
+<p>在Markdown中，下划线<code>_</code>被保留，用作标记符号。比如<code>_Slant_</code>会生成倾斜的_Slant_。在LaTeX中，下划线<code>_</code>被用作下标记号。比如<code>x_i</code>会生成<span
+class="math inline">\(x_i\)</span>。</p>
+<p>由于 Markdown 在 MathJax 之前起作用，有时下标记号会被 Markdown
+吃掉，变成 HTML 标记<code>&lt;i&gt;</code>而失去 LaTeX
+的下标效果，造成数学公式显示不正常。</p>
+<p>比如<code>This is an example: $f_i = f_&#123;i + 1&#125;$</code>里的两个下划线会被Markdown理解成倾斜的标记，显示成这样：</p>
+<p><img
+src="http://qiniup.louyanspine.com/2018-07-22-%E9%94%99%E8%AF%AF%E6%98%BE%E7%A4%BA.png" /></p>
+<h3 id="解决方案">解决方案</h3>
+<ol type="1">
+<li><p>更换Hexo的markdown引擎</p>
+<p>把Hexo默认的渲染markdown的引擎替换成插件pandoc<a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-renderer-pandoc">(hexo-renderer-pandoc)</a>进行渲染。但pandoc的语法与markdown有些微的差异，需要注意。</p>
+<ul>
+<li><p>安装<a target="_blank" rel="noopener" href="https://pandoc.org/installing.html">pandoc</a></p></li>
+<li><p><code>cd</code>进入Hexo的根目录，卸载Hexo默认的markd，再安装pandoc</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/07/18/confounding-biases-estimatess/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1570,1219 +2393,6 @@ both Google Chrome and Node.js — two very different environments.</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/27/JavaScriptbasic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/27/JavaScriptbasic/" class="post-title-link" itemprop="url">JavaScript笔记（未完）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-27 10:20:48" itemprop="dateCreated datePublished" datetime="2018-06-27T10:20:48+08:00">2018-06-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-02-28 00:51:58" itemprop="dateModified" datetime="2019-02-28T00:51:58+08:00">2019-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>说明<br> 1. 部分参考O'Reilly Media出版的JavaScript Programming_A
-Brain-Friendly Guide<br></p>
-</blockquote>
-<h2 id="一基本概念与简介">一、基本概念与简介</h2>
-<h3 id="javascript工作原理">JavaScript工作原理</h3>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-JavaScript%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg"
-alt="JavaScript工作原理" />
-<figcaption aria-hidden="true">JavaScript工作原理</figcaption>
-</figure>
-<ol type="1">
-<li><p>JavaScript最初是解释型的，这意味着浏览器执行(execute)它遇到的每行JavaScript代码。浏览器厂商对现代JavaScript采取即时编译的做法，使其既可获得脚本语言的便利性，又可享受编译型语言的性能。</p>
-<blockquote>
-<p>编译型语言如C、C++和Java在执行代码前必须进行编译(compile)，编译是将代码转换为适合计算机的表达方式，通常可改善运行阶段的性能。</p>
-</blockquote></li>
-<li><p>JavaScript的使用范围不仅仅在网页上，还用在各种应用程序（如Photoshop）以及服务器端编程中。<br />
-</p></li>
-<li><p>使用HTMl和CSS时，两者主要都是声明型的(declarative)，JavaScript负责计算，利用它能在网页中添加行为。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">语言</th>
-<th style="text-align: center;">内容</th>
-<th style="text-align: center;">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">HTMl</td>
-<td style="text-align: center;">markup标记</td>
-<td style="text-align: center;">statements结构</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">CSS</td>
-<td style="text-align: center;">rules规则</td>
-<td style="text-align: center;">styles样式</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">JavaScript</td>
-<td style="text-align: center;">statements语句</td>
-<td style="text-align: center;">computation/behavior计算和行为</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<h3 id="如何将javascript代码加入网页">如何将JavaScript代码加入网页</h3>
-<p>可在HTML文档中的任何地方使用<code>&lt;script&gt;</code>标签添加JavaScript代码</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E4%BB%A3%E7%A0%81%E4%BD%8D%E7%BD%AE.jpg"
-alt="代码位置" />
-<figcaption aria-hidden="true">代码位置</figcaption>
-</figure>
-<ol type="1">
-<li><p>嵌入在<code>&lt;head&gt;</code>里</p></li>
-<li><p>嵌入在<code>&lt;body&gt;</code>里</p>
-<ul>
-<li>浏览器加载网页时，先加载<code>&lt;head&gt;</code>元素内的所有内容，再加载<code>&lt;body&gt;</code>元素。如果将代码放在<code>&lt;head&gt;</code>元素中，用户可能需要等一会儿才能看到网页，而放在<code>&lt;body&gt;</code>元素中，则用户在等待这些代码加载时，就能看到网页的内容。</li>
-</ul></li>
-<li><p>代码放在独立的文件中，并在<code>&lt;head&gt;</code>元素中链接该文件</p>
-<ul>
-<li>用<code>&lt;script&gt;</code>标签的src属性来指定JavaScript文件的URL</li>
-</ul></li>
-<li><p>代码放在独立的文件中，并在<code>&lt;body&gt;</code>元素中链接该文件</p></li>
-<li><p><code>&lt;script&gt;</code>元素</p>
-<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;<span class="title function_">alert</span>(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>type可以省略</li>
-</ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;myJavaScript.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>引用独立的JavaScript文件时，<code>&lt;script&gt;</code>元素不能包含任何JavaScript代码</li>
-</ul></li>
-</ol>
-<h3 id="section"></h3>
-<h2 id="二语法">二、语法</h2>
-<h3 id="语法基础">语法基础</h3>
-<ol type="1">
-<li>每条语句以<code>;</code>结尾</li>
-<li>单行注释用<code>//</code>两个斜杠打头</li>
-<li>空格不重要</li>
-<li>字符串必须使用单引号或者双引号括起，而布尔值<code>true</code>和<code>false</code>则不能</li>
-<li>JavaScript区分大小写，故变量名、关键字和函数名等几乎所有一切的大小写都很重要。</li>
-</ol>
-<h3 id="变量variables和值values">变量Variables和值values</h3>
-<ol type="1">
-<li><p>JavaScript语句通常包含变量，变量用来存储值（如数字、字符串和布尔值等）</p>
-<blockquote>
-<p>布尔值无需用引号括起</p>
-</blockquote></li>
-<li><p>var关键字用来声明变量，声明变量时可以给它赋值，也可以不指定初始值。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var winners = 2;</span><br><span class="line">var losers;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>变量名的命名规则和建议</p>
-<ul>
-<li><p>以字母、下划线或美元符号<code>$</code>开头，后接任意数量的字母，数字，下划线或美元符号<code>$</code>。</p></li>
-<li><p>不能使用任何内置的关键字作为变量名。</p></li>
-<li><p>不能包含空格和引号。</p></li>
-<li><p>推荐使用有意义的变量名，如currentPressure和passedExam</p></li>
-<li><p>用多个单词做变量名时通常采用骆驼式拼写法(camel
-case)，即将每个单词的首字母大写（第一个单词除外），如：twoHeadedDragonWithFire。</p></li>
-<li><p>通常不要用<code>_</code>和<code>$</code>开头的变量名</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%85%B3%E9%94%AE%E5%AD%97.jpg"
-alt="关键字" />
-<figcaption aria-hidden="true">关键字</figcaption>
-</figure>
-<blockquote>
-<p>关键字keyword：是JavaScript的保留字reserved
-word，JavaScript将其用于特殊目的。</p>
-</blockquote></li>
-</ul></li>
-</ol>
-<h3 id="表达式expressions">表达式expressions</h3>
-<ol type="1">
-<li><p>表达式用来计算结果，根据结果的值的不同可以分为数值表达式，字符串表达式，布尔表达式、数组表达式、对象表达式和函数表达式。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数值表达式 var total = price - (price * (discount / 100));</span><br><span class="line"></span><br><span class="line">字符串表达式 &quot;Dear &quot; + &quot;Reader&quot; + &quot;,&quot;</span><br><span class="line"></span><br><span class="line">布尔表达式 cost &gt;= 3.99</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h3 id="循环">循环</h3>
-<ol type="1">
-<li><p>while循环</p>
-<ul>
-<li><p>(scoops &gt;
-0)称为条件测试（简称为条件），包含一个布尔表达式</p></li>
-<li><p>如果条件测试为true，就执行代码块中所有的代码。如果条件测试为false，就结束循环。</p></li>
-<li><p>有些代码的条件是一个变量，其值为字符串而不是布尔值。任何包含非空字符串的变量都被视为<code>true</code>而没有设置值的变量都被视为<code>false</code></p></li>
-<li><p>仅使用布尔变量本身时，只要该变量为true，条件测试就为true，进而执行相应的代码块。</p>
-<ul>
-<li><code>if (inStock)&#123;...&#125;</code>如果inStock为false，条件测试将失败</li>
-</ul></li>
-<li><p>代码块即用花括号<code>&#123;&#125;</code>括起来的一组语句，代码块中的所有语句被视为一个整体，要么都执行，要么都不执行。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(scoops &gt; 0)&#123;</span><br><span class="line">	document.write(&quot;Another scoop!&quot;);</span><br><span class="line">	scoops = scoops - 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>for循环</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-for%E5%BE%AA%E7%8E%AF.jpg"
-alt="for循环" />
-<figcaption aria-hidden="true">for循环</figcaption>
-</figure>
-<ul>
-<li>for循环以关键字for打头</li>
-<li>圆括号中有三部分
-<ul>
-<li>第一部分是初始化循环变量，初始化只在循环开始前执行一次</li>
-<li>第二部分是条件测试，每次循环时都将执行该测试，如果为false就结束循环</li>
-<li>第三部分将计数器加1。每次循环都这么做，这是在执行完循环体的所有语句后进行的。</li>
-</ul></li>
-</ul></li>
-<li><p>for in循环</p></li>
-<li><p>forEach循环</p></li>
-<li><p>do while循环</p>
-<ul>
-<li>工作原理与while几乎相同，只是先执行循环体中的语句，再检查循环条件。</li>
-</ul></li>
-<li><p>if语句进行决策</p>
-<ul>
-<li><p>在if语句中还可以添加一个或多个else
-if语句，以执行多重检查。</p></li>
-<li><p>还可在最后添加一条else语句，以处理所有条件都不满足的情形。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	if (scoops &gt;= 5) &#123;	alert(&quot;Eat faster, the ice cream is going to melt!&quot;);&#125; </span><br><span class="line">	</span><br><span class="line">	else if (scoops &lt; 3) &#123;	alert(&quot;Ice cream is running low!&quot;);&#125;</span><br><span class="line">	</span><br><span class="line">	else &#123;</span><br><span class="line">		alert(&quot;Still lots of ice cream left, come and get it.&quot;); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ol>
-<h3 id="与用户交互的常见方式">与用户交互的常见方式</h3>
-<ol type="1">
-<li><p>创建提醒框</p>
-<ul>
-<li>调用函数alert()创建包含消息的提醒框</li>
-<li>仅当你要停止一切并提醒用户时，才应使用它</li>
-</ul></li>
-<li><p>直接写入文档</p>
-<ul>
-<li>调用函数document.write()将任何HTML和内容写入网页</li>
-</ul></li>
-<li><p>使用控制台console</p>
-<ul>
-<li>调用函数console.log()，并传入要写入的字符串</li>
-<li>可将console.log()视为杰出的故障排除工具</li>
-<li>console实际是一个对象，而log则是console的一个方法</li>
-<li>仅用于在开发网页期间调试代码troubleshoot，用户可能根本看不到控制台</li>
-<li>可将控制台视为具有特定功能的对象，其功能之一是写入日志，其语法为console.log，并将用圆括号括起的输出传递给它。</li>
-<li>如何打开控制台？</li>
-</ul>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%A6%82%E4%BD%95%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0.jpg"
-alt="如何打开控制台" />
-<figcaption aria-hidden="true">如何打开控制台</figcaption>
-</figure></li>
-<li><p>直接操作文档</p>
-<ul>
-<li>利用文档对象模型（document object model,DOM）操作文档</li>
-</ul></li>
-<li><p>获取用户输入</p>
-<ul>
-<li>函数prompt()用于获取用户输入，它会弹出一个简单的对话框，包含传入该函数的字符串参数并且返回用户输入的字符串值。如果用户取消了对话框或没有输入任何响应，返回的将是null（表示没有值）。</li>
-</ul></li>
-<li><p>显示输出</p>
-<ul>
-<li>函数alert()</li>
-</ul></li>
-</ol>
-<h3 id="section-1"></h3>
-<h2 id="三函数">三、函数</h2>
-<h3 id="常用函数">常用函数</h3>
-<ol type="1">
-<li><p>Math.random()用来生成[0, 1)的随机数</p>
-<blockquote>
-<p>只要调用函数，都需要使用括号()</p>
-</blockquote></li>
-<li><p>Math.floor()用来对一个小数取整（直接舍弃小数位），即向下化整</p></li>
-</ol>
-<h3 id="函数语法">函数语法</h3>
-<ol type="1">
-<li><p>定义函数/声明函数</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function functionname(parameter1,parameter2) &#123;</span><br><span class="line">	这里是要执行的代码</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure> <img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%87%BD%E6%95%B0%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86.jpg"
-alt="函数组成部分" /></p>
-<ul>
-<li>以关键词function打头，接下来指定函数名。函数名的命名规则与变量命名规则一样。</li>
-<li>parameters为函数的形参，将其放在函数名后面的括号内，将在调用函数时，给形参赋值</li>
-<li><code>&#123;&#125;</code>之间的内容被称为函数体(the body of the function)</li>
-</ul></li>
-<li><p>调用带参数的函数</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myFunction(argument1,argument2)</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>argument为实参，调用函数时，传给函数的实参的值被赋给相应的形参</li>
-<li>可以通过实参传递任何JavaScript值，如字符串、布尔值、数字、变量甚至表达式（对于表达式，先计算它的值，再将值传递给函数）。</li>
-</ul></li>
-<li><p>函数表达式(statement)</p>
-<ul>
-<li><p>没有函数名称，且位于一条赋值语句的右边，被赋给一个变量，是一个指向函数的引用。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var fly = function(num) &#123;</span><br><span class="line">	for (var i = 0; i &lt; num; i++) &#123;</span><br><span class="line">		console.log(&quot;Flying!&quot;); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">fly(3);</span><br><span class="line"># 通过变量fly来调用函数</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>函数声明和函数表达式之间的区别</p>
-<ul>
-<li>在分析(parses)
-网页期间（执行任何代码之前），浏览器查找函数声明，找到函数声明时，浏览器创建相应的函数，并将得到的函数引用赋给与函数同名的变量。在处理完所有的函数声明后，浏览器回到代码开头，开始按从头到尾的顺序执行代码。换言之，使用函数声明时，函数将在执行代码前创建，而使用函数表达式时，函数将在运行阶段执行代码时创建。</li>
-<li>函数声明是完整的语句，而函数表达式只是语句的一部分。可以认为函数声明包含一条隐藏的赋值语句，这条语句将函数引用赋给一个变量。</li>
-<li>函数表达式返回一个引用，该引用指向函数表达式创建的函数。</li>
-</ul></li>
-</ol>
-<h3 id="按值传递实参pass-by-value">按值传递实参(pass-by-value)</h3>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92%E5%AE%9E%E5%8F%82-pass-by-value-.jpg"
-alt="按值传递实参" />
-<figcaption aria-hidden="true">按值传递实参</figcaption>
-</figure>
-<ol type="1">
-<li>即把每个实参的值复制给形参，其意义在于，在函数中修改形参的值时，只会影响形参，而不会影响传递给函数的变量。</li>
-<li>在函数中处理形参时，其影响范围将限制在函数中。</li>
-</ol>
-<h3 id="错误地调用函数">错误地调用函数</h3>
-<ol type="1">
-<li>传入的实参不够：将没有相应实参的形参设置为未定义undefined</li>
-<li>传入的实参太多：将忽略多余的实参</li>
-</ol>
-<h3 id="函数可返回值return">函数可返回值return</h3>
-<ol type="1">
-<li>函数体中遇到return语句，函数会直接返回return语句中的值，并停止函数运行，哪怕return语句之后还有语句。</li>
-<li>如果return语句没有指定值（空的），则返回undefined。</li>
-<li>如果一个函数没有return语句，则它的返回值是undefined。</li>
-</ol>
-<h3 id="作用域scope">作用域(scope)</h3>
-<ol type="1">
-<li>全局变量
-<ul>
-<li>在函数外使用关键字var声明。</li>
-<li>只有一个全局作用域，也就是说不同的JavaScript脚本共享同一个全局作用域。如果在网页链接到了其他的脚本，这些脚本也能够看到这些全局变量，而你也可以看到它们的全局变量。</li>
-<li>全局变量的寿命和网页一样长。重新加载网页时，将销毁并重新创建所有的全局变量。</li>
-<li>使用没有关键字var声明的变量，会被自动视为全局变量，即使在函数中首次使用它，亦如此。</li>
-</ul></li>
-<li>局部变量
-<ul>
-<li>在函数中声明的变量叫局部变量，这样的变量只在函数中可见，也只能用在函数中</li>
-<li>局部变量是在函数被调用后创建的，并一直活到函数返回（无论函数是否返回值）</li>
-<li>如果局部变量使用了与全局变量相同的变量名，那么在这个局部作用域中，全局变量是不可见的。即同名局部变量遮住(shadow)了全局变量</li>
-<li>将函数作为实参传递给另一个函数时，传入的函数引用将被复制到所调用函数的一个形参变量中，与其他形参一样，存储函数引用的形参也是局部变量。</li>
-</ul></li>
-<li>变量提升
-<ul>
-<li><p>JavaScript引擎会在正式执行之前先进行一次预编译，在这个过程中，首先将变量声明提升至当前作用域的顶端，然后进行接下来的处理。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line"></span><br><span class="line">    var foo = foo || 5;</span><br><span class="line"></span><br><span class="line">    console.log(foo); // 5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoistVariable();</span><br></pre></td></tr></table></figure> 预编译之后的代码逻辑是这样的：</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var foo = 3;</span><br><span class="line"></span><br><span class="line">//预编译之后</span><br><span class="line"></span><br><span class="line">function hoistVariable() &#123;</span><br><span class="line">  		var foo;</span><br><span class="line"></span><br><span class="line">  		foo = foo || 5;</span><br><span class="line"></span><br><span class="line">  		console.log(foo); // 5</span><br><span class="line">  	&#125;</span><br><span class="line">  	</span><br><span class="line">  	hoistVariable();</span><br><span class="line">  	</span><br><span class="line">  	#只要“||”前面为true,不管“||”后面是true还是false，都返回“||”前面的值。</span><br><span class="line">  	#只要“||”前面为false,不管“||”后面是true还是false，都返回“||”后面的值。</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li>全局函数
-<ul>
-<li>在代码顶层定义的函数</li>
-</ul></li>
-<li>局部函数
-<ul>
-<li>在函数中定义的函数(nested，嵌套)</li>
-<li>在函数内部，如果你使用函数声明创建了一个嵌套函数，那么在这个函数的函数体的任何地方，嵌套函数都是已定义的；</li>
-<li>如果使用函数表达式创建了一个嵌套函数，则在这个函数的函数体内，仅当函数表达式执行后，嵌套函数才是已定义的。</li>
-</ul></li>
-<li>词法作用域(lexical scope)的工作原理
-<ul>
-<li><p>词法(lexical)意味着只需查看代码的结构就可确定变量的作用域，而不是等到代码执行时才明白。换而言之，即JavaScript的作用域规则完全基于代码的结构，而不是一些动态的运行阶段属性。</p></li>
-<li><p>因此，对于在函数中引用的变量，要确定它是在哪里定义的，可从最里面（当前函数）开始依次向最外面进行查找，直到找到它为止。</p></li>
-<li><p>实例</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#实例1 </span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">	return justAVar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result = whereAreYou(); </span><br><span class="line">console.log(result);</span><br><span class="line"></span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#实例2</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line">	</span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">	var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">function inner() &#123;</span><br><span class="line">	return justAVar;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">		 return inner();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		var result = whereAreYou(); </span><br><span class="line">		console.log(result);</span><br><span class="line">		</span><br><span class="line">		#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#实例3</span><br><span class="line"></span><br><span class="line">var justAVar = &quot;Oh, don&#x27;t you worry about it, I&#x27;m GLOBAL&quot;;</span><br><span class="line"></span><br><span class="line">function whereAreYou() &#123;</span><br><span class="line">		var justAVar = &quot;Just an every day LOCAL&quot;;</span><br><span class="line">		</span><br><span class="line">		function inner() &#123; </span><br><span class="line">				return justAVar;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return inner;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">var innerFunction = whereAreYou(); </span><br><span class="line">var result = innerFunction();</span><br><span class="line">	</span><br><span class="line">console.log(result);</span><br><span class="line">	</span><br><span class="line">#显示Just an every day LOCAL</span><br></pre></td></tr></table></figure></p></li>
-<li><p>环境(environment)存储了局部作用域内定义的所有变量。每个函数都有与之相关联的环境，其中包含它所处作用域内的局部变量。当返回这个函数时，返回的不仅仅是函数，还有与之相关联的环境。</p>
-<ul>
-<li>每个嵌套函数都有自己的小环境，其中包含它自己的变量，这将形成一个环境链，从内到外依次为各个嵌套函数的环境。在环境中查找变量时，也需要从最近的环境着手，沿环境链不断往下查找，直到找到变量为止。如果环境链中没有找到，再在全局环境中查找。</li>
-<li>可将形参视为函数的局部变量，因此形参也包含在环境(environment)中。</li>
-<li>JavaScript函数都是在定义它的环境中执行的。</li>
-</ul>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-07-06-%E7%8E%AF%E5%A2%83.jpg"
-alt="环境" />
-<figcaption aria-hidden="true">环境</figcaption>
-</figure></li>
-</ul></li>
-</ol>
-<h3 id="闭包closure">闭包(closure)</h3>
-<ol type="1">
-<li><p>闭包(closure) 的定义：闭包指的是函数和引用环境。</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-07-06-%E9%97%AD%E5%8C%85.jpg"
-alt="闭包" />
-<figcaption aria-hidden="true">闭包</figcaption>
-</figure></li>
-<li><p>自由变量(free
-variables)的定义：不在本地作用域内定义的变量。</p></li>
-<li><p>可敲定函数(closes the
-function)的定义：给所有自由变量都提供了值的环境。</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-07-06-%E6%95%B2%E5%AE%9A%E5%87%BD%E6%95%B0.jpg"
-alt="敲定函数" />
-<figcaption aria-hidden="true">敲定函数</figcaption>
-</figure></li>
-<li><p>从函数返回函数来创建闭包：计数器实例</p>
-<ul>
-<li><p>在全局作用域中，根本看不到变量count，但每次调用doCount时，都可以使用变量count。</p></li>
-<li><p>除了调用doCount外，没有其他任何办法能够获取变量count。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function makeCounter() &#123;</span><br><span class="line">	 var count = 0;</span><br><span class="line">	</span><br><span class="line">	function counter() &#123; </span><br><span class="line">		count = count + 1; </span><br><span class="line">		return count;	&#125;</span><br><span class="line"></span><br><span class="line">	return counter; </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">var doCount = makeCounter(); </span><br><span class="line">console.log(doCount());  #显示1</span><br><span class="line">console.log(doCount());  #显示2</span><br><span class="line">console.log(doCount());  #显示3</span><br></pre></td></tr></table></figure></p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-07-06-%E9%97%AD%E5%8C%85-%E8%AE%A1%E6%95%B0%E5%99%A8.jpg"
-alt="闭包-计数器" />
-<figcaption aria-hidden="true">闭包-计数器</figcaption>
-</figure></li>
-</ul></li>
-<li><p>将函数表达式用作实参来创建闭包</p>
-<ul>
-<li><p>我们传递给makeTimer的函数是一个闭包，带有将自由变量<code>doneMessage</code>绑定到字符串"Cookies
-are done!"的环境。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function makeTimer(doneMessage, n) &#123;</span><br><span class="line">	</span><br><span class="line">	setTimeout(function() &#123; </span><br><span class="line">		alert(doneMessage);</span><br><span class="line">	&#125;, n); </span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">makeTimer(&quot;Cookies are done!&quot;, 1000);</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>闭包包含的是实际环境，而非环境的副本</p>
-<ul>
-<li>环境引用的是实时变量，如果闭包函数外面的代码修改了变量，闭包函数执行时看到的将是变量的新值</li>
-</ul></li>
-</ol>
-<h3 id="函数提升">函数提升</h3>
-<ol type="1">
-<li><p>浏览器分两遍读取网页：</p>
-<ul>
-<li>第一遍读取所有的函数定义（由函数声明创建的函数）</li>
-<li>第二遍开始执行代码</li>
-</ul></li>
-<li><p>可将函数放在JavaScript脚本的任何地方。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var radius = 5;</span><br><span class="line">var area = circleArea(radius); </span><br><span class="line">alert(area);</span><br><span class="line"></span><br><span class="line">function circleArea(r) &#123; </span><br><span class="line">	var a = Math.PI * r * r; </span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h3 id="函数是一等值first-class-values">函数是一等值(first class
-values)</h3>
-<ol type="1">
-<li><p>一等值(first class
-values)的特点（数值、字符串、布尔值、函数和对象都是一等值）</p>
-<ul>
-<li>将其赋给变量或存储在数组和对象等数据结构中</li>
-<li>将其传递给函数</li>
-<li>从函数中返回它们</li>
-</ul></li>
-<li><p>一等值的定义：在编程语言中，可像对待其他任何值一样对待的值，包括赋给变量、作为实参传递给函数以及从函数中返回。</p></li>
-<li><p>向函数传递函数</p>
-<ul>
-<li><p>只需将函数名用作实参即可</p></li>
-<li><p>传递的是指向函数的引用，可将这种引用视为指针(pointer)，它指向函数本身的内部表示。引用本身可存储在变量中，可赋给变量，还可作为实参传递给函数。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var allCanFly = processPassengers(passengers, checkNoFlyList); </span><br><span class="line">if (!allCanFly) &#123;console.log(&quot;The plane can&#x27;t take off: we have a passenger on the no-fly-list.&quot;); </span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">#checkNoFlyList即传入的函数</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>从函数返回函数</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createDrinkOrder(passenger) &#123;</span><br><span class="line">	var orderFunction;</span><br><span class="line"></span><br><span class="line">	if (passenger.ticket === &quot;firstclass&quot;) &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Would you like a cocktail or wine?&quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">	</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		orderFunction = function() &#123;</span><br><span class="line">			alert(&quot;Your choice is cola or water.&quot;);</span><br><span class="line">			&#125;;		&#125;	return orderFunction;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<h3 id="匿名函数anonymous-functions">匿名函数(anonymous functions)</h3>
-<ol type="1">
-<li><p>匿名函数是没有名称的函数表达式，用于通常需要函数引用的地方。</p>
-<p><code>window.onload = function() &#123; alert("Yeah, that page loaded!"); &#125;;</code></p>
-<ul>
-<li>如果需要将一个函数作为实参，可将实参指定为函数表达式
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">	alert(&quot;Time to take the cookies out of the oven&quot;);</span><br><span class="line">	&#125;, 600000);</span><br></pre></td></tr></table></figure></li>
-<li>如果需要从函数返回一个函数，也可返回一个函数表达式</li>
-</ul></li>
-</ol>
-<h2 id="四数据结构">四、数据结构</h2>
-<h3 id="数组arrays">数组(Arrays)</h3>
-<ol type="1">
-<li><p>创建数组</p>
-<ul>
-<li><p>用数组的字面量(array
-literal)创建数组（即详细地指定了该数组包含的元素）</p>
-<p><code>var flavors = ["vanilla", "butterscotch", "lavender", "chocolate", "cookie dough"];</code></p>
-<ul>
-<li>在<code>[]</code>中依次输入每个数据，用<code>,</code>隔开即可。</li>
-<li>数组中每一项的数据类型可以是任意的，字符串，布尔值，数值，甚至数组，函数和对象都可以。</li>
-<li>数据的个数也没有限制，但受制于计算机内存。</li>
-<li>不要求一个数组中所有值的类型都相同。</li>
-</ul></li>
-</ul></li>
-<li><p>访问数组元素</p>
-<p><code>var flavorOfTheDay = flavors[2];</code></p>
-<ul>
-<li><code>[]</code>中的数字表示数组的索引位置，数组的索引从0开始</li>
-</ul></li>
-<li><p>修改数组元素</p>
-<p><code>flavors[3] = "vanilla chocolate chip";</code></p></li>
-<li><p>确定数组的长度</p>
-<p><code>var numFlavors = flavors.length;</code></p>
-<ul>
-<li>每个数组都有一个length属性，它的值也就是数组的长度，等于数组的最大索引值+1</li>
-</ul></li>
-<li><p>给数组添加新元素</p>
-<ul>
-<li><p>只需给指定索引处的元素赋值即可，但必须小心地指定索引，否则数组将是稀疏的(sparse)</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var genres = []; </span><br><span class="line">genres[0] = &quot;Rockabilly&quot;; </span><br><span class="line">genres[1] = &quot;Ambient&quot;; </span><br><span class="line">var size = genres.length;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>稀疏数组是指有些索引处有值，而其他索引处没有值的数组。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var sparseArray = [ ]; </span><br><span class="line">sparseArray[0] = true; </span><br><span class="line">spraseArray[100] = true;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>犹如创建了99个变量，但没有对其初始化。这些变量虽然没有值，但是仍占用计算机的内存空间。</p></li>
-<li><p>检查元素的值是否是undefined，可编写如下代码：</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (myarray[i] == undefined) &#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>undefined是一个值，而不是字符串，因此不能在前后加上引号。</p></li>
-</ul></li>
-<li><p>push方法</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var genres = []; </span><br><span class="line">genres.push(&quot;Rockabilly&quot;); </span><br><span class="line">genres.push(&quot;Ambient&quot;);</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>平行数组(parallel arrays)</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%B9%B3%E8%A1%8C%E6%95%B0%E7%BB%84.jpg"
-alt="平行数组" />
-<figcaption aria-hidden="true">平行数组</figcaption>
-</figure></li>
-<li><p>数组方法<code>sort</code>的工作原理</p>
-<ul>
-<li><p>根据一个知道如何对两个数组元素进行比较的函数对数组进行排序。</p>
-<ul>
-<li>对于数字，使用<code>&lt;</code>、<code>&gt;</code>、和<code>==</code>进行比较；</li>
-<li>对于字符串，按字母顺序进行比较</li>
-<li>对于对象，采用自定义的方式根据对象的属性进行比较</li>
-</ul></li>
-<li><p><code>sort</code>方法要求我们的函数在第一个数字大于第二个数字时返回一个大于0的值，在它们相等时返回0，并在第一个数字小于第二个数字时返回一个小于0的值。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function compareNumbers(num1, num2) &#123; </span><br><span class="line">	if (num1 &gt; num2) &#123;</span><br><span class="line">		return 1;</span><br><span class="line">&#125; else if (num1 === num2) &#123;</span><br><span class="line">	return 0;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">	return -1; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">numbersArray.sort(compareNumbers);</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>sort</code>方法是破坏性的，将就地修改数组，而不是返回一个排序后的新数组。</p></li>
-</ul></li>
-</ol>
-<h3 id="section-2"></h3>
-<h3 id="section-3"></h3>
-<h3 id="section-4"></h3>
-<h2 id="五对象objects">五、对象(Objects)</h2>
-<h3 id="创建对象">创建对象</h3>
-<ol type="1">
-<li>定义并创建对象的实例
-<ul>
-<li><p>添加对象变量声明</p></li>
-<li><p>花括号<code>&#123;&#125;</code>内定义对象的所有属性(properties)</p></li>
-<li><p>每个属性的定义都包含名称、冒号和值，用逗号分隔属性名和属性值对，冒号分隔属性名和属性值。</p></li>
-<li><p>包含空格的字符串用作属性名时，必须用括号将其括起</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var widget = &#123; </span><br><span class="line">	cost$: 3.14,</span><br><span class="line">	&quot;on sale&quot;: true</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>属性名可以是任何字符，但通常遵循变量命名规则</p></li>
-<li><p>对象变量声明也以分号结束</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">		var chevy = &#123;</span><br><span class="line">			make: &quot;Chevy&quot;,</span><br><span class="line">			model: &quot;Bel Air&quot;, </span><br><span class="line">			year: 1957,</span><br><span class="line">			color: &quot;red&quot;, </span><br><span class="line">			passengers: 2, </span><br><span class="line">			convertible: false, </span><br><span class="line">			mileage: 1021&#125;;</span><br></pre></td></tr></table></figure></p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1.png"
-alt="创建对象" />
-<figcaption aria-hidden="true">创建对象</figcaption>
-</figure></li>
-</ul></li>
-</ol>
-<h3 id="属性的工作原理">属性的工作原理</h3>
-<ol type="1">
-<li><p>访问属性(access a property)</p>
-<ul>
-<li><p>句点表示法(dot notation)</p>
-<p><code>fiat.mileage</code></p></li>
-<li><p>串接(chaining)</p>
-<p><code>var index = ship.locations.indexOf(guess);</code></p></li>
-<li><p>方括号表示法(bracket notation)</p>
-<ul>
-<li><code>chevy["color"]</code></li>
-<li><code>chevy["co" + "lor"]</code>
-<ul>
-<li>可将任何表达式放在方括号内，只要其结果为表示属性名的字符串即可</li>
-</ul></li>
-</ul></li>
-<li><p>访问不存在的属性</p>
-<p><code>if (fiat.make) &#123; ... &#125;</code></p>
-<p><code>fiat.make</code>的结果将为<code>undefined</code></p></li>
-</ul></li>
-<li><p>修改属性</p>
-<p><code>fiat.mileage = 10000;</code></p></li>
-<li><p>添加新属性</p>
-<p><code>fiat.needsWashing = true;</code></p></li>
-<li><p>将属性用于计算</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (fiat.year &lt; 1965) &#123; </span><br><span class="line">	classic = true;</span><br><span class="line">	&#125;for (var i = 0; i &lt; fiat.passengers; i++) &#123;</span><br><span class="line">	addPersonToCar(); </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>增删属性</p>
-<ul>
-<li>增加属性，只指定一个新属性并给它赋值</li>
-<li>删除属性，可使用关键词delete：<code>delete fido.dogYears;</code>
-<ul>
-<li>删除属性时，同时删除属性值和属性本身</li>
-<li>成功删除属性，delete表达式返回true</li>
-<li>当属性无法删除时，delete表达式返回false</li>
-<li>如某个对象属于浏览器而受到保护</li>
-<li>即便你要删除的属性在对象中不存在，delete表达式仍返回true</li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="变量存储对象的原理">变量存储对象的原理</h3>
-<ol type="1">
-<li><p>变量并不实际存储对象</p></li>
-<li><p>变量存储指向对象的引用(reference)，故此对象变量也被称为引用变量(reference
-variables)</p></li>
-<li><p>引用就像指针(pointer)，是对象的存储地址</p></li>
-<li><p>当我们使用句点表示法时，JavaScript解释器将负责根据引用获取对象并访问其属性</p></li>
-<li><p>基本类型变量(primitive variable)表示的是实际值，而对象变量(object
-variable)表示一种获取对象的途径</p></li>
-<li><p>当使用句点表示法用于引用变量时，相当于使用句点前的引用来获取相应的对象，再访问句点后指定的属性。</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8.jpg"
-alt="变量存储对象的引用" />
-<figcaption aria-hidden="true">变量存储对象的引用</figcaption>
-</figure></li>
-</ol>
-<h3 id="向函数传递对象">向函数传递对象</h3>
-<ol type="1">
-<li><p>调用函数并向它传递一个对象时，传递的是对象引用，而不是对象本身。根据按值传递的语义，传递给形参的是改引用的副本，而原来的引用依然是指向原始对象的指针。</p></li>
-<li><p>如果在函数中修改对象属性，修改的将是原始对象的属性。因此，函数结束时，在函数中对对象所做的修改都依然有效。</p>
-<p><img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1.jpg" />
-<img
-src="http://qiniup.louyanspine.com/2018-06-27-%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A12.jpg" /></p></li>
-</ol>
-<h3 id="给对象添加行为">给对象添加行为</h3>
-<ol type="1">
-<li><p>给对象添加行为,就是将函数定义赋给属性。在函数定义中没有指定函数名，而只是在关键词后面提供了函数体，属性名就是函数名。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var fiat = &#123; </span><br><span class="line">	make: &quot;Fiat&quot;,</span><br><span class="line">	model: &quot;500&quot;,</span><br><span class="line">	year: 1957,</span><br><span class="line">	color: &quot;Medium Blue&quot;, </span><br><span class="line">	passengers: 2, </span><br><span class="line">	convertible: false, </span><br><span class="line">	mileage: 88000,</span><br><span class="line">	drive: function() &#123;</span><br><span class="line">		alert.log(&quot;Zoom zoom!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>对象内的函数，通常被称为方法(method)。</p></li>
-<li><p>用句点法（串联，chaining）调用对象内的方法。</p>
-<ul>
-<li><code>fiat.drive();</code></li>
-<li><code>var index = ship.locations.indexOf(guess);</code></li>
-</ul></li>
-</ol>
-<h3 id="关键词this的工作原理">关键词<code>this</code>的工作原理</h3>
-<ol type="1">
-<li>可将<code>this</code>视为一个变量，指向其方法被调用的对象。 <img
-src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" />
-<img
-src="http://qiniup.louyanspine.com/2018-06-28-this%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%862.jpg" /></li>
-</ol>
-<h3 id="如何知道对象包含哪些属性">如何知道对象包含哪些属性</h3>
-<ol type="1">
-<li>用<code>for in</code>迭代对象的属性
-<ul>
-<li><code>for in</code>以每次一个的方式遍历对象的属性，并依次将每个属性赋给变量prop</li>
-<li>用方括号表示法通过prop来访问当前属性</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var prop in chevy) &#123;</span><br><span class="line">	console.log(prop + &quot;: &quot; + chevy[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="javascript提供的内置对象">JavaScript提供的内置对象</h3>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-28-JavaScript%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AF%B9%E8%B1%A1.jpg"
-alt="JavaScript提供的对象" />
-<figcaption aria-hidden="true">JavaScript提供的对象</figcaption>
-</figure>
-<h3 id="字符串对象">字符串对象</h3>
-<ol type="1">
-<li>属性<code>length</code>：指出字符串包含多少个字符</li>
-<li>方法<code>charAt</code>：获取字符串中指定索引处的字符。
-<ul>
-<li>JavaScript没有字符类型(character
-type)，通过返回一个字符串来返回字符，其中只包含特点的字符</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var input = &quot;jenny@wickedlysmart.com&quot;; </span><br><span class="line">for(var i = 0; i &lt; input.length; i++) &#123;</span><br><span class="line">	if (input.charAt(i) === &quot;@&quot;) &#123;</span><br><span class="line">		console.log(&quot;There&#x27;s an @ sign at index &quot; + i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法<code>indexOf</code>
-<ul>
-<li><p>将一个字符串作为第一个参数，并在字符串中该参数首次出现的位置返回该参数中第一个字符的索引</p></li>
-<li><p>第二个参数是一个索引，指定从什么位置开始查找</p></li>
-<li><p>如果没有找到指定的字符串，将返回索引-1</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index = phrase.indexOf(&quot;the&quot;, 5);</span><br><span class="line">console.log(&quot;there&#x27;s a the sitting at index &quot; + index);</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li>方法<code>substring</code>
-<ul>
-<li><p>将两个索引作为参数，提取并返回这两个索引之间的子串</p>
-<p><code>var val = data.substring(5, 10);</code></p>
-<blockquote>
-<p>返回从索引5到索引10（不包括）的子串</p>
-</blockquote></li>
-<li><p>可以省略第二个参数，在这种情况下，<code>substring</code>将提取从指定索引到字符串末尾的子串。</p></li>
-</ul></li>
-<li>方法<code>split</code>
-<ul>
-<li><p>将一个用作分隔符(delimiter)的字符作为参数，并根据这个分隔符将字符串分成多个部分。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var data = &quot;name|phone|address&quot;;</span><br><span class="line">var vals = data.split(&quot;|&quot;); </span><br><span class="line">console.log(&quot;Split array is &quot;, vals);</span><br><span class="line">	</span><br><span class="line">//Split array is [&quot;name&quot;, &quot;phone&quot;, &quot;address&quot;]</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li>方法<code>toLowerCase</code>
-<ul>
-<li>将字符串中的所有大写字符都转换为小写，并返回结果。</li>
-</ul></li>
-<li>方法<code>slice</code>
-<ul>
-<li>删除字符串的一部分，并返回结果。</li>
-</ul></li>
-<li>方法<code>lastIndexOf</code>
-<ul>
-<li>查找最后一个子串</li>
-</ul></li>
-<li>方法<code>match</code>
-<ul>
-<li>查找与正则表达式匹配的子串</li>
-</ul></li>
-<li>方法<code>trim</code>
-<ul>
-<li>删除字符串开头和末尾的空白字符</li>
-</ul></li>
-<li>方法<code>replace</code>
-<ul>
-<li>查找子串并将其替换为另一个字符串</li>
-</ul></li>
-<li>方法<code>concat</code>
-<ul>
-<li>将字符串拼接起来</li>
-</ul></li>
-<li>方法<code>toUpperCase</code>
-<ul>
-<li>将字符串中的所有小写字符都转换为大写，并返回结果。</li>
-</ul></li>
-</ol>
-<h2
-id="六浏览器与文档对象模型document-object-modeldom">六、浏览器与文档对象模型(document
-object model,DOM)</h2>
-<h3
-id="网页与javascript通过文档对象模型dom交互">网页与JavaScript通过文档对象模型（DOM）交互</h3>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-28-DOM%E6%A8%A1%E5%9E%8B.jpg"
-alt="DOM模型" />
-<figcaption aria-hidden="true">DOM模型</figcaption>
-</figure>
-<ol type="1">
-<li><code>document</code>是一个全局对象，表示浏览器显示的整个网页，包含完整的DOM。</li>
-<li><code>getElementById</code>是<code>document</code>的一个方法，查找id为指定值的元素对象。
-<ul>
-<li>若根据id从DOM获取元素时，如果指定的id不存在，getElementById将返回null。</li>
-</ul></li>
-<li><code>getElementsByClassName</code>是<code>document</code>的一个方法，查找类名为指定值的元素对象集合。</li>
-<li><code>getElementsByTagName</code>
-是<code>document</code>的一个方法，查找与指定标签名匹配的元素对象集合。</li>
-</ol>
-<ul>
-<li>返回的是一个NodeList对象。但可以像处理数组一样处理它（length属性、索引访问）。NodeList是一个Node集合，而Node指的其实就是DOM树中的element对象。</li>
-</ul>
-<ol start="5" type="1">
-<li><p><code>innerHTML</code>是元素对象的一个属性，表示包含在元素中的内容（除了元素的HTML标签外）。</p>
-<ul>
-<li>可以通过<code>innerHTML</code>来读取或替代元素的内容</li>
-<li><code>innerHTML</code>表示元素对象包含的所有内容，包括嵌套的元素/从对象的起始位置到终止位置的全部内容,不包括HTML标签。
-<ul>
-<li>例如，段落元素除文本外，还可能包含<code>&lt;em&gt;</code>和<code>&lt;img&gt;</code>元素</li>
-</ul></li>
-</ul></li>
-<li><p><code>outerHTML</code>是元素对象的一个属性，表示包含在元素对象中的全部内容</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;test&quot;&gt; </span><br><span class="line">  &lt;span style=&quot;color:red&quot;&gt;test1&lt;/span&gt; test2 </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>innerHTML</code>的值是<code>&lt;span style="color:red"&gt;test1&lt;/span&gt;test2</code></li>
-<li><code>outerHTML</code>的值是<code>&lt;div id="test"&gt;&lt;span style="color:red"&gt;test1&lt;/span&gt;test2&lt;/div&gt;</code></li>
-</ul></li>
-<li><p>处理DOM时，要确保代码在网页完全加载后，再执行，否则代码执行时，DOM很可能尚未创建。</p></li>
-</ol>
-<h3 id="网页加载完毕后执行代码的方法">网页加载完毕后执行代码的方法</h3>
-<ol type="1">
-<li>将代码放置于<code>&lt;body&gt;</code>元素末尾</li>
-<li>将函数赋给对象window的属性onload
-<ul>
-<li><p>window是一个JavaScript内置对象，表示浏览器窗口</p></li>
-<li><p>网页加载事件的触发时间点是：浏览器加载完网页，显示网页的所有内容并生成表示网页的DOM</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;function init() &#123;</span><br><span class="line">	var planet = document.getElementById(&quot;greenplanet&quot;);</span><br><span class="line">	planet.innerHTML = &quot;Red Alert: hit by phaser fire!&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.onload = init; #千万不要在函数名init后面添加括号，这里不是调用函数，而是将函数作为一个值赋给属性window.onload&lt;/script&gt;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ol>
-<h3 id="section-5"></h3>
-<h3 id="设置dom中元素对象的特性">设置DOM中元素对象的特性</h3>
-<ol type="1">
-<li><p><code>setAttribute</code>方法添加新特性或修改既有特性</p>
-<p><code>planet.setAttribute("class", "redtext");</code></p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-28-setAttribute%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%89%B9%E6%80%A7%E6%88%96%E4%BF%AE%E6%94%B9%E6%97%A2%E6%9C%89%E7%89%B9%E6%80%A7.jpg"
-alt="setAttribute方法添加新特性或修改既有特性" />
-<figcaption
-aria-hidden="true">setAttribute方法添加新特性或修改既有特性</figcaption>
-</figure></li>
-<li><p><code>getAttribute</code>方法获取HTML元素的特性的值</p>
-<ul>
-<li><p>如果指定的特性不存在，将返回null。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var scoop = document.getElementById(&quot;raspberry&quot;); </span><br><span class="line">var altText = scoop.getAttribute(&quot;alt&quot;);</span><br><span class="line">if (altText == null) &#123;</span><br><span class="line">	console.log(&quot;Oh, I guess there isn&#x27;t an alt attribute.&quot;); </span><br><span class="line">&#125; else &#123;</span><br><span class="line">console.log(&quot;I can&#x27;t see the image in the console,&quot;);</span><br><span class="line">console.log(&quot; but I&#x27;m told it looks like &quot; + altText); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>设置图像的属性(property)<code>src</code>与使用<code>getAttribute</code>和<code>setAttribute</code>设置特性(attribute)<code>src</code>相同么？</p>
-<ul>
-<li>对于<code>&lt;img&gt;</code>元素而言，效果是一样的。但是并非所有的HTML特性(attributes)都有对应的对象属性(object
-properties)，因此对于这些特性，必须使用<code>getAttribute</code>和<code>setAttribute</code>来设置和获取。</li>
-</ul></li>
-</ul></li>
-</ol>
-<h2 id="七类型types">七、类型(types)</h2>
-<h3 id="类型的种类">类型的种类</h3>
-<ol type="1">
-<li>基本类型(primitives)
-<ul>
-<li>数值（作为基本类型）</li>
-<li>布尔值（作为基本类型）</li>
-<li>字符串（作为基本类型）</li>
-<li><code>null</code></li>
-<li><code>undefined</code></li>
-</ul></li>
-<li>对象（objects对象有属性和方法）
-<ul>
-<li>字符串（作为对象/JavaScript解释器会在需要时替你创建字符串对象，无需显式地这么做）</li>
-<li><ul>
-<li>数值（作为对象）</li>
-</ul></li>
-<li><ul>
-<li>布尔值（作为对象）</li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="undefined值"><code>undefined</code>值</h3>
-<ol type="1">
-<li><p>对于任何还没有值（即还未初始化）的东西，都将被赋予值<code>undefined</code>，<code>undefined</code>的类型是<code>undefined</code>。</p>
-<ul>
-<li>没有return语句的函数返回的值</li>
-<li>未赋值的变量的值</li>
-<li>稀疏数组中不存在的数组元素的值</li>
-<li>不存在的属性的值</li>
-<li>已删除的属性的值</li>
-</ul></li>
-<li><p>可以通过<code>undefined</code>来判断是否给变量（属性或数组元素）赋值了。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line"></span><br><span class="line">if (x == undefined) &#123;</span><br><span class="line">// x isn’t defined! just deal with it!</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var customer = &#123; </span><br><span class="line">		name: &quot;Jenny&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">if (customer.phoneNumber == undefined) &#123;</span><br><span class="line"></span><br><span class="line">	// get the customer&#x27;s phone number</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#注意不要将值undefined与字符串&quot;undefined&quot;混淆</span><br></pre></td></tr></table></figure> ### <code>null</code>值</p></li>
-<li><p>表示”无对象/对象不存在“，在应该提供一个对象，但无法创建或找到时，将提供null，在变量未初始化，对象没有指定属性或数组没有指定元素时，将返回undefined。</p></li>
-<li><p><code>null</code>以前的类型是<code>object</code>，不过在最新的规范中<code>null</code>的类型是<code>null</code>。</p></li>
-</ol>
-<h3 id="nan值"><code>NaN</code>值</h3>
-<ol type="1">
-<li><p>表示JavaScript无法表示的数值结果，即(Not a Number)</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 0/0;</span><br><span class="line">var b = &quot;food&quot; * 1000;</span><br><span class="line">var c = Math.sqrt(-9);</span><br></pre></td></tr></table></figure></p></li>
-<li><p>JavaScript中唯一一个与自己不相等的值：<code>NaN != NaN</code> *
-因为NaN与任何东西都不相等，因此不能以任何方式检查变量与NaN是否相等。需要使用特殊函数isNaN。
-* NaN指的是无法表示的数字，但并非所有无法表示的数字都相等。 *
-如果变量存储的是NaN或其他任何不是数字的值，将其传递给isNaN时，都将返回<code>true</code>，否则将返回<code>false</code>。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (isNaN(myNum)) &#123; </span><br><span class="line">	myNum = 0;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>NaN</code>值的类型是"number"</p>
-<ul>
-<li><code>NaN</code>值可以认为是一个数字，只是无法表示（至少对计算机来说如此而已）</li>
-</ul></li>
-</ol>
-<h3 id="infinity值"><code>Infinity</code>值</h3>
-<ol type="1">
-<li>任何超过浮点数上限(1.7976931348623157E+10308)或下限(-1.7976931348623157E+10308,-Infinity)的值。</li>
-<li><code>Infinity</code>值的类型是"number"</li>
-<li><code>Infinity</code>与它自己相减时，结果为<code>NaN</code></li>
-</ol>
-<h3 id="检测类型">检测类型</h3>
-<ol type="1">
-<li><p><code>typeof</code>是一个内置的JavaScript运算符(operator)，可用于探测其操作数(operand)的类型</p>
-<blockquote>
-<p>操作数：要对其进行操作的东西</p>
-</blockquote>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var subject = &quot;Just a string&quot;;</span><br><span class="line">var probe = typeof subject; </span><br><span class="line">console.log(probe);</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>typeof</code>使用字符串来表示类型</p>
-<ul>
-<li>"string"</li>
-<li>"boolean"</li>
-<li>"number"</li>
-<li>"object"</li>
-<li>"undefined"</li>
-<li>"function"</li>
-</ul></li>
-</ol>
-<h3 id="类型转换">类型转换</h3>
-<ol type="1">
-<li>拼接和加法运算符<code>+</code>
-<ul>
-<li><p>用于数字时，运算符<code>+</code>表示加法运算，用于字符串时，运算符<code>+</code>表示拼接(concatenation)</p></li>
-<li><p>将数字和字符串相加时，数字转换为字符串，再进行拼接，顺序为从左至右</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var order = 1 + 2 + &quot; pizzas&quot;;</span><br><span class="line">3 pizza</span><br></pre></td></tr></table></figure></p></li>
-<li><p>布尔值与字符串相加时，结果为字符串。
-<code>true + “ love”</code>为<code>“true love”</code></p></li>
-</ul></li>
-<li>其他算数运算符
-<ul>
-<li>如乘法、除法和减法运算，JavaScript将认为你要执行的是算术运算，而不是字符串运算。</li>
-<li>运算符<code>-</code>对数字取负，将其用于<code>true</code>，结果将为-1</li>
-</ul></li>
-<li>将字符串转换为数字的函数<code>Number</code>
-<ul>
-<li>如果指定的实参无法转换为数字，Number将返回NaN。</li>
-</ul></li>
-</ol>
-<h2 id="八运算符">八、运算符</h2>
-<h3 id="算术运算符">算术运算符</h3>
-<ol type="1">
-<li>后递增运算符(post-increment operator)：<code>++</code>
-<ul>
-<li><code>myImportantCounter++;</code>这条语句执行完以后，myImportantCounter的值比原来大1。</li>
-</ul></li>
-<li>后递减运算符(post-decrement operator)：<code>--</code> ###<br />
-###<br />
-###<br />
-###</li>
-</ol>
-<h2 id="九比较">九、比较</h2>
-<h3 id="比较运算符">比较运算符</h3>
-<ol type="1">
-<li><code>&lt;</code>
-<ul>
-<li>可以比较布尔值、字符串和数字，<code>true</code>转换为1</li>
-<li>字符串比较规则
-<ul>
-<li>取决于计算机中用于表示各个字符的Unicode值的排列顺序</li>
-</ul></li>
-</ul></li>
-<li><code>&gt;</code>
-<ul>
-<li>可以比较布尔值、字符串和数字，<code>true</code>转换为1</li>
-</ul></li>
-<li><code>==</code>表示等于</li>
-</ol>
-<ul>
-<li>如果两个值的类型相等，就直接进行比较</li>
-<li>如果两个值的类型不同，则尝试将它们转换为相同的类型，再进行比较
-<ul>
-<li><p>比较数字和字符串</p>
-<ul>
-<li><p>把字符串转换为数字，再对两个数字进行比较</p></li>
-<li><p>字符串不能转换为数字时，结果为<code>NaN</code>，和数字的比较结果为<code>false</code></p>
-<p><code>99 == "vanilla"</code>→<code>99 == NaN</code>→<code>false</code></p></li>
-</ul></li>
-<li><p>比较布尔值和其他类型</p>
-<ul>
-<li><p>把布尔值转换为数字，再对两个数字进行比较</p></li>
-<li><p><code>true</code>将被转换为1，而<code>false</code>将被转换为0</p>
-<p><code>1 == true</code>→<code>1 == 1</code>→<code>true</code></p></li>
-</ul></li>
-<li><p>比较<code>null</code>和<code>undefined</code></p>
-<p><code>undefined == null</code>→<code>true</code></p></li>
-<li><p>其他情况</p>
-<ul>
-<li><p>空字符串转换为数字的结果是0</p>
-<p><code>1 == ""</code>→<code>1 == 0</code>→<code>false</code></p></li>
-</ul></li>
-<li><p>判断两个对象是否相等</p>
-<ul>
-<li><p>如果两个操作数都是对象，<code>==</code>和<code>===</code>都可以使用，工作原理完全相同</p></li>
-<li><p>检查两个对象变量是否相等时，比较的是指向对象的引用</p>
-<ul>
-<li>这些对象包含什么不重要，只要两个引用指向的对象不同，他们就不同</li>
-</ul></li>
-<li><p>当且仅当两个引用指向的是同一个对象时，它们才相等</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-06-28-%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89.jpg"
-alt="判断两个对象是否相等" />
-<figcaption aria-hidden="true">判断两个对象是否相等</figcaption>
-</figure></li>
-</ul></li>
-</ul></li>
-</ul>
-<ol start="4" type="1">
-<li><p><code>===</code>表示正好等于/严格相等</p>
-<ul>
-<li>当且仅当两个值的类型和值都相等时，它们才是严格相等。</li>
-<li>有些开发人员称其为等同运算符<code>“identity” operator</code></li>
-</ul></li>
-<li><p><code>&lt;=</code></p>
-<ul>
-<li>只能比较字符串和数字</li>
-</ul></li>
-<li><p><code>&gt;=</code></p>
-<ul>
-<li>只能比较字符串和数字</li>
-</ul></li>
-<li><p><code>!=</code>表示不等于</p></li>
-<li><p><code>!==</code>表示严格不等于</p></li>
-</ol>
-<h3 id="逻辑运算符">逻辑运算符</h3>
-<ol type="1">
-<li><code>||</code>表示OR（或）</li>
-<li><code>&amp;&amp;</code>表示AND（与）</li>
-<li><code>!</code>表示NOT（非），仅当表达式为false时，结果才为true</li>
-</ol>
-<h3
-id="真值truthy和假值falseyfalsy">真值(truthy)和假值(falsey/falsy)</h3>
-<ol type="1">
-<li><p>定义：有些值并非<code>true</code>或<code>false</code>，但用于条件表达式中时，被视为<code>true</code>或<code>false</code>。这些值被称为真值(truthy)和假值(falsey/falsy)。因为严格地说它们并非<code>true</code>或<code>false</code>，但用于条件表达式时，它们的行为像<code>true</code>或<code>false</code>。</p></li>
-<li><p>假值(falsey/falsy)</p>
-<ul>
-<li><code>undefined</code></li>
-<li><code>null</code></li>
-<li><code>0</code></li>
-<li>空字符串</li>
-<li><code>NaN</code></li>
-</ul></li>
-<li><p>真值(truthy)</p>
-<p>除了5个假值以外，其他都是真值</p></li>
-</ol>
-<h2
-id="十事件处理程序event-handler回调函数callback及异步编码asynchronous-coding">十、事件处理程序(event
-handler)/回调函数(callback)及异步编码(asynchronous coding)</h2>
-<h3 id="基本概念">基本概念</h3>
-<ol type="1">
-<li>有些事件(events)是浏览器生成的，如加载。有些事件是用户与网页交互时生成的。有些事件是JavaScript代码生成的。还有定时器事件。</li>
-<li>事件处理程序(event
-handler)/回调函数(callback)/监听器(listener)。从代码的角度说，就是一个函数。</li>
-<li>异步编码(asynchronous
-coding)，是一种以响应事件的方式组织代码的代码编写方式。 &gt;
-相对应的线性编码，就是从上到下的顺序逐步编写代码。</li>
-</ol>
-<h3 id="事件对象event-object的工作原理">事件对象(event
-object)的工作原理</h3>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-07-01-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg"
-alt="事件对象(event object)的工作原理" />
-<figcaption aria-hidden="true">事件对象(event
-object)的工作原理</figcaption>
-</figure>
-<ol type="1">
-<li><p>每次调用单击事件处理程序时，都将向它传递一个事件对象(event
-object)，更准确地说是触发事件的元素，这被称为目标(target)。例如，当用户单击特定的图像时，目标就是这幅图像的元素对象。加载事件处理程序传递的一个事件对象的<code>target</code>是<code>window</code>对象。</p>
-<ul>
-<li><code>target</code>就是事件对象的一个属性(property)</li>
-</ul></li>
-<li><p>在事件处理程序中，你可以使用这个事件对象来获取有关事件的信息</p>
-<ul>
-<li>常规信息
-<ul>
-<li><p>属性<code>target</code>，它储存了一个引用，指向触发事件的元素对象（可以是各种不同的对象，但通常是元素对象）</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function showAnswer(eventObj) &#123;</span><br><span class="line">	var image = eventObj.target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>属性<code>type</code>，是一个字符串，如<code>click</code>或<code>load</code>，指出了发生的是哪种事件</p></li>
-<li><p>属性<code>timeStamp</code>，事件是何时发生的</p></li>
-</ul></li>
-<li>具体信息（取决于事件的类型）
-<ul>
-<li>用户单击鼠标时，获得单击位置的坐标</li>
-<li>属性<code>keyCode</code>，用户刚按下了哪个键</li>
-<li>属性<code>clientX</code>和<code>clientY</code>，确定用户点击的位置离浏览器窗口的左边缘和上边缘的距离</li>
-<li>属性<code>touches</code>，在触摸设备上，确定用户使用了多少根手指来触摸屏幕</li>
-</ul></li>
-</ul></li>
-<li><p>浏览器把事件都放入队列，再遍历这个队列(queue)，并在必要时调用相应的处理程序。浏览器只有一个队列和一个控制线程(thread
-of control)，只能去逐个处理事件。</p>
-<figure>
-<img
-src="http://qiniup.louyanspine.com/2018-07-01-%E4%BA%8B%E4%BB%B6%E5%92%8C%E9%98%9F%E5%88%97.jpg"
-alt="事件和队列" />
-<figcaption aria-hidden="true">事件和队列</figcaption>
-</figure></li>
-</ol>
-<h3 id="具体示例">具体示例</h3>
-<ol type="1">
-<li><p>将按钮（类型为button）的属性onclick设置为一个事件处理程序</p>
-<ul>
-<li><p>可以给网页中任何元素的onclick属性设置为一个函数。</p></li>
-<li><p>不会在网页中显示出来的元素（如<code>&lt;script&gt;</code>和<code>&lt;head&gt;</code>）不支持单击等事件</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;);</span><br><span class="line">	fireButton.onclick = handleFireButton;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handleFireButton() &#123;</span><br><span class="line">	// 从表单中获取值的代码</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">window.onload = init;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>通过迭代批量增加单击事件处理程序</li>
-</ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var images = document.getElementsByTagName(&quot;img&quot;); </span><br><span class="line">	for (var i = 0; i &lt; images.length; i++) &#123;</span><br><span class="line">	images[i].onclick = showAnswer; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;		</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>处理回车键事件</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function init() &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;);</span><br><span class="line">	fireButton.onclick = handleFireButton;</span><br><span class="line">	var guessInput = document.getElementById(&quot;guessInput&quot;);</span><br><span class="line">	guessInput.onkeypress = handleKeyPress;</span><br><span class="line">	# 按键</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handleKeyPress(e) &#123;</span><br><span class="line">	var fireButton = document.getElementById(&quot;fireButton&quot;); </span><br><span class="line">	if (e.keyCode === 13) &#123;</span><br><span class="line">		fireButton.click();</span><br><span class="line">		return false; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"># 如果用户按下的是回车键，事件对象的属性keyCode将为13</span><br></pre></td></tr></table></figure></p></li>
-<li><p>mousemove事件</p>
-<ul>
-<li>当鼠标在特定元素上移动时，
-mousemove事件通知相应的处理程序。要指定处理程序，可使用元素的属性<code>onmousemove</code>。这样会给这种事件处理程序传递一个<code>event</code>对象。</li>
-<li><code>clientX, clientY</code>：鼠标相对于浏览器窗口左边缘和上边缘的距离，单位为像素</li>
-<li><code>screenX, screenY</code>：鼠标相对于设备屏幕左边缘和上边缘的距离，单位为像素</li>
-<li><code>pageX, pageY</code>:
-鼠标相对于网页左边缘和上边缘的距离，单位为像素</li>
-</ul></li>
-<li><p>鼠标移动事件</p>
-<ul>
-<li>属性<code>onmouseover</code>：鼠标移入元素</li>
-<li>属性<code>onmouseout</code>：鼠标移出元素</li>
-</ul></li>
-<li><p>其他</p>
-<ul>
-<li><code>resize</code>：每当用户调整浏览器窗口大小时，都将触发这个事件<br />
-</li>
-<li><code>play</code>：单击网页中<code>&lt;video&gt;</code>元素的播放按钮时，将触发这个事件<br />
-</li>
-<li><code>pause</code>：单击网页中<code>&lt;video&gt;</code>元素的暂停按钮时，将触发这个事件</li>
-<li><code>unload</code>：用户关闭浏览器窗口或切换到其他网页时，将触发这个事件<br />
-</li>
-<li><code>dragstart</code> ：用户拖曳网页中的元素时，将触发这个事件</li>
-<li><code>drop</code> ：用户放下拖曳的元素时，将触发这个事件</li>
-<li><code>touchstart</code>：在触摸设备上，用户触摸并按住元素时，将触发这个事件</li>
-<li><code>touchend</code> ：用户停止触摸时，将触发这个事件</li>
-</ul></li>
-<li><p>基于时间的事件</p>
-<ul>
-<li>调用函数<code>setTimeout</code>并向它传递处理程序，它接受两个参数，事件处理程序和时间间隔（单位为毫秒）。
-<ul>
-<li><p>向函数<code>setTimeout</code>传递一个指向处理程序函数的引用。函数<code>setTimeout</code>将这个引用存储起来，供定时器到期后使用。</p></li>
-<li><p>严格地说，应该写作<code>window.setTimeout</code>，<code>window</code>是全局对象，可省略对象名。</p>
-<p><code>setTimeout(timerHandler, 5000);</code></p></li>
-<li><p>还可以传入第三个参数：触发时间事件时，这个参数将被传递给处理程序（可向处理程序传递任意数量的参数）。</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(reblur, 2000, image);</span><br><span class="line">	</span><br><span class="line">function reblur(image) &#123;</span><br><span class="line">	var name = image.id; </span><br><span class="line">	name = name + &quot;blur.jpg&quot;; </span><br><span class="line">	image.src = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>将处理程序指定为reblur，将时间间隔设置为2秒，并将第三个参数指定为要重新变模糊的图像</p>
-</blockquote></li>
-</ul></li>
-<li>调用函数<code>setInterval</code>
-<ul>
-<li><p>在定时器到期时触发事件，并重启定时器</p></li>
-<li><p>若要停止函数<code>setInterval</code>，可将其传递给另一个函数clearInterval</p>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var t = setInterval(ticker, 1000);</span><br><span class="line">clearInterval(t);</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ul></li>
-</ol>
-<h3 id="section-6"></h3>
-<h3 id="section-7"></h3>
-<h3 id="section-8"></h3>
-<h2 id="十一">十一、</h2>
-<h3 id="section-9"></h3>
-<h3 id="section-10"></h3>
-<h3 id="section-11"></h3>
-<h3 id="section-12"></h3>
-<h2 id="十二">十二、</h2>
-<h3 id="section-13"></h3>
-<h3 id="section-14"></h3>
-<h3 id="section-15"></h3>
-<h3 id="section-16"></h3>
-<h2 id="十三">十三、</h2>
-<h3 id="section-17"></h3>
-<h3 id="section-18"></h3>
-<h3 id="section-19"></h3>
-<h3 id="section-20"></h3>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lysp2017.github.io/2018/06/26/1zhianshu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Louyan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高山流水">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/06/26/1zhianshu/" class="post-title-link" itemprop="url">治安疏</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-26 19:03:00" itemprop="dateCreated datePublished" datetime="2018-06-26T19:03:00+08:00">2018-06-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 15:30:30" itemprop="dateModified" datetime="2019-11-14T15:30:30+08:00">2019-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E7%89%A9%E4%B8%8E%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">人物与历史</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          欢迎访问我的博客，考虑到版权问题，本文不公开
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/06/26/1zhianshu/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2852,7 +2462,7 @@ mousemove事件通知相应的处理程序。要指定处理程序，可使用�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">646</span>
+          <span class="site-state-item-count">648</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2865,7 +2475,7 @@ mousemove事件通知相应的处理程序。要指定处理程序，可使用�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2908</span>
+        <span class="site-state-item-count">2920</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -2955,6 +2565,59 @@ mousemove事件通知相应的处理程序。要指定处理程序，可使用�
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
